@@ -2,8 +2,6 @@
 """ISO/IEC 12207 - Software Lifecycle Checks."""
 
 import json
-from pathlib import Path
-from typing import List
 
 from ..base import BaseChecker
 from ..utils import Icons, Colors, colored
@@ -18,7 +16,7 @@ class ISO12207Checks(BaseChecker):
         if not config_file.exists():
             return 0
         try:
-            with open(config_file, 'r', encoding='utf-8') as f:
+            with open(config_file, "r", encoding="utf-8") as f:
                 config = json.load(f)
             phases = config.get("phases", [])
             for phase in reversed(phases):
@@ -63,10 +61,14 @@ class ISO12207Checks(BaseChecker):
             if full_path.is_dir():
                 self.passed.append(f"{desc}: {path}/")
             elif current_phase >= 2:
-                self.errors.append(f"{desc} manquant: {path}/ (REQUIS Phase {current_phase})")
+                self.errors.append(
+                    f"{desc} manquant: {path}/ (REQUIS Phase {current_phase})"
+                )
                 all_ok = False
             else:
-                self.warnings.append(f"{desc}: {path}/ (optionnel Phase {current_phase})")
+                self.warnings.append(
+                    f"{desc}: {path}/ (optionnel Phase {current_phase})"
+                )
 
         for path, desc in required_files:
             if not self.check_file_exists(path, desc):

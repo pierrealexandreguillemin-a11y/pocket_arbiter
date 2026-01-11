@@ -1,0 +1,149 @@
+# =============================================================================
+# Pre-commit Hooks Configuration - Pocket Arbiter
+# =============================================================================
+#
+# ISO STANDARDS COMPLIANCE:
+# - ISO/IEC 5055:2021    Code Quality (automated weakness detection)
+# - ISO/IEC 25010:2023   System Quality (maintainability, reliability)
+# - ISO/IEC 27001:2022   Information Security (secrets, vulnerabilities)
+# - ISO/IEC 29119:2022   Software Testing (coverage, test quality)
+# - ISO/IEC 12207:2017   Software Lifecycle (traceability)
+# - ISO/IEC 42001:2023   AI Management System (governance)
+# - ISO/IEC 15289:2019   Documentation (traceability, audit records)
+#
+# Usage:
+#   python -m pre_commit install
+#   python -m pre_commit install --hook-type commit-msg --hook-type pre-push
+#
+# =============================================================================
+
+default_stages: [pre-commit]
+fail_fast: false
+
+repos:
+  # ============================================================================
+  # STAGE: PRE-COMMIT
+  # Focus: Code quality gates before commit (fast feedback)
+  # ============================================================================
+
+  # --------------------------------------------------------------------------
+  # SECURITY: Secret Detection (ISO 27001 - A.9 Access Control)
+  # CWE-798: Use of Hard-coded Credentials
+  # --------------------------------------------------------------------------
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        name: "ISO 27001 | Secrets Detection"
+        description: "Detect hardcoded secrets, API keys, passwords (CWE-798)"
+
+  # --------------------------------------------------------------------------
+  # CODE QUALITY: Linting + Security Rules (ISO 5055 + ISO 27034)
+  # --------------------------------------------------------------------------
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.0
+    hooks:
+      - id: ruff
+        name: "ISO 5055 | Lint + Security Analysis"
+        description: "Static analysis: style, bugs, security (CWE detection)"
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+        name: "ISO 5055 | Code Formatting"
+        description: "Consistent code style (maintainability)"
+
+  # --------------------------------------------------------------------------
+  # TYPE SAFETY: Static Type Checking (ISO 5055 - Reliability)
+  # --------------------------------------------------------------------------
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0
+    hooks:
+      - id: mypy
+        name: "ISO 5055 | Type Safety Analysis"
+        description: "Static type checking for reliability"
+        args: [--ignore-missing-imports]
+        exclude: ^(tests/|scripts/iso/tests/)
+
+  # --------------------------------------------------------------------------
+  # DATA INTEGRITY: Config File Validation (ISO 25012 - Data Quality)
+  # --------------------------------------------------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+        name: "ISO 25012 | YAML Validation"
+      - id: check-json
+        name: "ISO 25012 | JSON Validation"
+      - id: check-toml
+        name: "ISO 25012 | TOML Validation"
+      - id: check-added-large-files
+        name: "ISO 27001 | Large File Detection"
+        description: "Prevent accidental commit of large files"
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+        name: "ISO 12207 | Merge Conflict Detection"
+        description: "Ensure clean merge state"
+      - id: debug-statements
+        name: "ISO 5055 | Debug Statement Detection"
+        description: "Remove debug code before commit"
+      - id: end-of-file-fixer
+        name: "ISO 5055 | EOF Normalization"
+      - id: trailing-whitespace
+        name: "ISO 5055 | Trailing Whitespace"
+
+  # ============================================================================
+  # STAGE: COMMIT-MSG
+  # Focus: Traceability and documentation (ISO 15289)
+  # ============================================================================
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.27.0
+    hooks:
+      - id: commitizen
+        name: "ISO 15289 | Conventional Commit Format"
+        description: "Enforce traceable commit messages"
+        stages: [commit-msg]
+
+  # ============================================================================
+  # STAGE: PRE-PUSH
+  # Focus: Quality gates before sharing code (comprehensive checks)
+  # ============================================================================
+  - repo: local
+    hooks:
+      # ------------------------------------------------------------------------
+      # TESTING: Coverage Gate (ISO 29119 - Test Coverage)
+      # Target: 75%
+      # ------------------------------------------------------------------------
+      - id: pytest-cov
+        name: "ISO 29119 | Test Coverage (75% min)"
+        description: "Run tests with coverage measurement"
+        entry: python
+        args: [-m, pytest, scripts/iso/tests/, -v, --tb=short, --cov=scripts/iso, --cov-fail-under=75, -x]
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+        always_run: true
+
+      # ------------------------------------------------------------------------
+      # MAINTAINABILITY: Complexity Analysis (ISO 25010 - Maintainability)
+      # Cyclomatic complexity: max B (11-20)
+      # ------------------------------------------------------------------------
+      - id: xenon
+        name: "ISO 25010 | Cyclomatic Complexity"
+        description: "Ensure maintainable code complexity"
+        entry: python
+        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/]
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+
+      # ------------------------------------------------------------------------
+      # SECURITY: Dependency Audit (ISO 27001 - Vulnerability Management)
+      # ------------------------------------------------------------------------
+      - id: pip-audit
+        name: "ISO 27001 | Dependency Vulnerabilities"
+        description: "Audit dependencies for known CVEs"
+        entry: python
+        args: [-m, pip_audit, --strict, --local]
+        language: system
+        pass_filenames: false
+        stages: [pre-push]

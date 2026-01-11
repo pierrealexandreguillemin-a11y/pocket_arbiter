@@ -12,8 +12,14 @@ from .utils import Icons, Colors, colored
 class PhaseValidator(BaseChecker):
     """Validates requirements for specific project phases."""
 
-    def __init__(self, root: Path, errors: List[str], warnings: List[str],
-                 passed: List[str], verbose: bool = False):
+    def __init__(
+        self,
+        root: Path,
+        errors: List[str],
+        warnings: List[str],
+        passed: List[str],
+        verbose: bool = False,
+    ):
         super().__init__(root, errors, warnings, passed, verbose)
         self.gates = ExecutableGates(root, errors, warnings, passed, verbose)
 
@@ -22,8 +28,12 @@ class PhaseValidator(BaseChecker):
         print(colored(f"\n{Icons.PIN} Validation Phase {phase}", Colors.BLUE))
 
         phase_methods = {
-            0: self._phase0, 1: self._phase1, 2: self._phase2,
-            3: self._phase3, 4: self._phase4, 5: self._phase5,
+            0: self._phase0,
+            1: self._phase1,
+            2: self._phase2,
+            3: self._phase3,
+            4: self._phase4,
+            5: self._phase5,
         }
 
         if phase in phase_methods:
@@ -39,8 +49,12 @@ class PhaseValidator(BaseChecker):
             self.check_file_exists(".iso/config.json", "Config ISO"),
             self.gates.gate_json_valid([".iso/*.json"]),
         ]
-        for doc in ["docs/VISION.md", "docs/AI_POLICY.md",
-                    "docs/QUALITY_REQUIREMENTS.md", "docs/TEST_PLAN.md"]:
+        for doc in [
+            "docs/VISION.md",
+            "docs/AI_POLICY.md",
+            "docs/QUALITY_REQUIREMENTS.md",
+            "docs/TEST_PLAN.md",
+        ]:
             checks.append(self.check_file_exists(doc, f"Doc ISO: {doc}"))
         return all(checks)
 
@@ -87,21 +101,25 @@ class PhaseValidator(BaseChecker):
             self.errors.append("android/app/ manquant - Requis Phase 2")
             checks.append(False)
 
-        checks.append(self.check_file_exists("tests/data/questions_fr.json", "Questions FR"))
+        checks.append(
+            self.check_file_exists("tests/data/questions_fr.json", "Questions FR")
+        )
         return all(checks)
 
     def _phase3(self) -> bool:
         """Phase 3: LLM Synthesis."""
         print(colored("  Gates Phase 3:", Colors.BLUE))
         checks = [
-            self.check_file_exists("prompts/interpretation_v1.txt", "Prompt interpretation"),
+            self.check_file_exists(
+                "prompts/interpretation_v1.txt", "Prompt interpretation"
+            ),
             self.check_file_exists("tests/data/adversarial.json", "Tests adversariaux"),
         ]
 
         prompt_file = self.root / "prompts" / "interpretation_v1.txt"
         if prompt_file.exists():
-            content = prompt_file.read_text(encoding='utf-8', errors='ignore').lower()
-            if any(kw in content for kw in ['citation', 'source', 'article']):
+            content = prompt_file.read_text(encoding="utf-8", errors="ignore").lower()
+            if any(kw in content for kw in ["citation", "source", "article"]):
                 self.passed.append("Prompt inclut instructions de citation")
             else:
                 self.warnings.append("Prompt devrait inclure instructions citation")
@@ -111,11 +129,13 @@ class PhaseValidator(BaseChecker):
     def _phase4(self) -> bool:
         """Phase 4: Quality & Optimization."""
         print(colored("  Gates Phase 4:", Colors.BLUE))
-        return all([
-            self.gates.gate_pytest("scripts/", required=True),
-            self.gates.gate_lint("scripts/"),
-            self.gates.gate_coverage(target=0.60, required=True),
-        ])
+        return all(
+            [
+                self.gates.gate_pytest("scripts/", required=True),
+                self.gates.gate_lint("scripts/"),
+                self.gates.gate_coverage(target=0.60, required=True),
+            ]
+        )
 
     def _phase5(self) -> bool:
         """Phase 5: Validation & Release."""

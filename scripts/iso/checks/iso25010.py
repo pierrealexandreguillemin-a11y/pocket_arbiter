@@ -14,7 +14,9 @@ class ISO25010Checks(BaseChecker):
 
         all_ok = True
 
-        if not self.check_file_exists("docs/QUALITY_REQUIREMENTS.md", "Exigences qualité"):
+        if not self.check_file_exists(
+            "docs/QUALITY_REQUIREMENTS.md", "Exigences qualité"
+        ):
             all_ok = False
 
         test_data_dir = self.root / "tests" / "data"

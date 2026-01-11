@@ -148,30 +148,39 @@
   },
 
   "enforcement": {
+    "framework": "pre-commit",
+    "configFile": ".pre-commit-config.yaml",
     "preCommit": {
       "enabled": true,
-      "checks": [
-        "no_todo_fixme_critical",
-        "no_secrets",
-        "json_valid",
-        "iso_docs_exist",
-        "ai_safety_iso42001",
-        "python_syntax",
-        "lint_flake8_iso25010",
-        "tests_pass_iso29119",
-        "coverage_75_iso29119"
+      "hooks": [
+        {"id": "gitleaks", "iso": "27001", "scope": "secrets"},
+        {"id": "ruff", "iso": "5055", "scope": "lint+security"},
+        {"id": "ruff-format", "iso": "5055", "scope": "formatting"},
+        {"id": "mypy", "iso": "5055", "scope": "type-safety"},
+        {"id": "check-yaml", "iso": "25012", "scope": "data-integrity"},
+        {"id": "check-json", "iso": "25012", "scope": "data-integrity"},
+        {"id": "check-toml", "iso": "25012", "scope": "data-integrity"},
+        {"id": "check-added-large-files", "iso": "27001", "scope": "security"},
+        {"id": "check-merge-conflict", "iso": "12207", "scope": "lifecycle"},
+        {"id": "debug-statements", "iso": "5055", "scope": "code-quality"},
+        {"id": "end-of-file-fixer", "iso": "5055", "scope": "formatting"},
+        {"id": "trailing-whitespace", "iso": "5055", "scope": "formatting"}
       ]
+    },
+    "commitMsg": {
+      "enabled": true,
+      "hooks": [
+        {"id": "commitizen", "iso": "15289", "scope": "traceability"}
+      ],
+      "pattern": "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\\(.+\\))?!?:\\s.+"
     },
     "prePush": {
       "enabled": true,
-      "checks": [
-        "no_force_push_main"
+      "hooks": [
+        {"id": "pytest-cov", "iso": "29119", "scope": "testing", "threshold": "75%"},
+        {"id": "xenon", "iso": "25010", "scope": "complexity", "maxAbsolute": "B"},
+        {"id": "pip-audit", "iso": "27001", "scope": "vulnerabilities"}
       ]
-    },
-    "commitMessage": {
-      "enabled": true,
-      "pattern": "^\\[(feat|fix|test|docs|refactor|perf|chore)\\]\\s.+",
-      "requireCoAuthor": true
     },
     "preMerge": {
       "enabled": true,

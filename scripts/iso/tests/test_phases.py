@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """Tests for phase validation."""
 
-import json
-from unittest.mock import patch, MagicMock
-import pytest
+from unittest.mock import patch
 
 from ..phases import PhaseValidator
 
@@ -53,7 +51,7 @@ class TestPhaseValidation:
             "def test_pass():\n    assert True\n"
         )
         validator, _, _, _ = make_phase_validator(full_project)
-        with patch.object(validator.gates, 'gate_pytest') as mock_pytest:
+        with patch.object(validator.gates, "gate_pytest") as mock_pytest:
             mock_pytest.return_value = True
             result = validator.validate_phase(1)
             assert result is True
@@ -61,17 +59,22 @@ class TestPhaseValidation:
     def test_validate_phase2_no_android_app_dir(self, full_project):
         """Test Phase 2 fails when android/app directory missing."""
         import shutil
+
         # Remove android/app directory
         shutil.rmtree(full_project / "android" / "app")
         validator, errors, _, _ = make_phase_validator(full_project)
         result = validator.validate_phase(2)
         assert result is False
-        assert any("android/app" in e.lower() and "manquant" in e.lower() for e in errors)
+        assert any(
+            "android/app" in e.lower() and "manquant" in e.lower() for e in errors
+        )
 
     def test_validate_phase2_with_android(self, full_project):
         """Test Phase 2 with Android content."""
         (full_project / "android" / "app" / "src").mkdir(parents=True)
-        (full_project / "android" / "app" / "src" / "Main.kt").write_text("fun main() {}")
+        (full_project / "android" / "app" / "src" / "Main.kt").write_text(
+            "fun main() {}"
+        )
         validator, _, _, passed = make_phase_validator(full_project)
         result = validator.validate_phase(2)
         assert result is True
@@ -90,14 +93,16 @@ class TestPhaseValidation:
         validator, errors, _, _ = make_phase_validator(full_project)
         result = validator.validate_phase(3)
         assert result is False
-        assert any("interpretation" in e.lower() or "prompt" in e.lower() for e in errors)
+        assert any(
+            "interpretation" in e.lower() or "prompt" in e.lower() for e in errors
+        )
 
     def test_validate_phase3_with_prompt(self, full_project):
         """Test Phase 3 with required files."""
         (full_project / "prompts" / "interpretation_v1.txt").write_text(
             "Cite la source et article."
         )
-        (full_project / "tests" / "data" / "adversarial.json").write_text('[{}]')
+        (full_project / "tests" / "data" / "adversarial.json").write_text("[{}]")
         validator, _, _, passed = make_phase_validator(full_project)
         result = validator.validate_phase(3)
         assert result is True
@@ -108,7 +113,7 @@ class TestPhaseValidation:
         (full_project / "prompts" / "interpretation_v1.txt").write_text(
             "Just answer the question."
         )
-        (full_project / "tests" / "data" / "adversarial.json").write_text('[{}]')
+        (full_project / "tests" / "data" / "adversarial.json").write_text("[{}]")
         validator, _, warnings, _ = make_phase_validator(full_project)
         result = validator.validate_phase(3)
         assert result is True
@@ -117,9 +122,9 @@ class TestPhaseValidation:
     def test_validate_phase4_success(self, full_project):
         """Test Phase 4 with all gates passing."""
         validator, _, _, passed = make_phase_validator(full_project)
-        with patch.object(validator.gates, 'gate_pytest') as mock_pytest:
-            with patch.object(validator.gates, 'gate_lint') as mock_lint:
-                with patch.object(validator.gates, 'gate_coverage') as mock_cov:
+        with patch.object(validator.gates, "gate_pytest") as mock_pytest:
+            with patch.object(validator.gates, "gate_lint") as mock_lint:
+                with patch.object(validator.gates, "gate_coverage") as mock_cov:
                     mock_pytest.return_value = True
                     mock_lint.return_value = True
                     mock_cov.return_value = True
@@ -131,9 +136,9 @@ class TestPhaseValidation:
     def test_validate_phase4_pytest_fails(self, full_project):
         """Test Phase 4 fails when pytest fails."""
         validator, errors, _, _ = make_phase_validator(full_project)
-        with patch.object(validator.gates, 'gate_pytest') as mock_pytest:
-            with patch.object(validator.gates, 'gate_lint') as mock_lint:
-                with patch.object(validator.gates, 'gate_coverage') as mock_cov:
+        with patch.object(validator.gates, "gate_pytest") as mock_pytest:
+            with patch.object(validator.gates, "gate_lint") as mock_lint:
+                with patch.object(validator.gates, "gate_coverage") as mock_cov:
                     mock_pytest.return_value = False
                     mock_lint.return_value = True
                     mock_cov.return_value = True
@@ -143,9 +148,9 @@ class TestPhaseValidation:
     def test_validate_phase4_coverage_fails(self, full_project):
         """Test Phase 4 fails when coverage below target."""
         validator, errors, _, _ = make_phase_validator(full_project)
-        with patch.object(validator.gates, 'gate_pytest') as mock_pytest:
-            with patch.object(validator.gates, 'gate_lint') as mock_lint:
-                with patch.object(validator.gates, 'gate_coverage') as mock_cov:
+        with patch.object(validator.gates, "gate_pytest") as mock_pytest:
+            with patch.object(validator.gates, "gate_lint") as mock_lint:
+                with patch.object(validator.gates, "gate_coverage") as mock_cov:
                     mock_pytest.return_value = True
                     mock_lint.return_value = True
                     mock_cov.return_value = False
@@ -173,7 +178,9 @@ class TestPhaseValidation:
         (full_project / "docs" / "USER_GUIDE.md").write_text("# Guide\n")
         (full_project / "docs" / "RELEASE_NOTES.md").write_text("# Release\n")
         (full_project / "android" / "app" / "build" / "outputs").mkdir(parents=True)
-        (full_project / "android" / "app" / "build" / "outputs" / "app.apk").write_bytes(b"APK")
+        (
+            full_project / "android" / "app" / "build" / "outputs" / "app.apk"
+        ).write_bytes(b"APK")
         validator, _, _, passed = make_phase_validator(full_project)
         result = validator.validate_phase(5)
         assert result is True

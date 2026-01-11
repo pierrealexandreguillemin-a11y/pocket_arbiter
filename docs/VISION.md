@@ -178,4 +178,3 @@ Le projet est "Done" quand :
 |------|-----|------|-----------|
 | Product Owner | | | |
 | Tech Lead | | | |
-

@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
 """Shared fixtures for ISO validator tests."""
 
-import json
 import pytest
-from pathlib import Path
 
 
 @pytest.fixture
 def temp_project(tmp_path):
     """Create a minimal valid project structure."""
-    for d in ["android", "scripts", "corpus/fr", "corpus/intl",
-              "docs", "prompts", "tests/data", "tests/reports", ".git", ".iso"]:
+    for d in [
+        "android",
+        "scripts",
+        "corpus/fr",
+        "corpus/intl",
+        "docs",
+        "prompts",
+        "tests/data",
+        "tests/reports",
+        ".git",
+        ".iso",
+    ]:
         (tmp_path / d).mkdir(parents=True, exist_ok=True)
 
     (tmp_path / "README.md").write_text("# Test Project\n" * 10)
@@ -38,8 +46,18 @@ def temp_project(tmp_path):
 @pytest.fixture
 def full_project(tmp_path):
     """Create a complete project structure for phase testing."""
-    for d in ["android/app", "scripts", "corpus/fr", "corpus/intl",
-              "docs", "prompts", "tests/data", "tests/reports", ".git", ".iso"]:
+    for d in [
+        "android/app",
+        "scripts",
+        "corpus/fr",
+        "corpus/intl",
+        "docs",
+        "prompts",
+        "tests/data",
+        "tests/reports",
+        ".git",
+        ".iso",
+    ]:
         (tmp_path / d).mkdir(parents=True, exist_ok=True)
 
     (tmp_path / "README.md").write_text("# Project\n" * 10)

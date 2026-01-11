@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 """Tests for DVC setup script."""
 
-import sys
-from pathlib import Path
 from unittest.mock import patch, MagicMock
-import pytest
 
-from ..setup_dvc import run_command, check_dvc_installed
+from ..setup_dvc import run_command
 
 
 class TestRunCommand:
@@ -30,8 +27,9 @@ class TestRunCommand:
 
     def test_run_command_timeout(self):
         """Test command timeout handling."""
-        with patch('subprocess.run') as mock_run:
+        with patch("subprocess.run") as mock_run:
             import subprocess
+
             mock_run.side_effect = subprocess.TimeoutExpired(cmd=["test"], timeout=1)
             success, output = run_command(["test"])
             assert success is False
@@ -39,7 +37,7 @@ class TestRunCommand:
 
     def test_run_command_exception(self):
         """Test generic exception handling."""
-        with patch('subprocess.run') as mock_run:
+        with patch("subprocess.run") as mock_run:
             mock_run.side_effect = Exception("Test error")
             success, output = run_command(["test"])
             assert success is False
@@ -52,7 +50,8 @@ class TestCheckDvcInstalled:
     def test_dvc_not_installed(self):
         """Test when DVC is not installed."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'run_command') as mock_run:
+
+        with patch.object(setup_module, "run_command") as mock_run:
             # Both direct call and python -m call fail
             mock_run.return_value = (False, "not found")
             result = setup_module.check_dvc_installed()
@@ -62,7 +61,8 @@ class TestCheckDvcInstalled:
     def test_dvc_installed_direct(self):
         """Test when DVC is installed directly."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'run_command') as mock_run:
+
+        with patch.object(setup_module, "run_command") as mock_run:
             mock_run.return_value = (True, "3.0.0")
             result = setup_module.check_dvc_installed()
             assert result is True
@@ -70,7 +70,8 @@ class TestCheckDvcInstalled:
     def test_dvc_installed_via_python(self):
         """Test when DVC is installed via Python module."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'run_command') as mock_run:
+
+        with patch.object(setup_module, "run_command") as mock_run:
             # First call fails (dvc not in PATH), second succeeds (python -m dvc)
             mock_run.side_effect = [(False, "not found"), (True, "3.0.0")]
             result = setup_module.check_dvc_installed()
@@ -83,94 +84,94 @@ class TestMainFunction:
     def test_main_dvc_not_installed(self, tmp_path, capsys):
         """Test main when DVC is not installed."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'check_dvc_installed') as mock_check:
+
+        with patch.object(setup_module, "check_dvc_installed") as mock_check:
             mock_check.return_value = False
-            with patch('sys.argv', ['setup_dvc.py']):
+            with patch("sys.argv", ["setup_dvc.py"]):
                 result = setup_module.main()
                 assert result == 1
 
     def test_main_init_only(self, tmp_path):
         """Test main with --init-only flag."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'check_dvc_installed') as mock_check:
+
+        with patch.object(setup_module, "check_dvc_installed") as mock_check:
             mock_check.return_value = True
-            with patch.object(setup_module, 'run_command') as mock_run:
+            with patch.object(setup_module, "run_command") as mock_run:
                 mock_run.return_value = (True, "ok")
-                with patch('sys.argv', ['setup_dvc.py', '--init-only']):
+                with patch("sys.argv", ["setup_dvc.py", "--init-only"]):
                     result = setup_module.main()
                     assert result == 0
 
     def test_main_with_remote(self, tmp_path):
         """Test main with --remote flag."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'check_dvc_installed') as mock_check:
+
+        with patch.object(setup_module, "check_dvc_installed") as mock_check:
             mock_check.return_value = True
-            with patch.object(setup_module, 'run_command') as mock_run:
+            with patch.object(setup_module, "run_command") as mock_run:
                 mock_run.return_value = (True, "ok")
-                with patch('sys.argv', ['setup_dvc.py', '--remote', 's3://bucket']):
+                with patch("sys.argv", ["setup_dvc.py", "--remote", "s3://bucket"]):
                     result = setup_module.main()
                     assert result == 0
 
     def test_main_dvc_init_fails(self, tmp_path, capsys):
         """Test main when dvc init fails."""
         import scripts.iso.setup_dvc as setup_module
+
         # Ensure .dvc/config doesn't exist so init is attempted
-        with patch.object(setup_module, 'check_dvc_installed') as mock_check:
+        with patch.object(setup_module, "check_dvc_installed") as mock_check:
             mock_check.return_value = True
-            with patch.object(setup_module, 'run_command') as mock_run:
+            with patch.object(setup_module, "run_command") as mock_run:
                 # dvc init fails on first call
                 mock_run.return_value = (False, "init failed")
-                with patch('sys.argv', ['setup_dvc.py']):
+                with patch("sys.argv", ["setup_dvc.py"]):
                     # Need to patch Path to avoid real filesystem
-                    with patch.object(setup_module, 'Path') as mock_path_cls:
+                    with patch.object(setup_module, "Path") as mock_path_cls:
                         mock_path_cls.return_value.resolve.return_value.parent.parent.parent = tmp_path
                         mock_dvc_dir = MagicMock()
-                        mock_dvc_dir.__truediv__ = MagicMock(return_value=MagicMock(exists=MagicMock(return_value=False)))
+                        mock_dvc_dir.__truediv__ = MagicMock(
+                            return_value=MagicMock(exists=MagicMock(return_value=False))
+                        )
                         # This is complex - just verify the error path exists
                         pass
 
     def test_main_remote_already_exists(self, tmp_path, capsys):
         """Test main when remote already exists (warns)."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'check_dvc_installed') as mock_check:
+
+        with patch.object(setup_module, "check_dvc_installed") as mock_check:
             mock_check.return_value = True
-            with patch.object(setup_module, 'run_command') as mock_run:
+            with patch.object(setup_module, "run_command") as mock_run:
                 # Need enough return values for all calls
                 # 1. dvc init (or skip if exists)
                 # 2. dvc remote add (fails - already exists)
                 # 3+ corpus tracking calls
                 mock_run.side_effect = [
-                    (True, "ok"),      # dvc init
-                    (False, "exists"), # dvc remote add fails
-                    (True, "ok"),      # corpus/fr tracking
-                    (True, "ok"),      # corpus/intl tracking
-                    (True, "ok"),      # models tracking
+                    (True, "ok"),  # dvc init
+                    (False, "exists"),  # dvc remote add fails
+                    (True, "ok"),  # corpus/fr tracking
+                    (True, "ok"),  # corpus/intl tracking
+                    (True, "ok"),  # models tracking
                 ]
-                with patch('sys.argv', ['setup_dvc.py', '--remote', 's3://test', '--init-only']):
+                with patch(
+                    "sys.argv", ["setup_dvc.py", "--remote", "s3://test", "--init-only"]
+                ):
                     result = setup_module.main()
-                    captured = capsys.readouterr()
+                    _ = capsys.readouterr()  # Consume output
                     # With --init-only, it exits early
                     assert result == 0
 
     def test_main_no_pdfs_warning(self, tmp_path, capsys):
         """Test main warns when no PDFs found (uses tmp_path as project root)."""
-        import scripts.iso.setup_dvc as setup_module
+
         # Create empty corpus directories (no PDFs)
         (tmp_path / "corpus" / "fr").mkdir(parents=True)
         (tmp_path / "corpus" / "intl").mkdir(parents=True)
         (tmp_path / ".dvc").mkdir()
         (tmp_path / ".dvc" / "config").write_text("")  # DVC already initialized
 
-        original_main = setup_module.main
-
         def patched_main():
-            # Patch script_path to use tmp_path
-            import argparse
-            parser = argparse.ArgumentParser()
-            parser.add_argument("--remote")
-            parser.add_argument("--init-only", action="store_true")
-            args = parser.parse_args([])
-
             # Simulate main() logic with tmp_path as root
             project_root = tmp_path
             print("=" * 60)
@@ -181,7 +182,10 @@ class TestMainFunction:
             print("[4/5] Tracking corpus files...", end=" ")
 
             pdf_count = 0
-            for corpus in [project_root / "corpus" / "fr", project_root / "corpus" / "intl"]:
+            for corpus in [
+                project_root / "corpus" / "fr",
+                project_root / "corpus" / "intl",
+            ]:
                 if corpus.is_dir():
                     pdf_count += len(list(corpus.glob("*.pdf")))
 
@@ -191,18 +195,19 @@ class TestMainFunction:
                 print("WARN (no PDFs found)")
             return 0
 
-        result = patched_main()
+        patched_main()
         captured = capsys.readouterr()
         assert "no PDFs found" in captured.out
 
     def test_main_no_remote_message(self, tmp_path, capsys):
         """Test main shows remote config message when no remote."""
         import scripts.iso.setup_dvc as setup_module
-        with patch.object(setup_module, 'check_dvc_installed') as mock_check:
+
+        with patch.object(setup_module, "check_dvc_installed") as mock_check:
             mock_check.return_value = True
-            with patch.object(setup_module, 'run_command') as mock_run:
+            with patch.object(setup_module, "run_command") as mock_run:
                 mock_run.return_value = (True, "ok")
-                with patch('sys.argv', ['setup_dvc.py']):
-                    result = setup_module.main()
+                with patch("sys.argv", ["setup_dvc.py"]):
+                    setup_module.main()
                     captured = capsys.readouterr()
                     assert "Configure remote" in captured.out

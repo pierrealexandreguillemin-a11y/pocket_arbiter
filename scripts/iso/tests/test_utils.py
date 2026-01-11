@@ -2,14 +2,9 @@
 """Tests for utility functions and classes."""
 
 import os
-import sys
 from unittest.mock import patch
-import pytest
 
-from ..utils import (
-    Colors, Icons, colored,
-    _is_fancy_terminal, _get_colors, _get_icons
-)
+from ..utils import Colors, Icons, colored, _is_fancy_terminal, _get_colors, _get_icons
 
 
 class TestIsFancyTerminal:
@@ -17,27 +12,27 @@ class TestIsFancyTerminal:
 
     def test_fancy_terminal_windows_with_wt(self):
         """Test Windows Terminal is detected as fancy."""
-        with patch('sys.platform', 'win32'):
-            with patch.dict(os.environ, {'WT_SESSION': '1'}):
+        with patch("sys.platform", "win32"):
+            with patch.dict(os.environ, {"WT_SESSION": "1"}):
                 result = _is_fancy_terminal()
                 assert result is True
 
     def test_fancy_terminal_windows_without_wt(self):
         """Test basic Windows console is not fancy."""
-        with patch('sys.platform', 'win32'):
+        with patch("sys.platform", "win32"):
             with patch.dict(os.environ, {}, clear=True):
                 result = _is_fancy_terminal()
                 assert result is False
 
     def test_fancy_terminal_linux(self):
         """Test Linux is always fancy."""
-        with patch('sys.platform', 'linux'):
+        with patch("sys.platform", "linux"):
             result = _is_fancy_terminal()
             assert result is True
 
     def test_fancy_terminal_darwin(self):
         """Test macOS is always fancy."""
-        with patch('sys.platform', 'darwin'):
+        with patch("sys.platform", "darwin"):
             result = _is_fancy_terminal()
             assert result is True
 
@@ -48,26 +43,26 @@ class TestGetColors:
     def test_get_colors_fancy(self):
         """Test colors with fancy terminal."""
         colors = _get_colors(fancy=True)
-        assert colors['RED'] == '\033[0;31m'
-        assert colors['GREEN'] == '\033[0;32m'
-        assert colors['YELLOW'] == '\033[1;33m'
-        assert colors['BLUE'] == '\033[0;34m'
-        assert colors['NC'] == '\033[0m'
+        assert colors["RED"] == "\033[0;31m"
+        assert colors["GREEN"] == "\033[0;32m"
+        assert colors["YELLOW"] == "\033[1;33m"
+        assert colors["BLUE"] == "\033[0;34m"
+        assert colors["NC"] == "\033[0m"
 
     def test_get_colors_not_fancy(self):
         """Test colors without fancy terminal."""
         colors = _get_colors(fancy=False)
-        assert colors['RED'] == ''
-        assert colors['GREEN'] == ''
-        assert colors['YELLOW'] == ''
-        assert colors['BLUE'] == ''
-        assert colors['NC'] == ''
+        assert colors["RED"] == ""
+        assert colors["GREEN"] == ""
+        assert colors["YELLOW"] == ""
+        assert colors["BLUE"] == ""
+        assert colors["NC"] == ""
 
     def test_get_colors_auto_detect(self):
         """Test colors with auto-detection."""
         colors = _get_colors()  # No argument, auto-detect
-        assert 'RED' in colors
-        assert 'NC' in colors
+        assert "RED" in colors
+        assert "NC" in colors
 
 
 class TestGetIcons:
@@ -76,24 +71,24 @@ class TestGetIcons:
     def test_get_icons_fancy(self):
         """Test icons with fancy terminal."""
         icons = _get_icons(fancy=True)
-        assert icons['FOLDER'] == '📁'
-        assert icons['CHECK'] == '✅'
-        assert icons['CROSS'] == '❌'
-        assert icons['WARN'] == '⚠️'
+        assert icons["FOLDER"] == "📁"
+        assert icons["CHECK"] == "✅"
+        assert icons["CROSS"] == "❌"
+        assert icons["WARN"] == "⚠️"
 
     def test_get_icons_not_fancy(self):
         """Test icons without fancy terminal (ASCII fallback)."""
         icons = _get_icons(fancy=False)
-        assert icons['FOLDER'] == '[DIR]'
-        assert icons['CHECK'] == '[OK]'
-        assert icons['CROSS'] == '[FAIL]'
-        assert icons['WARN'] == '[WARN]'
+        assert icons["FOLDER"] == "[DIR]"
+        assert icons["CHECK"] == "[OK]"
+        assert icons["CROSS"] == "[FAIL]"
+        assert icons["WARN"] == "[WARN]"
 
     def test_get_icons_auto_detect(self):
         """Test icons with auto-detection."""
         icons = _get_icons()  # No argument, auto-detect
-        assert 'FOLDER' in icons
-        assert 'CHECK' in icons
+        assert "FOLDER" in icons
+        assert "CHECK" in icons
 
 
 class TestColors:
@@ -101,11 +96,11 @@ class TestColors:
 
     def test_colors_attributes_exist(self):
         """Test all color attributes are defined."""
-        assert hasattr(Colors, 'RED')
-        assert hasattr(Colors, 'GREEN')
-        assert hasattr(Colors, 'YELLOW')
-        assert hasattr(Colors, 'BLUE')
-        assert hasattr(Colors, 'NC')
+        assert hasattr(Colors, "RED")
+        assert hasattr(Colors, "GREEN")
+        assert hasattr(Colors, "YELLOW")
+        assert hasattr(Colors, "BLUE")
+        assert hasattr(Colors, "NC")
 
     def test_colors_are_strings(self):
         """Test all colors are string values."""
@@ -121,16 +116,16 @@ class TestIcons:
 
     def test_icons_attributes_exist(self):
         """Test all icon attributes are defined."""
-        assert hasattr(Icons, 'FOLDER')
-        assert hasattr(Icons, 'DOC')
-        assert hasattr(Icons, 'ROBOT')
-        assert hasattr(Icons, 'SHIELD')
-        assert hasattr(Icons, 'SPARKLE')
-        assert hasattr(Icons, 'TEST')
-        assert hasattr(Icons, 'PIN')
-        assert hasattr(Icons, 'CHECK')
-        assert hasattr(Icons, 'CROSS')
-        assert hasattr(Icons, 'WARN')
+        assert hasattr(Icons, "FOLDER")
+        assert hasattr(Icons, "DOC")
+        assert hasattr(Icons, "ROBOT")
+        assert hasattr(Icons, "SHIELD")
+        assert hasattr(Icons, "SPARKLE")
+        assert hasattr(Icons, "TEST")
+        assert hasattr(Icons, "PIN")
+        assert hasattr(Icons, "CHECK")
+        assert hasattr(Icons, "CROSS")
+        assert hasattr(Icons, "WARN")
 
     def test_icons_are_strings(self):
         """Test all icons are string values."""
@@ -173,11 +168,11 @@ class TestColoredFunction:
         """Test colored wraps text with ANSI codes on fancy terminal."""
         colors = _get_colors(fancy=True)
         result = f"{colors['RED']}message{colors['NC']}"
-        assert result.startswith('\033[')
-        assert 'message' in result
+        assert result.startswith("\033[")
+        assert "message" in result
 
     def test_colored_wraps_text_not_fancy(self):
         """Test colored returns plain text on non-fancy terminal."""
         colors = _get_colors(fancy=False)
         result = f"{colors['RED']}message{colors['NC']}"
-        assert result == 'message'
+        assert result == "message"

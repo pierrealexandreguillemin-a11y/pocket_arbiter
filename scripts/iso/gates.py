@@ -4,7 +4,7 @@
 import json
 import subprocess
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 from .utils import Colors, colored
 
@@ -12,8 +12,14 @@ from .utils import Colors, colored
 class ExecutableGates:
     """Executable gates that run actual commands."""
 
-    def __init__(self, root: Path, errors: List[str], warnings: List[str],
-                 passed: List[str], verbose: bool = False):
+    def __init__(
+        self,
+        root: Path,
+        errors: List[str],
+        warnings: List[str],
+        passed: List[str],
+        verbose: bool = False,
+    ):
         self.root = root
         self.errors = errors
         self.warnings = warnings
@@ -24,12 +30,13 @@ class ExecutableGates:
         if self.verbose:
             print(f"  {message}")
 
-    def run_command(self, cmd: List[str], cwd: Path = None) -> Tuple[bool, str]:
+    def run_command(
+        self, cmd: List[str], cwd: Optional[Path] = None
+    ) -> Tuple[bool, str]:
         """Run a command and return success status and output."""
         try:
             result = subprocess.run(
-                cmd, cwd=cwd or self.root,
-                capture_output=True, text=True, timeout=300
+                cmd, cwd=cwd or self.root, capture_output=True, text=True, timeout=300
             )
             return result.returncode == 0, result.stdout + result.stderr
         except subprocess.TimeoutExpired:
@@ -57,9 +64,9 @@ class ExecutableGates:
             print(colored("SKIP", Colors.YELLOW), "(path not found)")
             return True
 
-        success, output = self.run_command([
-            "python", "-m", "pytest", str(test_path), "-v", "--tb=short"
-        ])
+        success, output = self.run_command(
+            ["python", "-m", "pytest", str(test_path), "-v", "--tb=short"]
+        )
 
         if success:
             print(colored("OK", Colors.GREEN))
@@ -74,10 +81,17 @@ class ExecutableGates:
         """Gate: Check test coverage meets target."""
         print(f"    Checking coverage (target: {target*100:.0f}%)...", end=" ")
 
-        self.run_command([
-            "python", "-m", "pytest", "--cov=scripts", "--cov-report=json",
-            "scripts/", "-q"
-        ])
+        self.run_command(
+            [
+                "python",
+                "-m",
+                "pytest",
+                "--cov=scripts",
+                "--cov-report=json",
+                "scripts/",
+                "-q",
+            ]
+        )
 
         cov_file = self.root / "coverage.json"
         if not cov_file.exists():
@@ -89,13 +103,15 @@ class ExecutableGates:
             return True
 
         try:
-            with open(cov_file, 'r') as f:
+            with open(cov_file, "r") as f:
                 cov_data = json.load(f)
             total_cov = cov_data.get("totals", {}).get("percent_covered", 0) / 100
 
             if total_cov >= target:
                 print(colored(f"OK ({total_cov*100:.1f}%)", Colors.GREEN))
-                self.passed.append(f"Coverage: {total_cov*100:.1f}% >= {target*100:.0f}%")
+                self.passed.append(
+                    f"Coverage: {total_cov*100:.1f}% >= {target*100:.0f}%"
+                )
                 return True
             print(colored(f"FAILED ({total_cov*100:.1f}%)", Colors.RED))
             self.errors.append(f"Coverage: {total_cov*100:.1f}% < {target*100:.0f}%")
@@ -108,22 +124,21 @@ class ExecutableGates:
         """Gate: Run flake8 and verify no critical errors."""
         print(f"    Running lint on {path}...", end=" ")
 
-        success, output = self.run_command([
-            "python", "-m", "flake8", path,
-            "--select=E9,F63,F7,F82", "--count"
-        ])
+        success, output = self.run_command(
+            ["python", "-m", "flake8", path, "--select=E9,F63,F7,F82", "--count"]
+        )
 
         if success:
             print(colored("OK", Colors.GREEN))
             self.passed.append(f"Lint clean: {path}")
             return True
-        lines = output.strip().split('\n')
-        error_count = len([l for l in lines if l and not l.isspace()])
+        lines = output.strip().split("\n")
+        error_count = len([line for line in lines if line and not line.isspace()])
         print(colored(f"FAILED ({error_count} errors)", Colors.RED))
         self.errors.append(f"Lint errors: {error_count} dans {path}")
         return False
 
-    def gate_json_valid(self, patterns: List[str] = None) -> bool:
+    def gate_json_valid(self, patterns: Optional[List[str]] = None) -> bool:
         """Gate: Validate all JSON files in patterns."""
         if patterns is None:
             patterns = ["tests/data/*.json", ".iso/*.json"]
@@ -136,7 +151,7 @@ class ExecutableGates:
         for pattern in patterns:
             for json_file in self.root.glob(pattern):
                 try:
-                    with open(json_file, 'r', encoding='utf-8') as f:
+                    with open(json_file, "r", encoding="utf-8") as f:
                         json.load(f)
                     valid_count += 1
                 except json.JSONDecodeError as e:

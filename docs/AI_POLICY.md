@@ -205,7 +205,7 @@ Cette politique s'applique à :
 ```
 ⚠️ AVERTISSEMENT IA
 
-Cette application utilise l'intelligence artificielle pour vous 
+Cette application utilise l'intelligence artificielle pour vous
 aider à trouver des informations dans les règlements officiels.
 
 • Les réponses sont des INTERPRÉTATIONS indicatives
@@ -280,7 +280,7 @@ Chaque réponse affiche :
 ### Annexe A : Questions test d'hallucination
 
 ```
-1. "Quelle est la règle sur les téléphones portables?" 
+1. "Quelle est la règle sur les téléphones portables?"
    → Doit citer source ou dire "non trouvé"
 
 2. "Combien de temps pour jouer le premier coup?"
@@ -300,4 +300,3 @@ Chaque réponse affiche :
 | Question | Réponse IA | Source citée | Fidélité (1-5) | Commentaire |
 |----------|------------|--------------|----------------|-------------|
 | ... | ... | ... | ... | ... |
-

@@ -1,10 +1,10 @@
 # Instructions Claude Code - Pocket Arbiter
 
-> 📱 **Pocket Arbiter** = Application mobile d'assistance à l'arbitrage d'échecs  
+> 📱 **Pocket Arbiter** = Application mobile d'assistance à l'arbitrage d'échecs
 > Ce fichier définit les règles et garde-fous pour Claude Code dans VS Code.
 > Toute action de développement doit respecter ces instructions.
 
-**Version** : 1.0  
+**Version** : 1.0
 **Date** : 2026-01-10
 
 ---
@@ -164,8 +164,8 @@ pocket_arbiter/
 ```kotlin
 // Claude Code doit vérifier :
 fun checkBeforeStart(task: String): Boolean {
-    return specsExist(task) 
-        && dodDefined(task) 
+    return specsExist(task)
+        && dodDefined(task)
         && testsPlanned(task)
         && inCurrentPhaseScope(task)
 }
@@ -272,10 +272,10 @@ fun maFonction(param1: Type1, param2: Type2): ReturnType
 fun `nomFonction devrait faireQuelqueChose quand condition`() {
     // Given
     val input = ...
-    
+
     // When
     val result = functionUnderTest(input)
-    
+
     // Then
     assertThat(result).isEqualTo(expected)
 }
@@ -297,4 +297,3 @@ fun `nomFonction devrait faireQuelqueChose quand condition`() {
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-10 | Création initiale |
-

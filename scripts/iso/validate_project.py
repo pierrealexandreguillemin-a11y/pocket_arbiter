@@ -12,7 +12,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Dict, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from .utils import Icons, Colors, colored
 from .gates import ExecutableGates
@@ -26,15 +26,17 @@ class ISOValidator:
     def __init__(self, project_root: Path, verbose: bool = False):
         self.root = project_root
         self.verbose = verbose
-        self.errors = []
-        self.warnings = []
-        self.passed = []
+        self.errors: List[str] = []
+        self.warnings: List[str] = []
+        self.passed: List[str] = []
 
     def _make_checker(self, cls):
         """Create a checker instance with shared state."""
         return cls(self.root, self.errors, self.warnings, self.passed, self.verbose)
 
-    def validate_all(self, phase: int = None, run_gates: bool = False) -> Tuple[bool, Dict]:
+    def validate_all(
+        self, phase: Optional[int] = None, run_gates: bool = False
+    ) -> Tuple[bool, Dict]:
         """Run all validations."""
         print(colored("=" * 60, Colors.BLUE))
         print(colored("  ISO Validation - Pocket Arbiter", Colors.BLUE))
@@ -87,7 +89,7 @@ class ISOValidator:
                 "passed": self.passed,
                 "warnings": self.warnings,
                 "errors": self.errors,
-            }
+            },
         }
 
     def _print_summary(self):
@@ -101,7 +103,9 @@ class ISOValidator:
             print(f"   • {item}")
 
         if self.warnings:
-            print(colored(f"\n{Icons.WARN} Warnings: {len(self.warnings)}", Colors.YELLOW))
+            print(
+                colored(f"\n{Icons.WARN} Warnings: {len(self.warnings)}", Colors.YELLOW)
+            )
             for item in self.warnings:
                 print(f"   • {item}")
 

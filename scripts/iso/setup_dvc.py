@@ -15,22 +15,19 @@ import argparse
 import subprocess
 import sys
 from pathlib import Path
+from typing import Optional, Tuple
 
 # Fix Windows encoding
-if sys.platform == 'win32':
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
 
 
-def run_command(cmd: list, cwd: Path = None) -> tuple:
+def run_command(cmd: list, cwd: Optional[Path] = None) -> Tuple[bool, str]:
     """Run a command and return success status and output."""
     try:
         result = subprocess.run(
-            cmd,
-            cwd=cwd,
-            capture_output=True,
-            text=True,
-            timeout=300
+            cmd, cwd=cwd, capture_output=True, text=True, timeout=300
         )
         return result.returncode == 0, result.stdout + result.stderr
     except Exception as e:
@@ -51,13 +48,12 @@ def main():
         description="Initialize DVC for Pocket Arbiter corpus files"
     )
     parser.add_argument(
-        "--remote",
-        help="Remote storage URL (e.g., gdrive://..., s3://...)"
+        "--remote", help="Remote storage URL (e.g., gdrive://..., s3://...)"
     )
     parser.add_argument(
         "--init-only",
         action="store_true",
-        help="Only initialize DVC, don't track files"
+        help="Only initialize DVC, don't track files",
     )
     args = parser.parse_args()
 
@@ -95,8 +91,7 @@ def main():
     if args.remote:
         print(f"[3/5] Configuring remote: {args.remote}...", end=" ")
         success, output = run_command(
-            ["dvc", "remote", "add", "-d", "origin", args.remote],
-            cwd=project_root
+            ["dvc", "remote", "add", "-d", "origin", args.remote], cwd=project_root
         )
         if success:
             print("OK")
@@ -121,8 +116,7 @@ def main():
             if pdf_files:
                 # Track the whole directory
                 success, output = run_command(
-                    ["dvc", "add", str(corpus_dir)],
-                    cwd=project_root
+                    ["dvc", "add", str(corpus_dir)], cwd=project_root
                 )
                 if success:
                     tracked_count += len(pdf_files)
@@ -136,13 +130,14 @@ def main():
     print("[5/5] Tracking models directory...", end=" ")
     models_dir = project_root / "models"
     if models_dir.is_dir():
-        large_files = list(models_dir.glob("*.gguf")) + \
-                      list(models_dir.glob("*.onnx")) + \
-                      list(models_dir.glob("*.tflite"))
+        large_files = (
+            list(models_dir.glob("*.gguf"))
+            + list(models_dir.glob("*.onnx"))
+            + list(models_dir.glob("*.tflite"))
+        )
         if large_files:
             success, output = run_command(
-                ["dvc", "add", str(models_dir)],
-                cwd=project_root
+                ["dvc", "add", str(models_dir)], cwd=project_root
             )
             print(f"OK ({len(large_files)} model files)")
         else:

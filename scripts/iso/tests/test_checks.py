@@ -3,7 +3,6 @@
 
 import json
 import shutil
-import pytest
 
 from ..base import BaseChecker
 from ..checks import ISO12207Checks, ISO25010Checks, ISO29119Checks, ISO42001Checks
@@ -106,7 +105,7 @@ class TestISO12207Checks:
                 {"id": 0, "status": "completed"},
                 {"id": 1, "status": "completed"},
                 {"id": 2, "status": "in_progress"},
-            ]
+            ],
         }
         (tmp_path / ".iso" / "config.json").write_text(json.dumps(config))
         checker, _, _, _ = make_checker(ISO12207Checks, tmp_path)
@@ -120,7 +119,7 @@ class TestISO12207Checks:
             "phases": [
                 {"id": 0, "status": "completed"},
                 {"id": 1, "status": "in_progress"},
-            ]
+            ],
         }
         (tmp_path / ".iso" / "config.json").write_text(json.dumps(config))
         checker, _, _, _ = make_checker(ISO12207Checks, tmp_path)
@@ -143,7 +142,12 @@ class TestISO12207Checks:
         (tmp_path / ".gitignore").write_text("*.pyc\n")
         # Set phase 2
         (tmp_path / ".iso").mkdir()
-        config = {"phases": [{"id": 0, "status": "completed"}, {"id": 1, "status": "completed"}]}
+        config = {
+            "phases": [
+                {"id": 0, "status": "completed"},
+                {"id": 1, "status": "completed"},
+            ]
+        }
         (tmp_path / ".iso" / "config.json").write_text(json.dumps(config))
 
         checker, errors, _, _ = make_checker(ISO12207Checks, tmp_path)
@@ -222,8 +226,8 @@ class TestISO25010Checks:
     def test_quality_with_many_test_files(self, temp_project):
         """Test quality passes with multiple test files."""
         # temp_project already has test.json, add more
-        (temp_project / "tests" / "data" / "test2.json").write_text('{}')
-        (temp_project / "tests" / "data" / "test3.json").write_text('{}')
+        (temp_project / "tests" / "data" / "test2.json").write_text("{}")
+        (temp_project / "tests" / "data" / "test3.json").write_text("{}")
         checker, _, _, passed = make_checker(ISO25010Checks, temp_project)
         result = checker.validate_quality()
         assert result is True
@@ -234,7 +238,7 @@ class TestISO25010Checks:
         (tmp_path / "docs").mkdir()
         (tmp_path / "docs" / "QUALITY_REQUIREMENTS.md").write_text("# Quality\n")
         (tmp_path / "tests" / "data").mkdir(parents=True)
-        (tmp_path / "tests" / "data" / "one.json").write_text('{}')
+        (tmp_path / "tests" / "data" / "one.json").write_text("{}")
         checker, _, warnings, _ = make_checker(ISO25010Checks, tmp_path)
         result = checker.validate_quality()
         assert result is True

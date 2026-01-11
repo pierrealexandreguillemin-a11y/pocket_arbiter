@@ -3,7 +3,7 @@
 
 import json
 import subprocess
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 import pytest
 
 from ..gates import ExecutableGates
@@ -12,7 +12,12 @@ from ..gates import ExecutableGates
 def make_gates(tmp_path, verbose=False):
     """Helper to create gates with shared state."""
     errors, warnings, passed = [], [], []
-    return ExecutableGates(tmp_path, errors, warnings, passed, verbose), errors, warnings, passed
+    return (
+        ExecutableGates(tmp_path, errors, warnings, passed, verbose),
+        errors,
+        warnings,
+        passed,
+    )
 
 
 class TestExecutableGates:
@@ -45,7 +50,7 @@ class TestExecutableGates:
     def test_run_command_timeout(self, gate_project):
         """Test run_command timeout handling."""
         gates, _, _, _ = make_gates(gate_project)
-        with patch('subprocess.run') as mock_run:
+        with patch("subprocess.run") as mock_run:
             mock_run.side_effect = subprocess.TimeoutExpired(cmd=["test"], timeout=1)
             success, output = gates.run_command(["test"])
             assert success is False
@@ -54,7 +59,7 @@ class TestExecutableGates:
     def test_run_command_exception(self, gate_project):
         """Test run_command generic exception."""
         gates, _, _, _ = make_gates(gate_project)
-        with patch('subprocess.run') as mock_run:
+        with patch("subprocess.run") as mock_run:
             mock_run.side_effect = Exception("Generic error")
             success, output = gates.run_command(["test"])
             assert success is False
@@ -111,7 +116,7 @@ class TestExecutableGates:
     def test_gate_git_status_with_remote(self, gate_project):
         """Test git gate with remote configured."""
         gates, _, _, passed = make_gates(gate_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "origin\tgit@github.com:test/repo.git")
             result = gates.gate_git_status()
             assert result is True
@@ -120,7 +125,7 @@ class TestExecutableGates:
     def test_gate_git_status_no_remote(self, gate_project):
         """Test git gate without remote."""
         gates, _, warnings, _ = make_gates(gate_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "")
             result = gates.gate_git_status()
             assert result is True
@@ -138,7 +143,7 @@ class TestExecutableGates:
     def test_gate_lint_failure(self, gate_project):
         """Test lint gate with errors."""
         gates, errors, _, _ = make_gates(gate_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (False, "E999 syntax error\nE999 another error")
             result = gates.gate_lint("scripts/")
             assert result is False
@@ -160,7 +165,7 @@ class TestGatePytest:
     def test_gate_pytest_not_installed_required(self, pytest_project):
         """Test pytest gate when pytest not installed and required."""
         gates, errors, _, _ = make_gates(pytest_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (False, "not found")
             result = gates.gate_pytest("scripts/", required=True)
             assert result is False
@@ -169,7 +174,7 @@ class TestGatePytest:
     def test_gate_pytest_not_installed_optional(self, pytest_project):
         """Test pytest gate when pytest not installed and optional."""
         gates, errors, _, _ = make_gates(pytest_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (False, "not found")
             result = gates.gate_pytest("scripts/", required=False)
             assert result is True
@@ -178,7 +183,7 @@ class TestGatePytest:
     def test_gate_pytest_path_not_found(self, pytest_project):
         """Test pytest gate when path doesn't exist."""
         gates, errors, _, _ = make_gates(pytest_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "pytest 7.0.0")
             result = gates.gate_pytest("nonexistent/", required=True)
             assert result is True  # Skipped, not failed
@@ -186,10 +191,10 @@ class TestGatePytest:
     def test_gate_pytest_success(self, pytest_project):
         """Test pytest gate with passing tests."""
         gates, errors, _, passed = make_gates(pytest_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.side_effect = [
                 (True, "pytest 7.0.0"),  # version check
-                (True, "1 passed"),       # test run
+                (True, "1 passed"),  # test run
             ]
             result = gates.gate_pytest("scripts/", required=True)
             assert result is True
@@ -198,10 +203,10 @@ class TestGatePytest:
     def test_gate_pytest_failure(self, pytest_project):
         """Test pytest gate with failing tests."""
         gates, errors, _, _ = make_gates(pytest_project, verbose=True)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.side_effect = [
-                (True, "pytest 7.0.0"),   # version check
-                (False, "1 failed"),       # test run
+                (True, "pytest 7.0.0"),  # version check
+                (False, "1 failed"),  # test run
             ]
             result = gates.gate_pytest("scripts/", required=True)
             assert result is False
@@ -220,7 +225,7 @@ class TestGateCoverage:
     def test_gate_coverage_no_file_required(self, coverage_project):
         """Test coverage gate when coverage.json missing and required."""
         gates, errors, _, _ = make_gates(coverage_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "")
             result = gates.gate_coverage(target=0.60, required=True)
             assert result is False
@@ -229,7 +234,7 @@ class TestGateCoverage:
     def test_gate_coverage_no_file_optional(self, coverage_project):
         """Test coverage gate when coverage.json missing and optional."""
         gates, errors, _, _ = make_gates(coverage_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "")
             result = gates.gate_coverage(target=0.60, required=False)
             assert result is True
@@ -239,7 +244,7 @@ class TestGateCoverage:
         cov_data = {"totals": {"percent_covered": 75.0}}
         (coverage_project / "coverage.json").write_text(json.dumps(cov_data))
         gates, errors, _, passed = make_gates(coverage_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "")
             result = gates.gate_coverage(target=0.60, required=True)
             assert result is True
@@ -250,7 +255,7 @@ class TestGateCoverage:
         cov_data = {"totals": {"percent_covered": 50.0}}
         (coverage_project / "coverage.json").write_text(json.dumps(cov_data))
         gates, errors, _, _ = make_gates(coverage_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "")
             result = gates.gate_coverage(target=0.60, required=True)
             assert result is False
@@ -260,7 +265,7 @@ class TestGateCoverage:
         """Test coverage gate with invalid JSON file."""
         (coverage_project / "coverage.json").write_text("not json")
         gates, errors, _, _ = make_gates(coverage_project)
-        with patch.object(gates, 'run_command') as mock_run:
+        with patch.object(gates, "run_command") as mock_run:
             mock_run.return_value = (True, "")
             result = gates.gate_coverage(target=0.60, required=False)
             assert result is True  # Skipped on error when not required

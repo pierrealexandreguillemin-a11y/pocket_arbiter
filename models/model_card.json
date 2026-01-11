@@ -6,7 +6,7 @@
     "projectDescription": "Application mobile 100% offline d'assistance à l'arbitrage d'échecs - Règlements FFE et FIDE",
     "lastUpdated": "2025-01-11"
   },
-  
+
   "embeddingModel": {
     "name": "À définir",
     "candidates": [
@@ -28,7 +28,7 @@
     "selected": null,
     "selectionRationale": "À déterminer après benchmarks Phase 2"
   },
-  
+
   "trainingData": {
     "sources": [
       {
@@ -56,14 +56,14 @@
       "strategy": "À définir (semantic vs fixed)"
     }
   },
-  
+
   "vectorStore": {
     "type": "FAISS",
     "indexType": "À définir (IVF_FLAT recommandé)",
     "metric": "cosine",
     "estimatedVectors": "~2000-5000 chunks"
   },
-  
+
   "performance": {
     "targets": {
       "retrievalLatency": "<100ms",
@@ -76,7 +76,7 @@
       "note": "À compléter après Phase 2-3"
     }
   },
-  
+
   "compliance": {
     "isoStandards": [
       "ISO/IEC 25010 - Software quality",
@@ -88,7 +88,7 @@
     "dataPrivacy": "Aucune donnée personnelle - Règlements publics uniquement",
     "offlineCapability": "100% offline après installation initiale"
   },
-  
+
   "versioning": {
     "currentPhase": "Phase 0 - Setup",
     "modelVersion": "0.0.0",

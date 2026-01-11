@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 """Tests for main ISOValidator class."""
 
-import shutil
-import sys
-from unittest.mock import patch, MagicMock
-import pytest
-from pathlib import Path
+from unittest.mock import patch
 
 from ..validate_project import ISOValidator, main
 from ..utils import Icons, Colors
@@ -66,6 +62,7 @@ class TestISOValidator:
     def test_make_checker(self, temp_project):
         """Test _make_checker creates checker with shared state."""
         from ..checks import ISO12207Checks
+
         validator = ISOValidator(temp_project)
         checker = validator._make_checker(ISO12207Checks)
         assert checker.root == temp_project
@@ -79,15 +76,15 @@ class TestIconsAndColors:
 
     def test_icons_exist(self):
         """Test all icons are defined."""
-        assert hasattr(Icons, 'FOLDER')
-        assert hasattr(Icons, 'CHECK')
-        assert hasattr(Icons, 'CROSS')
+        assert hasattr(Icons, "FOLDER")
+        assert hasattr(Icons, "CHECK")
+        assert hasattr(Icons, "CROSS")
 
     def test_colors_exist(self):
         """Test all colors are defined."""
-        assert hasattr(Colors, 'RED')
-        assert hasattr(Colors, 'GREEN')
-        assert hasattr(Colors, 'NC')
+        assert hasattr(Colors, "RED")
+        assert hasattr(Colors, "GREEN")
+        assert hasattr(Colors, "NC")
 
 
 class TestEdgeCases:
@@ -102,16 +99,16 @@ class TestEdgeCases:
 
     def test_verbose_mode(self, tmp_path):
         """Test verbose mode doesn't crash."""
-        validator = ISOValidator(tmp_path, verbose=True)
+        _ = ISOValidator(tmp_path, verbose=True)
         # Should not raise
 
     def test_unicode_in_files(self, tmp_path):
         """Test handling of unicode content."""
         (tmp_path / "docs").mkdir()
         (tmp_path / "docs" / "test.md").write_text(
-            "# Test: éàü 日本語\n", encoding='utf-8'
+            "# Test: éàü 日本語\n", encoding="utf-8"
         )
-        validator = ISOValidator(tmp_path)
+        _ = ISOValidator(tmp_path)
         # Should not crash
 
 
@@ -120,38 +117,55 @@ class TestMainCLI:
 
     def test_main_no_args(self, temp_project):
         """Test main with no arguments."""
-        with patch('sys.argv', ['validate_project.py']):
-            with patch('pathlib.Path.__new__') as mock_path:
-                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
-                with patch.object(ISOValidator, 'validate_all') as mock_validate:
-                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
-                    with patch('sys.exit') as mock_exit:
+        with patch("sys.argv", ["validate_project.py"]):
+            with patch("pathlib.Path.__new__") as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = (
+                    temp_project
+                )
+                with patch.object(ISOValidator, "validate_all") as mock_validate:
+                    mock_validate.return_value = (
+                        True,
+                        {"passed": 10, "warnings": 0, "errors": 0, "details": {}},
+                    )
+                    with patch("sys.exit") as mock_exit:
                         main()
                         mock_exit.assert_called_with(0)
 
     def test_main_with_verbose(self, temp_project):
         """Test main with --verbose flag creates validator with verbose=True."""
-        with patch('sys.argv', ['validate_project.py', '--verbose']):
-            with patch('scripts.iso.validate_project.Path') as mock_path:
-                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
+        with patch("sys.argv", ["validate_project.py", "--verbose"]):
+            with patch("scripts.iso.validate_project.Path") as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = (
+                    temp_project
+                )
                 mock_path.return_value.parent.parent.parent = temp_project
-                with patch.object(ISOValidator, 'validate_all') as mock_validate:
-                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
-                    with patch('sys.exit'):
-                        with patch.object(ISOValidator, '__init__', return_value=None) as mock_init:
+                with patch.object(ISOValidator, "validate_all") as mock_validate:
+                    mock_validate.return_value = (
+                        True,
+                        {"passed": 10, "warnings": 0, "errors": 0, "details": {}},
+                    )
+                    with patch("sys.exit"):
+                        with patch.object(
+                            ISOValidator, "__init__", return_value=None
+                        ) as mock_init:
                             main()
                             # Verify __init__ was called (verbose flag parsed)
                             assert mock_init.called or mock_validate.called
 
     def test_main_with_phase(self, temp_project):
         """Test main with --phase flag passes phase to validate_all."""
-        with patch('sys.argv', ['validate_project.py', '--phase', '2']):
-            with patch('scripts.iso.validate_project.Path') as mock_path:
-                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
+        with patch("sys.argv", ["validate_project.py", "--phase", "2"]):
+            with patch("scripts.iso.validate_project.Path") as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = (
+                    temp_project
+                )
                 mock_path.return_value.parent.parent.parent = temp_project
-                with patch.object(ISOValidator, 'validate_all') as mock_validate:
-                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
-                    with patch('sys.exit'):
+                with patch.object(ISOValidator, "validate_all") as mock_validate:
+                    mock_validate.return_value = (
+                        True,
+                        {"passed": 10, "warnings": 0, "errors": 0, "details": {}},
+                    )
+                    with patch("sys.exit"):
                         main()
                         # Verify validate_all was called with phase=2
                         mock_validate.assert_called_once()
@@ -160,13 +174,18 @@ class TestMainCLI:
 
     def test_main_with_gates(self, temp_project):
         """Test main with --gates flag passes run_gates=True."""
-        with patch('sys.argv', ['validate_project.py', '--gates']):
-            with patch('scripts.iso.validate_project.Path') as mock_path:
-                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
+        with patch("sys.argv", ["validate_project.py", "--gates"]):
+            with patch("scripts.iso.validate_project.Path") as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = (
+                    temp_project
+                )
                 mock_path.return_value.parent.parent.parent = temp_project
-                with patch.object(ISOValidator, 'validate_all') as mock_validate:
-                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
-                    with patch('sys.exit'):
+                with patch.object(ISOValidator, "validate_all") as mock_validate:
+                    mock_validate.return_value = (
+                        True,
+                        {"passed": 10, "warnings": 0, "errors": 0, "details": {}},
+                    )
+                    with patch("sys.exit"):
                         main()
                         # Verify validate_all was called
                         mock_validate.assert_called_once()
@@ -175,22 +194,32 @@ class TestMainCLI:
 
     def test_main_failure_exits_1(self, temp_project):
         """Test main exits with 1 on validation failure."""
-        with patch('sys.argv', ['validate_project.py']):
-            with patch('pathlib.Path.__new__') as mock_path:
-                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
-                with patch.object(ISOValidator, 'validate_all') as mock_validate:
-                    mock_validate.return_value = (False, {"passed": 0, "warnings": 0, "errors": 5, "details": {}})
-                    with patch('sys.exit') as mock_exit:
+        with patch("sys.argv", ["validate_project.py"]):
+            with patch("pathlib.Path.__new__") as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = (
+                    temp_project
+                )
+                with patch.object(ISOValidator, "validate_all") as mock_validate:
+                    mock_validate.return_value = (
+                        False,
+                        {"passed": 0, "warnings": 0, "errors": 5, "details": {}},
+                    )
+                    with patch("sys.exit") as mock_exit:
                         main()
                         mock_exit.assert_called_with(1)
 
     def test_main_json_output(self, temp_project, capsys):
         """Test main with --json flag outputs JSON."""
-        with patch('sys.argv', ['validate_project.py', '--json']):
-            with patch('pathlib.Path.__new__') as mock_path:
-                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
-                with patch.object(ISOValidator, 'validate_all') as mock_validate:
-                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
-                    with patch('sys.exit'):
+        with patch("sys.argv", ["validate_project.py", "--json"]):
+            with patch("pathlib.Path.__new__") as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = (
+                    temp_project
+                )
+                with patch.object(ISOValidator, "validate_all") as mock_validate:
+                    mock_validate.return_value = (
+                        True,
+                        {"passed": 10, "warnings": 0, "errors": 0, "details": {}},
+                    )
+                    with patch("sys.exit"):
                         main()
                         # JSON output would be printed

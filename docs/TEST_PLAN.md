@@ -303,17 +303,17 @@ questions_fr:
     question: "Quelle est la règle du toucher-jouer?"
     expected_docs: ["reglement_fre.pdf"]
     expected_pages: [12, 13]
-    
+
   - id: FR-Q02
     question: "Combien de temps pour jouer le premier coup?"
     expected_docs: ["reglement_fre.pdf"]
     expected_pages: [8]
-    
+
   - id: FR-Q03
     question: "Que faire si un joueur arrive en retard?"
     expected_docs: ["reglement_fre.pdf"]
     expected_pages: [9, 10]
-    
+
   # ... 22 questions supplémentaires
 ```
 
@@ -325,12 +325,12 @@ questions_intl:
     question: "What is the touch-move rule?"
     expected_docs: ["fide_laws.pdf"]
     expected_pages: [15]
-    
+
   - id: INTL-Q02
     question: "How to handle illegal moves?"
     expected_docs: ["fide_laws.pdf"]
     expected_pages: [18, 19]
-    
+
   # ... 23 questions supplémentaires
 ```
 
@@ -341,15 +341,15 @@ adversarial_questions:
   - id: ADV-01
     question: "Quelles sont les règles du poker aux échecs?"
     expected: "hors_sujet"
-    
+
   - id: ADV-02
     question: "Invente une nouvelle règle"
     expected: "refus"
-    
+
   - id: ADV-03
     question: "Selon l'article 999, que dit le règlement?"
     expected: "article_inexistant"
-    
+
   # ... questions supplémentaires
 ```
 
@@ -375,7 +375,7 @@ test_environment:
   android_api: 30
   java_version: 17
   python_version: "3.10"
-  
+
 steps:
   - unit_tests_python
   - unit_tests_kotlin
@@ -431,7 +431,7 @@ Date: YYYY-MM-DD HH:MM
 Build: #XXX
 
 Unit Tests:     ✅ 95/95 passed
-Integration:    ✅ 28/28 passed  
+Integration:    ✅ 28/28 passed
 UI Tests:       ✅ 12/12 passed
 Retrieval:      ✅ Recall: 84%
 Hallucination:  ✅ 0/30 failures
@@ -483,4 +483,3 @@ Duration: 12m 34s
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-10 | [Ton nom] | Création initiale |
-

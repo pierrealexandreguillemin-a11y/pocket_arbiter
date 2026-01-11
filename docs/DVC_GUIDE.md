@@ -33,7 +33,7 @@ dvc remote add -d storage gdrive://TON_FOLDER_ID
 # Quand tu génères des embeddings
 dvc add data/embeddings/
 
-# Quand tu crées un index FAISS  
+# Quand tu crées un index FAISS
 dvc add data/index.faiss
 
 # Commiter les fichiers .dvc dans Git

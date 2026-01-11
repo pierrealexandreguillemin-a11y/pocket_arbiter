@@ -8,8 +8,14 @@ from typing import List
 class BaseChecker:
     """Base class providing common check functionality."""
 
-    def __init__(self, root: Path, errors: List[str], warnings: List[str],
-                 passed: List[str], verbose: bool = False):
+    def __init__(
+        self,
+        root: Path,
+        errors: List[str],
+        warnings: List[str],
+        passed: List[str],
+        verbose: bool = False,
+    ):
         self.root = root
         self.errors = errors
         self.warnings = warnings

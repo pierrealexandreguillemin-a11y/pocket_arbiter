@@ -19,7 +19,9 @@ class ISO42001Checks(BaseChecker):
 
         prompts_dir = self.root / "prompts"
         if prompts_dir.is_dir():
-            prompt_files = list(prompts_dir.glob("*.txt")) + list(prompts_dir.glob("*.md"))
+            prompt_files = list(prompts_dir.glob("*.txt")) + list(
+                prompts_dir.glob("*.md")
+            )
             if len(prompt_files) < 2:
                 self.warnings.append("Peu de prompts versionnés dans prompts/")
             else:
@@ -41,15 +43,15 @@ class ISO42001Checks(BaseChecker):
         ]
 
         ai_files = (
-            list(self.root.glob("**/*llm*.py")) +
-            list(self.root.glob("**/*ai*.py")) +
-            list(self.root.glob("**/*generat*.py"))
+            list(self.root.glob("**/*llm*.py"))
+            + list(self.root.glob("**/*ai*.py"))
+            + list(self.root.glob("**/*generat*.py"))
         )
 
         issues_found = False
         for f in ai_files:
-            if f.is_file() and 'test_' not in f.name:
-                content = f.read_text(encoding='utf-8', errors='ignore')
+            if f.is_file() and "test_" not in f.name:
+                content = f.read_text(encoding="utf-8", errors="ignore")
                 for pattern in dangerous_patterns:
                     if pattern in content.lower():
                         self.errors.append(f"Pattern dangereux '{pattern}' dans {f}")

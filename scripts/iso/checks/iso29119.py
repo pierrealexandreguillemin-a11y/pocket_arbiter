@@ -34,7 +34,7 @@ class ISO29119Checks(BaseChecker):
         if test_data_dir.is_dir():
             for json_file in test_data_dir.glob("*.json"):
                 try:
-                    with open(json_file, 'r', encoding='utf-8') as f:
+                    with open(json_file, "r", encoding="utf-8") as f:
                         json.load(f)
                     self.passed.append(f"JSON valide: {json_file.name}")
                 except json.JSONDecodeError as e:

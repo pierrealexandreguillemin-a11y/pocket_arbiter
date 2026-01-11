@@ -66,12 +66,12 @@ Permettre aux arbitres d'échecs de trouver rapidement les informations régleme
 
 ---
 
-## 🚀 Roadmap
+## Roadmap
 
 | Phase | Description | Statut |
 |-------|-------------|--------|
-| 0 | Fondations et gouvernance | 🟢 En cours |
-| 1 | Pipeline de données | ⚪ À faire |
+| 0 | Fondations et gouvernance | Termine |
+| 1 | Pipeline de donnees | A faire |
 | 2 | Prototype Android - Retrieval | ⚪ À faire |
 | 3 | Synthèse LLM + Interprétation | ⚪ À faire |
 | 4 | Qualité et optimisation | ⚪ À faire |

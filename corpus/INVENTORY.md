@@ -88,7 +88,15 @@
 | 27 | `Compétitions/Interclubs_DepartementalBdr.pdf` | Interclubs Départemental BdR | - | 833 KB | ✅ |
 | 28 | `Compétitions/InterclubsJeunes_PACABdr.pdf` | Interclubs Jeunes PACA BdR | - | 472 KB | ✅ |
 
-**Total corpus FR** : 28 fichiers, ~14 MB
+### Autres fichiers (non-PDF)
+
+| # | Fichier | Description | Format | Statut |
+|---|---------|-------------|--------|--------|
+| 29 | `Compétitions/Nationale 2.mhtml` | Page web archivée N2 | MHTML | ⚠️ Non traitable |
+
+**Note**: Les fichiers MHTML ne peuvent pas être traités par le pipeline PDF. À convertir ou exclure.
+
+**Total corpus FR** : 28 PDF + 1 MHTML, ~14 MB
 
 ---
 

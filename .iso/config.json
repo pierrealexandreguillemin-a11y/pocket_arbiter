@@ -37,13 +37,15 @@
       "id": 0,
       "name": "Fondations",
       "status": "completed",
+      "completedDate": "2026-01-11",
       "gates": ["docs_exist", "structure_valid", "git_initialized"]
     },
     {
       "id": 1,
       "name": "Pipeline de données",
-      "status": "in_progress",
-      "gates": ["specs_exist", "scripts_tested", "corpus_processed"]
+      "status": "not_started",
+      "gates": ["specs_exist", "scripts_tested", "corpus_processed"],
+      "note": "Corpus present mais scripts non implementes"
     },
     {
       "id": 2,

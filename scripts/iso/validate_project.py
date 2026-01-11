@@ -309,13 +309,20 @@ class ISOValidator:
         """Validate project structure per ISO 12207."""
         print(colored(f"\n{Icons.FOLDER} ISO 12207 - Structure projet", Colors.BLUE))
 
+        current_phase = self.get_current_phase()
+
+        # Core directories always required
         required_dirs = [
-            ("android", "Projet Android"),
             ("scripts", "Scripts pipeline"),
             ("corpus", "Données sources"),
             ("docs", "Documentation"),
             ("prompts", "Prompts LLM"),
             ("tests", "Tests"),
+        ]
+
+        # android/ is optional in Phase 0-1, required from Phase 2
+        optional_dirs_phase01 = [
+            ("android", "Projet Android"),
         ]
 
         required_files = [
@@ -325,9 +332,23 @@ class ISOValidator:
         ]
 
         all_ok = True
+
+        # Check core directories
         for path, desc in required_dirs:
             if not self.check_dir_exists(path, desc):
                 all_ok = False
+
+        # Check phase-dependent directories
+        for path, desc in optional_dirs_phase01:
+            full_path = self.root / path
+            if full_path.is_dir():
+                self.passed.append(f"{desc}: {path}/")
+            elif current_phase >= 2:
+                self.errors.append(f"{desc} manquant: {path}/ (REQUIS en Phase {current_phase})")
+                all_ok = False
+            else:
+                # Phase 0-1: warn but don't fail
+                self.warnings.append(f"{desc}: {path}/ (optionnel en Phase {current_phase})")
 
         for path, desc in required_files:
             if not self.check_file_exists(path, desc):
@@ -457,8 +478,12 @@ class ISOValidator:
         if not self.check_dir_exists("tests/data", "Données de test"):
             all_ok = False
 
-        if not self.check_dir_exists("tests/reports", "Rapports de test"):
-            all_ok = False
+        # tests/reports/ is optional - generated during CI
+        reports_dir = self.root / "tests" / "reports"
+        if reports_dir.is_dir():
+            self.passed.append("Rapports de test: tests/reports/")
+        else:
+            self.warnings.append("tests/reports/ absent (sera cree par CI)")
 
         # Validate test JSON files
         test_data_dir = self.root / "tests" / "data"

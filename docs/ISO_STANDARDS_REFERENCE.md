@@ -32,32 +32,29 @@
 ### 1.2 ISO/IEC 42001:2023 - AI Management Systems
 **Scope**: Requirements for establishing, implementing, and improving AI management systems
 
-**Application to Pocket Arbiter**:
-- **AI Policy**: Documented in `docs/AI_POLICY.md`
-- **Risk Management**: Anti-hallucination measures mandatory
-- **Transparency**: All responses must cite source documents
-- **Human Oversight**: AI provides information, human arbiters decide
-- **Data Governance**: Corpus traceable via DVC
-- **Prompt Versioning**: All prompts in `prompts/` with `CHANGELOG.md`
+> **Document de référence détaillé**: [`docs/AI_POLICY.md`](AI_POLICY.md)
 
-**Key Requirements**:
-1. **No hallucination tolerance**: Every response must be grounded in source documents
-2. **Citation mandatory**: Article numbers and page references required
-3. **Uncertainty disclosure**: Model must indicate when unsure
-4. **Prompt traceability**: Version-controlled prompts with change history
+**Résumé des contrôles** (voir AI_POLICY.md pour détails):
+
+| Contrôle | Référence AI_POLICY.md |
+|----------|------------------------|
+| Analyse des risques | Section 3 (AI-R01 à AI-R06) |
+| Mesures anti-hallucination | Section 3.2 |
+| Spécifications modèles | Section 5 |
+| Contrôles ISO 42001 Annex A | Section 4 |
+| Disclaimer utilisateur | Section 7.1 |
+| Checklist release | Section 9 |
+
+**Principes clés**:
+- **Tolérance zéro hallucination**: Chaque réponse doit citer sa source
+- **Grounding obligatoire**: Le LLM ne génère jamais librement
+- **Humain décisionnaire**: L'app conseille, l'arbitre décide
+- **Transparence**: Disclaimer visible, sources citées
 
 **Enforcement**:
-- Pre-commit hook checks for dangerous patterns
-- CI validates AI policy documentation exists
-- Test suite includes adversarial hallucination tests
-
-**Dangerous Patterns (BLOCKED)**:
-```
-generate_without_context
-response_without_source
-skip_citation
-no_grounding
-```
+- Pre-commit: Patterns dangereux bloqués
+- CI: Documentation AI_POLICY.md requise
+- Tests: Suite adversariale anti-hallucination
 
 ---
 
@@ -239,14 +236,24 @@ python scripts/iso/validate_project.py --phase N --gates --verbose
 - Validation logs: CI artifacts
 
 ### Document References
-| Document | ISO Reference |
-|----------|---------------|
-| `docs/VISION.md` | ISO 12207 - Project Planning |
-| `docs/AI_POLICY.md` | ISO 42001 - AI Governance |
-| `docs/QUALITY_REQUIREMENTS.md` | ISO 25010 - Quality Model |
-| `docs/TEST_PLAN.md` | ISO 29119 - Test Documentation |
-| `corpus/INVENTORY.md` | ISO 12207 - Configuration Management |
-| `prompts/CHANGELOG.md` | ISO 42001 - AI Transparency |
+| Document | ISO Reference | Rôle |
+|----------|---------------|------|
+| `docs/VISION.md` | ISO 12207 - Project Planning | Objectifs projet |
+| `docs/AI_POLICY.md` | ISO 42001 - AI Governance | **Document maître IA** |
+| `docs/QUALITY_REQUIREMENTS.md` | ISO 25010 - Quality Model | Exigences qualité |
+| `docs/TEST_PLAN.md` | ISO 29119 - Test Documentation | Stratégie de test |
+| `docs/ISO_STANDARDS_REFERENCE.md` | Toutes normes | **Index et vue d'ensemble** |
+| `corpus/INVENTORY.md` | ISO 12207 - Configuration Management | Traçabilité corpus |
+| `prompts/CHANGELOG.md` | ISO 42001 - AI Transparency | Historique prompts |
+
+**Hiérarchie documentaire**:
+```
+ISO_STANDARDS_REFERENCE.md (index)
+├── AI_POLICY.md (détail ISO 42001)
+├── QUALITY_REQUIREMENTS.md (détail ISO 25010)
+├── TEST_PLAN.md (détail ISO 29119)
+└── VISION.md (détail ISO 12207)
+```
 
 ---
 

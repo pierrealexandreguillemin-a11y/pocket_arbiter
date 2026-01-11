@@ -80,6 +80,7 @@ class ISO12207Checks(BaseChecker):
 
         required_docs = [
             ("docs/VISION.md", "Vision projet"),
+            ("docs/ARCHITECTURE.md", "Architecture technique"),
             ("docs/QUALITY_REQUIREMENTS.md", "Exigences qualité"),
             ("docs/TEST_PLAN.md", "Plan de tests"),
             ("corpus/INVENTORY.md", "Inventaire corpus"),

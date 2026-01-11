@@ -153,8 +153,12 @@
       "checks": [
         "no_todo_fixme_critical",
         "no_secrets",
-        "lint_pass",
-        "tests_pass"
+        "json_valid",
+        "iso_docs_exist",
+        "ai_safety",
+        "python_syntax",
+        "tests_pass",
+        "coverage_75"
       ]
     },
     "commitMessage": {

@@ -149,6 +149,7 @@ def check_iso_docs() -> Tuple[bool, List[str]]:
     """Check required ISO documentation exists. ISO 12207."""
     required = [
         'docs/VISION.md',
+        'docs/ARCHITECTURE.md',
         'docs/AI_POLICY.md',
         'docs/QUALITY_REQUIREMENTS.md',
         'docs/TEST_PLAN.md',
@@ -206,6 +207,52 @@ def check_python_syntax(files: List[Path]) -> Tuple[bool, List[str]]:
     return len(issues) == 0, issues
 
 
+def run_pytest() -> Tuple[bool, str]:
+    """Run pytest on ISO validator tests. ISO 29119 - MANDATORY."""
+    try:
+        result = subprocess.run(
+            [sys.executable, '-m', 'pytest', 'scripts/iso/tests/', '-q', '--tb=line'],
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            errors='replace',
+            timeout=120
+        )
+        output = result.stdout + result.stderr
+        return result.returncode == 0, output.strip()
+    except subprocess.TimeoutExpired:
+        return False, "Timeout: tests took > 120s"
+    except Exception as e:
+        return False, str(e)
+
+
+def run_coverage() -> Tuple[bool, float, str]:
+    """Run pytest with coverage, return (pass, percentage, output). ISO 29119."""
+    try:
+        result = subprocess.run(
+            [sys.executable, '-m', 'pytest', 'scripts/iso/tests/',
+             '--cov=scripts/iso', '--cov-report=term-missing',
+             '--cov-fail-under=75', '-q'],
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            errors='replace',
+            timeout=180
+        )
+        output = result.stdout + result.stderr
+
+        # Extract coverage percentage
+        import re
+        match = re.search(r'TOTAL\s+\d+\s+\d+\s+(\d+)%', output)
+        coverage = float(match.group(1)) if match else 0.0
+
+        return result.returncode == 0, coverage, output.strip()
+    except subprocess.TimeoutExpired:
+        return False, 0.0, "Timeout: coverage took > 180s"
+    except Exception as e:
+        return False, 0.0, str(e)
+
+
 def main() -> int:
     print("ISO Pre-commit validation...")
     print("=" * 50)
@@ -222,7 +269,7 @@ def main() -> int:
                     if not any(excl in str(f).replace('\\', '/') for excl in exclude_paths)]
 
     # Check 1: Critical TODOs (BLOCKING)
-    print("  [1/6] Critical TODO/FIXME...", end=" ")
+    print("  [1/8] Critical TODO/FIXME...", end=" ")
     ok, issues = check_critical_todos(code_files)
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -233,7 +280,7 @@ def main() -> int:
         errors += 1
 
     # Check 2: Secrets (BLOCKING)
-    print("  [2/6] Hardcoded secrets...", end=" ")
+    print("  [2/8] Hardcoded secrets...", end=" ")
     ok, issues = check_secrets(code_files)
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -244,7 +291,7 @@ def main() -> int:
         errors += 1
 
     # Check 3: JSON validity (BLOCKING)
-    print("  [3/6] JSON validity...", end=" ")
+    print("  [3/8] JSON validity...", end=" ")
     if json_files:
         ok, issues = check_json_validity(json_files)
         if ok:
@@ -258,7 +305,7 @@ def main() -> int:
         print(colored("SKIP", Colors.YELLOW), "(no JSON files)")
 
     # Check 4: ISO documentation (BLOCKING)
-    print("  [4/6] ISO documentation...", end=" ")
+    print("  [4/8] ISO documentation...", end=" ")
     ok, issues = check_iso_docs()
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -269,7 +316,7 @@ def main() -> int:
         errors += 1
 
     # Check 5: AI safety (BLOCKING)
-    print("  [5/6] AI safety patterns...", end=" ")
+    print("  [5/8] AI safety patterns...", end=" ")
     ok, issues = check_ai_safety(code_files)
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -280,7 +327,7 @@ def main() -> int:
         errors += 1
 
     # Check 6: Python syntax (BLOCKING)
-    print("  [6/6] Python syntax...", end=" ")
+    print("  [6/8] Python syntax...", end=" ")
     if python_files:
         ok, issues = check_python_syntax(python_files)
         if ok:
@@ -292,6 +339,40 @@ def main() -> int:
             errors += 1
     else:
         print(colored("SKIP", Colors.YELLOW), "(no Python files)")
+
+    # Check 7: Unit tests (BLOCKING) - ISO 29119
+    print("  [7/8] Unit tests (pytest)...", end=" ")
+    if Path('scripts/iso/tests').exists():
+        ok, output = run_pytest()
+        if ok:
+            # Extract passed count from output
+            import re
+            match = re.search(r'(\d+) passed', output)
+            count = match.group(1) if match else '?'
+            print(colored(f"OK ({count} passed)", Colors.GREEN))
+        else:
+            print(colored("FAILED", Colors.RED))
+            # Show last few lines of output
+            lines = output.split('\n')[-5:]
+            for line in lines:
+                if line.strip():
+                    print(f"        {line}")
+            errors += 1
+    else:
+        print(colored("SKIP", Colors.YELLOW), "(no tests directory)")
+
+    # Check 8: Coverage (BLOCKING >= 75%) - ISO 29119
+    print("  [8/8] Coverage (>= 75%)...", end=" ")
+    if Path('scripts/iso/tests').exists():
+        ok, coverage, output = run_coverage()
+        if ok:
+            print(colored(f"OK ({coverage:.0f}%)", Colors.GREEN))
+        else:
+            print(colored(f"FAILED ({coverage:.0f}%)", Colors.RED))
+            print("        Minimum coverage: 75%")
+            errors += 1
+    else:
+        print(colored("SKIP", Colors.YELLOW), "(no tests directory)")
 
     # Summary
     print("=" * 50)

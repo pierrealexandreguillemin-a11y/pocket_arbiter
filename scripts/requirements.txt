@@ -14,9 +14,9 @@ tiktoken>=0.7.0,<1.0.0           # Token counting (OpenAI compatible)
 # ------------------------------------------------------------------------------
 # AI/ML: Embeddings & Vector Search
 # ------------------------------------------------------------------------------
-sentence-transformers>=3.0.0,<4.0.0   # Local embeddings generation
+sentence-transformers>=3.0.0,<6.0.0   # Local embeddings generation (v5.x current)
 torch>=2.2.0,<3.0.0                   # PyTorch backend (CPU/CUDA)
-faiss-cpu>=1.8.0,<2.0.0               # Vector index (CPU version)
+faiss-cpu>=1.8.0,<2.0.0               # Vector index (CPU version, 1.x series)
 
 # ------------------------------------------------------------------------------
 # LLM Integration (Phase 3)

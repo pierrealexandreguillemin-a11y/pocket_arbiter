@@ -18,6 +18,7 @@ def temp_project(tmp_path):
     (tmp_path / ".gitignore").write_text("*.pyc\n")
 
     (tmp_path / "docs" / "VISION.md").write_text("# Vision\n" * 10)
+    (tmp_path / "docs" / "ARCHITECTURE.md").write_text("# Architecture\n" * 10)
     (tmp_path / "docs" / "AI_POLICY.md").write_text("# AI Policy\n" * 10)
     (tmp_path / "docs" / "QUALITY_REQUIREMENTS.md").write_text("# Quality\n" * 10)
     (tmp_path / "docs" / "TEST_PLAN.md").write_text("# Test Plan\n" * 10)
@@ -45,6 +46,7 @@ def full_project(tmp_path):
     (tmp_path / "CLAUDE_CODE_INSTRUCTIONS.md").write_text("# Instructions\n" * 10)
     (tmp_path / ".gitignore").write_text("*.pyc\n")
     (tmp_path / "docs" / "VISION.md").write_text("# Vision\n" * 10)
+    (tmp_path / "docs" / "ARCHITECTURE.md").write_text("# Architecture\n" * 10)
     (tmp_path / "docs" / "AI_POLICY.md").write_text("# AI Policy\n" * 10)
     (tmp_path / "docs" / "QUALITY_REQUIREMENTS.md").write_text("# Quality\n" * 10)
     (tmp_path / "docs" / "TEST_PLAN.md").write_text("# Test Plan\n" * 10)

@@ -7,7 +7,7 @@
     "standards": [
       {
         "id": "ISO25010",
-        "name": "ISO/IEC 25010:2011",
+        "name": "ISO/IEC 25010:2023",
         "scope": "Software Quality",
         "doc": "docs/QUALITY_REQUIREMENTS.md"
       },
@@ -25,7 +25,7 @@
       },
       {
         "id": "ISO29119",
-        "name": "ISO/IEC 29119:2013",
+        "name": "ISO/IEC 29119:2022",
         "scope": "Testing",
         "doc": "docs/TEST_PLAN.md"
       }
@@ -126,8 +126,8 @@
       "check": "avg_latency() < 5000"
     },
     "coverage_met": {
-      "description": "Coverage ≥ 60%",
-      "check": "test_coverage() >= 0.60"
+      "description": "Coverage ≥ 75%",
+      "check": "test_coverage() >= 0.75"
     },
     "lint_clean": {
       "description": "Pas de warnings Lint critiques",
@@ -190,11 +190,11 @@
   },
 
   "metrics": {
-    "testPassRate": {"target": 1.0, "current": null},
-    "codeCoverage": {"target": 0.60, "current": null},
-    "lintWarnings": {"target": 0, "current": null},
-    "retrievalRecall": {"target": 0.80, "current": null},
-    "hallucinationRate": {"target": 0.0, "current": null},
-    "avgLatency": {"target": 5000, "unit": "ms", "current": null}
+    "testPassRate": {"target": 1.0, "current": 1.0, "updated": "2026-01-11"},
+    "codeCoverage": {"target": 0.75, "current": 0.99, "updated": "2026-01-11"},
+    "lintWarnings": {"target": 0, "current": 0, "updated": "2026-01-11"},
+    "retrievalRecall": {"target": 0.80, "current": null, "note": "Phase 2"},
+    "hallucinationRate": {"target": 0.0, "current": null, "note": "Phase 3"},
+    "avgLatency": {"target": 5000, "unit": "ms", "current": null, "note": "Phase 3"}
   }
 }

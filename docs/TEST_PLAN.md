@@ -482,4 +482,4 @@ Duration: 12m 34s
 
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
-| 1.0 | 2026-01-10 | [Ton nom] | Création initiale |
+| 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Création initiale |

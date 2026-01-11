@@ -4,7 +4,7 @@
     "schemaVersion": "1.0.0",
     "projectName": "Pocket Arbiter",
     "projectDescription": "Application mobile 100% offline d'assistance à l'arbitrage d'échecs - Règlements FFE et FIDE",
-    "lastUpdated": "2025-01-11"
+    "lastUpdated": "2026-01-11"
   },
 
   "embeddingModel": {
@@ -90,15 +90,24 @@
   },
 
   "versioning": {
-    "currentPhase": "Phase 0 - Setup",
-    "modelVersion": "0.0.0",
+    "currentPhase": "Phase 1 - Pipeline de données",
+    "modelVersion": "0.1.0",
     "changelog": [
       {
+        "version": "0.1.0",
+        "date": "2026-01-11",
+        "changes": [
+          "Phase 0 complétée: fondations ISO",
+          "Pre-commit hooks ISO-conformes",
+          "Test coverage 99%",
+          "Documentation complète"
+        ]
+      },
+      {
         "version": "0.0.0",
-        "date": "2025-01-11",
+        "date": "2026-01-10",
         "changes": [
           "Structure projet initiale",
-          "Configuration CI/CD",
           "Configuration DVC"
         ]
       }

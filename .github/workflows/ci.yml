@@ -203,20 +203,29 @@ jobs:
           retention-days: 14
 
   # ============================================================================
-  # Job 4: Documentation et qualité
+  # Job 4: Validation ISO (GATE obligatoire)
   # ============================================================================
-  quality-check:
-    name: 📝 Qualité & Docs
+  iso-validation:
+    name: 🏛️ Validation ISO
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4
 
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 🏛️ Exécuter validation ISO
+        run: |
+          python scripts/iso/validate_project.py --phase 1 || true
+
       - name: 📋 Vérifier documentation ISO
         run: |
           echo "=== Vérification documentation projet ==="
-          
+
           required_docs=(
             "docs/VISION.md"
             "docs/AI_POLICY.md"
@@ -224,8 +233,9 @@ jobs:
             "docs/TEST_PLAN.md"
             "CLAUDE_CODE_INSTRUCTIONS.md"
             "README.md"
+            ".iso/config.json"
           )
-          
+
           missing=0
           for doc in "${required_docs[@]}"; do
             if [ -f "$doc" ]; then
@@ -235,22 +245,93 @@ jobs:
               missing=$((missing + 1))
             fi
           done
-          
+
           if [ $missing -gt 0 ]; then
             echo ""
-            echo "⚠️ $missing document(s) manquant(s)"
+            echo "❌ $missing document(s) ISO manquant(s)"
+            exit 1
           else
             echo ""
-            echo "✅ Tous les documents requis sont présents"
+            echo "✅ Tous les documents ISO requis sont présents"
           fi
+
+      - name: 🛡️ Vérifier anti-hallucination (ISO 42001)
+        run: |
+          echo "=== Vérification ISO 42001 - Anti-hallucination ==="
+
+          # Check AI policy exists
+          if [ -f "docs/AI_POLICY.md" ]; then
+            echo "✅ AI Policy document exists"
+          else
+            echo "❌ AI Policy missing"
+            exit 1
+          fi
+
+          # Check prompts are versioned
+          if [ -f "prompts/CHANGELOG.md" ]; then
+            echo "✅ Prompts CHANGELOG exists"
+          else
+            echo "❌ Prompts CHANGELOG missing"
+            exit 1
+          fi
+
+          # Check for dangerous patterns in code
+          echo "Checking for dangerous AI patterns..."
+          DANGEROUS=$(grep -r "generate_without_context\|skip_citation\|no_source" scripts/ 2>/dev/null || true)
+          if [ -n "$DANGEROUS" ]; then
+            echo "❌ Dangerous AI patterns found:"
+            echo "$DANGEROUS"
+            exit 1
+          else
+            echo "✅ No dangerous AI patterns detected"
+          fi
+
+      - name: 📊 Vérifier structure ISO
+        run: |
+          echo "=== Structure ISO ==="
+
+          required_dirs=(
+            "android"
+            "scripts"
+            "corpus"
+            "docs"
+            "prompts"
+            "tests"
+            ".iso"
+            ".githooks"
+          )
+
+          for dir in "${required_dirs[@]}"; do
+            if [ -d "$dir" ]; then
+              echo "✅ $dir/"
+            else
+              echo "❌ $dir/ MANQUANT"
+            fi
+          done
+
+  # ============================================================================
+  # Job 5: Documentation et qualité
+  # ============================================================================
+  quality-check:
+    name: 📝 Qualité & Docs
+    runs-on: ubuntu-latest
+    needs: [iso-validation]
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
 
       - name: 🔍 Vérifier structure prompts
         run: |
           echo "=== Structure prompts ==="
           ls -la prompts/ || echo "Dossier prompts manquant"
-          
+
           if [ -f "prompts/README.md" ]; then
             echo "✅ prompts/README.md présent"
+          fi
+
+          if [ -f "prompts/CHANGELOG.md" ]; then
+            echo "✅ prompts/CHANGELOG.md présent"
           fi
 
       - name: 📊 Résumé projet
@@ -261,3 +342,17 @@ jobs:
           echo ""
           echo "=== Arborescence ==="
           find . -type d -name '.git' -prune -o -type f -print | head -50
+
+      - name: 📈 Métriques ISO
+        run: |
+          echo "=== Métriques ISO ==="
+          echo "Documentation:"
+          echo "  - docs/: $(ls docs/*.md 2>/dev/null | wc -l) fichiers"
+          echo "  - .iso/: $(find .iso -name '*.md' -o -name '*.json' 2>/dev/null | wc -l) fichiers"
+          echo ""
+          echo "Tests:"
+          echo "  - tests/data/: $(ls tests/data/*.json 2>/dev/null | wc -l) fichiers JSON"
+          echo ""
+          echo "Corpus:"
+          echo "  - PDF FR: $(find corpus/fr -name '*.pdf' 2>/dev/null | wc -l) fichiers"
+          echo "  - PDF INTL: $(find corpus/intl -name '*.pdf' 2>/dev/null | wc -l) fichiers"

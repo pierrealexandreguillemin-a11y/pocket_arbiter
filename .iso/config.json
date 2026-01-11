@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "isoEnforcement": {
+    "version": "1.0.0",
+    "project": "Pocket Arbiter",
+    "description": "Configuration ISO enforcement pour le développement",
+    "standards": [
+      {
+        "id": "ISO25010",
+        "name": "ISO/IEC 25010:2011",
+        "scope": "Software Quality",
+        "doc": "docs/QUALITY_REQUIREMENTS.md"
+      },
+      {
+        "id": "ISO42001",
+        "name": "ISO/IEC 42001:2023",
+        "scope": "AI Governance",
+        "doc": "docs/AI_POLICY.md"
+      },
+      {
+        "id": "ISO12207",
+        "name": "ISO/IEC 12207:2017",
+        "scope": "Software Lifecycle",
+        "doc": "docs/VISION.md"
+      },
+      {
+        "id": "ISO29119",
+        "name": "ISO/IEC 29119:2013",
+        "scope": "Testing",
+        "doc": "docs/TEST_PLAN.md"
+      }
+    ]
+  },
+
+  "phases": [
+    {
+      "id": 0,
+      "name": "Fondations",
+      "status": "completed",
+      "gates": ["docs_exist", "structure_valid", "git_initialized"]
+    },
+    {
+      "id": 1,
+      "name": "Pipeline de données",
+      "status": "in_progress",
+      "gates": ["specs_exist", "scripts_tested", "corpus_processed"]
+    },
+    {
+      "id": 2,
+      "name": "Prototype Android - Retrieval",
+      "status": "pending",
+      "gates": ["specs_exist", "ui_implemented", "retrieval_tested"]
+    },
+    {
+      "id": 3,
+      "name": "Synthèse LLM",
+      "status": "pending",
+      "gates": ["specs_exist", "grounding_verified", "hallucination_tested"]
+    },
+    {
+      "id": 4,
+      "name": "Qualité et optimisation",
+      "status": "pending",
+      "gates": ["performance_validated", "coverage_met", "lint_clean"]
+    },
+    {
+      "id": 5,
+      "name": "Validation et beta",
+      "status": "pending",
+      "gates": ["user_tested", "docs_complete", "release_ready"]
+    }
+  ],
+
+  "gates": {
+    "docs_exist": {
+      "description": "Documentation ISO existe",
+      "check": "all([exists(f) for f in required_docs])",
+      "required_docs": [
+        "docs/VISION.md",
+        "docs/AI_POLICY.md",
+        "docs/QUALITY_REQUIREMENTS.md",
+        "docs/TEST_PLAN.md"
+      ]
+    },
+    "structure_valid": {
+      "description": "Structure projet conforme",
+      "check": "validate_structure()",
+      "required_dirs": ["android", "scripts", "corpus", "docs", "prompts", "tests"]
+    },
+    "git_initialized": {
+      "description": "Git et remote configurés",
+      "check": "exists('.git') and has_remote()"
+    },
+    "specs_exist": {
+      "description": "Specs de la feature existent",
+      "check": "feature_has_spec(feature_name)"
+    },
+    "scripts_tested": {
+      "description": "Scripts Python testés",
+      "check": "pytest_passes('scripts/')"
+    },
+    "corpus_processed": {
+      "description": "Corpus extrait et indexé",
+      "check": "index_exists() and chunks_exist()"
+    },
+    "ui_implemented": {
+      "description": "UI implémentée selon specs",
+      "check": "ui_tests_pass()"
+    },
+    "retrieval_tested": {
+      "description": "Retrieval testé (recall ≥80%)",
+      "check": "retrieval_recall() >= 0.80"
+    },
+    "grounding_verified": {
+      "description": "Réponses basées sur sources",
+      "check": "all_responses_have_citations()"
+    },
+    "hallucination_tested": {
+      "description": "Tests anti-hallucination passent",
+      "check": "hallucination_rate() == 0"
+    },
+    "performance_validated": {
+      "description": "Performance < 5s",
+      "check": "avg_latency() < 5000"
+    },
+    "coverage_met": {
+      "description": "Coverage ≥ 60%",
+      "check": "test_coverage() >= 0.60"
+    },
+    "lint_clean": {
+      "description": "Pas de warnings Lint critiques",
+      "check": "critical_lint_warnings() == 0"
+    },
+    "user_tested": {
+      "description": "Testé par utilisateurs beta",
+      "check": "beta_testers_count() >= 5"
+    },
+    "docs_complete": {
+      "description": "Documentation utilisateur complète",
+      "check": "exists('docs/USER_GUIDE.md')"
+    },
+    "release_ready": {
+      "description": "APK signé et testé",
+      "check": "release_apk_exists() and release_tests_pass()"
+    }
+  },
+
+  "enforcement": {
+    "preCommit": {
+      "enabled": true,
+      "checks": [
+        "no_todo_fixme_critical",
+        "no_secrets",
+        "lint_pass",
+        "tests_pass"
+      ]
+    },
+    "commitMessage": {
+      "enabled": true,
+      "pattern": "^\\[(feat|fix|test|docs|refactor|perf|chore)\\]\\s.+",
+      "requireCoAuthor": true
+    },
+    "preMerge": {
+      "enabled": true,
+      "requireDod": true,
+      "requireReview": false
+    }
+  },
+
+  "metrics": {
+    "testPassRate": {"target": 1.0, "current": null},
+    "codeCoverage": {"target": 0.60, "current": null},
+    "lintWarnings": {"target": 0, "current": null},
+    "retrievalRecall": {"target": 0.80, "current": null},
+    "hallucinationRate": {"target": 0.0, "current": null},
+    "avgLatency": {"target": 5000, "unit": "ms", "current": null}
+  }
+}

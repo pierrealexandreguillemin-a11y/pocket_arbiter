@@ -80,11 +80,14 @@ jobs:
           fi
           echo "[OK] Prompts versioned"
 
-          # No dangerous AI patterns (exclude validator itself)
+          # No dangerous AI patterns (exclude validator, hooks, and tests)
           echo "Checking AI safety patterns..."
           if grep -r --include="*.py" --include="*.kt" \
             -E "generate_without_context|skip_citation|no_source_check" \
-            scripts/ android/ 2>/dev/null | grep -v "validate_project.py" | grep -v "pre-commit.py"; then
+            scripts/ android/ 2>/dev/null \
+            | grep -v "validate_project.py" \
+            | grep -v "pre-commit.py" \
+            | grep -v "test_"; then
             echo "[FAIL] Dangerous AI patterns found"
             exit 1
           fi

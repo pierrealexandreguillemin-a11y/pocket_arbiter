@@ -155,10 +155,17 @@
         "no_secrets",
         "json_valid",
         "iso_docs_exist",
-        "ai_safety",
+        "ai_safety_iso42001",
         "python_syntax",
-        "tests_pass",
-        "coverage_75"
+        "lint_flake8_iso25010",
+        "tests_pass_iso29119",
+        "coverage_75_iso29119"
+      ]
+    },
+    "prePush": {
+      "enabled": true,
+      "checks": [
+        "no_force_push_main"
       ]
     },
     "commitMessage": {

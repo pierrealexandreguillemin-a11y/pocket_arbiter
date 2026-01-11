@@ -207,6 +207,27 @@ def check_python_syntax(files: List[Path]) -> Tuple[bool, List[str]]:
     return len(issues) == 0, issues
 
 
+def run_flake8(path: str = "scripts/") -> Tuple[bool, str]:
+    """Run flake8 lint. ISO 25010 - Code Quality - MANDATORY."""
+    try:
+        result = subprocess.run(
+            [sys.executable, '-m', 'flake8', path,
+             '--select=E9,F63,F7,F82',  # Critical errors only
+             '--show-source', '--statistics'],
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            errors='replace',
+            timeout=60
+        )
+        output = result.stdout + result.stderr
+        return result.returncode == 0, output.strip()
+    except subprocess.TimeoutExpired:
+        return False, "Timeout: lint took > 60s"
+    except Exception as e:
+        return False, str(e)
+
+
 def run_pytest() -> Tuple[bool, str]:
     """Run pytest on ISO validator tests. ISO 29119 - MANDATORY."""
     try:
@@ -269,7 +290,7 @@ def main() -> int:
                     if not any(excl in str(f).replace('\\', '/') for excl in exclude_paths)]
 
     # Check 1: Critical TODOs (BLOCKING)
-    print("  [1/8] Critical TODO/FIXME...", end=" ")
+    print("  [1/9] Critical TODO/FIXME...", end=" ")
     ok, issues = check_critical_todos(code_files)
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -280,7 +301,7 @@ def main() -> int:
         errors += 1
 
     # Check 2: Secrets (BLOCKING)
-    print("  [2/8] Hardcoded secrets...", end=" ")
+    print("  [2/9] Hardcoded secrets...", end=" ")
     ok, issues = check_secrets(code_files)
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -291,7 +312,7 @@ def main() -> int:
         errors += 1
 
     # Check 3: JSON validity (BLOCKING)
-    print("  [3/8] JSON validity...", end=" ")
+    print("  [3/9] JSON validity...", end=" ")
     if json_files:
         ok, issues = check_json_validity(json_files)
         if ok:
@@ -305,7 +326,7 @@ def main() -> int:
         print(colored("SKIP", Colors.YELLOW), "(no JSON files)")
 
     # Check 4: ISO documentation (BLOCKING)
-    print("  [4/8] ISO documentation...", end=" ")
+    print("  [4/9] ISO documentation...", end=" ")
     ok, issues = check_iso_docs()
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -316,7 +337,7 @@ def main() -> int:
         errors += 1
 
     # Check 5: AI safety (BLOCKING)
-    print("  [5/8] AI safety patterns...", end=" ")
+    print("  [5/9] AI safety patterns...", end=" ")
     ok, issues = check_ai_safety(code_files)
     if ok:
         print(colored("OK", Colors.GREEN))
@@ -327,7 +348,7 @@ def main() -> int:
         errors += 1
 
     # Check 6: Python syntax (BLOCKING)
-    print("  [6/8] Python syntax...", end=" ")
+    print("  [6/9] Python syntax...", end=" ")
     if python_files:
         ok, issues = check_python_syntax(python_files)
         if ok:
@@ -340,8 +361,24 @@ def main() -> int:
     else:
         print(colored("SKIP", Colors.YELLOW), "(no Python files)")
 
-    # Check 7: Unit tests (BLOCKING) - ISO 29119
-    print("  [7/8] Unit tests (pytest)...", end=" ")
+    # Check 7: Lint/flake8 (BLOCKING) - ISO 25010
+    print("  [7/9] Lint (flake8)...", end=" ")
+    if Path('scripts/').exists():
+        ok, output = run_flake8('scripts/')
+        if ok:
+            print(colored("OK", Colors.GREEN))
+        else:
+            print(colored("FAILED", Colors.RED))
+            lines = output.split('\n')[:5]
+            for line in lines:
+                if line.strip():
+                    print(f"        {line}")
+            errors += 1
+    else:
+        print(colored("SKIP", Colors.YELLOW), "(no scripts/)")
+
+    # Check 8: Unit tests (BLOCKING) - ISO 29119
+    print("  [8/9] Unit tests (pytest)...", end=" ")
     if Path('scripts/iso/tests').exists():
         ok, output = run_pytest()
         if ok:
@@ -361,8 +398,8 @@ def main() -> int:
     else:
         print(colored("SKIP", Colors.YELLOW), "(no tests directory)")
 
-    # Check 8: Coverage (BLOCKING >= 75%) - ISO 29119
-    print("  [8/8] Coverage (>= 75%)...", end=" ")
+    # Check 9: Coverage (BLOCKING >= 75%) - ISO 29119
+    print("  [9/9] Coverage (>= 75%)...", end=" ")
     if Path('scripts/iso/tests').exists():
         ok, coverage, output = run_coverage()
         if ok:

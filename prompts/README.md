@@ -1,24 +1,44 @@
-# Prompts LLM - Arbitre Échecs RAG
+# prompts/ - Prompts IA versiones
 
-Ce dossier contient les prompts versionnés pour le modèle LLM.
+> **ISO 42001**: Gouvernance IA | **Tolerance zero hallucination**
 
-## Structure
+## Conformite obligatoire
+
+| Regle | Verification |
+|-------|--------------|
+| Chaque prompt versionne | Fichier nomme `*_v{N}.txt` |
+| CHANGELOG.md a jour | Chaque modif documentee |
+| Instructions citation | Prompt DOIT exiger source |
+| Pas de generation libre | Grounding obligatoire |
+
+## Structure requise
 
 ```
 prompts/
-├── interpretation_v1.txt    # Prompt principal pour synthèse
-├── grounding_v1.txt         # Prompt pour vérification sources
-└── CHANGELOG.md             # Historique des modifications
+├── CHANGELOG.md           # Historique (obligatoire)
+├── interpretation_v1.txt  # Prompt synthese (Phase 3)
+├── README.md              # Ce fichier
+└── CLAUDE_CODE_PHASE1.md  # Instructions dev
 ```
 
-## Règles
+## Regles anti-hallucination
 
-1. **Versionner** chaque prompt (v1, v2, etc.)
-2. **Ne jamais modifier** un prompt existant, créer une nouvelle version
-3. **Documenter** les changements dans CHANGELOG.md
-4. **Tester** avant de mettre en production
+Chaque prompt de synthese DOIT contenir:
+- [ ] Instruction de citer la source
+- [ ] Instruction de refuser si hors corpus
+- [ ] Format de citation defini
 
-## Changelog
+Exemple obligatoire dans prompt:
+```
+TOUJOURS citer la source (document + page).
+Si l'information n'est pas dans le contexte, repondre "Non trouve".
+NE JAMAIS inventer d'information.
+```
 
-### v1.0 (À venir)
-- Création initiale des prompts
+## Versionning
+
+1. Ne JAMAIS modifier un prompt existant
+2. Creer nouvelle version: `prompt_v2.txt`
+3. Documenter dans CHANGELOG.md
+
+**Prompt sans grounding = BLOQUANT**

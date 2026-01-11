@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Tests for ISO check modules."""
 
+import json
 import shutil
 import pytest
 
@@ -40,6 +41,60 @@ class TestISO12207Checks:
         """Test phase detection without config."""
         checker, _, _, _ = make_checker(ISO12207Checks, tmp_path)
         assert checker.get_current_phase() == 0
+
+    def test_get_current_phase_with_completed(self, tmp_path):
+        """Test phase detection with completed phases."""
+        (tmp_path / ".iso").mkdir()
+        config = {
+            "version": "1.0",
+            "phases": [
+                {"id": 0, "status": "completed"},
+                {"id": 1, "status": "completed"},
+                {"id": 2, "status": "in_progress"},
+            ]
+        }
+        (tmp_path / ".iso" / "config.json").write_text(json.dumps(config))
+        checker, _, _, _ = make_checker(ISO12207Checks, tmp_path)
+        assert checker.get_current_phase() == 2
+
+    def test_get_current_phase_in_progress(self, tmp_path):
+        """Test phase detection with in_progress phase."""
+        (tmp_path / ".iso").mkdir()
+        config = {
+            "version": "1.0",
+            "phases": [
+                {"id": 0, "status": "completed"},
+                {"id": 1, "status": "in_progress"},
+            ]
+        }
+        (tmp_path / ".iso" / "config.json").write_text(json.dumps(config))
+        checker, _, _, _ = make_checker(ISO12207Checks, tmp_path)
+        assert checker.get_current_phase() == 1
+
+    def test_get_current_phase_invalid_json(self, tmp_path):
+        """Test phase detection with invalid JSON."""
+        (tmp_path / ".iso").mkdir()
+        (tmp_path / ".iso" / "config.json").write_text("not json")
+        checker, _, _, _ = make_checker(ISO12207Checks, tmp_path)
+        assert checker.get_current_phase() == 0
+
+    def test_structure_android_required_phase2(self, tmp_path):
+        """Test android is required at phase 2."""
+        # Create minimal structure
+        for d in ["scripts", "corpus", "docs", "prompts", "tests"]:
+            (tmp_path / d).mkdir()
+        (tmp_path / "README.md").write_text("# Test\n")
+        (tmp_path / "CLAUDE_CODE_INSTRUCTIONS.md").write_text("# Instructions\n")
+        (tmp_path / ".gitignore").write_text("*.pyc\n")
+        # Set phase 2
+        (tmp_path / ".iso").mkdir()
+        config = {"phases": [{"id": 0, "status": "completed"}, {"id": 1, "status": "completed"}]}
+        (tmp_path / ".iso" / "config.json").write_text(json.dumps(config))
+
+        checker, errors, _, _ = make_checker(ISO12207Checks, tmp_path)
+        result = checker.validate_structure()
+        assert result is False
+        assert any("android" in e.lower() for e in errors)
 
 
 class TestISO42001Checks:

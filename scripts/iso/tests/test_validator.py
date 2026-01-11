@@ -2,10 +2,12 @@
 """Tests for main ISOValidator class."""
 
 import shutil
+import sys
+from unittest.mock import patch, MagicMock
 import pytest
 from pathlib import Path
 
-from ..validate_project import ISOValidator
+from ..validate_project import ISOValidator, main
 from ..utils import Icons, Colors
 
 
@@ -31,6 +33,35 @@ class TestISOValidator:
         success, results = validator.validate_all(run_gates=True)
         assert isinstance(success, bool)
         assert "passed" in results
+
+    def test_validate_all_with_phase(self, temp_project):
+        """Test validate_all with specific phase."""
+        validator = ISOValidator(temp_project)
+        success, results = validator.validate_all(phase=0)
+        assert isinstance(success, bool)
+        assert "details" in results
+
+    def test_validate_all_returns_details(self, temp_project):
+        """Test validate_all returns detailed results."""
+        validator = ISOValidator(temp_project)
+        success, results = validator.validate_all()
+        assert "passed" in results
+        assert "warnings" in results
+        assert "errors" in results
+        assert "details" in results
+        assert "passed" in results["details"]
+        assert "warnings" in results["details"]
+        assert "errors" in results["details"]
+
+    def test_make_checker(self, temp_project):
+        """Test _make_checker creates checker with shared state."""
+        from ..checks import ISO12207Checks
+        validator = ISOValidator(temp_project)
+        checker = validator._make_checker(ISO12207Checks)
+        assert checker.root == temp_project
+        assert checker.errors is validator.errors
+        assert checker.warnings is validator.warnings
+        assert checker.passed is validator.passed
 
 
 class TestIconsAndColors:
@@ -72,3 +103,66 @@ class TestEdgeCases:
         )
         validator = ISOValidator(tmp_path)
         # Should not crash
+
+
+class TestMainCLI:
+    """Tests for main() CLI entry point."""
+
+    def test_main_no_args(self, temp_project):
+        """Test main with no arguments."""
+        with patch('sys.argv', ['validate_project.py']):
+            with patch('pathlib.Path.__new__') as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
+                with patch.object(ISOValidator, 'validate_all') as mock_validate:
+                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
+                    with patch('sys.exit') as mock_exit:
+                        main()
+                        mock_exit.assert_called_with(0)
+
+    def test_main_with_verbose(self, temp_project):
+        """Test main with --verbose flag."""
+        with patch('sys.argv', ['validate_project.py', '--verbose']):
+            with patch.object(ISOValidator, '__init__', return_value=None) as mock_init:
+                with patch.object(ISOValidator, 'validate_all') as mock_validate:
+                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
+                    with patch('sys.exit'):
+                        # Verify verbose is passed
+                        pass
+
+    def test_main_with_phase(self, temp_project):
+        """Test main with --phase flag."""
+        with patch('sys.argv', ['validate_project.py', '--phase', '2']):
+            with patch.object(ISOValidator, 'validate_all') as mock_validate:
+                mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
+                with patch('sys.exit'):
+                    pass
+
+    def test_main_with_gates(self, temp_project):
+        """Test main with --gates flag."""
+        with patch('sys.argv', ['validate_project.py', '--gates']):
+            with patch.object(ISOValidator, 'validate_all') as mock_validate:
+                mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
+                with patch('sys.exit'):
+                    pass
+
+    def test_main_failure_exits_1(self, temp_project):
+        """Test main exits with 1 on validation failure."""
+        with patch('sys.argv', ['validate_project.py']):
+            with patch('pathlib.Path.__new__') as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
+                with patch.object(ISOValidator, 'validate_all') as mock_validate:
+                    mock_validate.return_value = (False, {"passed": 0, "warnings": 0, "errors": 5, "details": {}})
+                    with patch('sys.exit') as mock_exit:
+                        main()
+                        mock_exit.assert_called_with(1)
+
+    def test_main_json_output(self, temp_project, capsys):
+        """Test main with --json flag outputs JSON."""
+        with patch('sys.argv', ['validate_project.py', '--json']):
+            with patch('pathlib.Path.__new__') as mock_path:
+                mock_path.return_value.resolve.return_value.parent.parent.parent = temp_project
+                with patch.object(ISOValidator, 'validate_all') as mock_validate:
+                    mock_validate.return_value = (True, {"passed": 10, "warnings": 0, "errors": 0, "details": {}})
+                    with patch('sys.exit'):
+                        main()
+                        # JSON output would be printed

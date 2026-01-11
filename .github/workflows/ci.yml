@@ -247,14 +247,14 @@ jobs:
       - name: Run Unit Tests (BLOCKING)
         run: |
           echo "=== Unit Tests ==="
-          pytest scripts/iso/test_validator.py -v --tb=short
+          pytest scripts/iso/tests/ -v --tb=short
           echo "[OK] All unit tests passed"
 
       - name: Run Tests with Coverage (BLOCKING)
         run: |
           echo "=== Coverage Report ==="
-          pytest scripts/iso/ --cov=scripts/iso --cov-report=term-missing --cov-fail-under=60
-          echo "[OK] Coverage meets minimum threshold (60%)"
+          pytest scripts/iso/tests/ --cov=scripts/iso --cov-report=term-missing --cov-fail-under=75
+          echo "[OK] Coverage meets minimum threshold (75%)"
 
   # ============================================================================
   # Job 4: Documentation Quality

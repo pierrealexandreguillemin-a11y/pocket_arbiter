@@ -168,6 +168,26 @@ class TestISO42001Checks:
         result = checker.validate_policy()
         assert result is False
 
+    def test_policy_few_prompts(self, tmp_path):
+        """Test warns when few prompts exist."""
+        (tmp_path / "docs").mkdir()
+        (tmp_path / "docs" / "AI_POLICY.md").write_text("# AI Policy\n")
+        (tmp_path / "prompts").mkdir()
+        (tmp_path / "prompts" / "CHANGELOG.md").write_text("# Changelog\n")
+        # Only one prompt file (CHANGELOG.md) - should warn
+        checker, _, warnings, _ = make_checker(ISO42001Checks, tmp_path)
+        result = checker.validate_policy()
+        assert result is True
+        assert any("Peu de prompts" in w for w in warnings)
+
+    def test_policy_many_prompts(self, temp_project):
+        """Test passes when many prompts exist."""
+        # temp_project has README.md, CHANGELOG.md, and test.txt in prompts
+        checker, _, _, passed = make_checker(ISO42001Checks, temp_project)
+        result = checker.validate_policy()
+        assert result is True
+        assert any("Prompts versionnés" in p for p in passed)
+
     def test_antihallu_clean(self, tmp_path):
         """Test clean AI code passes."""
         (tmp_path / "scripts").mkdir()
@@ -186,7 +206,8 @@ class TestISO42001Checks:
         )
         checker, errors, _, _ = make_checker(ISO42001Checks, tmp_path)
         result = checker.validate_antihallu()
-        assert result is False or len(errors) > 0
+        assert result is False
+        assert any("Pattern dangereux" in e for e in errors)
 
 
 class TestISO25010Checks:
@@ -197,6 +218,36 @@ class TestISO25010Checks:
         checker, _, _, _ = make_checker(ISO25010Checks, temp_project)
         result = checker.validate_quality()
         assert result is True
+
+    def test_quality_with_many_test_files(self, temp_project):
+        """Test quality passes with multiple test files."""
+        # temp_project already has test.json, add more
+        (temp_project / "tests" / "data" / "test2.json").write_text('{}')
+        (temp_project / "tests" / "data" / "test3.json").write_text('{}')
+        checker, _, _, passed = make_checker(ISO25010Checks, temp_project)
+        result = checker.validate_quality()
+        assert result is True
+        assert any("fichiers JSON" in p for p in passed)
+
+    def test_quality_few_test_files(self, tmp_path):
+        """Test quality warns with few test files."""
+        (tmp_path / "docs").mkdir()
+        (tmp_path / "docs" / "QUALITY_REQUIREMENTS.md").write_text("# Quality\n")
+        (tmp_path / "tests" / "data").mkdir(parents=True)
+        (tmp_path / "tests" / "data" / "one.json").write_text('{}')
+        checker, _, warnings, _ = make_checker(ISO25010Checks, tmp_path)
+        result = checker.validate_quality()
+        assert result is True
+        assert any("Peu de fichiers" in w for w in warnings)
+
+    def test_quality_no_test_dir(self, tmp_path):
+        """Test quality fails without tests/data dir."""
+        (tmp_path / "docs").mkdir()
+        (tmp_path / "docs" / "QUALITY_REQUIREMENTS.md").write_text("# Quality\n")
+        checker, errors, _, _ = make_checker(ISO25010Checks, tmp_path)
+        result = checker.validate_quality()
+        assert result is False
+        assert any("tests/data" in e for e in errors)
 
 
 class TestISO29119Checks:

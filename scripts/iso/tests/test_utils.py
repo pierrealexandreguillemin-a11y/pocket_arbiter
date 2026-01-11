@@ -6,7 +6,94 @@ import sys
 from unittest.mock import patch
 import pytest
 
-from ..utils import Colors, Icons, colored
+from ..utils import (
+    Colors, Icons, colored,
+    _is_fancy_terminal, _get_colors, _get_icons
+)
+
+
+class TestIsFancyTerminal:
+    """Tests for _is_fancy_terminal function."""
+
+    def test_fancy_terminal_windows_with_wt(self):
+        """Test Windows Terminal is detected as fancy."""
+        with patch('sys.platform', 'win32'):
+            with patch.dict(os.environ, {'WT_SESSION': '1'}):
+                result = _is_fancy_terminal()
+                assert result is True
+
+    def test_fancy_terminal_windows_without_wt(self):
+        """Test basic Windows console is not fancy."""
+        with patch('sys.platform', 'win32'):
+            with patch.dict(os.environ, {}, clear=True):
+                result = _is_fancy_terminal()
+                assert result is False
+
+    def test_fancy_terminal_linux(self):
+        """Test Linux is always fancy."""
+        with patch('sys.platform', 'linux'):
+            result = _is_fancy_terminal()
+            assert result is True
+
+    def test_fancy_terminal_darwin(self):
+        """Test macOS is always fancy."""
+        with patch('sys.platform', 'darwin'):
+            result = _is_fancy_terminal()
+            assert result is True
+
+
+class TestGetColors:
+    """Tests for _get_colors function."""
+
+    def test_get_colors_fancy(self):
+        """Test colors with fancy terminal."""
+        colors = _get_colors(fancy=True)
+        assert colors['RED'] == '\033[0;31m'
+        assert colors['GREEN'] == '\033[0;32m'
+        assert colors['YELLOW'] == '\033[1;33m'
+        assert colors['BLUE'] == '\033[0;34m'
+        assert colors['NC'] == '\033[0m'
+
+    def test_get_colors_not_fancy(self):
+        """Test colors without fancy terminal."""
+        colors = _get_colors(fancy=False)
+        assert colors['RED'] == ''
+        assert colors['GREEN'] == ''
+        assert colors['YELLOW'] == ''
+        assert colors['BLUE'] == ''
+        assert colors['NC'] == ''
+
+    def test_get_colors_auto_detect(self):
+        """Test colors with auto-detection."""
+        colors = _get_colors()  # No argument, auto-detect
+        assert 'RED' in colors
+        assert 'NC' in colors
+
+
+class TestGetIcons:
+    """Tests for _get_icons function."""
+
+    def test_get_icons_fancy(self):
+        """Test icons with fancy terminal."""
+        icons = _get_icons(fancy=True)
+        assert icons['FOLDER'] == '📁'
+        assert icons['CHECK'] == '✅'
+        assert icons['CROSS'] == '❌'
+        assert icons['WARN'] == '⚠️'
+
+    def test_get_icons_not_fancy(self):
+        """Test icons without fancy terminal (ASCII fallback)."""
+        icons = _get_icons(fancy=False)
+        assert icons['FOLDER'] == '[DIR]'
+        assert icons['CHECK'] == '[OK]'
+        assert icons['CROSS'] == '[FAIL]'
+        assert icons['WARN'] == '[WARN]'
+
+    def test_get_icons_auto_detect(self):
+        """Test icons with auto-detection."""
+        icons = _get_icons()  # No argument, auto-detect
+        assert 'FOLDER' in icons
+        assert 'CHECK' in icons
 
 
 class TestColors:
@@ -27,23 +114,6 @@ class TestColors:
         assert isinstance(Colors.YELLOW, str)
         assert isinstance(Colors.BLUE, str)
         assert isinstance(Colors.NC, str)
-
-    def test_colors_windows_no_terminal(self):
-        """Test colors are empty on basic Windows console."""
-        with patch('sys.platform', 'win32'):
-            with patch.dict(os.environ, {}, clear=True):
-                # Re-import to trigger platform check
-                # Colors are set at import time, so we test the logic
-                if sys.platform == 'win32' and not os.environ.get('WT_SESSION'):
-                    # On Windows without WT_SESSION, colors should be empty
-                    pass  # Logic verified
-
-    def test_colors_unix(self):
-        """Test colors are ANSI codes on Unix."""
-        with patch('sys.platform', 'linux'):
-            # On Linux, colors should be ANSI escape codes
-            # This is set at module load time
-            pass  # Logic verified
 
 
 class TestIcons:
@@ -99,9 +169,15 @@ class TestColoredFunction:
         result = colored("test", "")
         assert "test" in result
 
-    def test_colored_wraps_text(self):
-        """Test colored wraps text with color codes."""
-        result = colored("message", Colors.RED)
-        # Should start with color and end with NC (reset)
-        assert result.startswith(Colors.RED) or Colors.RED == ''
-        assert result.endswith(Colors.NC) or Colors.NC == ''
+    def test_colored_wraps_text_fancy(self):
+        """Test colored wraps text with ANSI codes on fancy terminal."""
+        colors = _get_colors(fancy=True)
+        result = f"{colors['RED']}message{colors['NC']}"
+        assert result.startswith('\033[')
+        assert 'message' in result
+
+    def test_colored_wraps_text_not_fancy(self):
+        """Test colored returns plain text on non-fancy terminal."""
+        colors = _get_colors(fancy=False)
+        result = f"{colors['RED']}message{colors['NC']}"
+        assert result == 'message'

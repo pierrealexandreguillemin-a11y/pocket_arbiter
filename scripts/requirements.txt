@@ -1,33 +1,58 @@
-# Requirements - Scripts Python Arbitre Échecs RAG
-# Phase 1 : Pipeline de données
+# ==============================================================================
+# Requirements - Pocket Arbiter (Chess RAG Application)
+# ==============================================================================
+# ISO 12207 Compliant: Version-pinned dependencies for reproducibility
+# Last updated: 2026-01-11
+# ==============================================================================
 
-# PDF extraction
-PyMuPDF>=1.23.0          # fitz - extraction texte PDF
+# ------------------------------------------------------------------------------
+# CORE: PDF Processing & Text Extraction
+# ------------------------------------------------------------------------------
+PyMuPDF>=1.24.0,<2.0.0           # fitz - PDF text extraction
+tiktoken>=0.7.0,<1.0.0           # Token counting (OpenAI compatible)
 
-# Text processing
-tiktoken>=0.5.0          # Comptage tokens (compatible OpenAI)
+# ------------------------------------------------------------------------------
+# AI/ML: Embeddings & Vector Search
+# ------------------------------------------------------------------------------
+sentence-transformers>=3.0.0,<4.0.0   # Local embeddings generation
+torch>=2.2.0,<3.0.0                   # PyTorch backend (CPU/CUDA)
+faiss-cpu>=1.8.0,<2.0.0               # Vector index (CPU version)
 
-# Embeddings
-sentence-transformers>=2.2.0   # Pour générer embeddings localement
-torch>=2.0.0                   # Backend PyTorch
+# ------------------------------------------------------------------------------
+# LLM Integration (Phase 3)
+# ------------------------------------------------------------------------------
+# llama-cpp-python>=0.2.0        # Local LLM inference (optional)
+# openai>=1.0.0                  # OpenAI API (optional)
 
-# Vector database
-faiss-cpu>=1.7.4         # Index vectoriel (version CPU)
-
-# Database
-# SQLite est inclus dans Python standard
-
+# ------------------------------------------------------------------------------
 # Utilities
-tqdm>=4.65.0             # Progress bars
-python-dotenv>=1.0.0     # Variables d'environnement (optionnel)
+# ------------------------------------------------------------------------------
+tqdm>=4.66.0,<5.0.0              # Progress bars
+python-dotenv>=1.0.0,<2.0.0     # Environment variables
 
-# Testing
-pytest>=7.4.0            # Tests unitaires
-pytest-cov>=4.1.0        # Coverage
+# ------------------------------------------------------------------------------
+# TESTING: ISO 29119 Compliant
+# ------------------------------------------------------------------------------
+pytest>=8.0.0,<9.0.0             # Unit tests
+pytest-cov>=5.0.0,<6.0.0         # Coverage reporting
+pytest-xdist>=3.5.0,<4.0.0       # Parallel test execution
 
-# Development
-black>=23.0.0            # Formatage code
-flake8>=6.0.0            # Linting
+# ------------------------------------------------------------------------------
+# CODE QUALITY: ISO 25010 Compliant
+# ------------------------------------------------------------------------------
+black>=24.0.0,<25.0.0            # Code formatting
+flake8>=7.0.0,<8.0.0             # Linting
+mypy>=1.8.0,<2.0.0               # Static type checking
 
-# Data Version Control
-dvc>=3.30.0              # Versionning des gros fichiers (PDF, models)
+# ------------------------------------------------------------------------------
+# DATA VERSION CONTROL
+# ------------------------------------------------------------------------------
+dvc>=3.50.0,<4.0.0               # Large file versioning (PDF, models)
+# dvc[gdrive]                    # Google Drive remote (optional)
+# dvc[s3]                        # AWS S3 remote (optional)
+
+# ------------------------------------------------------------------------------
+# DOCUMENTATION (Optional)
+# ------------------------------------------------------------------------------
+# mkdocs>=1.5.0                  # Documentation generator
+# mkdocs-material>=9.0.0         # Material theme

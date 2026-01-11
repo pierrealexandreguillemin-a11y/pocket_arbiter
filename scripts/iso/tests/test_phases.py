@@ -58,12 +58,15 @@ class TestPhaseValidation:
             result = validator.validate_phase(1)
             assert result is True
 
-    def test_validate_phase2_no_android(self, full_project):
-        """Test Phase 2 fails without Android."""
+    def test_validate_phase2_no_android_app_dir(self, full_project):
+        """Test Phase 2 fails when android/app directory missing."""
+        import shutil
+        # Remove android/app directory
+        shutil.rmtree(full_project / "android" / "app")
         validator, errors, _, _ = make_phase_validator(full_project)
         result = validator.validate_phase(2)
         assert result is False
-        assert any("android" in e.lower() for e in errors)
+        assert any("android/app" in e.lower() and "manquant" in e.lower() for e in errors)
 
     def test_validate_phase2_with_android(self, full_project):
         """Test Phase 2 with Android content."""

@@ -34,6 +34,16 @@ class TestISOValidator:
         assert isinstance(success, bool)
         assert "passed" in results
 
+    def test_validate_all_with_gates_and_tests(self, temp_project):
+        """Test validate_all runs pytest when test files exist."""
+        # Create a test file in scripts/
+        (temp_project / "scripts" / "test_example.py").write_text(
+            "def test_pass():\n    assert True\n"
+        )
+        validator = ISOValidator(temp_project)
+        success, results = validator.validate_all(run_gates=True)
+        assert isinstance(success, bool)
+
     def test_validate_all_with_phase(self, temp_project):
         """Test validate_all with specific phase."""
         validator = ISOValidator(temp_project)

@@ -22,6 +22,7 @@ pocket_arbiter/
 │   ├── AI_POLICY.md               # Politique IA (DOC-POL-001)
 │   ├── QUALITY_REQUIREMENTS.md    # Exigences qualite (SPEC-REQ-001)
 │   ├── VISION.md                  # Vision projet (SPEC-VIS-001)
+│   ├── ARCHITECTURE.md            # Architecture technique (SPEC-ARCH-001)
 │   ├── TEST_PLAN.md               # Plan de tests (TEST-PLAN-001)
 │   └── DVC_GUIDE.md               # Guide DVC (DOC-GUIDE-001)
 │
@@ -60,6 +61,7 @@ pocket_arbiter/
 | ID | Document | Description | Statut |
 |----|----------|-------------|--------|
 | SPEC-VIS-001 | [VISION.md](VISION.md) | Vision et objectifs du projet | Draft |
+| SPEC-ARCH-001 | [ARCHITECTURE.md](ARCHITECTURE.md) | Architecture technique | Draft |
 | SPEC-REQ-001 | [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) | Exigences qualite ISO 25010 | Draft |
 
 ### 2.3 Intelligence artificielle
@@ -94,7 +96,8 @@ pocket_arbiter/
 ### A
 - **Accessibilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.4.4
 - **AI (Intelligence Artificielle)** : [AI_POLICY.md](AI_POLICY.md)
-- **Android** : [VISION.md](VISION.md) Section 5.1
+- **Android** : [VISION.md](VISION.md) Section 5.1, [ARCHITECTURE.md](ARCHITECTURE.md) Section 5.2
+- **Architecture** : [ARCHITECTURE.md](ARCHITECTURE.md)
 - **Approbations** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.2
 - **Archivage** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.4
 
@@ -149,6 +152,7 @@ pocket_arbiter/
 ### P
 - **Performance** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.2
 - **Phase gates** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
+- **Pipeline** : [ARCHITECTURE.md](ARCHITECTURE.md) Section 5.1
 - **Prompts** : [prompts/](../prompts/), [prompts/CHANGELOG.md](../prompts/CHANGELOG.md)
 
 ### Q
@@ -214,9 +218,9 @@ pocket_arbiter/
 ### Par phase projet
 | Phase | Documents cles |
 |-------|---------------|
-| Phase 0 | VISION.md, AI_POLICY.md, ISO_STANDARDS_REFERENCE.md, DOC_CONTROL.md |
-| Phase 1 | corpus/INVENTORY.md, prompts/CHANGELOG.md |
-| Phase 2 | TEST_PLAN.md (Section 3.2) |
+| Phase 0 | VISION.md, AI_POLICY.md, ISO_STANDARDS_REFERENCE.md, DOC_CONTROL.md, ARCHITECTURE.md |
+| Phase 1 | ARCHITECTURE.md (Section 5.1), corpus/INVENTORY.md, prompts/CHANGELOG.md |
+| Phase 2 | ARCHITECTURE.md (Section 5.2), TEST_PLAN.md (Section 3.2) |
 | Phase 3 | AI_POLICY.md (Section 3.2), TEST_PLAN.md (Section 3.3) |
 | Phase 4 | QUALITY_REQUIREMENTS.md, TEST_PLAN.md (Section 3.4) |
 | Phase 5 | TEST_PLAN.md (Section 3.5), guide utilisateur |
@@ -224,9 +228,9 @@ pocket_arbiter/
 ### Par role
 | Role | Documents pertinents |
 |------|---------------------|
-| Developpeur | VISION.md, AI_POLICY.md, DVC_GUIDE.md, prompts/ |
+| Developpeur | VISION.md, ARCHITECTURE.md, AI_POLICY.md, DVC_GUIDE.md, prompts/ |
 | Testeur | TEST_PLAN.md, QUALITY_REQUIREMENTS.md |
-| Product Owner | VISION.md, ISO_STANDARDS_REFERENCE.md |
+| Product Owner | VISION.md, ARCHITECTURE.md, ISO_STANDARDS_REFERENCE.md |
 | Auditeur | DOC_CONTROL.md, INDEX.md, ISO_STANDARDS_REFERENCE.md |
 
 ---

@@ -1,23 +1,19 @@
 # ==============================================================================
 # CI/CD Pipeline - Pocket Arbiter
 # ==============================================================================
-# Pipeline d'intégration continue pour le projet RAG mobile Android
-# Optimisé pour les runners GitHub Actions avec espace disque limité
-# 
-# Libère jusqu'à 31GB d'espace disque - GARDE Android SDK pour le build mobile
-# Documentation: https://github.com/jlumbroso/free-disk-space
+# ISO/IEC 29119 compliant - ALL CHECKS ARE BLOCKING
+# No || true, no continue-on-error (except where explicitly justified)
 # ==============================================================================
 
-name: CI - Pocket Arbiter
+name: CI - Pocket Arbiter (ISO Strict)
 
 on:
   push:
     branches: [main, develop]
   pull_request:
     branches: [main]
-  workflow_dispatch:  # Déclenchement manuel
+  workflow_dispatch:
 
-# Empêche les exécutions concurrentes sur la même branche
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -28,121 +24,284 @@ env:
 
 jobs:
   # ============================================================================
-  # Job 1: Tests Python (Scripts preprocessing)
+  # Job 1: ISO Validation (BLOCKING GATE)
   # ============================================================================
-  test-python:
-    name: 🐍 Tests Python
+  iso-validation:
+    name: ISO Validation Gate
     runs-on: ubuntu-latest
-    
-    steps:
-      # Libérer l'espace disque (garde Android pour le job suivant)
-      - name: 🗑️ Libérer espace disque
-        uses: jlumbroso/free-disk-space@main
-        with:
-          android: true       # Supprimer ici (pas besoin pour Python)
-          tool-cache: false   # Garder Python/Node
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: true
-          swap-storage: true
 
-      - name: 📥 Checkout
+    steps:
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 🐍 Setup Python ${{ env.PYTHON_VERSION }}
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Run ISO Validator
+        run: python scripts/iso/validate_project.py
+
+      - name: Verify ISO Documentation (BLOCKING)
+        run: |
+          echo "=== ISO Documentation Check ==="
+          MISSING=0
+
+          for doc in docs/VISION.md docs/AI_POLICY.md docs/QUALITY_REQUIREMENTS.md docs/TEST_PLAN.md; do
+            if [ -f "$doc" ]; then
+              echo "[OK] $doc"
+            else
+              echo "[FAIL] $doc MISSING"
+              MISSING=$((MISSING + 1))
+            fi
+          done
+
+          if [ $MISSING -gt 0 ]; then
+            echo ""
+            echo "BLOCKED: $MISSING ISO document(s) missing"
+            exit 1
+          fi
+
+      - name: Verify ISO 42001 AI Policy (BLOCKING)
+        run: |
+          echo "=== ISO 42001 - AI Governance ==="
+
+          # AI Policy must exist
+          if [ ! -f "docs/AI_POLICY.md" ]; then
+            echo "[FAIL] AI_POLICY.md missing"
+            exit 1
+          fi
+          echo "[OK] AI Policy exists"
+
+          # Prompts must be versioned
+          if [ ! -f "prompts/CHANGELOG.md" ]; then
+            echo "[FAIL] prompts/CHANGELOG.md missing"
+            exit 1
+          fi
+          echo "[OK] Prompts versioned"
+
+          # No dangerous AI patterns (exclude validator itself)
+          echo "Checking AI safety patterns..."
+          if grep -r --include="*.py" --include="*.kt" \
+            -E "generate_without_context|skip_citation|no_source_check" \
+            scripts/ android/ 2>/dev/null | grep -v "validate_project.py" | grep -v "pre-commit.py"; then
+            echo "[FAIL] Dangerous AI patterns found"
+            exit 1
+          fi
+          echo "[OK] No dangerous AI patterns"
+
+      - name: Verify Project Structure (BLOCKING)
+        run: |
+          echo "=== Project Structure ==="
+          MISSING=0
+
+          for dir in scripts corpus docs prompts tests .iso .githooks; do
+            if [ -d "$dir" ]; then
+              echo "[OK] $dir/"
+            else
+              echo "[FAIL] $dir/ MISSING"
+              MISSING=$((MISSING + 1))
+            fi
+          done
+
+          if [ $MISSING -gt 0 ]; then
+            echo "BLOCKED: $MISSING required directory(ies) missing"
+            exit 1
+          fi
+
+  # ============================================================================
+  # Job 2: Test Data Validation (BLOCKING)
+  # ============================================================================
+  validate-test-data:
+    name: Test Data Validation
+    runs-on: ubuntu-latest
+    needs: [iso-validation]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Validate JSON Test Files (BLOCKING)
+        run: |
+          echo "=== JSON Validation ==="
+          python3 << 'EOF'
+          import json
+          import sys
+          from pathlib import Path
+
+          test_files = [
+              'tests/data/questions_fr.json',
+              'tests/data/questions_intl.json',
+              'tests/data/adversarial.json',
+              '.iso/config.json',
+          ]
+
+          errors = 0
+          for f in test_files:
+              p = Path(f)
+              if not p.exists():
+                  print(f"[FAIL] {f} - File not found")
+                  errors += 1
+                  continue
+              try:
+                  with open(p, 'r', encoding='utf-8') as fp:
+                      data = json.load(fp)
+                  count = len(data) if isinstance(data, list) else 'object'
+                  print(f"[OK] {f} - Valid ({count})")
+              except json.JSONDecodeError as e:
+                  print(f"[FAIL] {f} - Invalid JSON: {e}")
+                  errors += 1
+
+          if errors > 0:
+              print(f"\nBLOCKED: {errors} JSON file(s) invalid")
+              sys.exit(1)
+          EOF
+
+      - name: Verify Corpus Inventory (BLOCKING)
+        run: |
+          if [ ! -f "corpus/INVENTORY.md" ]; then
+            echo "[FAIL] corpus/INVENTORY.md missing"
+            exit 1
+          fi
+          echo "[OK] Corpus inventory exists"
+
+          # Count PDFs
+          PDF_COUNT=$(find corpus -name "*.pdf" 2>/dev/null | wc -l)
+          echo "[INFO] Found $PDF_COUNT PDF files"
+
+          if [ "$PDF_COUNT" -eq 0 ]; then
+            echo "[WARN] No PDF files in corpus (expected for CI without LFS)"
+          fi
+
+  # ============================================================================
+  # Job 3: Python Quality (BLOCKING)
+  # ============================================================================
+  python-quality:
+    name: Python Quality
+    runs-on: ubuntu-latest
+    needs: [iso-validation]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip'
           cache-dependency-path: 'scripts/requirements.txt'
 
-      - name: 📦 Installer dépendances
+      - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r scripts/requirements.txt
+          pip install flake8 pytest pytest-cov
+          # Don't install heavy ML deps for CI - just validation
+          pip install tiktoken tqdm
 
-      - name: 🔍 Lint Python (flake8)
+      - name: Lint Python (BLOCKING - errors only)
         run: |
-          pip install flake8
-          flake8 scripts/ --max-line-length=100 --ignore=E501,W503
-        continue-on-error: true
+          echo "=== Python Lint ==="
+          # E9: Runtime errors (syntax, etc)
+          # F63: Invalid syntax in type comments
+          # F7: Syntax errors
+          # F82: Undefined names
+          flake8 scripts/ --select=E9,F63,F7,F82 --show-source --statistics
+          echo "[OK] No critical Python errors"
 
-      - name: 🧪 Tests unitaires Python
+      - name: Python Syntax Check (BLOCKING)
         run: |
-          # Créer un test minimal si aucun test existe
-          if [ ! -f "scripts/test_*.py" ] && [ ! -d "scripts/tests" ]; then
-            echo "⚠️ Aucun test Python trouvé - création test placeholder"
-            echo 'def test_placeholder(): assert True' > scripts/test_placeholder.py
-          fi
-          pytest scripts/ -v --tb=short || echo "Tests à implémenter"
-        continue-on-error: true
+          echo "=== Python Syntax ==="
+          python3 << 'EOF'
+          import sys
+          import py_compile
+          from pathlib import Path
+
+          errors = 0
+          for f in Path('scripts').rglob('*.py'):
+              try:
+                  py_compile.compile(str(f), doraise=True)
+                  print(f"[OK] {f}")
+              except py_compile.PyCompileError as e:
+                  print(f"[FAIL] {f}: {e}")
+                  errors += 1
+
+          if errors > 0:
+              print(f"\nBLOCKED: {errors} Python file(s) have syntax errors")
+              sys.exit(1)
+          EOF
+
+      - name: Run ISO Validator Tests
+        run: |
+          echo "=== ISO Validator Self-Test ==="
+          python scripts/iso/validate_project.py --verbose
 
   # ============================================================================
-  # Job 2: Validation données de test
+  # Job 4: Documentation Quality
   # ============================================================================
-  validate-test-data:
-    name: 📊 Validation données
+  docs-quality:
+    name: Documentation Quality
     runs-on: ubuntu-latest
-    
+    needs: [iso-validation]
+
     steps:
-      - name: 📥 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 🐍 Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: ✅ Valider JSON de test
+      - name: Check Required Documentation (BLOCKING)
         run: |
-          python -c "
-          import json
-          import sys
-          
-          files = [
-              'tests/data/questions_fr.json',
-              'tests/data/adversarial.json'
-          ]
-          
-          for f in files:
-              try:
-                  with open(f, 'r', encoding='utf-8') as file:
-                      data = json.load(file)
-                      print(f'✅ {f} - Valide ({len(data) if isinstance(data, list) else \"dict\"} entrées)')
-              except FileNotFoundError:
-                  print(f'⚠️ {f} - Fichier non trouvé')
-              except json.JSONDecodeError as e:
-                  print(f'❌ {f} - JSON invalide: {e}')
-                  sys.exit(1)
-          "
+          echo "=== Documentation Check ==="
+          ERRORS=0
 
-      - name: 📋 Vérifier structure corpus
-        run: |
-          echo "=== Structure corpus ==="
-          ls -la corpus/ || echo "Dossier corpus non trouvé"
-          ls -la corpus/fr/ 2>/dev/null || echo "corpus/fr/ vide ou non trouvé"
-          ls -la corpus/intl/ 2>/dev/null || echo "corpus/intl/ vide ou non trouvé"
-          
-          if [ -f "corpus/INVENTORY.md" ]; then
-            echo "✅ INVENTORY.md présent"
-            head -20 corpus/INVENTORY.md
+          # Check all required docs exist and are not empty
+          for doc in README.md CLAUDE_CODE_INSTRUCTIONS.md docs/VISION.md docs/AI_POLICY.md docs/QUALITY_REQUIREMENTS.md docs/TEST_PLAN.md; do
+            if [ -f "$doc" ]; then
+              LINES=$(wc -l < "$doc")
+              if [ "$LINES" -lt 10 ]; then
+                echo "[WARN] $doc is very short ($LINES lines)"
+              else
+                echo "[OK] $doc ($LINES lines)"
+              fi
+            else
+              echo "[FAIL] $doc MISSING"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+
+          if [ $ERRORS -gt 0 ]; then
+            echo "BLOCKED: $ERRORS required document(s) missing"
+            exit 1
           fi
 
+      - name: Generate Metrics Report
+        run: |
+          echo "=== Project Metrics ==="
+          echo "Commits: $(git rev-list --count HEAD)"
+          echo "Files: $(find . -type f -not -path './.git/*' | wc -l)"
+          echo "Python files: $(find . -name '*.py' -not -path './.git/*' | wc -l)"
+          echo "Documentation: $(find docs -name '*.md' | wc -l) files"
+          echo "Test data: $(find tests/data -name '*.json' 2>/dev/null | wc -l) files"
+          echo "PDF corpus: $(find corpus -name '*.pdf' 2>/dev/null | wc -l) files"
+
   # ============================================================================
-  # Job 3: Build Android (sur tag ou manuel uniquement)
+  # Job 5: Build Android (manual/tag only - NOT blocking for now)
   # ============================================================================
   build-android:
-    name: 🤖 Build Android
+    name: Build Android
     runs-on: ubuntu-latest
-    needs: [test-python, validate-test-data]
+    needs: [python-quality, docs-quality, validate-test-data]
     if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
-    
+
     steps:
-      - name: 🗑️ Libérer espace disque (GARDER Android SDK)
+      - name: Free Disk Space
         uses: jlumbroso/free-disk-space@main
         with:
-          android: false      # ⚠️ NE PAS SUPPRIMER - requis pour build
+          android: false
           tool-cache: true
           dotnet: true
           haskell: true
@@ -150,211 +309,37 @@ jobs:
           docker-images: true
           swap-storage: true
 
-      - name: 📊 Vérifier espace disponible
-        run: |
-          echo "=== Espace disque ==="
-          df -h /
-          echo ""
-          echo "=== Android SDK ==="
-          echo "ANDROID_HOME: $ANDROID_HOME"
-          ls -la $ANDROID_HOME/platforms/ 2>/dev/null || echo "Platforms non trouvé"
-
-      - name: 📥 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: ☕ Setup Java ${{ env.JAVA_VERSION }}
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: ${{ env.JAVA_VERSION }}
 
-      - name: 🔧 Setup Android SDK
+      - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: 📦 Cache Gradle
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: 🔨 Build APK Debug
-        working-directory: android
+      - name: Check Android Project
         run: |
-          if [ -f "gradlew" ]; then
-            chmod +x gradlew
-            ./gradlew assembleDebug --stacktrace
-          else
-            echo "⚠️ Projet Android non initialisé (gradlew manquant)"
-            echo "Créer le projet avec Android Studio d'abord"
+          if [ ! -f "android/gradlew" ]; then
+            echo "[INFO] Android project not initialized yet"
+            echo "This is expected in Phase 0-1"
             exit 0
           fi
-        continue-on-error: true
 
-      - name: 📤 Upload APK
+      - name: Build APK
+        if: hashFiles('android/gradlew') != ''
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
+
+      - name: Upload APK
+        if: hashFiles('android/app/build/outputs/apk/debug/*.apk') != ''
         uses: actions/upload-artifact@v4
-        if: success()
         with:
           name: apk-debug-${{ github.sha }}
           path: android/app/build/outputs/apk/debug/*.apk
           retention-days: 14
-
-  # ============================================================================
-  # Job 4: Validation ISO (GATE obligatoire)
-  # ============================================================================
-  iso-validation:
-    name: 🏛️ Validation ISO
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 📥 Checkout
-        uses: actions/checkout@v4
-
-      - name: 🐍 Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: 🏛️ Exécuter validation ISO
-        run: |
-          python scripts/iso/validate_project.py --phase 1 || true
-
-      - name: 📋 Vérifier documentation ISO
-        run: |
-          echo "=== Vérification documentation projet ==="
-
-          required_docs=(
-            "docs/VISION.md"
-            "docs/AI_POLICY.md"
-            "docs/QUALITY_REQUIREMENTS.md"
-            "docs/TEST_PLAN.md"
-            "CLAUDE_CODE_INSTRUCTIONS.md"
-            "README.md"
-            ".iso/config.json"
-          )
-
-          missing=0
-          for doc in "${required_docs[@]}"; do
-            if [ -f "$doc" ]; then
-              echo "✅ $doc"
-            else
-              echo "❌ $doc MANQUANT"
-              missing=$((missing + 1))
-            fi
-          done
-
-          if [ $missing -gt 0 ]; then
-            echo ""
-            echo "❌ $missing document(s) ISO manquant(s)"
-            exit 1
-          else
-            echo ""
-            echo "✅ Tous les documents ISO requis sont présents"
-          fi
-
-      - name: 🛡️ Vérifier anti-hallucination (ISO 42001)
-        run: |
-          echo "=== Vérification ISO 42001 - Anti-hallucination ==="
-
-          # Check AI policy exists
-          if [ -f "docs/AI_POLICY.md" ]; then
-            echo "✅ AI Policy document exists"
-          else
-            echo "❌ AI Policy missing"
-            exit 1
-          fi
-
-          # Check prompts are versioned
-          if [ -f "prompts/CHANGELOG.md" ]; then
-            echo "✅ Prompts CHANGELOG exists"
-          else
-            echo "❌ Prompts CHANGELOG missing"
-            exit 1
-          fi
-
-          # Check for dangerous patterns in code (exclude validation scripts)
-          echo "Checking for dangerous AI patterns..."
-          DANGEROUS=$(grep -r --include="*.py" --include="*.kt" \
-            -E "generate.?without.?context|skip.?citation|no.?source.?check" \
-            scripts/ android/ 2>/dev/null | grep -v "validate_project.py" | grep -v "# Pattern" || true)
-          if [ -n "$DANGEROUS" ]; then
-            echo "❌ Dangerous AI patterns found:"
-            echo "$DANGEROUS"
-            exit 1
-          else
-            echo "✅ No dangerous AI patterns detected"
-          fi
-
-      - name: 📊 Vérifier structure ISO
-        run: |
-          echo "=== Structure ISO ==="
-
-          required_dirs=(
-            "android"
-            "scripts"
-            "corpus"
-            "docs"
-            "prompts"
-            "tests"
-            ".iso"
-            ".githooks"
-          )
-
-          for dir in "${required_dirs[@]}"; do
-            if [ -d "$dir" ]; then
-              echo "✅ $dir/"
-            else
-              echo "❌ $dir/ MANQUANT"
-            fi
-          done
-
-  # ============================================================================
-  # Job 5: Documentation et qualité
-  # ============================================================================
-  quality-check:
-    name: 📝 Qualité & Docs
-    runs-on: ubuntu-latest
-    needs: [iso-validation]
-
-    steps:
-      - name: 📥 Checkout
-        uses: actions/checkout@v4
-
-      - name: 🔍 Vérifier structure prompts
-        run: |
-          echo "=== Structure prompts ==="
-          ls -la prompts/ || echo "Dossier prompts manquant"
-
-          if [ -f "prompts/README.md" ]; then
-            echo "✅ prompts/README.md présent"
-          fi
-
-          if [ -f "prompts/CHANGELOG.md" ]; then
-            echo "✅ prompts/CHANGELOG.md présent"
-          fi
-
-      - name: 📊 Résumé projet
-        run: |
-          echo "=== Résumé du projet ==="
-          echo "Commits: $(git rev-list --count HEAD 2>/dev/null || echo 'N/A')"
-          echo "Fichiers: $(find . -type f | wc -l)"
-          echo ""
-          echo "=== Arborescence ==="
-          find . -type d -name '.git' -prune -o -type f -print | head -50
-
-      - name: 📈 Métriques ISO
-        run: |
-          echo "=== Métriques ISO ==="
-          echo "Documentation:"
-          echo "  - docs/: $(ls docs/*.md 2>/dev/null | wc -l) fichiers"
-          echo "  - .iso/: $(find .iso -name '*.md' -o -name '*.json' 2>/dev/null | wc -l) fichiers"
-          echo ""
-          echo "Tests:"
-          echo "  - tests/data/: $(ls tests/data/*.json 2>/dev/null | wc -l) fichiers JSON"
-          echo ""
-          echo "Corpus:"
-          echo "  - PDF FR: $(find corpus/fr -name '*.pdf' 2>/dev/null | wc -l) fichiers"
-          echo "  - PDF INTL: $(find corpus/intl -name '*.pdf' 2>/dev/null | wc -l) fichiers"

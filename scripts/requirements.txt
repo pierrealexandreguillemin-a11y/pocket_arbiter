@@ -28,3 +28,6 @@ pytest-cov>=4.1.0        # Coverage
 # Development
 black>=23.0.0            # Formatage code
 flake8>=6.0.0            # Linting
+
+# Data Version Control
+dvc>=3.30.0              # Versionning des gros fichiers (PDF, models)

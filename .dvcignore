@@ -1,0 +1,15 @@
+# DVC Ignore - Pocket Arbiter
+# Files/folders to ignore when tracking with DVC
+
+# Python
+__pycache__
+*.py[cod]
+.pytest_cache
+
+# IDE
+.vscode
+.idea
+
+# Temporary
+*.tmp
+*.log

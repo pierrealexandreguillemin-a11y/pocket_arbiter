@@ -1,77 +1,19 @@
-#!/bin/bash
-# ==============================================================================
-# Commit-msg Hook - Pocket Arbiter
-# ==============================================================================
-# Enforcement ISO : vérifie le format des messages de commit
-# Format requis : [type] Description
-# Types : feat, fix, test, docs, refactor, perf, chore
-# ==============================================================================
+#!/bin/sh
+# Cross-platform commit-msg hook wrapper
+# Calls Python script for actual validation
 
-COMMIT_MSG_FILE=$1
-COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
-
-# Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
-
-echo "🔍 Validating commit message..."
-
-# ==============================================================================
-# Check 1: Format [type] description
-# ==============================================================================
-PATTERN="^\[(feat|fix|test|docs|refactor|perf|chore)\]\s.+"
-
-if ! echo "$COMMIT_MSG" | head -1 | grep -qE "$PATTERN"; then
-    echo -e "${RED}❌ Invalid commit message format${NC}"
-    echo ""
-    echo "Expected format: [type] Description"
-    echo ""
-    echo "Valid types:"
-    echo "  [feat]     - New feature"
-    echo "  [fix]      - Bug fix"
-    echo "  [test]     - Adding tests"
-    echo "  [docs]     - Documentation"
-    echo "  [refactor] - Code refactoring"
-    echo "  [perf]     - Performance improvement"
-    echo "  [chore]    - Maintenance task"
-    echo ""
-    echo "Example: [feat] Add PDF extraction script"
-    echo ""
-    echo "Your message was:"
-    echo "  $COMMIT_MSG"
+# Find Python
+if command -v python3 >/dev/null 2>&1; then
+    PYTHON=python3
+elif command -v python >/dev/null 2>&1; then
+    PYTHON=python
+else
+    echo "ERROR: Python not found"
     exit 1
 fi
 
-# ==============================================================================
-# Check 2: Minimum length
-# ==============================================================================
-MSG_LENGTH=$(echo "$COMMIT_MSG" | head -1 | wc -c)
-if [ "$MSG_LENGTH" -lt 15 ]; then
-    echo -e "${RED}❌ Commit message too short${NC}"
-    echo "   Minimum 15 characters required."
-    exit 1
-fi
+# Get script directory
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# ==============================================================================
-# Check 3: No WIP commits on main
-# ==============================================================================
-BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
-
-if [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then
-    if echo "$COMMIT_MSG" | grep -qi "WIP\|work in progress\|TODO"; then
-        echo -e "${RED}❌ WIP commits not allowed on main branch${NC}"
-        exit 1
-    fi
-fi
-
-# ==============================================================================
-# Check 4: Warn if no Co-Authored-By (reminder only)
-# ==============================================================================
-if ! echo "$COMMIT_MSG" | grep -q "Co-Authored-By:"; then
-    echo -e "${YELLOW}⚠️  No Co-Authored-By found (optional but recommended)${NC}"
-fi
-
-echo -e "${GREEN}✅ Commit message valid${NC}"
-exit 0
+# Run Python hook with commit message file
+exec "$PYTHON" "$SCRIPT_DIR/commit-msg.py" "$1"

@@ -19,8 +19,8 @@ from typing import Optional, Tuple
 
 # Fix Windows encoding
 if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
-    sys.stderr.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # type: ignore
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")  # type: ignore
 
 
 def run_command(cmd: list, cwd: Optional[Path] = None) -> Tuple[bool, str]:
@@ -36,14 +36,100 @@ def run_command(cmd: list, cwd: Optional[Path] = None) -> Tuple[bool, str]:
 
 def check_dvc_installed() -> bool:
     """Check if DVC is installed."""
-    success, output = run_command(["dvc", "--version"])
+    success, _ = run_command(["dvc", "--version"])
     if not success:
-        # Try via Python module
-        success, output = run_command([sys.executable, "-m", "dvc", "--version"])
+        success, _ = run_command([sys.executable, "-m", "dvc", "--version"])
     return success
 
 
-def main():
+def _step_check_dvc() -> bool:
+    """Step 1: Check DVC installation."""
+    print("\n[1/5] Checking DVC installation...", end=" ")
+    if not check_dvc_installed():
+        print("FAILED")
+        print("\nDVC not found. Install with:")
+        print("  pip install dvc")
+        return False
+    print("OK")
+    return True
+
+
+def _step_init_dvc(project_root: Path) -> bool:
+    """Step 2: Initialize DVC if needed."""
+    print("[2/5] Initializing DVC...", end=" ")
+    dvc_config = project_root / ".dvc" / "config"
+    if dvc_config.exists():
+        print("OK")
+        return True
+    success, output = run_command(["dvc", "init"], cwd=project_root)
+    if not success:
+        print("FAILED")
+        print(output)
+        return False
+    print("OK")
+    return True
+
+
+def _step_configure_remote(project_root: Path, remote_url: Optional[str]) -> None:
+    """Step 3: Configure remote if provided."""
+    if not remote_url:
+        return
+    print(f"[3/5] Configuring remote: {remote_url}...", end=" ")
+    success, _ = run_command(
+        ["dvc", "remote", "add", "-d", "origin", remote_url], cwd=project_root
+    )
+    print("OK" if success else "WARN (may already exist)")
+
+
+def _step_track_corpus(project_root: Path) -> int:
+    """Step 4: Track corpus PDFs. Returns count of tracked files."""
+    print("[4/5] Tracking corpus files...", end=" ")
+    corpus_dirs = [project_root / "corpus" / "fr", project_root / "corpus" / "intl"]
+    tracked = 0
+    for corpus_dir in corpus_dirs:
+        if not corpus_dir.is_dir():
+            continue
+        pdfs = list(corpus_dir.glob("*.pdf"))
+        if pdfs:
+            success, _ = run_command(["dvc", "add", str(corpus_dir)], cwd=project_root)
+            if success:
+                tracked += len(pdfs)
+    msg = f"OK ({tracked} PDFs tracked)" if tracked else "WARN (no PDFs found)"
+    print(msg)
+    return tracked
+
+
+def _step_track_models(project_root: Path) -> None:
+    """Step 5: Track models directory if it has large files."""
+    print("[5/5] Tracking models directory...", end=" ")
+    models_dir = project_root / "models"
+    if not models_dir.is_dir():
+        print("SKIP (directory not created)")
+        return
+    patterns = ["*.gguf", "*.onnx", "*.tflite"]
+    large_files = [f for p in patterns for f in models_dir.glob(p)]
+    if not large_files:
+        print("SKIP (no model files yet)")
+        return
+    run_command(["dvc", "add", str(models_dir)], cwd=project_root)
+    print(f"OK ({len(large_files)} model files)")
+
+
+def _print_summary(has_remote: bool) -> None:
+    """Print final summary and next steps."""
+    print("\n" + "=" * 60)
+    print("  DVC Setup Complete")
+    print("=" * 60)
+    print("\nNext steps:")
+    print("  1. git add .dvc corpus/*.dvc models/*.dvc")
+    print("  2. git commit -m '[chore] Add DVC tracking'")
+    if not has_remote:
+        print("  3. Configure remote: dvc remote add -d origin <URL>")
+    print("  4. Push data: dvc push")
+
+
+def main() -> int:
+    """Main entry point for DVC setup."""
     parser = argparse.ArgumentParser(
         description="Initialize DVC for Pocket Arbiter corpus files"
     )
@@ -51,111 +137,29 @@ def main():
         "--remote", help="Remote storage URL (e.g., gdrive://..., s3://...)"
     )
     parser.add_argument(
-        "--init-only",
-        action="store_true",
-        help="Only initialize DVC, don't track files",
+        "--init-only", action="store_true", help="Only initialize DVC, don't track"
     )
     args = parser.parse_args()
 
-    # Find project root
-    script_path = Path(__file__).resolve()
-    project_root = script_path.parent.parent.parent
+    project_root = Path(__file__).resolve().parent.parent.parent
 
     print("=" * 60)
     print("  DVC Setup - Pocket Arbiter")
     print("=" * 60)
 
-    # Step 1: Check DVC is installed
-    print("\n[1/5] Checking DVC installation...", end=" ")
-    if not check_dvc_installed():
-        print("FAILED")
-        print("\nDVC not found. Install with:")
-        print("  pip install dvc")
-        print("  # or")
-        print("  pip install dvc[gdrive]  # for Google Drive remote")
+    if not _step_check_dvc():
         return 1
-    print("OK")
-
-    # Step 2: Initialize DVC if needed
-    dvc_dir = project_root / ".dvc"
-    print("[2/5] Initializing DVC...", end=" ")
-    if not (dvc_dir / "config").exists():
-        success, output = run_command(["dvc", "init"], cwd=project_root)
-        if not success:
-            print("FAILED")
-            print(output)
-            return 1
-    print("OK")
-
-    # Step 3: Configure remote if provided
-    if args.remote:
-        print(f"[3/5] Configuring remote: {args.remote}...", end=" ")
-        success, output = run_command(
-            ["dvc", "remote", "add", "-d", "origin", args.remote], cwd=project_root
-        )
-        if success:
-            print("OK")
-        else:
-            print("WARN (may already exist)")
+    if not _step_init_dvc(project_root):
+        return 1
+    _step_configure_remote(project_root, args.remote)
 
     if args.init_only:
         print("\n[DONE] DVC initialized. Run without --init-only to track files.")
         return 0
 
-    # Step 4: Track corpus PDFs
-    print("[4/5] Tracking corpus files...", end=" ")
-    corpus_dirs = [
-        project_root / "corpus" / "fr",
-        project_root / "corpus" / "intl",
-    ]
-
-    tracked_count = 0
-    for corpus_dir in corpus_dirs:
-        if corpus_dir.is_dir():
-            pdf_files = list(corpus_dir.glob("*.pdf"))
-            if pdf_files:
-                # Track the whole directory
-                success, output = run_command(
-                    ["dvc", "add", str(corpus_dir)], cwd=project_root
-                )
-                if success:
-                    tracked_count += len(pdf_files)
-
-    if tracked_count > 0:
-        print(f"OK ({tracked_count} PDFs tracked)")
-    else:
-        print("WARN (no PDFs found)")
-
-    # Step 5: Track models directory if it has large files
-    print("[5/5] Tracking models directory...", end=" ")
-    models_dir = project_root / "models"
-    if models_dir.is_dir():
-        large_files = (
-            list(models_dir.glob("*.gguf"))
-            + list(models_dir.glob("*.onnx"))
-            + list(models_dir.glob("*.tflite"))
-        )
-        if large_files:
-            success, output = run_command(
-                ["dvc", "add", str(models_dir)], cwd=project_root
-            )
-            print(f"OK ({len(large_files)} model files)")
-        else:
-            print("SKIP (no model files yet)")
-    else:
-        print("SKIP (directory not created)")
-
-    # Summary
-    print("\n" + "=" * 60)
-    print("  DVC Setup Complete")
-    print("=" * 60)
-    print("\nNext steps:")
-    print("  1. git add .dvc corpus/*.dvc models/*.dvc")
-    print("  2. git commit -m '[chore] Add DVC tracking'")
-    if not args.remote:
-        print("  3. Configure remote: dvc remote add -d origin <URL>")
-    print("  4. Push data: dvc push")
-
+    _step_track_corpus(project_root)
+    _step_track_models(project_root)
+    _print_summary(bool(args.remote))
     return 0
 
 

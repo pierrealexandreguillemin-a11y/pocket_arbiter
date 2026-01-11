@@ -116,16 +116,20 @@ class TestIcons:
 
     def test_icons_attributes_exist(self):
         """Test all icon attributes are defined."""
-        assert hasattr(Icons, "FOLDER")
-        assert hasattr(Icons, "DOC")
-        assert hasattr(Icons, "ROBOT")
-        assert hasattr(Icons, "SHIELD")
-        assert hasattr(Icons, "SPARKLE")
-        assert hasattr(Icons, "TEST")
-        assert hasattr(Icons, "PIN")
-        assert hasattr(Icons, "CHECK")
-        assert hasattr(Icons, "CROSS")
-        assert hasattr(Icons, "WARN")
+        required_icons = [
+            "FOLDER",
+            "DOC",
+            "ROBOT",
+            "SHIELD",
+            "SPARKLE",
+            "TEST",
+            "PIN",
+            "CHECK",
+            "CROSS",
+            "WARN",
+        ]
+        for icon in required_icons:
+            assert hasattr(Icons, icon), f"Missing icon: {icon}"
 
     def test_icons_are_strings(self):
         """Test all icons are string values."""

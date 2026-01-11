@@ -234,5 +234,200 @@ class TestEdgeCases:
         validator.check_file_exists("docs/test.md", "Unicode file")
 
 
+class TestGates:
+    """Test executable gates."""
+
+    @pytest.fixture
+    def temp_project(self, tmp_path):
+        """Create minimal project for gate tests."""
+        (tmp_path / ".git").mkdir()
+        (tmp_path / ".iso").mkdir()
+        (tmp_path / "tests" / "data").mkdir(parents=True)
+        (tmp_path / ".iso" / "config.json").write_text('{"version": "1.0"}')
+        (tmp_path / "tests" / "data" / "test.json").write_text('{"valid": true}')
+        return tmp_path
+
+    def test_run_command_success(self, temp_project):
+        """Test run_command with successful command."""
+        validator = ISOValidator(temp_project)
+        success, output = validator.run_command(["python", "--version"])
+        assert success is True
+        assert "Python" in output
+
+    def test_run_command_failure(self, temp_project):
+        """Test run_command with failing command."""
+        validator = ISOValidator(temp_project)
+        success, output = validator.run_command(["nonexistent_command_xyz"])
+        assert success is False
+
+    def test_gate_json_valid_success(self, temp_project):
+        """Test JSON validation gate passes for valid JSON."""
+        validator = ISOValidator(temp_project)
+        result = validator.gate_json_valid(["tests/data/*.json", ".iso/*.json"])
+        assert result is True
+        assert len(validator.errors) == 0
+
+    def test_gate_json_valid_failure(self, temp_project):
+        """Test JSON validation gate fails for invalid JSON."""
+        (temp_project / "tests" / "data" / "bad.json").write_text("not json")
+        validator = ISOValidator(temp_project)
+        result = validator.gate_json_valid(["tests/data/*.json"])
+        assert result is False
+        assert len(validator.errors) > 0
+
+    def test_gate_git_status_success(self, temp_project):
+        """Test git status gate with .git directory."""
+        validator = ISOValidator(temp_project)
+        result = validator.gate_git_status()
+        # Should pass because .git exists (remote check may warn)
+        assert result is True
+
+    def test_gate_git_status_no_git(self, tmp_path):
+        """Test git status gate without .git directory."""
+        validator = ISOValidator(tmp_path)
+        result = validator.gate_git_status()
+        assert result is False
+        assert len(validator.errors) > 0
+
+    def test_gate_lint_success(self, temp_project):
+        """Test lint gate with clean Python file."""
+        (temp_project / "scripts").mkdir()
+        (temp_project / "scripts" / "clean.py").write_text(
+            "# Valid Python\ndef hello():\n    return 'world'\n"
+        )
+        validator = ISOValidator(temp_project)
+        result = validator.gate_lint("scripts/")
+        assert result is True
+
+    def test_get_current_phase_no_config(self, tmp_path):
+        """Test get_current_phase without config file."""
+        validator = ISOValidator(tmp_path)
+        phase = validator.get_current_phase()
+        assert phase == 0
+
+    def test_get_current_phase_with_completed(self, temp_project):
+        """Test get_current_phase with completed phases."""
+        config = {
+            "phases": [
+                {"id": 0, "status": "completed"},
+                {"id": 1, "status": "in_progress"}
+            ]
+        }
+        (temp_project / ".iso" / "config.json").write_text(json.dumps(config))
+        validator = ISOValidator(temp_project)
+        phase = validator.get_current_phase()
+        assert phase == 1
+
+
+class TestPhaseValidation:
+    """Test phase-specific validations."""
+
+    @pytest.fixture
+    def full_project(self, tmp_path):
+        """Create a complete project structure."""
+        # Directories
+        for d in ["android/app", "scripts", "corpus/fr", "corpus/intl",
+                  "docs", "prompts", "tests/data", "tests/reports", ".git", ".iso"]:
+            (tmp_path / d).mkdir(parents=True, exist_ok=True)
+
+        # Files
+        (tmp_path / "README.md").write_text("# Project\n" * 10)
+        (tmp_path / "CLAUDE_CODE_INSTRUCTIONS.md").write_text("# Instructions\n" * 10)
+        (tmp_path / ".gitignore").write_text("*.pyc\n")
+        (tmp_path / "docs" / "VISION.md").write_text("# Vision\n" * 10)
+        (tmp_path / "docs" / "AI_POLICY.md").write_text("# AI Policy\n" * 10)
+        (tmp_path / "docs" / "QUALITY_REQUIREMENTS.md").write_text("# Quality\n" * 10)
+        (tmp_path / "docs" / "TEST_PLAN.md").write_text("# Test Plan\n" * 10)
+        (tmp_path / "prompts" / "README.md").write_text("# Prompts\n")
+        (tmp_path / "prompts" / "CHANGELOG.md").write_text("# Changelog\n")
+        (tmp_path / "prompts" / "test.txt").write_text("Test prompt\n")
+        (tmp_path / "tests" / "data" / "questions_fr.json").write_text('[{"q": "test"}]')
+        (tmp_path / "corpus" / "INVENTORY.md").write_text("# Inventory\n")
+        (tmp_path / ".iso" / "config.json").write_text('{"version": "1.0"}')
+        (tmp_path / "scripts" / "requirements.txt").write_text("pytest\n")
+
+        return tmp_path
+
+    def test_validate_phase_invalid(self, full_project):
+        """Test validation of invalid phase number."""
+        validator = ISOValidator(full_project)
+        result = validator.validate_phase(99)
+        assert result is False
+        assert any("non reconnue" in e for e in validator.errors)
+
+    def test_validate_phase2_missing_android(self, full_project):
+        """Test Phase 2 fails without Android content."""
+        validator = ISOValidator(full_project)
+        result = validator.validate_phase(2)
+        assert result is False
+
+    def test_validate_phase2_with_android(self, full_project):
+        """Test Phase 2 passes with Android content."""
+        (full_project / "android" / "app" / "src").mkdir(parents=True)
+        (full_project / "android" / "app" / "src" / "Main.kt").write_text("fun main() {}")
+        (full_project / "tests" / "data" / "questions_fr.json").write_text('[{"q": "test"}]')
+
+        validator = ISOValidator(full_project)
+        result = validator.validate_phase(2)
+        assert result is True
+
+    def test_validate_phase3_missing_prompt(self, full_project):
+        """Test Phase 3 fails without interpretation prompt."""
+        validator = ISOValidator(full_project)
+        result = validator.validate_phase(3)
+        assert result is False
+
+    def test_validate_phase3_with_prompt(self, full_project):
+        """Test Phase 3 passes with required files."""
+        (full_project / "prompts" / "interpretation_v1.txt").write_text(
+            "Interprete avec citation de source et article."
+        )
+        (full_project / "tests" / "data" / "adversarial.json").write_text('[{"test": "adv"}]')
+
+        validator = ISOValidator(full_project)
+        result = validator.validate_phase(3)
+        assert result is True
+        assert any("citation" in p for p in validator.passed)
+
+    def test_validate_phase5_missing_docs(self, full_project):
+        """Test Phase 5 fails without user guide."""
+        validator = ISOValidator(full_project)
+        result = validator.validate_phase(5)
+        assert result is False
+
+    def test_validate_all_with_gates(self, full_project):
+        """Test validate_all with run_gates=True."""
+        validator = ISOValidator(full_project)
+        success, results = validator.validate_all(run_gates=True)
+        # May fail due to git remote, but should not crash
+        assert isinstance(success, bool)
+        assert "passed" in results
+
+
+class TestAntiHallucination:
+    """Test ISO 42001 anti-hallucination checks."""
+
+    def test_no_dangerous_patterns(self, tmp_path):
+        """Test clean AI code passes."""
+        (tmp_path / "scripts").mkdir()
+        (tmp_path / "scripts" / "ai_helper.py").write_text(
+            "def generate_with_context(query, context):\n    return context + query\n"
+        )
+        validator = ISOValidator(tmp_path)
+        result = validator.validate_iso42001_antihallu()
+        assert result is True
+
+    def test_dangerous_patterns_detected(self, tmp_path):
+        """Test dangerous AI patterns are caught."""
+        (tmp_path / "scripts").mkdir()
+        (tmp_path / "scripts" / "ai_helper.py").write_text(
+            "def generate_without_context(query):\n    return 'fake answer'\n"
+        )
+        validator = ISOValidator(tmp_path)
+        result = validator.validate_iso42001_antihallu()
+        # Pattern should be detected
+        assert result is False or len(validator.errors) > 0
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])

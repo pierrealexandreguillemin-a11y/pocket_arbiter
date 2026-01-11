@@ -113,16 +113,21 @@ class ISOValidator:
         except Exception as e:
             return False, str(e)
 
-    def gate_pytest(self, path: str = "scripts/") -> bool:
+    def gate_pytest(self, path: str = "scripts/", required: bool = True) -> bool:
         """Gate: Run pytest and verify all tests pass."""
         print(f"    Running pytest on {path}...", end=" ")
 
         # Check if pytest is available
         success, output = self.run_command(["python", "-m", "pytest", "--version"])
         if not success:
-            print(colored("SKIP", Colors.YELLOW), "(pytest not installed)")
-            self.warnings.append(f"pytest non disponible pour {path}")
-            return True  # Non-blocking if pytest not available
+            if required:
+                print(colored("FAILED", Colors.RED), "(pytest not installed)")
+                self.errors.append(f"pytest non installe - REQUIS pour {path}")
+                return False
+            else:
+                print(colored("SKIP", Colors.YELLOW), "(pytest not installed)")
+                self.warnings.append(f"pytest non disponible pour {path}")
+                return True
 
         # Run pytest
         test_path = self.root / path
@@ -144,7 +149,7 @@ class ISOValidator:
             self.errors.append(f"Tests pytest echouent: {path}")
             return False
 
-    def gate_coverage(self, target: float = 0.60) -> bool:
+    def gate_coverage(self, target: float = 0.60, required: bool = False) -> bool:
         """Gate: Check test coverage meets target."""
         print(f"    Checking coverage (target: {target*100:.0f}%)...", end=" ")
 
@@ -156,9 +161,14 @@ class ISOValidator:
 
         cov_file = self.root / "coverage.json"
         if not cov_file.exists():
-            print(colored("SKIP", Colors.YELLOW), "(coverage not available)")
-            self.warnings.append("Coverage non mesurable (pytest-cov manquant)")
-            return True  # Non-blocking
+            if required:
+                print(colored("FAILED", Colors.RED), "(coverage not available)")
+                self.errors.append("Coverage non mesurable - pytest-cov REQUIS")
+                return False
+            else:
+                print(colored("SKIP", Colors.YELLOW), "(coverage not available)")
+                self.warnings.append("Coverage non mesurable (pytest-cov manquant)")
+                return True
 
         try:
             with open(cov_file, 'r') as f:
@@ -592,12 +602,12 @@ class ISOValidator:
         print(colored("  Gates Phase 4:", Colors.BLUE))
 
         checks = [
-            self.gate_pytest("scripts/"),
+            self.gate_pytest("scripts/", required=True),
             self.gate_lint("scripts/"),
         ]
 
-        # Coverage is required in Phase 4
-        checks.append(self.gate_coverage(target=0.60))
+        # Coverage is REQUIRED in Phase 4
+        checks.append(self.gate_coverage(target=0.60, required=True))
 
         return all(checks)
 

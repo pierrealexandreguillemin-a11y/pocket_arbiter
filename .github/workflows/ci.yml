@@ -197,11 +197,11 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'scripts/requirements.txt'
 
-      - name: Install Dependencies
+      - name: Install Dependencies (BLOCKING)
         run: |
           python -m pip install --upgrade pip
           pip install flake8 pytest pytest-cov
-          # Don't install heavy ML deps for CI - just validation
+          # Install test dependencies - minimal set for CI
           pip install tiktoken tqdm
 
       - name: Lint Python (BLOCKING - errors only)
@@ -240,6 +240,18 @@ jobs:
         run: |
           echo "=== ISO Validator Self-Test ==="
           python scripts/iso/validate_project.py --verbose
+
+      - name: Run Unit Tests (BLOCKING)
+        run: |
+          echo "=== Unit Tests ==="
+          pytest scripts/iso/test_validator.py -v --tb=short
+          echo "[OK] All unit tests passed"
+
+      - name: Run Tests with Coverage (BLOCKING)
+        run: |
+          echo "=== Coverage Report ==="
+          pytest scripts/iso/ --cov=scripts/iso --cov-report=term-missing --cov-fail-under=60
+          echo "[OK] Coverage meets minimum threshold (60%)"
 
   # ============================================================================
   # Job 4: Documentation Quality

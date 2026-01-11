@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "modelCard": {
+    "schemaVersion": "1.0.0",
+    "projectName": "Pocket Arbiter",
+    "projectDescription": "Application mobile 100% offline d'assistance à l'arbitrage d'échecs - Règlements FFE et FIDE",
+    "lastUpdated": "2025-01-11"
+  },
+  
+  "embeddingModel": {
+    "name": "À définir",
+    "candidates": [
+      {
+        "name": "EmbeddingGemma-300M",
+        "framework": "MediaPipe",
+        "dimensions": 300,
+        "pros": "Léger, optimisé mobile",
+        "cons": "À valider pour français"
+      },
+      {
+        "name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        "framework": "PyTorch/ONNX",
+        "dimensions": 384,
+        "pros": "Excellent français, prouvé",
+        "cons": "Plus lourd (~120MB)"
+      }
+    ],
+    "selected": null,
+    "selectionRationale": "À déterminer après benchmarks Phase 2"
+  },
+  
+  "trainingData": {
+    "sources": [
+      {
+        "name": "Règlement FFE - Lois des Échecs",
+        "file": "LA-octobre2025.pdf",
+        "type": "PDF",
+        "version": "Octobre 2025",
+        "pages": 227,
+        "language": "fr",
+        "status": "À traiter"
+      },
+      {
+        "name": "Manuel Arbitre FIDE",
+        "file": "FIDE_Arbiters_Manual_2025.pdf",
+        "type": "PDF",
+        "version": "2025",
+        "pages": "~70",
+        "language": "fr",
+        "status": "À traiter"
+      }
+    ],
+    "preprocessing": {
+      "chunkSize": "À définir (cible: 256-512 tokens)",
+      "chunkOverlap": "À définir (cible: 10-20%)",
+      "strategy": "À définir (semantic vs fixed)"
+    }
+  },
+  
+  "vectorStore": {
+    "type": "FAISS",
+    "indexType": "À définir (IVF_FLAT recommandé)",
+    "metric": "cosine",
+    "estimatedVectors": "~2000-5000 chunks"
+  },
+  
+  "performance": {
+    "targets": {
+      "retrievalLatency": "<100ms",
+      "embeddingLatency": "<200ms",
+      "totalLatency": "<500ms",
+      "recallAt5": "≥80%",
+      "hallucinationRate": "0%"
+    },
+    "measured": {
+      "note": "À compléter après Phase 2-3"
+    }
+  },
+  
+  "compliance": {
+    "isoStandards": [
+      "ISO/IEC 25010 - Software quality",
+      "ISO/IEC 42001 - AI governance",
+      "ISO/IEC 12207 - Software lifecycle",
+      "ISO/IEC 29119 - Testing"
+    ],
+    "aiPolicy": "Voir docs/AI_POLICY.md",
+    "dataPrivacy": "Aucune donnée personnelle - Règlements publics uniquement",
+    "offlineCapability": "100% offline après installation initiale"
+  },
+  
+  "versioning": {
+    "currentPhase": "Phase 0 - Setup",
+    "modelVersion": "0.0.0",
+    "changelog": [
+      {
+        "version": "0.0.0",
+        "date": "2025-01-11",
+        "changes": [
+          "Structure projet initiale",
+          "Configuration CI/CD",
+          "Configuration DVC"
+        ]
+      }
+    ]
+  }
+}

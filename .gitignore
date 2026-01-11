@@ -1,0 +1,144 @@
+# Arbitre Échecs RAG - .gitignore
+
+# =============================================================================
+# ANDROID
+# =============================================================================
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Android Studio
+.idea/
+*.iml
+local.properties
+.DS_Store
+
+# Generated files
+app/build/
+app/release/
+
+# Signing
+*.jks
+*.keystore
+
+# Proguard
+proguard/
+
+# =============================================================================
+# PYTHON
+# =============================================================================
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# =============================================================================
+# CORPUS & MODELS (LARGE FILES)
+# =============================================================================
+
+# PDF sources (à gérer via Git LFS ou séparément)
+# corpus/fr/*.pdf
+# corpus/intl/*.pdf
+
+# Generated indexes (trop volumineux pour Git)
+*.index
+*.faiss
+*.npy
+*.bin
+
+# Models (binaires à télécharger séparément)
+models/*.gguf
+models/*.tflite
+models/*.onnx
+models/*.bin
+!models/model_card.json
+*.gguf
+*.tflite
+*.onnx
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+
+# =============================================================================
+# IDE & EDITORS
+# =============================================================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iml
+
+# Vim
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# OS
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# =============================================================================
+# LOGS & TEMP
+# =============================================================================
+
+*.log
+logs/
+tmp/
+temp/
+cache/
+
+# =============================================================================
+# TESTS
+# =============================================================================
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+.pytest_cache/
+
+# =============================================================================
+# DVC (Data Version Control)
+# =============================================================================
+# Cache DVC local
+.dvc/cache
+.dvc/tmp
+.dvc/config.local
+
+# Fichiers trackés par DVC (les .dvc sont dans Git, pas les données)
+# Note: les fichiers .dvc DOIVENT être commités

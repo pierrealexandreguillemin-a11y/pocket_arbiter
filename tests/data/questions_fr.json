@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "corpus": "fr",
+    "version": "1.0",
+    "description": "Questions gold standard pour évaluer le retrieval sur le corpus français (FFE)",
+    "created": "2026-01-10",
+    "total_questions": 25
+  },
+  "questions": [
+    {
+      "id": "FR-Q01",
+      "question": "Quelle est la règle du toucher-jouer ?",
+      "keywords": ["toucher", "jouer", "pièce", "déplacer"],
+      "expected_docs": ["TODO: nom_fichier.pdf"],
+      "expected_pages": [],
+      "difficulty": "easy",
+      "category": "règles_jeu"
+    },
+    {
+      "id": "FR-Q02",
+      "question": "Combien de temps un joueur a-t-il pour jouer son premier coup ?",
+      "keywords": ["temps", "premier", "coup", "retard"],
+      "expected_docs": [],
+      "expected_pages": [],
+      "difficulty": "easy",
+      "category": "temps"
+    },
+    {
+      "id": "FR-Q03",
+      "question": "Que faire si un joueur arrive en retard au début de la partie ?",
+      "keywords": ["retard", "forfait", "absence"],
+      "expected_docs": [],
+      "expected_pages": [],
+      "difficulty": "medium",
+      "category": "temps"
+    },
+    {
+      "id": "FR-Q04",
+      "question": "Comment se déroule une réclamation pour temps dépassé ?",
+      "keywords": ["temps", "dépassé", "drapeau", "réclamation"],
+      "expected_docs": [],
+      "expected_pages": [],
+      "difficulty": "medium",
+      "category": "temps"
+    },
+    {
+      "id": "FR-Q05",
+      "question": "Quelle est la procédure en cas de coup illégal ?",
+      "keywords": ["coup", "illégal", "pénalité", "temps"],
+      "expected_docs": [],
+      "expected_pages": [],
+      "difficulty": "medium",
+      "category": "règles_jeu"
+    }
+  ],
+  "notes": [
+    "TODO: Compléter avec 20 questions supplémentaires",
+    "TODO: Renseigner expected_docs et expected_pages après indexation",
+    "Les questions doivent couvrir toutes les sections principales du règlement"
+  ]
+}

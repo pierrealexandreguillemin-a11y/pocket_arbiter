@@ -1,0 +1,30 @@
+# Requirements - Scripts Python Arbitre Échecs RAG
+# Phase 1 : Pipeline de données
+
+# PDF extraction
+PyMuPDF>=1.23.0          # fitz - extraction texte PDF
+
+# Text processing
+tiktoken>=0.5.0          # Comptage tokens (compatible OpenAI)
+
+# Embeddings
+sentence-transformers>=2.2.0   # Pour générer embeddings localement
+torch>=2.0.0                   # Backend PyTorch
+
+# Vector database
+faiss-cpu>=1.7.4         # Index vectoriel (version CPU)
+
+# Database
+# SQLite est inclus dans Python standard
+
+# Utilities
+tqdm>=4.65.0             # Progress bars
+python-dotenv>=1.0.0     # Variables d'environnement (optionnel)
+
+# Testing
+pytest>=7.4.0            # Tests unitaires
+pytest-cov>=4.1.0        # Coverage
+
+# Development
+black>=23.0.0            # Formatage code
+flake8>=6.0.0            # Linting

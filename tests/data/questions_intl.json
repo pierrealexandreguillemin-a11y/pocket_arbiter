@@ -1,0 +1,82 @@
+[
+  {
+    "id": "intl_001",
+    "question": "What happens if a player touches a piece but cannot make a legal move with it?",
+    "expected_articles": ["4.3", "4.4"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "easy",
+    "tags": ["touch-move", "illegal-move"]
+  },
+  {
+    "id": "intl_002",
+    "question": "How much time is added after each move in a rapid game?",
+    "expected_articles": ["A.3"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "easy",
+    "tags": ["time-control", "rapid"]
+  },
+  {
+    "id": "intl_003",
+    "question": "When can an arbiter declare a game drawn due to insufficient material?",
+    "expected_articles": ["5.2.2", "6.9"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "medium",
+    "tags": ["draw", "insufficient-material"]
+  },
+  {
+    "id": "intl_004",
+    "question": "What are the requirements for a valid claim of threefold repetition?",
+    "expected_articles": ["9.2"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "medium",
+    "tags": ["draw", "repetition"]
+  },
+  {
+    "id": "intl_005",
+    "question": "If a player's flag falls and no one notices, what should happen when it is discovered?",
+    "expected_articles": ["6.8"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "hard",
+    "tags": ["time", "flag-fall"]
+  },
+  {
+    "id": "intl_006",
+    "question": "What is the procedure when an illegal move is discovered several moves later?",
+    "expected_articles": ["7.5"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "hard",
+    "tags": ["illegal-move", "correction"]
+  },
+  {
+    "id": "intl_007",
+    "question": "Can a player castle if the rook is attacked?",
+    "expected_articles": ["3.8.2"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "easy",
+    "tags": ["castling", "rules"]
+  },
+  {
+    "id": "intl_008",
+    "question": "What are the arbiter's duties during a rapid or blitz tournament?",
+    "expected_articles": ["A.4", "B.3"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "medium",
+    "tags": ["arbiter", "rapid", "blitz"]
+  },
+  {
+    "id": "intl_009",
+    "question": "How should an arbiter handle a mobile phone ringing during a game?",
+    "expected_articles": ["11.3.2"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "medium",
+    "tags": ["mobile-phone", "penalty"]
+  },
+  {
+    "id": "intl_010",
+    "question": "What is the 75-move rule and when does it apply?",
+    "expected_articles": ["9.6.2"],
+    "source": "FIDE Laws of Chess",
+    "difficulty": "hard",
+    "tags": ["draw", "75-move"]
+  }
+]

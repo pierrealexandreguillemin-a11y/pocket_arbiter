@@ -5,13 +5,68 @@ import json
 import shutil
 import pytest
 
+from ..base import BaseChecker
 from ..checks import ISO12207Checks, ISO25010Checks, ISO29119Checks, ISO42001Checks
 
 
-def make_checker(cls, tmp_path):
+class TestBaseChecker:
+    """Tests for BaseChecker base class."""
+
+    def test_log_verbose_true(self, tmp_path, capsys):
+        """Test log() prints when verbose=True."""
+        errors, warnings, passed = [], [], []
+        checker = BaseChecker(tmp_path, errors, warnings, passed, verbose=True)
+        checker.log("Test verbose message")
+        captured = capsys.readouterr()
+        assert "Test verbose message" in captured.out
+
+    def test_log_verbose_false(self, tmp_path, capsys):
+        """Test log() does not print when verbose=False."""
+        errors, warnings, passed = [], [], []
+        checker = BaseChecker(tmp_path, errors, warnings, passed, verbose=False)
+        checker.log("Test verbose message")
+        captured = capsys.readouterr()
+        assert "Test verbose message" not in captured.out
+
+    def test_check_file_exists_success(self, tmp_path):
+        """Test check_file_exists returns True for existing file."""
+        (tmp_path / "test.txt").write_text("content")
+        errors, warnings, passed = [], [], []
+        checker = BaseChecker(tmp_path, errors, warnings, passed)
+        result = checker.check_file_exists("test.txt", "Test file")
+        assert result is True
+        assert any("Test file" in p for p in passed)
+
+    def test_check_file_exists_failure(self, tmp_path):
+        """Test check_file_exists returns False for missing file."""
+        errors, warnings, passed = [], [], []
+        checker = BaseChecker(tmp_path, errors, warnings, passed)
+        result = checker.check_file_exists("missing.txt", "Missing file")
+        assert result is False
+        assert any("Missing file" in e for e in errors)
+
+    def test_check_dir_exists_success(self, tmp_path):
+        """Test check_dir_exists returns True for existing dir."""
+        (tmp_path / "subdir").mkdir()
+        errors, warnings, passed = [], [], []
+        checker = BaseChecker(tmp_path, errors, warnings, passed)
+        result = checker.check_dir_exists("subdir", "Test dir")
+        assert result is True
+        assert any("Test dir" in p for p in passed)
+
+    def test_check_dir_exists_failure(self, tmp_path):
+        """Test check_dir_exists returns False for missing dir."""
+        errors, warnings, passed = [], [], []
+        checker = BaseChecker(tmp_path, errors, warnings, passed)
+        result = checker.check_dir_exists("missing", "Missing dir")
+        assert result is False
+        assert any("Missing dir" in e for e in errors)
+
+
+def make_checker(cls, tmp_path, verbose=False):
     """Helper to create checker with shared state."""
     errors, warnings, passed = [], [], []
-    return cls(tmp_path, errors, warnings, passed), errors, warnings, passed
+    return cls(tmp_path, errors, warnings, passed, verbose), errors, warnings, passed
 
 
 class TestISO12207Checks:

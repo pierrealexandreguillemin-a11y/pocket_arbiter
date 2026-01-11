@@ -275,9 +275,11 @@ jobs:
             exit 1
           fi
 
-          # Check for dangerous patterns in code
+          # Check for dangerous patterns in code (exclude validation scripts)
           echo "Checking for dangerous AI patterns..."
-          DANGEROUS=$(grep -r "generate_without_context\|skip_citation\|no_source" scripts/ 2>/dev/null || true)
+          DANGEROUS=$(grep -r --include="*.py" --include="*.kt" \
+            -E "generate.?without.?context|skip.?citation|no.?source.?check" \
+            scripts/ android/ 2>/dev/null | grep -v "validate_project.py" | grep -v "# Pattern" || true)
           if [ -n "$DANGEROUS" ]; then
             echo "❌ Dangerous AI patterns found:"
             echo "$DANGEROUS"

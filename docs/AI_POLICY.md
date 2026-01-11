@@ -1,10 +1,13 @@
-# Politique IA Responsable - Arbitre Échecs RAG
+# Politique IA Responsable - Arbitre Echecs RAG
 
-> Document de référence ISO/IEC 42001:2023 - Système de management de l'IA
-
-**Version** : 1.0  
-**Date** : 2026-01-10  
-**Statut** : Draft
+> **Document ID**: DOC-POL-001
+> **ISO Reference**: ISO/IEC 42001:2023 - Systeme de management de l'IA
+> **Version**: 1.0
+> **Date**: 2026-01-11
+> **Statut**: Draft
+> **Classification**: Interne
+> **Auteur**: Equipe projet
+> **Mots-cles**: IA, LLM, hallucination, ethique, grounding, RAG, gouvernance
 
 ---
 

@@ -1,10 +1,13 @@
-# Exigences Qualité - Arbitre Échecs RAG
+# Exigences Qualite - Arbitre Echecs RAG
 
-> Document de référence ISO/IEC 25010:2023 - Modèle de qualité produit
-
-**Version** : 1.0  
-**Date** : 2026-01-10  
-**Statut** : Draft
+> **Document ID**: SPEC-REQ-001
+> **ISO Reference**: ISO/IEC 25010:2023 - Modele de qualite produit
+> **Version**: 1.0
+> **Date**: 2026-01-11
+> **Statut**: Draft
+> **Classification**: Interne
+> **Auteur**: Equipe projet
+> **Mots-cles**: qualite, ISO 25010, exigences, performance, fiabilite, securite, maintenabilite
 
 ---
 

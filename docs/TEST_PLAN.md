@@ -1,10 +1,13 @@
-# Plan de Tests - Arbitre Échecs RAG
+# Plan de Tests - Arbitre Echecs RAG
 
-> Document de référence ISO/IEC 29119:2021 - Tests logiciels
-
-**Version** : 1.0  
-**Date** : 2026-01-10  
-**Statut** : Draft
+> **Document ID**: TEST-PLAN-001
+> **ISO Reference**: ISO/IEC 29119:2021 - Tests logiciels
+> **Version**: 1.0
+> **Date**: 2026-01-11
+> **Statut**: Draft
+> **Classification**: Interne
+> **Auteur**: Equipe projet
+> **Mots-cles**: tests, validation, verification, qualite, CI/CD, hallucination, retrieval
 
 ---
 

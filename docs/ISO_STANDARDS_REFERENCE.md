@@ -1,9 +1,13 @@
 # ISO Standards Reference - Pocket Arbiter
 
-## Document Control
-| Version | Date | Author | Description |
-|---------|------|--------|-------------|
-| 1.0 | 2026-01-11 | Claude Opus 4.5 | Initial version |
+> **Document ID**: DOC-REF-001
+> **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
+> **Version**: 1.2
+> **Date**: 2026-01-11
+> **Statut**: Approuve
+> **Classification**: Interne
+> **Auteur**: Claude Opus 4.5
+> **Mots-cles**: ISO, normes, conformite, qualite, documentation, IA, tests
 
 ---
 
@@ -101,6 +105,8 @@ pocket_arbiter/
 ### 1.4 ISO/IEC 29119:2013 - Software Testing
 **Scope**: Software testing processes, documentation, and techniques
 
+> **Document de reference detaille**: [`docs/TEST_PLAN.md`](TEST_PLAN.md)
+
 **Application to Pocket Arbiter**:
 
 **Test Plan**: `docs/TEST_PLAN.md`
@@ -134,6 +140,54 @@ pytest scripts/iso/ --cov=scripts/iso --cov-fail-under=60
 # Specific phase validation
 python scripts/iso/validate_project.py --phase 1 --gates
 ```
+
+---
+
+### 1.5 Standards de documentation
+
+**Normes applicables a la gestion documentaire du projet**:
+
+> **Document de reference detaille**: [`docs/DOC_CONTROL.md`](DOC_CONTROL.md)
+
+#### ISO 9001:2015 Clause 7.5 - Information documentee
+**Scope**: Controle de l'information documentee
+
+**Application au projet**:
+- Identification et description des documents
+- Format et support
+- Revue et approbation
+- Controle des modifications
+- Conservation et archivage
+
+#### ISO 15489-1:2016 - Gestion des documents d'activite
+**Scope**: Principes de gestion des enregistrements
+
+**Application au projet**:
+- Cycle de vie des documents (Draft → Approuve → Obsolete)
+- Politique de retention
+- Tracabilite des modifications
+
+#### ISO 82045-1:2001 - Gestion de documents
+**Scope**: Principes et methodes pour les metadonnees documentaires
+
+**Application au projet**:
+- Schema de numerotation: `[CATEGORIE]-[TYPE]-[NUMERO]`
+- Metadonnees obligatoires: ID, version, date, statut, auteur, mots-cles
+- En-tete standardise pour tous les documents
+
+#### ISO 999:1996 - Lignes directrices pour l'indexation
+**Scope**: Principes d'indexation des documents
+
+**Application au projet**:
+- Index principal: [`docs/INDEX.md`](INDEX.md)
+- Index par sujet avec vocabulaire controle
+- References croisees entre documents
+
+**Documents de controle**:
+| Document | Role | ID |
+|----------|------|-----|
+| `docs/DOC_CONTROL.md` | Procedure de controle | DOC-CTRL-001 |
+| `docs/INDEX.md` | Index principal | DOC-IDX-001 |
 
 ---
 
@@ -236,23 +290,28 @@ python scripts/iso/validate_project.py --phase N --gates --verbose
 - Validation logs: CI artifacts
 
 ### Document References
-| Document | ISO Reference | Rôle |
-|----------|---------------|------|
-| `docs/VISION.md` | ISO 12207 - Project Planning | Objectifs projet |
-| `docs/AI_POLICY.md` | ISO 42001 - AI Governance | **Document maître IA** |
-| `docs/QUALITY_REQUIREMENTS.md` | ISO 25010 - Quality Model | Exigences qualité |
-| `docs/TEST_PLAN.md` | ISO 29119 - Test Documentation | Stratégie de test |
-| `docs/ISO_STANDARDS_REFERENCE.md` | Toutes normes | **Index et vue d'ensemble** |
-| `corpus/INVENTORY.md` | ISO 12207 - Configuration Management | Traçabilité corpus |
-| `prompts/CHANGELOG.md` | ISO 42001 - AI Transparency | Historique prompts |
+| Document | ID | ISO Reference | Role |
+|----------|-----|---------------|------|
+| `docs/INDEX.md` | DOC-IDX-001 | ISO 999 | **Index principal** |
+| `docs/DOC_CONTROL.md` | DOC-CTRL-001 | ISO 9001, 15489, 82045 | **Controle documentaire** |
+| `docs/ISO_STANDARDS_REFERENCE.md` | DOC-REF-001 | Toutes normes | **Reference ISO** |
+| `docs/VISION.md` | SPEC-VIS-001 | ISO 12207 | Objectifs projet |
+| `docs/AI_POLICY.md` | DOC-POL-001 | ISO 42001 | **Politique IA** |
+| `docs/QUALITY_REQUIREMENTS.md` | SPEC-REQ-001 | ISO 25010 | Exigences qualite |
+| `docs/TEST_PLAN.md` | TEST-PLAN-001 | ISO 29119 | Strategie de test |
+| `docs/DVC_GUIDE.md` | DOC-GUIDE-001 | - | Guide technique DVC |
+| `corpus/INVENTORY.md` | CORP-INV-001 | ISO 12207 | Tracabilite corpus |
+| `prompts/CHANGELOG.md` | PROM-LOG-001 | ISO 42001 | Historique prompts |
 
-**Hiérarchie documentaire**:
+**Hierarchie documentaire**:
 ```
-ISO_STANDARDS_REFERENCE.md (index)
-├── AI_POLICY.md (détail ISO 42001)
-├── QUALITY_REQUIREMENTS.md (détail ISO 25010)
-├── TEST_PLAN.md (détail ISO 29119)
-└── VISION.md (détail ISO 12207)
+INDEX.md (DOC-IDX-001) - Index principal ISO 999
+├── DOC_CONTROL.md (DOC-CTRL-001) - Controle ISO 9001/82045/15489
+├── ISO_STANDARDS_REFERENCE.md (DOC-REF-001) - Reference ISO
+├── AI_POLICY.md (DOC-POL-001) - Detail ISO 42001
+├── QUALITY_REQUIREMENTS.md (SPEC-REQ-001) - Detail ISO 25010
+├── TEST_PLAN.md (TEST-PLAN-001) - Detail ISO 29119
+└── VISION.md (SPEC-VIS-001) - Detail ISO 12207
 ```
 
 ---
@@ -286,13 +345,26 @@ ISO_STANDARDS_REFERENCE.md (index)
 | Retrieval Recall | 80% | TBD | ISO 25010 |
 | Hallucination Rate | 0% | TBD | ISO 42001 |
 | Response Latency | < 5s | TBD | ISO 25010 |
+| Docs avec ID | 100% | 100% | ISO 82045 |
+| Docs indexes | 100% | 100% | ISO 999 |
 
 ### Review Cadence
 - Pre-commit: Every commit
 - CI: Every push
 - Phase gate: Phase completion
 - Full audit: Major release
+- Documentation audit: Each phase
 
 ---
 
-*This document is maintained as part of the Pocket Arbiter ISO compliance system.*
+## 7. Historique du document
+
+| Version | Date | Auteur | Changements |
+|---------|------|--------|-------------|
+| 1.0 | 2026-01-11 | Claude Opus 4.5 | Creation initiale |
+| 1.1 | 2026-01-11 | Claude Opus 4.5 | Integration AI_POLICY.md, hierarchie docs |
+| 1.2 | 2026-01-11 | Claude Opus 4.5 | Ajout standards documentation (ISO 999, 15489, 82045, 9001) |
+
+---
+
+*Ce document est maintenu dans le cadre du systeme de conformite ISO du projet Pocket Arbiter.*

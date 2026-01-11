@@ -1,10 +1,13 @@
-# Vision Projet - Arbitre Échecs RAG
+# Vision Projet - Arbitre Echecs RAG
 
-> Document de référence ISO/IEC 12207:2017 §6.4 - Processus de définition des exigences
-
-**Version** : 1.0  
-**Date** : 2026-01-10  
-**Statut** : Draft
+> **Document ID**: SPEC-VIS-001
+> **ISO Reference**: ISO/IEC 12207:2017 - Processus du cycle de vie logiciel
+> **Version**: 1.0
+> **Date**: 2026-01-11
+> **Statut**: Draft
+> **Classification**: Interne
+> **Auteur**: Equipe projet
+> **Mots-cles**: vision, objectifs, RAG, echecs, arbitre, mobile, offline
 
 ---
 

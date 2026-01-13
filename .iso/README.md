@@ -24,7 +24,8 @@ Ce dossier contient la configuration et les outils d'enforcement des normes ISO 
 ├── checklists/
 │   ├── feature_template.md  # Template checklist feature standard
 │   ├── ai_feature.md        # Template checklist feature IA (ISO 42001)
-│   └── phase1_pipeline.md   # Checklist spécifique Phase 1
+│   ├── phase1_pipeline.md   # Checklist specifique Phase 1
+│   └── phase2_android_rag.md # Checklist Phase 2 - Android RAG Mid-Range
 └── templates/
     └── spec_template.md     # Template de spécification
 
@@ -160,4 +161,5 @@ python scripts/iso/validate_project.py 2>&1 | grep "❌"
 
 | Version | Date | Changements |
 |---------|------|-------------|
-| 1.0 | 2026-01-11 | Création système ISO enforcement |
+| 1.0 | 2026-01-11 | Creation systeme ISO enforcement |
+| 1.1 | 2026-01-14 | Ajout checklist Phase 2 Android RAG Mid-Range |

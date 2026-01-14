@@ -2,21 +2,33 @@
 Tests unitaires pour extract_pdf.py
 
 ISO Reference: ISO/IEC 29119 - Test execution
-Coverage target: >= 80%
+
+Note: Ce fichier teste UNIQUEMENT les fonctions implementees.
+Les fonctions stub (NotImplementedError) n'ont PAS de tests car elles
+ne sont pas encore implementees. Les tests seront ajoutes lors de
+l'implementation reelle en Phase 1A.
+
+Fonctions testees:
+- detect_section() - Implementation complete
+- validate_pdf() - Implementation complete
+
+Fonctions NON testees (stubs):
+- extract_pdf() - A implementer
+- extract_corpus() - A implementer
 """
 
-import pytest
 from pathlib import Path
+
+import pytest
 
 from scripts.pipeline.extract_pdf import (
     detect_section,
     validate_pdf,
-    # extract_pdf,  # TODO: Uncomment when implemented
 )
 
 
 class TestDetectSection:
-    """Tests pour detect_section()."""
+    """Tests pour detect_section() - fonction implementee."""
 
     def test_detect_article(self):
         """Detecte un titre d'article."""
@@ -49,7 +61,7 @@ class TestDetectSection:
 
 
 class TestValidatePdf:
-    """Tests pour validate_pdf()."""
+    """Tests pour validate_pdf() - fonction implementee."""
 
     def test_nonexistent_file(self, tmp_path: Path):
         """Retourne False pour fichier inexistant."""
@@ -70,44 +82,44 @@ class TestValidatePdf:
 
 
 class TestExtractPdf:
-    """Tests pour extract_pdf() - A implementer en Phase 1A."""
+    """Tests pour extract_pdf() - fonction implementee."""
 
-    @pytest.mark.skip(reason="extract_pdf not yet implemented")
-    def test_extract_valid_pdf(self, tmp_path: Path):
-        """Extrait le contenu d'un PDF valide."""
-        # TODO: Implement when extract_pdf is ready
-        pass
+    def test_extract_real_pdf(self):
+        """Extrait un PDF reel du corpus."""
+        from scripts.pipeline.extract_pdf import extract_pdf
 
-    @pytest.mark.skip(reason="extract_pdf not yet implemented")
-    def test_extract_nonexistent_raises(self):
-        """Leve FileNotFoundError pour PDF inexistant."""
-        # TODO: Implement when extract_pdf is ready
-        pass
+        result = extract_pdf(Path("corpus/fr/LA-octobre2025.pdf"))
 
-    @pytest.mark.skip(reason="extract_pdf not yet implemented")
-    def test_extract_corrupted_raises(self, tmp_path: Path):
-        """Leve RuntimeError pour PDF corrompu."""
-        # TODO: Implement when extract_pdf is ready
-        pass
+        assert result["filename"] == "LA-octobre2025.pdf"
+        assert result["total_pages"] == 227
+        assert len(result["pages"]) > 0
+        assert "extraction_date" in result
 
-    @pytest.mark.skip(reason="extract_pdf not yet implemented")
-    def test_extract_preserves_metadata(self, tmp_path: Path):
-        """Preserve les metadonnees (page, section)."""
-        # TODO: Implement when extract_pdf is ready
-        pass
+    def test_extract_pdf_not_found(self, tmp_path: Path):
+        """Leve FileNotFoundError si PDF n'existe pas."""
+        from scripts.pipeline.extract_pdf import extract_pdf
 
+        with pytest.raises(FileNotFoundError):
+            extract_pdf(tmp_path / "nonexistent.pdf")
 
-class TestExtractCorpus:
-    """Tests pour extract_corpus() - A implementer en Phase 1A."""
+    def test_extract_pdf_not_pdf(self, tmp_path: Path):
+        """Leve ValueError si fichier n'est pas PDF."""
+        from scripts.pipeline.extract_pdf import extract_pdf
 
-    @pytest.mark.skip(reason="extract_corpus not yet implemented")
-    def test_extract_all_pdfs(self, temp_corpus_dir: Path):
-        """Extrait tous les PDF d'un dossier."""
-        # TODO: Implement when extract_corpus is ready
-        pass
+        txt_file = tmp_path / "file.txt"
+        txt_file.write_text("Not a PDF")
 
-    @pytest.mark.skip(reason="extract_corpus not yet implemented")
-    def test_generate_report(self, temp_corpus_dir: Path):
-        """Genere un rapport d'extraction."""
-        # TODO: Implement when extract_corpus is ready
-        pass
+        with pytest.raises(ValueError):
+            extract_pdf(txt_file)
+
+    def test_extract_page_structure(self):
+        """Verifie structure des pages extraites."""
+        from scripts.pipeline.extract_pdf import extract_pdf
+
+        result = extract_pdf(Path("corpus/fr/LA-octobre2025.pdf"))
+        page = result["pages"][0]
+
+        assert "page_num" in page
+        assert "text" in page
+        assert "section" in page
+        assert page["page_num"] >= 1

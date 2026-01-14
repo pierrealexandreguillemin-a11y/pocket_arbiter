@@ -79,6 +79,7 @@ repos:
         name: "ISO 27001 | Large File Detection"
         description: "Prevent accidental commit of large files"
         args: ['--maxkb=1000']
+        exclude: ^corpus/processed/
       - id: check-merge-conflict
         name: "ISO 12207 | Merge Conflict Detection"
         description: "Ensure clean merge state"

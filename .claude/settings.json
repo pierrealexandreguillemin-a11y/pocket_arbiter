@@ -1,0 +1,24 @@
+{
+  "_comment": "Claude Code settings - seul 'permissions' est enforce. Voir CLAUDE.md pour instructions ISO.",
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Write(**/.env)",
+      "Edit(**/.env)",
+      "Read(**/secrets/**)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(rm -rf:*)"
+    ],
+    "allow": [
+      "Bash(python -m pytest:*)",
+      "Bash(python -m pre_commit:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ]
+  }
+}

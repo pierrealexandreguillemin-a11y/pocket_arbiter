@@ -111,13 +111,13 @@ repos:
     hooks:
       # ------------------------------------------------------------------------
       # TESTING: Coverage Gate (ISO 29119 - Test Coverage)
-      # Target: 75%
+      # Target: 80% minimum coverage
       # ------------------------------------------------------------------------
       - id: pytest-cov
-        name: "ISO 29119 | Test Coverage (75% min)"
+        name: "ISO 29119 | Test Coverage (80% min)"
         description: "Run tests with coverage measurement"
         entry: python
-        args: [-m, pytest, scripts/iso/tests/, -v, --tb=short, --cov=scripts/iso, --cov-fail-under=75, -x]
+        args: [-m, pytest, scripts/iso/tests/, scripts/pipeline/tests/, -v, --tb=short, --cov=scripts, --cov-fail-under=80, -x]
         language: system
         pass_filenames: false
         stages: [pre-push]

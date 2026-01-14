@@ -2,7 +2,7 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.0
+> **Version**: 1.1
 > **Date**: 2026-01-14
 > **Effort total estime**: 210h (~13-16 semaines)
 
@@ -14,7 +14,7 @@
 PHASE 0 ✅ COMPLETE
     │
     ▼
-PHASE 1A (S1-2) ──► Pipeline Extract + Chunk
+PHASE 1A ✅ COMPLETE ──► Pipeline Extract + Chunk (2047 FR + 1105 INTL)
     │
     ▼
 PHASE 1B (S3-4) ──► Pipeline Embed + Index
@@ -54,33 +54,40 @@ PRODUCTION
 
 ---
 
-## Phase 1A - Pipeline Extract + Chunk
+## Phase 1A - Pipeline Extract + Chunk (COMPLETE)
 
-**Duree**: Semaine 1-2 | **Effort**: 20h
+**Duree**: Semaine 1-2 | **Effort**: 20h | **Statut**: ✅ COMPLETE
 
 ### Objectif
 Extraire le contenu textuel des PDF et segmenter en chunks de 256 tokens.
 
 ### Deliverables
 
-| Fichier | Description |
-|---------|-------------|
-| `scripts/pipeline/extract_pdf.py` | Extraction PDF via PyMuPDF |
-| `scripts/pipeline/chunker.py` | Segmentation 256 tokens, overlap 50 |
-| `corpus/processed/chunks_fr.json` | ~500 chunks FR |
-| `corpus/processed/chunks_intl.json` | ~100 chunks INTL |
+| Fichier | Description | Statut |
+|---------|-------------|--------|
+| `scripts/pipeline/extract_pdf.py` | Extraction PDF via PyMuPDF | ✅ |
+| `scripts/pipeline/chunker.py` | Segmentation 256 tokens, overlap 50 | ✅ |
+| `corpus/processed/chunks_fr.json` | 2047 chunks FR | ✅ |
+| `corpus/processed/chunks_intl.json` | 1105 chunks INTL | ✅ |
 
-### Definition of Done
+### Resultats
 
-| Critere | Validation |
-|---------|------------|
-| 100% PDF extraits | Script execute sans erreur |
-| ~500 chunks FR | Comptage output |
-| Tests ≥80% coverage | `pytest --cov-fail-under=80` |
-| Schema documente | `docs/CHUNK_SCHEMA.md` existe |
+| Critere | Cible | Reel | Statut |
+|---------|-------|------|--------|
+| PDFs FR extraits | 28 | 28 | ✅ |
+| PDFs INTL extraits | 1 | 1 | ✅ |
+| Chunks FR | ~500 | 2047 | ✅ |
+| Chunks INTL | ~100 | 1105 | ✅ |
+| Coverage tests | 80% | 93% | ✅ |
+| Complexite cyclomatique | B max | B | ✅ |
+
+> **Note**: Le nombre de chunks est superieur aux previsions car le corpus
+> contient 404 pages (vs estimation initiale). Le chunking 256 tokens avec
+> overlap 20% produit ~5 chunks/page en moyenne.
 
 ### Specifications
 - Voir `docs/specs/PHASE1A_SPECS.md`
+- Schema: `docs/CHUNK_SCHEMA.md`
 
 ---
 
@@ -357,3 +364,4 @@ Validation utilisateur et release production.
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-14 | Creation initiale |
+| 1.1 | 2026-01-14 | Phase 1A complete (2047 FR + 1105 INTL chunks) |

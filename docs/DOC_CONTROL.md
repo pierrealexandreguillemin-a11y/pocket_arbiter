@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-CTRL-001
 > **ISO Reference**: ISO 9001:2015 Clause 7.5 - Information documentee
-> **Version**: 1.0
-> **Date**: 2026-01-11
+> **Version**: 1.1
+> **Date**: 2026-01-14
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -67,7 +67,7 @@ S'applique a :
 
 | ID Document | Titre | Fichier | Version |
 |-------------|-------|---------|---------|
-| DOC-CTRL-001 | Procedure de Controle Documentaire | docs/DOC_CONTROL.md | 1.0 |
+| DOC-CTRL-001 | Procedure de Controle Documentaire | docs/DOC_CONTROL.md | 1.1 |
 | DOC-REF-001 | Reference des Normes ISO | docs/ISO_STANDARDS_REFERENCE.md | 1.1 |
 | DOC-POL-001 | Politique IA Responsable | docs/AI_POLICY.md | 1.0 |
 | SPEC-REQ-001 | Exigences Qualite | docs/QUALITY_REQUIREMENTS.md | 1.0 |
@@ -75,6 +75,12 @@ S'applique a :
 | TEST-PLAN-001 | Plan de Tests | docs/TEST_PLAN.md | 1.0 |
 | DOC-IDX-001 | Index Principal | docs/INDEX.md | 1.0 |
 | DOC-GUIDE-001 | Guide DVC | docs/DVC_GUIDE.md | 1.0 |
+| DOC-ARCH-001 | Architecture Technique | docs/ARCHITECTURE.md | 1.0 |
+| PLAN-RDM-001 | Roadmap Projet | docs/PROJECT_ROADMAP.md | 1.1 |
+| SPEC-P1A-001 | Specifications Phase 1A | docs/specs/PHASE1A_SPECS.md | 1.0 |
+| SPEC-CHK-001 | Schema JSON Chunks | docs/CHUNK_SCHEMA.md | 1.0 |
+| CHK-PIPE-001 | Checklist Phase 1 Pipeline | .iso/checklists/phase1_pipeline.md | 1.1 |
+| CHK-P2-001 | Checklist Phase 2 Android | .iso/checklists/phase2_android_rag.md | 1.0 |
 | CORP-INV-001 | Inventaire Corpus | corpus/INVENTORY.md | 1.0 |
 | PROM-LOG-001 | Changelog Prompts | prompts/CHANGELOG.md | 1.0 |
 
@@ -259,6 +265,7 @@ python scripts/iso/validate_project.py --verbose
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-11 | Claude Opus 4.5 | Creation initiale |
+| 1.1 | 2026-01-14 | Claude Opus 4.5 | Ajout documents Phase 1A au registre |
 
 ---
 

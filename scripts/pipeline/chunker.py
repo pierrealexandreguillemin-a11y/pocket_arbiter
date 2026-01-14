@@ -43,6 +43,41 @@ TOKENIZER_NAME = "cl100k_base"  # Compatible OpenAI/LLM
 # --- Main Functions ---
 
 
+def _build_chunk_dict(
+    chunk_text: str, chunk_tokens: int, metadata: Optional[dict]
+) -> dict:
+    """Build a chunk dictionary from text and metadata."""
+    from scripts.pipeline.utils import get_date
+
+    return {
+        "id": "",  # Will be set by caller
+        "text": chunk_text,
+        "source": metadata.get("source", "") if metadata else "",
+        "page": metadata.get("page", 0) if metadata else 0,
+        "tokens": chunk_tokens,
+        "metadata": {
+            "section": metadata.get("section") if metadata else None,
+            "corpus": metadata.get("corpus", "fr") if metadata else "fr",
+            "extraction_date": get_date(),
+            "version": "1.0",
+        },
+    }
+
+
+def _enforce_iso_limits(
+    chunk_text: str, remaining: str, encoder: "tiktoken.Encoding"
+) -> tuple[str, str, int]:
+    """Enforce ISO 82045 max 512 tokens limit."""
+    chunk_tokens = len(encoder.encode(chunk_text))
+    if chunk_tokens > 512:
+        hard_tokens = encoder.encode(chunk_text)[:512]
+        overflow = encoder.decode(encoder.encode(chunk_text)[512:])
+        chunk_text = encoder.decode(hard_tokens)
+        remaining = overflow + " " + remaining if remaining else overflow
+        chunk_tokens = len(encoder.encode(chunk_text))
+    return chunk_text, remaining, chunk_tokens
+
+
 def chunk_text(
     text: str,
     max_tokens: int = DEFAULT_MAX_TOKENS,
@@ -96,7 +131,7 @@ def chunk_text(
     if not text or not text.strip():
         raise ValueError("Text cannot be empty")
 
-    from scripts.pipeline.utils import get_date, normalize_text
+    from scripts.pipeline.utils import normalize_text
 
     text = normalize_text(text)
     encoder = tiktoken.get_encoding(TOKENIZER_NAME)
@@ -130,34 +165,16 @@ def chunk_text(
             else:
                 prev_overlap = ""
 
-        chunk_tokens = len(encoder.encode(chunk_text))
-
-        # ISO 82045: Force max 512 tokens - hard split if needed
-        if chunk_tokens > 512:
-            hard_tokens = encoder.encode(chunk_text)[:512]
-            overflow = encoder.decode(encoder.encode(chunk_text)[512:])
-            chunk_text = encoder.decode(hard_tokens)
-            remaining = overflow + " " + remaining if remaining else overflow
-            chunk_tokens = len(encoder.encode(chunk_text))
+        # Enforce ISO 82045 limits
+        chunk_text, remaining, chunk_tokens = _enforce_iso_limits(
+            chunk_text, remaining, encoder
+        )
 
         # ISO 82045: Skip chunks with text < 50 chars
         if len(chunk_text) < 50:
             continue
 
-        chunk = {
-            "id": "",  # Will be set by caller
-            "text": chunk_text,
-            "source": metadata.get("source", "") if metadata else "",
-            "page": metadata.get("page", 0) if metadata else 0,
-            "tokens": chunk_tokens,
-            "metadata": {
-                "section": metadata.get("section") if metadata else None,
-                "corpus": metadata.get("corpus", "fr") if metadata else "fr",
-                "extraction_date": get_date(),
-                "version": "1.0",
-            },
-        }
-        chunks.append(chunk)
+        chunks.append(_build_chunk_dict(chunk_text, chunk_tokens, metadata))
         seq += 1
 
     return chunks

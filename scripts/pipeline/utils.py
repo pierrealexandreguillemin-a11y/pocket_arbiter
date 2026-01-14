@@ -116,6 +116,25 @@ def list_pdf_files(directory: Path) -> list[Path]:
     return sorted(directory.rglob("*.pdf"))
 
 
+def _validate_chunk_id(chunk_id: str) -> list[str]:
+    """Validate chunk ID format."""
+    import re
+
+    if not re.match(r"^(FR|INTL)-\d{3}-\d{3}-\d{2}$", chunk_id):
+        return [f"Invalid chunk ID format: {chunk_id}"]
+    return []
+
+
+def _validate_chunk_metadata(metadata: dict) -> list[str]:
+    """Validate chunk metadata fields."""
+    errors = []
+    meta_required = ["corpus", "extraction_date", "version"]
+    for field in meta_required:
+        if field not in metadata:
+            errors.append(f"Missing metadata field: {field}")
+    return errors
+
+
 def validate_chunk_schema(chunk: dict) -> list[str]:
     """
     Valide un chunk contre le schema attendu.
@@ -134,23 +153,15 @@ def validate_chunk_schema(chunk: dict) -> list[str]:
             errors.append(f"Missing required field: {field}")
 
     if "id" in chunk:
-        import re
+        errors.extend(_validate_chunk_id(chunk["id"]))
 
-        if not re.match(r"^(FR|INTL)-\d{3}-\d{3}-\d{2}$", chunk["id"]):
-            errors.append(f"Invalid chunk ID format: {chunk['id']}")
+    if "text" in chunk and len(chunk["text"]) < 50:
+        errors.append(f"Text too short: {len(chunk['text'])} chars")
 
-    if "text" in chunk:
-        if len(chunk["text"]) < 50:
-            errors.append(f"Text too short: {len(chunk['text'])} chars")
-
-    if "tokens" in chunk:
-        if chunk["tokens"] > 512:
-            errors.append(f"Too many tokens: {chunk['tokens']}")
+    if "tokens" in chunk and chunk["tokens"] > 512:
+        errors.append(f"Too many tokens: {chunk['tokens']}")
 
     if "metadata" in chunk:
-        meta_required = ["corpus", "extraction_date", "version"]
-        for field in meta_required:
-            if field not in chunk["metadata"]:
-                errors.append(f"Missing metadata field: {field}")
+        errors.extend(_validate_chunk_metadata(chunk["metadata"]))
 
     return errors

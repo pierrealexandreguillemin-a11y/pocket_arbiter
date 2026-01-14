@@ -60,8 +60,8 @@ repos:
       - id: mypy
         name: "ISO 5055 | Type Safety Analysis"
         description: "Static type checking for reliability"
-        args: [--ignore-missing-imports]
-        exclude: ^(tests/|scripts/iso/tests/)
+        args: [--ignore-missing-imports, --explicit-package-bases]
+        exclude: ^(tests/|scripts/iso/tests/|scripts/pipeline/tests/)
 
   # --------------------------------------------------------------------------
   # DATA INTEGRITY: Config File Validation (ISO 25012 - Data Quality)

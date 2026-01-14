@@ -1,79 +1,134 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "modelCard": {
-    "schemaVersion": "1.0.0",
+    "schemaVersion": "1.1.0",
     "projectName": "Pocket Arbiter",
-    "projectDescription": "Application mobile 100% offline d'assistance à l'arbitrage d'échecs - Règlements FFE et FIDE",
-    "lastUpdated": "2026-01-11"
+    "projectDescription": "Application mobile 100% offline d'assistance a l'arbitrage d'echecs - Reglements FFE et FIDE",
+    "lastUpdated": "2026-01-14"
   },
 
   "embeddingModel": {
-    "name": "À définir",
-    "candidates": [
-      {
-        "name": "EmbeddingGemma-300M",
-        "framework": "MediaPipe",
-        "dimensions": 300,
-        "pros": "Léger, optimisé mobile",
-        "cons": "À valider pour français"
-      },
-      {
-        "name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-        "framework": "PyTorch/ONNX",
-        "dimensions": 384,
-        "pros": "Excellent français, prouvé",
-        "cons": "Plus lourd (~120MB)"
-      }
-    ],
-    "selected": null,
-    "selectionRationale": "À déterminer après benchmarks Phase 2"
+    "name": "EmbeddingGemma-300M",
+    "framework": "LiteRT (TensorFlow Lite)",
+    "source": "litert-community/embeddinggemma-300m",
+    "huggingface_url": "https://huggingface.co/litert-community/embeddinggemma-300m",
+    "license": "Gemma License (Apache 2.0 derivative)",
+    "specs": {
+      "dimensions": 768,
+      "dimensions_reduced": 256,
+      "mrl_supported": true,
+      "sequence_length": 256,
+      "size_mb": 179,
+      "quantization": "mixed-precision",
+      "languages": "100+ including FR, EN"
+    },
+    "performance": {
+      "latency_ms": 66,
+      "backend": "CPU (XNNPACK)",
+      "device": "mid-range Android"
+    },
+    "files": {
+      "model": "embeddinggemma-300M_seq256_mixed-precision.tflite",
+      "tokenizer": "sentencepiece.model"
+    },
+    "selectionRationale": "MTEB #1 under 500M params, native multilingue, optimal pour mid-range Android avec seq256",
+    "selected": "2026-01-14"
+  },
+
+  "llmModel": {
+    "name": "Gemma 3 270M IT",
+    "framework": "MediaPipe LLM Inference API",
+    "source": "litert-community/gemma-3-270m-it",
+    "huggingface_url": "https://huggingface.co/litert-community/gemma-3-270m-it",
+    "license": "Gemma License",
+    "specs": {
+      "parameters": "270M",
+      "quantization": "int4",
+      "size_mb": 200,
+      "context_length": 2048
+    },
+    "performance": {
+      "latency_s": "2-3",
+      "backend": "CPU",
+      "device": "mid-range Android"
+    },
+    "files": {
+      "model": "gemma-3-270m-it.task"
+    },
+    "selectionRationale": "Plus petit LLM de la famille Gemma 3, compatible RAG SDK via import manuel, optimal pour mid-range",
+    "backup": {
+      "name": "Gemma 3 1B",
+      "trigger": "Si qualite < 70% sur eval fidelite",
+      "size_mb": 657
+    },
+    "selected": "2026-01-14"
   },
 
   "trainingData": {
     "sources": [
       {
-        "name": "Règlement FFE - Lois des Échecs",
+        "name": "Reglement FFE - Lois des Echecs",
         "file": "LA-octobre2025.pdf",
         "type": "PDF",
         "version": "Octobre 2025",
         "pages": 227,
         "language": "fr",
-        "status": "À traiter"
+        "corpus": "fr",
+        "status": "A traiter (Phase 1A)"
       },
       {
         "name": "Manuel Arbitre FIDE",
         "file": "FIDE_Arbiters_Manual_2025.pdf",
         "type": "PDF",
         "version": "2025",
-        "pages": "~70",
-        "language": "fr",
-        "status": "À traiter"
+        "pages": 70,
+        "language": "en",
+        "corpus": "intl",
+        "status": "A traiter (Phase 1A)"
       }
     ],
     "preprocessing": {
-      "chunkSize": "À définir (cible: 256-512 tokens)",
-      "chunkOverlap": "À définir (cible: 10-20%)",
-      "strategy": "À définir (semantic vs fixed)"
+      "chunkSize": 256,
+      "chunkOverlap": 50,
+      "tokenizer": "tiktoken (cl100k_base)",
+      "strategy": "semantic with sentence boundary",
+      "schemaDoc": "docs/CHUNK_SCHEMA.md"
     }
   },
 
   "vectorStore": {
-    "type": "FAISS",
-    "indexType": "À définir (IVF_FLAT recommandé)",
+    "primary": {
+      "type": "SqliteVectorStore",
+      "framework": "Google AI Edge RAG SDK",
+      "note": "SDK default, evaluation Phase 4A"
+    },
+    "alternatives": [
+      {
+        "type": "sqlite-vec",
+        "framework": "Custom",
+        "note": "A evaluer Phase 4A si gain RAM > 50MB"
+      }
+    ],
     "metric": "cosine",
-    "estimatedVectors": "~2000-5000 chunks"
+    "estimatedVectors": "~600 chunks (500 FR + 100 INTL)"
   },
 
   "performance": {
     "targets": {
-      "retrievalLatency": "<100ms",
-      "embeddingLatency": "<200ms",
-      "totalLatency": "<500ms",
-      "recallAt5": "≥80%",
-      "hallucinationRate": "0%"
+      "embeddingLatency": "<100ms",
+      "retrievalLatency": "<500ms",
+      "llmLatency": "<3s",
+      "totalLatency": "<5s",
+      "recallFR": ">=80%",
+      "recallINTL": ">=70%",
+      "hallucinationRate": "0%",
+      "fidelity": ">=85%",
+      "ramPeak": "<500MB"
     },
     "measured": {
-      "note": "À compléter après Phase 2-3"
+      "embeddingLatency": "66ms (benchmark HuggingFace)",
+      "llmLatency": "2-3s (estimate)",
+      "note": "A completer apres Phase 2-3"
     }
   },
 
@@ -84,23 +139,40 @@
       "ISO/IEC 12207 - Software lifecycle",
       "ISO/IEC 29119 - Testing"
     ],
-    "aiPolicy": "Voir docs/AI_POLICY.md",
-    "dataPrivacy": "Aucune donnée personnelle - Règlements publics uniquement",
-    "offlineCapability": "100% offline après installation initiale"
+    "aiPolicy": "docs/AI_POLICY.md",
+    "dataPrivacy": "Aucune donnee personnelle - Reglements publics uniquement",
+    "offlineCapability": "100% offline apres installation initiale",
+    "antiHallucination": {
+      "grounding": "Strict - LLM recoit uniquement context retrieval",
+      "citations": "Obligatoires sur chaque reponse",
+      "testSet": "tests/data/adversarial.json (30 questions)",
+      "threshold": "0% failure"
+    }
   },
 
   "versioning": {
-    "currentPhase": "Phase 1 - Pipeline de données",
-    "modelVersion": "0.1.0",
+    "currentPhase": "Phase 1A - Pipeline de donnees",
+    "modelVersion": "0.2.0",
     "changelog": [
+      {
+        "version": "0.2.0",
+        "date": "2026-01-14",
+        "changes": [
+          "Stack valide: EmbeddingGemma-300M + Gemma 3 270M",
+          "Specs Phase 1A documentees",
+          "Schema chunks defini",
+          "Roadmap complete creee",
+          "Questions INTL completees (25)"
+        ]
+      },
       {
         "version": "0.1.0",
         "date": "2026-01-11",
         "changes": [
-          "Phase 0 complétée: fondations ISO",
+          "Phase 0 completee: fondations ISO",
           "Pre-commit hooks ISO-conformes",
           "Test coverage 99%",
-          "Documentation complète"
+          "Documentation complete"
         ]
       },
       {

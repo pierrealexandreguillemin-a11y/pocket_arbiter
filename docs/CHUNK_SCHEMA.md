@@ -184,17 +184,22 @@ Chaque fichier de corpus est un JSON array de chunks:
 
 ### 6.1 Format `<chunk_splitter>`
 
-Pour compatibilite avec le SDK Google AI Edge RAG, les chunks peuvent etre exportes au format texte simple:
+Pour compatibilite avec le SDK Google AI Edge RAG, les chunks DOIVENT etre exportes
+avec `<chunk_splitter>` AU DEBUT de chaque chunk (pas a la fin).
+
+**Format requis par le SDK** (source: [RagPipeline.kt](https://github.com/google-ai-edge/ai-edge-apis/blob/main/examples/rag/android/app/src/main/java/com/google/ai/edge/samples/rag/RagPipeline.kt)):
 
 ```
-Article 4.1 - Le toucher-jouer...
-[Source: LA-octobre2025.pdf, Page 15]
-<chunk_splitter>
-Article 4.2 - Ajustement des pieces...
-[Source: LA-octobre2025.pdf, Page 16]
-<chunk_splitter>
-...
+<chunk_splitter> Article 4.1 - Le toucher-jouer. Lorsqu'un joueur ayant le trait touche deliberement sur l'echiquier... [Source: LA-octobre2025.pdf, Page 41]
+<chunk_splitter> Article 4.2 - Ajustement des pieces. Si un joueur ayant le trait ajuste une ou plusieurs pieces... [Source: LA-octobre2025.pdf, Page 42]
+<chunk_splitter> Article 4.3 - Roque. Si le joueur touche une tour puis son roi... [Source: LA-octobre2025.pdf, Page 42]
 ```
+
+**Regles** :
+- `<chunk_splitter>` au DEBUT de chaque chunk (pas a la fin)
+- Le contenu suit IMMEDIATEMENT apres un espace
+- Un chunk peut s'etendre sur plusieurs lignes
+- La citation source est INTEGREE dans le texte du chunk
 
 ### 6.2 Script export
 
@@ -206,9 +211,10 @@ def export_for_android(chunks_json: str, output_txt: str):
 
     with open(output_txt, 'w', encoding='utf-8') as f:
         for chunk in data['chunks']:
-            f.write(chunk['text'])
-            f.write(f"\n[Source: {chunk['source']}, Page {chunk['page']}]\n")
-            f.write("<chunk_splitter>\n")
+            # Format SDK: <chunk_splitter> suivi du contenu sur la meme ligne
+            content = chunk['text'].replace('\n', ' ')  # Une seule ligne
+            citation = f"[Source: {chunk['source']}, Page {chunk['page']}]"
+            f.write(f"<chunk_splitter> {content} {citation}\n")
 ```
 
 ---

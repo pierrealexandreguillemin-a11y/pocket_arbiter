@@ -102,7 +102,7 @@ def normalize_text(text: str) -> str:
 
 def list_pdf_files(directory: Path) -> list[Path]:
     """
-    Liste tous les fichiers PDF dans un dossier.
+    Liste tous les fichiers PDF dans un dossier (recursif).
 
     Args:
         directory: Dossier a scanner.
@@ -113,7 +113,7 @@ def list_pdf_files(directory: Path) -> list[Path]:
     if not directory.exists():
         raise FileNotFoundError(f"Directory not found: {directory}")
 
-    return sorted(directory.glob("*.pdf"))
+    return sorted(directory.rglob("*.pdf"))
 
 
 def validate_chunk_schema(chunk: dict) -> list[str]:

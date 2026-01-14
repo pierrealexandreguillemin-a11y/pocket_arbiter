@@ -27,8 +27,7 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-# TODO: Uncomment when implementing
-# import tiktoken
+import tiktoken
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -97,8 +96,71 @@ def chunk_text(
     if not text or not text.strip():
         raise ValueError("Text cannot be empty")
 
-    # TODO: Implement with tiktoken
-    raise NotImplementedError("chunk_text not yet implemented - Phase 1A")
+    from scripts.pipeline.utils import get_date, normalize_text
+
+    text = normalize_text(text)
+    encoder = tiktoken.get_encoding(TOKENIZER_NAME)
+
+    chunks = []
+    remaining = text
+    seq = 0
+    prev_overlap = ""  # Text to prepend from previous chunk
+
+    while remaining:
+        # Prepend overlap from previous chunk
+        working_text = prev_overlap + remaining if prev_overlap else remaining
+        tokens = encoder.encode(working_text)
+
+        if len(tokens) <= max_tokens:
+            # Last chunk
+            chunk_text = working_text
+            remaining = ""
+            prev_overlap = ""
+        else:
+            # Split at sentence boundary
+            chunk_text, remaining = split_at_sentence_boundary(
+                working_text, max_tokens, tolerance=20
+            )
+
+            # Calculate overlap for next chunk
+            if remaining and overlap_tokens > 0:
+                chunk_token_list = encoder.encode(chunk_text)
+                overlap_start = max(0, len(chunk_token_list) - overlap_tokens)
+                prev_overlap = encoder.decode(chunk_token_list[overlap_start:])
+            else:
+                prev_overlap = ""
+
+        chunk_tokens = len(encoder.encode(chunk_text))
+
+        # ISO 82045: Force max 512 tokens - hard split if needed
+        if chunk_tokens > 512:
+            hard_tokens = encoder.encode(chunk_text)[:512]
+            overflow = encoder.decode(encoder.encode(chunk_text)[512:])
+            chunk_text = encoder.decode(hard_tokens)
+            remaining = overflow + " " + remaining if remaining else overflow
+            chunk_tokens = len(encoder.encode(chunk_text))
+
+        # ISO 82045: Skip chunks with text < 50 chars
+        if len(chunk_text) < 50:
+            continue
+
+        chunk = {
+            "id": "",  # Will be set by caller
+            "text": chunk_text,
+            "source": metadata.get("source", "") if metadata else "",
+            "page": metadata.get("page", 0) if metadata else 0,
+            "tokens": chunk_tokens,
+            "metadata": {
+                "section": metadata.get("section") if metadata else None,
+                "corpus": metadata.get("corpus", "fr") if metadata else "fr",
+                "extraction_date": get_date(),
+                "version": "1.0",
+            },
+        }
+        chunks.append(chunk)
+        seq += 1
+
+    return chunks
 
 
 def count_tokens(text: str) -> int:
@@ -118,8 +180,8 @@ def count_tokens(text: str) -> int:
         >>> count_tokens("Hello world")
         2
     """
-    # TODO: Implement with tiktoken
-    raise NotImplementedError("count_tokens not yet implemented - Phase 1A")
+    encoder = tiktoken.get_encoding(TOKENIZER_NAME)
+    return len(encoder.encode(text))
 
 
 def split_at_sentence_boundary(
@@ -144,8 +206,41 @@ def split_at_sentence_boundary(
         >>> first.endswith(".")
         True
     """
-    # TODO: Implement
-    raise NotImplementedError("split_at_sentence_boundary not yet implemented")
+    import re
+
+    encoder = tiktoken.get_encoding(TOKENIZER_NAME)
+
+    # Find sentence boundaries
+    sentence_ends = list(re.finditer(r"[.!?]\s+", text))
+
+    if not sentence_ends:
+        # No sentence boundary, split at target
+        tokens = encoder.encode(text)
+        if len(tokens) <= target_tokens:
+            return text, ""
+        first_tokens = tokens[:target_tokens]
+        rest_tokens = tokens[target_tokens:]
+        return encoder.decode(first_tokens), encoder.decode(rest_tokens)
+
+    # Find best split point near target_tokens
+    best_pos = 0
+    best_diff = float("inf")
+
+    for match in sentence_ends:
+        pos = match.end()
+        first_part = text[:pos]
+        tokens_count = len(encoder.encode(first_part))
+
+        diff = abs(tokens_count - target_tokens)
+        if diff < best_diff and tokens_count <= target_tokens + tolerance:
+            best_diff = diff
+            best_pos = pos
+
+    if best_pos == 0:
+        # Fallback: use first sentence boundary
+        best_pos = sentence_ends[0].end()
+
+    return text[:best_pos].strip(), text[best_pos:].strip()
 
 
 def generate_chunk_id(corpus: str, doc_num: int, page: int, seq: int) -> str:
@@ -197,8 +292,32 @@ def chunk_document(
     Returns:
         Liste de tous les chunks du document.
     """
-    # TODO: Implement
-    raise NotImplementedError("chunk_document not yet implemented - Phase 1A")
+    all_chunks = []
+
+    for page_data in extracted_data.get("pages", []):
+        page_num = page_data.get("page_num", 0)
+        text = page_data.get("text", "")
+        section = page_data.get("section")
+
+        if not text or len(text.strip()) < 50:
+            continue
+
+        metadata = {
+            "source": extracted_data.get("filename", ""),
+            "page": page_num,
+            "section": section,
+            "corpus": corpus,
+        }
+
+        page_chunks = chunk_text(text, max_tokens, overlap_tokens, metadata)
+
+        # Assign IDs
+        for seq, chunk in enumerate(page_chunks):
+            chunk["id"] = generate_chunk_id(corpus, doc_num, page_num, seq)
+
+        all_chunks.extend(page_chunks)
+
+    return all_chunks
 
 
 def chunk_corpus(
@@ -221,8 +340,57 @@ def chunk_corpus(
     Returns:
         Rapport de chunking avec statistiques.
     """
-    # TODO: Implement
-    raise NotImplementedError("chunk_corpus not yet implemented - Phase 1A")
+    from scripts.pipeline.utils import get_timestamp, load_json, save_json
+
+    if not input_dir.exists():
+        raise FileNotFoundError(f"Input directory not found: {input_dir}")
+
+    json_files = sorted(input_dir.glob("*.json"))
+    json_files = [f for f in json_files if f.name != "extraction_report.json"]
+
+    logger.info(f"Found {len(json_files)} extraction files in {input_dir}")
+
+    all_chunks = []
+    doc_num = 1
+
+    for json_file in json_files:
+        logger.info(f"Chunking: {json_file.name}")
+        extracted_data = load_json(json_file)
+
+        doc_chunks = chunk_document(
+            extracted_data, corpus, doc_num, max_tokens, overlap_tokens
+        )
+        all_chunks.extend(doc_chunks)
+        doc_num += 1
+
+    # Build output structure
+    output_data = {
+        "metadata": {
+            "corpus": corpus,
+            "generated": get_timestamp(),
+            "total_chunks": len(all_chunks),
+            "schema_version": "1.0",
+        },
+        "chunks": all_chunks,
+    }
+
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    save_json(output_data, output_file)
+
+    report = {
+        "corpus": corpus,
+        "documents_processed": len(json_files),
+        "total_chunks": len(all_chunks),
+        "avg_tokens": sum(c["tokens"] for c in all_chunks) / len(all_chunks)
+        if all_chunks
+        else 0,
+        "output_file": str(output_file),
+        "timestamp": get_timestamp(),
+    }
+
+    logger.info(f"Generated {len(all_chunks)} chunks -> {output_file}")
+
+    return report
 
 
 # --- CLI ---
@@ -296,8 +464,13 @@ Examples:
     logger.info(f"Output: {args.output}")
     logger.info(f"Max tokens: {args.max_tokens}, Overlap: {args.overlap}")
 
-    # TODO: Call chunk_corpus
-    logger.error("chunker.py not yet implemented - Phase 1A")
+    report = chunk_corpus(
+        args.input, args.output, args.corpus, args.max_tokens, args.overlap
+    )
+
+    logger.info(f"Documents: {report['documents_processed']}")
+    logger.info(f"Chunks: {report['total_chunks']}")
+    logger.info(f"Avg tokens: {report['avg_tokens']:.1f}")
 
 
 if __name__ == "__main__":

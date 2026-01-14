@@ -28,8 +28,7 @@ import re
 from pathlib import Path
 from typing import Optional
 
-# TODO: Uncomment when implementing
-# import fitz  # PyMuPDF
+import fitz  # PyMuPDF
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -83,8 +82,47 @@ def extract_pdf(pdf_path: Path) -> dict:
         >>> result["pages"][0]["page_num"]
         1
     """
-    # TODO: Implement with PyMuPDF
-    raise NotImplementedError("extract_pdf not yet implemented - Phase 1A")
+    if not pdf_path.exists():
+        raise FileNotFoundError(f"PDF not found: {pdf_path}")
+
+    if pdf_path.suffix.lower() != ".pdf":
+        raise ValueError(f"Not a PDF file: {pdf_path}")
+
+    try:
+        doc = fitz.open(pdf_path)
+    except Exception as e:
+        raise RuntimeError(f"Failed to open PDF: {e}") from e
+
+    pages = []
+    total_pages = len(doc)
+
+    for page_num in range(total_pages):
+        page = doc[page_num]
+        text = page.get_text()
+
+        # Skip pages with minimal content
+        if len(text.strip()) < MIN_PAGE_CHARS:
+            continue
+
+        section = detect_section(text)
+        pages.append(
+            {
+                "page_num": page_num + 1,  # 1-indexed
+                "text": text,
+                "section": section,
+            }
+        )
+
+    doc.close()
+
+    from scripts.pipeline.utils import get_timestamp
+
+    return {
+        "filename": pdf_path.name,
+        "pages": pages,
+        "total_pages": total_pages,
+        "extraction_date": get_timestamp(),
+    }
 
 
 def detect_section(text: str) -> Optional[str]:
@@ -149,8 +187,48 @@ def extract_corpus(
         >>> print(report["files_processed"])
         29
     """
-    # TODO: Implement
-    raise NotImplementedError("extract_corpus not yet implemented - Phase 1A")
+    from scripts.pipeline.utils import get_timestamp, list_pdf_files, save_json
+
+    if not input_dir.exists():
+        raise FileNotFoundError(f"Input directory not found: {input_dir}")
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    pdf_files = list_pdf_files(input_dir)
+    logger.info(f"Found {len(pdf_files)} PDF files in {input_dir}")
+
+    errors: list[str] = []
+    files_processed = 0
+    total_pages = 0
+
+    for pdf_path in pdf_files:
+        try:
+            logger.info(f"Extracting: {pdf_path.name}")
+            result = extract_pdf(pdf_path)
+
+            output_file = output_dir / f"{pdf_path.stem}.json"
+            save_json(result, output_file)
+
+            files_processed += 1
+            total_pages += result["total_pages"]
+
+        except Exception as e:
+            error_msg = f"{pdf_path.name}: {e}"
+            logger.error(error_msg)
+            errors.append(error_msg)
+
+    report = {
+        "corpus": corpus_name,
+        "files_processed": files_processed,
+        "total_pages": total_pages,
+        "errors": errors,
+        "timestamp": get_timestamp(),
+    }
+
+    report_file = output_dir / "extraction_report.json"
+    save_json(report, report_file)
+
+    return report
 
 
 def validate_pdf(pdf_path: Path) -> bool:
@@ -227,8 +305,12 @@ Examples:
     logger.info(f"Input: {args.input}")
     logger.info(f"Output: {args.output}")
 
-    # TODO: Call extract_corpus
-    logger.error("extract_pdf.py not yet implemented - Phase 1A")
+    report = extract_corpus(args.input, args.output, corpus_name=args.corpus)
+
+    logger.info(f"Processed: {report['files_processed']} files")
+    logger.info(f"Total pages: {report['total_pages']}")
+    if report["errors"]:
+        logger.warning(f"Errors: {len(report['errors'])}")
 
 
 if __name__ == "__main__":

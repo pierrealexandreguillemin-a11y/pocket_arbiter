@@ -1,5 +1,5 @@
 """
-Tests for similarity_chunker.py - Sentence Transformers
+Tests for similarity_chunker.py - Sentence Transformers (Token-Aware)
 
 ISO Reference:
     - ISO/IEC 29119 - Software testing
@@ -7,6 +7,7 @@ ISO Reference:
 """
 
 import numpy as np
+import tiktoken
 from unittest.mock import Mock, patch
 
 
@@ -15,29 +16,33 @@ class TestSplitSentences:
 
     def test_splits_on_period(self):
         """Should split text on sentence boundaries."""
-        from scripts.pipeline.similarity_chunker import split_sentences
+        from scripts.pipeline.similarity_chunker import split_sentences, get_tokenizer
 
+        tokenizer = get_tokenizer()
         text = "First sentence. Second sentence. Third sentence."
-        result = split_sentences(text, min_length=5)
+        result = split_sentences(text, tokenizer, min_tokens=1)
 
         assert len(result) >= 1
 
     def test_filters_short_sentences(self):
-        """Should filter sentences shorter than min_length."""
-        from scripts.pipeline.similarity_chunker import split_sentences
+        """Should filter sentences shorter than min_tokens."""
+        from scripts.pipeline.similarity_chunker import split_sentences, get_tokenizer
 
+        tokenizer = get_tokenizer()
         text = "Hi. This is a much longer sentence that should be kept."
-        result = split_sentences(text, min_length=20)
+        result = split_sentences(text, tokenizer, min_tokens=5)
 
         assert len(result) >= 1
+        # All results should have at least min_tokens
         for s in result:
-            assert len(s) >= 20
+            assert len(tokenizer.encode(s)) >= 5
 
     def test_handles_empty_text(self):
         """Should handle empty text."""
-        from scripts.pipeline.similarity_chunker import split_sentences
+        from scripts.pipeline.similarity_chunker import split_sentences, get_tokenizer
 
-        result = split_sentences("", min_length=10)
+        tokenizer = get_tokenizer()
+        result = split_sentences("", tokenizer, min_tokens=1)
         assert result == []
 
 
@@ -89,26 +94,39 @@ class TestMergeSmallChunks:
     """Tests for merge_small_chunks function."""
 
     def test_merges_small_chunks(self):
-        """Should merge chunks smaller than min_length."""
-        from scripts.pipeline.similarity_chunker import merge_small_chunks
+        """Should merge chunks smaller than min_tokens."""
+        from scripts.pipeline.similarity_chunker import (
+            merge_small_chunks,
+            get_tokenizer,
+        )
 
-        chunks = ["Hi", "Hello", "This is a longer chunk that meets minimum."]
-        result = merge_small_chunks(chunks, min_length=30, max_length=500)
+        tokenizer = get_tokenizer()
+        chunks = [
+            "Hi",
+            "Hello",
+            "This is a longer chunk that meets minimum requirements.",
+        ]
+        result = merge_small_chunks(chunks, tokenizer, min_tokens=10, max_tokens=500)
 
         # Small chunks should be merged
         assert len(result) <= len(chunks)
 
     def test_splits_large_chunks(self):
-        """Should split chunks larger than max_length."""
-        from scripts.pipeline.similarity_chunker import merge_small_chunks
+        """Should split chunks larger than max_tokens."""
+        from scripts.pipeline.similarity_chunker import (
+            merge_small_chunks,
+            get_tokenizer,
+        )
 
-        chunks = ["A" * 1000]  # Large chunk
-        result = merge_small_chunks(chunks, min_length=10, max_length=200)
+        tokenizer = get_tokenizer()
+        # Create a chunk with ~200 tokens
+        chunks = ["This is a test sentence about chess rules. " * 50]
+        result = merge_small_chunks(chunks, tokenizer, min_tokens=10, max_tokens=50)
 
         # Should be split
         assert len(result) > 1
         for chunk in result:
-            assert len(chunk) <= 200
+            assert len(tokenizer.encode(chunk)) <= 50
 
 
 class TestChunkDocumentSimilarity:
@@ -116,29 +134,39 @@ class TestChunkDocumentSimilarity:
 
     def test_empty_text_returns_empty(self):
         """Empty text should return empty list."""
-        from scripts.pipeline.similarity_chunker import chunk_document_similarity
+        from scripts.pipeline.similarity_chunker import (
+            chunk_document_similarity,
+            get_tokenizer,
+        )
 
         mock_model = Mock()
+        tokenizer = get_tokenizer()
         result = chunk_document_similarity(
             text="",
             model=mock_model,
             source="test.pdf",
             page=1,
+            tokenizer=tokenizer,
         )
 
         assert result == []
 
     def test_short_text_returns_empty(self):
         """Short text should return empty list."""
-        from scripts.pipeline.similarity_chunker import chunk_document_similarity
+        from scripts.pipeline.similarity_chunker import (
+            chunk_document_similarity,
+            get_tokenizer,
+        )
 
         mock_model = Mock()
+        tokenizer = get_tokenizer()
         result = chunk_document_similarity(
             text="Short",
             model=mock_model,
             source="test.pdf",
             page=1,
-            min_length=100,
+            tokenizer=tokenizer,
+            min_tokens=100,
         )
 
         assert result == []
@@ -147,23 +175,51 @@ class TestChunkDocumentSimilarity:
     @patch("scripts.pipeline.similarity_chunker.split_sentences")
     def test_returns_chunks_with_metadata(self, mock_split, mock_breaks):
         """Should return chunks with correct metadata."""
-        from scripts.pipeline.similarity_chunker import chunk_document_similarity
+        from scripts.pipeline.similarity_chunker import (
+            chunk_document_similarity,
+            get_tokenizer,
+        )
 
         mock_split.return_value = [
-            "First sentence about chess.",
-            "Second sentence about rules.",
+            "First sentence about chess rules and tournament regulations.",
+            "Second sentence about time controls and increment settings.",
         ]
         mock_breaks.return_value = [1]  # Break after first sentence
 
         mock_model = Mock()
+        tokenizer = get_tokenizer()
         result = chunk_document_similarity(
             text="First sentence about chess. Second sentence about rules.",
             model=mock_model,
             source="test.pdf",
             page=5,
-            min_length=10,
+            tokenizer=tokenizer,
+            min_tokens=5,
         )
 
         assert len(result) >= 1
         assert result[0]["source"] == "test.pdf"
         assert result[0]["page"] == 5
+        assert "tokens" in result[0]
+
+
+class TestTokenizer:
+    """Tests for token counting functions."""
+
+    def test_get_tokenizer_returns_encoding(self):
+        """Should return tiktoken encoding."""
+        from scripts.pipeline.similarity_chunker import get_tokenizer
+
+        tokenizer = get_tokenizer()
+        assert isinstance(tokenizer, tiktoken.Encoding)
+
+    def test_count_tokens(self):
+        """Should count tokens correctly."""
+        from scripts.pipeline.similarity_chunker import get_tokenizer, _count_tokens
+
+        tokenizer = get_tokenizer()
+
+        assert _count_tokens("Hello world", tokenizer) > 0
+        assert _count_tokens("", tokenizer) == 0
+        # French text
+        assert _count_tokens("Bonjour le monde", tokenizer) > 0

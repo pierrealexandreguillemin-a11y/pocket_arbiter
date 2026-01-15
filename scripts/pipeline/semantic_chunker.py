@@ -4,6 +4,9 @@ Semantic Chunker - Pocket Arbiter
 Utilise LangChain SemanticChunker pour chunking basé sur la similarité sémantique.
 +70% accuracy sur documents réglementaires (source: LangCopilot 2025).
 
+IMPORTANT: Utilise des TOKENS (via tiktoken), pas des caractères.
+           512 tokens ≈ 2048 caractères (ratio moyen 1:4)
+
 ISO Reference:
     - ISO/IEC 25010 S4.2 - Performance efficiency (Recall >= 80%)
     - ISO/IEC 42001 - AI traceability
@@ -16,21 +19,43 @@ import argparse
 import json
 import logging
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
-from langchain_experimental.text_splitter import SemanticChunker
+import tiktoken
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_experimental.text_splitter import SemanticChunker
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-# --- Constants ---
+# --- Constants (TOKENS, not characters) ---
 
-DEFAULT_MODEL = "intfloat/multilingual-e5-base"
+DEFAULT_MODEL = "intfloat/multilingual-e5-base"  # Best for French semantic similarity
 DEFAULT_THRESHOLD_TYPE = "percentile"
 DEFAULT_THRESHOLD_AMOUNT = 90  # Higher = fewer breaks = larger chunks
-MIN_CHUNK_SIZE = 100  # Minimum characters per chunk
-MAX_CHUNK_SIZE = 2000  # Maximum characters per chunk
+MIN_CHUNK_TOKENS = 50  # Minimum tokens per chunk
+MAX_CHUNK_TOKENS = (
+    1024  # Maximum tokens per chunk (allow larger for semantic coherence)
+)
+TOKENIZER_NAME = "cl100k_base"  # Compatible OpenAI/LLM
+
+
+def get_tokenizer() -> tiktoken.Encoding:
+    """Get tiktoken tokenizer for token counting."""
+    return tiktoken.get_encoding(TOKENIZER_NAME)
+
+
+def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
+    """
+    Create a token counter function.
+
+    Args:
+        tokenizer: tiktoken Encoding instance.
+
+    Returns:
+        Callable that counts tokens in a string.
+    """
+    return lambda text: len(tokenizer.encode(text))
 
 
 def create_semantic_chunker(
@@ -65,9 +90,22 @@ def create_semantic_chunker(
     )
 
 
-def _build_chunk_metadata(text: str, source: str, page: int, index: str) -> dict:
+def _count_tokens(text: str, tokenizer: tiktoken.Encoding) -> int:
+    """Count tokens in text."""
+    return len(tokenizer.encode(text))
+
+
+def _build_chunk_metadata(
+    text: str, source: str, page: int, index: str, tokens: int
+) -> dict:
     """Build chunk dict with metadata."""
-    return {"text": text.strip(), "source": source, "page": page, "chunk_index": index}
+    return {
+        "text": text.strip(),
+        "source": source,
+        "page": page,
+        "chunk_index": index,
+        "tokens": tokens,
+    }
 
 
 def _split_large_chunk(
@@ -75,18 +113,54 @@ def _split_large_chunk(
     chunk_idx: int,
     source: str,
     page: int,
-    min_size: int,
-    max_size: int,
+    min_tokens: int,
+    max_tokens: int,
+    tokenizer: tiktoken.Encoding,
 ) -> list[dict]:
-    """Split a chunk that exceeds max_size into sub-chunks."""
-    sub_chunks = [
-        chunk_text[j : j + max_size] for j in range(0, len(chunk_text), max_size)
-    ]
-    return [
-        _build_chunk_metadata(sub, source, page, f"{chunk_idx}.{k}")
-        for k, sub in enumerate(sub_chunks)
-        if len(sub.strip()) >= min_size
-    ]
+    """Split a chunk that exceeds max_tokens into sub-chunks."""
+    # Split by sentences first to preserve semantic boundaries
+    import re
+
+    sentences = re.split(r"(?<=[.!?])\s+", chunk_text)
+
+    sub_chunks = []
+    current_chunk = ""
+    current_tokens = 0
+    sub_idx = 0
+
+    for sentence in sentences:
+        sentence_tokens = _count_tokens(sentence, tokenizer)
+
+        if current_tokens + sentence_tokens <= max_tokens:
+            current_chunk = (
+                (current_chunk + " " + sentence).strip() if current_chunk else sentence
+            )
+            current_tokens += sentence_tokens
+        else:
+            # Save current chunk if substantial
+            if current_tokens >= min_tokens:
+                sub_chunks.append(
+                    _build_chunk_metadata(
+                        current_chunk,
+                        source,
+                        page,
+                        f"{chunk_idx}.{sub_idx}",
+                        current_tokens,
+                    )
+                )
+                sub_idx += 1
+            current_chunk = sentence
+            current_tokens = sentence_tokens
+
+    # Don't forget the last chunk
+    if current_chunk and current_tokens >= min_tokens:
+        sub_chunks.append(
+            _build_chunk_metadata(
+                current_chunk, source, page, f"{chunk_idx}.{sub_idx}", current_tokens
+            )
+        )
+
+    return sub_chunks
 
 
 def chunk_document_semantic(
@@ -94,55 +168,83 @@ def chunk_document_semantic(
     chunker: SemanticChunker,
     source: str,
     page: int,
-    min_size: int = MIN_CHUNK_SIZE,
-    max_size: int = MAX_CHUNK_SIZE,
+    tokenizer: tiktoken.Encoding,
+    min_tokens: int = MIN_CHUNK_TOKENS,
+    max_tokens: int = MAX_CHUNK_TOKENS,
 ) -> list[dict]:
     """
-    Chunk un document avec SemanticChunker.
+    Chunk un document avec SemanticChunker (token-aware).
 
     Args:
         text: Texte du document.
         chunker: SemanticChunker configuré.
         source: Nom du fichier source.
         page: Numéro de page.
-        min_size: Taille minimum d'un chunk.
-        max_size: Taille maximum d'un chunk.
+        tokenizer: Tokenizer pour comptage.
+        min_tokens: Nombre minimum de tokens par chunk.
+        max_tokens: Nombre maximum de tokens par chunk.
 
     Returns:
         Liste de chunks avec métadonnées.
     """
-    if not text or len(text.strip()) < min_size:
+    text_tokens = _count_tokens(text, tokenizer)
+    if not text or text_tokens < min_tokens:
         return []
 
-    raw_chunks = _get_raw_chunks(text, chunker, source, page, max_size)
-    return _process_raw_chunks(raw_chunks, source, page, min_size, max_size)
+    raw_chunks = _get_raw_chunks(text, chunker, source, page, tokenizer, max_tokens)
+    return _process_raw_chunks(
+        raw_chunks, source, page, min_tokens, max_tokens, tokenizer
+    )
 
 
 def _get_raw_chunks(
-    text: str, chunker: SemanticChunker, source: str, page: int, max_size: int
+    text: str,
+    chunker: SemanticChunker,
+    source: str,
+    page: int,
+    tokenizer: tiktoken.Encoding,
+    max_tokens: int,
 ) -> list[str]:
     """Get raw chunks from chunker with fallback."""
     try:
         return chunker.split_text(text)
     except Exception as e:
         logger.warning(f"SemanticChunker failed for {source} p{page}: {e}")
-        return [text[i : i + max_size] for i in range(0, len(text), max_size)]
+        # Fallback: split by estimated character count (token * 4)
+        max_chars = max_tokens * 4
+        return [text[i : i + max_chars] for i in range(0, len(text), max_chars)]
 
 
 def _process_raw_chunks(
-    raw_chunks: list[str], source: str, page: int, min_size: int, max_size: int
+    raw_chunks: list[str],
+    source: str,
+    page: int,
+    min_tokens: int,
+    max_tokens: int,
+    tokenizer: tiktoken.Encoding,
 ) -> list[dict]:
-    """Process raw chunks into final chunk list."""
+    """Process raw chunks into final chunk list with token-aware filtering."""
     chunks = []
     for i, chunk_text in enumerate(raw_chunks):
-        if len(chunk_text.strip()) < min_size:
+        chunk_text = chunk_text.strip()
+        if not chunk_text:
             continue
-        if len(chunk_text) > max_size:
+
+        token_count = _count_tokens(chunk_text, tokenizer)
+
+        if token_count < min_tokens:
+            continue
+
+        if token_count > max_tokens:
             chunks.extend(
-                _split_large_chunk(chunk_text, i, source, page, min_size, max_size)
+                _split_large_chunk(
+                    chunk_text, i, source, page, min_tokens, max_tokens, tokenizer
+                )
             )
         else:
-            chunks.append(_build_chunk_metadata(chunk_text, source, page, str(i)))
+            chunks.append(
+                _build_chunk_metadata(chunk_text, source, page, str(i), token_count)
+            )
     return chunks
 
 
@@ -154,7 +256,7 @@ def process_corpus_semantic(
     threshold_amount: float = DEFAULT_THRESHOLD_AMOUNT,
 ) -> dict[str, Any]:
     """
-    Traite un corpus complet avec SemanticChunker.
+    Traite un corpus complet avec SemanticChunker (token-aware).
 
     Args:
         input_dir: Répertoire des extractions JSON.
@@ -166,14 +268,12 @@ def process_corpus_semantic(
     Returns:
         Rapport de traitement.
     """
-    import tiktoken
-
-    # Initialize
+    # Initialize tokenizer and chunker
+    tokenizer = get_tokenizer()
     chunker = create_semantic_chunker(
         threshold_type=threshold_type,
         threshold_amount=threshold_amount,
     )
-    tokenizer = tiktoken.get_encoding("cl100k_base")
 
     # Find extraction files
     extraction_files = sorted(input_dir.glob("*.json"))
@@ -200,32 +300,40 @@ def process_corpus_semantic(
 
             total_pages += 1
 
-            # Semantic chunking
+            # Token-aware semantic chunking
             page_chunks = chunk_document_semantic(
                 text=text,
                 chunker=chunker,
                 source=source,
                 page=page_num,
+                tokenizer=tokenizer,
             )
 
-            # Add IDs and token counts
+            # Add IDs and metadata
             for chunk in page_chunks:
                 chunk_id = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
                 chunk["id"] = chunk_id
-                chunk["tokens"] = len(tokenizer.encode(chunk["text"]))
                 chunk["metadata"] = {
                     "corpus": corpus,
                     "chunker": "semantic",
                     "threshold": f"{threshold_type}:{threshold_amount}",
+                    "tokenizer": TOKENIZER_NAME,
+                    "min_tokens": MIN_CHUNK_TOKENS,
+                    "max_tokens": MAX_CHUNK_TOKENS,
                 }
                 all_chunks.append(chunk)
 
     # Save
     output_data = {
         "corpus": corpus,
-        "chunker": "semantic",
-        "threshold_type": threshold_type,
-        "threshold_amount": threshold_amount,
+        "config": {
+            "chunker": "semantic",
+            "threshold_type": threshold_type,
+            "threshold_amount": threshold_amount,
+            "tokenizer": TOKENIZER_NAME,
+            "min_chunk_tokens": MIN_CHUNK_TOKENS,
+            "max_chunk_tokens": MAX_CHUNK_TOKENS,
+        },
         "total_chunks": len(all_chunks),
         "total_pages": total_pages,
         "chunks": all_chunks,
@@ -244,20 +352,23 @@ def process_corpus_semantic(
         "chunker": "semantic",
         "threshold_type": threshold_type,
         "threshold_amount": threshold_amount,
+        "tokenizer": TOKENIZER_NAME,
         "total_chunks": len(all_chunks),
         "total_pages": total_pages,
-        "avg_tokens": sum(tokens) / len(tokens) if tokens else 0,
+        "avg_tokens": round(sum(tokens) / len(tokens), 1) if tokens else 0,
         "min_tokens": min(tokens) if tokens else 0,
         "max_tokens": max(tokens) if tokens else 0,
+        "chunks_below_100": sum(1 for t in tokens if t < 100),
+        "chunks_above_400": sum(1 for t in tokens if t >= 400),
     }
 
     return report
 
 
-def main():
-    """CLI pour semantic chunking."""
+def main() -> None:
+    """CLI pour semantic chunking (token-aware)."""
     parser = argparse.ArgumentParser(
-        description="Semantic Chunker - Pocket Arbiter (LangChain)",
+        description="Semantic Chunker - Pocket Arbiter (LangChain, token-aware)",
     )
     parser.add_argument(
         "--input",
@@ -312,7 +423,7 @@ def main():
         threshold_amount=args.threshold_amount,
     )
 
-    print("\n=== Semantic Chunking Report ===")
+    print("\n=== Semantic Chunking Report (Token-Aware) ===")
     for k, v in report.items():
         print(f"{k}: {v}")
 

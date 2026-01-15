@@ -1,17 +1,34 @@
 {
-  "version": "4.0",
-  "description": "Gold standard ISO 42001 - Validation indépendante (non-circulaire)",
+  "version": "4.1",
+  "description": "Gold standard ISO 42001 - Audit manuel pages corrigees",
   "methodology": {
     "base": "expected_pages v1 (manuelles)",
-    "validation": "Keyword presence in extracted PDF corpus",
+    "validation": "Manual audit against extracted corpus content (2026-01-15)",
     "independence": "Indépendant du système de retrieval testé",
     "corpus": "FFE Règlements (28 PDFs extraits)"
   },
   "statistics": {
     "total_questions": 30,
-    "validated_questions": 30,
+    "validated_questions": 28,
+    "corrected_questions": 2,
     "validation_rate": "100.0%"
   },
+  "corrections": [
+    {
+      "question": "FR-Q08",
+      "issue": "Pages incorrectes",
+      "old_pages": [55],
+      "new_pages": [52, 70],
+      "reason": "Article 9.3 (regle 50 coups) est aux pages 52 et 70"
+    },
+    {
+      "question": "FR-Q23",
+      "issue": "Pages incorrectes",
+      "old_pages": [71, 72, 73],
+      "new_pages": [141, 142, 143],
+      "reason": "Contenu anti-triche substantiel aux pages 141-143, pas glossaire 71-73"
+    }
+  ],
   "issues": [],
   "questions": [
     {
@@ -377,34 +394,48 @@
       "question": "Qu'est-ce que la règle des 50 coups ?",
       "category": "regles_jeu",
       "expected_pages": [
-        55
+        52,
+        70
       ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
+        "9.3",
         "50",
         "coups",
         "nulle",
-        "pion",
-        "capture"
+        "mouvement",
+        "pion"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
+        "status": "CORRECTED",
+        "method": "manual_audit_2026-01-15",
         "original_pages_v1": [
           55
         ],
         "validated_pages": [
-          55
+          52,
+          70
         ],
+        "correction_reason": "Article 9.3 (regle 50 coups) est aux pages 52 et 70, pas 55",
         "details": [
           {
-            "page": 55,
+            "page": 52,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
+              "9.3",
+              "nulle",
               "50",
-              "coups",
+              "mouvement de pion"
+            ]
+          },
+          {
+            "page": 70,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "9.3",
+              "50 coups",
               "nulle"
             ]
           }
@@ -1150,53 +1181,59 @@
       "question": "Quelles sont les règles anti-triche ?",
       "category": "comportement",
       "expected_pages": [
-        71,
-        72,
-        73
+        141,
+        142,
+        143
       ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
-        "triche",
-        "fraude",
-        "sanction",
-        "fair-play"
+        "anti-triche",
+        "detection",
+        "mesure",
+        "protection",
+        "z-score"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
+        "status": "CORRECTED",
+        "method": "manual_audit_2026-01-15",
         "original_pages_v1": [
           71,
           72,
           73
         ],
         "validated_pages": [
-          71,
-          72,
-          73
+          141,
+          142,
+          143
         ],
+        "correction_reason": "Pages 71-73 = glossaire/intro, contenu substantiel anti-triche aux pages 141-143",
         "details": [
           {
-            "page": 71,
+            "page": 141,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "triche",
-              "sanction"
+              "anti-triche",
+              "directives"
             ]
           },
           {
-            "page": 72,
+            "page": 142,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "triche"
+              "anti-triche",
+              "z-score",
+              "mesures",
+              "prevention"
             ]
           },
           {
-            "page": 73,
+            "page": 143,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "triche"
+              "anti-triche",
+              "detection"
             ]
           }
         ]

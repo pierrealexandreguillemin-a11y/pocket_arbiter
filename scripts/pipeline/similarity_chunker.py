@@ -4,6 +4,9 @@ Similarity Chunker - Pocket Arbiter (Sentence Transformers)
 Utilise Sentence Transformers pour chunking basé sur la similarité cosinus.
 Détecte les points de rupture sémantique via embeddings directs.
 
+IMPORTANT: Utilise des TOKENS (via tiktoken), pas des caractères.
+           512 tokens ≈ 2048 caractères (ratio moyen 1:4)
+
 ISO Reference:
     - ISO/IEC 25010 S4.2 - Performance efficiency (Recall >= 80%)
     - ISO/IEC 42001 - AI traceability
@@ -15,48 +18,62 @@ Usage:
 import argparse
 import json
 import logging
+import re
 from pathlib import Path
 from typing import Any
 
 import numpy as np
+import tiktoken
 from sentence_transformers import SentenceTransformer
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-# --- Constants ---
+# --- Constants (TOKENS, not characters) ---
 
-DEFAULT_MODEL = "intfloat/multilingual-e5-base"
+DEFAULT_MODEL = "intfloat/multilingual-e5-base"  # Best for French semantic similarity
 DEFAULT_THRESHOLD = 0.5  # Cosine similarity threshold for breaks
-DEFAULT_SENTENCE_MIN_LENGTH = 20  # Minimum chars per sentence
-DEFAULT_CHUNK_MIN_LENGTH = 100  # Minimum chars per chunk
-DEFAULT_CHUNK_MAX_LENGTH = 2000  # Maximum chars per chunk
+MIN_SENTENCE_TOKENS = 5  # Minimum tokens per sentence
+MIN_CHUNK_TOKENS = 50  # Minimum tokens per chunk
+MAX_CHUNK_TOKENS = 1024  # Maximum tokens per chunk
+TOKENIZER_NAME = "cl100k_base"  # Compatible OpenAI/LLM
+
+
+def get_tokenizer() -> tiktoken.Encoding:
+    """Get tiktoken tokenizer for token counting."""
+    return tiktoken.get_encoding(TOKENIZER_NAME)
+
+
+def _count_tokens(text: str, tokenizer: tiktoken.Encoding) -> int:
+    """Count tokens in text."""
+    return len(tokenizer.encode(text))
 
 
 def split_sentences(
-    text: str, min_length: int = DEFAULT_SENTENCE_MIN_LENGTH
+    text: str,
+    tokenizer: tiktoken.Encoding,
+    min_tokens: int = MIN_SENTENCE_TOKENS,
 ) -> list[str]:
     """
     Split text into sentences using common delimiters.
 
     Args:
         text: Input text.
-        min_length: Minimum sentence length.
+        tokenizer: Tokenizer for token counting.
+        min_tokens: Minimum tokens per sentence.
 
     Returns:
         List of sentences.
     """
-    import re
-
     # Split on sentence boundaries
     pattern = r"(?<=[.!?])\s+(?=[A-ZÀ-Ü])|(?<=\n)\s*(?=\S)"
     raw_sentences = re.split(pattern, text)
 
-    # Filter and clean
+    # Filter and clean by token count
     sentences = []
     for s in raw_sentences:
         s = s.strip()
-        if len(s) >= min_length:
+        if _count_tokens(s, tokenizer) >= min_tokens:
             sentences.append(s)
 
     return sentences
@@ -96,98 +113,148 @@ def compute_similarity_breaks(
     return breaks
 
 
-def _merge_by_max_length(chunks: list[str], max_length: int) -> list[str]:
-    """Merge consecutive chunks up to max_length."""
+def _merge_by_max_tokens(
+    chunks: list[str], max_tokens: int, tokenizer: tiktoken.Encoding
+) -> list[str]:
+    """Merge consecutive chunks up to max_tokens."""
     merged = []
     current = ""
+    current_tokens = 0
+
     for chunk in chunks:
-        if len(current) + len(chunk) <= max_length:
+        chunk_tokens = _count_tokens(chunk, tokenizer)
+        if current_tokens + chunk_tokens <= max_tokens:
             current = (current + " " + chunk).strip() if current else chunk
+            current_tokens += chunk_tokens
         else:
             if current:
                 merged.append(current)
             current = chunk
+            current_tokens = chunk_tokens
+
     if current:
         merged.append(current)
+
     return merged
 
 
-def _filter_by_min_length(chunks: list[str], min_length: int) -> list[str]:
-    """Filter and merge chunks smaller than min_length."""
+def _filter_by_min_tokens(
+    chunks: list[str], min_tokens: int, tokenizer: tiktoken.Encoding
+) -> list[str]:
+    """Filter and merge chunks smaller than min_tokens."""
     result = []
     buffer = ""
+    buffer_tokens = 0
+
     for chunk in chunks:
-        if len(chunk) < min_length:
+        chunk_tokens = _count_tokens(chunk, tokenizer)
+        if chunk_tokens < min_tokens:
             buffer = (buffer + " " + chunk).strip() if buffer else chunk
+            buffer_tokens += chunk_tokens
         else:
             if buffer:
                 chunk = (buffer + " " + chunk).strip()
                 buffer = ""
+                buffer_tokens = 0
             result.append(chunk)
+
     if buffer and result:
         result[-1] = (result[-1] + " " + buffer).strip()
     elif buffer:
         result.append(buffer)
+
     return result
 
 
-def _split_oversized(chunks: list[str], max_length: int) -> list[str]:
-    """Split chunks that exceed max_length."""
+def _split_oversized(
+    chunks: list[str], max_tokens: int, tokenizer: tiktoken.Encoding
+) -> list[str]:
+    """Split chunks that exceed max_tokens by sentences."""
     final = []
+
     for chunk in chunks:
-        if len(chunk) > max_length:
-            for i in range(0, len(chunk), max_length):
-                sub = chunk[i : i + max_length].strip()
-                if sub:
-                    final.append(sub)
+        chunk_tokens = _count_tokens(chunk, tokenizer)
+        if chunk_tokens > max_tokens:
+            # Split by sentences to preserve semantic boundaries
+            sentences = re.split(r"(?<=[.!?])\s+", chunk)
+            current = ""
+            current_tokens = 0
+
+            for sentence in sentences:
+                sentence_tokens = _count_tokens(sentence, tokenizer)
+                if current_tokens + sentence_tokens <= max_tokens:
+                    current = (
+                        (current + " " + sentence).strip() if current else sentence
+                    )
+                    current_tokens += sentence_tokens
+                else:
+                    if current:
+                        final.append(current)
+                    current = sentence
+                    current_tokens = sentence_tokens
+
+            if current:
+                final.append(current)
         else:
             final.append(chunk)
+
     return final
 
 
 def merge_small_chunks(
     chunks: list[str],
-    min_length: int = DEFAULT_CHUNK_MIN_LENGTH,
-    max_length: int = DEFAULT_CHUNK_MAX_LENGTH,
+    tokenizer: tiktoken.Encoding,
+    min_tokens: int = MIN_CHUNK_TOKENS,
+    max_tokens: int = MAX_CHUNK_TOKENS,
 ) -> list[str]:
     """
-    Merge chunks that are too small, split those too large.
+    Merge chunks that are too small, split those too large (token-aware).
 
     Args:
         chunks: List of chunk texts.
-        min_length: Minimum chunk length.
-        max_length: Maximum chunk length.
+        tokenizer: Tokenizer for counting.
+        min_tokens: Minimum tokens per chunk.
+        max_tokens: Maximum tokens per chunk.
 
     Returns:
         Merged/split chunks.
     """
-    merged = _merge_by_max_length(chunks, max_length)
-    filtered = _filter_by_min_length(merged, min_length)
-    return _split_oversized(filtered, max_length)
+    merged = _merge_by_max_tokens(chunks, max_tokens, tokenizer)
+    filtered = _filter_by_min_tokens(merged, min_tokens, tokenizer)
+    return _split_oversized(filtered, max_tokens, tokenizer)
 
 
 def _create_chunks_from_breaks(sentences: list[str], breaks: list[int]) -> list[str]:
     """Create chunk texts from sentence breaks."""
     chunks_text = []
     start = 0
+
     for break_idx in breaks:
         chunk = " ".join(sentences[start:break_idx])
         if chunk.strip():
             chunks_text.append(chunk.strip())
         start = break_idx
+
     if start < len(sentences):
         chunk = " ".join(sentences[start:])
         if chunk.strip():
             chunks_text.append(chunk.strip())
+
     return chunks_text if chunks_text else [" ".join(sentences)]
 
 
 def _build_similarity_chunks(
-    chunks_text: list[str], source: str, page: int
+    chunks_text: list[str], source: str, page: int, tokenizer: tiktoken.Encoding
 ) -> list[dict]:
-    """Build final chunk dicts with metadata."""
+    """Build final chunk dicts with metadata and token counts."""
     return [
-        {"text": chunk_text, "source": source, "page": page, "chunk_index": str(i)}
+        {
+            "text": chunk_text,
+            "source": source,
+            "page": page,
+            "chunk_index": str(i),
+            "tokens": _count_tokens(chunk_text, tokenizer),
+        }
         for i, chunk_text in enumerate(chunks_text)
     ]
 
@@ -197,38 +264,47 @@ def chunk_document_similarity(
     model: SentenceTransformer,
     source: str,
     page: int,
+    tokenizer: tiktoken.Encoding,
     threshold: float = DEFAULT_THRESHOLD,
-    min_length: int = DEFAULT_CHUNK_MIN_LENGTH,
-    max_length: int = DEFAULT_CHUNK_MAX_LENGTH,
+    min_tokens: int = MIN_CHUNK_TOKENS,
+    max_tokens: int = MAX_CHUNK_TOKENS,
 ) -> list[dict]:
     """
-    Chunk document using semantic similarity.
+    Chunk document using semantic similarity (token-aware).
 
     Args:
         text: Document text.
         model: Sentence transformer model.
         source: Source filename.
         page: Page number.
+        tokenizer: Tokenizer for counting.
         threshold: Similarity threshold.
-        min_length: Minimum chunk length.
-        max_length: Maximum chunk length.
+        min_tokens: Minimum tokens per chunk.
+        max_tokens: Maximum tokens per chunk.
 
     Returns:
         List of chunks with metadata.
     """
-    if not text or len(text.strip()) < min_length:
+    text_tokens = _count_tokens(text, tokenizer)
+    if not text or text_tokens < min_tokens:
         return []
 
-    sentences = split_sentences(text)
+    sentences = split_sentences(text, tokenizer)
     if not sentences:
         return [
-            {"text": text.strip(), "source": source, "page": page, "chunk_index": "0"}
+            {
+                "text": text.strip(),
+                "source": source,
+                "page": page,
+                "chunk_index": "0",
+                "tokens": text_tokens,
+            }
         ]
 
     breaks = _get_similarity_breaks(sentences, model, threshold, source, page)
     chunks_text = _create_chunks_from_breaks(sentences, breaks)
-    chunks_text = merge_small_chunks(chunks_text, min_length, max_length)
-    return _build_similarity_chunks(chunks_text, source, page)
+    chunks_text = merge_small_chunks(chunks_text, tokenizer, min_tokens, max_tokens)
+    return _build_similarity_chunks(chunks_text, source, page, tokenizer)
 
 
 def _get_similarity_breaks(
@@ -254,7 +330,7 @@ def process_corpus_similarity(
     threshold: float = DEFAULT_THRESHOLD,
 ) -> dict[str, Any]:
     """
-    Process entire corpus with similarity-based chunking.
+    Process entire corpus with similarity-based chunking (token-aware).
 
     Args:
         input_dir: Directory with extraction JSON files.
@@ -266,7 +342,8 @@ def process_corpus_similarity(
     Returns:
         Processing report.
     """
-    import tiktoken
+    # Initialize tokenizer
+    tokenizer = get_tokenizer()
 
     # Load model
     logger.info(f"Loading model: {model_name}")
@@ -274,8 +351,6 @@ def process_corpus_similarity(
     logger.info(
         f"Model loaded: {model_name} ({model.get_sentence_embedding_dimension()}D)"
     )
-
-    tokenizer = tiktoken.get_encoding("cl100k_base")
 
     # Find extraction files
     extraction_files = sorted(input_dir.glob("*.json"))
@@ -302,34 +377,42 @@ def process_corpus_similarity(
 
             total_pages += 1
 
-            # Similarity-based chunking
+            # Token-aware similarity-based chunking
             page_chunks = chunk_document_similarity(
                 text=text,
                 model=model,
                 source=source,
                 page=page_num,
+                tokenizer=tokenizer,
                 threshold=threshold,
             )
 
-            # Add IDs and token counts
+            # Add IDs and metadata
             for chunk in page_chunks:
                 chunk_id = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
                 chunk["id"] = chunk_id
-                chunk["tokens"] = len(tokenizer.encode(chunk["text"]))
                 chunk["metadata"] = {
                     "corpus": corpus,
                     "chunker": "similarity",
                     "model": model_name,
                     "threshold": threshold,
+                    "tokenizer": TOKENIZER_NAME,
+                    "min_tokens": MIN_CHUNK_TOKENS,
+                    "max_tokens": MAX_CHUNK_TOKENS,
                 }
                 all_chunks.append(chunk)
 
     # Save
     output_data = {
         "corpus": corpus,
-        "chunker": "similarity",
-        "model": model_name,
-        "threshold": threshold,
+        "config": {
+            "chunker": "similarity",
+            "model": model_name,
+            "threshold": threshold,
+            "tokenizer": TOKENIZER_NAME,
+            "min_chunk_tokens": MIN_CHUNK_TOKENS,
+            "max_chunk_tokens": MAX_CHUNK_TOKENS,
+        },
         "total_chunks": len(all_chunks),
         "total_pages": total_pages,
         "chunks": all_chunks,
@@ -348,20 +431,23 @@ def process_corpus_similarity(
         "chunker": "similarity",
         "model": model_name,
         "threshold": threshold,
+        "tokenizer": TOKENIZER_NAME,
         "total_chunks": len(all_chunks),
         "total_pages": total_pages,
         "avg_tokens": round(sum(tokens) / len(tokens), 1) if tokens else 0,
         "min_tokens": min(tokens) if tokens else 0,
         "max_tokens": max(tokens) if tokens else 0,
+        "chunks_below_100": sum(1 for t in tokens if t < 100),
+        "chunks_above_400": sum(1 for t in tokens if t >= 400),
     }
 
     return report
 
 
-def main():
-    """CLI for similarity chunking."""
+def main() -> None:
+    """CLI for similarity chunking (token-aware)."""
     parser = argparse.ArgumentParser(
-        description="Similarity Chunker - Pocket Arbiter (Sentence Transformers)",
+        description="Similarity Chunker - Pocket Arbiter (Sentence Transformers, token-aware)",
     )
     parser.add_argument(
         "--input",
@@ -417,7 +503,7 @@ def main():
         threshold=args.threshold,
     )
 
-    print("\n=== Similarity Chunking Report ===")
+    print("\n=== Similarity Chunking Report (Token-Aware) ===")
     for k, v in report.items():
         print(f"{k}: {v}")
 

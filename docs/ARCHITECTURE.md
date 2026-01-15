@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-ARCH-001
 > **ISO Reference**: ISO/IEC 12207:2017 - Architecture logicielle
-> **Version**: 1.1
-> **Date**: 2026-01-14
+> **Version**: 1.2
+> **Date**: 2026-01-15
 > **Statut**: Draft
 > **Classification**: Interne
 
@@ -105,9 +105,20 @@ pocket_arbiter/
 |   +-- pipeline/               # Scripts extraction/indexation
 |   |   +-- __init__.py
 |   |   +-- extract_pdf.py      # Extraction texte PDF
-|   |   +-- chunker.py          # Decoupage en chunks
-|   |   +-- embeddings.py       # Generation embeddings (EmbeddingGemma)
-|   |   +-- export_sdk.py       # Export format Google AI Edge RAG SDK
+|   |   +-- chunker.py          # Decoupage semantique (Articles)
+|   |   +-- chunker_article.py  # Detection boundaries Articles
+|   |   +-- sentence_chunker.py # Chunking par phrases (LlamaIndex)
+|   |   +-- similarity_chunker.py # Chunking par similarite
+|   |   +-- semantic_chunker.py # Chunking semantique (LangChain)
+|   |   +-- embeddings.py       # Generation embeddings
+|   |   +-- embeddings_config.py # Configuration modeles embeddings
+|   |   +-- export_sdk.py       # Export format SQLite (orchestration)
+|   |   +-- export_search.py    # Recherche vectorielle/hybride
+|   |   +-- export_serialization.py # Serialisation embeddings
+|   |   +-- export_validation.py # Validation exports
+|   |   +-- token_utils.py      # Utilitaires tokens (tiktoken)
+|   |   +-- chunk_normalizer.py # Normalisation taille chunks
+|   |   +-- utils.py            # Utilitaires communs
 |   |   +-- tests/              # Tests unitaires pipeline
 |   +-- iso/                    # Validation ISO (existant)
 |   +-- requirements.txt
@@ -163,15 +174,25 @@ pocket_arbiter/
 | `scripts/iso/setup_dvc.py` | 168 | OK | - |
 | `scripts/iso/validate_project.py` | 143 | OK | - |
 
-### 4.2 Fichiers futurs - Phase 1 (Pipeline)
+### 4.2 Fichiers Phase 1 (Pipeline) - Etat actuel
 
-| Fichier | Lignes estimees | Decomposition si > 300 |
-|---------|-----------------|------------------------|
-| `extract_pdf.py` | ~150 | - |
-| `chunker.py` | ~200 | - |
-| `embeddings.py` | ~150 | - |
-| `export_sdk.py` | ~100 | - |
-| `test_pipeline.py` | ~250 | - |
+| Fichier | Lignes | Status | Notes |
+|---------|--------|--------|-------|
+| `extract_pdf.py` | 323 | OK | Extraction PDF |
+| `chunker.py` | 400 | OK | Chunking Articles |
+| `chunker_article.py` | 93 | OK | Detection boundaries |
+| `sentence_chunker.py` | 346 | OK | Chunking phrases |
+| `similarity_chunker.py` | 377 | OK | Chunking similarite |
+| `semantic_chunker.py` | 432 | OK | Chunking semantique |
+| `embeddings.py` | 434 | OK | Generation embeddings |
+| `embeddings_config.py` | 90 | OK | Configuration modeles |
+| `export_sdk.py` | 382 | OK | Orchestration export |
+| `export_search.py` | 284 | OK | Recherche hybride |
+| `export_serialization.py` | 66 | OK | Serialisation blobs |
+| `export_validation.py` | 128 | OK | Validation exports |
+| `token_utils.py` | 44 | OK | Utilitaires tokens |
+| `chunk_normalizer.py` | 169 | OK | Normalisation chunks |
+| `utils.py` | 198 | OK | Utilitaires communs |
 
 ### 4.3 Fichiers futurs - Phase 2 (Android)
 
@@ -212,25 +233,57 @@ Si un fichier depasse 300 lignes :
 ```
 scripts/pipeline/
 |
-+-- extract_pdf.py       # Responsabilite: Extraction texte brut
++-- extract_pdf.py       # Extraction texte brut PDF
 |   |-- extract_text(pdf_path) -> str
-|   |-- clean_text(text) -> str
 |   |-- extract_metadata(pdf_path) -> dict
 |
-+-- chunker.py           # Responsabilite: Decoupage semantique
-|   |-- chunk_text(text, max_tokens) -> List[Chunk]
-|   |-- overlap_chunks(chunks, overlap) -> List[Chunk]
-|   |-- add_metadata(chunks, source) -> List[Chunk]
++-- chunker.py           # Chunking semantique par Articles
+|   |-- chunk_by_article(text, max_tokens) -> List[Chunk]
+|   |-- chunk_text_legacy(text, max_tokens, overlap) -> List[Chunk]
+|   |-- chunk_document(extracted_data, corpus) -> List[Chunk]
 |
-+-- embeddings.py        # Responsabilite: Generation vecteurs 768D
-|   |-- load_model() -> SentenceTransformer  # EmbeddingGemma-300m
-|   |-- embed_text(text) -> np.array[768]
-|   |-- embed_batch(texts) -> np.array[N, 768]
++-- chunker_article.py   # Detection frontieres Articles
+|   |-- detect_article_boundaries(text) -> List[dict]
+|   |-- detect_article_match(line) -> str | None
 |
-+-- export_sdk.py        # Responsabilite: Export format SDK
-|   |-- export_for_android(chunks, embeddings) -> sqlite.db
-|   |-- create_vector_store(embeddings, dim=768) -> SqliteVectorStore
-|   |-- validate_export(db_path) -> bool
++-- similarity_chunker.py # Chunking par similarite cosinus
+|   |-- compute_similarity_breaks(sentences, model) -> List[int]
+|   |-- chunk_document_similarity(text, model, ...) -> List[Chunk]
+|
++-- token_utils.py       # Utilitaires tokens (tiktoken)
+|   |-- get_tokenizer() -> tiktoken.Encoding
+|   |-- count_tokens(text, tokenizer) -> int
+|
++-- chunk_normalizer.py  # Normalisation taille chunks
+|   |-- merge_by_max_tokens(chunks, max_tokens) -> List[str]
+|   |-- filter_by_min_tokens(chunks, min_tokens) -> List[str]
+|   |-- normalize_chunks(chunks, min_tokens, max_tokens) -> List[str]
+|
++-- embeddings.py        # Generation vecteurs 768D
+|   |-- load_embedding_model(model_id) -> SentenceTransformer
+|   |-- embed_query(query, model) -> np.array[768]
+|   |-- embed_documents(documents, model) -> np.array[N, 768]
+|
++-- embeddings_config.py # Configuration modeles embeddings
+|   |-- MODEL_ID, MODEL_ID_FULL, FALLBACK_MODEL_ID
+|   |-- PROMPT_QUERY, PROMPT_DOCUMENT (prompts Google officiels)
+|
++-- export_sdk.py        # Orchestration export SQLite
+|   |-- create_vector_db(chunks, embeddings) -> Report
+|   |-- export_corpus(chunks_file, embeddings_file, output_db) -> Report
+|   |-- rebuild_fts_index(db_path) -> int
+|
++-- export_search.py     # Recherche vectorielle/hybride
+|   |-- retrieve_similar(db_path, query_embedding) -> List[Result]
+|   |-- search_bm25(db_path, query_text) -> List[Result]
+|   |-- retrieve_hybrid(db_path, embedding, text) -> List[Result]
+|
++-- export_serialization.py # Serialisation embeddings
+|   |-- embedding_to_blob(embedding) -> bytes
+|   |-- blob_to_embedding(blob, dim) -> np.array
+|
++-- export_validation.py # Validation exports
+|   |-- validate_export(db_path, expected_chunks) -> List[str]
 ```
 
 ### 5.2 Module Android (Kotlin)
@@ -383,6 +436,7 @@ Affichage ResultFragment
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-11 | Claude Code | Creation initiale |
 | 1.1 | 2026-01-14 | Claude Code | Migration FAISS -> SqliteVectorStore, EmbeddingGemma-300m |
+| 1.2 | 2026-01-15 | Claude Code | Ajout modules Phase 1A (chunkers, search, token_utils, chunk_normalizer) |
 
 ---
 

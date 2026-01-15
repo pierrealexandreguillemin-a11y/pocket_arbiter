@@ -162,6 +162,53 @@ def chunk_document_sentence(
     return chunks
 
 
+def _process_extraction_file_sentence(
+    ext_file: Path,
+    splitter: SentenceSplitter,
+    tokenizer: tiktoken.Encoding,
+    corpus: str,
+    chunk_size: int,
+    chunk_overlap: int,
+) -> tuple[list[dict], int]:
+    """Process a single extraction file and return chunks with page count."""
+    with open(ext_file, encoding="utf-8") as f:
+        data = json.load(f)
+
+    source = data.get("source", ext_file.stem + ".pdf")
+    pages = data.get("pages", [])
+    chunks = []
+    pages_processed = 0
+
+    for page_data in pages:
+        page_num = page_data.get("page_num", page_data.get("page", 0))
+        text = page_data.get("text", "")
+
+        if not text.strip():
+            continue
+
+        pages_processed += 1
+        page_chunks = chunk_document_sentence(
+            text=text,
+            splitter=splitter,
+            source=source,
+            page=page_num,
+            tokenizer=tokenizer,
+        )
+
+        for chunk in page_chunks:
+            chunk["id"] = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
+            chunk["metadata"] = {
+                "corpus": corpus,
+                "chunker": "sentence",
+                "chunk_size_tokens": chunk_size,
+                "chunk_overlap_tokens": chunk_overlap,
+                "tokenizer": TOKENIZER_NAME,
+            }
+            chunks.append(chunk)
+
+    return chunks, pages_processed
+
+
 def process_corpus_sentence(
     input_dir: Path,
     output_file: Path,
@@ -182,15 +229,11 @@ def process_corpus_sentence(
     Returns:
         Rapport de traitement.
     """
-    # Initialize tokenizer and splitter
     tokenizer = get_tokenizer()
     splitter = create_sentence_splitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        tokenizer=tokenizer,
+        chunk_size=chunk_size, chunk_overlap=chunk_overlap, tokenizer=tokenizer
     )
 
-    # Find extraction files
     extraction_files = sorted(input_dir.glob("*.json"))
     logger.info(f"Found {len(extraction_files)} extraction files in {input_dir}")
 
@@ -199,43 +242,11 @@ def process_corpus_sentence(
 
     for ext_file in extraction_files:
         logger.info(f"Processing: {ext_file.name}")
-
-        with open(ext_file, encoding="utf-8") as f:
-            data = json.load(f)
-
-        source = data.get("source", ext_file.stem + ".pdf")
-        pages = data.get("pages", [])
-
-        for page_data in pages:
-            page_num = page_data.get("page_num", page_data.get("page", 0))
-            text = page_data.get("text", "")
-
-            if not text.strip():
-                continue
-
-            total_pages += 1
-
-            # Token-aware sentence chunking
-            page_chunks = chunk_document_sentence(
-                text=text,
-                splitter=splitter,
-                source=source,
-                page=page_num,
-                tokenizer=tokenizer,
-            )
-
-            # Add IDs and metadata
-            for chunk in page_chunks:
-                chunk_id = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
-                chunk["id"] = chunk_id
-                chunk["metadata"] = {
-                    "corpus": corpus,
-                    "chunker": "sentence",
-                    "chunk_size_tokens": chunk_size,
-                    "chunk_overlap_tokens": chunk_overlap,
-                    "tokenizer": TOKENIZER_NAME,
-                }
-                all_chunks.append(chunk)
+        chunks, pages = _process_extraction_file_sentence(
+            ext_file, splitter, tokenizer, corpus, chunk_size, chunk_overlap
+        )
+        all_chunks.extend(chunks)
+        total_pages += pages
 
     # Save
     output_data = {

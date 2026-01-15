@@ -211,6 +211,56 @@ def _get_similarity_breaks(
         return []
 
 
+def _process_extraction_file_similarity(
+    ext_file: Path,
+    model: SentenceTransformer,
+    tokenizer: "tiktoken.Encoding",
+    corpus: str,
+    model_name: str,
+    threshold: float,
+) -> tuple[list[dict], int]:
+    """Process a single extraction file and return chunks with page count."""
+    with open(ext_file, encoding="utf-8") as f:
+        data = json.load(f)
+
+    source = data.get("source", ext_file.stem + ".pdf")
+    pages = data.get("pages", [])
+    chunks = []
+    pages_processed = 0
+
+    for page_data in pages:
+        page_num = page_data.get("page_num", page_data.get("page", 0))
+        text = page_data.get("text", "")
+
+        if not text.strip():
+            continue
+
+        pages_processed += 1
+        page_chunks = chunk_document_similarity(
+            text=text,
+            model=model,
+            source=source,
+            page=page_num,
+            tokenizer=tokenizer,
+            threshold=threshold,
+        )
+
+        for chunk in page_chunks:
+            chunk["id"] = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
+            chunk["metadata"] = {
+                "corpus": corpus,
+                "chunker": "similarity",
+                "model": model_name,
+                "threshold": threshold,
+                "tokenizer": TOKENIZER_NAME,
+                "min_tokens": MIN_CHUNK_TOKENS,
+                "max_tokens": MAX_CHUNK_TOKENS,
+            }
+            chunks.append(chunk)
+
+    return chunks, pages_processed
+
+
 def process_corpus_similarity(
     input_dir: Path,
     output_file: Path,
@@ -231,17 +281,14 @@ def process_corpus_similarity(
     Returns:
         Processing report.
     """
-    # Initialize tokenizer
     tokenizer = get_tokenizer()
 
-    # Load model
     logger.info(f"Loading model: {model_name}")
     model = SentenceTransformer(model_name)
     logger.info(
         f"Model loaded: {model_name} ({model.get_sentence_embedding_dimension()}D)"
     )
 
-    # Find extraction files
     extraction_files = sorted(input_dir.glob("*.json"))
     logger.info(f"Found {len(extraction_files)} extraction files in {input_dir}")
 
@@ -250,46 +297,11 @@ def process_corpus_similarity(
 
     for ext_file in extraction_files:
         logger.info(f"Processing: {ext_file.name}")
-
-        with open(ext_file, encoding="utf-8") as f:
-            data = json.load(f)
-
-        source = data.get("source", ext_file.stem + ".pdf")
-        pages = data.get("pages", [])
-
-        for page_data in pages:
-            page_num = page_data.get("page_num", page_data.get("page", 0))
-            text = page_data.get("text", "")
-
-            if not text.strip():
-                continue
-
-            total_pages += 1
-
-            # Token-aware similarity-based chunking
-            page_chunks = chunk_document_similarity(
-                text=text,
-                model=model,
-                source=source,
-                page=page_num,
-                tokenizer=tokenizer,
-                threshold=threshold,
-            )
-
-            # Add IDs and metadata
-            for chunk in page_chunks:
-                chunk_id = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
-                chunk["id"] = chunk_id
-                chunk["metadata"] = {
-                    "corpus": corpus,
-                    "chunker": "similarity",
-                    "model": model_name,
-                    "threshold": threshold,
-                    "tokenizer": TOKENIZER_NAME,
-                    "min_tokens": MIN_CHUNK_TOKENS,
-                    "max_tokens": MAX_CHUNK_TOKENS,
-                }
-                all_chunks.append(chunk)
+        chunks, pages = _process_extraction_file_similarity(
+            ext_file, model, tokenizer, corpus, model_name, threshold
+        )
+        all_chunks.extend(chunks)
+        total_pages += pages
 
     # Save
     output_data = {

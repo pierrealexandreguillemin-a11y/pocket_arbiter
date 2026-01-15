@@ -248,6 +248,54 @@ def _process_raw_chunks(
     return chunks
 
 
+def _process_extraction_file_semantic(
+    ext_file: Path,
+    chunker: SemanticChunker,
+    tokenizer: tiktoken.Encoding,
+    corpus: str,
+    threshold_type: str,
+    threshold_amount: float,
+) -> tuple[list[dict], int]:
+    """Process a single extraction file and return chunks with page count."""
+    with open(ext_file, encoding="utf-8") as f:
+        data = json.load(f)
+
+    source = data.get("source", ext_file.stem + ".pdf")
+    pages = data.get("pages", [])
+    chunks = []
+    pages_processed = 0
+
+    for page_data in pages:
+        page_num = page_data.get("page_num", page_data.get("page", 0))
+        text = page_data.get("text", "")
+
+        if not text.strip():
+            continue
+
+        pages_processed += 1
+        page_chunks = chunk_document_semantic(
+            text=text,
+            chunker=chunker,
+            source=source,
+            page=page_num,
+            tokenizer=tokenizer,
+        )
+
+        for chunk in page_chunks:
+            chunk["id"] = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
+            chunk["metadata"] = {
+                "corpus": corpus,
+                "chunker": "semantic",
+                "threshold": f"{threshold_type}:{threshold_amount}",
+                "tokenizer": TOKENIZER_NAME,
+                "min_tokens": MIN_CHUNK_TOKENS,
+                "max_tokens": MAX_CHUNK_TOKENS,
+            }
+            chunks.append(chunk)
+
+    return chunks, pages_processed
+
+
 def process_corpus_semantic(
     input_dir: Path,
     output_file: Path,
@@ -268,14 +316,11 @@ def process_corpus_semantic(
     Returns:
         Rapport de traitement.
     """
-    # Initialize tokenizer and chunker
     tokenizer = get_tokenizer()
     chunker = create_semantic_chunker(
-        threshold_type=threshold_type,
-        threshold_amount=threshold_amount,
+        threshold_type=threshold_type, threshold_amount=threshold_amount
     )
 
-    # Find extraction files
     extraction_files = sorted(input_dir.glob("*.json"))
     logger.info(f"Found {len(extraction_files)} extraction files in {input_dir}")
 
@@ -284,44 +329,11 @@ def process_corpus_semantic(
 
     for ext_file in extraction_files:
         logger.info(f"Processing: {ext_file.name}")
-
-        with open(ext_file, encoding="utf-8") as f:
-            data = json.load(f)
-
-        source = data.get("source", ext_file.stem + ".pdf")
-        pages = data.get("pages", [])
-
-        for page_data in pages:
-            page_num = page_data.get("page_num", page_data.get("page", 0))
-            text = page_data.get("text", "")
-
-            if not text.strip():
-                continue
-
-            total_pages += 1
-
-            # Token-aware semantic chunking
-            page_chunks = chunk_document_semantic(
-                text=text,
-                chunker=chunker,
-                source=source,
-                page=page_num,
-                tokenizer=tokenizer,
-            )
-
-            # Add IDs and metadata
-            for chunk in page_chunks:
-                chunk_id = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
-                chunk["id"] = chunk_id
-                chunk["metadata"] = {
-                    "corpus": corpus,
-                    "chunker": "semantic",
-                    "threshold": f"{threshold_type}:{threshold_amount}",
-                    "tokenizer": TOKENIZER_NAME,
-                    "min_tokens": MIN_CHUNK_TOKENS,
-                    "max_tokens": MAX_CHUNK_TOKENS,
-                }
-                all_chunks.append(chunk)
+        chunks, pages = _process_extraction_file_semantic(
+            ext_file, chunker, tokenizer, corpus, threshold_type, threshold_amount
+        )
+        all_chunks.extend(chunks)
+        total_pages += pages
 
     # Save
     output_data = {

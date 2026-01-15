@@ -1,0 +1,90 @@
+"""
+Embeddings Configuration - Pocket Arbiter
+
+Constants, prompts et utilitaires pour le module embeddings.
+
+ISO Reference:
+    - ISO/IEC 42001 A.6.2.2 - Documentation modeles
+    - ISO/IEC 25010 PR-01 - RAM < 500MB
+"""
+
+import time
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from sentence_transformers import SentenceTransformer
+
+# --- Constants ---
+# ISO 42001 A.6.2.2 - Documentation modeles
+# ISO 25010 PR-01 - RAM < 500MB, PR-04 - Stockage < 200MB
+
+# Modele principal: QAT Q4 (Quantization Aware Training)
+# - Taille: ~229MB (conforme ISO 42001 §5.1)
+# - MTEB: 69.31 EN / 60.62 Multilingual
+# - Source: https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized
+MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
+
+# Fallback: modele complet F32 (si QAT non disponible)
+MODEL_ID_FULL = "google/embeddinggemma-300m"
+
+# Fallback leger pour tests CI/CD
+FALLBACK_MODEL_ID = "intfloat/multilingual-e5-base"
+
+EMBEDDING_DIM = 768
+FALLBACK_EMBEDDING_DIM = 768
+DEFAULT_BATCH_SIZE = 32
+
+# --- Prompts Officiels Google (OBLIGATOIRES pour performance optimale) ---
+# Source: https://huggingface.co/blog/embeddinggemma
+# WARNING: EmbeddingGemma NE SUPPORTE PAS float16 (utiliser float32 ou bfloat16)
+
+PROMPT_QUERY = "task: search result | query: "
+PROMPT_DOCUMENT = "title: none | text: "
+PROMPT_QA = "task: question answering | query: "
+PROMPT_CLASSIFICATION = "task: classification | query: "
+PROMPT_CLUSTERING = "task: clustering | query: "
+PROMPT_SIMILARITY = "task: sentence similarity | query: "
+
+
+def is_embeddinggemma_model(model_id: str) -> bool:
+    """Verifie si le modele est un EmbeddingGemma (necessite prompts speciaux)."""
+    return "embeddinggemma" in model_id.lower()
+
+
+def measure_performance(
+    model: "SentenceTransformer",
+    sample_texts: list[str],
+    n_iterations: int = 10,
+) -> dict:
+    """
+    Mesure les performances du modele (latence, throughput).
+
+    Args:
+        model: Modele charge.
+        sample_texts: Textes de test.
+        n_iterations: Nombre d'iterations pour moyenne.
+
+    Returns:
+        dict avec ms_per_text, texts_per_second, total_time_s.
+    """
+    if not sample_texts:
+        return {"ms_per_text": 0.0, "texts_per_second": 0.0, "total_time_s": 0.0}
+
+    # Warmup
+    _ = model.encode(sample_texts[:1], show_progress_bar=False)
+
+    times = []
+    for _ in range(n_iterations):
+        start = time.perf_counter()
+        _ = model.encode(sample_texts, show_progress_bar=False)
+        elapsed = time.perf_counter() - start
+        times.append(elapsed)
+
+    avg_time = sum(times) / len(times)
+    ms_per_text = (avg_time / len(sample_texts)) * 1000
+
+    return {
+        "ms_per_text": round(ms_per_text, 2),
+        "texts_per_second": round(len(sample_texts) / avg_time, 2),
+        "total_time_s": round(avg_time, 3),
+    }

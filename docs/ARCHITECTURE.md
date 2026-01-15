@@ -182,7 +182,7 @@ pocket_arbiter/
 | `chunker.py` | 400 | OK | Chunking Articles |
 | `chunker_article.py` | 93 | OK | Detection boundaries |
 | `sentence_chunker.py` | 346 | OK | Chunking phrases |
-| `similarity_chunker.py` | 377 | OK | Chunking similarite |
+| `similarity_chunker.py` | 396 | OK | Chunking similarite |
 | `semantic_chunker.py` | 432 | OK | Chunking semantique |
 | `embeddings.py` | 434 | OK | Generation embeddings |
 | `embeddings_config.py` | 90 | OK | Configuration modeles |

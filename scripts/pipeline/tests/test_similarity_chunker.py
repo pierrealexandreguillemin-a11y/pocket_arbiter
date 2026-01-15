@@ -223,3 +223,51 @@ class TestTokenizer:
         assert _count_tokens("", tokenizer) == 0
         # French text
         assert _count_tokens("Bonjour le monde", tokenizer) > 0
+
+
+class TestBackwardCompatibility:
+    """Tests for backward compatibility of re-exported symbols."""
+
+    def test_merge_small_chunks_alias_exists(self):
+        """merge_small_chunks alias is available."""
+        from scripts.pipeline.similarity_chunker import merge_small_chunks
+
+        assert callable(merge_small_chunks)
+
+    def test_merge_small_chunks_is_normalize_chunks(self):
+        """merge_small_chunks is an alias for normalize_chunks."""
+        from scripts.pipeline.similarity_chunker import merge_small_chunks
+        from scripts.pipeline.chunk_normalizer import normalize_chunks
+
+        assert merge_small_chunks is normalize_chunks
+
+    def test_count_tokens_alias_exists(self):
+        """_count_tokens alias is available."""
+        from scripts.pipeline.similarity_chunker import _count_tokens
+
+        assert callable(_count_tokens)
+
+    def test_count_tokens_is_token_utils_count_tokens(self):
+        """_count_tokens is an alias for token_utils.count_tokens."""
+        from scripts.pipeline.similarity_chunker import _count_tokens
+        from scripts.pipeline.token_utils import count_tokens
+
+        assert _count_tokens is count_tokens
+
+    def test_get_tokenizer_reexported(self):
+        """get_tokenizer is re-exported from token_utils."""
+        from scripts.pipeline.similarity_chunker import get_tokenizer
+        from scripts.pipeline.token_utils import get_tokenizer as original
+
+        # Both should return equivalent tokenizers
+        tok1 = get_tokenizer()
+        tok2 = original()
+        assert tok1.encode("test") == tok2.encode("test")
+
+    def test_tokenizer_name_reexported(self):
+        """TOKENIZER_NAME is re-exported from token_utils."""
+        from scripts.pipeline.similarity_chunker import TOKENIZER_NAME
+        from scripts.pipeline.token_utils import TOKENIZER_NAME as original
+
+        assert TOKENIZER_NAME == original
+        assert TOKENIZER_NAME == "cl100k_base"

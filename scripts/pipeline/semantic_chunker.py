@@ -65,6 +65,30 @@ def create_semantic_chunker(
     )
 
 
+def _build_chunk_metadata(text: str, source: str, page: int, index: str) -> dict:
+    """Build chunk dict with metadata."""
+    return {"text": text.strip(), "source": source, "page": page, "chunk_index": index}
+
+
+def _split_large_chunk(
+    chunk_text: str,
+    chunk_idx: int,
+    source: str,
+    page: int,
+    min_size: int,
+    max_size: int,
+) -> list[dict]:
+    """Split a chunk that exceeds max_size into sub-chunks."""
+    sub_chunks = [
+        chunk_text[j : j + max_size] for j in range(0, len(chunk_text), max_size)
+    ]
+    return [
+        _build_chunk_metadata(sub, source, page, f"{chunk_idx}.{k}")
+        for k, sub in enumerate(sub_chunks)
+        if len(sub.strip()) >= min_size
+    ]
+
+
 def chunk_document_semantic(
     text: str,
     chunker: SemanticChunker,
@@ -90,46 +114,35 @@ def chunk_document_semantic(
     if not text or len(text.strip()) < min_size:
         return []
 
+    raw_chunks = _get_raw_chunks(text, chunker, source, page, max_size)
+    return _process_raw_chunks(raw_chunks, source, page, min_size, max_size)
+
+
+def _get_raw_chunks(
+    text: str, chunker: SemanticChunker, source: str, page: int, max_size: int
+) -> list[str]:
+    """Get raw chunks from chunker with fallback."""
     try:
-        # Split semantically
-        raw_chunks = chunker.split_text(text)
+        return chunker.split_text(text)
     except Exception as e:
         logger.warning(f"SemanticChunker failed for {source} p{page}: {e}")
-        # Fallback to simple split
-        raw_chunks = [text[i : i + max_size] for i in range(0, len(text), max_size)]
+        return [text[i : i + max_size] for i in range(0, len(text), max_size)]
 
+
+def _process_raw_chunks(
+    raw_chunks: list[str], source: str, page: int, min_size: int, max_size: int
+) -> list[dict]:
+    """Process raw chunks into final chunk list."""
     chunks = []
     for i, chunk_text in enumerate(raw_chunks):
-        # Skip too small
         if len(chunk_text.strip()) < min_size:
             continue
-
-        # Split too large
         if len(chunk_text) > max_size:
-            sub_chunks = [
-                chunk_text[j : j + max_size]
-                for j in range(0, len(chunk_text), max_size)
-            ]
-            for k, sub in enumerate(sub_chunks):
-                if len(sub.strip()) >= min_size:
-                    chunks.append(
-                        {
-                            "text": sub.strip(),
-                            "source": source,
-                            "page": page,
-                            "chunk_index": f"{i}.{k}",
-                        }
-                    )
-        else:
-            chunks.append(
-                {
-                    "text": chunk_text.strip(),
-                    "source": source,
-                    "page": page,
-                    "chunk_index": str(i),
-                }
+            chunks.extend(
+                _split_large_chunk(chunk_text, i, source, page, min_size, max_size)
             )
-
+        else:
+            chunks.append(_build_chunk_metadata(chunk_text, source, page, str(i)))
     return chunks
 
 

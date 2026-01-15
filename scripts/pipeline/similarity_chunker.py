@@ -96,6 +96,55 @@ def compute_similarity_breaks(
     return breaks
 
 
+def _merge_by_max_length(chunks: list[str], max_length: int) -> list[str]:
+    """Merge consecutive chunks up to max_length."""
+    merged = []
+    current = ""
+    for chunk in chunks:
+        if len(current) + len(chunk) <= max_length:
+            current = (current + " " + chunk).strip() if current else chunk
+        else:
+            if current:
+                merged.append(current)
+            current = chunk
+    if current:
+        merged.append(current)
+    return merged
+
+
+def _filter_by_min_length(chunks: list[str], min_length: int) -> list[str]:
+    """Filter and merge chunks smaller than min_length."""
+    result = []
+    buffer = ""
+    for chunk in chunks:
+        if len(chunk) < min_length:
+            buffer = (buffer + " " + chunk).strip() if buffer else chunk
+        else:
+            if buffer:
+                chunk = (buffer + " " + chunk).strip()
+                buffer = ""
+            result.append(chunk)
+    if buffer and result:
+        result[-1] = (result[-1] + " " + buffer).strip()
+    elif buffer:
+        result.append(buffer)
+    return result
+
+
+def _split_oversized(chunks: list[str], max_length: int) -> list[str]:
+    """Split chunks that exceed max_length."""
+    final = []
+    for chunk in chunks:
+        if len(chunk) > max_length:
+            for i in range(0, len(chunk), max_length):
+                sub = chunk[i : i + max_length].strip()
+                if sub:
+                    final.append(sub)
+        else:
+            final.append(chunk)
+    return final
+
+
 def merge_small_chunks(
     chunks: list[str],
     min_length: int = DEFAULT_CHUNK_MIN_LENGTH,
@@ -112,50 +161,35 @@ def merge_small_chunks(
     Returns:
         Merged/split chunks.
     """
-    merged = []
-    current = ""
+    merged = _merge_by_max_length(chunks, max_length)
+    filtered = _filter_by_min_length(merged, min_length)
+    return _split_oversized(filtered, max_length)
 
-    for chunk in chunks:
-        if len(current) + len(chunk) <= max_length:
-            current = (current + " " + chunk).strip() if current else chunk
-        else:
-            if current:
-                merged.append(current)
-            current = chunk
 
-    if current:
-        merged.append(current)
+def _create_chunks_from_breaks(sentences: list[str], breaks: list[int]) -> list[str]:
+    """Create chunk texts from sentence breaks."""
+    chunks_text = []
+    start = 0
+    for break_idx in breaks:
+        chunk = " ".join(sentences[start:break_idx])
+        if chunk.strip():
+            chunks_text.append(chunk.strip())
+        start = break_idx
+    if start < len(sentences):
+        chunk = " ".join(sentences[start:])
+        if chunk.strip():
+            chunks_text.append(chunk.strip())
+    return chunks_text if chunks_text else [" ".join(sentences)]
 
-    # Filter by minimum length
-    result = []
-    buffer = ""
-    for chunk in merged:
-        if len(chunk) < min_length:
-            buffer = (buffer + " " + chunk).strip() if buffer else chunk
-        else:
-            if buffer:
-                chunk = (buffer + " " + chunk).strip()
-                buffer = ""
-            result.append(chunk)
 
-    if buffer and result:
-        result[-1] = (result[-1] + " " + buffer).strip()
-    elif buffer:
-        result.append(buffer)
-
-    # Split chunks that are too large
-    final = []
-    for chunk in result:
-        if len(chunk) > max_length:
-            # Split at max_length boundaries
-            for i in range(0, len(chunk), max_length):
-                sub = chunk[i : i + max_length].strip()
-                if sub:
-                    final.append(sub)
-        else:
-            final.append(chunk)
-
-    return final
+def _build_similarity_chunks(
+    chunks_text: list[str], source: str, page: int
+) -> list[dict]:
+    """Build final chunk dicts with metadata."""
+    return [
+        {"text": chunk_text, "source": source, "page": page, "chunk_index": str(i)}
+        for i, chunk_text in enumerate(chunks_text)
+    ]
 
 
 def chunk_document_similarity(
@@ -185,55 +219,31 @@ def chunk_document_similarity(
     if not text or len(text.strip()) < min_length:
         return []
 
-    # Split into sentences
     sentences = split_sentences(text)
     if not sentences:
         return [
             {"text": text.strip(), "source": source, "page": page, "chunk_index": "0"}
         ]
 
-    # Find semantic breaks
+    breaks = _get_similarity_breaks(sentences, model, threshold, source, page)
+    chunks_text = _create_chunks_from_breaks(sentences, breaks)
+    chunks_text = merge_small_chunks(chunks_text, min_length, max_length)
+    return _build_similarity_chunks(chunks_text, source, page)
+
+
+def _get_similarity_breaks(
+    sentences: list[str],
+    model: SentenceTransformer,
+    threshold: float,
+    source: str,
+    page: int,
+) -> list[int]:
+    """Get similarity breaks with error handling."""
     try:
-        breaks = compute_similarity_breaks(sentences, model, threshold)
+        return compute_similarity_breaks(sentences, model, threshold)
     except Exception as e:
         logger.warning(f"Similarity computation failed for {source} p{page}: {e}")
-        breaks = []
-
-    # Create chunks from breaks
-    chunks_text = []
-    start = 0
-    for break_idx in breaks:
-        chunk = " ".join(sentences[start:break_idx])
-        if chunk.strip():
-            chunks_text.append(chunk.strip())
-        start = break_idx
-
-    # Add last chunk
-    if start < len(sentences):
-        chunk = " ".join(sentences[start:])
-        if chunk.strip():
-            chunks_text.append(chunk.strip())
-
-    # If no breaks found, use all sentences as one chunk
-    if not chunks_text:
-        chunks_text = [" ".join(sentences)]
-
-    # Merge/split to respect size constraints
-    chunks_text = merge_small_chunks(chunks_text, min_length, max_length)
-
-    # Build result
-    chunks = []
-    for i, chunk_text in enumerate(chunks_text):
-        chunks.append(
-            {
-                "text": chunk_text,
-                "source": source,
-                "page": page,
-                "chunk_index": str(i),
-            }
-        )
-
-    return chunks
+        return []
 
 
 def process_corpus_similarity(

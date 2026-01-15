@@ -212,6 +212,27 @@ def chunk_by_article(
     return chunks
 
 
+def _compute_overlap(
+    chunk_text_str: str, remaining: str, overlap_tokens: int, encoder: tiktoken.Encoding
+) -> str:
+    """Compute overlap text from end of chunk."""
+    if not remaining or overlap_tokens <= 0:
+        return ""
+    chunk_token_list = encoder.encode(chunk_text_str)
+    overlap_start = max(0, len(chunk_token_list) - overlap_tokens)
+    return encoder.decode(chunk_token_list[overlap_start:])
+
+
+def _process_chunk_iteration(
+    working_text: str, max_tokens: int, encoder: tiktoken.Encoding
+) -> tuple[str, str]:
+    """Process one iteration of chunking, return (chunk_text, remaining)."""
+    tokens = encoder.encode(working_text)
+    if len(tokens) <= max_tokens:
+        return working_text, ""
+    return split_at_sentence_boundary(working_text, max_tokens, tolerance=30)
+
+
 def chunk_text_legacy(
     text: str,
     max_tokens: int = DEFAULT_MAX_TOKENS,
@@ -242,30 +263,17 @@ def chunk_text_legacy(
 
     while remaining:
         working_text = prev_overlap + remaining if prev_overlap else remaining
-        tokens = encoder.encode(working_text)
+        chunk_text_str, remaining = _process_chunk_iteration(
+            working_text, max_tokens, encoder
+        )
+        prev_overlap = _compute_overlap(
+            chunk_text_str, remaining, overlap_tokens, encoder
+        )
 
-        if len(tokens) <= max_tokens:
-            chunk_text_str = working_text
-            remaining = ""
-            prev_overlap = ""
-        else:
-            chunk_text_str, remaining = split_at_sentence_boundary(
-                working_text, max_tokens, tolerance=30
-            )
-
-            if remaining and overlap_tokens > 0:
-                chunk_token_list = encoder.encode(chunk_text_str)
-                overlap_start = max(0, len(chunk_token_list) - overlap_tokens)
-                prev_overlap = encoder.decode(chunk_token_list[overlap_start:])
-            else:
-                prev_overlap = ""
-
-        # Enforce limits
         chunk_text_str, remaining, chunk_tokens = _enforce_iso_limits(
             chunk_text_str, remaining, encoder, max_tokens
         )
 
-        # Skip tiny chunks
         if chunk_tokens < MIN_CHUNK_TOKENS and len(chunk_text_str) < 100:
             continue
 

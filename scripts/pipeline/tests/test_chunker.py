@@ -136,12 +136,13 @@ class TestChunkText:
         for chunk in chunks:
             assert chunk["tokens"] <= 120  # With tolerance
 
-    def test_chunk_empty_raises(self):
-        """Leve ValueError pour texte vide."""
+    def test_chunk_empty_returns_empty(self):
+        """Retourne liste vide pour texte vide (v2.0 behavior)."""
         from scripts.pipeline.chunker import chunk_text
 
-        with pytest.raises(ValueError):
-            chunk_text("", max_tokens=256)
+        # v2.0: texte vide retourne [] au lieu de lever ValueError
+        result = chunk_text("", max_tokens=256)
+        assert result == []
 
     def test_chunk_invalid_params_raises(self):
         """Leve ValueError si max_tokens <= overlap."""
@@ -170,24 +171,40 @@ class TestChunkDocument:
         """Chunke un document extrait."""
         from scripts.pipeline.chunker import chunk_document
 
+        # v2.0: MIN_CHUNK_TOKENS=100, donc texte doit etre assez long
+        long_text_1 = (
+            "Article 4.1 Le toucher-jouer est une regle fondamentale aux echecs. "
+            "Lorsqu'un joueur touche une piece, il doit la jouer si le coup est legal. "
+            "Cette regle s'applique a toutes les competitions officielles de la FFE. "
+            "L'arbitre doit veiller au respect de cette regle durant la partie. "
+            "En cas de litige, c'est l'arbitre qui prend la decision finale."
+        )
+        long_text_2 = (
+            "Article 4.2 La regle du j'adoube permet au joueur d'ajuster ses pieces. "
+            "Le joueur doit annoncer j'adoube avant de toucher la piece. "
+            "Sans cette annonce, la regle du toucher-jouer s'applique. "
+            "Cette regle est essentielle pour eviter les malentendus. "
+            "L'arbitre peut penaliser un joueur qui abuse de cette regle."
+        )
+
         extracted_data = {
             "filename": "test.pdf",
             "pages": [
                 {
                     "page_num": 1,
-                    "text": "Page 1 contenu suffisamment long pour etre valide.",
+                    "text": long_text_1,
                     "section": None,
                 },
                 {
                     "page_num": 2,
-                    "text": "Page 2 contenu suffisamment long pour etre valide.",
-                    "section": "Art 1",
+                    "text": long_text_2,
+                    "section": "Art 4.2",
                 },
             ],
         }
 
         chunks = chunk_document(extracted_data, corpus="fr", doc_num=1)
 
-        assert len(chunks) >= 2
-        assert chunks[0]["id"].startswith("FR-001-001-")
+        assert len(chunks) >= 1  # v2.0: peut merger si petit
+        assert chunks[0]["id"].startswith("FR-001-")
         assert chunks[0]["source"] == "test.pdf"

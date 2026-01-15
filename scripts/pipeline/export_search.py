@@ -11,6 +11,7 @@ import json
 import logging
 import sqlite3
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import numpy as np
 
@@ -282,3 +283,76 @@ def retrieve_hybrid(
         results.append(chunk)
 
     return results
+
+
+def retrieve_hybrid_rerank(
+    db_path: Path,
+    query_embedding: np.ndarray,
+    query_text: str,
+    reranker: "CrossEncoder",
+    top_k_retrieve: int = 20,
+    top_k_final: int = 5,
+    vector_weight: float = DEFAULT_VECTOR_WEIGHT,
+    bm25_weight: float = DEFAULT_BM25_WEIGHT,
+) -> list[dict]:
+    """
+    Recherche hybride avec reranking cross-encoder.
+
+    Pipeline complet pour recall optimal:
+    1. Retrieve top_k_retrieve avec hybrid search (BM25 + vector + RRF)
+    2. Rerank avec cross-encoder
+    3. Return top_k_final
+
+    ISO Reference:
+        - ISO/IEC 25010 - Performance efficiency (Recall >= 90%)
+
+    Args:
+        db_path: Chemin de la base SQLite.
+        query_embedding: Vecteur query normalise.
+        query_text: Texte de la query pour BM25 et reranking.
+        reranker: CrossEncoder charge pour reranking.
+        top_k_retrieve: Nombre de resultats initiaux (defaut 20).
+        top_k_final: Nombre de resultats finaux apres reranking (defaut 5).
+        vector_weight: Poids de la recherche vectorielle (defaut 0.7).
+        bm25_weight: Poids de la recherche BM25 (defaut 0.3).
+
+    Returns:
+        Liste de dicts avec id, text, source, page, hybrid_score, rerank_score.
+
+    Example:
+        >>> from scripts.pipeline.reranker import load_reranker
+        >>> reranker = load_reranker()
+        >>> results = retrieve_hybrid_rerank(
+        ...     db_path, query_emb, "toucher-jouer", reranker
+        ... )
+    """
+    from scripts.pipeline.reranker import rerank
+
+    # Step 1: Hybrid search (BM25 + vector with RRF)
+    hybrid_results = retrieve_hybrid(
+        db_path,
+        query_embedding,
+        query_text,
+        top_k=top_k_retrieve,
+        vector_weight=vector_weight,
+        bm25_weight=bm25_weight,
+    )
+
+    if not hybrid_results:
+        return []
+
+    # Step 2: Rerank with cross-encoder
+    reranked = rerank(
+        query=query_text,
+        chunks=hybrid_results,
+        model=reranker,
+        top_k=top_k_final,
+        content_key="text",
+    )
+
+    return reranked
+
+
+# Type hint for CrossEncoder (imported only for type checking)
+if TYPE_CHECKING:
+    from sentence_transformers import CrossEncoder

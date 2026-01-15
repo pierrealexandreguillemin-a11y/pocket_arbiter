@@ -9,7 +9,7 @@
 | Code Python/Kotlin | ~KB | Git ✅ |
 | Documentation | ~KB | Git ✅ |
 | Embeddings (.npy) | ~50-200 MB | DVC ✅ |
-| Index FAISS | ~10-50 MB | DVC ✅ |
+| Vector DB (.db) | ~50-100 MB | DVC ✅ |
 | PDFs règlements | ~5 MB | Git ou DVC |
 
 ## 🚀 Setup initial (une seule fois)
@@ -31,14 +31,16 @@ dvc remote add -d storage gdrive://TON_FOLDER_ID
 
 ```bash
 # Quand tu génères des embeddings
-dvc add data/embeddings/
+dvc add corpus/processed/embeddings_fr.npy
+dvc add corpus/processed/embeddings_intl.npy
 
-# Quand tu crées un index FAISS
-dvc add data/index.faiss
+# Quand tu crées les bases vectorielles (SqliteVectorStore)
+dvc add corpus/processed/corpus_fr.db
+dvc add corpus/processed/corpus_intl.db
 
 # Commiter les fichiers .dvc dans Git
-git add data/embeddings.dvc data/.gitignore
-git commit -m "Add embeddings to DVC"
+git add corpus/processed/*.dvc corpus/processed/.gitignore
+git commit -m "Add embeddings and vector DBs to DVC"
 
 # Pousser vers le remote
 dvc push

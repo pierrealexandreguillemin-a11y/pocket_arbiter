@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-ARCH-001
 > **ISO Reference**: ISO/IEC 12207:2017 - Architecture logicielle
-> **Version**: 1.0
-> **Date**: 2026-01-11
+> **Version**: 1.1
+> **Date**: 2026-01-14
 > **Statut**: Draft
 > **Classification**: Interne
 
@@ -54,18 +54,18 @@ Application mobile Android 100% offline pour l'aide aux arbitres d'echecs via RA
 |  |   DOMAIN LAYER      |    |   ASSETS            |               |
 |  |   (Android/Kotlin)  |    |   (Generated)       |               |
 |  +---------------------+    +---------------------+               |
-|  | - QueryUseCase      |    | - corpus_fr.faiss   |               |
-|  | - RetrievalUseCase  |    | - corpus_intl.faiss |               |
+|  | - QueryUseCase      |    | - corpus_fr.db      |               |
+|  | - RetrievalUseCase  |    | - corpus_intl.db    |               |
 |  | - SynthesisUseCase  |    | - chunks_fr.json    |               |
 |  +----------+----------+    | - chunks_intl.json  |               |
-|             |               | - embedding.tflite  |               |
-|             v               | - llm.tflite        |               |
-|  +---------------------+    +---------------------+               |
-|  |   INFERENCE LAYER   |                                          |
-|  |   (MediaPipe/TFLite)|                                          |
+|             |               | - embeddinggemma.   |               |
+|             v               |   tflite            |               |
+|  +---------------------+    | - llm.tflite        |               |
+|  |   INFERENCE LAYER   |    +---------------------+               |
+|  |   (LiteRT/RAG SDK)  |                                          |
 |  +---------------------+                                          |
 |  | - EmbeddingEngine   |                                          |
-|  | - FAISSIndex        |                                          |
+|  | - SqliteVectorStore |                                          |
 |  | - LLMEngine         |                                          |
 |  +---------------------+                                          |
 |                                                                   |
@@ -106,8 +106,8 @@ pocket_arbiter/
 |   |   +-- __init__.py
 |   |   +-- extract_pdf.py      # Extraction texte PDF
 |   |   +-- chunker.py          # Decoupage en chunks
-|   |   +-- embeddings.py       # Generation embeddings
-|   |   +-- indexer.py          # Construction index FAISS
+|   |   +-- embeddings.py       # Generation embeddings (EmbeddingGemma)
+|   |   +-- export_sdk.py       # Export format Google AI Edge RAG SDK
 |   |   +-- tests/              # Tests unitaires pipeline
 |   +-- iso/                    # Validation ISO (existant)
 |   +-- requirements.txt
@@ -169,8 +169,8 @@ pocket_arbiter/
 |---------|-----------------|------------------------|
 | `extract_pdf.py` | ~150 | - |
 | `chunker.py` | ~200 | - |
-| `embeddings.py` | ~100 | - |
-| `indexer.py` | ~150 | - |
+| `embeddings.py` | ~150 | - |
+| `export_sdk.py` | ~100 | - |
 | `test_pipeline.py` | ~250 | - |
 
 ### 4.3 Fichiers futurs - Phase 2 (Android)
@@ -182,7 +182,7 @@ pocket_arbiter/
 | `ResultFragment.kt` | ~250 | - |
 | `QueryViewModel.kt` | ~150 | - |
 | `EmbeddingEngine.kt` | ~200 | - |
-| `FAISSRepository.kt` | ~250 | - |
+| `VectorStoreRepository.kt` | ~200 | - |
 | `LLMEngine.kt` | ~300 | Surveiller, split si depasse |
 
 ### 4.4 Fichiers futurs - Phase 3 (LLM)
@@ -222,15 +222,15 @@ scripts/pipeline/
 |   |-- overlap_chunks(chunks, overlap) -> List[Chunk]
 |   |-- add_metadata(chunks, source) -> List[Chunk]
 |
-+-- embeddings.py        # Responsabilite: Generation vecteurs
-|   |-- load_model(model_name) -> Model
-|   |-- embed_text(text) -> np.array
-|   |-- embed_batch(texts) -> np.array
++-- embeddings.py        # Responsabilite: Generation vecteurs 768D
+|   |-- load_model() -> SentenceTransformer  # EmbeddingGemma-300m
+|   |-- embed_text(text) -> np.array[768]
+|   |-- embed_batch(texts) -> np.array[N, 768]
 |
-+-- indexer.py           # Responsabilite: Index FAISS
-|   |-- create_index(embeddings) -> faiss.Index
-|   |-- save_index(index, path) -> None
-|   |-- search(query_embedding, k) -> List[int]
++-- export_sdk.py        # Responsabilite: Export format SDK
+|   |-- export_for_android(chunks, embeddings) -> sqlite.db
+|   |-- create_vector_store(embeddings, dim=768) -> SqliteVectorStore
+|   |-- validate_export(db_path) -> bool
 ```
 
 ### 5.2 Module Android (Kotlin)
@@ -255,17 +255,17 @@ android/app/src/main/kotlin/com/arbiter/
 |
 +-- data/                # Couche donnees
 |   +-- repositories/
-|       +-- ChunkRepository.kt   # Acces chunks
-|       +-- IndexRepository.kt   # Acces index FAISS
+|       +-- ChunkRepository.kt       # Acces chunks
+|       +-- VectorStoreRepository.kt # Acces SqliteVectorStore
 |   +-- models/
-|       +-- Chunk.kt             # Modele chunk
-|       +-- Query.kt             # Modele requete
-|       +-- Response.kt          # Modele reponse
+|       +-- Chunk.kt                 # Modele chunk
+|       +-- Query.kt                 # Modele requete
+|       +-- Response.kt              # Modele reponse
 |
-+-- inference/           # Couche ML
-|   +-- EmbeddingEngine.kt       # Inference embeddings
-|   +-- LLMEngine.kt             # Inference LLM
-|   +-- FAISSWrapper.kt          # Wrapper FAISS JNI
++-- inference/           # Couche ML (Google AI Edge RAG SDK)
+|   +-- EmbeddingEngine.kt       # EmbeddingGemma via LiteRT
+|   +-- LLMEngine.kt             # Gemma 3 via MediaPipe
+|   +-- RagPipeline.kt           # RetrievalAndInferenceChain
 ```
 
 ---
@@ -281,13 +281,13 @@ PDF Reglement
 [extract_pdf.py] --> Texte brut
     |
     v
-[chunker.py] --> Chunks (500 tokens, 50 overlap)
+[chunker.py] --> Chunks (256 tokens, 50 overlap)
     |
     v
-[embeddings.py] --> Vecteurs 384-dim
+[embeddings.py] --> Vecteurs 768-dim (EmbeddingGemma-300m)
     |
     v
-[indexer.py] --> corpus_XX.faiss + chunks_XX.json
+[export_sdk.py] --> corpus_XX.db (SqliteVectorStore) + chunks_XX.json
 ```
 
 ### 6.2 Phase 2+ - Requete (runtime, mobile)
@@ -296,16 +296,16 @@ PDF Reglement
 Question utilisateur
     |
     v
-[EmbeddingEngine] --> Vecteur query 384-dim
+[EmbeddingEngine] --> Vecteur query 768-dim (EmbeddingGemma TFLite)
     |
     v
-[FAISSWrapper] --> Top-K chunks pertinents
+[SqliteVectorStore] --> Top-K chunks pertinents (cosine similarity)
     |
     v
 [PromptBuilder] --> Prompt avec contexte
     |
     v
-[LLMEngine] --> Reponse synthetisee
+[LLMEngine] --> Reponse synthetisee (Gemma 3)
     |
     v
 [CitationExtractor] --> Citations formatees
@@ -323,10 +323,10 @@ Affichage ResultFragment
 | Dependance | Version | Usage |
 |------------|---------|-------|
 | PyMuPDF | >=1.24.0 | Extraction PDF |
-| sentence-transformers | >=3.0.0 | Embeddings |
-| faiss-cpu | >=1.8.0 | Index vecteur |
+| sentence-transformers | >=3.0.0 | Embeddings (EmbeddingGemma) |
 | tiktoken | >=0.7.0 | Comptage tokens |
 | torch | >=2.2.0 | Backend ML |
+| numpy | >=1.24.0 | Vecteurs |
 
 ### 7.2 Android (Phase 2+)
 
@@ -334,17 +334,18 @@ Affichage ResultFragment
 |------------|---------|-------|
 | Kotlin | 1.9+ | Langage |
 | Jetpack Compose | 1.5+ | UI |
-| MediaPipe | 0.10+ | Inference ML |
-| TensorFlow Lite | 2.14+ | Runtime modeles |
+| LiteRT | 1.4.0+ | Runtime TFLite |
+| AI Edge RAG SDK | 0.1.0+ | SqliteVectorStore, Embedder |
+| MediaPipe GenAI | 0.10.22+ | LLM Inference |
 
 ### 7.3 Modeles ML
 
-| Modele | Taille | Usage |
-|--------|--------|-------|
-| all-MiniLM-L6-v2 | ~90 MB | Embeddings (fallback) |
-| EmbeddingGemma | ~100 MB | Embeddings (cible) |
-| Phi-3.5-mini-q4 | ~2 GB | LLM synthese |
-| Gemma-2B-q4 | ~1.5 GB | LLM alternative |
+| Modele | Taille | RAM CPU | Usage |
+|--------|--------|---------|-------|
+| EmbeddingGemma-300m | 179 MB | 110 MB | Embeddings (principal) |
+| Gecko-110m-en | 114 MB | 126 MB | Embeddings (fallback) |
+| Gemma 3 1B | ~600 MB | ~400 MB | LLM synthese |
+| Gemma 3 270M | ~200 MB | ~150 MB | LLM alternative (leger) |
 
 ---
 
@@ -381,6 +382,7 @@ Affichage ResultFragment
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-11 | Claude Code | Creation initiale |
+| 1.1 | 2026-01-14 | Claude Code | Migration FAISS -> SqliteVectorStore, EmbeddingGemma-300m |
 
 ---
 

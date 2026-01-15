@@ -100,7 +100,7 @@ Ce document définit la stratégie, les processus et la documentation de test po
 | P1-U04 | Chunking taille correcte | Texte long | Chunks 300-400 tokens | Must |
 | P1-U05 | Chunking overlap | Texte long | Overlap 50 tokens vérifié | Should |
 | P1-U06 | Génération embeddings | Chunk texte | Vecteur dimension correcte | Must |
-| P1-U07 | Création index FAISS | Liste embeddings | Fichier .index créé | Must |
+| P1-U07 | Export SqliteVectorStore | Liste embeddings | Fichier .db créé | Must |
 | P1-U08 | Insertion SQLite | Chunks + métadonnées | Records créés | Must |
 
 #### Tests d'intégration Python
@@ -129,7 +129,7 @@ Ce document définit la stratégie, les processus et la documentation de test po
 |----|--------|------|----------|
 | P2-U01 | Embedder | Génération embedding query | Must |
 | P2-U02 | Embedder | Normalisation vecteur | Must |
-| P2-U03 | Search | Query FAISS top-K | Must |
+| P2-U03 | Search | Query SqliteVectorStore top-K | Must |
 | P2-U04 | Search | Calcul score similarité | Must |
 | P2-U05 | Database | Récupération chunk par ID | Must |
 | P2-U06 | Database | Récupération métadonnées | Must |

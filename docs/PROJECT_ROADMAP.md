@@ -2,9 +2,9 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.1
+> **Version**: 1.2
 > **Date**: 2026-01-14
-> **Effort total estime**: 210h (~13-16 semaines)
+> **Effort total estime**: 205h (~13-15 semaines)
 
 ---
 
@@ -91,28 +91,33 @@ Extraire le contenu textuel des PDF et segmenter en chunks de 256 tokens.
 
 ---
 
-## Phase 1B - Pipeline Embed + Index
+## Phase 1B - Pipeline Embed + Export SDK
 
 **Duree**: Semaine 3-4 | **Effort**: 30h
 
 ### Objectif
-Generer embeddings et creer index vectoriel pour retrieval.
+Generer embeddings et exporter au format Google AI Edge RAG SDK.
 
-### Stack validee
+### Stack validee (2026-01-14)
 
-| Composant | Choix | Specs |
-|-----------|-------|-------|
-| Embedding | EmbeddingGemma-300M | 768D, 179MB, 66ms |
-| Index | FAISS (IVF_FLAT) | cosine, < 50MB |
+| Composant | Choix | Specs | Source |
+|-----------|-------|-------|--------|
+| Embedding | **EmbeddingGemma-300m** | 768D, 179MB TFLite | [HuggingFace](https://huggingface.co/litert-community/embeddinggemma-300m) |
+| Quantization | Mixed Precision | int4 embed/ff, int8 attn | e4_a8_f4_p4 |
+| RAM CPU | **110 MB** (256 seq) | Compatible mid-range | Benchmark S25 Ultra |
+| Inference | **66 ms** (256 seq) | XNNPACK 4 threads | Benchmark S25 Ultra |
+| Vector Store | **SqliteVectorStore** | SDK natif, persistant | [Google AI Edge](https://github.com/google-ai-edge/ai-edge-apis) |
+| Fallback | Gecko-110m-en | 114MB, 126MB RAM, 147ms | Si EmbeddingGemma indisponible |
 
 ### Deliverables
 
 | Fichier | Description |
 |---------|-------------|
-| `scripts/pipeline/embeddings.py` | Generation vecteurs 768D |
-| `scripts/pipeline/indexer.py` | Creation index FAISS |
-| `scripts/pipeline/export_android.py` | Export format SDK |
-| `corpus/processed/index_fr.faiss` | Index vectoriel FR |
+| `scripts/pipeline/embeddings.py` | Generation vecteurs 768D (sentence-transformers) |
+| `scripts/pipeline/export_sdk.py` | Export format SqliteVectorStore |
+| `corpus/processed/corpus_fr.db` | Base SQLite avec vecteurs FR |
+| `corpus/processed/corpus_intl.db` | Base SQLite avec vecteurs INTL |
+| `corpus/processed/embeddings_fr.npy` | Vecteurs numpy FR (backup) |
 
 ### Definition of Done
 
@@ -121,7 +126,8 @@ Generer embeddings et creer index vectoriel pour retrieval.
 | Recall FR | ≥ 80% | OUI |
 | Recall INTL | ≥ 70% | NON |
 | 0% hallucination adversarial | 30/30 pass | OUI |
-| Index < 50 MB | Mesure | NON |
+| DB size | < 100 MB | NON |
+| Coverage tests | ≥ 80% | OUI |
 
 ---
 
@@ -231,34 +237,33 @@ QUESTION: {user_query}
 
 ## Phase 4A - Evaluation Vector Store RAM
 
-**Duree**: Semaine 13 | **Effort**: 15h
+**Duree**: Semaine 13 | **Effort**: 10h
 
 ### Objectif
-Evaluer et comparer implementations vector store pour RAM.
+Valider performance RAM du SqliteVectorStore en conditions reelles.
 
 ### Implementations a tester
 
 | Implementation | Description | Effort |
 |----------------|-------------|--------|
-| SqliteVectorStore | SDK default | 0h |
-| sqlite-vec custom | Alternative legere | ~10h |
-| FAISS JNI | In-memory | ~20h |
+| SqliteVectorStore | SDK default (choix principal) | 0h |
+| sqlite-vec custom | Alternative si RAM > 300MB | ~10h |
 
 ### Protocole
 
 ```
 1. RAM baseline (app sans vector store)
-2. RAM apres chargement index (~500 chunks)
+2. RAM apres chargement index (~3000 chunks)
 3. RAM pic pendant query (10 queries)
 4. Latence moyenne query (ms)
-5. Repeter 3x par implementation
+5. Repeter 3x sur device mid-range (4GB RAM)
 ```
 
 ### Criteres decision
 
-- Gain RAM > 50 MB → Implementer alternative
-- Gain RAM < 50 MB → Garder SDK default
-- Latence degradee > 2x → Garder SDK default
+- RAM embedder + vector store < 300 MB → Valide
+- RAM > 300 MB → Tester sqlite-vec custom
+- Latence degradee > 2x → Optimiser requetes
 
 ---
 
@@ -324,10 +329,11 @@ Validation utilisateur et release production.
 
 | Risque | Probabilite | Plan B |
 |--------|-------------|--------|
-| Recall < 80% avec EmbeddingGemma | FAIBLE | Tester all-MiniLM-L12-v2 |
-| Gemma 270M qualite < 70% | MOYEN | Passer a Gemma 1B |
-| RAM > 500MB | FAIBLE | Reduire seq_length, dimensions |
-| SDK 0.1.0 instable | FAIBLE | Figer version, workarounds |
+| Recall < 80% avec EmbeddingGemma | FAIBLE | Tester Gecko-110m-en |
+| EmbeddingGemma non dispo sentence-transformers | FAIBLE | Utiliser ONNX ou TFLite directement |
+| Gemma 270M qualite < 70% | MOYEN | Passer a Gemma 3 1B |
+| RAM > 300MB (embedder + store) | FAIBLE | Reduire dimensions MRL (512 ou 256) |
+| SqliteVectorStore lent sur 3000 chunks | FAIBLE | Optimiser requetes, pagination |
 
 ---
 
@@ -340,10 +346,10 @@ Validation utilisateur et release production.
 | 2A | 40h | 90h |
 | 2B | 30h | 120h |
 | 3 | 40h | 160h |
-| 4A | 15h | 175h |
-| 4B | 15h | 190h |
-| 5 | 20h | 210h |
-| **TOTAL** | **210h** | |
+| 4A | 10h | 170h |
+| 4B | 15h | 185h |
+| 5 | 20h | 205h |
+| **TOTAL** | **205h** | |
 
 ---
 
@@ -365,3 +371,4 @@ Validation utilisateur et release production.
 |---------|------|-------------|
 | 1.0 | 2026-01-14 | Creation initiale |
 | 1.1 | 2026-01-14 | Phase 1A complete (2047 FR + 1105 INTL chunks) |
+| 1.2 | 2026-01-14 | Stack Phase 1B: FAISS -> SqliteVectorStore, EmbeddingGemma-300m specs |

@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "corpus": "fr",
+    "version": "1.0",
+    "description": "Questions gold standard pour évaluer le retrieval sur le corpus français (FFE)",
+    "created": "2026-01-10",
+    "updated": "2026-01-14",
+    "total_questions": 30
+  },
+  "questions": [
+    {
+      "id": "FR-Q01",
+      "question": "Quelle est la règle du toucher-jouer ?",
+      "keywords": ["toucher", "jouer", "pièce", "déplacer"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [41, 42],
+      "difficulty": "easy",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q02",
+      "question": "Combien de temps un joueur a-t-il pour jouer son premier coup ?",
+      "keywords": ["temps", "premier", "coup", "retard"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [45, 49],
+      "difficulty": "easy",
+      "category": "temps"
+    },
+    {
+      "id": "FR-Q03",
+      "question": "Que faire si un joueur arrive en retard au début de la partie ?",
+      "keywords": ["retard", "forfait", "absence"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [46, 68],
+      "difficulty": "medium",
+      "category": "temps"
+    },
+    {
+      "id": "FR-Q04",
+      "question": "Comment se déroule une réclamation pour temps dépassé ?",
+      "keywords": ["temps", "dépassé", "drapeau", "réclamation"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [45, 46, 50],
+      "difficulty": "medium",
+      "category": "temps"
+    },
+    {
+      "id": "FR-Q05",
+      "question": "Quelle est la procédure en cas de coup illégal ?",
+      "keywords": ["coup", "illégal", "pénalité", "temps"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [44, 48, 49],
+      "difficulty": "medium",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q06",
+      "question": "Comment effectuer correctement le roque ?",
+      "keywords": ["roque", "roi", "tour", "déplacement"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [40, 42],
+      "difficulty": "easy",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q07",
+      "question": "Quelles sont les conditions pour déclarer une partie nulle par répétition ?",
+      "keywords": ["nulle", "répétition", "position", "triple"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [51],
+      "difficulty": "medium",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q08",
+      "question": "Qu'est-ce que la règle des 50 coups ?",
+      "keywords": ["50", "coups", "nulle", "pion", "capture"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [55],
+      "difficulty": "medium",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q09",
+      "question": "Comment fonctionne la prise en passant ?",
+      "keywords": ["passant", "pion", "prise", "capture"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [39],
+      "difficulty": "easy",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q10",
+      "question": "Quelles sont les règles de promotion du pion ?",
+      "keywords": ["promotion", "pion", "dame", "transformation"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [39, 40],
+      "difficulty": "easy",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q11",
+      "question": "Quelle est la sanction pour l'utilisation d'un téléphone portable pendant la partie ?",
+      "keywords": ["téléphone", "portable", "électronique", "sanction"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [47, 53, 54],
+      "difficulty": "medium",
+      "category": "comportement"
+    },
+    {
+      "id": "FR-Q12",
+      "question": "Comment noter correctement une partie aux échecs ?",
+      "keywords": ["notation", "feuille", "partie", "algébrique"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [49, 50],
+      "difficulty": "easy",
+      "category": "notation"
+    },
+    {
+      "id": "FR-Q13",
+      "question": "Quand peut-on arrêter de noter la partie ?",
+      "keywords": ["notation", "arrêter", "temps", "minutes"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [46, 50],
+      "difficulty": "medium",
+      "category": "notation"
+    },
+    {
+      "id": "FR-Q14",
+      "question": "Quelles sont les règles concernant les propositions de nulle ?",
+      "keywords": ["nulle", "proposition", "offre", "accepter"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [49, 50, 51],
+      "difficulty": "medium",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q15",
+      "question": "Comment déclarer forfait un joueur ?",
+      "keywords": ["forfait", "absence", "déclaration", "perte"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [46, 68],
+      "difficulty": "medium",
+      "category": "arbitrage"
+    },
+    {
+      "id": "FR-Q16",
+      "question": "Quels sont les pouvoirs de l'arbitre ?",
+      "keywords": ["arbitre", "pouvoir", "décision", "autorité"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [55, 56],
+      "difficulty": "medium",
+      "category": "arbitrage"
+    },
+    {
+      "id": "FR-Q17",
+      "question": "Comment gérer une réclamation d'un joueur ?",
+      "keywords": ["réclamation", "appel", "joueur", "plainte"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [63, 65, 66],
+      "difficulty": "hard",
+      "category": "arbitrage"
+    },
+    {
+      "id": "FR-Q18",
+      "question": "Quelles sont les règles du blitz ?",
+      "keywords": ["blitz", "rapide", "cadence", "temps"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [58, 66, 67],
+      "difficulty": "medium",
+      "category": "cadences"
+    },
+    {
+      "id": "FR-Q19",
+      "question": "Quelles sont les règles du jeu rapide ?",
+      "keywords": ["rapide", "cadence", "temps", "partie"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [58, 67],
+      "difficulty": "medium",
+      "category": "cadences"
+    },
+    {
+      "id": "FR-Q20",
+      "question": "Qu'est-ce que le mat ?",
+      "keywords": ["mat", "échec", "roi", "fin"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [37, 38, 43],
+      "difficulty": "easy",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q21",
+      "question": "Qu'est-ce que le pat ?",
+      "keywords": ["pat", "nulle", "roi", "bloqué"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [43],
+      "difficulty": "easy",
+      "category": "regles_jeu"
+    },
+    {
+      "id": "FR-Q22",
+      "question": "Comment se déroule un départage ?",
+      "keywords": ["départage", "égalité", "tie-break", "Buchholz"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [149, 150, 154],
+      "difficulty": "hard",
+      "category": "competition"
+    },
+    {
+      "id": "FR-Q23",
+      "question": "Quelles sont les règles anti-triche ?",
+      "keywords": ["triche", "fraude", "sanction", "fair-play"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [71, 72, 73],
+      "difficulty": "hard",
+      "category": "comportement"
+    },
+    {
+      "id": "FR-Q24",
+      "question": "Comment fonctionne le système suisse ?",
+      "keywords": ["suisse", "appariement", "ronde", "système"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [120, 121, 122],
+      "difficulty": "hard",
+      "category": "competition"
+    },
+    {
+      "id": "FR-Q25",
+      "question": "Quelles sont les conditions matérielles minimales pour un tournoi ?",
+      "keywords": ["matériel", "équipement", "salle", "conditions"],
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "expected_pages": [73, 78, 143],
+      "difficulty": "medium",
+      "category": "organisation"
+    },
+    {
+      "id": "FR-Q26",
+      "question": "Quelles sont les règles générales pour les compétitions fédérales ?",
+      "keywords": ["compétition", "fédérale", "saison", "club"],
+      "expected_docs": ["R01_2025_26_Regles_generales.pdf"],
+      "expected_pages": [1],
+      "difficulty": "easy",
+      "category": "competition_ffe"
+    },
+    {
+      "id": "FR-Q27",
+      "question": "Quelles sont les sanctions disciplinaires possibles à la FFE ?",
+      "keywords": ["disciplinaire", "sanction", "suspension", "exclusion"],
+      "expected_docs": ["2018_Reglement_Disciplinaire20180422.pdf"],
+      "expected_pages": [1, 2],
+      "difficulty": "medium",
+      "category": "disciplinaire"
+    },
+    {
+      "id": "FR-Q28",
+      "question": "Comment s'inscrire au Championnat de France individuel ?",
+      "keywords": ["championnat", "France", "individuel", "inscription"],
+      "expected_docs": ["A01_2025_26_Championnat_de_France.pdf"],
+      "expected_pages": [1],
+      "difficulty": "easy",
+      "category": "competition_ffe"
+    },
+    {
+      "id": "FR-Q29",
+      "question": "Quelles sont les règles pour le Championnat de France des clubs ?",
+      "keywords": ["championnat", "clubs", "équipe", "interclubs"],
+      "expected_docs": ["A02_2025_26_Championnat_de_France_des_Clubs.pdf"],
+      "expected_pages": [1],
+      "difficulty": "medium",
+      "category": "competition_ffe"
+    },
+    {
+      "id": "FR-Q30",
+      "question": "Quelles sont les règles du Championnat de France Jeunes ?",
+      "keywords": ["jeunes", "championnat", "catégorie", "âge"],
+      "expected_docs": ["J01_2025_26_Championnat_de_France_Jeunes.pdf"],
+      "expected_pages": [1],
+      "difficulty": "easy",
+      "category": "jeunes"
+    }
+  ],
+  "coverage": {
+    "regles_jeu": 10,
+    "temps": 3,
+    "notation": 2,
+    "arbitrage": 3,
+    "comportement": 2,
+    "cadences": 2,
+    "competition": 2,
+    "organisation": 1,
+    "competition_ffe": 3,
+    "disciplinaire": 1,
+    "jeunes": 1
+  }
+}

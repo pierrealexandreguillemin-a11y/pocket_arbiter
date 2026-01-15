@@ -10,6 +10,19 @@ Les fixtures pour tests futurs seront ajoutees lors de l'implementation.
 import pytest
 
 
+# =============================================================================
+# Custom Markers
+# =============================================================================
+
+
+def pytest_configure(config):
+    """Register custom markers."""
+    config.addinivalue_line("markers", "slow: marks tests as slow (requires corpus)")
+    config.addinivalue_line(
+        "markers", "iso_blocking: marks tests as ISO blocking criteria"
+    )
+
+
 @pytest.fixture
 def sample_chunk() -> dict:
     """

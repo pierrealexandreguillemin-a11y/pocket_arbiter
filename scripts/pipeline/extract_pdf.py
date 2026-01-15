@@ -100,6 +100,12 @@ def extract_pdf(pdf_path: Path) -> dict:
         page = doc[page_num]
         text = page.get_text()
 
+        # Normaliser l'encodage UTF-8 (ISO conforme)
+        # PyMuPDF peut retourner du texte avec encodage mixte
+        from scripts.pipeline.utils import normalize_text
+
+        text = normalize_text(text)
+
         # Skip pages with minimal content
         if len(text.strip()) < MIN_PAGE_CHARS:
             continue

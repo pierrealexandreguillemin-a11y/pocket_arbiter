@@ -73,6 +73,8 @@ def normalize_text(text: str) -> str:
     """
     Normalise le texte pour le traitement.
 
+    - Normalisation Unicode NFKC (ISO conforme pour retrieval)
+    - Correction des caracteres mal encodes
     - Supprime les espaces multiples
     - Normalise les sauts de ligne
     - Supprime les caracteres de controle
@@ -81,20 +83,49 @@ def normalize_text(text: str) -> str:
         text: Texte brut a normaliser.
 
     Returns:
-        Texte normalise.
+        Texte normalise conforme ISO.
     """
     import re
+    import unicodedata
 
-    # Normaliser les sauts de ligne
+    # 1. Normalisation Unicode NFKC (standard pour retrieval/search)
+    # Convertit les caracteres compatibles et compose les accents
+    text = unicodedata.normalize("NFKC", text)
+
+    # 2. Corriger les caracteres mal encodes courants (mojibake latin-1 -> utf-8)
+    # Ces patterns apparaissent quand du UTF-8 est lu comme latin-1
+    replacements = {
+        "\u00e2\u0080\u0099": "'",  # apostrophe
+        "\u00e2\u0080\u009c": '"',  # guillemet ouvrant
+        "\u00e2\u0080\u009d": '"',  # guillemet fermant
+        "\u00e2\u0080\u0093": "\u2013",  # tiret demi-cadratin
+        "\u00e2\u0080\u0094": "\u2014",  # tiret cadratin
+        "\u00c3\u00a9": "\u00e9",  # e accent aigu
+        "\u00c3\u00a8": "\u00e8",  # e accent grave
+        "\u00c3\u00aa": "\u00ea",  # e accent circonflexe
+        "\u00c3\u00a0": "\u00e0",  # a accent grave
+        "\u00c3\u00a2": "\u00e2",  # a accent circonflexe
+        "\u00c3\u00b4": "\u00f4",  # o accent circonflexe
+        "\u00c3\u00ae": "\u00ee",  # i accent circonflexe
+        "\u00c3\u00b9": "\u00f9",  # u accent grave
+        "\u00c3\u00bb": "\u00fb",  # u accent circonflexe
+        "\u00c3\u00a7": "\u00e7",  # c cedille
+        "\u00c5\u0093": "\u0153",  # oe ligature
+        "\ufffd": "",  # Replacement character (remove)
+    }
+    for bad, good in replacements.items():
+        text = text.replace(bad, good)
+
+    # 3. Normaliser les sauts de ligne
     text = text.replace("\r\n", "\n").replace("\r", "\n")
 
-    # Supprimer les caracteres de controle (sauf newline et tab)
+    # 4. Supprimer les caracteres de controle (sauf newline et tab)
     text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", text)
 
-    # Normaliser les espaces multiples
+    # 5. Normaliser les espaces multiples
     text = re.sub(r"[ \t]+", " ", text)
 
-    # Normaliser les lignes vides multiples
+    # 6. Normaliser les lignes vides multiples
     text = re.sub(r"\n{3,}", "\n\n", text)
 
     return text.strip()

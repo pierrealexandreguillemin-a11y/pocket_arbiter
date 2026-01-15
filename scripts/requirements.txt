@@ -19,6 +19,13 @@ torch>=2.2.0,<3.0.0                   # PyTorch backend (CPU/CUDA)
 faiss-cpu>=1.8.0,<2.0.0               # Vector index (CPU version, 1.x series)
 
 # ------------------------------------------------------------------------------
+# CHUNKING: Multiple strategies (Phase 1A)
+# ------------------------------------------------------------------------------
+llama-index-core>=0.14.0,<1.0.0       # SentenceSplitter (sentence_chunker.py)
+langchain-experimental>=0.4.0,<1.0.0  # SemanticChunker (semantic_chunker.py)
+langchain-community>=0.4.0,<1.0.0     # HuggingFaceEmbeddings for SemanticChunker
+
+# ------------------------------------------------------------------------------
 # LLM Integration (Phase 3)
 # ------------------------------------------------------------------------------
 # llama-cpp-python>=0.2.0        # Local LLM inference (optional)

@@ -22,6 +22,7 @@ from typing import Optional
 import tiktoken
 
 from scripts.pipeline.chunker_article import detect_article_boundaries
+from scripts.pipeline.token_utils import count_tokens as _count_tokens_shared
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -134,7 +135,7 @@ def chunk_text_legacy(
             chunk_text_str, remaining, encoder, max_tokens
         )
 
-        if chunk_tokens < MIN_CHUNK_TOKENS and len(chunk_text_str) < 100:
+        if chunk_tokens < MIN_CHUNK_TOKENS:
             continue
 
         chunks.append(_build_chunk_dict(chunk_text_str, chunk_tokens, metadata))
@@ -195,9 +196,11 @@ def _enforce_iso_limits(
 
 
 def count_tokens(text: str) -> int:
-    """Compte le nombre de tokens dans un texte."""
-    encoder = tiktoken.get_encoding(TOKENIZER_NAME)
-    return len(encoder.encode(text))
+    """Compte le nombre de tokens dans un texte.
+
+    Utilise le module partage token_utils pour coherence (ISO 12207).
+    """
+    return _count_tokens_shared(text)
 
 
 def split_at_sentence_boundary(

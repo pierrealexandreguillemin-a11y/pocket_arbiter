@@ -24,7 +24,7 @@ ARTICLE_PATTERNS = [
     # Numeric patterns
     r"^(\d+\.\d+\.\d+\.?\s)",  # 4.1.2
     r"^(\d+\.\d+\.?\s)",  # 4.1
-    r"^(\d+\.\d+)$",  # 5.5
+    r"^(\d+\.\d+)\s",  # 5.5 Le toucher
     r"^(\d+\.\s+[A-Z])",  # 4. Le toucher
     # Lettered subsections
     r"^([a-z]\)\s)",  # a)

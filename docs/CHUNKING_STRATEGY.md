@@ -133,16 +133,28 @@ Le recall initial du systeme RAG etait de **34.67%** (cible ISO: 80%).
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 3.2 Parametres chunking v2.0
+### 3.2 Parametres chunking v2.0 (defaut code)
 
-| Parametre | v1.0 (ancien) | v2.0 (nouveau) | Justification |
-|-----------|---------------|----------------|---------------|
+| Parametre | v1.0 (ancien) | v2.0 (defaut) | Justification |
+|-----------|---------------|---------------|---------------|
 | Strategie | Fixed-size | **Semantic (Article)** | Finding 2, 3 |
 | chunk_size | 256 tokens | **512 tokens** | Finding 5 |
-| overlap | 50 tokens (19%) | **64 tokens (12.5%)** | Finding 5 |
+| overlap | 50 tokens (19%) | **128 tokens (25%)** | Finding 5, contexte preservé |
 | min_chunk | 50 chars | **100 tokens** | Eviter fragments |
 | max_chunk | 256 tokens | **1024 tokens** | Articles longs |
 | split_on | Sentence | **Article > Section > Sentence** | Finding 4 |
+
+### 3.2.1 Parametres corpus actuel (chunks_fr_v2.2.json)
+
+> **Note**: Les parametres effectivement utilises pour le corpus diffèrent des defauts.
+
+| Parametre | Valeur effective | Notes |
+|-----------|------------------|-------|
+| strategy | `semantic_article` | chunker.py |
+| max_tokens | **600** | +88 vs defaut (optimisation recall) |
+| overlap_tokens | **120** | 20% (vs 25% defaut) |
+| min_chunk_tokens | **200** | +100 vs defaut (eviter micro-chunks) |
+| total_chunks | 2710 | corpus FR complet |
 
 ### 3.3 Detection structure reglementaire
 
@@ -227,7 +239,7 @@ ARTICLE_PATTERNS = [
 
 1. chunk_size: 256 → 512 tokens
 2. max_chunk: 256 → 1024 tokens
-3. overlap: 50 → 64 tokens
+3. overlap: 50 → 128 tokens (25%)
 
 ### 5.3 Phase 3: Hybrid search
 
@@ -243,19 +255,45 @@ ARTICLE_PATTERNS = [
 
 ---
 
-## 6. Metriques cibles
+## 6. Strategies de chunking disponibles
 
-| Metrique | Avant | Cible | Methode mesure |
-|----------|-------|-------|----------------|
-| Recall@5 FR | 34.67% | **>= 80%** | Gold standard 25 questions |
-| Recall@5 INTL | TBD | **>= 70%** | Gold standard 25 questions |
-| Precision@5 | TBD | **>= 70%** | Evaluation manuelle |
-| Hallucination | TBD | **0%** | 30 questions adversaires |
-| Latence | TBD | **< 500ms** | Benchmark |
+### 6.1 Comparaison des 4 strategies implementees
+
+| Script | Dependance | Methode | Usage corpus |
+|--------|------------|---------|--------------|
+| `chunker.py` | tiktoken (natif) | Detection Article + fallback sentence | **chunks_fr_v2.x.json** (actif) |
+| `sentence_chunker.py` | llama-index-core | LlamaIndex SentenceSplitter | chunks_sentence_fr.json |
+| `semantic_chunker.py` | langchain-experimental | LangChain SemanticChunker | chunks_semantic_fr.json |
+| `similarity_chunker.py` | sentence-transformers | Cosine similarity breaks | chunks_similarity_fr.json |
+
+### 6.2 Recommandations Google vs Implementation
+
+| Aspect | Google AI Edge | Implementation actuelle |
+|--------|----------------|------------------------|
+| Chunking | Non specifie (SDK = retrieval only) | Custom Article-based |
+| Embeddings | EmbeddingGemma TFLite | sentence-transformers (Python) |
+| Vector Store | SqliteVectorStore | Compatible (export_sdk.py) |
+
+> **Note**: Google AI Edge RAG SDK ne fournit pas de chunking - uniquement retrieval/inference.
+> Le chunking est donc 100% custom, inspire des best practices (Firecrawl, LangCopilot 2025).
 
 ---
 
-## 7. Risques et mitigation
+## 7. Metriques cibles
+
+| Metrique | Avant | Actuel | Cible | Methode mesure |
+|----------|-------|--------|-------|----------------|
+| Recall@5 FR | 34.67% | **< 80%** (XFAIL) | **>= 80%** | Gold standard 7 questions |
+| Recall@5 INTL | TBD | TBD | **>= 70%** | Gold standard questions |
+| Precision@5 | TBD | TBD | **>= 70%** | Evaluation manuelle |
+| Hallucination | TBD | TBD | **0%** | Tests adversaires |
+| Latence | TBD | TBD | **< 500ms** | Benchmark |
+
+> **Statut Recall**: Test `test_recall_fr_above_80` marque XFAIL - amelioration requise.
+
+---
+
+## 8. Risques et mitigation
 
 | Risque | Probabilite | Impact | Mitigation |
 |--------|-------------|--------|------------|
@@ -266,14 +304,14 @@ ARTICLE_PATTERNS = [
 
 ---
 
-## 8. References
+## 9. References
 
-### 8.1 Documentation projet
+### 9.1 Documentation projet
 - `docs/AI_POLICY.md` - Politique IA (ISO 42001)
 - `docs/TEST_PLAN.md` - Plan de tests (ISO 29119)
 - `docs/QUALITY_REQUIREMENTS.md` - Exigences qualite (ISO 25010)
 
-### 8.2 Sources externes
+### 9.2 Sources externes
 - [Best Chunking Strategies for RAG in 2025](https://www.firecrawl.dev/blog/best-chunking-strategies-rag-2025)
 - [Why Semantic Boundaries Cut RAG Errors by 60%](https://ragaboutit.com/the-chunking-strategy-shift-why-semantic-boundaries-cut-your-rag-errors-by-60/)
 - [Ultimate Guide to Chunking Strategies - Databricks](https://community.databricks.com/t5/technical-blog/the-ultimate-guide-to-chunking-strategies-for-rag-applications/ba-p/113089)

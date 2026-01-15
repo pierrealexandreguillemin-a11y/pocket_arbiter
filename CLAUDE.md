@@ -39,12 +39,19 @@ docs/           # Specs ISO
 - ISO 12207: Commits conventionnels (feat/fix/test/docs)
 - ISO 42001: Citations obligatoires, 0% hallucination
 
+## Principes de developpement
+
+- **KISS (Keep It Simple, Stupid)**: Solutions simples et directes, eviter over-engineering
+- **Code leverage**: Reutiliser modules existants (ex: token_utils.py) avant de creer du code duplique
+- **DRY (Don't Repeat Yourself)**: Factoriser le code commun dans des modules partages
+
 ## Workflow
 
 - Lire le fichier AVANT de le modifier
 - Executer tests apres chaque modification
 - Ne jamais reduire la couverture de tests
 - Verifier les donnees contre les PDF sources (pas de texte invente)
+- Utiliser les modules partages existants (token_utils, chunk_normalizer, etc.)
 
 ## References
 

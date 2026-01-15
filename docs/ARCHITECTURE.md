@@ -376,10 +376,13 @@ Affichage ResultFragment
 | Dependance | Version | Usage |
 |------------|---------|-------|
 | PyMuPDF | >=1.24.0 | Extraction PDF |
-| sentence-transformers | >=3.0.0 | Embeddings (EmbeddingGemma) |
-| tiktoken | >=0.7.0 | Comptage tokens |
+| sentence-transformers | >=3.0.0 | Embeddings + similarity_chunker |
+| tiktoken | >=0.7.0 | Comptage tokens (tous chunkers) |
 | torch | >=2.2.0 | Backend ML |
 | numpy | >=1.24.0 | Vecteurs |
+| llama-index-core | >=0.14.0 | sentence_chunker (SentenceSplitter) |
+| langchain-experimental | >=0.4.0 | semantic_chunker (SemanticChunker) |
+| langchain-community | >=0.4.0 | HuggingFaceEmbeddings |
 
 ### 7.2 Android (Phase 2+)
 

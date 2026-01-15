@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 1.2
-> **Date**: 2026-01-11
+> **Version**: 1.3
+> **Date**: 2026-01-15
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -339,14 +339,16 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 ### Metrics Tracked
 | Metric | Target | Current | ISO Reference |
 |--------|--------|---------|---------------|
-| Test Pass Rate | 100% | TBD | ISO 29119 |
-| Code Coverage | 60% | 74% | ISO 25010 |
-| Lint Warnings | 0 | TBD | ISO 25010 |
-| Retrieval Recall | 80% | TBD | ISO 25010 |
+| Test Pass Rate | 100% | **99.7%** (1 xfail) | ISO 29119 |
+| Code Coverage | 60% | **87%** | ISO 25010 |
+| Lint Warnings | 0 | **0** | ISO 25010 |
+| Retrieval Recall | 80% | **< 80%** (XFAIL) | ISO 25010 |
 | Hallucination Rate | 0% | TBD | ISO 42001 |
 | Response Latency | < 5s | TBD | ISO 25010 |
 | Docs avec ID | 100% | 100% | ISO 82045 |
 | Docs indexes | 100% | 100% | ISO 999 |
+
+> **Note**: Recall@5 n'atteint pas encore 80%. Test marque XFAIL en attendant optimisation.
 
 ### Review Cadence
 - Pre-commit: Every commit
@@ -364,6 +366,7 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | 1.0 | 2026-01-11 | Claude Opus 4.5 | Creation initiale |
 | 1.1 | 2026-01-11 | Claude Opus 4.5 | Integration AI_POLICY.md, hierarchie docs |
 | 1.2 | 2026-01-11 | Claude Opus 4.5 | Ajout standards documentation (ISO 999, 15489, 82045, 9001) |
+| 1.3 | 2026-01-15 | Claude Opus 4.5 | Mise a jour metriques reelles (coverage 87%, recall XFAIL) |
 
 ---
 

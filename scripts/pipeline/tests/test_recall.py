@@ -21,7 +21,7 @@ import numpy as np
 import pytest
 
 if TYPE_CHECKING:
-    from sentence_transformers import SentenceTransformer
+    from sentence_transformers import CrossEncoder, SentenceTransformer
 
 # Paths
 PROJECT_ROOT = Path(__file__).parents[3]
@@ -90,6 +90,8 @@ def benchmark_recall(
     top_k: int = 5,
     use_hybrid: bool = False,
     tolerance: int = 0,
+    reranker: "CrossEncoder | None" = None,
+    top_k_retrieve: int = 20,
 ) -> dict:
     """
     Benchmark le recall sur un ensemble de questions gold standard.
@@ -98,11 +100,14 @@ def benchmark_recall(
         db_path: Chemin vers la base SqliteVectorStore.
         questions_file: Fichier JSON des questions gold standard.
         model: Modele d'embeddings charge.
-        top_k: Nombre de resultats a considerer.
+        top_k: Nombre de resultats finaux a considerer.
         use_hybrid: Utiliser recherche hybride (vector + BM25).
         tolerance: Tolerance de pages (±N) pour le matching fuzzy.
             0 = match exact (comportement original).
             2 = pages adjacentes acceptees (recommande pour decalage PDF/chunk).
+        reranker: CrossEncoder pour reranking (optionnel).
+            Si fourni, retrieve top_k_retrieve puis rerank vers top_k.
+        top_k_retrieve: Nombre de resultats avant reranking (defaut 20).
 
     Returns:
         Dict avec recall_mean, recall_std, questions_detail.
@@ -113,7 +118,11 @@ def benchmark_recall(
         0.85
     """
     from scripts.pipeline.embeddings import embed_query
-    from scripts.pipeline.export_sdk import retrieve_hybrid, retrieve_similar
+    from scripts.pipeline.export_search import (
+        retrieve_hybrid,
+        retrieve_hybrid_rerank,
+        retrieve_similar,
+    )
     from scripts.pipeline.utils import load_json
 
     questions_data = load_json(questions_file)
@@ -124,8 +133,18 @@ def benchmark_recall(
         # Embed question avec encode_query (prompt officiel EmbeddingGemma)
         query_emb = embed_query(q["question"], model)
 
-        # Retrieve (vector-only or hybrid)
-        if use_hybrid:
+        # Retrieve with optional reranking
+        if reranker is not None:
+            # Full pipeline: hybrid + rerank
+            retrieved = retrieve_hybrid_rerank(
+                db_path,
+                query_emb,
+                q["question"],
+                reranker,
+                top_k_retrieve=top_k_retrieve,
+                top_k_final=top_k,
+            )
+        elif use_hybrid:
             retrieved = retrieve_hybrid(db_path, query_emb, q["question"], top_k=top_k)
         else:
             retrieved = retrieve_similar(db_path, query_emb, top_k=top_k)
@@ -155,6 +174,7 @@ def benchmark_recall(
         "total_questions": len(questions),
         "top_k": top_k,
         "use_hybrid": use_hybrid,
+        "use_reranker": reranker is not None,
         "tolerance": tolerance,
         "recall_mean": round(np.mean(recalls), 4),
         "recall_std": round(np.std(recalls), 4),
@@ -290,6 +310,15 @@ def embedding_model():
     return load_embedding_model(MODEL_ID)
 
 
+@pytest.fixture(scope="module")
+def reranker_model():
+    """Charge le modele de reranking cross-encoder."""
+    from scripts.pipeline.reranker import DEFAULT_MODEL, load_reranker
+
+    # Utiliser le modele BGE multilingual (meilleur pour FR)
+    return load_reranker(DEFAULT_MODEL)
+
+
 # =============================================================================
 # Unit Tests
 # =============================================================================
@@ -383,37 +412,55 @@ class TestRecallBenchmark:
     @pytest.mark.slow
     @pytest.mark.iso_blocking
     @pytest.mark.xfail(
-        reason="Recall 70% < 80% (tolerance=2) - Voir docs/RECALL_REMEDIATION.md. "
-        "Prochaine action: recherche hybride BM25.",
+        reason="Recall 73% < 80% avec hybrid+reranking. Chunks trop gros (600 tokens). "
+        "Prochaine action: re-chunker a 400 tokens (voir RECALL_OPTIMIZATION_PLAN.md).",
         strict=False,
     )
-    def test_recall_fr_above_80(self, corpus_fr_db, questions_fr_file, embedding_model):
+    def test_recall_fr_above_80(
+        self, corpus_fr_db, questions_fr_file, embedding_model, reranker_model
+    ):
         """
         BLOQUANT ISO 25010: Recall@5 FR >= 80%
 
         Ce test est bloquant pour la release. Si le recall est
         inferieur a 80%, le pipeline doit etre ameliore.
 
+        Pipeline complet:
+        1. Hybrid search (BM25 + vector + RRF) - retrieve top-30
+        2. Cross-encoder reranking (BGE multilingual) - rerank to top-5
+        3. Tolerance=2 pour decalage PDF/chunks
+
         STATUT ACTUEL (2026-01-15):
-        - Recall@5 = 48.89% exact / 70.00% avec tolerance=2
-        - Tolerance=2 compense le decalage PDF/chunks
-        - Gate Phase 1B (70%) atteint
-        - Plan de remédiation: docs/RECALL_REMEDIATION.md
+        - Vector-only: 48.89% exact / 70.00% avec tolerance=2
+        - Hybrid search: 73.33% avec tolerance=2
+        - Hybrid + reranking: 72.78% (reranking n'aide pas avec gros chunks)
+
+        DIAGNOSTIC:
+        - Chunks actuels: 600 tokens (trop gros pour factoid queries)
+        - Research optimal: 256-400 tokens
+        - Solution: Re-chunker corpus avec max_tokens=400
 
         Historique:
-        - 2026-01-15: Baseline 48.89% (tolerance=0)
-        - 2026-01-15: +21.11% avec tolerance=2 -> 70.00%
+        - 2026-01-15: Baseline 48.89% (tolerance=0, vector-only)
+        - 2026-01-15: +21.11% avec tolerance=2 -> 70.00% (vector-only)
+        - 2026-01-15: +3.33% avec hybrid search -> 73.33%
+        - 2026-01-15: Reranking BGE multilingual -> 72.78% (pas d'amelioration)
 
-        Note: Le test utilise tolerance=2 (production) pour la metrique officielle.
+        Note: Le test utilise le pipeline complet (hybrid + rerank).
         """
-        # Tolerance=2 compense le decalage entre pages PDF et pages extraites
-        # C'est la metrique officielle de production (justifiee dans RECALL_REMEDIATION.md)
+        # Pipeline complet pour recall optimal:
+        # 1. Hybrid search (BM25 + vector avec RRF k=60)
+        # 2. Cross-encoder reranking (retrieve 20 -> rerank to 5)
+        # 3. Tolerance=2 pour pages adjacentes
         result = benchmark_recall(
             corpus_fr_db,
             questions_fr_file,
             embedding_model,
             top_k=5,
+            use_hybrid=True,
             tolerance=2,
+            reranker=reranker_model,  # Cross-encoder reranking
+            top_k_retrieve=30,  # More candidates for reranking
         )
 
         recall_mean = result["recall_mean"]

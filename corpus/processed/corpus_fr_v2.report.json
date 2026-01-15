@@ -1,0 +1,12 @@
+{
+  "db_path": "corpus\\processed\\corpus_fr_v2.db",
+  "total_chunks": 2765,
+  "embedding_dim": 768,
+  "db_size_bytes": 12337152,
+  "db_size_mb": 11.77,
+  "schema_version": "1.0",
+  "validation_errors": [],
+  "chunks_file": "corpus\\processed\\chunks_fr_v2.json",
+  "embeddings_file": "corpus\\processed\\embeddings_fr_v2.npy",
+  "timestamp": "2026-01-15T03:45:33"
+}

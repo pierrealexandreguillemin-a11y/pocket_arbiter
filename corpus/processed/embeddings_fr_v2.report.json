@@ -1,0 +1,14 @@
+{
+  "input_file": "corpus\\processed\\chunks_fr_v2.json",
+  "output_file": "corpus\\processed\\embeddings_fr_v2.npy",
+  "model_id": "google/embeddinggemma-300m",
+  "total_chunks": 2765,
+  "embedding_dim": 768,
+  "embeddings_shape": [
+    2765,
+    768
+  ],
+  "time_seconds": 337.45,
+  "ms_per_chunk": 122.04,
+  "timestamp": "2026-01-15T03:45:11"
+}

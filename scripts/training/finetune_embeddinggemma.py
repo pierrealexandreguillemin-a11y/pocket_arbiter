@@ -28,7 +28,7 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 # Default hyperparameters (CPU-safe)
-DEFAULT_MODEL_ID = "google/embeddinggemma-300m-qat-Q4"
+DEFAULT_MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
 DEFAULT_EPOCHS = 3
 DEFAULT_BATCH_SIZE = 4
 DEFAULT_LEARNING_RATE = 2e-5

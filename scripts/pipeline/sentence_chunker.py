@@ -24,6 +24,12 @@ from typing import Any, Callable
 import tiktoken
 from llama_index.core.node_parser import SentenceSplitter
 
+from scripts.pipeline.token_utils import (
+    TOKENIZER_NAME,
+    count_tokens,
+    get_tokenizer,
+)
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
@@ -32,14 +38,8 @@ logger = logging.getLogger(__name__)
 DEFAULT_CHUNK_SIZE_TOKENS = 512  # Target: 512 tokens (ISO 25010 optimal)
 DEFAULT_CHUNK_OVERLAP_TOKENS = 128  # 25% overlap (research: 20-25% optimal)
 MIN_CHUNK_TOKENS = 50  # Minimum tokens per chunk
-TOKENIZER_NAME = "cl100k_base"  # Compatible OpenAI/LLM (same as chunker.py)
 DEFAULT_SEPARATOR = " "
 DEFAULT_PARAGRAPH_SEPARATOR = "\n\n"
-
-
-def get_tokenizer() -> tiktoken.Encoding:
-    """Get tiktoken tokenizer for token counting."""
-    return tiktoken.get_encoding(TOKENIZER_NAME)
 
 
 def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
@@ -52,7 +52,7 @@ def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
     Returns:
         Callable that counts tokens in a string.
     """
-    return lambda text: len(tokenizer.encode(text))
+    return lambda text: count_tokens(text, tokenizer)
 
 
 def create_sentence_splitter(

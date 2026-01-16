@@ -19,11 +19,17 @@ import argparse
 import json
 import logging
 from pathlib import Path
-from typing import Any, Callable, Literal
+from typing import Any, Literal
 
 import tiktoken
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_experimental.text_splitter import SemanticChunker
+
+from scripts.pipeline.token_utils import (
+    TOKENIZER_NAME,
+    count_tokens,
+    get_tokenizer,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -37,28 +43,14 @@ MIN_CHUNK_TOKENS = 50  # Minimum tokens per chunk
 MAX_CHUNK_TOKENS = (
     1024  # Maximum tokens per chunk (allow larger for semantic coherence)
 )
-TOKENIZER_NAME = "cl100k_base"  # Compatible OpenAI/LLM
-
-
-def get_tokenizer() -> tiktoken.Encoding:
-    """Get tiktoken tokenizer for token counting."""
-    return tiktoken.get_encoding(TOKENIZER_NAME)
-
-
-def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
-    """
-    Create a token counter function.
-
-    Args:
-        tokenizer: tiktoken Encoding instance.
-
-    Returns:
-        Callable that counts tokens in a string.
-    """
-    return lambda text: len(tokenizer.encode(text))
 
 
 BreakpointType = Literal["percentile", "standard_deviation", "interquartile", "gradient"]
+
+
+def _count_tokens(text: str, tokenizer: tiktoken.Encoding) -> int:
+    """Count tokens in text using shared utility."""
+    return count_tokens(text, tokenizer)
 
 
 def create_semantic_chunker(
@@ -91,11 +83,6 @@ def create_semantic_chunker(
         breakpoint_threshold_type=threshold_type,
         breakpoint_threshold_amount=threshold_amount,
     )
-
-
-def _count_tokens(text: str, tokenizer: tiktoken.Encoding) -> int:
-    """Count tokens in text."""
-    return len(tokenizer.encode(text))
 
 
 def _build_chunk_metadata(

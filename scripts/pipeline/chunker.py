@@ -22,7 +22,11 @@ from typing import Optional
 import tiktoken
 
 from scripts.pipeline.chunker_article import detect_article_boundaries
-from scripts.pipeline.token_utils import count_tokens as _count_tokens_shared
+from scripts.pipeline.token_utils import (
+    TOKENIZER_NAME,
+    count_tokens as _count_tokens_shared,
+    get_tokenizer,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -33,7 +37,6 @@ DEFAULT_MAX_TOKENS = 512
 DEFAULT_OVERLAP_TOKENS = 128
 MIN_CHUNK_TOKENS = 100
 MAX_CHUNK_TOKENS = 1024
-TOKENIZER_NAME = "cl100k_base"
 
 
 # --- Semantic Chunking Functions ---
@@ -49,7 +52,7 @@ def chunk_by_article(
     from scripts.pipeline.utils import normalize_text
 
     text = normalize_text(text)
-    encoder = tiktoken.get_encoding(TOKENIZER_NAME)
+    encoder = get_tokenizer()
     segments = detect_article_boundaries(text)
 
     if not segments:
@@ -116,7 +119,7 @@ def chunk_text_legacy(
     from scripts.pipeline.utils import normalize_text
 
     text = normalize_text(text)
-    encoder = tiktoken.get_encoding(TOKENIZER_NAME)
+    encoder = get_tokenizer()
 
     chunks = []
     remaining = text
@@ -207,7 +210,7 @@ def split_at_sentence_boundary(
     text: str, target_tokens: int, tolerance: int = 30
 ) -> tuple[str, str]:
     """Coupe le texte a une frontiere de phrase."""
-    encoder = tiktoken.get_encoding(TOKENIZER_NAME)
+    encoder = get_tokenizer()
     sentence_ends = list(re.finditer(r"[.!?]\s+", text))
 
     if not sentence_ends:

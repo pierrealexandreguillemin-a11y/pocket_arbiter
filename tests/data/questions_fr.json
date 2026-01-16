@@ -1,16 +1,16 @@
 {
-  "version": "4.1",
+  "version": "4.2",
   "description": "Gold standard ISO 42001 - Audit manuel pages corrigees",
   "methodology": {
     "base": "expected_pages v1 (manuelles)",
-    "validation": "Manual audit against extracted corpus content (2026-01-15)",
+    "validation": "Manual audit against extracted corpus content (2026-01-16)",
     "independence": "Indépendant du système de retrieval testé",
     "corpus": "FFE Règlements (28 PDFs extraits)"
   },
   "statistics": {
     "total_questions": 30,
-    "validated_questions": 28,
-    "corrected_questions": 2,
+    "validated_questions": 27,
+    "corrected_questions": 3,
     "validation_rate": "100.0%"
   },
   "corrections": [
@@ -20,6 +20,13 @@
       "old_pages": [55],
       "new_pages": [52, 70],
       "reason": "Article 9.3 (regle 50 coups) est aux pages 52 et 70"
+    },
+    {
+      "question": "FR-Q17",
+      "issue": "Pages incorrectes",
+      "old_pages": [63, 65, 66],
+      "new_pages": [4, 6],
+      "reason": "Pages 63-66 contiennent Chess960/KO rules. Pages 4,6 contiennent Commission d'appel et Litiges techniques"
     },
     {
       "question": "FR-Q23",
@@ -849,9 +856,8 @@
       "question": "Comment gérer une réclamation d'un joueur ?",
       "category": "arbitrage",
       "expected_pages": [
-        63,
-        65,
-        66
+        4,
+        6
       ],
       "expected_docs": [
         "LA-octobre2025.pdf"
@@ -860,44 +866,40 @@
         "réclamation",
         "appel",
         "joueur",
-        "plainte"
+        "litige"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
+        "status": "CORRECTED",
+        "method": "manual_audit_2026-01-16",
         "original_pages_v1": [
           63,
           65,
           66
         ],
         "validated_pages": [
-          63,
-          65,
-          66
+          4,
+          6
         ],
+        "correction_reason": "Pages 63-66 contiennent Chess960/KO rules, pas gestion réclamations. Pages 4,6 contiennent Commission d'appel et Litiges techniques",
         "details": [
           {
-            "page": 63,
+            "page": 4,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "appel",
-              "joueur"
+              "Commission d'appel",
+              "surveillance",
+              "litiges",
+              "réclamation"
             ]
           },
           {
-            "page": 65,
+            "page": 6,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "appel"
-            ]
-          },
-          {
-            "page": 66,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
+              "Litiges techniques",
               "réclamation",
               "appel",
-              "joueur"
+              "plaignante"
             ]
           }
         ]

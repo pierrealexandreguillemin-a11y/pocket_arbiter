@@ -13,6 +13,7 @@ Ce fichier teste les fonctions d'export SqliteVectorStore:
 
 import sqlite3
 import tempfile
+from collections.abc import Generator
 from pathlib import Path
 
 import numpy as np
@@ -92,7 +93,7 @@ def sample_chunks_for_db() -> list[dict]:
 
 
 @pytest.fixture
-def temp_db_path() -> Path:
+def temp_db_path() -> Generator[Path, None, None]:
     """Chemin temporaire pour base de test."""
     with tempfile.TemporaryDirectory() as tmpdir:
         yield Path(tmpdir) / "test.db"

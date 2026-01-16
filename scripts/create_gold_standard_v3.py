@@ -20,12 +20,12 @@ cur = conn.cursor()
 cur.execute("SELECT id, embedding, page, source, text FROM chunks")
 chunks = cur.fetchall()
 
-chunk_embeddings = []
-chunk_data = []
+chunk_embeddings_list: list = []
+chunk_data: list[dict] = []
 for cid, emb_bytes, page, source, text in chunks:
-    chunk_embeddings.append(np.frombuffer(emb_bytes, dtype=np.float32))
+    chunk_embeddings_list.append(np.frombuffer(emb_bytes, dtype=np.float32))
     chunk_data.append({"id": cid, "page": page, "source": source, "text": text})
-chunk_embeddings = np.array(chunk_embeddings)
+chunk_embeddings = np.array(chunk_embeddings_list)
 
 # Questions avec keywords de validation
 questions_spec = [
@@ -216,9 +216,9 @@ validated_count = 0
 
 for q_spec in questions_spec:
     query_emb = model.encode_query(
-        q_spec["question"], normalize_embeddings=True, convert_to_numpy=True
+        str(q_spec["question"]), normalize_embeddings=True, convert_to_numpy=True
     )
-    similarities = np.dot(chunk_embeddings, query_emb)
+    similarities = np.dot(chunk_embeddings, np.asarray(query_emb))
     top_indices = np.argsort(similarities)[-30:][::-1]
 
     # Trouver pages avec keywords validés

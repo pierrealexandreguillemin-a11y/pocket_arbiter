@@ -30,12 +30,12 @@ cur = conn.cursor()
 cur.execute("SELECT id, embedding, page, source, text FROM chunks")
 chunks = cur.fetchall()
 
-chunk_embeddings = []
-chunk_data = []
+chunk_embeddings_list: list = []
+chunk_data: list[dict] = []
 for cid, emb_bytes, page, source, text in chunks:
-    chunk_embeddings.append(np.frombuffer(emb_bytes, dtype=np.float32))
+    chunk_embeddings_list.append(np.frombuffer(emb_bytes, dtype=np.float32))
     chunk_data.append({"id": cid, "page": page, "source": source, "text": text.lower()})
-chunk_embeddings = np.array(chunk_embeddings)
+chunk_embeddings = np.array(chunk_embeddings_list)
 
 # Load v1 backup
 with open("tests/data/questions_fr_v1_backup.json", "r", encoding="utf-8") as f:
@@ -71,7 +71,7 @@ for q in v1_data["questions"]:
     query_emb = model.encode_query(
         question, normalize_embeddings=True, convert_to_numpy=True
     )
-    similarities = np.dot(chunk_embeddings, query_emb)
+    similarities = np.dot(chunk_embeddings, np.asarray(query_emb))
     top_indices = np.argsort(similarities)[-30:][::-1]
 
     # Collect candidate pages from retrieval (with keyword validation)

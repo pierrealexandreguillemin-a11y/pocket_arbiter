@@ -19,7 +19,7 @@ import argparse
 import json
 import logging
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, Callable, Literal
 
 import tiktoken
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -58,9 +58,12 @@ def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
     return lambda text: len(tokenizer.encode(text))
 
 
+BreakpointType = Literal["percentile", "standard_deviation", "interquartile", "gradient"]
+
+
 def create_semantic_chunker(
     model_name: str = DEFAULT_MODEL,
-    threshold_type: str = DEFAULT_THRESHOLD_TYPE,
+    threshold_type: BreakpointType = DEFAULT_THRESHOLD_TYPE,  # type: ignore[assignment]
     threshold_amount: float = DEFAULT_THRESHOLD_AMOUNT,
 ) -> SemanticChunker:
     """
@@ -300,7 +303,7 @@ def process_corpus_semantic(
     input_dir: Path,
     output_file: Path,
     corpus: str = "fr",
-    threshold_type: str = DEFAULT_THRESHOLD_TYPE,
+    threshold_type: BreakpointType = DEFAULT_THRESHOLD_TYPE,  # type: ignore[assignment]
     threshold_amount: float = DEFAULT_THRESHOLD_AMOUNT,
 ) -> dict[str, Any]:
     """

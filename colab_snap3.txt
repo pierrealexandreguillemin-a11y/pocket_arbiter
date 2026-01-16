@@ -1,0 +1,19 @@
+uid=6_0 RootWebArea "Impossible de vous connecter" url="https://accounts.google.com/v3/signin/rejected?continue=https%3A%2F%2Fcolab.research.google.com%2F&dsh=S590252638%3A1768585595371402&ec=GAZAqQM&epd=AX1IGxvVK5pGIviLvaZdO9nogrRP9rYmObc4Hx8o1WS6mkRS8PQWQ_XNmQ&flowEntry=ServiceLogin&flowName=GlifWebSignIn&idnf=pierre.alexandre.guillemin%40gmail.com&ifkv=AXbMIuB6b5m8Mf3C6y1HSqFO5KqUVsPCLouz9J0V8JlMZJvEYHh6LlWUQI278t4Mr47khb8UJ_ZZsw&rhlk=le&rrk=46"
+  uid=6_1 main
+    uid=6_2 heading "Impossible de vous connecter" level="1"
+    uid=6_3 StaticText "Ce navigateur ou cette application ne sont peut-être pas sécurisés. "
+    uid=6_4 link "En savoir plus" url="https://support.google.com/accounts/answer/7675428?hl=fr"
+      uid=6_5 StaticText "En savoir plus"
+    uid=6_6 StaticText "Essayez dans un autre navigateur. Si vous utilisez déjà un navigateur compatible, vous pouvez réessayer de vous connecter."
+    uid=6_7 link "Réessayer" url="https://accounts.google.com/restart?continue=https%3A%2F%2Fcolab.research.google.com%2F&dsh=S590252638%3A1768585595371402&ec=GAZAqQM&flowEntry=ServiceLogin&flowName=GlifWebSignIn&ifkv=AXbMIuB6b5m8Mf3C6y1HSqFO5KqUVsPCLouz9J0V8JlMZJvEYHh6LlWUQI278t4Mr47khb8UJ_ZZsw"
+  uid=6_8 contentinfo
+    uid=6_9 combobox "Changer de langue Français (France)" expandable haspopup="listbox" value="Français (France)"
+    uid=6_10 link "Aide" url="https://support.google.com/accounts?hl=fr&p=account_iph"
+      uid=6_11 StaticText "Aide"
+    uid=6_12 link "Confidentialité" url="https://accounts.google.com/TOS?loc=FR&hl=fr&privacy=true"
+      uid=6_13 StaticText "Confidentialité"
+    uid=6_14 link "Conditions" url="https://accounts.google.com/TOS?loc=FR&hl=fr"
+      uid=6_15 StaticText "Conditions"
+  uid=6_16 Iframe
+    uid=6_17 RootWebArea url="https://accounts.youtube.com/accounts/CheckConnection?pmpo=https%3A%2F%2Faccounts.google.com&v=-1086054831&timestamp=1768585596599"
+  uid=6_18 StaticText "Impossible de vous connecter"

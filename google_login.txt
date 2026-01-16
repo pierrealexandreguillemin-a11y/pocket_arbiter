@@ -1,0 +1,18 @@
+uid=13_0 RootWebArea "Impossible de vous connecter" url="https://accounts.google.com/v3/signin/rejected?authuser=0&continue=https%3A%2F%2Fcolab.research.google.com%2Fgithub%2Fpierrealexandreguillemin-a11y%2Fpocket_arbiter%2Fblob%2Fmain%2Fnotebooks%2Ffinetune_embeddinggemma_colab.ipynb&dsh=S907967429%3A1768586252287108&epd=AX1IGxsGZuURLtK7Z2bT7uV322u0_AXEiglG1txblBA3NU152ui5bjg8Vw&flowEntry=ServiceLogin&flowName=GlifWebSignIn&hl=fr&idnf=pierre.alexandre.guillemin%40gmail.com&ifkv=AXbMIuANPmcnhDxee_YYovN8hBF6mvuhP6EXIjNmqbu8vgUjTP8Jh_Q-gS6307fi6YAWQJOnj4Ez2g&rhlk=le&rrk=46"
+  uid=13_1 main
+    uid=13_2 heading "Impossible de vous connecter" level="1"
+    uid=13_3 StaticText "Ce navigateur ou cette application ne sont peut-être pas sécurisés. "
+    uid=13_4 link "En savoir plus" url="https://support.google.com/accounts/answer/7675428?hl=fr"
+      uid=13_5 StaticText "En savoir plus"
+    uid=13_6 StaticText "Essayez dans un autre navigateur. Si vous utilisez déjà un navigateur compatible, vous pouvez réessayer de vous connecter."
+    uid=13_7 link "Réessayer" url="https://accounts.google.com/restart?authuser=0&continue=https%3A%2F%2Fcolab.research.google.com%2Fgithub%2Fpierrealexandreguillemin-a11y%2Fpocket_arbiter%2Fblob%2Fmain%2Fnotebooks%2Ffinetune_embeddinggemma_colab.ipynb&dsh=S907967429%3A1768586252287108&flowEntry=ServiceLogin&flowName=GlifWebSignIn&hl=fr&ifkv=AXbMIuANPmcnhDxee_YYovN8hBF6mvuhP6EXIjNmqbu8vgUjTP8Jh_Q-gS6307fi6YAWQJOnj4Ez2g"
+  uid=13_8 contentinfo
+    uid=13_9 combobox "Changer de langue Français (France)" expandable haspopup="listbox" value="Français (France)"
+    uid=13_10 link "Aide" url="https://support.google.com/accounts?hl=fr&p=account_iph"
+      uid=13_11 StaticText "Aide"
+    uid=13_12 link "Confidentialité" url="https://accounts.google.com/TOS?loc=FR&hl=fr&privacy=true"
+      uid=13_13 StaticText "Confidentialité"
+    uid=13_14 link "Conditions" url="https://accounts.google.com/TOS?loc=FR&hl=fr"
+      uid=13_15 StaticText "Conditions"
+  uid=13_16 Iframe
+    uid=13_17 RootWebArea url="https://accounts.youtube.com/accounts/CheckConnection?pmpo=https%3A%2F%2Faccounts.google.com&v=-599367631&timestamp=1768586253717"

@@ -61,6 +61,9 @@ build/
 *.npy
 *.bin
 
+# Generated chunks JSON (regenerable via pipeline)
+corpus/processed/chunks_*.json
+
 # Models (binaires à télécharger séparément)
 models/*.gguf
 models/*.tflite

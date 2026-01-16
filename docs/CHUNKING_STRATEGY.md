@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010:2023, ISO/IEC 82045-1
-> **Version**: 1.0
-> **Date**: 2026-01-15
+> **Version**: 1.1
+> **Date**: 2026-01-16
 > **Statut**: Approuve
 > **Classification**: Technique
 
@@ -144,17 +144,21 @@ Le recall initial du systeme RAG etait de **34.67%** (cible ISO: 80%).
 | max_chunk | 256 tokens | **1024 tokens** | Articles longs |
 | split_on | Sentence | **Article > Section > Sentence** | Finding 4 |
 
-### 3.2.1 Parametres corpus actuel (chunks_fr_v2.2.json)
+### 3.2.1 Parametres corpus actuel (chunks_fr_v3.json)
 
-> **Note**: Les parametres effectivement utilises pour le corpus diffèrent des defauts.
+> **Note**: Version optimisee suite a recherche (RECALL_OPTIMIZATION_PLAN.md).
 
-| Parametre | Valeur effective | Notes |
-|-----------|------------------|-------|
-| strategy | `semantic_article` | chunker.py |
-| max_tokens | **600** | +88 vs defaut (optimisation recall) |
-| overlap_tokens | **120** | 20% (vs 25% defaut) |
-| min_chunk_tokens | **200** | +100 vs defaut (eviter micro-chunks) |
-| total_chunks | 2710 | corpus FR complet |
+| Parametre | v2.2 (ancien) | **v3 (actuel)** | Justification |
+|-----------|---------------|-----------------|---------------|
+| strategy | `semantic_article` | `semantic_article` | Inchange |
+| max_tokens | 600 | **400** | Research optimal pour factoid queries |
+| overlap_tokens | 120 (20%) | **80** (20%) | Proportionnel |
+| min_chunk_tokens | 200 | **100** | Garder petits articles pertinents |
+| total_chunks | 2710 | **2794** | +84 chunks (granularite accrue) |
+
+**Resultats v3**:
+- Recall@5: 73.33% → **75.00%** (+1.67%)
+- Pipeline: hybrid search + BGE reranking + tolerance=2
 
 ### 3.3 Detection structure reglementaire
 
@@ -283,13 +287,14 @@ ARTICLE_PATTERNS = [
 
 | Metrique | Avant | Actuel | Cible | Methode mesure |
 |----------|-------|--------|-------|----------------|
-| Recall@5 FR | 34.67% | **< 80%** (XFAIL) | **>= 80%** | Gold standard 7 questions |
+| Recall@5 FR | 34.67% | **75.00%** (XFAIL) | **>= 80%** | Gold standard 30 questions |
 | Recall@5 INTL | TBD | TBD | **>= 70%** | Gold standard questions |
 | Precision@5 | TBD | TBD | **>= 70%** | Evaluation manuelle |
 | Hallucination | TBD | TBD | **0%** | Tests adversaires |
 | Latence | TBD | TBD | **< 500ms** | Benchmark |
 
-> **Statut Recall**: Test `test_recall_fr_above_80` marque XFAIL - amelioration requise.
+> **Statut Recall**: 75% avec pipeline complet (hybrid + reranking + 400 tokens).
+> Gap -5% vers cible 80%. Prochaine etape: query expansion ou multilingual embedding.
 
 ---
 
@@ -325,3 +330,4 @@ ARTICLE_PATTERNS = [
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-15 | Claude Code | Creation initiale |
+| 1.1 | 2026-01-16 | Claude Opus 4.5 | Mise a jour v3 (400 tokens, recall 75%) |

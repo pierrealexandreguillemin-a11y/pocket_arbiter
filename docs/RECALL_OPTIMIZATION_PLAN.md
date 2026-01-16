@@ -2,9 +2,23 @@
 
 > **Document ID**: SPEC-OPT-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 1.0
-> **Date**: 2026-01-15
-> **Objectif**: Recall@5 >= 90% (actuel < 80%)
+> **Version**: 1.1
+> **Date**: 2026-01-16
+> **Objectif**: Recall@5 >= 90% (actuel 75%)
+
+---
+
+## STATUT IMPLEMENTATION
+
+| Phase | Description | Statut | Recall |
+|-------|-------------|--------|--------|
+| **Phase 1** | Quick wins (hybrid search) | ✅ COMPLETE | 73.33% |
+| **Phase 2** | Reranking + 400-token chunks | ✅ COMPLETE | **75.00%** |
+| Phase 3 | Query expansion | ⏳ NEXT | - |
+| Phase 4 | Late chunking | Pending | - |
+| Phase 5 | Contextual retrieval | Pending | - |
+
+**Questions faibles** (recall < 50%): FR-Q04, FR-Q17, FR-Q18, FR-Q22, FR-Q25
 
 ---
 
@@ -431,6 +445,7 @@ def benchmark_strategies():
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-15 | Claude Opus 4.5 | Creation - Recherche + Plan 5 phases |
+| 1.1 | 2026-01-16 | Claude Opus 4.5 | Phase 1+2 complete, recall 75%, statut implementation |
 
 ---
 

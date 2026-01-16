@@ -2,6 +2,7 @@
 Query Expansion - Pocket Arbiter
 
 Expansion des requetes avec synonymes et termes chess FR.
+Inclut stemming Snowball FR pour meilleur recall BM25.
 
 ISO Reference:
     - ISO/IEC 25010 - Performance efficiency (Recall >= 80%)
@@ -10,10 +11,17 @@ ISO Reference:
 
 import re
 import unicodedata
+from functools import lru_cache
 from typing import TYPE_CHECKING
+
+import snowballstemmer
 
 if TYPE_CHECKING:
     from sentence_transformers import SentenceTransformer
+
+# Snowball French stemmer (industry standard)
+# Ref: https://snowballstem.org/algorithms/french/stemmer.html
+_FR_STEMMER = snowballstemmer.stemmer("french")
 
 
 def normalize_text(text: str) -> str:
@@ -24,19 +32,62 @@ def normalize_text(text: str) -> str:
     return without_accents
 
 
+@lru_cache(maxsize=1024)
+def stem_word(word: str) -> str:
+    """
+    Stem a single word using Snowball French stemmer.
+
+    Args:
+        word: Word to stem.
+
+    Returns:
+        Stemmed word.
+
+    Example:
+        >>> stem_word("réclamation")
+        'reclam'
+        >>> stem_word("départage")
+        'departag'
+    """
+    # Normalize first (remove accents for consistent stemming)
+    normalized = normalize_text(word)
+    return _FR_STEMMER.stemWord(normalized)
+
+
+def stem_text(text: str) -> str:
+    """
+    Stem all words in a text using Snowball French stemmer.
+
+    Args:
+        text: Text to stem.
+
+    Returns:
+        Text with all words stemmed.
+
+    Example:
+        >>> stem_text("réclamation pour temps dépassé")
+        'reclam pour temp depass'
+    """
+    words = text.split()
+    stemmed = [stem_word(w) for w in words]
+    return " ".join(stemmed)
+
+
 # =============================================================================
 # Chess FR Synonyms Dictionary
 # =============================================================================
 
 # Synonymes et termes associes pour le vocabulaire echecs FR/FFE
 # Les cles sont normalisees (sans accents) pour le matching
+# Optimise pour FR-Q04, FR-Q18, FR-Q22, FR-Q25 (questions echouees)
 CHESS_SYNONYMS: dict[str, list[str]] = {
-    # Temps et cadences
-    "temps": ["pendule", "horloge", "chrono", "cadence", "delai"],
-    "drapeau": ["chute", "temps depasse", "pendule tombee"],
-    "blitz": ["rapide", "eclair", "cadence rapide", "5 minutes"],
-    "rapide": ["semi-rapide", "cadence rapide", "15 minutes"],
-    "cadence": ["temps de reflexion", "controle du temps"],
+    # Temps et cadences (FR-Q04, FR-Q18)
+    "temps": ["pendule", "horloge", "chrono", "cadence", "delai", "Article 6"],
+    "drapeau": ["chute", "temps depasse", "pendule tombee", "fin de temps"],
+    "blitz": ["rapide", "eclair", "cadence rapide", "5 minutes", "Annexe B"],
+    "rapide": ["semi-rapide", "cadence rapide", "15 minutes", "Annexe A"],
+    "cadence": ["temps de reflexion", "controle du temps", "rythme"],
+    "chute": ["drapeau", "temps depasse", "pendule tombee"],
     # Regles de jeu
     "toucher": ["toucher-jouer", "piece touchee", "j'adoube"],
     "roque": ["petit roque", "grand roque", "O-O", "O-O-O"],
@@ -47,25 +98,35 @@ CHESS_SYNONYMS: dict[str, list[str]] = {
     "nulle": ["partie nulle", "match nul", "egalite"],
     "repetition": ["triple repetition", "position repetee"],
     "50 coups": ["regle des 50 coups", "cinquante coups"],
-    # Arbitrage
+    "regles": ["reglementation", "lois", "articles", "dispositions"],
+    # Arbitrage (FR-Q04, FR-Q15)
     "arbitre": ["directeur de tournoi", "juge", "officiel"],
-    "reclamation": ["contestation", "plainte", "appel", "litige"],
+    "reclamation": ["contestation", "plainte", "appel", "litige", "protestation"],
     "appel": ["recours", "contestation", "commission d'appel"],
     "sanction": ["penalite", "avertissement", "exclusion"],
-    "forfait": ["defaut", "absence", "perte par forfait"],
+    "forfait": ["defaut", "absence", "perte par forfait", "declare forfait"],
+    "declarer": ["declaration", "annoncer", "signaler", "notifier"],
+    "declaration": ["declarer", "annonce", "notification"],
     "coup illegal": ["coup irregulier", "mouvement illegal"],
-    "temps depasse": ["drapeau", "chute", "pendule tombee"],
-    "depasse": ["drapeau", "chute du drapeau"],
-    # Competition
-    "departage": ["tie-break", "egalite", "Buchholz", "Sonneborn-Berger"],
-    "buchholz": ["departage", "score buchholz", "tie-break"],
-    "egalite": ["tie-break", "departage", "ex aequo"],
+    "temps depasse": ["drapeau", "chute", "pendule tombee", "fin de temps"],
+    "depasse": ["drapeau", "chute du drapeau", "temps ecoule"],
+    "joueur": ["participant", "competiteur", "adversaire"],
+    # Competition (FR-Q22)
+    "departage": ["tie-break", "egalite", "Buchholz", "Sonneborn-Berger", "classement"],
+    "buchholz": ["departage", "score buchholz", "tie-break", "performance"],
+    "egalite": ["tie-break", "departage", "ex aequo", "meme score"],
     "suisse": ["systeme suisse", "appariement suisse"],
     "appariement": ["pairage", "couplage", "match"],
-    # Materiel et organisation
-    "materiel": ["equipement", "fournitures", "pieces", "echiquier"],
-    "salle": ["lieu", "local", "espace de jeu"],
-    "conditions": ["exigences", "prerequis", "specifications"],
+    "classement": ["departage", "resultats", "ordre", "ranking"],
+    # Materiel et organisation (FR-Q25)
+    "materiel": ["equipement", "fournitures", "pieces", "echiquier", "pendules"],
+    "salle": ["lieu", "local", "espace de jeu", "aire de jeu"],
+    "conditions": ["exigences", "prerequis", "specifications", "environnement"],
+    "equipement": ["materiel", "fournitures", "pendules", "echiquiers"],
+    "tournoi": ["competition", "organisation", "epreuve", "evenement"],
+    "minimales": ["minimum", "requises", "obligatoires", "necessaires"],
+    "environnement": ["salle", "conditions", "local", "espace"],
+    "eclairage": ["lumiere", "luminosite", "conditions visuelles"],
     # Notation
     "notation": ["feuille de partie", "enregistrement", "transcription"],
     "algebrique": ["notation algebrique", "notation standard"],

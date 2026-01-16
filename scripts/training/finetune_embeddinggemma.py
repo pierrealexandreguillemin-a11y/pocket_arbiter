@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 import psutil
+from transformers import TrainerCallback
 
 from scripts.pipeline.utils import get_timestamp, save_json
 
@@ -34,6 +35,26 @@ DEFAULT_BATCH_SIZE = 4
 DEFAULT_LEARNING_RATE = 2e-5
 DEFAULT_WARMUP_RATIO = 0.1
 MAX_RAM_PERCENT = 85
+RAM_CHECK_INTERVAL = 10  # Check RAM every N steps
+
+
+class RAMMonitorCallback(TrainerCallback):
+    """Callback for continuous RAM monitoring during training (ISO 25010)."""
+
+    def __init__(self, max_ram_percent: float = MAX_RAM_PERCENT) -> None:
+        self.max_ram_percent = max_ram_percent
+        self.last_check_step = 0
+
+    def on_step_end(self, args, state, control, **kwargs) -> None:  # type: ignore[no-untyped-def]
+        """Check RAM usage every N steps."""
+        if state.global_step - self.last_check_step >= RAM_CHECK_INTERVAL:
+            mem = psutil.virtual_memory()
+            if mem.percent > self.max_ram_percent:
+                logger.error(f"RAM {mem.percent}% > {self.max_ram_percent}%! Stopping.")
+                control.should_training_stop = True
+            elif mem.percent > self.max_ram_percent - 10:
+                logger.warning(f"RAM warning: {mem.percent}%")
+            self.last_check_step = state.global_step
 
 
 def load_triplets_jsonl(input_path: Path) -> list[dict]:
@@ -136,12 +157,18 @@ def finetune_embeddinggemma(
     )
     args = SentenceTransformerTrainingArguments(**args_dict)
 
+    # Callbacks for monitoring
+    callbacks: list[TrainerCallback] = []
+    if monitor_resources:
+        callbacks.append(RAMMonitorCallback(MAX_RAM_PERCENT))
+
     # Trainer
     trainer = SentenceTransformerTrainer(
         model=model,
         args=args,
         train_dataset=dataset,
         loss=loss,
+        callbacks=callbacks,
     )
 
     # Entrainement

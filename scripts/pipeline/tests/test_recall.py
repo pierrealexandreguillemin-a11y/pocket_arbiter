@@ -289,8 +289,12 @@ def adversarial_file() -> Path:
 
 @pytest.fixture(scope="module")
 def corpus_fr_db() -> Path:
-    """Base de donnees corpus FR (QAT embeddings)."""
-    # Priorité au corpus QAT (gold standard v3)
+    """Base de donnees corpus FR (optimized 400-token chunks)."""
+    # Priorité au corpus v3 (400-token chunks optimisés)
+    v3_path = CORPUS_DIR / "corpus_fr_v3.db"
+    if v3_path.exists():
+        return v3_path
+    # Fallback QAT (600-token chunks)
     qat_path = CORPUS_DIR / "corpus_sentence_fr_qat.db"
     if qat_path.exists():
         return qat_path
@@ -412,8 +416,9 @@ class TestRecallBenchmark:
     @pytest.mark.slow
     @pytest.mark.iso_blocking
     @pytest.mark.xfail(
-        reason="Recall 73% < 80% avec hybrid+reranking. Chunks trop gros (600 tokens). "
-        "Prochaine action: re-chunker a 400 tokens (voir RECALL_OPTIMIZATION_PLAN.md).",
+        reason="Recall 75% < 80% avec hybrid+reranking+400-token chunks. "
+        "Prochaine action: query expansion ou modele d'embedding alterne "
+        "(voir RECALL_OPTIMIZATION_PLAN.md).",
         strict=False,
     )
     def test_recall_fr_above_80(
@@ -430,21 +435,23 @@ class TestRecallBenchmark:
         2. Cross-encoder reranking (BGE multilingual) - rerank to top-5
         3. Tolerance=2 pour decalage PDF/chunks
 
-        STATUT ACTUEL (2026-01-15):
+        STATUT ACTUEL (2026-01-16):
         - Vector-only: 48.89% exact / 70.00% avec tolerance=2
-        - Hybrid search: 73.33% avec tolerance=2
-        - Hybrid + reranking: 72.78% (reranking n'aide pas avec gros chunks)
+        - Hybrid search (600 tokens): 73.33% avec tolerance=2
+        - Hybrid + reranking (600 tokens): 72.78%
+        - Hybrid + reranking (400 tokens): 75.00% <- current
 
         DIAGNOSTIC:
-        - Chunks actuels: 600 tokens (trop gros pour factoid queries)
-        - Research optimal: 256-400 tokens
-        - Solution: Re-chunker corpus avec max_tokens=400
+        - Chunks v3: 400 tokens (2794 chunks) - amelioration +1.67%
+        - Questions faibles: FR-Q04, FR-Q17, FR-Q18, FR-Q22, FR-Q25
+        - Besoin: query expansion ou embedding multilingue
 
         Historique:
         - 2026-01-15: Baseline 48.89% (tolerance=0, vector-only)
         - 2026-01-15: +21.11% avec tolerance=2 -> 70.00% (vector-only)
         - 2026-01-15: +3.33% avec hybrid search -> 73.33%
-        - 2026-01-15: Reranking BGE multilingual -> 72.78% (pas d'amelioration)
+        - 2026-01-15: Reranking BGE multilingual -> 72.78%
+        - 2026-01-16: 400-token chunks (v3) -> 75.00% (+1.67%)
 
         Note: Le test utilise le pipeline complet (hybrid + rerank).
         """

@@ -6,10 +6,25 @@ Assigns expected_pages by finding keywords in corpus text.
 ISO Reference:
     - ISO/IEC 42001 A.7.3 - Validation independence
     - ISO/IEC 25010 - Recall measurement
+
+Document ID: SCRIPT-VAL-001
+Version: 1.0
+Date: 2026-01-16
+Author: Claude Opus 4.5
 """
 
 import json
 from pathlib import Path
+from typing import TypedDict
+
+
+class PageMatch(TypedDict):
+    """Type for page match result."""
+
+    page: int
+    source: str
+    keywords_found: list[str]
+    score: int
 
 
 def load_corpus(raw_dir: Path) -> dict[str, dict[int, str]]:
@@ -34,9 +49,9 @@ def find_pages_with_keywords(
     expected_docs: list[str],
     keywords: list[str],
     max_pages: int = 3,
-) -> list[dict]:
+) -> list[PageMatch]:
     """Find pages containing keywords."""
-    matches = []
+    matches: list[PageMatch] = []
     kw_lower = [kw.lower() for kw in keywords]
 
     for doc in expected_docs:
@@ -53,12 +68,12 @@ def find_pages_with_keywords(
         for page_num, text in corpus[doc_key].items():
             found_keywords = [kw for kw in kw_lower if kw in text]
             if len(found_keywords) >= 2:  # At least 2 keywords
-                matches.append({
-                    "page": page_num,
-                    "source": doc_key,
-                    "keywords_found": found_keywords,
-                    "score": len(found_keywords),
-                })
+                matches.append(PageMatch(
+                    page=page_num,
+                    source=doc_key,
+                    keywords_found=found_keywords,
+                    score=len(found_keywords),
+                ))
 
     # Sort by score (most keywords) and return top pages
     matches.sort(key=lambda x: (-x["score"], x["page"]))

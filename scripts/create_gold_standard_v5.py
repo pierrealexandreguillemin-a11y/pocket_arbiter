@@ -2,7 +2,7 @@
 Create Gold Standard v5 - Professional Arbiter Questions
 
 Gold standard ISO 25010/42001 conforme:
-- 60+ questions couvrant TOUS les 28 documents du corpus
+- 68 questions couvrant TOUS les 28 documents du corpus
 - Questions rédigées par perspective arbitre professionnel
 - Validation par keywords dans corpus extrait
 - Couverture: Lois, Compétitions, Administration, Jeunes, Handicap
@@ -11,6 +11,11 @@ ISO Reference:
     - ISO/IEC 25010 - Functional suitability (Recall >= 80%)
     - ISO/IEC 42001 - AI validation independence
     - ISO/IEC 29119 - Test data requirements
+
+Document ID: SCRIPT-GEN-001
+Version: 1.0
+Date: 2026-01-16
+Author: Claude Opus 4.5
 """
 
 import json
@@ -332,13 +337,13 @@ def create_gold_standard_v5() -> dict:
         })
 
     # Compute document coverage
-    all_docs = set()
+    all_docs: set[str] = set()
     for q in questions:
         all_docs.update(q["expected_docs"])
 
     gold_standard = {
         "version": "5.0",
-        "description": "Gold standard arbitre professionnel - 66 questions, 28 documents",
+        "description": "Gold standard arbitre professionnel - 68 questions, 28 documents",
         "methodology": {
             "author": "Arbitre professionnel FFE",
             "approach": "Questions pratiques terrain couvrant tous règlements",

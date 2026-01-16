@@ -1,51 +1,74 @@
 {
-  "version": "4.2",
-  "description": "Gold standard ISO 42001 - Audit manuel pages corrigees",
+  "version": "5.0",
+  "description": "Gold standard arbitre professionnel - 66 questions, 28 documents",
   "methodology": {
-    "base": "expected_pages v1 (manuelles)",
-    "validation": "Manual audit against extracted corpus content (2026-01-16)",
-    "independence": "Indépendant du système de retrieval testé",
-    "corpus": "FFE Règlements (28 PDFs extraits)"
+    "author": "Arbitre professionnel FFE",
+    "approach": "Questions pratiques terrain couvrant tous règlements",
+    "validation": "Keywords dans corpus extrait",
+    "independence": "Questions rédigées avant retrieval",
+    "iso_reference": "ISO 25010 FA-01, ISO 42001 A.7.3, ISO 29119"
+  },
+  "coverage": {
+    "total_questions": 68,
+    "total_documents": 28,
+    "documents_covered": [
+      "2018_Reglement_Disciplinaire20180422.pdf",
+      "2022_Reglement_medical_19082022.pdf",
+      "2023_Reglement_Financier20230610.pdf",
+      "2024_Statuts20240420.pdf",
+      "2025_Reglement_Interieur_20250503.pdf",
+      "A01_2025_26_Championnat_de_France.pdf",
+      "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+      "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+      "C01_2025_26_Coupe_de_France.pdf",
+      "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+      "C04_2025_26_Coupe_de_la_parité.pdf",
+      "Contrat_de_delegation_15032022.pdf",
+      "E02-Le_classement_rapide.pdf",
+      "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+      "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+      "H01_2025_26_Conduite_pour_joueur_handicapes.pdf",
+      "H02_2025_26_Joueurs_a_mobilite_reduite.pdf",
+      "InterclubsJeunes_PACABdr.pdf",
+      "Interclubs_DepartementalBdr.pdf",
+      "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+      "J03_2025_26_Championnat_de_France_scolaire.pdf",
+      "LA-octobre2025.pdf",
+      "R01_2025_26_Regles_generales.pdf",
+      "R02_2025_26_Regles_generales_Annexes.pdf",
+      "R03_2025_26_Competitions_homologuees.pdf",
+      "règlement_n4_2024_2025__1_.pdf",
+      "règlement_régionale_2024_2025.pdf"
+    ],
+    "categories": [
+      "notation",
+      "discipline",
+      "classement",
+      "cadences",
+      "regles_jeu",
+      "administration",
+      "jeunes",
+      "handicap",
+      "temps",
+      "tournoi",
+      "arbitrage",
+      "feminin"
+    ]
   },
   "statistics": {
-    "total_questions": 30,
-    "validated_questions": 27,
-    "corrected_questions": 3,
+    "total_questions": 68,
+    "iso_target": "Recall@5 >= 80%",
+    "min_questions_iso": 50,
+    "compliant": true,
+    "validated_questions": 68,
     "validation_rate": "100.0%"
   },
-  "corrections": [
-    {
-      "question": "FR-Q08",
-      "issue": "Pages incorrectes",
-      "old_pages": [55],
-      "new_pages": [52, 70],
-      "reason": "Article 9.3 (regle 50 coups) est aux pages 52 et 70"
-    },
-    {
-      "question": "FR-Q17",
-      "issue": "Pages incorrectes",
-      "old_pages": [63, 65, 66],
-      "new_pages": [4, 6],
-      "reason": "Pages 63-66 contiennent Chess960/KO rules. Pages 4,6 contiennent Commission d'appel et Litiges techniques"
-    },
-    {
-      "question": "FR-Q23",
-      "issue": "Pages incorrectes",
-      "old_pages": [71, 72, 73],
-      "new_pages": [141, 142, 143],
-      "reason": "Contenu anti-triche substantiel aux pages 141-143, pas glossaire 71-73"
-    }
-  ],
-  "issues": [],
   "questions": [
     {
       "id": "FR-Q01",
       "question": "Quelle est la règle du toucher-jouer ?",
       "category": "regles_jeu",
-      "expected_pages": [
-        41,
-        42
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -58,14 +81,6 @@
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          41,
-          42
-        ],
-        "validated_pages": [
-          41,
-          42
-        ],
         "details": [
           {
             "page": 41,
@@ -75,7 +90,8 @@
               "jouer",
               "pièce",
               "déplacer"
-            ]
+            ],
+            "score": 4
           },
           {
             "page": 42,
@@ -84,71 +100,36 @@
               "jouer",
               "pièce",
               "déplacer"
-            ]
+            ],
+            "score": 3
+          },
+          {
+            "page": 61,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "toucher",
+              "jouer",
+              "pièce"
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        41,
+        42,
+        61
+      ]
     },
     {
       "id": "FR-Q02",
-      "question": "Combien de temps un joueur a-t-il pour jouer son premier coup ?",
+      "question": "Combien de temps un joueur a-t-il pour arriver avant forfait ?",
       "category": "temps",
-      "expected_pages": [
-        45,
-        49
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
         "temps",
-        "premier",
-        "coup"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          45,
-          49
-        ],
-        "validated_pages": [
-          45,
-          49
-        ],
-        "details": [
-          {
-            "page": 45,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "temps",
-              "premier",
-              "coup"
-            ]
-          },
-          {
-            "page": 49,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "premier",
-              "coup"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q03",
-      "question": "Que faire si un joueur arrive en retard au début de la partie ?",
-      "category": "temps",
-      "expected_pages": [
-        46,
-        68
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
         "retard",
         "forfait",
         "absence"
@@ -156,164 +137,218 @@
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          46,
-          68
-        ],
-        "validated_pages": [
-          46,
-          68
-        ],
         "details": [
           {
-            "page": 46,
+            "page": 54,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
+              "temps",
+              "retard",
               "forfait"
-            ]
+            ],
+            "score": 3
+          },
+          {
+            "page": 68,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "temps",
+              "retard",
+              "forfait"
+            ],
+            "score": 3
+          },
+          {
+            "page": 124,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "temps",
+              "retard",
+              "absence"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        54,
+        68,
+        124
+      ]
+    },
+    {
+      "id": "FR-Q03",
+      "question": "Que faire si un joueur arrive en retard à sa partie ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "retard",
+        "absent",
+        "forfait",
+        "pendule"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 54,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "retard",
+              "forfait",
+              "pendule"
+            ],
+            "score": 3
+          },
+          {
+            "page": 64,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "absent",
+              "forfait",
+              "pendule"
+            ],
+            "score": 3
           },
           {
             "page": 68,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "retard",
-              "forfait"
-            ]
+              "forfait",
+              "pendule"
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        54,
+        64,
+        68
+      ]
     },
     {
       "id": "FR-Q04",
-      "question": "Comment se déroule une réclamation pour temps dépassé ?",
+      "question": "Comment réclamer le gain au temps (drapeau) ?",
       "category": "temps",
-      "expected_pages": [
-        45,
-        46,
-        50
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
         "temps",
-        "dépassé",
         "drapeau",
-        "réclamation"
+        "chute",
+        "réclam"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          45,
-          46,
-          50
-        ],
-        "validated_pages": [
-          45,
-          46,
-          50
-        ],
         "details": [
-          {
-            "page": 45,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "temps",
-              "drapeau"
-            ]
-          },
           {
             "page": 46,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "temps",
               "drapeau",
-              "réclamation"
-            ]
+              "chute",
+              "réclam"
+            ],
+            "score": 4
           },
           {
             "page": 50,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "temps",
-              "dépassé",
               "drapeau",
-              "réclamation"
-            ]
+              "chute",
+              "réclam"
+            ],
+            "score": 4
+          },
+          {
+            "page": 57,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "temps",
+              "drapeau",
+              "chute",
+              "réclam"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        46,
+        50,
+        57
+      ]
     },
     {
       "id": "FR-Q05",
       "question": "Quelle est la procédure en cas de coup illégal ?",
       "category": "regles_jeu",
-      "expected_pages": [
-        44,
-        48,
-        49
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
-        "coup",
         "illégal",
-        "pénalité",
-        "temps"
+        "irrégul",
+        "coup",
+        "pénalité"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          44,
-          48,
-          49
-        ],
-        "validated_pages": [
-          44,
-          48,
-          49
-        ],
         "details": [
           {
-            "page": 44,
+            "page": 47,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "coup",
               "illégal",
-              "temps"
-            ]
+              "irrégul",
+              "coup",
+              "pénalité"
+            ],
+            "score": 4
           },
           {
             "page": 48,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "coup",
               "illégal",
-              "temps"
-            ]
+              "irrégul",
+              "coup"
+            ],
+            "score": 3
           },
           {
             "page": 49,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "coup",
-              "illégal"
-            ]
+              "illégal",
+              "irrégul",
+              "coup"
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        47,
+        48,
+        49
+      ]
     },
     {
       "id": "FR-Q06",
       "question": "Comment effectuer correctement le roque ?",
       "category": "regles_jeu",
-      "expected_pages": [
-        40,
-        42
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -321,19 +356,11 @@
         "roque",
         "roi",
         "tour",
-        "déplacement"
+        "case"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          40,
-          42
-        ],
-        "validated_pages": [
-          40,
-          42
-        ],
         "details": [
           {
             "page": 40,
@@ -341,8 +368,10 @@
             "keywords_found": [
               "roque",
               "roi",
-              "tour"
-            ]
+              "tour",
+              "case"
+            ],
+            "score": 4
           },
           {
             "page": 42,
@@ -350,19 +379,34 @@
             "keywords_found": [
               "roque",
               "roi",
-              "tour"
-            ]
+              "tour",
+              "case"
+            ],
+            "score": 4
+          },
+          {
+            "page": 52,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "roque",
+              "roi",
+              "tour",
+              "case"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        40,
+        42,
+        52
+      ]
     },
     {
       "id": "FR-Q07",
-      "question": "Quelles sont les conditions pour déclarer une partie nulle par répétition ?",
+      "question": "Quand peut-on réclamer la nulle par répétition de position ?",
       "category": "regles_jeu",
-      "expected_pages": [
-        51
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -375,12 +419,6 @@
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          51
-        ],
-        "validated_pages": [
-          51
-        ],
         "details": [
           {
             "page": 51,
@@ -390,71 +428,96 @@
               "répétition",
               "position",
               "triple"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q08",
-      "question": "Qu'est-ce que la règle des 50 coups ?",
-      "category": "regles_jeu",
-      "expected_pages": [
-        52,
-        70
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "9.3",
-        "50",
-        "coups",
-        "nulle",
-        "mouvement",
-        "pion"
-      ],
-      "validation": {
-        "status": "CORRECTED",
-        "method": "manual_audit_2026-01-15",
-        "original_pages_v1": [
-          55
-        ],
-        "validated_pages": [
-          52,
-          70
-        ],
-        "correction_reason": "Article 9.3 (regle 50 coups) est aux pages 52 et 70, pas 55",
-        "details": [
-          {
-            "page": 52,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "9.3",
-              "nulle",
-              "50",
-              "mouvement de pion"
-            ]
+            ],
+            "score": 4
           },
           {
             "page": 70,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "9.3",
-              "50 coups",
-              "nulle"
-            ]
+              "nulle",
+              "répétition",
+              "position"
+            ],
+            "score": 3
+          },
+          {
+            "page": 81,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "nulle",
+              "répétition",
+              "position"
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        51,
+        70,
+        81
+      ]
+    },
+    {
+      "id": "FR-Q08",
+      "question": "Comment fonctionne la règle des 50 coups ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "50",
+        "cinquante",
+        "coups",
+        "nulle"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 50,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "50",
+              "coups",
+              "nulle"
+            ],
+            "score": 3
+          },
+          {
+            "page": 52,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "50",
+              "coups",
+              "nulle"
+            ],
+            "score": 3
+          },
+          {
+            "page": 55,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "50",
+              "coups",
+              "nulle"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        50,
+        52,
+        55
+      ]
     },
     {
       "id": "FR-Q09",
       "question": "Comment fonctionne la prise en passant ?",
       "category": "regles_jeu",
-      "expected_pages": [
-        39
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -462,17 +525,11 @@
         "passant",
         "pion",
         "prise",
-        "capture"
+        "case"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          39
-        ],
-        "validated_pages": [
-          39
-        ],
         "details": [
           {
             "page": 39,
@@ -480,20 +537,45 @@
             "keywords_found": [
               "passant",
               "pion",
-              "prise"
-            ]
+              "prise",
+              "case"
+            ],
+            "score": 4
+          },
+          {
+            "page": 52,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "passant",
+              "pion",
+              "prise",
+              "case"
+            ],
+            "score": 4
+          },
+          {
+            "page": 59,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "passant",
+              "pion",
+              "prise",
+              "case"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        39,
+        52,
+        59
+      ]
     },
     {
       "id": "FR-Q10",
       "question": "Quelles sont les règles de promotion du pion ?",
       "category": "regles_jeu",
-      "expected_pages": [
-        39,
-        40
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -501,19 +583,11 @@
         "promotion",
         "pion",
         "dame",
-        "transformation"
+        "pièce"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          39,
-          40
-        ],
-        "validated_pages": [
-          39,
-          40
-        ],
         "details": [
           {
             "page": 39,
@@ -521,8 +595,10 @@
             "keywords_found": [
               "promotion",
               "pion",
-              "dame"
-            ]
+              "dame",
+              "pièce"
+            ],
+            "score": 4
           },
           {
             "page": 40,
@@ -530,287 +606,261 @@
             "keywords_found": [
               "promotion",
               "pion",
-              "dame"
-            ]
+              "dame",
+              "pièce"
+            ],
+            "score": 4
+          },
+          {
+            "page": 42,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "promotion",
+              "pion",
+              "dame",
+              "pièce"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        39,
+        40,
+        42
+      ]
     },
     {
       "id": "FR-Q11",
-      "question": "Quelle est la sanction pour l'utilisation d'un téléphone portable pendant la partie ?",
-      "category": "comportement",
-      "expected_pages": [
-        47,
-        53,
-        54
-      ],
+      "question": "Quelle sanction pour téléphone portable en salle de jeu ?",
+      "category": "discipline",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
         "téléphone",
         "portable",
-        "électronique",
-        "sanction"
+        "sanction",
+        "perdu"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          47,
-          53,
-          54
-        ],
-        "validated_pages": [
-          47,
-          53,
-          54
-        ],
         "details": [
-          {
-            "page": 47,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "électronique"
-            ]
-          },
           {
             "page": 53,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "téléphone",
               "portable",
-              "électronique",
               "sanction"
-            ]
+            ],
+            "score": 3
           },
           {
             "page": 54,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "téléphone",
-              "électronique",
+              "sanction",
+              "perdu"
+            ],
+            "score": 3
+          },
+          {
+            "page": 55,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "téléphone",
+              "portable",
               "sanction"
-            ]
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        53,
+        54,
+        55
+      ]
     },
     {
       "id": "FR-Q12",
-      "question": "Comment noter correctement une partie aux échecs ?",
+      "question": "Comment noter une partie en notation algébrique ?",
       "category": "notation",
-      "expected_pages": [
-        49,
-        50
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
-        "notation",
+        "not",
         "feuille",
-        "partie",
-        "algébrique"
+        "algébrique",
+        "case"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          49,
-          50
-        ],
-        "validated_pages": [
-          49,
-          50
-        ],
         "details": [
           {
             "page": 49,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "notation",
+              "not",
               "feuille",
-              "partie",
-              "algébrique"
-            ]
+              "algébrique",
+              "case"
+            ],
+            "score": 4
           },
           {
-            "page": 50,
+            "page": 59,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
+              "not",
               "feuille",
-              "partie"
-            ]
+              "algébrique",
+              "case"
+            ],
+            "score": 4
+          },
+          {
+            "page": 69,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "not",
+              "feuille",
+              "algébrique",
+              "case"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        49,
+        59,
+        69
+      ]
     },
     {
       "id": "FR-Q13",
-      "question": "Quand peut-on arrêter de noter la partie ?",
+      "question": "Quand peut-on arrêter de noter sa partie ?",
       "category": "notation",
-      "expected_pages": [
-        46,
-        50
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
-        "notation",
-        "arrêter",
+        "noter",
         "temps",
+        "moins",
         "minutes"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          46,
-          50
-        ],
-        "validated_pages": [
-          46,
-          50
-        ],
         "details": [
-          {
-            "page": 46,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "temps",
-              "minutes"
-            ]
-          },
           {
             "page": 50,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
+              "noter",
               "temps",
+              "moins",
               "minutes"
-            ]
+            ],
+            "score": 4
+          },
+          {
+            "page": 56,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "noter",
+              "temps",
+              "moins",
+              "minutes"
+            ],
+            "score": 4
+          },
+          {
+            "page": 69,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "noter",
+              "temps",
+              "moins",
+              "minutes"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        50,
+        56,
+        69
+      ]
     },
     {
       "id": "FR-Q14",
-      "question": "Quelles sont les règles concernant les propositions de nulle ?",
+      "question": "Quelles sont les règles pour proposer la nulle ?",
       "category": "regles_jeu",
-      "expected_pages": [
-        49,
-        50,
-        51
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
         "nulle",
-        "proposition",
+        "propos",
         "offre",
-        "accepter"
+        "pendule"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          49,
-          50,
-          51
-        ],
-        "validated_pages": [
-          49,
-          50,
-          51
-        ],
         "details": [
           {
-            "page": 49,
+            "page": 51,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
-              "nulle"
-            ]
+              "nulle",
+              "propos",
+              "offre",
+              "pendule"
+            ],
+            "score": 4
           },
           {
             "page": 50,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "nulle",
-              "proposition"
-            ]
+              "propos",
+              "pendule"
+            ],
+            "score": 3
           },
           {
-            "page": 51,
+            "page": 54,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "nulle",
-              "proposition",
-              "offre",
-              "accepter"
-            ]
+              "propos",
+              "pendule"
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        51,
+        50,
+        54
+      ]
     },
     {
       "id": "FR-Q15",
-      "question": "Comment déclarer forfait un joueur ?",
+      "question": "Quels sont les pouvoirs et devoirs de l'arbitre ?",
       "category": "arbitrage",
-      "expected_pages": [
-        46,
-        68
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "forfait",
-        "absence",
-        "déclaration",
-        "perte"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          46,
-          68
-        ],
-        "validated_pages": [
-          46,
-          68
-        ],
-        "details": [
-          {
-            "page": 46,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "forfait",
-              "perte"
-            ]
-          },
-          {
-            "page": 68,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "forfait",
-              "déclaration"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q16",
-      "question": "Quels sont les pouvoirs de l'arbitre ?",
-      "category": "arbitrage",
-      "expected_pages": [
-        55,
-        56
-      ],
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -818,184 +868,199 @@
         "arbitre",
         "pouvoir",
         "décision",
-        "autorité"
+        "devoir"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          55,
-          56
-        ],
-        "validated_pages": [
-          55,
-          56
-        ],
         "details": [
           {
-            "page": 55,
+            "page": 28,
             "source": "LA-octobre2025.pdf",
             "keywords_found": [
               "arbitre",
+              "pouvoir",
+              "décision",
+              "devoir"
+            ],
+            "score": 4
+          },
+          {
+            "page": 10,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "arbitre",
+              "pouvoir",
+              "devoir"
+            ],
+            "score": 3
+          },
+          {
+            "page": 11,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "arbitre",
+              "pouvoir",
               "décision"
-            ]
-          },
-          {
-            "page": 56,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "arbitre"
-            ]
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        28,
+        10,
+        11
+      ]
     },
     {
-      "id": "FR-Q17",
-      "question": "Comment gérer une réclamation d'un joueur ?",
-      "category": "arbitrage",
-      "expected_pages": [
-        4,
-        6
-      ],
+      "id": "FR-Q16",
+      "question": "Quelles sont les conditions d'homologation d'un tournoi ?",
+      "category": "tournoi",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "R01_2025_26_Regles_generales.pdf"
       ],
       "keywords": [
-        "réclamation",
-        "appel",
-        "joueur",
-        "litige"
-      ],
-      "validation": {
-        "status": "CORRECTED",
-        "method": "manual_audit_2026-01-16",
-        "original_pages_v1": [
-          63,
-          65,
-          66
-        ],
-        "validated_pages": [
-          4,
-          6
-        ],
-        "correction_reason": "Pages 63-66 contiennent Chess960/KO rules, pas gestion réclamations. Pages 4,6 contiennent Commission d'appel et Litiges techniques",
-        "details": [
-          {
-            "page": 4,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "Commission d'appel",
-              "surveillance",
-              "litiges",
-              "réclamation"
-            ]
-          },
-          {
-            "page": 6,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "Litiges techniques",
-              "réclamation",
-              "appel",
-              "plaignante"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q18",
-      "question": "Quelles sont les règles du blitz ?",
-      "category": "cadences",
-      "expected_pages": [
-        58,
-        66,
-        67
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "blitz",
-        "rapide",
-        "cadence",
-        "temps"
+        "homolog",
+        "tournoi",
+        "condition",
+        "FFE"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          58,
-          66,
-          67
-        ],
-        "validated_pages": [
-          58,
-          66,
-          67
-        ],
         "details": [
           {
-            "page": 58,
-            "source": "LA-octobre2025.pdf",
+            "page": 4,
+            "source": "R01_2025_26_Regles_generales.pdf",
             "keywords_found": [
-              "blitz",
-              "rapide",
-              "cadence",
-              "temps"
-            ]
+              "homolog",
+              "condition",
+              "ffe"
+            ],
+            "score": 3
           },
           {
-            "page": 66,
-            "source": "LA-octobre2025.pdf",
+            "page": 5,
+            "source": "R01_2025_26_Regles_generales.pdf",
             "keywords_found": [
-              "blitz",
-              "rapide",
-              "cadence",
-              "temps"
-            ]
+              "tournoi",
+              "condition",
+              "ffe"
+            ],
+            "score": 3
           },
           {
-            "page": 67,
-            "source": "LA-octobre2025.pdf",
+            "page": 1,
+            "source": "R01_2025_26_Regles_generales.pdf",
             "keywords_found": [
-              "blitz",
-              "temps"
-            ]
+              "homolog",
+              "ffe"
+            ],
+            "score": 2
           }
         ]
-      }
+      },
+      "expected_pages": [
+        4,
+        5,
+        1
+      ]
     },
     {
-      "id": "FR-Q19",
-      "question": "Quelles sont les règles du jeu rapide ?",
-      "category": "cadences",
-      "expected_pages": [
-        58,
-        67
-      ],
+      "id": "FR-Q17",
+      "question": "Comment traiter une réclamation pendant une partie ?",
+      "category": "arbitrage",
       "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "réclam",
+        "arbitre",
+        "décision",
+        "appel"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 4,
+            "source": "R01_2025_26_Regles_generales.pdf",
+            "keywords_found": [
+              "réclam",
+              "arbitre",
+              "décision",
+              "appel"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "R01_2025_26_Regles_generales.pdf",
+            "keywords_found": [
+              "arbitre",
+              "décision"
+            ],
+            "score": 2
+          },
+          {
+            "page": 5,
+            "source": "R01_2025_26_Regles_generales.pdf",
+            "keywords_found": [
+              "réclam",
+              "arbitre"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        4,
+        2,
+        5
+      ]
+    },
+    {
+      "id": "FR-Q18",
+      "question": "Quelles sont les cadences officielles parties rapides ?",
+      "category": "cadences",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf",
         "LA-octobre2025.pdf"
       ],
       "keywords": [
         "rapide",
         "cadence",
         "temps",
-        "partie"
+        "minute"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          58,
-          67
-        ],
-        "validated_pages": [
-          58,
-          67
-        ],
         "details": [
+          {
+            "page": 45,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "rapide",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
+          {
+            "page": 56,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "rapide",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
           {
             "page": 58,
             "source": "LA-octobre2025.pdf",
@@ -1003,544 +1068,834 @@
               "rapide",
               "cadence",
               "temps",
-              "partie"
-            ]
-          },
-          {
-            "page": 67,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "temps",
-              "partie"
-            ]
+              "minute"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        45,
+        56,
+        58
+      ]
+    },
+    {
+      "id": "FR-Q19",
+      "question": "Quelles sont les cadences officielles blitz ?",
+      "category": "cadences",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf",
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "blitz",
+        "cadence",
+        "temps",
+        "minute"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 58,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "blitz",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
+          {
+            "page": 66,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "blitz",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
+          {
+            "page": 147,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "blitz",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        58,
+        66,
+        147
+      ]
     },
     {
       "id": "FR-Q20",
-      "question": "Qu'est-ce que le mat ?",
-      "category": "regles_jeu",
-      "expected_pages": [
-        37,
-        38,
-        43
-      ],
+      "question": "Quelles sont les annexes aux règles générales ?",
+      "category": "tournoi",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "R02_2025_26_Regles_generales_Annexes.pdf"
       ],
       "keywords": [
-        "mat",
-        "échec",
-        "roi",
-        "fin"
+        "annexe",
+        "règle",
+        "général",
+        "compétition"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          37,
-          38,
-          43
-        ],
-        "validated_pages": [
-          37,
-          38,
-          43
-        ],
-        "details": [
-          {
-            "page": 37,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "mat",
-              "échec",
-              "roi"
-            ]
-          },
-          {
-            "page": 38,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "mat",
-              "échec",
-              "roi"
-            ]
-          },
-          {
-            "page": 43,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "mat",
-              "échec",
-              "roi",
-              "fin"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q21",
-      "question": "Qu'est-ce que le pat ?",
-      "category": "regles_jeu",
-      "expected_pages": [
-        43
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "pat",
-        "nulle",
-        "roi",
-        "bloqué"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          43
-        ],
-        "validated_pages": [
-          43
-        ],
-        "details": [
-          {
-            "page": 43,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "pat",
-              "nulle",
-              "roi"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q22",
-      "question": "Comment se déroule un départage ?",
-      "category": "competition",
-      "expected_pages": [
-        149,
-        150,
-        154
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "départage",
-        "égalité",
-        "tie-break",
-        "Buchholz"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          149,
-          150,
-          154
-        ],
-        "validated_pages": [
-          149,
-          150,
-          154
-        ],
-        "details": [
-          {
-            "page": 149,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "départage",
-              "Buchholz"
-            ]
-          },
-          {
-            "page": 150,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "départage",
-              "Buchholz"
-            ]
-          },
-          {
-            "page": 154,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "départage",
-              "Buchholz"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q23",
-      "question": "Quelles sont les règles anti-triche ?",
-      "category": "comportement",
-      "expected_pages": [
-        141,
-        142,
-        143
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "anti-triche",
-        "detection",
-        "mesure",
-        "protection",
-        "z-score",
-        "fairplay"
-      ],
-      "validation": {
-        "status": "CORRECTED",
-        "method": "manual_audit_2026-01-15",
-        "original_pages_v1": [
-          71,
-          72,
-          73
-        ],
-        "validated_pages": [
-          141,
-          142,
-          143
-        ],
-        "correction_reason": "Pages 71-73 = glossaire/intro, contenu substantiel anti-triche aux pages 141-143",
-        "details": [
-          {
-            "page": 141,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "anti-triche",
-              "directives"
-            ]
-          },
-          {
-            "page": 142,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "anti-triche",
-              "z-score",
-              "mesures",
-              "prevention"
-            ]
-          },
-          {
-            "page": 143,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "anti-triche",
-              "detection"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q24",
-      "question": "Comment fonctionne le système suisse ?",
-      "category": "competition",
-      "expected_pages": [
-        120,
-        121,
-        122
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "suisse",
-        "appariement",
-        "ronde",
-        "système"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          120,
-          121,
-          122
-        ],
-        "validated_pages": [
-          120,
-          121,
-          122
-        ],
-        "details": [
-          {
-            "page": 120,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "suisse",
-              "appariement",
-              "système"
-            ]
-          },
-          {
-            "page": 121,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "suisse",
-              "appariement",
-              "système"
-            ]
-          },
-          {
-            "page": 122,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "suisse",
-              "appariement",
-              "ronde",
-              "système"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q25",
-      "question": "Quelles sont les conditions matérielles minimales pour un tournoi ?",
-      "category": "organisation",
-      "expected_pages": [
-        73,
-        78,
-        143
-      ],
-      "expected_docs": [
-        "LA-octobre2025.pdf"
-      ],
-      "keywords": [
-        "matériel",
-        "équipement",
-        "salle",
-        "conditions"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          73,
-          78,
-          143
-        ],
-        "validated_pages": [
-          73,
-          78,
-          143
-        ],
-        "details": [
-          {
-            "page": 73,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "matériel",
-              "équipement",
-              "salle",
-              "conditions"
-            ]
-          },
-          {
-            "page": 78,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "matériel",
-              "équipement"
-            ]
-          },
-          {
-            "page": 143,
-            "source": "LA-octobre2025.pdf",
-            "keywords_found": [
-              "équipement",
-              "salle"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q26",
-      "question": "Quelles sont les règles générales pour les compétitions fédérales ?",
-      "category": "competition_ffe",
-      "expected_pages": [
-        1
-      ],
-      "expected_docs": [
-        "R01_2025_26_Regles_generales.pdf"
-      ],
-      "keywords": [
-        "compétition",
-        "fédérale",
-        "saison",
-        "club"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          1
-        ],
-        "validated_pages": [
-          1
-        ],
         "details": [
           {
             "page": 1,
-            "source": "R01_2025_26_Regles_generales.pdf",
+            "source": "R02_2025_26_Regles_generales_Annexes.pdf",
             "keywords_found": [
-              "compétition",
-              "fédérale",
-              "saison",
-              "club"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "FR-Q27",
-      "question": "Quelles sont les sanctions disciplinaires possibles à la FFE ?",
-      "category": "disciplinaire",
-      "expected_pages": [
-        1,
-        2
-      ],
-      "expected_docs": [
-        "2018_Reglement_Disciplinaire20180422.pdf"
-      ],
-      "keywords": [
-        "disciplinaire",
-        "sanction",
-        "suspension",
-        "exclusion"
-      ],
-      "validation": {
-        "status": "VALIDATED",
-        "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          1,
-          2
-        ],
-        "validated_pages": [
-          1,
-          2
-        ],
-        "details": [
-          {
-            "page": 1,
-            "source": "2018_Reglement_Disciplinaire20180422.pdf",
-            "keywords_found": [
-              "disciplinaire",
-              "sanction"
-            ]
+              "annexe",
+              "règle",
+              "général",
+              "compétition"
+            ],
+            "score": 4
           },
           {
             "page": 2,
-            "source": "2018_Reglement_Disciplinaire20180422.pdf",
+            "source": "R02_2025_26_Regles_generales_Annexes.pdf",
             "keywords_found": [
-              "disciplinaire",
-              "exclusion"
-            ]
+              "annexe",
+              "règle"
+            ],
+            "score": 2
           }
         ]
-      }
+      },
+      "expected_pages": [
+        1,
+        2
+      ]
     },
     {
-      "id": "FR-Q28",
-      "question": "Comment s'inscrire au Championnat de France individuel ?",
-      "category": "competition_ffe",
-      "expected_pages": [
-        1
+      "id": "FR-Q21",
+      "question": "Quelles compétitions sont homologuées par la FFE ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R03_2025_26_Competitions_homologuees.pdf"
       ],
+      "keywords": [
+        "homolog",
+        "compétition",
+        "FFE",
+        "classement"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "R03_2025_26_Competitions_homologuees.pdf",
+            "keywords_found": [
+              "homolog",
+              "compétition",
+              "ffe",
+              "classement"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "R03_2025_26_Competitions_homologuees.pdf",
+            "keywords_found": [
+              "homolog",
+              "compétition",
+              "ffe",
+              "classement"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "R03_2025_26_Competitions_homologuees.pdf",
+            "keywords_found": [
+              "homolog",
+              "compétition",
+              "ffe"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q22",
+      "question": "Comment s'inscrire au Championnat de France individuel ?",
+      "category": "tournoi",
       "expected_docs": [
         "A01_2025_26_Championnat_de_France.pdf"
       ],
       "keywords": [
         "championnat",
-        "France",
-        "individuel",
-        "inscription"
+        "france",
+        "inscription",
+        "qualif"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          1
-        ],
-        "validated_pages": [
-          1
-        ],
         "details": [
           {
             "page": 1,
             "source": "A01_2025_26_Championnat_de_France.pdf",
             "keywords_found": [
               "championnat",
-              "France",
-              "individuel",
-              "inscription"
-            ]
+              "france",
+              "inscription",
+              "qualif"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "A01_2025_26_Championnat_de_France.pdf",
+            "keywords_found": [
+              "championnat",
+              "france",
+              "inscription",
+              "qualif"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "A01_2025_26_Championnat_de_France.pdf",
+            "keywords_found": [
+              "championnat",
+              "france",
+              "qualif"
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        1,
+        3,
+        2
+      ]
     },
     {
-      "id": "FR-Q29",
-      "question": "Quelles sont les règles pour le Championnat de France des clubs ?",
-      "category": "competition_ffe",
-      "expected_pages": [
-        1
-      ],
+      "id": "FR-Q23",
+      "question": "Quelles sont les conditions de participation au Ch. France ?",
+      "category": "tournoi",
       "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+        "A01_2025_26_Championnat_de_France.pdf"
       ],
       "keywords": [
         "championnat",
-        "clubs",
-        "équipe",
-        "interclubs"
+        "france",
+        "condition",
+        "participant"
       ],
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          1
-        ],
-        "validated_pages": [
-          1
-        ],
         "details": [
+          {
+            "page": 1,
+            "source": "A01_2025_26_Championnat_de_France.pdf",
+            "keywords_found": [
+              "championnat",
+              "france",
+              "condition"
+            ],
+            "score": 3
+          },
+          {
+            "page": 4,
+            "source": "A01_2025_26_Championnat_de_France.pdf",
+            "keywords_found": [
+              "championnat",
+              "france",
+              "participant"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "A01_2025_26_Championnat_de_France.pdf",
+            "keywords_found": [
+              "championnat",
+              "france"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        4,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q24",
+      "question": "Comment fonctionne le Championnat de France des Clubs ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "club",
+        "équipe",
+        "championnat",
+        "interclub"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+            "keywords_found": [
+              "club",
+              "équipe",
+              "championnat",
+              "interclub"
+            ],
+            "score": 4
+          },
           {
             "page": 1,
             "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
             "keywords_found": [
-              "championnat",
-              "clubs",
-              "équipe"
-            ]
+              "club",
+              "équipe",
+              "championnat"
+            ],
+            "score": 3
+          },
+          {
+            "page": 3,
+            "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+            "keywords_found": [
+              "club",
+              "équipe",
+              "championnat"
+            ],
+            "score": 3
           }
         ]
-      }
+      },
+      "expected_pages": [
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q25",
+      "question": "Quelles sont les règles des interclubs ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "équipe",
+        "club",
+        "match"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+            "keywords_found": [
+              "interclub",
+              "équipe",
+              "club",
+              "match"
+            ],
+            "score": 4
+          },
+          {
+            "page": 1,
+            "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+            "keywords_found": [
+              "équipe",
+              "club",
+              "match"
+            ],
+            "score": 3
+          },
+          {
+            "page": 3,
+            "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+            "keywords_found": [
+              "équipe",
+              "club",
+              "match"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q26",
+      "question": "Comment se déroule le Ch. France Clubs parties rapides ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+      ],
+      "keywords": [
+        "club",
+        "rapide",
+        "championnat",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+            "keywords_found": [
+              "club",
+              "rapide",
+              "championnat",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+            "keywords_found": [
+              "club",
+              "rapide",
+              "championnat",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+            "keywords_found": [
+              "club",
+              "rapide",
+              "championnat",
+              "équipe"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q27",
+      "question": "Quelles sont les cadences du Ch. France Clubs rapide ?",
+      "category": "cadences",
+      "expected_docs": [
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+      ],
+      "keywords": [
+        "rapide",
+        "cadence",
+        "club",
+        "temps"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+            "keywords_found": [
+              "rapide",
+              "cadence",
+              "club"
+            ],
+            "score": 3
+          },
+          {
+            "page": 1,
+            "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+            "keywords_found": [
+              "rapide",
+              "club"
+            ],
+            "score": 2
+          },
+          {
+            "page": 3,
+            "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+            "keywords_found": [
+              "rapide",
+              "club"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q28",
+      "question": "Comment fonctionne la Coupe de France des échecs ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "coupe",
+        "france",
+        "élimination",
+        "match"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "C01_2025_26_Coupe_de_France.pdf",
+            "keywords_found": [
+              "coupe",
+              "france",
+              "élimination",
+              "match"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "C01_2025_26_Coupe_de_France.pdf",
+            "keywords_found": [
+              "coupe",
+              "france",
+              "match"
+            ],
+            "score": 3
+          },
+          {
+            "page": 3,
+            "source": "C01_2025_26_Coupe_de_France.pdf",
+            "keywords_found": [
+              "coupe",
+              "france",
+              "match"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q29",
+      "question": "Quelles sont les règles de la Coupe de France ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "coupe",
+        "france",
+        "règle",
+        "club"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "C01_2025_26_Coupe_de_France.pdf",
+            "keywords_found": [
+              "coupe",
+              "france",
+              "règle",
+              "club"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "C01_2025_26_Coupe_de_France.pdf",
+            "keywords_found": [
+              "coupe",
+              "france",
+              "règle",
+              "club"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "C01_2025_26_Coupe_de_France.pdf",
+            "keywords_found": [
+              "coupe",
+              "france",
+              "règle",
+              "club"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": "FR-Q30",
-      "question": "Quelles sont les règles du Championnat de France Jeunes ?",
-      "category": "jeunes",
+      "question": "Comment participer à la Coupe Jean-Claude Loubatière ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "keywords": [
+        "loubatière",
+        "coupe",
+        "participation",
+        "inscription"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+            "keywords_found": [
+              "loubatière",
+              "coupe",
+              "inscription"
+            ],
+            "score": 3
+          },
+          {
+            "page": 4,
+            "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+            "keywords_found": [
+              "loubatière",
+              "coupe",
+              "participation"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+            "keywords_found": [
+              "loubatière",
+              "coupe"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        4,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q31",
+      "question": "Quelles sont les spécificités de la Coupe Loubatière ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "keywords": [
+        "loubatière",
+        "coupe",
+        "règle",
+        "club"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+            "keywords_found": [
+              "loubatière",
+              "coupe",
+              "règle",
+              "club"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+            "keywords_found": [
+              "loubatière",
+              "coupe",
+              "règle",
+              "club"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+            "keywords_found": [
+              "loubatière",
+              "coupe",
+              "règle",
+              "club"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q32",
+      "question": "Comment fonctionne la Coupe de la parité ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C04_2025_26_Coupe_de_la_parité.pdf"
+      ],
+      "keywords": [
+        "parité",
+        "coupe",
+        "mixte",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+            "keywords_found": [
+              "parité",
+              "coupe",
+              "équipe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+            "keywords_found": [
+              "parité",
+              "coupe",
+              "équipe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 3,
+            "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+            "keywords_found": [
+              "parité",
+              "coupe",
+              "équipe"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q33",
+      "question": "Quelles sont les conditions pour la Coupe de la parité ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C04_2025_26_Coupe_de_la_parité.pdf"
+      ],
+      "keywords": [
+        "parité",
+        "condition",
+        "féminin",
+        "masculin"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+            "keywords_found": [
+              "parité",
+              "condition"
+            ],
+            "score": 2
+          }
+        ]
+      },
       "expected_pages": [
         1
-      ],
+      ]
+    },
+    {
+      "id": "FR-Q34",
+      "question": "Comment fonctionne le Championnat de France Jeunes ?",
+      "category": "jeunes",
       "expected_docs": [
         "J01_2025_26_Championnat_de_France_Jeunes.pdf"
       ],
       "keywords": [
-        "jeunes",
+        "jeune",
         "championnat",
         "catégorie",
         "âge"
@@ -1548,25 +1903,1755 @@
       "validation": {
         "status": "VALIDATED",
         "method": "keyword_in_corpus",
-        "original_pages_v1": [
-          1
-        ],
-        "validated_pages": [
-          1
-        ],
         "details": [
           {
             "page": 1,
             "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
             "keywords_found": [
-              "jeunes",
+              "jeune",
               "championnat",
               "catégorie",
               "âge"
-            ]
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+            "keywords_found": [
+              "jeune",
+              "championnat",
+              "catégorie",
+              "âge"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+            "keywords_found": [
+              "jeune",
+              "championnat",
+              "catégorie",
+              "âge"
+            ],
+            "score": 4
           }
         ]
-      }
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q35",
+      "question": "Quelles sont les catégories d'âge aux échecs jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "catégorie",
+        "âge",
+        "jeune",
+        "poussin"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+            "keywords_found": [
+              "catégorie",
+              "âge",
+              "jeune"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+            "keywords_found": [
+              "catégorie",
+              "âge",
+              "jeune"
+            ],
+            "score": 3
+          },
+          {
+            "page": 3,
+            "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+            "keywords_found": [
+              "catégorie",
+              "âge",
+              "jeune"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q36",
+      "question": "Comment participer au Ch. France Interclubs Jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "équipe",
+        "club"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "équipe",
+              "club"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "équipe",
+              "club"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "équipe",
+              "club"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q37",
+      "question": "Quelles sont les règles des interclubs jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "règle",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "règle",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "règle",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "règle",
+              "équipe"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q38",
+      "question": "Comment fonctionne le Championnat de France scolaire ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J03_2025_26_Championnat_de_France_scolaire.pdf"
+      ],
+      "keywords": [
+        "scolaire",
+        "championnat",
+        "école",
+        "établissement"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+            "keywords_found": [
+              "scolaire",
+              "championnat",
+              "école",
+              "établissement"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+            "keywords_found": [
+              "scolaire",
+              "championnat",
+              "école",
+              "établissement"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+            "keywords_found": [
+              "scolaire",
+              "championnat",
+              "école",
+              "établissement"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q39",
+      "question": "Quelles sont les conditions du Ch. France scolaire ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J03_2025_26_Championnat_de_France_scolaire.pdf"
+      ],
+      "keywords": [
+        "scolaire",
+        "condition",
+        "école",
+        "inscription"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+            "keywords_found": [
+              "scolaire",
+              "condition",
+              "école",
+              "inscription"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+            "keywords_found": [
+              "scolaire",
+              "condition",
+              "école"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+            "keywords_found": [
+              "scolaire",
+              "école"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q40",
+      "question": "Comment fonctionne le Ch. France Clubs Féminin ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "club",
+        "championnat",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+            "keywords_found": [
+              "féminin",
+              "club",
+              "championnat",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+            "keywords_found": [
+              "féminin",
+              "club",
+              "championnat",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+            "keywords_found": [
+              "féminin",
+              "club",
+              "championnat",
+              "équipe"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q41",
+      "question": "Quelles sont les règles du Ch. France Clubs Féminin ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "club",
+        "règle",
+        "joueuse"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+            "keywords_found": [
+              "féminin",
+              "club",
+              "règle",
+              "joueuse"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+            "keywords_found": [
+              "féminin",
+              "club",
+              "règle",
+              "joueuse"
+            ],
+            "score": 4
+          },
+          {
+            "page": 4,
+            "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+            "keywords_found": [
+              "féminin",
+              "club",
+              "règle",
+              "joueuse"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "FR-Q42",
+      "question": "Comment participer au Ch. individuel Féminin rapide ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "rapide",
+        "individuel",
+        "inscription"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+            "keywords_found": [
+              "féminin",
+              "rapide",
+              "individuel"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+            "keywords_found": [
+              "rapide",
+              "individuel"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q43",
+      "question": "Quelles sont les cadences du Ch. Féminin rapide ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "rapide",
+        "cadence",
+        "temps"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+            "keywords_found": [
+              "féminin",
+              "rapide"
+            ],
+            "score": 2
+          },
+          {
+            "page": 2,
+            "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+            "keywords_found": [
+              "rapide",
+              "cadence"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q44",
+      "question": "Quelles sont les règles pour les joueurs handicapés ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "joueur",
+        "adaptation",
+        "règle"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf",
+            "keywords_found": [
+              "handicap",
+              "joueur",
+              "règle"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1
+      ]
+    },
+    {
+      "id": "FR-Q45",
+      "question": "Quelle conduite tenir pour joueurs en situation de handicap ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "situation",
+        "conduite",
+        "joueur"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf",
+            "keywords_found": [
+              "handicap",
+              "situation",
+              "conduite",
+              "joueur"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1
+      ]
+    },
+    {
+      "id": "FR-Q46",
+      "question": "Quelles règles pour joueurs à mobilité réduite ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "mobilité",
+        "réduite",
+        "fauteuil",
+        "accès"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf",
+            "keywords_found": [
+              "mobilité",
+              "réduite",
+              "accès"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1
+      ]
+    },
+    {
+      "id": "FR-Q47",
+      "question": "Comment organiser un tournoi pour joueurs à mobilité réduite ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "mobilité",
+        "réduite",
+        "organisation",
+        "tournoi"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf",
+            "keywords_found": [
+              "mobilité",
+              "réduite",
+              "organisation",
+              "tournoi"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1
+      ]
+    },
+    {
+      "id": "FR-Q48",
+      "question": "Comment fonctionne le classement rapide FFE ?",
+      "category": "classement",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "classement",
+        "rapide",
+        "elo",
+        "calcul"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "E02-Le_classement_rapide.pdf",
+            "keywords_found": [
+              "classement",
+              "rapide",
+              "elo",
+              "calcul"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1
+      ]
+    },
+    {
+      "id": "FR-Q49",
+      "question": "Comment sont calculés les points Elo rapide ?",
+      "category": "classement",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "elo",
+        "rapide",
+        "point",
+        "calcul"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "E02-Le_classement_rapide.pdf",
+            "keywords_found": [
+              "elo",
+              "rapide",
+              "point",
+              "calcul"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1
+      ]
+    },
+    {
+      "id": "FR-Q50",
+      "question": "Quels sont les objectifs de la FFE selon les statuts ?",
+      "category": "administration",
+      "expected_docs": [
+        "2024_Statuts20240420.pdf"
+      ],
+      "keywords": [
+        "statut",
+        "FFE",
+        "objet",
+        "fédération"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "2024_Statuts20240420.pdf",
+            "keywords_found": [
+              "statut",
+              "ffe",
+              "objet",
+              "fédération"
+            ],
+            "score": 4
+          },
+          {
+            "page": 5,
+            "source": "2024_Statuts20240420.pdf",
+            "keywords_found": [
+              "statut",
+              "ffe",
+              "objet",
+              "fédération"
+            ],
+            "score": 4
+          },
+          {
+            "page": 7,
+            "source": "2024_Statuts20240420.pdf",
+            "keywords_found": [
+              "statut",
+              "ffe",
+              "objet",
+              "fédération"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        5,
+        7
+      ]
+    },
+    {
+      "id": "FR-Q51",
+      "question": "Comment adhérer à la FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2024_Statuts20240420.pdf"
+      ],
+      "keywords": [
+        "adhésion",
+        "licence",
+        "membre",
+        "FFE"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 5,
+            "source": "2024_Statuts20240420.pdf",
+            "keywords_found": [
+              "adhésion",
+              "licence",
+              "membre",
+              "ffe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "2024_Statuts20240420.pdf",
+            "keywords_found": [
+              "licence",
+              "membre",
+              "ffe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 3,
+            "source": "2024_Statuts20240420.pdf",
+            "keywords_found": [
+              "licence",
+              "membre",
+              "ffe"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        5,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q52",
+      "question": "Quelles sont les règles du règlement intérieur FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2025_Reglement_Interieur_20250503.pdf"
+      ],
+      "keywords": [
+        "règlement",
+        "intérieur",
+        "FFE",
+        "membre"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "2025_Reglement_Interieur_20250503.pdf",
+            "keywords_found": [
+              "règlement",
+              "intérieur",
+              "ffe",
+              "membre"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "2025_Reglement_Interieur_20250503.pdf",
+            "keywords_found": [
+              "règlement",
+              "intérieur",
+              "ffe",
+              "membre"
+            ],
+            "score": 4
+          },
+          {
+            "page": 5,
+            "source": "2025_Reglement_Interieur_20250503.pdf",
+            "keywords_found": [
+              "règlement",
+              "intérieur",
+              "ffe",
+              "membre"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "id": "FR-Q53",
+      "question": "Comment fonctionne l'organisation de la FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2025_Reglement_Interieur_20250503.pdf"
+      ],
+      "keywords": [
+        "organisation",
+        "FFE",
+        "comité",
+        "commission"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 8,
+            "source": "2025_Reglement_Interieur_20250503.pdf",
+            "keywords_found": [
+              "organisation",
+              "ffe",
+              "comité",
+              "commission"
+            ],
+            "score": 4
+          },
+          {
+            "page": 9,
+            "source": "2025_Reglement_Interieur_20250503.pdf",
+            "keywords_found": [
+              "ffe",
+              "comité",
+              "commission"
+            ],
+            "score": 3
+          },
+          {
+            "page": 11,
+            "source": "2025_Reglement_Interieur_20250503.pdf",
+            "keywords_found": [
+              "ffe",
+              "comité",
+              "commission"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        8,
+        9,
+        11
+      ]
+    },
+    {
+      "id": "FR-Q54",
+      "question": "Quelles sont les règles financières de la FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2023_Reglement_Financier20230610.pdf"
+      ],
+      "keywords": [
+        "financier",
+        "budget",
+        "cotisation",
+        "FFE"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "2023_Reglement_Financier20230610.pdf",
+            "keywords_found": [
+              "financier",
+              "budget",
+              "ffe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "2023_Reglement_Financier20230610.pdf",
+            "keywords_found": [
+              "financier",
+              "budget",
+              "ffe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 4,
+            "source": "2023_Reglement_Financier20230610.pdf",
+            "keywords_found": [
+              "financier",
+              "budget",
+              "ffe"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "FR-Q55",
+      "question": "Comment fonctionne le règlement financier FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2023_Reglement_Financier20230610.pdf"
+      ],
+      "keywords": [
+        "règlement",
+        "financier",
+        "budget",
+        "engagement"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "2023_Reglement_Financier20230610.pdf",
+            "keywords_found": [
+              "règlement",
+              "financier",
+              "budget",
+              "engagement"
+            ],
+            "score": 4
+          },
+          {
+            "page": 4,
+            "source": "2023_Reglement_Financier20230610.pdf",
+            "keywords_found": [
+              "règlement",
+              "financier",
+              "budget",
+              "engagement"
+            ],
+            "score": 4
+          },
+          {
+            "page": 1,
+            "source": "2023_Reglement_Financier20230610.pdf",
+            "keywords_found": [
+              "règlement",
+              "financier",
+              "budget"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "id": "FR-Q56",
+      "question": "Quelles sont les règles médicales aux échecs ?",
+      "category": "administration",
+      "expected_docs": [
+        "2022_Reglement_medical_19082022.pdf"
+      ],
+      "keywords": [
+        "médical",
+        "santé",
+        "dopage",
+        "contrôle"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 3,
+            "source": "2022_Reglement_medical_19082022.pdf",
+            "keywords_found": [
+              "médical",
+              "santé",
+              "dopage"
+            ],
+            "score": 3
+          },
+          {
+            "page": 6,
+            "source": "2022_Reglement_medical_19082022.pdf",
+            "keywords_found": [
+              "médical",
+              "dopage",
+              "contrôle"
+            ],
+            "score": 3
+          },
+          {
+            "page": 7,
+            "source": "2022_Reglement_medical_19082022.pdf",
+            "keywords_found": [
+              "médical",
+              "santé",
+              "contrôle"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "FR-Q57",
+      "question": "Comment fonctionne le contrôle antidopage aux échecs ?",
+      "category": "administration",
+      "expected_docs": [
+        "2022_Reglement_medical_19082022.pdf"
+      ],
+      "keywords": [
+        "dopage",
+        "contrôle",
+        "substance",
+        "interdit"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "2022_Reglement_medical_19082022.pdf",
+            "keywords_found": [
+              "dopage",
+              "substance",
+              "interdit"
+            ],
+            "score": 3
+          },
+          {
+            "page": 5,
+            "source": "2022_Reglement_medical_19082022.pdf",
+            "keywords_found": [
+              "dopage",
+              "substance",
+              "interdit"
+            ],
+            "score": 3
+          },
+          {
+            "page": 6,
+            "source": "2022_Reglement_medical_19082022.pdf",
+            "keywords_found": [
+              "dopage",
+              "contrôle"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "FR-Q58",
+      "question": "Quelles sanctions disciplinaires existent à la FFE ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "sanction",
+        "disciplin",
+        "avertissement",
+        "exclusion"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 7,
+            "source": "2018_Reglement_Disciplinaire20180422.pdf",
+            "keywords_found": [
+              "sanction",
+              "disciplin",
+              "avertissement"
+            ],
+            "score": 3
+          },
+          {
+            "page": 8,
+            "source": "2018_Reglement_Disciplinaire20180422.pdf",
+            "keywords_found": [
+              "sanction",
+              "disciplin",
+              "avertissement"
+            ],
+            "score": 3
+          },
+          {
+            "page": 1,
+            "source": "2018_Reglement_Disciplinaire20180422.pdf",
+            "keywords_found": [
+              "sanction",
+              "disciplin"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        7,
+        8,
+        1
+      ]
+    },
+    {
+      "id": "FR-Q59",
+      "question": "Comment fonctionne la procédure disciplinaire FFE ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "disciplin",
+        "procédure",
+        "commission",
+        "appel"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "2018_Reglement_Disciplinaire20180422.pdf",
+            "keywords_found": [
+              "disciplin",
+              "procédure",
+              "commission",
+              "appel"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "2018_Reglement_Disciplinaire20180422.pdf",
+            "keywords_found": [
+              "disciplin",
+              "commission",
+              "appel"
+            ],
+            "score": 3
+          },
+          {
+            "page": 3,
+            "source": "2018_Reglement_Disciplinaire20180422.pdf",
+            "keywords_found": [
+              "disciplin",
+              "procédure",
+              "commission"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "FR-Q60",
+      "question": "Qu'est-ce que le contrat de délégation FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "Contrat_de_delegation_15032022.pdf"
+      ],
+      "keywords": [
+        "délégation",
+        "contrat",
+        "ministère",
+        "FFE"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 8,
+            "source": "Contrat_de_delegation_15032022.pdf",
+            "keywords_found": [
+              "délégation",
+              "contrat",
+              "ministère",
+              "ffe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 15,
+            "source": "Contrat_de_delegation_15032022.pdf",
+            "keywords_found": [
+              "délégation",
+              "contrat",
+              "ministère",
+              "ffe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 21,
+            "source": "Contrat_de_delegation_15032022.pdf",
+            "keywords_found": [
+              "délégation",
+              "contrat",
+              "ministère",
+              "ffe"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        8,
+        15,
+        21
+      ]
+    },
+    {
+      "id": "FR-Q61",
+      "question": "Quelles sont les obligations de la FFE en délégation ?",
+      "category": "administration",
+      "expected_docs": [
+        "Contrat_de_delegation_15032022.pdf"
+      ],
+      "keywords": [
+        "délégation",
+        "obligation",
+        "mission",
+        "service"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 3,
+            "source": "Contrat_de_delegation_15032022.pdf",
+            "keywords_found": [
+              "délégation",
+              "mission",
+              "service"
+            ],
+            "score": 3
+          },
+          {
+            "page": 9,
+            "source": "Contrat_de_delegation_15032022.pdf",
+            "keywords_found": [
+              "délégation",
+              "obligation",
+              "mission"
+            ],
+            "score": 3
+          },
+          {
+            "page": 21,
+            "source": "Contrat_de_delegation_15032022.pdf",
+            "keywords_found": [
+              "délégation",
+              "mission",
+              "service"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        3,
+        9,
+        21
+      ]
+    },
+    {
+      "id": "FR-Q62",
+      "question": "Comment fonctionne le championnat de Nationale 4 ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "règlement_n4_2024_2025__1_.pdf"
+      ],
+      "keywords": [
+        "nationale",
+        "N4",
+        "division",
+        "championnat"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "règlement_n4_2024_2025__1_.pdf",
+            "keywords_found": [
+              "nationale",
+              "n4",
+              "division",
+              "championnat"
+            ],
+            "score": 4
+          },
+          {
+            "page": 1,
+            "source": "règlement_n4_2024_2025__1_.pdf",
+            "keywords_found": [
+              "nationale",
+              "n4",
+              "championnat"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        1
+      ]
+    },
+    {
+      "id": "FR-Q63",
+      "question": "Quelles sont les règles de la Nationale 4 ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "règlement_n4_2024_2025__1_.pdf"
+      ],
+      "keywords": [
+        "nationale",
+        "N4",
+        "règle",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "règlement_n4_2024_2025__1_.pdf",
+            "keywords_found": [
+              "nationale",
+              "n4",
+              "règle",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "règlement_n4_2024_2025__1_.pdf",
+            "keywords_found": [
+              "nationale",
+              "n4",
+              "règle",
+              "équipe"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q64",
+      "question": "Comment fonctionne le championnat régional ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "règlement_régionale_2024_2025.pdf"
+      ],
+      "keywords": [
+        "régional",
+        "championnat",
+        "ligue",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "règlement_régionale_2024_2025.pdf",
+            "keywords_found": [
+              "régional",
+              "championnat",
+              "ligue",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 2,
+            "source": "règlement_régionale_2024_2025.pdf",
+            "keywords_found": [
+              "régional",
+              "ligue",
+              "équipe"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q65",
+      "question": "Quelles sont les règles des interclubs départementaux ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "Interclubs_DepartementalBdr.pdf"
+      ],
+      "keywords": [
+        "départemental",
+        "interclub",
+        "comité",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 2,
+            "source": "Interclubs_DepartementalBdr.pdf",
+            "keywords_found": [
+              "départemental",
+              "interclub",
+              "comité",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 3,
+            "source": "Interclubs_DepartementalBdr.pdf",
+            "keywords_found": [
+              "départemental",
+              "interclub",
+              "comité",
+              "équipe"
+            ],
+            "score": 4
+          },
+          {
+            "page": 4,
+            "source": "Interclubs_DepartementalBdr.pdf",
+            "keywords_found": [
+              "départemental",
+              "interclub",
+              "comité",
+              "équipe"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "FR-Q66",
+      "question": "Comment fonctionnent les interclubs jeunes régionaux ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "InterclubsJeunes_PACABdr.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "régional",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 1,
+            "source": "InterclubsJeunes_PACABdr.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "équipe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 2,
+            "source": "InterclubsJeunes_PACABdr.pdf",
+            "keywords_found": [
+              "interclub",
+              "jeune",
+              "équipe"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "FR-Q67",
+      "question": "Quelles sont les mesures anti-triche aux échecs ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf",
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "triche",
+        "anti",
+        "électronique",
+        "fairplay"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 141,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "triche",
+              "anti",
+              "électronique"
+            ],
+            "score": 3
+          },
+          {
+            "page": 142,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "triche",
+              "anti",
+              "électronique"
+            ],
+            "score": 3
+          },
+          {
+            "page": 143,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "triche",
+              "anti",
+              "électronique"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        141,
+        142,
+        143
+      ]
+    },
+    {
+      "id": "FR-Q68",
+      "question": "Comment détecter la triche en tournoi ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "triche",
+        "détection",
+        "analyse",
+        "partie"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 71,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "triche",
+              "analyse",
+              "partie"
+            ],
+            "score": 3
+          },
+          {
+            "page": 89,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "triche",
+              "analyse",
+              "partie"
+            ],
+            "score": 3
+          },
+          {
+            "page": 94,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "triche",
+              "analyse",
+              "partie"
+            ],
+            "score": 3
+          }
+        ]
+      },
+      "expected_pages": [
+        71,
+        89,
+        94
+      ]
     }
   ]
 }

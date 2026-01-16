@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 1.5
+> **Version**: 1.6
 > **Date**: 2026-01-16
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -342,17 +342,19 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Test Pass Rate | 100% | **99.7%** (1 xfail) | ISO 29119 |
 | Code Coverage | 60% | **87%** | ISO 25010 |
 | Lint Warnings | 0 | **0** | ISO 25010 |
-| Retrieval Recall | 80% | **75%** (XFAIL) | ISO 25010 |
+| Mypy Errors | 0 | **0** | ISO 5055 |
+| Retrieval Recall | 80% | **78.33%** (XFAIL) | ISO 25010 |
 | Hallucination Rate | 0% | TBD | ISO 42001 |
 | Response Latency | < 5s | TBD | ISO 25010 |
 | Docs avec ID | 100% | 100% | ISO 82045 |
 | Docs indexes | 100% | 100% | ISO 999 |
 
-> **Note**: Recall@5 = 75% (hybrid + reranking + 400-token chunks). Pipeline complet implemente:
+> **Note**: Recall@5 = 78.33% (hybrid + reranking + 400-token chunks). Pipeline complet:
 > - Hybrid search (BM25 + vector + RRF)
 > - Cross-encoder reranking (BGE multilingual)
 > - Chunks optimises: 400 tokens (v3, 2794 chunks)
-> - Prochaine etape: query expansion ou embedding multilingue (voir RECALL_OPTIMIZATION_PLAN.md)
+> - **Phase 2 implementee**: Fine-tuning pipeline EmbeddingGemma (scripts/training/)
+> - Prochaine etape: executer fine-tuning pour atteindre 80%
 
 ### Review Cadence
 - Pre-commit: Every commit
@@ -373,6 +375,7 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | 1.3 | 2026-01-15 | Claude Opus 4.5 | Mise a jour metriques reelles (coverage 87%, recall XFAIL) |
 | 1.4 | 2026-01-15 | Claude Opus 4.5 | Mise a jour recall 73% (hybrid + reranking implemente) |
 | 1.5 | 2026-01-16 | Claude Opus 4.5 | Recall 75% avec 400-token chunks (v3) |
+| 1.6 | 2026-01-16 | Claude Opus 4.5 | Phase 2 training pipeline, mypy 0 errors, recall 78.33% |
 
 ---
 

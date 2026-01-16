@@ -294,14 +294,17 @@ def retrieve_hybrid_rerank(
     top_k_final: int = 5,
     vector_weight: float = DEFAULT_VECTOR_WEIGHT,
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
+    use_query_expansion: bool = True,
+    expanded_query_embedding: "np.ndarray | None" = None,
 ) -> list[dict]:
     """
     Recherche hybride avec reranking cross-encoder.
 
     Pipeline complet pour recall optimal:
-    1. Retrieve top_k_retrieve avec hybrid search (BM25 + vector + RRF)
-    2. Rerank avec cross-encoder
-    3. Return top_k_final
+    1. Query expansion (synonymes chess FR)
+    2. Retrieve top_k_retrieve avec hybrid search (BM25 + vector + RRF)
+    3. Rerank avec cross-encoder
+    4. Return top_k_final
 
     ISO Reference:
         - ISO/IEC 25010 - Performance efficiency (Recall >= 90%)
@@ -315,6 +318,9 @@ def retrieve_hybrid_rerank(
         top_k_final: Nombre de resultats finaux apres reranking (defaut 5).
         vector_weight: Poids de la recherche vectorielle (defaut 0.7).
         bm25_weight: Poids de la recherche BM25 (defaut 0.3).
+        use_query_expansion: Utiliser l'expansion de query (defaut True).
+        expanded_query_embedding: Embedding de la query expandue (optionnel).
+            Si fourni, utilise pour la recherche vectorielle.
 
     Returns:
         Liste de dicts avec id, text, source, page, hybrid_score, rerank_score.
@@ -328,11 +334,27 @@ def retrieve_hybrid_rerank(
     """
     from scripts.pipeline.reranker import rerank
 
+    # Step 0: Query expansion for BM25 (adds synonyms)
+    bm25_query = query_text
+    if use_query_expansion:
+        from scripts.pipeline.query_expansion import expand_query_bm25
+
+        expanded = expand_query_bm25(query_text)
+        if expanded:
+            bm25_query = f"{query_text} {expanded}"
+
+    # Use expanded embedding if provided, otherwise use original
+    vector_embedding = (
+        expanded_query_embedding
+        if expanded_query_embedding is not None
+        else query_embedding
+    )
+
     # Step 1: Hybrid search (BM25 + vector with RRF)
     hybrid_results = retrieve_hybrid(
         db_path,
-        query_embedding,
-        query_text,
+        vector_embedding,  # Use expanded embedding if available
+        bm25_query,  # Use expanded query for BM25
         top_k=top_k_retrieve,
         vector_weight=vector_weight,
         bm25_weight=bm25_weight,
@@ -341,9 +363,9 @@ def retrieve_hybrid_rerank(
     if not hybrid_results:
         return []
 
-    # Step 2: Rerank with cross-encoder
+    # Step 2: Rerank with cross-encoder (use original query)
     reranked = rerank(
-        query=query_text,
+        query=query_text,  # Use original query for reranking
         chunks=hybrid_results,
         model=reranker,
         top_k=top_k_final,

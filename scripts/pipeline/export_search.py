@@ -21,8 +21,10 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 # Hybrid search parameters (from research - CHUNKING_STRATEGY.md)
-DEFAULT_VECTOR_WEIGHT = 0.7
-DEFAULT_BM25_WEIGHT = 0.3
+# Note: Poids inverses car EmbeddingGemma non-adapte domaine echecs FR.
+# BM25 plus efficace pour documents reglementaires keyword-heavy (TREC research).
+DEFAULT_VECTOR_WEIGHT = 0.3
+DEFAULT_BM25_WEIGHT = 0.7
 RRF_K = 60  # Reciprocal Rank Fusion constant
 
 
@@ -108,12 +110,36 @@ def retrieve_similar(
         conn.close()
 
 
-def _prepare_fts_query(query: str) -> str:
+def _normalize_accents(text: str) -> str:
+    """
+    Normalise les accents pour matching FTS5.
+
+    FTS5 indexe avec accents, donc queries doivent aussi avoir accents.
+    Cette fonction preserve les accents mais normalise la casse.
+
+    Note: Si corpus indexe sans accents, utiliser unicodedata.normalize('NFD')
+    et filtrer les Mn (combining marks).
+    """
+    return text.lower()
+
+
+def _prepare_fts_query(query: str, use_stemming: bool = False) -> str:
     """
     Prepare une requete pour FTS5.
 
     Convertit "mot1 mot2 mot3" en "mot1 OR mot2 OR mot3" pour meilleur recall.
     Retire les caracteres speciaux FTS5 qui pourraient causer des erreurs.
+    Normalise la casse (lowercase) pour matching case-insensitive.
+
+    Note: use_stemming=False par defaut car le dictionnaire de synonymes
+    (query_expansion.py) est plus precis que le stemming aveugle.
+
+    Args:
+        query: Texte de la requete.
+        use_stemming: Ajouter stems FR (deconseille, utiliser synonymes).
+
+    Returns:
+        Requete FTS5 preparee.
     """
     special_chars = [
         '"',
@@ -137,10 +163,25 @@ def _prepare_fts_query(query: str) -> str:
     for char in special_chars:
         clean_query = clean_query.replace(char, " ")
 
+    # Normalize: lowercase pour matching case-insensitive
+    clean_query = _normalize_accents(clean_query)
+
     words = [w.strip() for w in clean_query.split() if w.strip()]
 
     if not words:
         return ""
+
+    # Stemming optionnel (deconseille - dictionnaire synonymes plus precis)
+    if use_stemming:
+        from scripts.pipeline.query_expansion import stem_word
+
+        all_terms = set()
+        for word in words:
+            all_terms.add(word)
+            stem = stem_word(word)
+            if stem and len(stem) >= 3 and stem != word:
+                all_terms.add(f"{stem}*")
+        return " OR ".join(all_terms)
 
     return " OR ".join(words)
 

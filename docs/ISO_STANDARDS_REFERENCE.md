@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 1.6
+> **Version**: 1.7
 > **Date**: 2026-01-16
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -344,17 +344,21 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Lint Warnings | 0 | **0** | ISO 25010 |
 | Mypy Errors | 0 | **0** | ISO 5055 |
 | Retrieval Recall | 80% | **78.33%** (XFAIL) | ISO 25010 |
+| Gold Standard | >= 50 questions | **68 questions** | ISO 29119 |
+| Corpus Coverage | 100% | **28/28 docs** | ISO 25010 |
 | Hallucination Rate | 0% | TBD | ISO 42001 |
 | Response Latency | < 5s | TBD | ISO 25010 |
 | Docs avec ID | 100% | 100% | ISO 82045 |
 | Docs indexes | 100% | 100% | ISO 999 |
 
-> **Note**: Recall@5 = 78.33% (hybrid + reranking + 400-token chunks). Pipeline complet:
-> - Hybrid search (BM25 + vector + RRF)
+> **Note**: Recall@5 = 78.33% (hybrid + reranking). Pipeline complet:
+> - Hybrid search (BM25=0.7 + vector=0.3 + RRF)
 > - Cross-encoder reranking (BGE multilingual)
-> - Chunks optimises: 400 tokens (v3, 2794 chunks)
-> - **Phase 2 implementee**: Fine-tuning pipeline EmbeddingGemma (scripts/training/)
-> - Prochaine etape: executer fine-tuning pour atteindre 80%
+> - FTS5 tokenizer FR (unicode61 remove_diacritics)
+> - Snowball FR stemmer pour BM25
+> - Gold standard v5: **68 questions, 28 documents** (ISO compliant >= 50)
+> - **Phase 2 prete**: Fine-tuning pipeline EmbeddingGemma (scripts/training/)
+> - Prochaine etape: generer donnees synthetiques + fine-tuning
 
 ### Review Cadence
 - Pre-commit: Every commit
@@ -376,6 +380,7 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | 1.4 | 2026-01-15 | Claude Opus 4.5 | Mise a jour recall 73% (hybrid + reranking implemente) |
 | 1.5 | 2026-01-16 | Claude Opus 4.5 | Recall 75% avec 400-token chunks (v3) |
 | 1.6 | 2026-01-16 | Claude Opus 4.5 | Phase 2 training pipeline, mypy 0 errors, recall 78.33% |
+| 1.7 | 2026-01-16 | Claude Opus 4.5 | Gold standard v5 (68 questions, 28 docs), refactor token_utils |
 
 ---
 

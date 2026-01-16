@@ -112,15 +112,30 @@ def db_with_fts(temp_db_path, sample_chunks_for_search, sample_embeddings_for_se
 class TestPrepareFtsQuery:
     """Tests for _prepare_fts_query function."""
 
-    def test_simple_query(self):
-        """Converts simple words to OR query."""
-        result = _prepare_fts_query("toucher jouer")
+    def test_simple_query_no_stemming(self):
+        """Converts simple words to OR query (no stemming)."""
+        result = _prepare_fts_query("toucher jouer", use_stemming=False)
         assert result == "toucher OR jouer"
 
-    def test_single_word(self):
-        """Single word returns as-is."""
-        result = _prepare_fts_query("echecs")
+    def test_simple_query_with_stemming(self):
+        """Adds stemmed prefixes for better recall."""
+        result = _prepare_fts_query("toucher jouer", use_stemming=True)
+        # Should include original words AND stemmed prefixes
+        assert "toucher" in result
+        assert "jouer" in result
+        assert "touch*" in result  # Snowball FR stem
+        assert "jou*" in result
+
+    def test_single_word_no_stemming(self):
+        """Single word returns as-is (no stemming)."""
+        result = _prepare_fts_query("echecs", use_stemming=False)
         assert result == "echecs"
+
+    def test_single_word_with_stemming(self):
+        """Single word with stemmed prefix."""
+        result = _prepare_fts_query("echecs", use_stemming=True)
+        assert "echecs" in result
+        assert "echec*" in result  # Snowball FR stem
 
     def test_removes_special_chars_quotes(self):
         """Removes quote characters."""
@@ -150,7 +165,7 @@ class TestPrepareFtsQuery:
 
     def test_multiple_spaces_normalized(self):
         """Handles multiple spaces correctly."""
-        result = _prepare_fts_query("mot1   mot2")
+        result = _prepare_fts_query("mot1   mot2", use_stemming=False)
         assert result == "mot1 OR mot2"
 
     def test_all_special_chars_removed(self):
@@ -311,9 +326,14 @@ class TestRetrieveHybrid:
         assert len(results) <= 2
 
     def test_default_weights_constants(self):
-        """Default weight constants are defined correctly."""
-        assert DEFAULT_VECTOR_WEIGHT == 0.7
-        assert DEFAULT_BM25_WEIGHT == 0.3
+        """Default weight constants are defined correctly.
+
+        Note: Poids intentionnellement inverses (0.3 vector, 0.7 BM25)
+        car EmbeddingGemma non-adapte au domaine echecs FR.
+        BM25 plus efficace pour documents reglementaires keyword-heavy.
+        """
+        assert DEFAULT_VECTOR_WEIGHT == 0.3  # Baisse: embedding generique
+        assert DEFAULT_BM25_WEIGHT == 0.7  # Augmente: FTS5 efficace pour FR
         assert RRF_K == 60
 
     def test_results_contain_score_fields(

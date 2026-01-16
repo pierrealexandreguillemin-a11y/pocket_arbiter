@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010:2023, ISO/IEC 82045-1
-> **Version**: 1.2
+> **Version**: 1.3
 > **Date**: 2026-01-16
 > **Statut**: Approuve
 > **Classification**: Technique
@@ -287,14 +287,14 @@ ARTICLE_PATTERNS = [
 
 | Metrique | Avant | Actuel | Cible | Methode mesure |
 |----------|-------|--------|-------|----------------|
-| Recall@5 FR | 34.67% | **93.33%** ✅ | **>= 80%** | Gold standard 30 questions |
+| Recall@5 FR | 34.67% | **78.33%** (XFAIL) | **>= 80%** | Gold standard 30 questions |
 | Recall@5 INTL | TBD | TBD | **>= 70%** | Gold standard questions |
 | Precision@5 | TBD | TBD | **>= 70%** | Evaluation manuelle |
 | Hallucination | TBD | TBD | **0%** | Tests adversaires |
 | Latence | TBD | TBD | **< 500ms** | Benchmark |
 
-> **Statut Recall**: 93.33% avec pipeline complet + gold standard v4.2.
-> Cible 80% atteinte. Questions restantes: FR-Q15, FR-Q25.
+> **Statut Recall**: 78.33% avec pipeline complet + gold standard v4.2.
+> Gap -1.67% vers cible 80%. Questions échouées: FR-Q04, FR-Q18, FR-Q22, FR-Q25.
 
 ---
 
@@ -331,4 +331,5 @@ ARTICLE_PATTERNS = [
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-15 | Claude Code | Creation initiale |
 | 1.1 | 2026-01-16 | Claude Opus 4.5 | Mise a jour v3 (400 tokens, recall 75%) |
-| 1.2 | 2026-01-16 | Claude Opus 4.5 | Recall 93.33% - gold standard v4.2 |
+| 1.2 | 2026-01-16 | Claude Opus 4.5 | Gold standard v4.2 (FR-Q17 corrigé) |
+| 1.3 | 2026-01-16 | Claude Opus 4.5 | Correction recall 78.33% (calcul correct) |

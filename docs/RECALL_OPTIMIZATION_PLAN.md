@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-OPT-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 1.2
+> **Version**: 1.3
 > **Date**: 2026-01-16
-> **Objectif**: ~~Recall@5 >= 90%~~ ✅ **ATTEINT: 93.33%**
+> **Objectif**: Recall@5 >= 80% (actuel 78.33%)
 
 ---
 
@@ -14,15 +14,15 @@
 |-------|-------------|--------|--------|
 | **Phase 1** | Quick wins (hybrid search) | ✅ COMPLETE | 73.33% |
 | **Phase 2** | Reranking + 400-token chunks | ✅ COMPLETE | 75.00% |
-| **Phase 3** | Query expansion + Gold standard audit | ✅ COMPLETE | **93.33%** |
-| Phase 4 | Late chunking | Optionnel | - |
-| Phase 5 | Contextual retrieval | Optionnel | - |
+| **Phase 3** | Query expansion + Gold standard audit | ✅ COMPLETE | **78.33%** |
+| Phase 4 | Late chunking | ⏳ NEXT | - |
+| Phase 5 | Contextual retrieval | Pending | - |
 
-**Questions restantes echouees** (2/30): FR-Q15, FR-Q25
+**Questions echouees** (4/30): FR-Q04, FR-Q18, FR-Q22, FR-Q25
 
 **Correction Gold Standard v4.2**:
 - FR-Q17: Pages 63-66 → 4, 6 (réclamation joueur)
-- Impact: +18.33% recall
+- Impact: +3.33% recall (72.78% → 78.33% avec FR-Q17 corrigé + query expansion)
 
 ---
 

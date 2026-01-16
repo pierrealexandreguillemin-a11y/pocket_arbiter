@@ -85,10 +85,14 @@ def _get_schema_sql() -> str:
     CREATE INDEX IF NOT EXISTS idx_chunks_source ON chunks(source);
     CREATE INDEX IF NOT EXISTS idx_chunks_page ON chunks(page);
 
+    -- FTS5 avec tokenizer FR: unicode61 remove_diacritics 2
+    -- Permet recherche insensible aux accents (cafe = café)
+    -- Ref: https://sqlite.org/fts5.html#tokenizers
     CREATE VIRTUAL TABLE IF NOT EXISTS chunks_fts USING fts5(
         text,
         content='chunks',
-        content_rowid='rowid'
+        content_rowid='rowid',
+        tokenize='unicode61 remove_diacritics 2'
     );
 
     CREATE TRIGGER IF NOT EXISTS chunks_ai AFTER INSERT ON chunks BEGIN
@@ -231,13 +235,14 @@ def rebuild_fts_index(db_path: Path) -> int:
         fts_exists = cursor.fetchone() is not None
 
         if not fts_exists:
-            logger.info("Creating FTS5 index...")
+            logger.info("Creating FTS5 index with FR tokenizer...")
             cursor.execute(
                 """
                 CREATE VIRTUAL TABLE IF NOT EXISTS chunks_fts USING fts5(
                     text,
                     content='chunks',
-                    content_rowid='rowid'
+                    content_rowid='rowid',
+                    tokenize='unicode61 remove_diacritics 2'
                 )
                 """
             )

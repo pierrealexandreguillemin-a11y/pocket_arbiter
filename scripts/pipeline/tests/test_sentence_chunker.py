@@ -112,37 +112,33 @@ class TestChunkDocumentSentence:
 
 
 class TestCreateSentenceSplitter:
-    """Tests for create_sentence_splitter function."""
+    """Tests for create_sentence_splitter function (now RecursiveCharacterTextSplitter)."""
 
-    @patch("scripts.pipeline.sentence_chunker.SentenceSplitter")
-    def test_creates_splitter_with_defaults(self, mock_ss_class):
-        """Should create splitter with default parameters."""
+    def test_creates_splitter_with_defaults(self):
+        """Should create RecursiveCharacterTextSplitter with default parameters."""
         from scripts.pipeline.sentence_chunker import (
             create_sentence_splitter,
             DEFAULT_CHUNK_SIZE_TOKENS,
             DEFAULT_CHUNK_OVERLAP_TOKENS,
         )
 
-        create_sentence_splitter()
+        splitter = create_sentence_splitter()
 
-        mock_ss_class.assert_called_once()
-        call_kwargs = mock_ss_class.call_args[1]
-        assert call_kwargs["chunk_size"] == DEFAULT_CHUNK_SIZE_TOKENS
-        assert call_kwargs["chunk_overlap"] == DEFAULT_CHUNK_OVERLAP_TOKENS
+        # RecursiveCharacterTextSplitter stores config in _chunk_size/_chunk_overlap
+        assert splitter._chunk_size == DEFAULT_CHUNK_SIZE_TOKENS
+        assert splitter._chunk_overlap == DEFAULT_CHUNK_OVERLAP_TOKENS
 
-    @patch("scripts.pipeline.sentence_chunker.SentenceSplitter")
-    def test_creates_splitter_with_custom_params(self, mock_ss_class):
+    def test_creates_splitter_with_custom_params(self):
         """Should create splitter with custom parameters."""
         from scripts.pipeline.sentence_chunker import create_sentence_splitter
 
-        create_sentence_splitter(
+        splitter = create_sentence_splitter(
             chunk_size=1024,
             chunk_overlap=256,
         )
 
-        call_kwargs = mock_ss_class.call_args[1]
-        assert call_kwargs["chunk_size"] == 1024
-        assert call_kwargs["chunk_overlap"] == 256
+        assert splitter._chunk_size == 1024
+        assert splitter._chunk_overlap == 256
 
 
 class TestTokenizer:

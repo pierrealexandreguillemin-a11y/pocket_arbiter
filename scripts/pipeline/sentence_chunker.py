@@ -1,18 +1,22 @@
 """
-Sentence Chunker - Pocket Arbiter (LlamaIndex)
+Recursive Chunker - Pocket Arbiter (LangChain RecursiveCharacterTextSplitter)
 
-Utilise LlamaIndex SentenceSplitter pour chunking basé sur les phrases.
-Meilleure préservation du contexte sémantique pour documents réglementaires.
+Optimisé pour documents réglementaires structurés (articles, sections, listes).
+Respecte la hiérarchie: sections > paragraphes > phrases > mots.
 
-IMPORTANT: Utilise des TOKENS (via tiktoken), pas des caractères.
-           512 tokens ≈ 2048 caractères (ratio moyen 1:4)
+Config: 450 tokens, 100 overlap (22%) - Best practice 2025-2026 pour RAG normatif.
 
 ISO Reference:
     - ISO/IEC 25010 S4.2 - Performance efficiency (Recall >= 80%)
-    - ISO/IEC 42001 - AI traceability
+    - ISO/IEC 42001 - AI traceability (chunking optimisé règlements)
+    - ISO/IEC 12207 S7.3.3 - Implementation (RecursiveCharacterTextSplitter)
+
+Changelog:
+    - 2026-01-18: Switch SentenceSplitter → RecursiveCharacterTextSplitter
+                  450 tokens / 100 overlap (était 512/128)
 
 Usage:
-    python sentence_chunker.py --input corpus/processed/raw_fr --output corpus/processed/chunks_sentence_fr.json
+    python sentence_chunker.py --input corpus/processed/raw_fr --output corpus/processed/chunks_recursive_fr.json
 """
 
 import argparse
@@ -22,7 +26,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 import tiktoken
-from llama_index.core.node_parser import SentenceSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from scripts.pipeline.token_utils import (
     TOKENIZER_NAME,
@@ -35,11 +39,12 @@ logger = logging.getLogger(__name__)
 
 # --- Constants (TOKENS, not characters) ---
 
-DEFAULT_CHUNK_SIZE_TOKENS = 512  # Target: 512 tokens (ISO 25010 optimal)
-DEFAULT_CHUNK_OVERLAP_TOKENS = 128  # 25% overlap (research: 20-25% optimal)
+DEFAULT_CHUNK_SIZE_TOKENS = 450  # Sweet-spot pour embeddings (2025-2026)
+DEFAULT_CHUNK_OVERLAP_TOKENS = 100  # ~22% overlap (recommandé: 20-25%)
 MIN_CHUNK_TOKENS = 50  # Minimum tokens per chunk
-DEFAULT_SEPARATOR = " "
-DEFAULT_PARAGRAPH_SEPARATOR = "\n\n"
+
+# Séparateurs hiérarchiques pour règlements (sections > paragraphes > phrases)
+REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 
 
 def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
@@ -58,22 +63,18 @@ def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
 def create_sentence_splitter(
     chunk_size: int = DEFAULT_CHUNK_SIZE_TOKENS,
     chunk_overlap: int = DEFAULT_CHUNK_OVERLAP_TOKENS,
-    separator: str = DEFAULT_SEPARATOR,
-    paragraph_separator: str = DEFAULT_PARAGRAPH_SEPARATOR,
     tokenizer: tiktoken.Encoding | None = None,
-) -> SentenceSplitter:
+) -> RecursiveCharacterTextSplitter:
     """
-    Crée un SentenceSplitter LlamaIndex configuré avec comptage de TOKENS.
+    Crée un RecursiveCharacterTextSplitter avec comptage de TOKENS.
 
     Args:
         chunk_size: Taille cible des chunks en TOKENS.
         chunk_overlap: Chevauchement entre chunks en TOKENS.
-        separator: Séparateur de mots.
-        paragraph_separator: Séparateur de paragraphes.
         tokenizer: Tokenizer tiktoken (optionnel, créé si non fourni).
 
     Returns:
-        SentenceSplitter configuré avec tokenizer.
+        RecursiveCharacterTextSplitter configuré.
     """
     if tokenizer is None:
         tokenizer = get_tokenizer()
@@ -81,34 +82,33 @@ def create_sentence_splitter(
     token_counter = create_token_counter(tokenizer)
 
     logger.info(
-        f"Creating SentenceSplitter (size={chunk_size} tokens, "
+        f"Creating RecursiveCharacterTextSplitter (size={chunk_size} tokens, "
         f"overlap={chunk_overlap} tokens, tokenizer={TOKENIZER_NAME})"
     )
 
-    return SentenceSplitter(
+    return RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
-        separator=separator,
-        paragraph_separator=paragraph_separator,
-        secondary_chunking_regex="[^,.;。？！]+[,.;。？！]?",  # Sentence boundaries
-        tokenizer=token_counter,  # Use token counting instead of character counting
+        separators=REGULATORY_SEPARATORS,
+        length_function=token_counter,
+        keep_separator=True,
     )
 
 
 def chunk_document_sentence(
     text: str,
-    splitter: SentenceSplitter,
+    splitter: RecursiveCharacterTextSplitter,
     source: str,
     page: int,
     tokenizer: tiktoken.Encoding,
     min_tokens: int = MIN_CHUNK_TOKENS,
 ) -> list[dict]:
     """
-    Chunk un document avec SentenceSplitter.
+    Chunk un document avec RecursiveCharacterTextSplitter.
 
     Args:
         text: Texte du document.
-        splitter: SentenceSplitter configuré.
+        splitter: RecursiveCharacterTextSplitter configuré.
         source: Nom du fichier source.
         page: Numéro de page.
         tokenizer: Tokenizer pour comptage.
@@ -121,10 +121,10 @@ def chunk_document_sentence(
         return []
 
     try:
-        # Split by sentences with token-aware chunking
+        # Split avec hiérarchie séparateurs (sections > paragraphes > phrases)
         raw_chunks = splitter.split_text(text)
     except Exception as e:
-        logger.warning(f"SentenceSplitter failed for {source} p{page}: {e}")
+        logger.warning(f"RecursiveSplitter failed for {source} p{page}: {e}")
         # Fallback: no chunking, return whole text if substantial
         token_count = len(tokenizer.encode(text))
         if token_count >= min_tokens:
@@ -164,7 +164,7 @@ def chunk_document_sentence(
 
 def _process_extraction_file_sentence(
     ext_file: Path,
-    splitter: SentenceSplitter,
+    splitter: RecursiveCharacterTextSplitter,
     tokenizer: tiktoken.Encoding,
     corpus: str,
     chunk_size: int,
@@ -199,7 +199,7 @@ def _process_extraction_file_sentence(
             chunk["id"] = f"{corpus}-{source}-p{page_num}-c{chunk['chunk_index']}"
             chunk["metadata"] = {
                 "corpus": corpus,
-                "chunker": "sentence",
+                "chunker": "recursive",
                 "chunk_size_tokens": chunk_size,
                 "chunk_overlap_tokens": chunk_overlap,
                 "tokenizer": TOKENIZER_NAME,
@@ -252,7 +252,7 @@ def process_corpus_sentence(
     output_data = {
         "corpus": corpus,
         "config": {
-            "chunker": "sentence",
+            "chunker": "recursive",
             "chunk_size_tokens": chunk_size,
             "chunk_overlap_tokens": chunk_overlap,
             "tokenizer": TOKENIZER_NAME,
@@ -273,7 +273,7 @@ def process_corpus_sentence(
     tokens = [c["tokens"] for c in all_chunks]
     report = {
         "corpus": corpus,
-        "chunker": "sentence",
+        "chunker": "recursive",
         "chunk_size_tokens": chunk_size,
         "chunk_overlap_tokens": chunk_overlap,
         "overlap_pct": round(chunk_overlap / chunk_size * 100, 1),

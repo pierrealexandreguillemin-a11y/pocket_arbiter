@@ -142,7 +142,7 @@ class TestExtractTablesFromPdf:
         # Mock empty result from lattice
         mock_camelot.read_pdf.return_value = []
 
-        result = extract_tables_from_pdf(Path("test.pdf"))
+        extract_tables_from_pdf(Path("test.pdf"))
 
         # Should have called read_pdf at least once with lattice
         calls = mock_camelot.read_pdf.call_args_list
@@ -165,7 +165,7 @@ class TestExtractTablesFromPdf:
         mock_df.empty = True  # Will be skipped
         mock_camelot.read_pdf.return_value[0].df = mock_df if len(mock_camelot.read_pdf.return_value) > 0 else None
 
-        result = extract_tables_from_pdf(Path("test.pdf"))
+        extract_tables_from_pdf(Path("test.pdf"))
 
         # Should have called stream as fallback
         calls = mock_camelot.read_pdf.call_args_list

@@ -6,10 +6,7 @@ ISO Reference:
     - ISO/IEC 25010 - Quality requirements
 """
 
-import pytest
-from unittest.mock import Mock, patch
 
-import tiktoken
 
 
 class TestExtractArticleNumber:
@@ -342,7 +339,6 @@ class TestProcessCorpusParentChild:
 
     def test_empty_directory_returns_zero(self, tmp_path):
         """Empty directory should return empty report."""
-        import json
         from scripts.pipeline.parent_child_chunker import process_corpus_parent_child
 
         input_dir = tmp_path / "empty"

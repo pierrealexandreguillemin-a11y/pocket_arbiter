@@ -23,7 +23,6 @@ import tiktoken
 
 from scripts.pipeline.chunker_article import detect_article_boundaries
 from scripts.pipeline.token_utils import (
-    TOKENIZER_NAME,
     count_tokens as _count_tokens_shared,
     get_tokenizer,
 )

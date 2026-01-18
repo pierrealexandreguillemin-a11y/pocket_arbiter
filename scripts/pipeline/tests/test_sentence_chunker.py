@@ -7,7 +7,7 @@ ISO Reference:
 """
 
 import tiktoken
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 
 
 class TestChunkDocumentSentence:

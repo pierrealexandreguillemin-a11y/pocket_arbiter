@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 1.0
-> **Date**: 2026-01-11
+> **Version**: 1.1
+> **Date**: 2026-01-18
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -24,6 +24,8 @@ pocket_arbiter/
 │   ├── VISION.md                  # Vision projet (SPEC-VIS-001)
 │   ├── ARCHITECTURE.md            # Architecture technique (SPEC-ARCH-001)
 │   ├── TEST_PLAN.md               # Plan de tests (TEST-PLAN-001)
+│   ├── CHUNKING_STRATEGY.md       # Strategie chunking (SPEC-CHUNK-001)
+│   ├── ISO_MODEL_DEPLOYMENT_ANALYSIS.md  # Analyse modele (DOC-MODEL-001)
 │   └── DVC_GUIDE.md               # Guide DVC (DOC-GUIDE-001)
 │
 ├── prompts/                       # Prompts IA versiones
@@ -62,13 +64,15 @@ pocket_arbiter/
 |----|----------|-------------|--------|
 | SPEC-VIS-001 | [VISION.md](VISION.md) | Vision et objectifs du projet | Draft |
 | SPEC-ARCH-001 | [ARCHITECTURE.md](ARCHITECTURE.md) | Architecture technique | Draft |
-| SPEC-REQ-001 | [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) | Exigences qualite ISO 25010 | Draft |
+| SPEC-REQ-001 | [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) | Exigences qualite ISO 25010 | En cours |
+| SPEC-CHUNK-001 | [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) | Strategie chunking RAG | En cours |
 
 ### 2.3 Intelligence artificielle
 
 | ID | Document | Description | Statut |
 |----|----------|-------------|--------|
 | DOC-POL-001 | [AI_POLICY.md](AI_POLICY.md) | Politique IA responsable ISO 42001 | Draft |
+| DOC-MODEL-001 | [ISO_MODEL_DEPLOYMENT_ANALYSIS.md](ISO_MODEL_DEPLOYMENT_ANALYSIS.md) | Analyse deploiement modele | Approuve |
 | PROM-LOG-001 | [prompts/CHANGELOG.md](../prompts/CHANGELOG.md) | Historique des versions de prompts | Actif |
 
 ### 2.4 Tests et qualite
@@ -102,6 +106,7 @@ pocket_arbiter/
 - **Archivage** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.4
 
 ### C
+- **Chunking** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md)
 - **Citation** : [AI_POLICY.md](AI_POLICY.md) Section 7.2
 - **Compatibilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.3
 - **Controle documentaire** : [DOC_CONTROL.md](DOC_CONTROL.md)
@@ -150,6 +155,7 @@ pocket_arbiter/
 - **Offline** : [VISION.md](VISION.md) Section 5.1
 
 ### P
+- **Parent-Document Retrieval** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 3.2
 - **Performance** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.2
 - **Phase gates** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
 - **Pipeline** : [ARCHITECTURE.md](ARCHITECTURE.md) Section 5.1
@@ -219,7 +225,7 @@ pocket_arbiter/
 | Phase | Documents cles |
 |-------|---------------|
 | Phase 0 | VISION.md, AI_POLICY.md, ISO_STANDARDS_REFERENCE.md, DOC_CONTROL.md, ARCHITECTURE.md |
-| Phase 1 | ARCHITECTURE.md (Section 5.1), corpus/INVENTORY.md, prompts/CHANGELOG.md |
+| Phase 1 | CHUNKING_STRATEGY.md, ISO_MODEL_DEPLOYMENT_ANALYSIS.md, corpus/INVENTORY.md |
 | Phase 2 | ARCHITECTURE.md (Section 5.2), TEST_PLAN.md (Section 3.2) |
 | Phase 3 | AI_POLICY.md (Section 3.2), TEST_PLAN.md (Section 3.3) |
 | Phase 4 | QUALITY_REQUIREMENTS.md, TEST_PLAN.md (Section 3.4) |
@@ -240,6 +246,7 @@ pocket_arbiter/
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-11 | Claude Opus 4.5 | Creation initiale |
+| 1.1 | 2026-01-18 | Claude Opus 4.5 | Ajout CHUNKING_STRATEGY.md, ISO_MODEL_DEPLOYMENT_ANALYSIS.md |
 
 ---
 

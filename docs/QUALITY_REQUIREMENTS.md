@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-REQ-001
 > **ISO Reference**: ISO/IEC 25010:2023 - Modele de qualite produit
-> **Version**: 1.0
-> **Date**: 2026-01-11
-> **Statut**: Draft
+> **Version**: 1.1
+> **Date**: 2026-01-18
+> **Statut**: En cours
 > **Classification**: Interne
 > **Auteur**: Equipe projet
 > **Mots-cles**: qualite, ISO 25010, exigences, performance, fiabilite, securite, maintenabilite
@@ -55,7 +55,7 @@ Ce document définit les exigences qualité du projet selon les 9 caractéristiq
 
 | ID | Exigence | Cible | Méthode vérification |
 |----|----------|-------|---------------------|
-| FA-01 | Recall retrieval sur test set | ≥ 80% | Tests automatisés |
+| FA-01 | Recall retrieval sur test set | ≥ 80% (cible 90%) | Tests automatisés + benchmark |
 | FA-02 | Precision retrieval sur test set | ≥ 70% | Tests automatisés |
 | FA-03 | Fidélité réponses (éval humaine) | ≥ 85% | Évaluation manuelle 30 questions |
 | FA-04 | Taux hallucination | 0% | Tests adversaires |
@@ -390,4 +390,5 @@ Ce document définit les exigences qualité du projet selon les 9 caractéristiq
 
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
-| 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Création initiale |
+| 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Creation initiale |
+| 1.1 | 2026-01-18 | Claude Opus 4.5 | FA-01 cible recall 90%, chunking v3 strategy |

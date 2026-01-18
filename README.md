@@ -32,6 +32,8 @@ Permettre aux arbitres d'échecs de trouver rapidement les informations régleme
 | [AI_POLICY.md](docs/AI_POLICY.md) | Politique IA responsable | ISO 42001 |
 | [QUALITY_REQUIREMENTS.md](docs/QUALITY_REQUIREMENTS.md) | Exigences qualité | ISO 25010 |
 | [TEST_PLAN.md](docs/TEST_PLAN.md) | Plan de tests | ISO 29119 |
+| [CHUNKING_STRATEGY.md](docs/CHUNKING_STRATEGY.md) | Strategie chunking RAG | ISO 25010 |
+| [ISO_MODEL_DEPLOYMENT_ANALYSIS.md](docs/ISO_MODEL_DEPLOYMENT_ANALYSIS.md) | Analyse deploiement modele | ISO 42001 |
 | [CLAUDE_CODE_INSTRUCTIONS.md](CLAUDE_CODE_INSTRUCTIONS.md) | Instructions pour Claude Code | - |
 
 ---
@@ -71,12 +73,12 @@ Permettre aux arbitres d'échecs de trouver rapidement les informations régleme
 | Phase | Description | Statut |
 |-------|-------------|--------|
 | 0 | Fondations et gouvernance | Termine |
-| 1 | Pipeline de donnees | A faire |
-| 2 | Prototype Android - Retrieval | ⚪ À faire |
-| 3 | Synthèse LLM + Interprétation | ⚪ À faire |
-| 4 | Qualité et optimisation | ⚪ À faire |
-| 5 | Validation et beta | ⚪ À faire |
-| 6 | Production | ⚪ À faire |
+| 1 | Pipeline de donnees | En cours (chunking v3, **recall 85.29%**) |
+| 2 | Prototype Android - Retrieval | A faire |
+| 3 | Synthese LLM + Interpretation | A faire |
+| 4 | Qualite et optimisation | A faire |
+| 5 | Validation et beta | A faire |
+| 6 | Production | A faire |
 
 ---
 

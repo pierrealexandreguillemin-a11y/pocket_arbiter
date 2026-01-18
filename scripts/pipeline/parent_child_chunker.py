@@ -149,8 +149,8 @@ def chunk_document_parent_child(
     parent_chunks = []
     child_chunks = []
 
-    for parent_idx, parent_text in enumerate(parent_texts):
-        parent_text = parent_text.strip()
+    for parent_idx, raw_parent_text in enumerate(parent_texts):
+        parent_text = raw_parent_text.strip()
         if not parent_text:
             continue
 

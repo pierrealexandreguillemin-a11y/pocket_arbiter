@@ -9,14 +9,14 @@ Config: 450 tokens, 100 overlap (22%) - Best practice 2025-2026 pour RAG normati
 ISO Reference:
     - ISO/IEC 25010 S4.2 - Performance efficiency (Recall >= 80%)
     - ISO/IEC 42001 - AI traceability (chunking optimisé règlements)
-    - ISO/IEC 12207 S7.3.3 - Implementation (RecursiveCharacterTextSplitter)
+    - ISO/IEC 12207 S7.3.3 - Implementation (LangChain RecursiveCharacterTextSplitter)
 
 Changelog:
-    - 2026-01-18: Switch SentenceSplitter → RecursiveCharacterTextSplitter
-                  450 tokens / 100 overlap (était 512/128)
+    - 2026-01-18: Switch from LlamaIndex SentenceSplitter to LangChain
+                  RecursiveCharacterTextSplitter. 450 tokens / 100 overlap.
 
 Usage:
-    python sentence_chunker.py --input corpus/processed/raw_fr --output corpus/processed/chunks_recursive_fr.json
+    python -m scripts.pipeline.sentence_chunker --input corpus/processed/raw_fr --output corpus/processed/chunks_recursive_fr.json
 """
 
 import argparse
@@ -49,7 +49,7 @@ REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 
 def create_token_counter(tokenizer: tiktoken.Encoding) -> Callable[[str], int]:
     """
-    Create a token counter function for LlamaIndex SentenceSplitter.
+    Create a token counter function for LangChain text splitters.
 
     Args:
         tokenizer: tiktoken Encoding instance.
@@ -291,9 +291,9 @@ def process_corpus_sentence(
 
 
 def main() -> None:
-    """CLI pour sentence chunking (token-aware)."""
+    """CLI pour recursive chunking (token-aware)."""
     parser = argparse.ArgumentParser(
-        description="Sentence Chunker - Pocket Arbiter (LlamaIndex, token-aware)",
+        description="Recursive Chunker - Pocket Arbiter (LangChain, token-aware)",
     )
     parser.add_argument(
         "--input",

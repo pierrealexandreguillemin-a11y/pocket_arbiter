@@ -171,13 +171,13 @@ class TestChunkDocumentParentChild:
         parent_splitter = create_splitter(800, 100, tokenizer)
         child_splitter = create_splitter(300, 60, tokenizer)
 
-        # Use substantial text to generate chunks
+        # Use substantial text to generate chunks (>800 tokens for parent)
         text = """Article 4.3 Le joueur ou la joueuse doit jouer selon les regles etablies.
         Cette regle s'applique dans tous les cas de tournois officiels.
         Les arbitres doivent verifier que cette regle est respectee.
         En cas de non-respect, des penalites peuvent etre appliquees.
         Le reglement prevoit differentes sanctions selon la gravite.
-        """ * 10  # Repeat to get enough tokens
+        """ * 20  # Repeat to ensure enough tokens for chunking
 
         parents, children = chunk_document_parent_child(
             text=text,
@@ -188,17 +188,19 @@ class TestChunkDocumentParentChild:
             tokenizer=tokenizer,
         )
 
-        # Should have at least one parent and child
-        if parents and children:
-            # Check parent structure
-            parent = parents[0]
-            assert parent["chunk_type"] == "parent"
-            assert parent["source"] == "test.pdf"
-            assert parent["page"] == 5
-            assert "id" in parent
-            assert "tokens" in parent
+        # DETERMINISTIC: Must produce at least one parent
+        assert len(parents) >= 1, "Should produce at least one parent chunk"
 
-            # Check child structure
+        # Check parent structure
+        parent = parents[0]
+        assert parent["chunk_type"] == "parent"
+        assert parent["source"] == "test.pdf"
+        assert parent["page"] == 5
+        assert "id" in parent
+        assert "tokens" in parent
+
+        # Children may or may not exist depending on parent size
+        if children:
             child = children[0]
             assert child["chunk_type"] == "child"
             assert "parent_id" in child
@@ -218,13 +220,14 @@ class TestChunkDocumentParentChild:
         parent_splitter = create_splitter(800, 100, tokenizer)
         child_splitter = create_splitter(300, 60, tokenizer)
 
+        # Enough text to produce at least one parent chunk
         text = """Chapitre III - Regles de competition
 
         Article 4.3.1 Le joueur ou la joueuse doit respecter les cadences.
         Cette disposition s'applique a tous les tournois homologues.
         Le temps de reflexion est defini par l'organisateur selon les normes.
         L'arbitre principal est responsable du controle des pendules.
-        """ * 5
+        """ * 10
 
         parents, children = chunk_document_parent_child(
             text=text,
@@ -235,11 +238,13 @@ class TestChunkDocumentParentChild:
             tokenizer=tokenizer,
         )
 
-        if parents:
-            parent = parents[0]
-            # Should have extracted metadata
-            assert "article_num" in parent
-            assert "section" in parent
+        # DETERMINISTIC: Must produce parents
+        assert len(parents) >= 1, "Should produce at least one parent chunk"
+
+        parent = parents[0]
+        # Should have metadata fields (may be None if not found)
+        assert "article_num" in parent
+        assert "section" in parent
 
 
 class TestConstants:
@@ -277,3 +282,122 @@ class TestConstants:
         from scripts.pipeline.parent_child_chunker import MIN_CHUNK_TOKENS
 
         assert 20 <= MIN_CHUNK_TOKENS <= 50
+
+
+class TestProcessCorpusParentChild:
+    """Tests for process_corpus_parent_child function (ISO 29119)."""
+
+    def test_processes_extraction_files(self, tmp_path):
+        """Should process all JSON extraction files in directory."""
+        import json
+        from scripts.pipeline.parent_child_chunker import process_corpus_parent_child
+
+        # Create input directory with extraction files
+        input_dir = tmp_path / "raw"
+        input_dir.mkdir()
+
+        # Create mock extraction file
+        extraction_data = {
+            "source": "test_doc.pdf",
+            "pages": [
+                {
+                    "page_num": 1,
+                    "text": """Article 1.1 Les regles du jeu d'echecs.
+                    Le joueur doit respecter les regles etablies par la FIDE.
+                    Cette disposition s'applique a tous les tournois officiels.
+                    """ * 10,
+                },
+            ],
+        }
+
+        with open(input_dir / "test_doc.json", "w", encoding="utf-8") as f:
+            json.dump(extraction_data, f)
+
+        output_file = tmp_path / "output" / "chunks.json"
+
+        report = process_corpus_parent_child(
+            input_dir=input_dir,
+            output_file=output_file,
+            corpus="fr",
+        )
+
+        # Verify report structure
+        assert report["corpus"] == "fr"
+        assert report["chunker"] == "parent_child"
+        assert "total_parents" in report
+        assert "total_children" in report
+        assert "total_pages" in report
+        assert report["total_pages"] == 1
+
+        # Verify output file created
+        assert output_file.exists()
+
+        with open(output_file, encoding="utf-8") as f:
+            output_data = json.load(f)
+
+        assert output_data["corpus"] == "fr"
+        assert "parents" in output_data
+        assert "children" in output_data
+        assert "parent_lookup" in output_data
+
+    def test_empty_directory_returns_zero(self, tmp_path):
+        """Empty directory should return empty report."""
+        import json
+        from scripts.pipeline.parent_child_chunker import process_corpus_parent_child
+
+        input_dir = tmp_path / "empty"
+        input_dir.mkdir()
+
+        output_file = tmp_path / "output.json"
+
+        report = process_corpus_parent_child(
+            input_dir=input_dir,
+            output_file=output_file,
+            corpus="fr",
+        )
+
+        assert report["total_parents"] == 0
+        assert report["total_children"] == 0
+        assert report["total_pages"] == 0
+
+    def test_adds_corpus_metadata(self, tmp_path):
+        """Should add corpus field to each chunk."""
+        import json
+        from scripts.pipeline.parent_child_chunker import process_corpus_parent_child
+
+        input_dir = tmp_path / "raw"
+        input_dir.mkdir()
+
+        extraction_data = {
+            "source": "fide_laws.pdf",
+            "pages": [
+                {
+                    "page_num": 1,
+                    "text": """FIDE Laws of Chess. Article 1: The nature and objectives.
+                    The game of chess is played between two opponents.
+                    """ * 15,
+                },
+            ],
+        }
+
+        with open(input_dir / "fide.json", "w", encoding="utf-8") as f:
+            json.dump(extraction_data, f)
+
+        output_file = tmp_path / "chunks_intl.json"
+
+        process_corpus_parent_child(
+            input_dir=input_dir,
+            output_file=output_file,
+            corpus="intl",
+        )
+
+        with open(output_file, encoding="utf-8") as f:
+            data = json.load(f)
+
+        # Check corpus in parents
+        if data["parents"]:
+            assert data["parents"][0]["corpus"] == "intl"
+
+        # Check corpus in children
+        if data["children"]:
+            assert data["children"][0]["corpus"] == "intl"

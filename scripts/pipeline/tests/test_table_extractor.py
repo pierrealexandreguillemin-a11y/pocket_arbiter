@@ -299,3 +299,129 @@ class TestProcessCorpusTables:
 
         assert data["corpus"] == "intl"
         assert data["tables"][0]["corpus"] == "intl"
+
+
+class TestTableExtractorIntegration:
+    """Integration tests for table_extractor (ISO 29119).
+
+    Note: Tests with real PDFs are marked slow and require:
+    - Ghostscript installed
+    - Real PDF files in corpus/
+    """
+
+    def test_detect_and_convert_pipeline(self):
+        """Full pipeline: detect type -> convert to text."""
+        from scripts.pipeline.table_extractor import detect_table_type, table_to_text
+
+        # Simulate a cadence table extracted from PDF
+        headers = ["Catégorie", "Temps de base", "Incrément"]
+        rows = [
+            ["Cadence lente", "90 min", "+30 sec/coup"],
+            ["Cadence rapide", "15 min", "+10 sec/coup"],
+            ["Blitz", "3 min", "+2 sec/coup"],
+        ]
+
+        # Detect type
+        table_type = detect_table_type(headers, rows)
+        assert table_type == "cadence"
+
+        # Convert to text
+        text = table_to_text(headers, rows, table_type)
+
+        # Verify text contains all critical information
+        assert "cadence" in text.lower()
+        assert "90 min" in text
+        assert "Blitz" in text
+        assert "Incrément" in text
+
+    def test_tiebreak_table_full_pipeline(self):
+        """Tiebreak table detection and conversion."""
+        from scripts.pipeline.table_extractor import detect_table_type, table_to_text
+
+        headers = ["Ordre", "Critère de départage"]
+        rows = [
+            ["1", "Buchholz tronqué"],
+            ["2", "Buchholz total"],
+            ["3", "Nombre de victoires"],
+            ["4", "Sonneborn-Berger"],
+        ]
+
+        table_type = detect_table_type(headers, rows)
+        assert table_type == "tiebreak"
+
+        text = table_to_text(headers, rows, table_type)
+        assert "departage" in text.lower()
+        assert "Buchholz" in text
+        assert "Sonneborn" in text
+
+    def test_output_file_structure(self, tmp_path):
+        """Verify output JSON has correct structure."""
+        import json
+        from unittest.mock import patch
+        from scripts.pipeline.table_extractor import process_corpus_tables
+
+        # Create dummy PDF
+        (tmp_path / "test.pdf").touch()
+
+        # Mock extraction to return structured data
+        mock_table = {
+            "id": "test-table0",
+            "source": "test.pdf",
+            "page": 1,
+            "table_index": 0,
+            "table_type": "elo",
+            "headers": ["Rang", "Elo"],
+            "rows": [["1", "2500"]],
+            "text": "Table Elo...",
+            "accuracy": 95.0,
+            "whitespace": 5.0,
+        }
+
+        with patch(
+            "scripts.pipeline.table_extractor.extract_tables_from_pdf"
+        ) as mock_extract:
+            mock_extract.return_value = [mock_table]
+            output_file = tmp_path / "tables.json"
+            process_corpus_tables(tmp_path, output_file, corpus="fr")
+
+        # Verify structure
+        with open(output_file, encoding="utf-8") as f:
+            data = json.load(f)
+
+        assert "config" in data
+        assert data["config"]["extractor"] == "camelot"
+        assert "tables" in data
+        assert len(data["tables"]) == 1
+
+        table = data["tables"][0]
+        assert table["corpus"] == "fr"
+        assert table["table_type"] == "elo"
+        assert table["accuracy"] == 95.0
+
+    @pytest.mark.slow
+    def test_real_pdf_extraction(self):
+        """Test with real PDF (requires Ghostscript).
+
+        Run with: pytest -m slow
+        """
+        from pathlib import Path
+        from scripts.pipeline.table_extractor import extract_tables_from_pdf
+
+        # Try to find a real PDF in corpus
+        corpus_path = Path("corpus/fr")
+        if not corpus_path.exists():
+            pytest.skip("corpus/fr not found")
+
+        pdf_files = list(corpus_path.glob("*.pdf"))
+        if not pdf_files:
+            pytest.skip("No PDF files in corpus/fr")
+
+        # Try first PDF
+        try:
+            tables = extract_tables_from_pdf(pdf_files[0])
+            # Just verify it doesn't crash and returns a list
+            assert isinstance(tables, list)
+        except Exception as e:
+            if "Ghostscript" in str(e):
+                pytest.skip("Ghostscript not installed")
+            raise

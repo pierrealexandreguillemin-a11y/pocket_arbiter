@@ -63,6 +63,7 @@ build/
 
 # Generated chunks JSON (regenerable via pipeline)
 corpus/processed/chunks_*.json
+corpus/processed/tables_*.json
 
 # Models (binaires à télécharger séparément)
 models/*.gguf
@@ -146,3 +147,17 @@ coverage.xml
 
 # Fichiers trackés par DVC (les .dvc sont dans Git, pas les données)
 # Note: les fichiers .dvc DOIVENT être commités
+.env
+
+# =============================================================================
+# MODEL TRAINING (temporary, large)
+# =============================================================================
+model_download/
+models/embeddinggemma-*/
+models/*.jsonl
+tmp_kaggle_*/
+nul
+
+# Report JSON (regenerable)
+corpus/processed/*.report.json
+corpus/processed/*.ids.json

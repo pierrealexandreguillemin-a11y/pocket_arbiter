@@ -241,6 +241,11 @@ def validate_pdf(pdf_path: Path) -> bool:
     """
     Verifie qu'un fichier est un PDF valide.
 
+    Checks:
+        1. File exists
+        2. Has .pdf extension
+        3. Starts with PDF magic number (%PDF-)
+
     Args:
         pdf_path: Chemin vers le fichier a valider.
 
@@ -251,8 +256,14 @@ def validate_pdf(pdf_path: Path) -> bool:
         return False
     if pdf_path.suffix.lower() != ".pdf":
         return False
-    # TODO: Add magic number check
-    return True
+
+    # Check PDF magic number (ISO 32000-1:2008)
+    try:
+        with open(pdf_path, "rb") as f:
+            magic = f.read(5)
+            return magic == b"%PDF-"
+    except (OSError, IOError):
+        return False
 
 
 # --- CLI ---

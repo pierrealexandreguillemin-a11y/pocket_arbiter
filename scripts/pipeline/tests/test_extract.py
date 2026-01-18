@@ -74,11 +74,17 @@ class TestValidatePdf:
         txt_file.write_text("Not a PDF")
         assert validate_pdf(txt_file) is False
 
-    def test_valid_pdf_extension(self, tmp_path: Path):
-        """Retourne True pour fichier .pdf existant."""
+    def test_valid_pdf_magic_number(self, tmp_path: Path):
+        """Retourne True pour fichier avec magic number PDF valide."""
         pdf_file = tmp_path / "document.pdf"
         pdf_file.write_bytes(b"%PDF-1.4 fake content")
         assert validate_pdf(pdf_file) is True
+
+    def test_invalid_pdf_magic_number(self, tmp_path: Path):
+        """Retourne False pour fichier .pdf sans magic number valide."""
+        pdf_file = tmp_path / "fake.pdf"
+        pdf_file.write_bytes(b"This is not a PDF file")
+        assert validate_pdf(pdf_file) is False
 
 
 class TestExtractPdf:

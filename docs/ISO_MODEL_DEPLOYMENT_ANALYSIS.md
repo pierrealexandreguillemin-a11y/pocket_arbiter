@@ -1,10 +1,10 @@
 # Analyse ISO - Pipeline RAG Complet et Déploiement Android
 
 > **Document**: ISO 25010 / ISO 42001 - Analyse de Conformité
-> **Version**: 3.0
+> **Version**: 4.0
 > **Date**: 2026-01-18
 > **Auteur**: Claude Code Assistant
-> **Statut**: ARCHITECTURE RAG COMPLÈTE VALIDÉE
+> **Statut**: BENCHMARK FINE-TUNING COMPLÉTÉ - BASE MODEL RECOMMANDÉ
 
 ---
 
@@ -49,11 +49,28 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1.3 Modèle Fine-Tuné Actuel
+### 1.3 Benchmark Fine-Tuning (2026-01-18)
 
-- **Précision évaluation** : 100% (10/10 sur triplets test)
+**RÉSULTAT : Le fine-tuning a DÉGRADÉ les performances de 17%**
+
+| Configuration | Recall@5 Exact | Recall@5 (tol=2) | Questions Failed |
+|---------------|----------------|------------------|------------------|
+| **Fine-tuned + corpus matched** | 35.05% | 65.69% | 23/68 |
+| **Base model + corpus matched** | 56.13% | **82.84%** | 10/68 |
+| **DELTA** | -21.08% | **-17.15%** | +13 |
+
+**Modèle Fine-Tuné** :
 - **Localisation** : [Pierrax/embeddinggemma-chess-arbiter-fr](https://huggingface.co/Pierrax/embeddinggemma-chess-arbiter-fr)
+- **Précision Kaggle** : 100% (10/10 sur triplets test) - **BIAISÉE**
+- **Recall réel** : 65.69% - **ÉCHEC** (< 80% ISO 25010)
 - **Taille** : 1.21 GB (format safetensors FP32) → **Trop gros pour mobile**
+
+**Causes de l'échec** :
+1. **Overfitting sévère** - 2152 triplets insuffisants pour 300M paramètres
+2. **Distribution shift** - Triplets d'entraînement non représentatifs des questions gold
+3. **Évaluation Kaggle biaisée** - Échantillon issu de l'entraînement ≠ généralisation
+
+**Conclusion ISO 42001** : Le modèle de base `google/embeddinggemma-300M` (82.84%) dépasse le seuil 80% et est **RECOMMANDÉ**.
 
 ---
 
@@ -154,55 +171,51 @@ L'utilisateur sélectionne le corpus (FR ou INTL) **avant** de poser sa question
 
 ## 4. Solutions Recommandées
 
-### 4.1 Solution Optimale : Embedding Unique Multi-Corpus
+### 4.1 Solution Fine-Tuning Unique Multi-Corpus (ABANDONNÉ)
 
-**Principe** : Fine-tuner UN SEUL modèle EmbeddingGemma sur les 2 corpus (FR + INTL).
+> **STATUT : NON RECOMMANDÉ** - Le benchmark du 2026-01-18 a démontré que le fine-tuning
+> avec MultipleNegativesRankingLoss sur 2152 triplets dégrade le recall de 17%.
 
 | Aspect | Détail |
 |--------|--------|
-| **Temps** | 6-12 heures (fine-tuning combiné) |
+| **Temps** | 6-12 heures |
 | **Complexité** | ★★★☆☆ |
-| **Taille finale** | ~180 MB (embedding) + ~200 MB (LLM) = **~380 MB** |
-| **Qualité** | Optimisé pour les 2 corpus |
+| **Qualité mesurée** | **65.69%** (< 80% ISO) - **ÉCHEC** |
 
-**Procédure** :
+**Raisons de l'abandon** :
+- ❌ Recall 65.69% < 80% (seuil ISO 25010)
+- ❌ Overfitting sur triplets d'entraînement
+- ❌ Perte de généralisation hors distribution
+- ❌ Le modèle de base (82.84%) est supérieur
 
-```python
-# 1. Générer triplets pour les 2 corpus
-triplets_fr = load_triplets("data/training/triplets_fr.jsonl")
-triplets_intl = load_triplets("data/training/triplets_intl.jsonl")
-triplets_combined = triplets_fr + triplets_intl
-
-# 2. Fine-tuner sur données combinées
-trainer = SentenceTransformerTrainer(
-    model=model,
-    train_dataset=Dataset.from_list(triplets_combined),
-    loss=MultipleNegativesRankingLoss(model)
-)
-trainer.train()
-
-# 3. Exporter en TFLite
-# ... (ai-edge-torch PTQ/QAT)
-```
-
-**Avantages** :
-- ✅ UN seul modèle embedding pour FR et INTL
-- ✅ Budget respecté (~380 MB total)
-- ✅ Fine-tuning spécifique domaine échecs
-- ✅ Meilleure qualité que base multilingue générique
+**Leçons apprises** :
+1. L'évaluation sur échantillon d'entraînement (100% Kaggle) ne prédit pas la généralisation
+2. 2152 triplets sont insuffisants pour fine-tuner 300M paramètres
+3. MultipleNegativesRankingLoss nécessite des hard negatives soigneusement sélectionnés
 
 ---
 
-### 4.2 Solution Rapide : Base Multilingue (Sans Fine-Tuning)
+### 4.2 Solution Optimale : Base Multilingue (RECOMMANDÉ)
 
-**Principe** : Utiliser litert-community/embeddinggemma-300m directement.
+**Principe** : Utiliser google/embeddinggemma-300M ou litert-community/embeddinggemma-300m.
 
 | Aspect | Détail |
 |--------|--------|
 | **Temps** | 1 heure (téléchargement + intégration) |
 | **Complexité** | ★☆☆☆☆ |
 | **Taille finale** | 179 MB + ~200 MB = **~379 MB** |
-| **Qualité** | Base multilingue (non optimisé domaine) |
+| **Qualité mesurée** | **82.84%** recall@5 (tol=2) - **CONFORME ISO** |
+
+**Benchmark validé (2026-01-18)** :
+```
+╔════════════════════════════════════════════════════════════════╗
+║ google/embeddinggemma-300M sur corpus_fr_v3.db                 ║
+╠════════════════════════════════════════════════════════════════╣
+║ Recall@5 (exact)      : 56.13%                                 ║
+║ Recall@5 (tolerance=2): 82.84%  ✅ > 80% ISO 25010             ║
+║ Questions failed      : 10/68                                  ║
+╚════════════════════════════════════════════════════════════════╝
+```
 
 **Procédure** :
 
@@ -214,13 +227,14 @@ huggingface-cli download litert-community/embeddinggemma-300m \
 ```
 
 **Avantages** :
+- ✅ **Recall 82.84%** - Conforme ISO 25010 (> 80%)
 - ✅ Immédiatement disponible
 - ✅ Déjà quantifié (mixed INT4/INT8)
 - ✅ Testé sur mobile (Samsung S25 Ultra)
+- ✅ **SUPÉRIEUR au modèle fine-tuné** (+17.15%)
 
 **Inconvénients** :
-- ❌ Perte du fine-tuning FR (100% → ~70-80% recall estimé)
-- ❌ Moins précis sur terminologie échecs française
+- ⚠️ Non optimisé spécifiquement pour terminologie échecs (mais suffisant)
 
 ---
 
@@ -318,43 +332,47 @@ RÉPONSE:
 
 ## 6. Matrice de Décision Finale
 
-| Solution | Temps | Taille Totale | Qualité | Recommandation |
-|----------|-------|---------------|---------|----------------|
-| **4.1 Fine-tuning unique** | 6-12h | ~380 MB | ★★★★★ | **OPTIMAL** |
-| **4.2 Base multilingue** | 1h | ~379 MB | ★★★☆ | RAPIDE |
-| **4.3 Distillation MiniLM** | 2-6h | ~280 MB | ★★★★☆ | ULTRA-LÉGER |
+| Solution | Temps | Taille | Recall@5 | ISO Conforme | Recommandation |
+|----------|-------|--------|----------|--------------|----------------|
+| **4.1 Fine-tuning** | 6-12h | ~380 MB | **65.69%** | ❌ < 80% | **ABANDONNÉ** |
+| **4.2 Base multilingue** | 1h | ~379 MB | **82.84%** | ✅ > 80% | **OPTIMAL** |
+| **4.3 Distillation MiniLM** | 2-6h | ~280 MB | À tester | ? | ALTERNATIF |
+
+**Décision finale** : Solution 4.2 (Base multilingue) est **RECOMMANDÉE** avec recall validé 82.84%.
 
 ---
 
 ## 7. Plan d'Action
 
-### Phase 1 : Déploiement Rapide (1-2 heures)
+### Phase 1 : Déploiement avec Base Model (VALIDÉ - 82.84%)
 
 ```
-1. Télécharger litert-community/embeddinggemma-300m (179 MB)
-2. Télécharger Gemma 3 270M TFLite (~200 MB)
-3. Intégrer dans app Android
-4. Tester recall sur questions gold standard
+1. ✅ Benchmark recall validé: 82.84% > 80% ISO
+2. Télécharger litert-community/embeddinggemma-300m (179 MB)
+3. Télécharger Gemma 3 270M TFLite (~200 MB)
+4. Intégrer dans app Android
+5. Tests d'intégration mobile
 ```
 
-### Phase 2 : Optimisation (si recall < 80%)
+### Phase 2 : Optimisation (OPTIONNELLE)
 
 ```
-Option A: Fine-tuning unique FR+INTL (6-12h)
-   → Meilleure qualité, même taille
+Le recall 82.84% est conforme ISO. Optimisation non requise.
 
-Option B: Distillation MiniLM (2-6h)
-   → Plus léger, marge pour LLM plus gros
+Si amélioration souhaitée:
+- Option A: Distillation MiniLM (2-6h) → Plus léger (~280 MB total)
+- Option B: Augmentation données + nouveau fine-tuning (>10k triplets requis)
 ```
 
-### Phase 3 : Génération Triplets INTL
+### Phase 3 : Fine-Tuning Amélioré (SI NÉCESSAIRE)
 
 ```
-Si fine-tuning unique choisi:
-1. Générer questions synthétiques sur corpus INTL
-2. Hard negative mining
-3. Combiner avec triplets FR existants
-4. Fine-tuner modèle combiné
+Conditions pour retenter le fine-tuning:
+1. Générer >10,000 triplets (vs 2152 actuels)
+2. Hard negative mining rigoureux
+3. Évaluation sur dataset de validation SÉPARÉ
+4. Cross-validation k-fold
+5. Early stopping sur validation loss
 ```
 
 ---
@@ -363,11 +381,13 @@ Si fine-tuning unique choisi:
 
 | Fichier | Taille | Source | Statut |
 |---------|--------|--------|--------|
-| `models/embeddinggemma.tflite` | ~180 MB | Fine-tuning unique ou litert | À CRÉER |
+| `models/embeddinggemma.tflite` | ~180 MB | litert-community (base) | À TÉLÉCHARGER |
 | `models/gemma3_270m.tflite` | ~200 MB | Google AI Edge | À TÉLÉCHARGER |
-| `assets/corpus_fr.db` | ~15 MB | Pipeline indexation | EXISTE |
+| `assets/corpus_fr.db` | ~15 MB | Pipeline indexation | ✅ EXISTE (82.84% recall) |
 | `assets/corpus_intl.db` | ~5 MB | Pipeline indexation | À CRÉER |
 | **TOTAL** | **~400 MB** | - | ✅ < 500 MB |
+
+**Note** : Le modèle fine-tuné (`Pierrax/embeddinggemma-chess-arbiter-fr`) n'est **PAS** utilisé car recall insuffisant (65.69% < 80%).
 
 ---
 
@@ -375,12 +395,12 @@ Si fine-tuning unique choisi:
 
 ### 9.1 Checklist
 
-- [ ] **ISO 25010** : Assets < 500 MB
-- [ ] **ISO 25010** : RAM < 500 MB en pic
-- [ ] **ISO 25010** : Latence < 5s end-to-end
-- [ ] **ISO 42001** : Recall >= 80%
-- [ ] **ISO 42001** : 0% hallucination (citations obligatoires)
-- [ ] **ISO 27001** : 100% offline (pas de requête réseau)
+- [x] **ISO 25010** : Assets < 500 MB → ~400 MB ✅
+- [ ] **ISO 25010** : RAM < 500 MB en pic → À TESTER
+- [ ] **ISO 25010** : Latence < 5s end-to-end → À TESTER
+- [x] **ISO 42001** : Recall >= 80% → **82.84%** ✅ (base model)
+- [ ] **ISO 42001** : 0% hallucination (citations obligatoires) → À TESTER
+- [ ] **ISO 27001** : 100% offline (pas de requête réseau) → À TESTER
 
 ### 9.2 Tests de Validation
 
@@ -397,7 +417,7 @@ adb shell dumpsys meminfo com.arbiter
 
 ---
 
-## 10. Références
+## 11. Références
 
 ### Documentation Officielle
 - [Google AI Edge - LiteRT](https://ai.google.dev/edge/litert)
@@ -416,6 +436,18 @@ adb shell dumpsys meminfo com.arbiter
 
 ---
 
+## 10. Historique des Versions
+
+| Version | Date | Changements |
+|---------|------|-------------|
+| 1.0 | 2026-01-17 | Analyse initiale modèle fine-tuné |
+| 2.0 | 2026-01-17 | Ajout choix corpus AVANT query |
+| 3.0 | 2026-01-18 | Pipeline RAG complet (Embedding + LLM) |
+| **4.0** | **2026-01-18** | **Benchmark fine-tuning: ÉCHEC (65.69% < 80%)** |
+
+---
+
 **Document mis à jour le 2026-01-18**
-**Version 3.0 - Pipeline RAG complet (Embedding + LLM)**
+**Version 4.0 - Benchmark Fine-Tuning Complété**
+**Résultat: Base model (82.84%) > Fine-tuned (65.69%) → Base model RECOMMANDÉ**
 **Conforme ISO 25010, ISO 42001, ISO 12207, ISO 27001**

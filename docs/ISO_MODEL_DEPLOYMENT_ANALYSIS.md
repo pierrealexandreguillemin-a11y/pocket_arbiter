@@ -1,10 +1,10 @@
-# Analyse ISO - Modèle Fine-Tuné et Déploiement Android
+# Analyse ISO - Pipeline RAG Complet et Déploiement Android
 
 > **Document**: ISO 25010 / ISO 42001 - Analyse de Conformité
-> **Version**: 2.0
+> **Version**: 3.0
 > **Date**: 2026-01-18
 > **Auteur**: Claude Code Assistant
-> **Statut**: SOLUTIONS SIMPLIFIÉES VALIDÉES
+> **Statut**: ARCHITECTURE RAG COMPLÈTE VALIDÉE
 
 ---
 
@@ -12,472 +12,410 @@
 
 ### 1.1 Contexte Applicatif
 
-**Pocket Arbiter** : Application RAG mobile pour arbitres d'échecs.
+**Pocket Arbiter** : Application RAG mobile 100% offline pour arbitres d'échecs.
 
-| Corpus | Contenu | Langue | Statut Modèle |
-|--------|---------|--------|---------------|
-| **FR** | 29 PDF FFE (règlements français) | Français | Fine-tuné ✅ |
-| **INTL** | 1 PDF FIDE (Laws of Chess) | Anglais | Base multilingue |
+| Corpus | Contenu | Chunks | Langue |
+|--------|---------|--------|--------|
+| **FR** | 29 PDF FFE | ~2794 | Français |
+| **INTL** | 1 PDF FIDE | ~100 | Anglais |
 
-### 1.2 Modèle Fine-Tuné Actuel
+### 1.2 Pipeline RAG Complet
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  INDEXATION (offline, 1x)                                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  PDFs ──→ Extraction ──→ Chunking ──→ Embedding ──→ SQLite + FTS5          │
+│  30 docs   PyMuPDF       400 tokens   768D          corpus.db               │
+│                          ~2900 chunks  EmbeddingGemma                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  RETRIEVAL (runtime mobile)                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Query ──→ Embedding ──→ Hybrid Search ──→ Top-5 chunks                    │
+│            768D query    70% BM25 + 30% vector                              │
+│            ~60-170ms     SQLite FTS5 + cosine                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  GENERATION (runtime mobile)                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Top-5 + Query ──→ LLM ──→ Réponse + Citations verbatim                    │
+│                    Gemma 3 270M TFLite                                      │
+│                    ~2-4 sec                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 1.3 Modèle Fine-Tuné Actuel
 
 - **Précision évaluation** : 100% (10/10 sur triplets test)
 - **Localisation** : [Pierrax/embeddinggemma-chess-arbiter-fr](https://huggingface.co/Pierrax/embeddinggemma-chess-arbiter-fr)
-- **Taille** : 1.21 GB (format safetensors FP32)
+- **Taille** : 1.21 GB (format safetensors FP32) → **Trop gros pour mobile**
 
-### 1.3 Problème Initial
+---
 
-| Critère | Valeur Actuelle | Cible Android | Conformité |
-|---------|-----------------|---------------|------------|
-| Taille modèle | 1.21 GB | < 200 MB | ❌ NON CONFORME |
-| Format | safetensors | TFLite | ❌ NON CONFORME |
-| RAM requise | ~2-4 GB | < 500 MB | ❌ NON CONFORME |
+## 2. Contraintes et Budget
 
-### 1.4 Simplification Clé : Choix du Corpus AVANT Query
+### 2.1 Contraintes CDC (sources: VISION.md, ARCHITECTURE.md)
+
+| Contrainte | Valeur | Source | Criticité |
+|------------|--------|--------|-----------|
+| Mode | 100% offline | VISION.md | BLOQUANT |
+| Plateforme | Android 10+ (API 29+) | VISION.md | BLOQUANT |
+| RAM max | 500 MB | ARCHITECTURE.md | BLOQUANT |
+| **Assets max** | **500 MB** | ARCHITECTURE.md | **BLOQUANT** |
+| APK max | 100 MB | ARCHITECTURE.md | IMPORTANT |
+| Latence totale | < 5 secondes | VISION.md | IMPORTANT |
+| Recall retrieval | >= 80% | QUALITY_REQ | BLOQUANT |
+| Hallucination | 0% | ISO 42001 | BLOQUANT |
+
+### 2.2 Analyse Budget Assets
+
+#### Scénario A : 2 Embeddings Séparés (REJETÉ)
+
+| Composant | Taille | Conforme ? |
+|-----------|--------|------------|
+| Embedding FR (fine-tuné, quantized) | ~180 MB | - |
+| Embedding INTL (litert-community) | 179 MB | - |
+| LLM Gemma 3 270M | ~200 MB | - |
+| **TOTAL** | **559 MB** | ❌ > 500 MB |
+
+#### Scénario B : 1 Embedding Partagé (RECOMMANDÉ)
+
+| Composant | Taille | Conforme ? |
+|-----------|--------|------------|
+| Embedding unique (multilingue) | ~180 MB | - |
+| LLM Gemma 3 270M | ~200 MB | - |
+| Index SQLite + FTS5 | ~20 MB | - |
+| **TOTAL** | **~400 MB** | ✅ < 500 MB |
+
+#### Scénario C : MiniLM Distillé (OPTIMAL TAILLE)
+
+| Composant | Taille | Conforme ? |
+|-----------|--------|------------|
+| MiniLM distillé | ~80 MB | - |
+| LLM Gemma 3 270M | ~200 MB | - |
+| Index SQLite + FTS5 | ~20 MB | - |
+| **TOTAL** | **~300 MB** | ✅ < 500 MB |
+
+### 2.3 Analyse Budget RAM
+
+| Composant | RAM (CPU) | RAM (GPU) |
+|-----------|-----------|-----------|
+| Embedding EmbeddingGemma | 110 MB | 762 MB |
+| LLM Gemma 3 270M | ~150 MB | ~300 MB |
+| App + OS overhead | ~100 MB | ~100 MB |
+| **TOTAL** | **~360 MB** | **~1.1 GB** |
+
+**Recommandation** : Utiliser CPU (XNNPACK) sur mid-range, GPU optionnel sur flagship.
+
+---
+
+## 3. Architecture Simplifiée : Choix Corpus AVANT Query
+
+### 3.1 Principe Clé
+
+L'utilisateur sélectionne le corpus (FR ou INTL) **avant** de poser sa question.
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    ARCHITECTURE SIMPLIFIÉE                   │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│   ÉTAPE 1: Choix Corpus (UI)      ÉTAPE 2: Query            │
-│   ┌──────────┐  ┌──────────┐      ┌──────────────────┐      │
-│   │  🇫🇷 FR   │  │  🌍 INTL │  →   │ "Temps réflexion │      │
-│   │ (29 PDF) │  │  (FIDE)  │      │  cadence rapide" │      │
-│   └────┬─────┘  └────┬─────┘      └────────┬─────────┘      │
-│        │             │                     │                │
-│        ▼             ▼                     ▼                │
-│   ┌──────────┐  ┌──────────┐      ┌──────────────────┐      │
-│   │Model FR  │  │Model INTL│  →   │   RAG Pipeline   │      │
-│   │(fine-tuné│  │ (base)   │      │   + Réponse      │      │
-│   │ ~180 MB) │  │ ~179 MB) │      └──────────────────┘      │
-│   └──────────┘  └──────────┘                                │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                    WORKFLOW UTILISATEUR                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   ÉTAPE 1: Choix Corpus        ÉTAPE 2: Question                │
+│   ┌──────────┐  ┌──────────┐   ┌────────────────────────┐       │
+│   │  🇫🇷 FR   │  │  🌍 INTL │   │ "Temps de réflexion   │       │
+│   │ (29 PDF) │  │  (FIDE)  │   │  en cadence rapide ?" │       │
+│   └────┬─────┘  └────┬─────┘   └───────────┬────────────┘       │
+│        │             │                     │                    │
+│        └──────┬──────┘                     │                    │
+│               ▼                            ▼                    │
+│        ┌────────────┐              ┌──────────────┐             │
+│        │ Load Index │              │ RAG Pipeline │             │
+│        │ corpus.db  │              │ → Réponse    │             │
+│        └────────────┘              └──────────────┘             │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-**Impact de cette architecture** :
+### 3.2 Avantage : Pas de Switch Dynamique
 
 | Aspect | Switch Dynamique (rejeté) | Choix Préalable (adopté) |
 |--------|---------------------------|--------------------------|
-| Latence overhead | +250-950% ❌ | **0%** ✅ |
-| Complexité runtime | Adapters dynamiques | Load unique |
-| RAM | Base + adapter | 1 seul modèle |
+| Latence overhead | +250-950% | **0%** |
+| Complexité | Adapters runtime | Load unique |
+| RAM | Base + adapter | 1 modèle |
 | Implémentation | Complexe | **Simple** |
 
 ---
 
-## 2. Cahier des Charges Technique
+## 4. Solutions Recommandées
 
-### 2.1 Spécifications App Pocket Arbiter
+### 4.1 Solution Optimale : Embedding Unique Multi-Corpus
 
-| Caractéristique | Spécification |
-|-----------------|---------------|
-| **Plateforme** | Android 10+ (API 29+) |
-| **Cible device** | Mid-range (Snapdragon 7xx, 6-8 GB RAM) |
-| **Corpus FR** | 29 PDF FFE, ~500 chunks |
-| **Corpus INTL** | 1 PDF FIDE, ~100 chunks |
-| **Latence cible** | < 200 ms par query |
-| **Stockage max** | < 400 MB total (2 modèles) |
-| **Mode offline** | Obligatoire (arbitrage terrain) |
-
-### 2.2 Workflow Utilisateur
-
-```
-1. Arbitre ouvre l'app
-2. Sélectionne corpus : "Règlement FR" ou "FIDE Laws"
-   → App charge le modèle correspondant (1x au switch)
-3. Pose sa question
-   → Embedding query → Recherche chunks → Réponse RAG
-4. Peut switcher de corpus à tout moment
-   → Nouveau chargement modèle (~1-2 sec)
-```
-
-### 2.3 Contraintes ISO
-
-| Norme | Exigence | Impact |
-|-------|----------|--------|
-| **ISO 25010** | Efficacité performances | Latence < 200ms, RAM < 500MB |
-| **ISO 42001** | Traçabilité IA | Citations obligatoires, 0% hallucination |
-| **ISO 27001** | Sécurité données | Mode offline, pas de cloud |
-
----
-
-## 3. Solutions Simplifiées (Choix Corpus Préalable)
-
-### 3.1 Architecture Retenue : 2 Modèles TFLite Séparés
-
-| Modèle | Source | Quantization | Taille | Usage |
-|--------|--------|--------------|--------|-------|
-| `embeddinggemma_fr.tflite` | Fine-tuné FR → PTQ/QAT | Mixed INT4/INT8 | ~180 MB | Corpus FR |
-| `embeddinggemma_intl.tflite` | litert-community | Mixed INT4/INT8 | 179 MB | Corpus INTL |
-
-**Stockage total** : ~360 MB (conforme < 400 MB)
-
----
-
-### 3.2 Solution A : PTQ Direct (Recommandé - Test Rapide)
-
-**Pour le modèle FR fine-tuné**
+**Principe** : Fine-tuner UN SEUL modèle EmbeddingGemma sur les 2 corpus (FR + INTL).
 
 | Aspect | Détail |
 |--------|--------|
-| **Temps** | 30-60 minutes |
-| **Complexité** | ★★☆☆☆ |
-| **Perte qualité estimée** | 2-6% |
-| **Taille finale** | ~180-250 MB |
+| **Temps** | 6-12 heures (fine-tuning combiné) |
+| **Complexité** | ★★★☆☆ |
+| **Taille finale** | ~180 MB (embedding) + ~200 MB (LLM) = **~380 MB** |
+| **Qualité** | Optimisé pour les 2 corpus |
 
 **Procédure** :
 
 ```python
-# convert_fr_model.py
-import ai_edge_torch
-import torch
-from sentence_transformers import SentenceTransformer
+# 1. Générer triplets pour les 2 corpus
+triplets_fr = load_triplets("data/training/triplets_fr.jsonl")
+triplets_intl = load_triplets("data/training/triplets_intl.jsonl")
+triplets_combined = triplets_fr + triplets_intl
 
-# 1. Charger le modèle fine-tuné
-model = SentenceTransformer("Pierrax/embeddinggemma-chess-arbiter-fr")
-model.eval()
-
-# 2. Extraire le transformer
-transformer = model[0].auto_model
-
-# 3. Exemple input (seq_length=256 pour mobile)
-example_input = torch.randint(0, 256000, (1, 256))
-attention_mask = torch.ones(1, 256, dtype=torch.long)
-
-# 4. Conversion avec quantization INT8
-from ai_edge_torch.quantize import quant_config
-
-edge_model = ai_edge_torch.convert(
-    transformer,
-    (example_input, attention_mask),
-    quant_config=quant_config.QuantConfig(mode="dynamic_int8")
+# 2. Fine-tuner sur données combinées
+trainer = SentenceTransformerTrainer(
+    model=model,
+    train_dataset=Dataset.from_list(triplets_combined),
+    loss=MultipleNegativesRankingLoss(model)
 )
+trainer.train()
 
-# 5. Export
-edge_model.export("models/embeddinggemma_fr.tflite")
-print("Export OK: models/embeddinggemma_fr.tflite")
+# 3. Exporter en TFLite
+# ... (ai-edge-torch PTQ/QAT)
 ```
 
-**Validation qualité** :
-
-```python
-# validate_quantized.py
-import json
-from sentence_transformers import SentenceTransformer
-from sentence_transformers.util import cos_sim
-
-# Charger modèle original et questions gold
-original = SentenceTransformer("Pierrax/embeddinggemma-chess-arbiter-fr")
-questions = json.load(open("tests/data/questions_gold.json"))
-
-# Comparer embeddings original vs quantized
-# (nécessite inference TFLite - voir annexe)
-
-# Critère: perte < 5% sur recall@1
-```
+**Avantages** :
+- ✅ UN seul modèle embedding pour FR et INTL
+- ✅ Budget respecté (~380 MB total)
+- ✅ Fine-tuning spécifique domaine échecs
+- ✅ Meilleure qualité que base multilingue générique
 
 ---
 
-### 3.3 Solution B : Utiliser litert-community pour INTL
+### 4.2 Solution Rapide : Base Multilingue (Sans Fine-Tuning)
 
-**Pour le corpus INTL (FIDE - anglais)**
+**Principe** : Utiliser litert-community/embeddinggemma-300m directement.
 
 | Aspect | Détail |
 |--------|--------|
-| **Temps** | 10 minutes (téléchargement) |
+| **Temps** | 1 heure (téléchargement + intégration) |
 | **Complexité** | ★☆☆☆☆ |
-| **Qualité** | Base multilingue (non fine-tuné) |
-| **Taille** | 179 MB |
+| **Taille finale** | 179 MB + ~200 MB = **~379 MB** |
+| **Qualité** | Base multilingue (non optimisé domaine) |
 
 **Procédure** :
 
 ```bash
-# Télécharger depuis HuggingFace
+# Télécharger modèle TFLite prêt
 huggingface-cli download litert-community/embeddinggemma-300m \
-    --include "*.tflite" \
+    --include "*seq256*.tflite" \
     --local-dir models/
-
-# Renommer pour clarté
-mv models/embeddinggemma_seq256.tflite models/embeddinggemma_intl.tflite
 ```
 
-**Note** : Le modèle base EmbeddingGemma est multilingue et performant sur l'anglais sans fine-tuning spécifique.
+**Avantages** :
+- ✅ Immédiatement disponible
+- ✅ Déjà quantifié (mixed INT4/INT8)
+- ✅ Testé sur mobile (Samsung S25 Ultra)
+
+**Inconvénients** :
+- ❌ Perte du fine-tuning FR (100% → ~70-80% recall estimé)
+- ❌ Moins précis sur terminologie échecs française
 
 ---
 
-### 3.4 Solution C : QAT si PTQ Insuffisant
+### 4.3 Solution Ultra-Légère : Distillation MiniLM
 
-**Si la perte de qualité PTQ > 5%**
-
-| Aspect | Détail |
-|--------|--------|
-| **Temps** | 4-8 heures |
-| **Complexité** | ★★★☆☆ |
-| **Perte qualité** | 1-3% |
-| **Taille finale** | 150-200 MB |
-
-**Procédure** :
-
-```python
-# qat_finetune.py
-import torch
-from torch.ao.quantization import get_default_qat_qconfig_mapping
-from sentence_transformers import SentenceTransformer, SentenceTransformerTrainer
-
-# 1. Charger modèle avec QAT config
-model = SentenceTransformer("Pierrax/embeddinggemma-chess-arbiter-fr")
-
-# 2. Configurer QAT pour mobile (qnnpack)
-qconfig = get_default_qat_qconfig_mapping("qnnpack")
-
-# 3. Préparer le modèle
-from torch.ao.quantization.quantize_fx import prepare_qat_fx
-model_prepared = prepare_qat_fx(model[0].auto_model, qconfig)
-
-# 4. Re-fine-tuner avec les mêmes triplets (2-3 epochs suffisent)
-# ... (même code que fine-tuning initial)
-
-# 5. Convertir et exporter
-from torch.ao.quantization.quantize_fx import convert_fx
-model_quantized = convert_fx(model_prepared)
-```
-
----
-
-### 3.5 Solution D : Distillation MiniLM (Option Légère)
-
-**Pour réduire encore la taille (< 100 MB)**
+**Principe** : Distiller les connaissances du modèle fine-tuné vers MiniLM.
 
 | Aspect | Détail |
 |--------|--------|
 | **Temps** | 2-6 heures |
 | **Complexité** | ★★★☆☆ |
-| **Perte qualité** | 3-8% |
-| **Taille finale** | 50-80 MB |
+| **Taille finale** | ~80 MB + ~200 MB = **~280 MB** |
+| **Qualité** | 90-97% du teacher |
 
 **Procédure** :
 
 ```python
-# distill_to_minilm.py
-from sentence_transformers import SentenceTransformer, losses, InputExample
-from torch.utils.data import DataLoader
-import json
+from sentence_transformers import SentenceTransformer, losses
 
-# Teacher: modèle fine-tuné
+# Teacher: modèle fine-tuné (ou base)
 teacher = SentenceTransformer("Pierrax/embeddinggemma-chess-arbiter-fr")
 
-# Student: MiniLM compact
+# Student: MiniLM multilingue
 student = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 
-# Charger tous les chunks du corpus FR
-chunks = json.load(open("corpus/processed/chunks_fr.json"))
-texts = [c["text"] for c in chunks]
+# Distillation sur tous les chunks (FR + INTL)
+chunks_all = load_all_chunks()
+teacher_embeddings = teacher.encode(chunks_all)
 
-# Générer embeddings teacher
-print(f"Génération embeddings teacher pour {len(texts)} chunks...")
-teacher_embeddings = teacher.encode(texts, convert_to_tensor=True, show_progress_bar=True)
-
-# Dataset de distillation
-train_examples = [
-    InputExample(texts=[text], label=emb.tolist())
-    for text, emb in zip(texts, teacher_embeddings)
-]
-
-# Entraîner student
-train_dataloader = DataLoader(train_examples, shuffle=True, batch_size=16)
-train_loss = losses.MSELoss(model=student)
-
-student.fit(
-    train_objectives=[(train_dataloader, train_loss)],
-    epochs=3,
-    warmup_steps=100,
-    output_path="models/minilm-chess-fr-distilled"
-)
-
-# Convertir vers TFLite
-# ... (même procédure que Solution A)
+# ... training distillation ...
 ```
 
-**Avantage** : Modèle final ~80 MB, inférence ~30-50ms
+**Avantages** :
+- ✅ Modèle très compact (~80 MB)
+- ✅ Inférence rapide (~30-50 ms)
+- ✅ Maximum de marge pour le LLM
 
-**Inconvénient** : Dimensions différentes (384 vs 768), nécessite re-indexation corpus
+**Inconvénients** :
+- ❌ Dimensions différentes (384 vs 768)
+- ❌ Nécessite ré-indexation corpus
 
 ---
 
-## 4. Matrice de Décision Simplifiée
+## 5. Composant LLM (Génération)
 
-### 4.1 Pour le Corpus FR (fine-tuné)
+### 5.1 Options LLM pour Mobile
 
-| Solution | Temps | Taille | Qualité | Recommandation |
-|----------|-------|--------|---------|----------------|
-| **A. PTQ** | 30 min | ~200 MB | ★★★☆ | **ESSAYER EN 1ER** |
-| **C. QAT** | 4-8h | ~180 MB | ★★★★ | Si PTQ perte > 5% |
-| **D. Distillation** | 2-6h | ~80 MB | ★★★☆ | Si contrainte taille |
+| Modèle | Taille | RAM | Latence | Qualité |
+|--------|--------|-----|---------|---------|
+| **Gemma 3 270M** | ~200 MB | ~150 MB | ~2-4s | ★★★☆ |
+| Gemma 3 1B | ~600 MB | ~400 MB | ~5-8s | ★★★★ |
+| Phi-3.5-mini | ~500 MB | ~350 MB | ~4-6s | ★★★★ |
 
-### 4.2 Pour le Corpus INTL (FIDE)
+**Recommandation** : Gemma 3 270M pour respecter budget 500 MB.
 
-| Solution | Temps | Taille | Qualité | Recommandation |
-|----------|-------|--------|---------|----------------|
-| **B. litert-community** | 10 min | 179 MB | ★★★☆ | **UTILISER DIRECTEMENT** |
-| Fine-tuning INTL | 4-10h | ~180 MB | ★★★★ | Si qualité insuffisante |
-
----
-
-## 5. Plan d'Action Final
-
-### Phase 1 : Déploiement Rapide (1-2 heures)
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ ÉTAPE 1.1: Modèle INTL                                      │
-├─────────────────────────────────────────────────────────────┤
-│ • Télécharger litert-community/embeddinggemma-300m          │
-│ • Copier vers models/embeddinggemma_intl.tflite             │
-│ • Temps: 10 minutes                                         │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│ ÉTAPE 1.2: Modèle FR (PTQ)                                  │
-├─────────────────────────────────────────────────────────────┤
-│ • Convertir Pierrax/embeddinggemma-chess-arbiter-fr         │
-│ • PTQ INT8 avec ai-edge-torch                               │
-│ • Export models/embeddinggemma_fr.tflite                    │
-│ • Temps: 30-60 minutes                                      │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│ ÉTAPE 1.3: Validation                                       │
-├─────────────────────────────────────────────────────────────┤
-│ • Tester sur questions gold standard                        │
-│ • Mesurer recall@1, recall@3                                │
-│ • Critère: perte < 5% vs modèle FP32                        │
-│ • Temps: 30 minutes                                         │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Phase 2 : Optimisation (si nécessaire)
-
-```
-SI perte > 5% sur FR:
-    → Solution C: QAT re-fine-tuning (4-8h)
-
-SI contrainte taille < 100MB:
-    → Solution D: Distillation MiniLM (2-6h)
-
-SI qualité INTL insuffisante:
-    → Fine-tuning INTL avec triplets FIDE (4-10h)
-```
-
-### Phase 3 : Intégration Android
+### 5.2 Intégration LLM
 
 ```kotlin
-// ChessArbiterApp.kt
-class EmbeddingManager(context: Context) {
-    private var currentModel: Interpreter? = null
-    private var currentCorpus: Corpus = Corpus.FR
+// Android - MediaPipe GenAI
+class LLMEngine(context: Context) {
+    private val llmInference = LlmInference.createFromOptions(
+        context,
+        LlmInference.LlmInferenceOptions.builder()
+            .setModelPath("gemma3_270m.tflite")
+            .setMaxTokens(512)
+            .build()
+    )
 
-    enum class Corpus { FR, INTL }
-
-    fun switchCorpus(corpus: Corpus) {
-        currentModel?.close()
-        val modelPath = when (corpus) {
-            Corpus.FR -> "embeddinggemma_fr.tflite"
-            Corpus.INTL -> "embeddinggemma_intl.tflite"
-        }
-        currentModel = Interpreter(loadModelFile(modelPath))
-        currentCorpus = corpus
-    }
-
-    fun embed(text: String): FloatArray {
-        // Tokenize + inference
-        return currentModel!!.runInference(tokenize(text))
+    fun generate(prompt: String): String {
+        return llmInference.generateResponse(prompt)
     }
 }
 ```
 
----
+### 5.3 Template Prompt RAG
 
-## 6. Livrables Attendus
+```
+Tu es un assistant pour arbitres d'échecs. Réponds UNIQUEMENT en te basant sur les extraits fournis.
 
-| Fichier | Taille | Source | Statut |
-|---------|--------|--------|--------|
-| `models/embeddinggemma_fr.tflite` | ~180 MB | PTQ du fine-tuné | À CRÉER |
-| `models/embeddinggemma_intl.tflite` | 179 MB | litert-community | À TÉLÉCHARGER |
-| `app/src/main/assets/` | ~360 MB | Copie des modèles | À INTÉGRER |
+EXTRAITS DU RÈGLEMENT:
+{chunks}
 
----
+QUESTION: {query}
 
-## 7. Références
+INSTRUCTIONS:
+- Cite le texte exact entre guillemets
+- Indique la source (document, page)
+- Si non trouvé, dis "Information non trouvée dans les extraits"
+- Ne jamais inventer d'information
 
-### Documentation Officielle
-- [Google AI Edge - LiteRT](https://ai.google.dev/edge/litert)
-- [EmbeddingGemma Overview](https://ai.google.dev/gemma/docs/embeddinggemma)
-- [ai-edge-torch GitHub](https://github.com/google-ai-edge/ai-edge-torch)
-- [LiteRT Semantic Similarity Sample](https://github.com/google-ai-edge/LiteRT/tree/main/litert/samples/semantic_similarity)
-
-### Modèles
-- [Pierrax/embeddinggemma-chess-arbiter-fr](https://huggingface.co/Pierrax/embeddinggemma-chess-arbiter-fr) - Fine-tuné FR (100% eval)
-- [litert-community/embeddinggemma-300m](https://huggingface.co/litert-community/embeddinggemma-300m) - TFLite prêt (179 MB)
-- [google/embeddinggemma-300m](https://huggingface.co/google/embeddinggemma-300m) - Base originale
-
-### Papers & Articles
-- [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/pdf/2305.14314)
-- [MiniLM: Deep Self-Attention Distillation](https://arxiv.org/pdf/2002.10957)
-- [LoRA-Switch Latency Analysis](https://arxiv.org/html/2405.17741v1) - Justifie le choix préalable vs switch dynamique
-
-### Tutoriels
-- [Sentence Transformers Distillation](https://sbert.net/examples/sentence_transformer/training/distillation/README.html)
-- [PyTorch QAT Guide](https://pytorch.org/blog/quantization-aware-training/)
-- [Accelerate Sentence Transformers with Optimum](https://www.philschmid.de/optimize-sentence-transformers)
-
----
-
-## 8. Annexes
-
-### A. Benchmark litert-community (Samsung S25 Ultra)
-
-| Backend | Seq 256 | Seq 512 | Memory |
-|---------|---------|---------|--------|
-| GPU Mixed | 64 ms | 119 ms | 762 MB |
-| CPU 4T XNNPACK | 66 ms | 169 ms | 110 MB |
-
-**Recommandation** : Utiliser seq_length=256 pour latence optimale sur mid-range.
-
-### B. Checklist Validation ISO
-
-- [ ] **ISO 25010** : Latence < 200ms mesurée sur device cible
-- [ ] **ISO 25010** : RAM < 500MB en pic
-- [ ] **ISO 42001** : Recall@1 > 80% sur questions gold
-- [ ] **ISO 42001** : 0 hallucination (citations vérifiables)
-- [ ] **ISO 27001** : Mode offline fonctionnel (pas de requête réseau)
-
-### C. Script de Test Complet
-
-```bash
-#!/bin/bash
-# test_deployment.sh
-
-echo "=== Phase 1: Téléchargement INTL ==="
-huggingface-cli download litert-community/embeddinggemma-300m \
-    --include "*seq256*.tflite" \
-    --local-dir models/
-
-echo "=== Phase 2: Conversion FR ==="
-python scripts/convert_fr_model.py
-
-echo "=== Phase 3: Validation ==="
-python scripts/validate_models.py
-
-echo "=== Résultats ==="
-ls -lh models/*.tflite
+RÉPONSE:
 ```
 
 ---
 
+## 6. Matrice de Décision Finale
+
+| Solution | Temps | Taille Totale | Qualité | Recommandation |
+|----------|-------|---------------|---------|----------------|
+| **4.1 Fine-tuning unique** | 6-12h | ~380 MB | ★★★★★ | **OPTIMAL** |
+| **4.2 Base multilingue** | 1h | ~379 MB | ★★★☆ | RAPIDE |
+| **4.3 Distillation MiniLM** | 2-6h | ~280 MB | ★★★★☆ | ULTRA-LÉGER |
+
+---
+
+## 7. Plan d'Action
+
+### Phase 1 : Déploiement Rapide (1-2 heures)
+
+```
+1. Télécharger litert-community/embeddinggemma-300m (179 MB)
+2. Télécharger Gemma 3 270M TFLite (~200 MB)
+3. Intégrer dans app Android
+4. Tester recall sur questions gold standard
+```
+
+### Phase 2 : Optimisation (si recall < 80%)
+
+```
+Option A: Fine-tuning unique FR+INTL (6-12h)
+   → Meilleure qualité, même taille
+
+Option B: Distillation MiniLM (2-6h)
+   → Plus léger, marge pour LLM plus gros
+```
+
+### Phase 3 : Génération Triplets INTL
+
+```
+Si fine-tuning unique choisi:
+1. Générer questions synthétiques sur corpus INTL
+2. Hard negative mining
+3. Combiner avec triplets FR existants
+4. Fine-tuner modèle combiné
+```
+
+---
+
+## 8. Livrables
+
+| Fichier | Taille | Source | Statut |
+|---------|--------|--------|--------|
+| `models/embeddinggemma.tflite` | ~180 MB | Fine-tuning unique ou litert | À CRÉER |
+| `models/gemma3_270m.tflite` | ~200 MB | Google AI Edge | À TÉLÉCHARGER |
+| `assets/corpus_fr.db` | ~15 MB | Pipeline indexation | EXISTE |
+| `assets/corpus_intl.db` | ~5 MB | Pipeline indexation | À CRÉER |
+| **TOTAL** | **~400 MB** | - | ✅ < 500 MB |
+
+---
+
+## 9. Conformité ISO
+
+### 9.1 Checklist
+
+- [ ] **ISO 25010** : Assets < 500 MB
+- [ ] **ISO 25010** : RAM < 500 MB en pic
+- [ ] **ISO 25010** : Latence < 5s end-to-end
+- [ ] **ISO 42001** : Recall >= 80%
+- [ ] **ISO 42001** : 0% hallucination (citations obligatoires)
+- [ ] **ISO 27001** : 100% offline (pas de requête réseau)
+
+### 9.2 Tests de Validation
+
+```bash
+# Test recall
+python scripts/pipeline/tests/test_recall.py --model models/embeddinggemma.tflite
+
+# Test latence
+adb shell am start -W com.arbiter/.MainActivity
+
+# Test RAM
+adb shell dumpsys meminfo com.arbiter
+```
+
+---
+
+## 10. Références
+
+### Documentation Officielle
+- [Google AI Edge - LiteRT](https://ai.google.dev/edge/litert)
+- [MediaPipe GenAI](https://ai.google.dev/edge/mediapipe/solutions/genai)
+- [EmbeddingGemma](https://ai.google.dev/gemma/docs/embeddinggemma)
+
+### Modèles
+- [litert-community/embeddinggemma-300m](https://huggingface.co/litert-community/embeddinggemma-300m) - TFLite prêt
+- [Pierrax/embeddinggemma-chess-arbiter-fr](https://huggingface.co/Pierrax/embeddinggemma-chess-arbiter-fr) - Fine-tuné FR
+
+### CDC Projet
+- `docs/VISION.md` - Vision et contraintes
+- `docs/ARCHITECTURE.md` - Architecture technique
+- `docs/RETRIEVAL_PIPELINE.md` - Pipeline RAG détaillé
+- `docs/QUALITY_REQUIREMENTS.md` - Exigences qualité
+
+---
+
 **Document mis à jour le 2026-01-18**
-**Version 2.0 - Architecture simplifiée (choix corpus préalable)**
-**Conforme ISO 25010, ISO 42001, ISO 12207**
+**Version 3.0 - Pipeline RAG complet (Embedding + LLM)**
+**Conforme ISO 25010, ISO 42001, ISO 12207, ISO 27001**

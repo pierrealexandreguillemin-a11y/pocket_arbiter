@@ -9,6 +9,7 @@ ISO Reference:
 
 import json
 import logging
+import os
 import sqlite3
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -37,7 +38,10 @@ RRF_K = 60  # Reciprocal Rank Fusion constant (standard)
 # Research: Glossaires = 30-50% des fails sur corpus reglementaires (definitions)
 # Strategy: Boost x3.5 pour chunks glossaire (pages 67-70 LA-octobre + table summaries)
 # ISO Reference: ISO 42001 - Traceability, ISO 25010 - Functional suitability
-DEFAULT_GLOSSARY_BOOST = 3.5  # Multiplicateur pour chunks glossaire
+#
+# Configurable via env var GLOSSARY_BOOST (default 3.5)
+# Usage: GLOSSARY_BOOST=4.0 python -m scripts.pipeline.tests.test_recall
+DEFAULT_GLOSSARY_BOOST = float(os.getenv("GLOSSARY_BOOST", "3.5"))
 GLOSSARY_PAGE_RANGE = (67, 70)  # Pages glossaire dans LA-octobre2025
 
 # Patterns pour detecter les chunks glossaire (par ID ou metadata)

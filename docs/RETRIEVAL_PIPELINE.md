@@ -1,27 +1,35 @@
 # Pipeline de Retrieval - Pocket Arbiter
 
-> Documentation technique du pipeline RAG et mesure du recall
-> ISO 25010 - Performance efficiency
+> **Document ID**: DOC-RETR-001
+> **ISO Reference**: ISO/IEC 25010 - Performance efficiency
+> **Version**: 2.0
+> **Date**: 2026-01-19
+> **Statut**: Approuve
 
-## Vue d'ensemble
+---
+
+## Vue d'ensemble (v4.0)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  INDEXATION (offline)                                                       │
+│  INDEXATION (offline) - Pipeline v4.0                                       │
 │  ─────────────────────                                                      │
 │                                                                             │
 │  PDFs FFE ──→ Extraction ──→ Chunking ──→ Embedding ──→ Storage            │
-│    29 docs    PyMuPDF       400 tokens   EmbeddingGemma  SQLite            │
-│                             2794 chunks   768D vectors   + FTS5            │
+│    29 docs    Docling ML    Parent-Child  768D vectors  SQLite + FTS5      │
+│                             1454 FR chunks                                  │
+│                             764 INTL chunks                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  RETRIEVAL (runtime) ← RECALL MESURE ICI                                    │
+│  RETRIEVAL (runtime) - Recall 97.06%                                        │
 │  ────────────────────                                                       │
 │                                                                             │
-│  User Query ──→ Embedding ──→ Hybrid Search ──→ Reranker ──→ Top-5         │
-│                 768D query    70% BM25 +       BGE-v2-m3    chunks          │
-│                               30% vector                                    │
+│  User Query ──→ Embedding ──→ Vector Search ──→ source_filter ──→ Top-5    │
+│                 768D query    Cosine sim      (optionnel)        chunks     │
+│                               ↓                                             │
+│                         glossary_boost                                      │
+│                         (x3.5 definitions)                                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -32,73 +40,151 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+---
+
 ## Composants du pipeline
 
-### 1. Extraction PDF (PyMuPDF)
+### 1. Extraction PDF (Docling ML)
 
-**Fichier:** `scripts/pipeline/pdf_extractor.py`
+**Fichier:** `scripts/pipeline/extract_docling.py`
 
 ```python
-# Extraction texte brut par page
-for page in doc:
-    text = page.get_text()
+from docling.document_converter import DocumentConverter
+converter = DocumentConverter()
+result = converter.convert(pdf_path)
 ```
 
-**Limites connues:**
-- Tableaux mal extraits (perte structure)
-- En-tetes/pieds de page inclus
-- Colonnes fusionnees incorrectement
-- OCR non supporte (PDFs images)
+**Avantages vs PyMuPDF:**
+- Extraction ML (meilleure qualite)
+- Structure preservee (tableaux, listes)
+- Multi-format (PDF, DOCX, images)
 
-### 2. Chunking (400 tokens)
+### 2. Chunking Parent-Child (NVIDIA 2025)
 
-**Fichier:** `scripts/pipeline/sentence_chunker.py`
+**Fichier:** `scripts/pipeline/parent_child_chunker.py`
 
-- Strategie: SentenceSplitter (LlamaIndex)
-- Taille: 400 tokens (optimise recall +1.67%)
-- Overlap: 50 tokens
+| Parametre | Valeur | Justification |
+|-----------|--------|---------------|
+| Parent size | 1024 tokens | Contexte large pour retrieval |
+| Child size | 450 tokens | Unite semantique coherente |
+| Overlap | 15% (~68 tokens) | NVIDIA research optimal |
 
-### 3. Embedding (EmbeddingGemma)
+**Strategie:**
+- RecursiveCharacterTextSplitter (LangChain)
+- Preserve structure: `\n\n` > `\n` > `. ` > ` `
+- Metadata heritage parent-child
+
+### 3. Table Summaries (ISO 42001)
+
+**Fichier:** `scripts/pipeline/table_multivector.py`
+
+- LLM genere summary par table (~40-50 tokens)
+- Embedding du summary (plus semantique que table brute)
+- 111 tables FR traitees
+
+### 4. Embedding
 
 **Fichier:** `scripts/pipeline/embeddings.py`
 
-- Modele: `google/embeddinggemma-300m-qat-q4_0-unquantized`
-- Dimension: 768
-- Prompts: "Retrieval-query" / "Retrieval-document"
+| Parametre | Valeur |
+|-----------|--------|
+| Modele | `google/embeddinggemma-300m-qat` |
+| Dimension | 768 |
+| Normalisation | L2 (cosine ready) |
 
-### 4. Recherche Hybride (BM25 + Vector)
+### 5. Recherche Vectorielle (Optimal)
 
 **Fichier:** `scripts/pipeline/export_search.py`
 
 ```python
-# Poids RRF
-DEFAULT_VECTOR_WEIGHT = 0.3  # Embedding generique
-DEFAULT_BM25_WEIGHT = 0.7    # Plus efficace pour FR normatif
+def retrieve_similar(
+    db_path: Path,
+    query_embedding: np.ndarray,
+    top_k: int = 5,
+    source_filter: str | None = None,  # NEW: filtrage document
+    glossary_boost: float | None = None,  # NEW: boost definitions
+) -> list[dict]:
+```
+
+**Benchmark (2026-01-19):**
+
+| Mode | Recall FR | Status |
+|------|-----------|--------|
+| Vector-only | **97.06%** | OPTIMAL |
+| + source_filter | **100%** | Edge cases |
+| Hybrid (BM25+Vector) | 89.46% | Regression |
+
+> **Note:** Hybrid search (BM25 60% + Vector 40%) teste mais **moins performant** que vector-only sur ce gold standard. Garde comme option pour autres use cases.
+
+### 6. Source Filter (Cross-document fix)
+
+```python
+# Filtrage par document source
+results = retrieve_similar(db, emb, source_filter="Statuts")
+results = retrieve_similar(db, emb, source_filter="LA-octobre")
+```
+
+**Patterns auto-detection (`smart_retrieve`):**
+
+| Keyword | Source Filter |
+|---------|---------------|
+| "objectifs", "fédération" | Statuts |
+| "cadence", "rapide", "blitz" | LA-octobre |
+| "éthique", "déontologie" | Code_ethique |
+
+### 7. Glossary Boost (DNA 2025)
+
+```python
+# Boost x3.5 pour questions definition
+results = retrieve_with_glossary_boost(db, emb, "Qu'est-ce que le roque?")
+```
+
+**Detection automatique patterns:**
+- "qu'est-ce que", "c'est quoi", "définition de"
+- "que signifie", "que veut dire"
+- Glossaire pages 67-70 LA-octobre + table summaries
+
+### 8. Hybrid Search (Disponible, non optimal)
+
+**Fichier:** `scripts/pipeline/export_search.py`
+
+```python
+# Poids RRF (Reciprocal Rank Fusion)
+DEFAULT_VECTOR_WEIGHT = 0.4
+DEFAULT_BM25_WEIGHT = 0.6
 RRF_K = 60
+
+def retrieve_hybrid(db_path, query_embedding, query_text, top_k=5):
+    # Combine vector + BM25 avec RRF
 ```
 
 **FTS5 Configuration:**
 ```sql
 CREATE VIRTUAL TABLE chunks_fts USING fts5(
     text,
-    tokenize='unicode61 remove_diacritics 2'  -- Accents FR
+    tokenize='unicode61 remove_diacritics 2'
 );
 ```
 
-### 5. Query Expansion
+> **Status:** Implemente mais vector-only plus performant (97.06% vs 89.46%). Hybrid utile pour queries avec numeros d'article specifiques.
+
+### 9. Query Expansion
 
 **Fichier:** `scripts/pipeline/query_expansion.py`
 
-- Dictionnaire synonymes chess FR
+- Dictionnaire synonymes chess FR (~50 termes)
 - Snowball French stemmer (optionnel)
 - Stopwords FR
 
-### 6. Reranking (Cross-Encoder)
+### 10. Reranking (Optionnel)
 
 **Fichier:** `scripts/pipeline/reranker.py`
 
-- Modele: `BAAI/bge-reranker-v2-m3` (multilingual)
-- Fallback: `BAAI/bge-reranker-base`
+- Modele: `BAAI/bge-reranker-v2-m3`
+- Usage: Pool large (100) -> rerank -> top-k final
+- Status: Implemente, CPU lent (~2h pour benchmark)
+
+---
 
 ## Mesure du Recall
 
@@ -106,126 +192,75 @@ CREATE VIRTUAL TABLE chunks_fts USING fts5(
 
 ```
 Recall@k = Pages attendues trouvees dans top-k / Total pages attendues
+Tolerance: ±2 pages adjacentes acceptees
 ```
 
-### Gold Standard
-
-**Fichier:** `tests/data/questions_fr.json`
-
-- 30 questions manuelles
-- Pages attendues identifiees par lecture humaine
-- Independant du systeme de retrieval (ISO 42001)
-
-### Benchmark
-
-**Fichier:** `scripts/pipeline/tests/test_recall.py`
-
-```python
-result = benchmark_recall(
-    db_path,
-    questions_file,
-    model,
-    top_k=5,
-    use_hybrid=True,
-    tolerance=2,      # Pages adjacentes acceptees
-    reranker=reranker,
-    top_k_retrieve=30,
-)
-```
-
-### Resultats actuels
-
-| Version | Recall@5 | Questions echouees |
-|---------|----------|-------------------|
-| Vector-only | 48.89% | - |
-| + tolerance=2 | 70.00% | - |
-| + hybrid | 73.33% | - |
-| + 400-token chunks | 75.00% | - |
-| + gold standard v4.2 | 78.33% | FR-Q04, Q18, Q22, Q25 |
-
-**Objectif ISO 25010:** Recall >= 80%
-
-## Problemes connus et solutions
-
-### Extraction PDF
-
-| Probleme | Impact | Solution |
-|----------|--------|----------|
-| Tableaux mal extraits | Perte info structuree | Camelot/Tabula |
-| En-tetes repetitifs | Bruit dans chunks | Post-processing |
-| OCR absent | PDFs images ignores | pytesseract |
-
-### Retrieval
-
-| Probleme | Impact | Solution |
-|----------|--------|----------|
-| Embedding generique | -15-20% recall | Fine-tuning domaine |
-| Pas de stemming FR | -10-15% recall | Snowball (ajoute) |
-| Synonymes manquants | -5% recall | Dictionnaire (ajoute) |
-
-## Fine-tuning (Phase 2)
-
-Pipeline de fine-tuning EmbeddingGemma pour le domaine echecs FR:
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  PHASE 1: Generation donnees synthetiques                                  │
-│  Chunks corpus ──→ LLM (Claude/GPT) ──→ Questions synthetiques             │
-│  2794 chunks       2-3 questions/chunk   ~6000 paires (query, chunk)       │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  PHASE 2: Hard Negative Mining                                              │
-│  Pour chaque (query, positive): rechercher chunks similaires non-pertinents │
-│  → Triplets (anchor, positive, negative)                                   │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  PHASE 3: Fine-tuning                                                       │
-│  Model: EmbeddingGemma-300M   Loss: MultipleNegativesRankingLoss           │
-│  Data: ~6000 triplets         Time: ~30 min (CPU)                          │
-└─────────────────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  PHASE 4: Evaluation                                                        │
-│  Benchmark recall sur gold standard → Objectif: >= 80%                     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+### Gold Standard v5.7
 
 **Fichiers:**
-- `scripts/training/generate_synthetic_data.py`
-- `scripts/training/hard_negative_mining.py`
-- `scripts/training/finetune_embeddinggemma.py`
-- `scripts/training/evaluate_finetuned.py`
+- `tests/data/questions_fr.json` (68 questions)
+- `tests/data/questions_intl.json` (25 questions)
 
-## Fichiers cles
+| Corpus | Questions | Documents | Audit |
+|--------|-----------|-----------|-------|
+| FR | 68 | 28 | v5.7 (23 corrections) |
+| INTL | 25 | 1 | - |
+| **Total** | **93** | **29** | ISO 29119 compliant |
+
+### Resultats (2026-01-19)
+
+| Mode | Recall FR | Recall INTL | Status |
+|------|-----------|-------------|--------|
+| Vector-only | **97.06%** | 80.00% | PASS (>= 90%) |
+| + source_filter | **100%** | - | Edge cases resolus |
+| Hybrid | 89.46% | - | Regression |
+
+**Objectif ISO 25010:** Recall >= 90% - **ATTEINT**
+
+---
+
+## Fichiers cles (v4.0)
 
 ```
-scripts/
-├── pipeline/
-│   ├── pdf_extractor.py      # Extraction PDF
-│   ├── sentence_chunker.py   # Chunking
-│   ├── embeddings.py         # EmbeddingGemma
-│   ├── export_sdk.py         # Creation DB
-│   ├── export_search.py      # Recherche hybride
-│   ├── query_expansion.py    # Synonymes + stemmer
-│   ├── reranker.py           # Cross-encoder
-│   └── tests/
-│       └── test_recall.py    # Benchmark recall
-└── training/
-    ├── generate_synthetic_data.py  # Generation questions LLM
-    ├── hard_negative_mining.py     # Mining negatifs difficiles
-    ├── finetune_embeddinggemma.py  # Fine-tuning
-    ├── evaluate_finetuned.py       # Evaluation recall
-    └── tests/                      # Tests unitaires
+scripts/pipeline/
+├── extract_docling.py        # Extraction PDF (Docling ML)
+├── parent_child_chunker.py   # Chunking Parent 1024/Child 450
+├── table_multivector.py      # Tables + LLM summaries
+├── embeddings.py             # EmbeddingGemma 768D
+├── export_sdk.py             # Creation SQLite DB
+├── export_search.py          # Vector search + source_filter + glossary_boost
+├── query_expansion.py        # Synonymes + stemmer FR
+├── reranker.py               # Cross-encoder (optionnel)
+└── tests/
+    ├── test_recall.py        # Benchmark recall
+    └── test_export_search.py # Tests recherche
 ```
+
+---
+
+## Statistiques corpus
+
+| Corpus | Chunks | Child | Tables | DB Size |
+|--------|--------|-------|--------|---------|
+| FR | 1454 | 1343 | 111 | 7.58 MB |
+| INTL | 764 | 764 | 0 | 4.21 MB |
+| **Total** | **2218** | 2107 | 111 | **11.79 MB** |
+
+---
+
+## Historique
+
+| Version | Date | Changements |
+|---------|------|-------------|
+| 1.0 | 2026-01-15 | Creation initiale (PyMuPDF, 400 tokens) |
+| 2.0 | 2026-01-19 | **Rewrite complet**: Docling, Parent-Child, vector-only optimal, source_filter, glossary_boost |
+
+---
 
 ## References
 
 - [ISO 25010](https://www.iso.org/standard/35733.html) - Performance efficiency
 - [ISO 42001](https://www.iso.org/standard/81230.html) - AI traceability
+- [Docling](https://github.com/DS4SD/docling) - Document extraction ML
+- [NVIDIA RAG 2025](https://developer.nvidia.com/blog/rag-101/) - Parent-Child chunking
 - [SQLite FTS5](https://sqlite.org/fts5.html) - Full-text search
-- [Snowball Stemmer](https://snowballstem.org/algorithms/french/stemmer.html) - French stemmer

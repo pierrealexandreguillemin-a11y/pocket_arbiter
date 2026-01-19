@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-ARCH-001
 > **ISO Reference**: ISO/IEC 12207:2017 - Architecture logicielle
-> **Version**: 1.2
-> **Date**: 2026-01-15
-> **Statut**: Draft
+> **Version**: 2.0
+> **Date**: 2026-01-19
+> **Statut**: Approuve
 > **Classification**: Interne
 
 ---
@@ -102,20 +102,19 @@ pocket_arbiter/
 |   +-- INVENTORY.md            # Liste des documents
 |
 +-- scripts/                    # Pipeline Python (Phase 1)
-|   +-- pipeline/               # Scripts extraction/indexation
+|   +-- pipeline/               # Scripts extraction/indexation v4.0
 |   |   +-- __init__.py
-|   |   +-- extract_pdf.py      # Extraction texte PDF
-|   |   +-- chunker.py          # Decoupage semantique (Articles)
-|   |   +-- chunker_article.py  # Detection boundaries Articles
-|   |   +-- sentence_chunker.py # Chunking par phrases (LlamaIndex)
-|   |   +-- similarity_chunker.py # Chunking par similarite
-|   |   +-- semantic_chunker.py # Chunking semantique (LangChain)
-|   |   +-- embeddings.py       # Generation embeddings
-|   |   +-- embeddings_config.py # Configuration modeles embeddings
-|   |   +-- export_sdk.py       # Export format SQLite (orchestration)
-|   |   +-- export_search.py    # Recherche vectorielle/hybride
+|   |   +-- extract_docling.py  # Extraction PDF (Docling ML)
+|   |   +-- parent_child_chunker.py # Chunking Parent 1024/Child 450
+|   |   +-- table_multivector.py # Tables + LLM summaries
+|   |   +-- embeddings.py       # Generation embeddings 768D
+|   |   +-- embeddings_config.py # Configuration modeles
+|   |   +-- export_sdk.py       # Export SQLite (orchestration)
+|   |   +-- export_search.py    # Vector search + source_filter + glossary_boost
 |   |   +-- export_serialization.py # Serialisation embeddings
 |   |   +-- export_validation.py # Validation exports
+|   |   +-- query_expansion.py  # Synonymes chess FR + stemmer
+|   |   +-- reranker.py         # Cross-encoder (optionnel)
 |   |   +-- token_utils.py      # Utilitaires tokens (tiktoken)
 |   |   +-- chunk_normalizer.py # Normalisation taille chunks
 |   |   +-- utils.py            # Utilitaires communs
@@ -325,22 +324,26 @@ android/app/src/main/kotlin/com/arbiter/
 
 ## 6. Flux de donnees
 
-### 6.1 Phase 1 - Indexation (offline, une fois)
+### 6.1 Phase 1 - Indexation (offline, une fois) - v4.0
 
 ```
-PDF Reglement
+PDF Reglement (29 docs)
     |
     v
-[extract_pdf.py] --> Texte brut
+[extract_docling.py] --> Texte + Tables (Docling ML)
     |
     v
-[chunker.py] --> Chunks (256 tokens, 50 overlap)
+[parent_child_chunker.py] --> Chunks Parent 1024/Child 450 (15% overlap)
+    |                          1454 FR + 764 INTL chunks
+    |
+    v
+[table_multivector.py] --> Table summaries (111 FR)
     |
     v
 [embeddings.py] --> Vecteurs 768-dim (EmbeddingGemma-300m)
     |
     v
-[export_sdk.py] --> corpus_XX.db (SqliteVectorStore) + chunks_XX.json
+[export_sdk.py] --> corpus_XX.db (SqliteVectorStore + FTS5)
 ```
 
 ### 6.2 Phase 2+ - Requete (runtime, mobile)
@@ -371,18 +374,17 @@ Affichage ResultFragment
 
 ## 7. Dependances techniques
 
-### 7.1 Pipeline Python (Phase 1)
+### 7.1 Pipeline Python (Phase 1) - v4.0
 
 | Dependance | Version | Usage |
 |------------|---------|-------|
-| PyMuPDF | >=1.24.0 | Extraction PDF |
-| sentence-transformers | >=3.0.0 | Embeddings + similarity_chunker |
-| tiktoken | >=0.7.0 | Comptage tokens (tous chunkers) |
+| docling | >=2.31.0 | Extraction PDF ML |
+| sentence-transformers | >=3.0.0 | Embeddings 768D |
+| tiktoken | >=0.7.0 | Comptage tokens |
 | torch | >=2.2.0 | Backend ML |
 | numpy | >=1.24.0 | Vecteurs |
-| llama-index-core | >=0.14.0 | sentence_chunker (SentenceSplitter) |
-| langchain-experimental | >=0.4.0 | semantic_chunker (SemanticChunker) |
-| langchain-community | >=0.4.0 | HuggingFaceEmbeddings |
+| langchain-text-splitters | >=0.4.0 | RecursiveCharacterTextSplitter |
+| nltk | >=3.9.0 | Snowball stemmer FR |
 
 ### 7.2 Android (Phase 2+)
 
@@ -423,13 +425,14 @@ Affichage ResultFragment
 
 ## 9. Metriques qualite
 
-| Metrique | Cible | Mesure |
-|----------|-------|--------|
-| Couverture tests | >= 60% | pytest-cov |
-| Recall retrieval | >= 80% | Jeu de test |
-| Hallucination | 0% | Tests adversaires |
-| Latence | < 5s | Benchmark device |
-| Crash-free | >= 99% | Firebase Crashlytics |
+| Metrique | Cible | Actuel | Mesure |
+|----------|-------|--------|--------|
+| Couverture tests | >= 80% | **87%** | pytest-cov |
+| Recall retrieval FR | >= 90% | **97.06%** | Gold standard v5.7 |
+| Recall retrieval INTL | >= 70% | **80.00%** | Gold standard |
+| Hallucination | 0% | TBD | Tests adversaires |
+| Latence | < 5s | TBD | Benchmark device |
+| Crash-free | >= 99% | TBD | Firebase Crashlytics |
 
 ---
 
@@ -440,6 +443,7 @@ Affichage ResultFragment
 | 1.0 | 2026-01-11 | Claude Code | Creation initiale |
 | 1.1 | 2026-01-14 | Claude Code | Migration FAISS -> SqliteVectorStore, EmbeddingGemma-300m |
 | 1.2 | 2026-01-15 | Claude Code | Ajout modules Phase 1A (chunkers, search, token_utils, chunk_normalizer) |
+| 2.0 | 2026-01-19 | Claude Opus 4.5 | **v4.0**: Docling ML, Parent-Child chunking, Recall 97.06%, source_filter, glossary_boost |
 
 ---
 

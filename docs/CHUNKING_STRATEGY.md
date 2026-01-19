@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 4.2
+> **Version**: 4.3
 > **Date**: 2026-01-19
 > **Statut**: Approuve
 > **Classification**: Technique
@@ -137,13 +137,17 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 ### 4.2 Resultats Benchmark (2026-01-19)
 
 **Corpus FR**: 1343 child + 111 table_summary = **1454 chunks**
+**Gold Standard v5.7**: 68 questions (23 corrections audit)
 
 | Mode | Config | Recall@5 | Statut |
 |------|--------|----------|--------|
-| Vector-only | tolerance=2 | 69.03% | FAIL |
-| Hybrid (BM25+Vector) | tolerance=2 | ~75% | FAIL |
-| **Hybrid + Rerank** | bge-reranker-v2-m3, tolerance=2 | **85-87%** | **ISO PASS** |
-| Cible finale | | >=90% | Objectif |
+| **Vector-only** | tolerance=2 | **97.06%** | **OPTIMAL** |
+| + source_filter | filtre document | **100%** | Edge cases |
+| + glossary_boost | x3.5 definitions | - | Definitions |
+| Hybrid (BM25+Vector) | tolerance=2 | 89.46% | Regression |
+| Cible ISO | | >=90% | **ATTEINT** |
+
+> **Note**: Vector-only surpasse hybrid sur ce gold standard apres audit v5.7.
 
 ### 4.3 Reranker Benchmark (Sources Web 2025)
 
@@ -233,6 +237,7 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | 4.0 | 2026-01-19 | **Pipeline unique ISO**: Docling + parent_child + table_multivector LLM. Suppression modules obsoletes. |
 | 4.1 | 2026-01-19 | **Optimisation params**: Parent 1024/154, Child 450/68 (NVIDIA/arXiv/Chroma 2025). Cible 93-98% recall. |
 | 4.2 | 2026-01-19 | **Benchmark reranker**: Ajout sources MIRACL/Pinecone/ZeroEntropy. DB: 1343 child + 111 table_summary. |
+| 4.3 | 2026-01-19 | **Recall 97.06%**: Gold standard v5.7 audit, vector-only optimal, source_filter, glossary_boost |
 
 ---
 

@@ -2,8 +2,9 @@
 Parent-Child Chunker - Pocket Arbiter
 
 Implements Parent-Document Retrieval pattern:
-- Child chunks (300 tokens): embedded for precise semantic search
-- Parent chunks (800 tokens): returned as context for LLM
+- Child chunks (450 tokens): embedded for precise semantic search
+- Parent chunks (1024 tokens): returned as context for LLM
+- Overlap: 15% (NVIDIA 2025 optimal)
 
 The child chunks are what get embedded and searched against.
 When a child matches, we return its parent for richer context.
@@ -13,8 +14,14 @@ ISO Reference:
     - ISO/IEC 42001 - AI traceability
     - ISO/IEC 12207 S7.3.3 - Implementation
 
+Research Sources (2025):
+    - NVIDIA: 15% overlap optimal (FinanceBench)
+    - arXiv: 512-1024 tokens pour contexte large
+    - Chroma: 400-512 tokens sweet spot (85-90% recall)
+
 Changelog:
     - 2026-01-18: Initial implementation (Step 2 chunking strategy)
+    - 2026-01-19: Optimisation params (NVIDIA/arXiv/Chroma 2025)
 
 Usage:
     python -m scripts.pipeline.parent_child_chunker \
@@ -44,12 +51,14 @@ logger = logging.getLogger(__name__)
 # --- Constants (TOKENS) ---
 
 # Parent chunks: rich context for LLM response
-PARENT_CHUNK_SIZE = 800
-PARENT_CHUNK_OVERLAP = 100
+# arXiv 2025: 512-1024 tokens pour contexte large
+PARENT_CHUNK_SIZE = 1024
+PARENT_CHUNK_OVERLAP = 154  # NVIDIA 2025: 15% optimal
 
 # Child chunks: precise semantic units for search
-CHILD_CHUNK_SIZE = 300
-CHILD_CHUNK_OVERLAP = 60
+# Chroma 2025: 400-512 tokens sweet spot
+CHILD_CHUNK_SIZE = 450
+CHILD_CHUNK_OVERLAP = 68    # NVIDIA 2025: 15% optimal
 
 MIN_CHUNK_TOKENS = 30  # Minimum for child chunks
 

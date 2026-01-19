@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 3.1
-> **Date**: 2026-01-18
-> **Statut**: En cours
+> **Version**: 4.1
+> **Date**: 2026-01-19
+> **Statut**: Approuve
 > **Classification**: Technique
 > **Auteur**: Claude Opus 4.5
 > **Mots-cles**: chunking, RAG, embeddings, retrieval, performance
@@ -45,65 +45,85 @@ REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 
 ---
 
-## 3. Roadmap d'Optimisation
+## 3. Pipeline Unique ISO Conforme
 
-### 3.1 Etape 1: RecursiveCharacterTextSplitter + Overlap (DONE)
-**Gain attendu**: +4-8% recall
+### 3.1 Architecture Finale (v4.0)
 
-**Implementation**: `scripts/pipeline/sentence_chunker.py`
-- Switch SentenceSplitter -> RecursiveCharacterTextSplitter
-- Chunk size: 512 -> 450 tokens
-- Overlap: 128 -> 100 tokens (22%)
-- Separateurs hierarchiques pour reglements
-
-**Statut**: COMPLETE (2026-01-18)
-
-### 3.2 Etape 2: Parent-Document Retrieval (DONE)
-**Gain attendu**: +8-15% recall
-
-**Implementation**: `scripts/pipeline/parent_child_chunker.py`
-- Chunks enfants (300 tokens, 20% overlap) pour embeddings/recherche
-- Chunks parents (800 tokens, 12.5% overlap) pour contexte retourne
-- Mapping child -> parent dans metadata
-- **Resultats**: 718 parents, 1997 children, 2.78 children/parent
-
-```python
-PARENT_CHUNK_SIZE = 800   # Rich context for LLM
-PARENT_CHUNK_OVERLAP = 100
-CHILD_CHUNK_SIZE = 300    # Precise semantic units
-CHILD_CHUNK_OVERLAP = 60
+```
+┌─────────────────────────────────────────────────────────────┐
+│              PIPELINE UNIQUE ISO CONFORME                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  corpus/fr/*.pdf, corpus/intl/*.pdf                         │
+│        │                                                    │
+│        ▼                                                    │
+│  ┌──────────────────┐                                       │
+│  │ extract_docling  │  Docling (ML-based)                   │
+│  │     .py          │  - Extraction texte                   │
+│  │                  │  - Extraction tables                  │
+│  │                  │  - Detection sections                 │
+│  └────────┬─────────┘                                       │
+│           │                                                 │
+│     ┌─────┴─────┐                                           │
+│     │           │                                           │
+│     ▼           ▼                                           │
+│  [texte]     [tables]                                       │
+│     │           │                                           │
+│     ▼           ▼                                           │
+│  ┌────────────────────┐  ┌────────────────────┐             │
+│  │parent_child_chunker│  │table_multivector.py│             │
+│  │        .py         │  │  - LLM summaries   │             │
+│  │ Parents: 1024 tok  │  │  - Multi-vector    │             │
+│  │ Children: 450 tok  │  │                    │             │
+│  │ Overlap: 15%       │  │                    │             │
+│  └─────────┬──────────┘  └─────────┬──────────┘             │
+│            │                       │                        │
+│            ▼                       ▼                        │
+│     chunks_parent_child.json  tables_multivector.json       │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-**Statut**: COMPLETE (2026-01-18)
+### 3.2 Modules du Pipeline
 
-### 3.3 Etape 3: Metadata Forte (DONE)
-**Gain attendu**: +3-7% recall
+| Module | Role | ISO Reference |
+|--------|------|---------------|
+| `extract_docling.py` | Extraction PDF (ML-based) | ISO 12207, 42001 |
+| `parent_child_chunker.py` | Chunking hierarchique | ISO 25010 |
+| `table_multivector.py` | Tables + summaries LLM | ISO 42001 |
+| `token_utils.py` | Tokenization cl100k_base | ISO 25010 |
+| `embeddings.py` | Generation embeddings | ISO 25010 |
 
-**Implementation**: Integre dans `parent_child_chunker.py`
-| Champ | Source | Exemple |
-|-------|--------|---------|
-| article_num | Regex `Art\.\s*(\d+[\.\d]*)` | "Art. 9.1.2" |
-| section | Headers parsing | "Chapitre 3" |
-| page | Extraction JSON | 42 |
-| parent_id | Mapping child->parent | "source-p1-parent0" |
+### 3.3 Configuration Parent-Child (Optimisée 2025)
 
-**Statut**: COMPLETE (2026-01-18)
+**Recherche appliquée**:
+| Source | Finding | Application |
+|--------|---------|-------------|
+| NVIDIA 2025 | 15% overlap optimal (FinanceBench) | Overlap 154/68 tokens |
+| arXiv 2025 | 512-1024 tokens pour contexte large | Parent 1024 tokens |
+| Chroma 2025 | 400-512 sweet spot (85-90% recall) | Child 450 tokens |
 
-### 3.4 Etape 4: Extraction Tables (IN PROGRESS)
-**Gain attendu**: +5-12% recall
+```python
+# parent_child_chunker.py - OPTIMISÉ
+PARENT_CHUNK_SIZE = 1024   # arXiv: contexte large
+PARENT_CHUNK_OVERLAP = 154  # NVIDIA: 15% optimal
 
-**Implementation**: `scripts/pipeline/table_extractor.py`
-- Camelot (lattice + stream methods)
-- Detection automatique type table (cadence, penalty, elo, tiebreak)
-- Conversion table -> text pour embeddings
+CHILD_CHUNK_SIZE = 450      # Chroma: sweet spot
+CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
+```
 
-**Types de tables detectes**:
-- cadence: Tables de temps de reflexion
-- penalty: Grilles de penalites
-- elo: Tableaux de classement Elo
-- tiebreak: Systemes de departage
+**Gains attendus**: +8-15% recall (baseline 85% → cible 93-98%)
 
-**Statut**: EN COURS (2026-01-18)
+**Note**: Child 450 tokens + cross-encoder reranker (bge-reranker-v2-m3) pour compenser le ratio query/chunk élevé. Plus robuste que child 256 sans reranker.
+
+### 3.4 Tables Multi-Vector
+
+**Implementation**: `scripts/pipeline/table_multivector.py`
+- Extraction: Docling ML (pas Camelot rules-based)
+- Summaries: LLM Gemini (ISO 42001 tracabilite)
+- Pattern: Multi-vector (child embedded, parent stored)
+
+**Statut**: COMPLETE (2026-01-19)
 
 ---
 
@@ -172,18 +192,19 @@ python -m scripts.pipeline.benchmark \
 
 ---
 
-## 7. Fichiers Associes
+## 7. Fichiers du Pipeline
 
 | Fichier | Role |
 |---------|------|
-| `scripts/pipeline/sentence_chunker.py` | Chunker recursif (Step 1) |
-| `scripts/pipeline/parent_child_chunker.py` | Parent-child retrieval (Step 2-3) |
-| `scripts/pipeline/table_extractor.py` | Extraction tables (Step 4) |
-| `scripts/pipeline/token_utils.py` | Utilitaires tokenization |
+| `scripts/pipeline/extract_docling.py` | Extraction PDF ML-based |
+| `scripts/pipeline/parent_child_chunker.py` | Chunking hierarchique |
+| `scripts/pipeline/table_multivector.py` | Tables + LLM summaries |
+| `scripts/pipeline/token_utils.py` | Tokenization cl100k_base |
 | `scripts/pipeline/embeddings.py` | Generation embeddings |
 | `scripts/pipeline/export_sdk.py` | Export DB SQLite |
-| `corpus/processed/chunks_recursive_fr.json` | Chunks recursifs (1244) |
-| `corpus/processed/chunks_parent_child_fr.json` | Parents + children (718+1997) |
+| `corpus/processed/chunks_parent_child_fr.json` | Parents + children FR |
+| `corpus/processed/chunks_parent_child_intl.json` | Parents + children INTL |
+| `corpus/processed/tables_multivector_fr.json` | Tables FR |
 
 ---
 
@@ -193,8 +214,10 @@ python -m scripts.pipeline.benchmark \
 |---------|------|-------------|
 | 1.0 | 2026-01-16 | SentenceSplitter 512/128 tokens (baseline 78.33%) |
 | 2.0 | 2026-01-17 | Chunks 400 tokens (recall 75%) |
-| 3.0 | 2026-01-18 | RecursiveCharacterTextSplitter 450/100, Etape 1-4 |
+| 3.0 | 2026-01-18 | RecursiveCharacterTextSplitter 450/100 |
 | 3.1 | 2026-01-18 | Parent-child chunker, metadata, tables, **recall 85.29%** |
+| 4.0 | 2026-01-19 | **Pipeline unique ISO**: Docling + parent_child + table_multivector LLM. Suppression modules obsoletes. |
+| 4.1 | 2026-01-19 | **Optimisation params**: Parent 1024/154, Child 450/68 (NVIDIA/arXiv/Chroma 2025). Cible 93-98% recall. |
 
 ---
 

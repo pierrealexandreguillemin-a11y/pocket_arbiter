@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-PH1A-001
 > **ISO Reference**: ISO/IEC 12207:2017 - Processus du cycle de vie logiciel
-> **Version**: 1.0
-> **Date**: 2026-01-14
-> **Statut**: Draft
+> **Version**: 2.0
+> **Date**: 2026-01-19
+> **Statut**: Approuve
 > **Phase**: 1A
 > **Effort estime**: 20h
 
@@ -105,46 +105,54 @@ Voir `docs/CHUNK_SCHEMA.md` pour le schema complet.
 scripts/
 ├── pipeline/
 │   ├── __init__.py
-│   ├── extract_pdf.py      # Extraction texte PDF
-│   ├── chunker.py          # Segmentation chunks
-│   ├── utils.py            # Utilitaires communs
+│   ├── extract_docling.py      # Extraction PDF (Docling ML)
+│   ├── parent_child_chunker.py # Chunking hierarchique
+│   ├── table_multivector.py    # Tables + LLM summaries
+│   ├── token_utils.py          # Tokenization cl100k_base
+│   ├── embeddings.py           # Generation embeddings
+│   ├── utils.py                # Utilitaires communs
 │   └── tests/
 │       ├── __init__.py
-│       ├── test_extract.py
-│       ├── test_chunker.py
-│       └── conftest.py     # Fixtures pytest
-├── requirements.txt        # Dependencies Python
-└── README.md               # Instructions execution
+│       ├── test_parent_child_chunker.py
+│       ├── test_table_multivector.py
+│       └── conftest.py         # Fixtures pytest
+├── requirements.txt            # Dependencies Python
+└── README.md                   # Instructions execution
 ```
 
 ### 5.2 Diagramme de flux
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    PHASE 1A PIPELINE                        │
+│              PIPELINE UNIQUE ISO CONFORME                   │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  corpus/fr/*.pdf                                            │
-│  corpus/intl/*.pdf                                          │
+│  corpus/fr/*.pdf, corpus/intl/*.pdf                         │
 │        │                                                    │
 │        ▼                                                    │
-│  ┌──────────────┐                                           │
-│  │ extract_pdf  │  PyMuPDF (fitz)                          │
-│  │   .py        │  - Extraction texte                      │
-│  │              │  - Metadonnees page                      │
-│  │              │  - Detection sections                    │
-│  └──────┬───────┘                                          │
-│         │                                                   │
-│         ▼                                                   │
-│  ┌──────────────┐                                           │
-│  │  chunker.py  │  tiktoken                                │
-│  │              │  - Segmentation 256 tokens               │
-│  │              │  - Overlap 50 tokens                     │
-│  │              │  - Preservation metadonnees              │
-│  └──────┬───────┘                                          │
-│         │                                                   │
-│         ▼                                                   │
-│  corpus/processed/chunks_*.json                             │
+│  ┌──────────────────┐                                       │
+│  │ extract_docling  │  Docling (ML-based)                   │
+│  │     .py          │  - Extraction texte                   │
+│  │                  │  - Extraction tables                  │
+│  │                  │  - Detection sections                 │
+│  └────────┬─────────┘                                       │
+│           │                                                 │
+│     ┌─────┴─────┐                                           │
+│     │           │                                           │
+│     ▼           ▼                                           │
+│  [texte]     [tables]                                       │
+│     │           │                                           │
+│     ▼           ▼                                           │
+│  ┌────────────────────┐  ┌────────────────────┐             │
+│  │parent_child_chunker│  │table_multivector.py│             │
+│  │        .py         │  │  - LLM summaries   │             │
+│  │ Parents: 1024 tok  │  │  - Multi-vector    │             │
+│  │ Children: 450 tok  │  │                    │             │
+│  │ Overlap: 15%       │  │                    │             │
+│  └─────────┬──────────┘  └─────────┬──────────┘             │
+│            │                       │                        │
+│            ▼                       ▼                        │
+│     chunks_parent_child.json  tables_multivector.json       │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```

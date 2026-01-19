@@ -85,8 +85,8 @@ def extract_pdf(pdf_path: Path) -> dict:
     if not pdf_path.exists():
         raise FileNotFoundError(f"PDF not found: {pdf_path}")
 
-    if pdf_path.suffix.lower() != ".pdf":
-        raise ValueError(f"Not a PDF file: {pdf_path}")
+    if not validate_pdf(pdf_path):
+        raise ValueError(f"Not a valid PDF file: {pdf_path}")
 
     try:
         doc = fitz.open(pdf_path)

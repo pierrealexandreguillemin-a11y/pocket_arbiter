@@ -154,16 +154,18 @@ class TestExtractTablesFromPdf:
         """Should fallback to stream if lattice finds nothing."""
         from scripts.pipeline.table_extractor import extract_tables_from_pdf
 
-        # Lattice returns nothing, stream returns tables
-        mock_camelot.read_pdf.side_effect = [
-            [],  # Lattice
-            [Mock(df=MagicMock(), page=1, accuracy=95.0, whitespace=5.0)],  # Stream
-        ]
+        # Lattice returns nothing, stream returns one table (that will be skipped as empty)
+        mock_stream_table = Mock()
+        mock_stream_table.df = MagicMock()
+        mock_stream_table.df.empty = True  # Will be skipped in processing
+        mock_stream_table.page = 1
+        mock_stream_table.accuracy = 95.0
+        mock_stream_table.whitespace = 5.0
 
-        # Mock DataFrame
-        mock_df = MagicMock()
-        mock_df.empty = True  # Will be skipped
-        mock_camelot.read_pdf.return_value[0].df = mock_df if len(mock_camelot.read_pdf.return_value) > 0 else None
+        mock_camelot.read_pdf.side_effect = [
+            [],  # Lattice returns nothing
+            [mock_stream_table],  # Stream returns table
+        ]
 
         extract_tables_from_pdf(Path("test.pdf"))
 

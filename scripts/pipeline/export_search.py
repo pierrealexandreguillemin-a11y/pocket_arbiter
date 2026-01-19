@@ -30,12 +30,61 @@ DEFAULT_BM25_WEIGHT = 0.6
 DEFAULT_INITIAL_K = 100  # Funnel Mode: large initial pool
 RRF_K = 60  # Reciprocal Rank Fusion constant (standard)
 
+# =============================================================================
+# Glossary Boost Configuration (DNA 2025 - Source canonique definitions)
+# =============================================================================
+# Research: Glossaires = 30-50% des fails sur corpus reglementaires (definitions)
+# Strategy: Boost x3.5 pour chunks glossaire (pages 67-70 LA-octobre + table summaries)
+# ISO Reference: ISO 42001 - Traceability, ISO 25010 - Functional suitability
+DEFAULT_GLOSSARY_BOOST = 3.5  # Multiplicateur pour chunks glossaire
+GLOSSARY_PAGE_RANGE = (67, 70)  # Pages glossaire dans LA-octobre2025
+
+# Patterns pour detecter les chunks glossaire (par ID ou metadata)
+GLOSSARY_CHUNK_PATTERNS = [
+    "LA-octobre2025-table3",  # Glossaire A-C
+    "LA-octobre2025-table4",  # Glossaire C-F
+    "LA-octobre2025-table5",  # Glossaire F-O
+    "LA-octobre2025-table6",  # Glossaire O-R
+    "LA-octobre2025-table7",  # Glossaire R-Z
+]
+
+
+def _is_glossary_chunk(chunk_id: str, source: str, page: int) -> bool:
+    """
+    Detecte si un chunk appartient au glossaire officiel DNA 2025.
+
+    Criteres:
+    1. ID contient un pattern de table glossaire (table3-7 LA-octobre)
+    2. Source LA-octobre + page dans range glossaire (67-70)
+
+    Args:
+        chunk_id: Identifiant du chunk.
+        source: Source du document (e.g. "LA-octobre2025.pdf").
+        page: Numero de page.
+
+    Returns:
+        True si chunk glossaire, False sinon.
+    """
+    # Check table summary patterns
+    for pattern in GLOSSARY_CHUNK_PATTERNS:
+        if pattern in chunk_id:
+            return True
+
+    # Check page range for LA-octobre
+    if "LA-octobre" in source:
+        min_page, max_page = GLOSSARY_PAGE_RANGE
+        if min_page <= page <= max_page:
+            return True
+
+    return False
+
 
 def retrieve_similar(
     db_path: Path,
     query_embedding: np.ndarray,
     top_k: int = 5,
     source_filter: str | None = None,
+    glossary_boost: float | None = None,
 ) -> list[dict]:
     """
     Recupere les chunks les plus similaires a une query.
@@ -49,9 +98,12 @@ def retrieve_similar(
         top_k: Nombre de resultats a retourner.
         source_filter: Filtre optionnel sur le champ source (e.g. "Statuts", "LA-octobre").
             Utilise LIKE %filter% pour matching partiel.
+        glossary_boost: Multiplicateur de score pour chunks glossaire (defaut None = pas de boost).
+            Valeur recommandee: 3.5 pour questions definitions.
+            Les chunks glossaire sont: pages 67-70 LA-octobre + table summaries.
 
     Returns:
-        Liste de dicts avec id, text, source, page, score.
+        Liste de dicts avec id, text, source, page, score, is_glossary (si boost actif).
 
     Raises:
         FileNotFoundError: Si la base n'existe pas.
@@ -62,6 +114,8 @@ def retrieve_similar(
         >>> results = retrieve_similar(db_path, query_emb, top_k=5)
         >>> # Recherche filtree sur Statuts uniquement
         >>> results = retrieve_similar(db_path, query_emb, source_filter="Statuts")
+        >>> # Recherche avec boost glossaire pour definitions
+        >>> results = retrieve_similar(db_path, query_emb, glossary_boost=3.5)
     """
     if not db_path.exists():
         raise FileNotFoundError(f"Database not found: {db_path}")
@@ -106,19 +160,36 @@ def retrieve_similar(
             embedding = blob_to_embedding(embedding_blob, embedding_dim)
 
             # Cosine similarity (embeddings should be normalized)
-            score = float(np.dot(query_embedding, embedding))
+            base_score = float(np.dot(query_embedding, embedding))
 
-            results.append(
-                {
-                    "id": chunk_id,
-                    "text": text,
-                    "source": source,
-                    "page": page,
-                    "tokens": tokens,
-                    "metadata": json.loads(metadata_json) if metadata_json else {},
-                    "score": round(score, 4),
-                }
-            )
+            # Apply glossary boost if enabled
+            is_glossary = False
+            if glossary_boost is not None:
+                is_glossary = _is_glossary_chunk(chunk_id, source, page)
+                if is_glossary:
+                    score = base_score * glossary_boost
+                else:
+                    score = base_score
+            else:
+                score = base_score
+
+            result = {
+                "id": chunk_id,
+                "text": text,
+                "source": source,
+                "page": page,
+                "tokens": tokens,
+                "metadata": json.loads(metadata_json) if metadata_json else {},
+                "score": round(score, 4),
+            }
+
+            # Add glossary flag if boost is active
+            if glossary_boost is not None:
+                result["is_glossary"] = is_glossary
+                if is_glossary:
+                    result["base_score"] = round(base_score, 4)
+
+            results.append(result)
 
         # Sort by score descending
         results.sort(key=lambda x: x["score"], reverse=True)
@@ -503,6 +574,115 @@ def smart_retrieve(
         top_k=top_k,
         source_filter=selected_filter,
     )
+
+
+# =============================================================================
+# Definition Question Detection (for auto glossary boost)
+# =============================================================================
+
+# Patterns indiquant une question de definition
+DEFINITION_QUERY_PATTERNS = [
+    # Questions directes
+    "qu'est-ce que",
+    "qu'est ce que",
+    "c'est quoi",
+    "c est quoi",
+    "définition de",
+    "definition de",
+    "que signifie",
+    "que veut dire",
+    "comment définir",
+    "comment definir",
+    # Termes techniques souvent cherchés dans le glossaire
+    "selon les règles",
+    "selon le règlement",
+    "terme officiel",
+    "vocabulaire",
+    # Patterns anglais (INTL)
+    "what is",
+    "definition of",
+    "meaning of",
+]
+
+
+def _is_definition_query(query_text: str) -> bool:
+    """
+    Detecte si une query est une question de definition.
+
+    Les questions de definition beneficient du glossary boost car
+    le glossaire DNA 2025 est la source canonique pour les termes officiels.
+
+    Args:
+        query_text: Texte de la query.
+
+    Returns:
+        True si question de definition, False sinon.
+    """
+    query_lower = query_text.lower()
+    return any(pattern in query_lower for pattern in DEFINITION_QUERY_PATTERNS)
+
+
+def retrieve_with_glossary_boost(
+    db_path: Path,
+    query_embedding: np.ndarray,
+    query_text: str,
+    top_k: int = 5,
+    boost_factor: float = DEFAULT_GLOSSARY_BOOST,
+    auto_detect: bool = True,
+) -> list[dict]:
+    """
+    Recherche avec boost automatique du glossaire pour questions de definition.
+
+    Combine source_filter (smart_retrieve) + glossary_boost pour maximiser
+    la precision sur les questions de terminologie officielle.
+
+    Args:
+        db_path: Chemin de la base SQLite.
+        query_embedding: Vecteur query normalise.
+        query_text: Texte de la query pour detection patterns.
+        top_k: Nombre de resultats a retourner.
+        boost_factor: Multiplicateur glossaire (defaut 3.5).
+        auto_detect: Si True, applique le boost uniquement si question definition.
+            Si False, applique toujours le boost.
+
+    Returns:
+        Liste de dicts avec id, text, source, page, score, is_glossary, boost_applied.
+
+    Example:
+        >>> # Auto-detection: boost applique si question definition
+        >>> results = retrieve_with_glossary_boost(db, emb, "Qu'est-ce que le roque?")
+        >>> # Boost force (toutes queries)
+        >>> results = retrieve_with_glossary_boost(db, emb, "roque", auto_detect=False)
+    """
+    # Detect source filter from smart_retrieve patterns
+    query_lower = query_text.lower()
+    selected_filter = None
+    for keyword, source in SOURCE_FILTER_PATTERNS.items():
+        if keyword in query_lower:
+            selected_filter = source
+            logger.debug(f"glossary_boost: source filter '{keyword}' -> '{source}'")
+            break
+
+    # Determine if glossary boost should be applied
+    apply_boost = not auto_detect or _is_definition_query(query_text)
+
+    if apply_boost:
+        logger.debug(f"glossary_boost: applying x{boost_factor} boost")
+
+    # Retrieve with optional glossary boost
+    results = retrieve_similar(
+        db_path,
+        query_embedding,
+        top_k=top_k,
+        source_filter=selected_filter,
+        glossary_boost=boost_factor if apply_boost else None,
+    )
+
+    # Add boost_applied flag to results
+    for result in results:
+        result["boost_applied"] = apply_boost
+
+    return results
 
 
 # Type hint for CrossEncoder (imported only for type checking)

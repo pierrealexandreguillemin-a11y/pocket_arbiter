@@ -1,6 +1,6 @@
 {
-  "version": "5.8",
-  "description": "Gold standard v5.8 - Fix FR-Q18 expected page 57->56",
+  "version": "5.11",
+  "description": "Gold standard v5.11 - Fixed expected pages after PDF verification (Q70-Q74)",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -9,7 +9,7 @@
     "iso_reference": "ISO 25010 FA-01, ISO 42001 A.7.3, ISO 29119"
   },
   "coverage": {
-    "total_questions": 68,
+    "total_questions": 75,
     "total_documents": 28,
     "documents_covered": [
       "2018_Reglement_Disciplinaire20180422.pdf",
@@ -57,7 +57,7 @@
     ]
   },
   "statistics": {
-    "total_questions": 68,
+    "total_questions": 75,
     "iso_target": "Recall@5 >= 80%",
     "min_questions_iso": 50,
     "compliant": true,
@@ -3737,6 +3737,203 @@
         "audit_note": "p29 was wrong - p141 is main anti-triche chapter"
       },
       "audit": "strict_v3_2026-01-19"
+    },
+    {
+      "id": "FR-Q69",
+      "question": "Qu'est-ce que la chute du drapeau dans une partie d'échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "drapeau",
+        "chute",
+        "temps",
+        "pendule"
+      ],
+      "expected_pages": [
+        44,
+        46
+      ],
+      "metadata": {
+        "type": "definition",
+        "glossary": true
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q70",
+      "question": "Que signifie j'adoube et quand peut-on l'utiliser ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "adoube",
+        "ajuster",
+        "pièce",
+        "toucher"
+      ],
+      "expected_pages": [
+        38,
+        41
+      ],
+      "metadata": {
+        "type": "definition",
+        "glossary": true,
+        "article": "4.2"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q71",
+      "question": "Quelles sont les exigences pour les stages pratiques des arbitres candidats ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "stage",
+        "pratique",
+        "arbitre",
+        "candidat"
+      ],
+      "expected_pages": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "metadata": {
+        "type": "regle",
+        "section": "DNA"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q72",
+      "question": "Quelles sont les règles concernant le retard et le forfait en début de partie ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "retard",
+        "forfait",
+        "début",
+        "partie"
+      ],
+      "expected_pages": [
+        46
+      ],
+      "metadata": {
+        "type": "regle",
+        "article": "6.7"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q73",
+      "question": "Qu'est-ce qu'un coup sous enveloppe dans une partie ajournée ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "enveloppe",
+        "ajourner",
+        "coup",
+        "scellé"
+      ],
+      "expected_pages": [
+        63
+      ],
+      "metadata": {
+        "type": "definition",
+        "glossary": true
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q74",
+      "question": "Quelles sanctions pour l'utilisation d'un appareil électronique pendant la partie ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "électronique",
+        "téléphone",
+        "montre",
+        "sanction"
+      ],
+      "expected_pages": [
+        53,
+        54
+      ],
+      "metadata": {
+        "type": "regle",
+        "article": "11.3"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q75",
+      "question": "Quelles adaptations pour les joueurs avec déficience visuelle ?",
+      "category": "handicap",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "aveugle",
+        "déficience",
+        "visuelle",
+        "adaptation"
+      ],
+      "expected_pages": [
+        59,
+        60
+      ],
+      "metadata": {
+        "type": "regle",
+        "section": "Annexe D"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
     }
   ]
 }

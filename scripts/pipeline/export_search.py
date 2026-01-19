@@ -513,18 +513,23 @@ def retrieve_hybrid_rerank(
 # Smart Retrieve (auto source_filter)
 # =============================================================================
 
-# Mapping keywords -> source_filter (patterns fiables basés sur gold standard fails)
+# Mapping keywords -> source_filter (patterns SPÉCIFIQUES - éviter faux positifs)
+# IMPORTANT: Patterns génériques comme "rapide", "cadence" causent des régressions
+# car ils matchent des questions sur les championnats FFE (A03, F02, E02)
 SOURCE_FILTER_PATTERNS: dict[str, str] = {
-    # Statuts FFE
-    "objectifs": "Statuts",
+    # Statuts FFE (patterns explicites uniquement)
+    "selon les statuts": "Statuts",
     "but de la ffe": "Statuts",
-    "fédération": "Statuts",
-    # LA (Livre de l'Arbitre)
-    "cadence": "LA-octobre",
-    "rapide": "LA-octobre",
-    "blitz": "LA-octobre",
+    "objectifs de la ffe": "Statuts",
+    # LA (Livre de l'Arbitre) - patterns spécifiques règles du jeu
+    "cadences officielles": "LA-octobre",
+    "règles du jeu": "LA-octobre",
     "annexe a": "LA-octobre",
     "annexe b": "LA-octobre",
+    "toucher-jouer": "LA-octobre",
+    "pièce touchée": "LA-octobre",
+    "coup illégal": "LA-octobre",
+    "position illégale": "LA-octobre",
     # Code éthique
     "éthique": "Code_ethique",
     "déontologie": "Code_ethique",

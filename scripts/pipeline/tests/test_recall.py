@@ -99,7 +99,7 @@ def benchmark_recall(
     from scripts.pipeline.export_search import (
         retrieve_hybrid,
         retrieve_hybrid_rerank,
-        retrieve_similar,
+        smart_retrieve,
     )
     from scripts.pipeline.utils import load_json
 
@@ -127,7 +127,8 @@ def benchmark_recall(
         elif use_hybrid:
             retrieved = retrieve_hybrid(db_path, query_emb, q["question"], top_k=top_k)
         else:
-            retrieved = retrieve_similar(db_path, query_emb, top_k=top_k)
+            # smart_retrieve: auto source_filter based on specific patterns
+            retrieved = smart_retrieve(db_path, query_emb, q["question"], top_k=top_k)
 
         retrieved_pages = [r["page"] for r in retrieved]
         expected_pages = q["expected_pages"]

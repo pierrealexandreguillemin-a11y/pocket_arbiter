@@ -1,6 +1,6 @@
 {
-  "version": "5.0",
-  "description": "Gold standard arbitre professionnel - 66 questions, 28 documents",
+  "version": "5.7",
+  "description": "Gold standard v5.7 - Final audit: 23 questions corrected",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -62,7 +62,8 @@
     "min_questions_iso": 50,
     "compliant": true,
     "validated_questions": 68,
-    "validation_rate": "100.0%"
+    "validation_rate": "100.0%",
+    "avg_pages_per_question": 2.7
   },
   "questions": [
     {
@@ -117,9 +118,14 @@
       },
       "expected_pages": [
         41,
-        42,
-        61
-      ]
+        42
+      ],
+      "metadata": {
+        "article_num": "4.1-4.8",
+        "section": "Chapitre 2.1",
+        "audit_note": "Page 61 removed (Annexe D malvoyants)"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q02",
@@ -171,10 +177,14 @@
         ]
       },
       "expected_pages": [
-        54,
-        68,
-        124
-      ]
+        46
+      ],
+      "metadata": {
+        "article_num": "6.7",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 54,68,124 removed (non-substantive)"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q03",
@@ -226,10 +236,14 @@
         ]
       },
       "expected_pages": [
-        54,
-        64,
-        68
-      ]
+        46
+      ],
+      "metadata": {
+        "article_num": "6.7",
+        "section": "Chapitre 2.1",
+        "audit_note": "Same as Q02 - forfait/retard"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q04",
@@ -285,9 +299,14 @@
       },
       "expected_pages": [
         46,
-        50,
-        57
-      ]
+        47
+      ],
+      "metadata": {
+        "article_num": "6.9-6.10",
+        "section": "Chapitre 2.1",
+        "audit_note": "Drapeau rules Art 6.9"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q05",
@@ -398,10 +417,14 @@
         ]
       },
       "expected_pages": [
-        40,
-        42,
-        52
-      ]
+        40
+      ],
+      "metadata": {
+        "article_num": "3.8.2",
+        "section": "Chapitre 2.1",
+        "audit_note": "p42,52 removed (toucher/repetition)"
+      },
+      "audit": "strict_v2_2026-01-19"
     },
     {
       "id": "FR-Q07",
@@ -455,9 +478,14 @@
       },
       "expected_pages": [
         51,
-        70,
-        81
-      ]
+        52
+      ],
+      "metadata": {
+        "article_num": "9.2",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 70,81 removed (glossaire/materiel)"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q08",
@@ -509,10 +537,14 @@
         ]
       },
       "expected_pages": [
-        50,
-        52,
-        55
-      ]
+        70
+      ],
+      "metadata": {
+        "article_num": "9.3.2",
+        "section": "Glossaire",
+        "audit_note": "p52 removed (9.2.3 = repetition, pas 50 coups)"
+      },
+      "audit": "strict_final_2026-01-19"
     },
     {
       "id": "FR-Q09",
@@ -567,10 +599,14 @@
         ]
       },
       "expected_pages": [
-        39,
-        52,
-        59
-      ]
+        39
+      ],
+      "metadata": {
+        "article_num": "3.7.4",
+        "section": "Chapitre 2.1",
+        "audit_note": "p52,59 removed (repetition/notation)"
+      },
+      "audit": "strict_v2_2026-01-19"
     },
     {
       "id": "FR-Q10",
@@ -738,10 +774,14 @@
         ]
       },
       "expected_pages": [
-        49,
-        59,
-        69
-      ]
+        59
+      ],
+      "metadata": {
+        "article_num": "Annexe C",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 49,69 removed (notation generale/glossaire)"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q13",
@@ -796,10 +836,14 @@
         ]
       },
       "expected_pages": [
-        50,
-        56,
-        69
-      ]
+        50
+      ],
+      "metadata": {
+        "article_num": "8.4",
+        "section": "Chapitre 2.1",
+        "audit_note": "p56,69 removed (sanctions/glossaire)"
+      },
+      "audit": "strict_v2_2026-01-19"
     },
     {
       "id": "FR-Q14",
@@ -852,10 +896,15 @@
         ]
       },
       "expected_pages": [
-        51,
         50,
-        54
-      ]
+        51
+      ],
+      "metadata": {
+        "article_num": "9.1",
+        "section": "Chapitre 2.1",
+        "audit_note": "p54 removed (telephone)"
+      },
+      "audit": "strict_v2_2026-01-19"
     },
     {
       "id": "FR-Q15",
@@ -908,10 +957,14 @@
         ]
       },
       "expected_pages": [
-        28,
-        10,
-        11
-      ]
+        55
+      ],
+      "metadata": {
+        "article_num": "12.1-12.9",
+        "section": "Chapitre 2.1",
+        "audit_note": "p10,11,28 are DNA not FIDE rules"
+      },
+      "audit": "strict_v2_2026-01-19"
     },
     {
       "id": "FR-Q16",
@@ -962,10 +1015,14 @@
         ]
       },
       "expected_pages": [
-        4,
-        5,
-        1
-      ]
+        167
+      ],
+      "metadata": {
+        "article_num": "Chapitre 5.2",
+        "section": "Obligations tournoi",
+        "audit_note": "Changed to LA p167 (homologation Elo)"
+      },
+      "audit": "strict_final_2026-01-19"
     },
     {
       "id": "FR-Q17",
@@ -1016,8 +1073,8 @@
         ]
       },
       "expected_pages": [
-        4,
         2,
+        4,
         5
       ]
     },
@@ -1075,10 +1132,14 @@
         ]
       },
       "expected_pages": [
-        45,
-        56,
-        58
-      ]
+        57
+      ],
+      "metadata": {
+        "article_num": "Annexe A",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 45,56,58 removed (58=Blitz!)"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q19",
@@ -1134,10 +1195,14 @@
         ]
       },
       "expected_pages": [
-        58,
-        66,
-        147
-      ]
+        58
+      ],
+      "metadata": {
+        "article_num": "Annexe B",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 66,147 removed (KO/departages)"
+      },
+      "audit": "strict_2026-01-19"
     },
     {
       "id": "FR-Q20",
@@ -1179,8 +1244,7 @@
         ]
       },
       "expected_pages": [
-        1,
-        2
+        1
       ]
     },
     {
@@ -1236,8 +1300,8 @@
       },
       "expected_pages": [
         1,
-        3,
-        2
+        2,
+        3
       ]
     },
     {
@@ -1293,8 +1357,8 @@
       },
       "expected_pages": [
         1,
-        3,
-        2
+        2,
+        3
       ]
     },
     {
@@ -1347,8 +1411,8 @@
       },
       "expected_pages": [
         1,
-        4,
-        2
+        2,
+        4
       ]
     },
     {
@@ -1402,8 +1466,8 @@
         ]
       },
       "expected_pages": [
-        2,
         1,
+        2,
         3
       ]
     },
@@ -1458,8 +1522,8 @@
         ]
       },
       "expected_pages": [
-        2,
         1,
+        2,
         3
       ]
     },
@@ -1569,8 +1633,8 @@
         ]
       },
       "expected_pages": [
-        2,
         1,
+        2,
         3
       ]
     },
@@ -1738,8 +1802,8 @@
       },
       "expected_pages": [
         1,
-        4,
-        2
+        2,
+        4
       ]
     },
     {
@@ -2225,8 +2289,8 @@
       },
       "expected_pages": [
         1,
-        3,
-        2
+        2,
+        3
       ]
     },
     {
@@ -2685,10 +2749,14 @@
         ]
       },
       "expected_pages": [
-        2,
-        5,
-        7
-      ]
+        2
+      ],
+      "metadata": {
+        "article_num": "Article 1",
+        "section": "Titre I",
+        "audit_note": "p5,7 removed (licence/vote, pas objectifs)"
+      },
+      "audit": "strict_v3_2026-01-19"
     },
     {
       "id": "FR-Q51",
@@ -2741,9 +2809,9 @@
         ]
       },
       "expected_pages": [
-        5,
         2,
-        3
+        3,
+        5
       ]
     },
     {
@@ -2967,9 +3035,9 @@
         ]
       },
       "expected_pages": [
+        1,
         2,
-        4,
-        1
+        4
       ]
     },
     {
@@ -3076,10 +3144,14 @@
         ]
       },
       "expected_pages": [
-        1,
-        5,
-        6
-      ]
+        5
+      ],
+      "metadata": {
+        "article_num": "Section 4",
+        "section": "Dopage",
+        "audit_note": "p1,6 removed (table des matieres, suite)"
+      },
+      "audit": "strict_v3_2026-01-19"
     },
     {
       "id": "FR-Q58",
@@ -3130,9 +3202,9 @@
         ]
       },
       "expected_pages": [
+        2,
         7,
-        8,
-        1
+        8
       ]
     },
     {
@@ -3244,10 +3316,14 @@
         ]
       },
       "expected_pages": [
-        8,
-        15,
-        21
-      ]
+        3
+      ],
+      "metadata": {
+        "article_num": "Preambule",
+        "section": "Introduction",
+        "audit_note": "p8,15,21 removed (implementation, pas definition)"
+      },
+      "audit": "strict_v3_2026-01-19"
     },
     {
       "id": "FR-Q61",
@@ -3300,9 +3376,14 @@
       },
       "expected_pages": [
         3,
-        9,
-        21
-      ]
+        9
+      ],
+      "metadata": {
+        "article_num": "Art. 1-6, 2-3",
+        "section": "Obligations",
+        "audit_note": "p21 removed (ressources humaines)"
+      },
+      "audit": "strict_v3_2026-01-19"
     },
     {
       "id": "FR-Q62",
@@ -3345,8 +3426,8 @@
         ]
       },
       "expected_pages": [
-        2,
-        1
+        1,
+        2
       ]
     },
     {
@@ -3648,10 +3729,14 @@
         ]
       },
       "expected_pages": [
-        71,
-        89,
-        94
-      ]
+        141
+      ],
+      "metadata": {
+        "article_num": "Chapitre 4.1",
+        "section": "Directives contre la tricherie",
+        "audit_note": "p29 was wrong - p141 is main anti-triche chapter"
+      },
+      "audit": "strict_v3_2026-01-19"
     }
   ]
 }

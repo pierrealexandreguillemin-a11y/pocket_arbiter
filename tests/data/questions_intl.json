@@ -4,7 +4,7 @@
     "version": "1.1",
     "description": "Questions gold standard pour evaluer le retrieval sur le corpus INTL (FIDE)",
     "created": "2026-01-10",
-    "updated": "2026-01-14",
+    "updated": "2026-01-19",
     "total_questions": 25,
     "source": "FIDE Laws of Chess + Arbiters Manual"
   },
@@ -12,202 +12,441 @@
     {
       "id": "intl_001",
       "question": "What happens if a player touches a piece but cannot make a legal move with it?",
-      "expected_articles": ["4.3", "4.4"],
+      "expected_articles": [
+        "4.3",
+        "4.4"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["touch-move", "illegal-move"]
+      "tags": [
+        "touch-move",
+        "illegal-move"
+      ],
+      "expected_pages": [
+        25,
+        26
+      ]
     },
     {
       "id": "intl_002",
       "question": "How much time is added after each move in a rapid game?",
-      "expected_articles": ["A.3"],
+      "expected_articles": [
+        "A.3"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["time-control", "rapid"]
+      "tags": [
+        "time-control",
+        "rapid"
+      ],
+      "expected_pages": [
+        49,
+        51
+      ]
     },
     {
       "id": "intl_003",
       "question": "When can an arbiter declare a game drawn due to insufficient material?",
-      "expected_articles": ["5.2.2", "6.9"],
+      "expected_articles": [
+        "5.2.2",
+        "6.9"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["draw", "insufficient-material"]
+      "tags": [
+        "draw",
+        "insufficient-material"
+      ],
+      "expected_pages": [
+        28,
+        29,
+        33,
+        58
+      ]
     },
     {
       "id": "intl_004",
       "question": "What are the requirements for a valid claim of threefold repetition?",
-      "expected_articles": ["9.2"],
+      "expected_articles": [
+        "9.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["draw", "repetition"]
+      "tags": [
+        "draw",
+        "repetition"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ]
     },
     {
       "id": "intl_005",
       "question": "If a player's flag falls and no one notices, what should happen when it is discovered?",
-      "expected_articles": ["6.8"],
+      "expected_articles": [
+        "6.8"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "hard",
-      "tags": ["time", "flag-fall"]
+      "tags": [
+        "time",
+        "flag-fall"
+      ],
+      "expected_pages": [
+        33,
+        63
+      ]
     },
     {
       "id": "intl_006",
       "question": "What is the procedure when an illegal move is discovered several moves later?",
-      "expected_articles": ["7.5"],
+      "expected_articles": [
+        "7.5"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "hard",
-      "tags": ["illegal-move", "correction"]
+      "tags": [
+        "illegal-move",
+        "correction"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ]
     },
     {
       "id": "intl_007",
       "question": "Can a player castle if the rook is attacked?",
-      "expected_articles": ["3.8.2"],
+      "expected_articles": [
+        "3.8.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["castling", "rules"]
+      "tags": [
+        "castling",
+        "rules"
+      ],
+      "expected_pages": [
+        23,
+        24
+      ]
     },
     {
       "id": "intl_008",
       "question": "What are the arbiter's duties during a rapid or blitz tournament?",
-      "expected_articles": ["A.4", "B.3"],
+      "expected_articles": [
+        "A.4",
+        "B.3"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["arbiter", "rapid", "blitz"]
+      "tags": [
+        "arbiter",
+        "rapid",
+        "blitz"
+      ],
+      "expected_pages": [
+        49,
+        50,
+        51,
+        135
+      ]
     },
     {
       "id": "intl_009",
       "question": "How should an arbiter handle a mobile phone ringing during a game?",
-      "expected_articles": ["11.3.2"],
+      "expected_articles": [
+        "11.3.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["mobile-phone", "penalty"]
+      "tags": [
+        "mobile-phone",
+        "penalty"
+      ],
+      "expected_pages": [
+        44,
+        65
+      ]
     },
     {
       "id": "intl_010",
       "question": "What is the 75-move rule and when does it apply?",
-      "expected_articles": ["9.6.2"],
+      "expected_articles": [
+        "9.6.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "hard",
-      "tags": ["draw", "75-move"]
+      "tags": [
+        "draw",
+        "75-move"
+      ],
+      "expected_pages": [
+        29,
+        42
+      ]
     },
     {
       "id": "intl_011",
       "question": "What is the penalty for making an illegal move in a standard game?",
-      "expected_articles": ["7.5.1", "7.5.2"],
+      "expected_articles": [
+        "7.5.1",
+        "7.5.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["illegal-move", "penalty"]
+      "tags": [
+        "illegal-move",
+        "penalty"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ]
     },
     {
       "id": "intl_012",
       "question": "How should a player correctly offer a draw?",
-      "expected_articles": ["9.1"],
+      "expected_articles": [
+        "9.1"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["draw", "procedure"]
+      "tags": [
+        "draw",
+        "procedure"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ]
     },
     {
       "id": "intl_013",
       "question": "What are the conditions for castling to be legal?",
-      "expected_articles": ["3.8.2"],
+      "expected_articles": [
+        "3.8.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["castling", "rules"]
+      "tags": [
+        "castling",
+        "rules"
+      ],
+      "expected_pages": [
+        23,
+        24
+      ]
     },
     {
       "id": "intl_014",
       "question": "When must a player record the moves during a game?",
-      "expected_articles": ["8.1", "8.4"],
+      "expected_articles": [
+        "8.1",
+        "8.4"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["notation", "scoresheet"]
+      "tags": [
+        "notation",
+        "scoresheet"
+      ],
+      "expected_pages": [
+        38,
+        39
+      ]
     },
     {
       "id": "intl_015",
       "question": "What happens if both players have made an illegal move?",
-      "expected_articles": ["7.5.5"],
+      "expected_articles": [
+        "7.5.5"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "hard",
-      "tags": ["illegal-move", "correction"]
+      "tags": [
+        "illegal-move",
+        "correction"
+      ],
+      "expected_pages": [
+        37,
+        50
+      ]
     },
     {
       "id": "intl_016",
       "question": "How is the pawn promotion completed correctly?",
-      "expected_articles": ["3.7.5"],
+      "expected_articles": [
+        "3.7.5"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["promotion", "rules"]
+      "tags": [
+        "promotion",
+        "rules"
+      ],
+      "expected_pages": [
+        64,
+        66
+      ]
     },
     {
       "id": "intl_017",
       "question": "What are the time controls for a FIDE rated rapid game?",
-      "expected_articles": ["A.2"],
+      "expected_articles": [
+        "A.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["rapid", "time-control"]
+      "tags": [
+        "rapid",
+        "time-control"
+      ],
+      "expected_pages": [
+        49,
+        51
+      ]
     },
     {
       "id": "intl_018",
       "question": "When can a player claim a draw by the 50-move rule?",
-      "expected_articles": ["9.3"],
+      "expected_articles": [
+        "9.3"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["draw", "50-move"]
+      "tags": [
+        "draw",
+        "50-move"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ]
     },
     {
       "id": "intl_019",
       "question": "What are the arbiter's options when a player disturbs the opponent?",
-      "expected_articles": ["11.5", "12.9"],
+      "expected_articles": [
+        "11.5",
+        "12.9"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["arbiter", "conduct"]
+      "tags": [
+        "arbiter",
+        "conduct"
+      ],
+      "expected_pages": [
+        34,
+        35,
+        45,
+        46
+      ]
     },
     {
       "id": "intl_020",
       "question": "How is checkmate defined according to FIDE rules?",
-      "expected_articles": ["5.1.1"],
+      "expected_articles": [
+        "5.1.1"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["checkmate", "rules"]
+      "tags": [
+        "checkmate",
+        "rules"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ]
     },
     {
       "id": "intl_021",
       "question": "What happens when a player completes a move but the position remains impossible?",
-      "expected_articles": ["7.5.3"],
+      "expected_articles": [
+        "7.5.3"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "hard",
-      "tags": ["illegal-move", "position"]
+      "tags": [
+        "illegal-move",
+        "position"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ]
     },
     {
       "id": "intl_022",
       "question": "What are the default time penalties an arbiter can give?",
-      "expected_articles": ["12.9"],
+      "expected_articles": [
+        "12.9"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "medium",
-      "tags": ["arbiter", "penalty"]
+      "tags": [
+        "arbiter",
+        "penalty"
+      ],
+      "expected_pages": [
+        34,
+        35
+      ]
     },
     {
       "id": "intl_023",
       "question": "How should an arbiter handle a quickplay finish situation?",
-      "expected_articles": ["10.2"],
+      "expected_articles": [
+        "10.2"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "hard",
-      "tags": ["quickplay", "arbiter"]
+      "tags": [
+        "quickplay",
+        "arbiter"
+      ],
+      "expected_pages": [
+        43,
+        56
+      ]
     },
     {
       "id": "intl_024",
       "question": "What is the definition of stalemate?",
-      "expected_articles": ["5.2.1"],
+      "expected_articles": [
+        "5.2.1"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "easy",
-      "tags": ["stalemate", "draw"]
+      "tags": [
+        "stalemate",
+        "draw"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ]
     },
     {
       "id": "intl_025",
       "question": "When can an arbiter intervene during a game without a claim from a player?",
-      "expected_articles": ["12.6", "12.7"],
+      "expected_articles": [
+        "12.6",
+        "12.7"
+      ],
       "source": "FIDE Laws of Chess",
       "difficulty": "hard",
-      "tags": ["arbiter", "intervention"]
+      "tags": [
+        "arbiter",
+        "intervention"
+      ],
+      "expected_pages": [
+        47,
+        65
+      ]
     }
   ],
   "coverage": {

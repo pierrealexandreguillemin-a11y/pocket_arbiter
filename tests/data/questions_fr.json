@@ -1,6 +1,6 @@
 {
-  "version": "5.11",
-  "description": "Gold standard v5.11 - Fixed expected pages after PDF verification (Q70-Q74)",
+  "version": "5.13",
+  "description": "Gold standard v5.13 - 86 questions with fixed Q77, Q85, Q86 expected pages",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -3927,6 +3927,319 @@
       "metadata": {
         "type": "regle",
         "section": "Annexe D"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q76",
+      "question": "Quelle est la fréquence minimale des mises à jour du classement Elo Standard FIDE depuis 2025 ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "mise à jour",
+        "Elo",
+        "Standard",
+        "FIDE",
+        "fréquence"
+      ],
+      "expected_pages": [
+        183
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q77",
+      "question": "Quelles sont les règles concernant les joueurs inactifs et leur classement Elo Standard FIDE ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "inactif",
+        "Elo",
+        "classement",
+        "liste"
+      ],
+      "expected_pages": [
+        183
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q78",
+      "question": "Comment est calculé le coefficient K pour un joueur ayant plus de 30 parties et un Elo supérieur à 2400 ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "coefficient K",
+        "2400",
+        "calcul",
+        "Elo"
+      ],
+      "expected_pages": [
+        185
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q79",
+      "question": "Quelles sont les conditions exactes pour obtenir le titre de Grand Maître (GM) en 2025-2026, y compris le nombre de normes et le niveau minimal requis ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Grand Maître",
+        "GM",
+        "norme",
+        "titre",
+        "2500"
+      ],
+      "expected_pages": [
+        192,
+        193,
+        197
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q80",
+      "question": "Un joueur peut-il obtenir le titre de Maître FIDE (FM) sans passer par le titre de Candidat Maître (CM) ? Expliquez les voies possibles.",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Maître FIDE",
+        "FM",
+        "Candidat Maître",
+        "CM",
+        "progression"
+      ],
+      "expected_pages": [
+        192,
+        194
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q81",
+      "question": "Quelle est la durée de validité d'une norme de titre FIDE si elle n'est pas utilisée pour une demande de titre ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "norme",
+        "validité",
+        "durée",
+        "titre",
+        "FIDE"
+      ],
+      "expected_pages": [
+        193,
+        197
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q82",
+      "question": "Quelles sont les obligations administratives minimales qu'un arbitre doit respecter avant le début d'un tournoi homologué FFE ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "obligations",
+        "administratives",
+        "tournoi",
+        "homologué",
+        "avant"
+      ],
+      "expected_pages": [
+        166,
+        167,
+        168
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.2"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q83",
+      "question": "Comment un arbitre doit-il gérer la rédaction et la transmission du Rapport Technique de fin de tournoi ? Quels éléments doivent y figurer obligatoirement ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Rapport Technique",
+        "fin tournoi",
+        "rédaction",
+        "transmission"
+      ],
+      "expected_pages": [
+        172,
+        173,
+        174
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.4"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q84",
+      "question": "Quel est le barème d'indemnisation minimal pour un arbitre principal lors d'un tournoi national avec plus de 100 joueurs ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "barème",
+        "indemnisation",
+        "arbitre",
+        "tournoi",
+        "national"
+      ],
+      "expected_pages": [
+        178,
+        179,
+        180
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q85",
+      "question": "Comment l'arbitre doit-il gérer le procès-verbal et les réclamations après un match par équipes ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "procès-verbal",
+        "match",
+        "réclamation",
+        "arbitre"
+      ],
+      "expected_pages": [
+        165
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.1"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q86",
+      "question": "Comment gérer l'absence d'un joueur lors d'un tournoi et les abandons en cours de compétition ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "absence",
+        "joueur",
+        "abandon",
+        "tournoi"
+      ],
+      "expected_pages": [
+        74
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.3"
       },
       "validation": {
         "status": "VALIDATED",

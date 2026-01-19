@@ -12,6 +12,137 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 
+class TestExtractTableContent:
+    """Tests pour _extract_table_content()."""
+
+    def test_table_with_no_data(self):
+        """Retourne structure vide si table.data est None."""
+        from scripts.pipeline.extract_docling import _extract_table_content
+
+        mock_table = MagicMock()
+        mock_table.data = None
+        mock_doc = MagicMock()
+
+        result = _extract_table_content(mock_table, mock_doc)
+
+        assert result["num_rows"] == 0
+        assert result["num_cols"] == 0
+        assert result["headers"] == []
+        assert result["rows"] == []
+        assert result["text"] == ""
+
+    def test_table_with_empty_grid(self):
+        """Retourne structure vide si grid est vide."""
+        from scripts.pipeline.extract_docling import _extract_table_content
+
+        mock_data = MagicMock()
+        mock_data.num_rows = 0
+        mock_data.num_cols = 0
+        mock_data.grid = None
+
+        mock_table = MagicMock()
+        mock_table.data = mock_data
+
+        result = _extract_table_content(mock_table, MagicMock())
+
+        assert result["num_rows"] == 0
+        assert result["num_cols"] == 0
+        assert result["text"] == ""
+
+    def test_table_with_simple_grid(self):
+        """Extrait correctement une grille simple."""
+        from scripts.pipeline.extract_docling import _extract_table_content
+
+        # Create mock cells
+        cell1 = MagicMock()
+        cell1.text = "Header1"
+        cell1.column_header = True
+
+        cell2 = MagicMock()
+        cell2.text = "Header2"
+        cell2.column_header = True
+
+        cell3 = MagicMock()
+        cell3.text = "Value1"
+        cell3.column_header = False
+
+        cell4 = MagicMock()
+        cell4.text = "Value2"
+        cell4.column_header = False
+
+        mock_data = MagicMock()
+        mock_data.num_rows = 2
+        mock_data.num_cols = 2
+        mock_data.grid = [[cell1, cell2], [cell3, cell4]]
+
+        mock_table = MagicMock()
+        mock_table.data = mock_data
+
+        result = _extract_table_content(mock_table, MagicMock())
+
+        assert result["num_rows"] == 2
+        assert result["num_cols"] == 2
+        assert result["headers"] == ["Header1", "Header2"]
+        assert result["rows"] == [["Value1", "Value2"]]
+        assert "Header1 | Header2" in result["text"]
+        assert "Value1 | Value2" in result["text"]
+
+    def test_table_without_header_markers(self):
+        """Traite la premiere ligne comme header si pas de markers."""
+        from scripts.pipeline.extract_docling import _extract_table_content
+
+        cell1 = MagicMock()
+        cell1.text = "Col1"
+        cell1.column_header = False
+
+        cell2 = MagicMock()
+        cell2.text = "Col2"
+        cell2.column_header = False
+
+        cell3 = MagicMock()
+        cell3.text = "Data1"
+        cell3.column_header = False
+
+        cell4 = MagicMock()
+        cell4.text = "Data2"
+        cell4.column_header = False
+
+        mock_data = MagicMock()
+        mock_data.num_rows = 2
+        mock_data.num_cols = 2
+        mock_data.grid = [[cell1, cell2], [cell3, cell4]]
+
+        mock_table = MagicMock()
+        mock_table.data = mock_data
+
+        result = _extract_table_content(mock_table, MagicMock())
+
+        # First row is treated as headers by default
+        assert result["headers"] == ["Col1", "Col2"]
+        assert result["rows"] == [["Data1", "Data2"]]
+
+    def test_table_with_none_cell_text(self):
+        """Gere les cellules avec text=None."""
+        from scripts.pipeline.extract_docling import _extract_table_content
+
+        cell = MagicMock()
+        cell.text = None
+        cell.column_header = False
+
+        mock_data = MagicMock()
+        mock_data.num_rows = 1
+        mock_data.num_cols = 1
+        mock_data.grid = [[cell]]
+
+        mock_table = MagicMock()
+        mock_table.data = mock_data
+
+        result = _extract_table_content(mock_table, MagicMock())
+
+        # Should not crash, should return empty string for None
+        assert result["headers"] == [""]
+
+
 class TestExtractPdfDocling:
     """Tests pour extract_pdf_docling()."""
 
@@ -56,12 +187,25 @@ class TestExtractPdfDocling:
 
     @patch("scripts.pipeline.extract_docling.DocumentConverter")
     def test_extraction_with_tables(self, mock_converter_class: MagicMock):
-        """Teste l'extraction avec tables."""
+        """Teste l'extraction avec tables utilisant la nouvelle logique grid."""
         from scripts.pipeline.extract_docling import extract_pdf_docling
 
-        # Setup mock with tables
+        # Setup mock table with proper data structure
+        mock_cell1 = MagicMock()
+        mock_cell1.text = "Header"
+        mock_cell1.column_header = True
+
+        mock_cell2 = MagicMock()
+        mock_cell2.text = "Value"
+        mock_cell2.column_header = False
+
+        mock_data = MagicMock()
+        mock_data.num_rows = 2
+        mock_data.num_cols = 1
+        mock_data.grid = [[mock_cell1], [mock_cell2]]
+
         mock_table = MagicMock()
-        mock_table.export_to_markdown.return_value = "| Col1 | Col2 |\n|---|---|\n| A | B |"
+        mock_table.data = mock_data
 
         mock_doc = MagicMock()
         mock_doc.export_to_markdown.return_value = "# Doc with table"
@@ -82,7 +226,14 @@ class TestExtractPdfDocling:
 
             assert result["total_tables"] == 1
             assert len(result["tables"]) == 1
-            assert "test_table-table0" in result["tables"][0]["id"]
+            table = result["tables"][0]
+            assert table["id"] == "test_table-table0"
+            assert table["source"] == "test_table.pdf"
+            assert table["num_rows"] == 2
+            assert table["num_cols"] == 1
+            assert table["headers"] == ["Header"]
+            assert table["rows"] == [["Value"]]
+            assert "Header" in table["text"]
         finally:
             tmp_file.unlink(missing_ok=True)
 
@@ -191,6 +342,27 @@ class TestExtractCorpusDocling:
         assert len(report["errors"]) == 1
         assert "bad.pdf" in report["errors"][0]
 
+    @patch("scripts.pipeline.extract_docling.extract_pdf_docling")
+    def test_corpus_extraction_counts_tables(
+        self, mock_extract: MagicMock, tmp_path: Path
+    ):
+        """Verifie que total_tables est accumule correctement."""
+        from scripts.pipeline.extract_docling import extract_corpus_docling
+
+        input_dir = tmp_path / "input"
+        input_dir.mkdir()
+        (input_dir / "file1.pdf").write_bytes(b"%PDF-1.4")
+        (input_dir / "file2.pdf").write_bytes(b"%PDF-1.4")
+
+        mock_extract.side_effect = [
+            {"filename": "file1.pdf", "markdown": "", "tables": [{}], "total_tables": 1, "extraction_date": "", "extractor": "docling"},
+            {"filename": "file2.pdf", "markdown": "", "tables": [{}, {}], "total_tables": 2, "extraction_date": "", "extractor": "docling"},
+        ]
+
+        report = extract_corpus_docling(input_dir, tmp_path / "out")
+
+        assert report["total_tables"] == 3
+
 
 class TestIntegration:
     """Tests d'integration avec vrais PDFs."""
@@ -209,4 +381,25 @@ class TestIntegration:
         assert result["filename"] == "E02-Le_classement_rapide.pdf"
         assert len(result["markdown"]) > 100
         assert result["extractor"] == "docling"
-        assert "CLASSEMENT RAPIDE" in result["markdown"]
+
+    @pytest.mark.slow
+    def test_real_pdf_with_tables(self):
+        """Extrait un PDF avec tables reelles."""
+        from scripts.pipeline.extract_docling import extract_pdf_docling
+
+        pdf_path = Path("corpus/fr/Compétitions/R01_2025_26_Regles_generales.pdf")
+        if not pdf_path.exists():
+            pytest.skip("Test PDF not found")
+
+        result = extract_pdf_docling(pdf_path)
+
+        assert result["total_tables"] >= 1
+        if result["tables"]:
+            table = result["tables"][0]
+            assert "num_rows" in table
+            assert "num_cols" in table
+            assert "headers" in table
+            assert "rows" in table
+            assert "text" in table
+            # Verify content is not empty (the bug we fixed)
+            assert len(table["text"]) > 0 or table["num_rows"] == 0

@@ -42,10 +42,70 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
+def _extract_row_cells(row: list[Any]) -> list[str]:
+    """Extract text from a row of cells (ISO 25010 - reduced complexity)."""
+    return [normalize_text(getattr(cell, "text", "") or "") for cell in row]
+
+
+def _build_table_text(headers: list[str], rows: list[list[str]]) -> str:
+    """Build text representation for embedding/search (ISO 25010)."""
+    lines = []
+    if headers:
+        lines.append(" | ".join(headers))
+        lines.append("-" * 40)
+    lines.extend(" | ".join(row) for row in rows)
+    return "\n".join(lines)
+
+
+def _extract_table_content(table: Any, doc: Any) -> dict[str, Any]:
+    """
+    Extract structured content from a docling TableItem.
+
+    Uses table.data.grid for cell-by-cell extraction (ISO 42001 traceability).
+
+    Args:
+        table: Docling TableItem object.
+        doc: Parent DoclingDocument for context.
+
+    Returns:
+        dict with num_rows, num_cols, headers, rows, text.
+    """
+    result: dict[str, Any] = {
+        "num_rows": 0,
+        "num_cols": 0,
+        "headers": [],
+        "rows": [],
+        "text": "",
+    }
+
+    # Get table data structure
+    if not hasattr(table, "data") or table.data is None:
+        return result
+
+    data = table.data
+    result["num_rows"] = getattr(data, "num_rows", 0)
+    result["num_cols"] = getattr(data, "num_cols", 0)
+
+    grid = getattr(data, "grid", None)
+    if not grid:
+        return result
+
+    # Extract all rows
+    rows_text = [_extract_row_cells(row) for row in grid]
+
+    # First row is header (by convention or if marked)
+    if rows_text:
+        result["headers"] = rows_text[0]
+        result["rows"] = rows_text[1:] if len(rows_text) > 1 else []
+
+    result["text"] = _build_table_text(result["headers"], result["rows"])
+    return result
+
+
 def extract_pdf_docling(
     pdf_path: Path,
     do_ocr: bool = False,
-    do_table_structure: bool = False,
+    do_table_structure: bool = True,  # Required for table extraction (ISO 42001)
 ) -> dict[str, Any]:
     """
     Extrait le contenu d'un PDF avec Docling.
@@ -91,24 +151,19 @@ def extract_pdf_docling(
     markdown = doc.export_to_markdown()
     markdown = normalize_text(markdown)
 
-    # Extract tables
+    # Extract tables with proper structure (ISO 42001 traceability)
     tables = []
     if doc.tables:
         for i, table in enumerate(doc.tables):
-            # Pass doc argument to avoid deprecation warning
-            if hasattr(table, "export_to_markdown"):
-                try:
-                    table_md = table.export_to_markdown(doc=doc)
-                except TypeError:
-                    # Fallback for older docling versions
-                    table_md = table.export_to_markdown()
-            else:
-                table_md = str(table)
-
+            table_content = _extract_table_content(table, doc)
             table_data = {
                 "id": f"{pdf_path.stem}-table{i}",
                 "source": pdf_path.name,
-                "markdown": table_md,
+                "num_rows": table_content["num_rows"],
+                "num_cols": table_content["num_cols"],
+                "headers": table_content["headers"],
+                "rows": table_content["rows"],
+                "text": table_content["text"],
             }
             tables.append(table_data)
 

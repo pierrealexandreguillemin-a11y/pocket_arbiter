@@ -1,6 +1,6 @@
 {
-  "version": "5.7",
-  "description": "Gold standard v5.7 - Final audit: 23 questions corrected",
+  "version": "5.8",
+  "description": "Gold standard v5.8 - Fix FR-Q18 expected page 57->56",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -1132,12 +1132,12 @@
         ]
       },
       "expected_pages": [
-        57
+        56
       ],
       "metadata": {
         "article_num": "Annexe A",
         "section": "Chapitre 2.1",
-        "audit_note": "Pages 45,56,58 removed (58=Blitz!)"
+        "audit_note": "Fixed: 57->56 (Annexe A cadences rapides)"
       },
       "audit": "strict_2026-01-19"
     },

@@ -64,6 +64,7 @@ build/
 # Generated chunks JSON (regenerable via pipeline)
 corpus/processed/chunks_*.json
 corpus/processed/tables_*.json
+corpus/processed/docling_*/
 
 # Models (binaires à télécharger séparément)
 models/*.gguf

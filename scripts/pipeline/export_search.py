@@ -35,6 +35,7 @@ def retrieve_similar(
     db_path: Path,
     query_embedding: np.ndarray,
     top_k: int = 5,
+    source_filter: str | None = None,
 ) -> list[dict]:
     """
     Recupere les chunks les plus similaires a une query.
@@ -46,6 +47,8 @@ def retrieve_similar(
         db_path: Chemin de la base SQLite.
         query_embedding: Vecteur query normalise.
         top_k: Nombre de resultats a retourner.
+        source_filter: Filtre optionnel sur le champ source (e.g. "Statuts", "LA-octobre").
+            Utilise LIKE %filter% pour matching partiel.
 
     Returns:
         Liste de dicts avec id, text, source, page, score.
@@ -53,6 +56,12 @@ def retrieve_similar(
     Raises:
         FileNotFoundError: Si la base n'existe pas.
         ValueError: Si query_embedding a une mauvaise dimension.
+
+    Example:
+        >>> # Recherche globale (tous documents)
+        >>> results = retrieve_similar(db_path, query_emb, top_k=5)
+        >>> # Recherche filtree sur Statuts uniquement
+        >>> results = retrieve_similar(db_path, query_emb, source_filter="Statuts")
     """
     if not db_path.exists():
         raise FileNotFoundError(f"Database not found: {db_path}")
@@ -78,10 +87,17 @@ def retrieve_similar(
                 f"Query dim ({query_embedding.shape[0]}) != db dim ({embedding_dim})"
             )
 
-        # Fetch all embeddings and compute similarities
-        cursor.execute(
-            "SELECT id, text, source, page, tokens, metadata, embedding FROM chunks"
-        )
+        # Fetch embeddings (with optional source filter)
+        if source_filter:
+            cursor.execute(
+                """SELECT id, text, source, page, tokens, metadata, embedding
+                   FROM chunks WHERE source LIKE ?""",
+                (f"%{source_filter}%",),
+            )
+        else:
+            cursor.execute(
+                "SELECT id, text, source, page, tokens, metadata, embedding FROM chunks"
+            )
         rows = cursor.fetchall()
 
         results = []

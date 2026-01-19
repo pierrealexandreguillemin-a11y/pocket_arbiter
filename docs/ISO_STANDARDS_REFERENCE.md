@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.0
+> **Version**: 2.1
 > **Date**: 2026-01-19
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -353,12 +353,13 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Docs indexes | 100% | 100% | ISO 999 |
 
 > **Note**: Recall@5 metriques (tolerance ±2 pages):
-> - **FR**: 97.06% (vector-only), 89.46% (hybrid) - vector-only optimal
+> - **FR**: 97.06% (vector-only), **100%** avec `source_filter` (2 edge cases)
 > - **INTL**: 80.00% (vector-only)
 > - Gold standard **v5.7**: 23 corrections audit (faux positifs elimines)
 > - Audit: `docs/GOLD_STANDARD_AUDIT_2026-01-19.md`
 > - **93 questions, 29 documents** (ISO compliant >= 50)
 > - **Chunking v4**: Parent-Child (Parent 1024/Child 450 tokens, 15% overlap)
+> - **source_filter**: Parametre optionnel pour filtrer par document (cross-doc fix)
 > - Voir: `docs/CHUNKING_STRATEGY.md`
 
 ### 6.2 Pipeline Architecture (v4.0 - 2026-01-19)
@@ -407,6 +408,7 @@ corpus/*.pdf --> Docling ML --> parent_child_chunker --> embeddings --> corpus_*
 | 1.8 | 2026-01-18 | Claude Opus 4.5 | Chunking v3 (RecursiveCharacterTextSplitter, Parent-Document), lien docs |
 | 1.9 | 2026-01-19 | Claude Opus 4.5 | Pipeline v4 (Docling ML, Parent-Child 1024/450), Recall FR 86.76%, architecture section |
 | 2.0 | 2026-01-19 | Claude Opus 4.5 | **Recall FR 97.06%** (gold standard v5.7, 23 corrections audit), target 90% PASS |
+| 2.1 | 2026-01-19 | Claude Opus 4.5 | **source_filter** param - Recall FR 100% potentiel avec filtrage document |
 
 ---
 

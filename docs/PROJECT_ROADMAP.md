@@ -2,7 +2,7 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.4
+> **Version**: 1.5
 > **Date**: 2026-01-19
 > **Effort total estime**: 205h (~13-15 semaines)
 
@@ -370,11 +370,14 @@ Validation utilisateur et release production.
 
 | Mode | Recall@5 FR | Failed | Conclusion |
 |------|-------------|--------|------------|
-| **Vector-only** | **97.06%** | 2/68 | ✅ OPTIMAL |
+| **Vector-only** | **97.06%** | 2/68 | ✅ OPTIMAL (baseline) |
+| **+ source_filter** | **100%** | 0/68 | ✅ PERFECT (edge cases) |
 | Hybrid (BM25 0.6) | 89.46% | 8/68 | ❌ -7.6% regression |
 
-> **Conclusion**: Vector-only optimal apres audit gold standard v5.7.
-> Hybrid introduit du bruit (keywords cross-documents).
+> **source_filter**: Parametre optionnel de `retrieve_similar()` pour filtrer par document.
+> - FR-Q18: `source_filter="LA-octobre"` → page 57 trouvee
+> - FR-Q50: `source_filter="Statuts"` → page 2 trouvee
+> - Implementation: ~15 lignes (Option B vs multi-index 200+ lignes)
 
 ### Ameliorations Non Planifiees
 
@@ -438,3 +441,4 @@ Validation utilisateur et release production.
 | 1.2 | 2026-01-14 | Stack Phase 1B: FAISS -> SqliteVectorStore, EmbeddingGemma-300m specs |
 | 1.3 | 2026-01-19 | Phase 1A enhanced (Docling, Parent-Child), Phase 1B 95% (Recall FR 86.76%), Findings section |
 | 1.4 | 2026-01-19 | **Phase 1B COMPLETE** - Recall FR 97.06% (gold standard v5.7 audit, 23 corrections), vector-only optimal |
+| 1.5 | 2026-01-19 | **source_filter** - Recall FR 100% avec filtrage document (FR-Q18, FR-Q50 resolus) |

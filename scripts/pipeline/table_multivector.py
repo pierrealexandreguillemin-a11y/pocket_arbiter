@@ -36,11 +36,80 @@ import os
 from pathlib import Path
 from typing import Any, Optional
 
+from pydantic import BaseModel, Field, field_validator
+
 # Leverage existing modules
 from scripts.pipeline.table_extractor import table_to_text
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
+
+
+# --- Pydantic Models (ISO 25010 data quality) ---
+
+
+class TableInput(BaseModel):
+    """Input table schema from table_extractor."""
+
+    id: str = Field(..., min_length=1)
+    table_type: str = Field(default="other")
+    headers: list[str] = Field(default_factory=list)
+    rows: list[list[str]] = Field(default_factory=list)
+    source: str = Field(default="unknown")
+    page: int = Field(default=0, ge=0)
+    text: str = Field(default="")
+    accuracy: Optional[float] = Field(default=None, ge=0, le=100)
+
+    @field_validator("headers", mode="before")
+    @classmethod
+    def coerce_headers(cls, v: Any) -> list[str]:
+        """Coerce headers to list of strings."""
+        if not v:
+            return []
+        return [str(h) if h else "" for h in v]
+
+
+class ChildDocument(BaseModel):
+    """Child document for vectorstore (summary)."""
+
+    id: str
+    doc_id: str  # Link to parent
+    type: str = "table_summary"
+    text: str = Field(..., min_length=1)
+    source: Optional[str] = None
+    page: Optional[int] = None
+    table_type: str = "other"
+
+
+class ParentDocument(BaseModel):
+    """Parent document for docstore (raw table)."""
+
+    id: str
+    type: str = "table"
+    table_type: str = "other"
+    source: Optional[str] = None
+    page: Optional[int] = None
+    headers: list[str] = Field(default_factory=list)
+    rows: list[list[str]] = Field(default_factory=list)
+    markdown: str = ""
+    text: str = ""
+    accuracy: Optional[float] = None
+
+
+class MultiVectorOutput(BaseModel):
+    """Output schema for multi-vector table data."""
+
+    corpus: str
+    strategy: str = "multi_vector"
+    use_llm: bool = False
+    children: list[ChildDocument]
+    parents: list[ParentDocument]
+    parent_lookup: dict[str, int]
+    config: dict[str, str] = Field(default_factory=lambda: {
+        "child_type": "table_summary",
+        "parent_type": "table_raw",
+        "link_key": "doc_id",
+    })
 
 
 # --- Constants ---
@@ -251,35 +320,35 @@ def create_multivector_entry(
     # Generate summary (child for embedding)
     summary = generate_table_summary(table, use_llm=use_llm, api_key=api_key)
 
-    # Create parent (raw for LLM synthesis)
-    parent = {
-        "id": doc_id,
-        "type": "table",
-        "table_type": table.get("table_type", "other"),
-        "source": table.get("source"),
-        "page": table.get("page"),
-        "headers": table.get("headers", []),
-        "rows": table.get("rows", []),
-        "markdown": table_to_markdown(table),
-        "text": table.get("text", ""),
-        "accuracy": table.get("accuracy"),
-    }
+    # Create and validate parent (raw for LLM synthesis) with pydantic
+    parent = ParentDocument(
+        id=doc_id,
+        type="table",
+        table_type=table.get("table_type", "other"),
+        source=table.get("source"),
+        page=table.get("page"),
+        headers=table.get("headers", []),
+        rows=table.get("rows", []),
+        markdown=table_to_markdown(table),
+        text=table.get("text", ""),
+        accuracy=table.get("accuracy"),
+    )
 
-    # Create child (summary for vectorstore)
-    child = {
-        "id": f"{doc_id}-summary",
-        "doc_id": doc_id,  # Link to parent
-        "type": "table_summary",
-        "text": summary,  # This gets embedded
-        "source": table.get("source"),
-        "page": table.get("page"),
-        "table_type": table.get("table_type", "other"),
-    }
+    # Create and validate child (summary for vectorstore) with pydantic
+    child = ChildDocument(
+        id=f"{doc_id}-summary",
+        doc_id=doc_id,  # Link to parent
+        type="table_summary",
+        text=summary,  # This gets embedded
+        source=table.get("source"),
+        page=table.get("page"),
+        table_type=table.get("table_type", "other"),
+    )
 
     return {
         "doc_id": doc_id,
-        "child": child,
-        "parent": parent,
+        "child": child.model_dump(),
+        "parent": parent.model_dump(),
     }
 
 

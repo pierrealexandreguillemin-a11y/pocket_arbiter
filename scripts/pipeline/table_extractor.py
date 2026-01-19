@@ -79,10 +79,16 @@ def extract_tables_from_pdf(pdf_path: Path) -> list[dict[str, Any]]:
         if df.empty or df.shape[0] < 2 or df.shape[1] < 2:
             continue
 
-        # Convert to list of lists
+        # Convert to list of lists with UTF-8 normalization (ISO 42001)
+        from scripts.pipeline.utils import normalize_text
+
         rows = df.values.tolist()
-        headers = rows[0] if rows else []
-        data_rows = rows[1:] if len(rows) > 1 else []
+        # Normalize text to fix Camelot encoding issues (Pièce → Piece not Pi�ce)
+        headers = [normalize_text(str(h)) if h else "" for h in (rows[0] if rows else [])]
+        data_rows = [
+            [normalize_text(str(cell)) if cell else "" for cell in row]
+            for row in (rows[1:] if len(rows) > 1 else [])
+        ]
 
         # Detect table type based on content
         table_type = detect_table_type(headers, data_rows)

@@ -9,6 +9,7 @@ ISO Reference:
 import importlib.util
 import json
 import os
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -187,6 +188,71 @@ class TestGenerateLlmSummary:
             if original:
                 os.environ["GOOGLE_API_KEY"] = original
 
+    def test_llm_summary_with_mock(self):
+        """Should generate LLM summary when API is mocked (ISO 29119 integration)."""
+        # Create mock for google.generativeai
+        mock_genai = MagicMock()
+        mock_model = MagicMock()
+        mock_response = MagicMock()
+        mock_response.text = "Table de cadences officielles pour les tournois."
+        mock_model.generate_content.return_value = mock_response
+        mock_genai.GenerativeModel.return_value = mock_model
+
+        with patch.dict("sys.modules", {"google.generativeai": mock_genai}):
+            # Need to reimport to get mocked version
+            import importlib
+            import scripts.pipeline.table_multivector as tmv
+            importlib.reload(tmv)
+
+            table = {
+                "text": "Type | Temps\nRapide | 15+10",
+                "source": "doc.pdf",
+                "page": 5,
+                "headers": ["Type", "Temps"],
+                "rows": [["Rapide", "15+10"]],
+                "table_type": "cadence",
+            }
+
+            summary = tmv.generate_llm_summary(table, api_key="test-key")
+
+            # Verify mock was called
+            mock_genai.configure.assert_called_once_with(api_key="test-key")
+            mock_genai.GenerativeModel.assert_called_once()
+
+            # Verify summary contains expected content
+            assert "cadences" in summary.lower() or "tournois" in summary.lower()
+            assert "doc.pdf" in summary
+            assert "page 5" in summary
+
+    def test_llm_summary_fallback_on_error(self):
+        """Should fallback to rule-based when LLM fails (ISO 42001 resilience)."""
+        # Create mock that raises exception
+        mock_genai = MagicMock()
+        mock_model = MagicMock()
+        mock_model.generate_content.side_effect = Exception("API quota exceeded")
+        mock_genai.GenerativeModel.return_value = mock_model
+
+        with patch.dict("sys.modules", {"google.generativeai": mock_genai}):
+            import importlib
+            import scripts.pipeline.table_multivector as tmv
+            importlib.reload(tmv)
+
+            table = {
+                "text": "Type | Temps",
+                "source": "doc.pdf",
+                "page": 1,
+                "headers": ["Type", "Temps"],
+                "rows": [],
+                "table_type": "cadence",
+            }
+
+            # Should not raise, should fallback
+            summary = tmv.generate_llm_summary(table, api_key="test-key")
+
+            # Should get rule-based summary instead
+            assert "cadence" in summary.lower()
+            assert "doc.pdf" in summary
+
 
 class TestProcessTablesMultivector:
     """Tests for process_tables_multivector function."""
@@ -351,3 +417,71 @@ class TestGenerateTableSummary:
 
         assert "penalite" in summary.lower() or "sanction" in summary.lower()
         assert "doc.pdf" in summary
+
+
+class TestPydanticValidation:
+    """Tests for pydantic schema validation (ISO 25010 data quality)."""
+
+    def test_table_input_validates_id(self):
+        """Should require non-empty id field."""
+        from pydantic import ValidationError
+        from scripts.pipeline.table_multivector import TableInput
+
+        with pytest.raises(ValidationError):
+            TableInput(id="")  # Empty id should fail
+
+    def test_table_input_coerces_headers(self):
+        """Should coerce headers to strings."""
+        from scripts.pipeline.table_multivector import TableInput
+
+        table = TableInput(
+            id="test-1",
+            headers=[1, 2, None, "text"],  # Mixed types
+        )
+
+        assert table.headers == ["1", "2", "", "text"]
+
+    def test_child_document_validates_text(self):
+        """Should require non-empty text for embedding."""
+        from pydantic import ValidationError
+        from scripts.pipeline.table_multivector import ChildDocument
+
+        with pytest.raises(ValidationError):
+            ChildDocument(id="c1", doc_id="p1", text="")  # Empty text should fail
+
+    def test_parent_document_accepts_valid_data(self):
+        """Should accept valid parent document."""
+        from scripts.pipeline.table_multivector import ParentDocument
+
+        parent = ParentDocument(
+            id="p1",
+            headers=["A", "B"],
+            rows=[["1", "2"]],
+            accuracy=95.5,
+        )
+
+        assert parent.id == "p1"
+        assert parent.accuracy == 95.5
+
+    def test_create_multivector_entry_returns_validated_data(self):
+        """Should return pydantic-validated dictionaries."""
+        from scripts.pipeline.table_multivector import create_multivector_entry
+
+        table = {
+            "id": "test-table",
+            "table_type": "elo",
+            "headers": ["Rang", "Joueur"],
+            "rows": [["1", "Kasparov"]],
+            "source": "rankings.pdf",
+            "page": 5,
+            "text": "Elo rankings",
+            "accuracy": 95.0,
+        }
+
+        entry = create_multivector_entry(table, use_llm=False)
+
+        # Check structure is valid dict (from pydantic model_dump)
+        assert isinstance(entry["child"], dict)
+        assert isinstance(entry["parent"], dict)
+        assert entry["child"]["doc_id"] == entry["parent"]["id"]
+        assert entry["child"]["text"]  # Non-empty text

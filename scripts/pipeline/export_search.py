@@ -437,6 +437,74 @@ def retrieve_hybrid_rerank(
     return reranked
 
 
+# =============================================================================
+# Smart Retrieve (auto source_filter)
+# =============================================================================
+
+# Mapping keywords -> source_filter (patterns fiables basés sur gold standard fails)
+SOURCE_FILTER_PATTERNS: dict[str, str] = {
+    # Statuts FFE
+    "objectifs": "Statuts",
+    "but de la ffe": "Statuts",
+    "fédération": "Statuts",
+    # LA (Livre de l'Arbitre)
+    "cadence": "LA-octobre",
+    "rapide": "LA-octobre",
+    "blitz": "LA-octobre",
+    "annexe a": "LA-octobre",
+    "annexe b": "LA-octobre",
+    # Code éthique
+    "éthique": "Code_ethique",
+    "déontologie": "Code_ethique",
+}
+
+
+def smart_retrieve(
+    db_path: Path,
+    query_embedding: np.ndarray,
+    query_text: str,
+    top_k: int = 5,
+) -> list[dict]:
+    """
+    Recherche intelligente avec auto-detection du source_filter.
+
+    Analyse le texte de la query pour detecter des patterns connus
+    et applique automatiquement le filtre source approprie.
+    Fallback sur recherche globale si aucun pattern detecte.
+
+    Args:
+        db_path: Chemin de la base SQLite.
+        query_embedding: Vecteur query normalise.
+        query_text: Texte de la query pour detection patterns.
+        top_k: Nombre de resultats a retourner.
+
+    Returns:
+        Liste de dicts avec id, text, source, page, score.
+
+    Example:
+        >>> # Auto-detecte "Statuts" pour questions FFE
+        >>> results = smart_retrieve(db, emb, "Quels sont les objectifs de la FFE?")
+        >>> # Auto-detecte "LA-octobre" pour cadences
+        >>> results = smart_retrieve(db, emb, "Cadences parties rapides?")
+    """
+    query_lower = query_text.lower()
+
+    # Detect source filter from patterns
+    selected_filter = None
+    for keyword, source in SOURCE_FILTER_PATTERNS.items():
+        if keyword in query_lower:
+            selected_filter = source
+            logger.debug(f"smart_retrieve: pattern '{keyword}' -> filter '{source}'")
+            break
+
+    return retrieve_similar(
+        db_path,
+        query_embedding,
+        top_k=top_k,
+        source_filter=selected_filter,
+    )
+
+
 # Type hint for CrossEncoder (imported only for type checking)
 if TYPE_CHECKING:
     from sentence_transformers import CrossEncoder

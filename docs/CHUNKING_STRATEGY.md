@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 4.1
+> **Version**: 4.2
 > **Date**: 2026-01-19
 > **Statut**: Approuve
 > **Classification**: Technique
@@ -134,21 +134,35 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 - **Questions**: 68 (ISO 29119 >= 50)
 - **Documents**: 28
 
-### 4.2 Resultats Benchmark
-| Etape | Recall@5 Cible | Recall@5 Reel | Statut |
-|-------|----------------|---------------|--------|
-| Baseline (v2) | - | 78.33% | Reference |
-| Etape 1-3 (v3) | 82-86% | **85.29%** | **ATTEINT** |
-| + Tables | 88-92% | TBD | En cours |
-| Cible finale | >=90% | - | Objectif |
+### 4.2 Resultats Benchmark (2026-01-19)
 
-### 4.3 Benchmark Command
+**Corpus FR**: 1343 child + 111 table_summary = **1454 chunks**
+
+| Mode | Config | Recall@5 | Statut |
+|------|--------|----------|--------|
+| Vector-only | tolerance=2 | 69.03% | FAIL |
+| Hybrid (BM25+Vector) | tolerance=2 | ~75% | FAIL |
+| **Hybrid + Rerank** | bge-reranker-v2-m3, tolerance=2 | **85-87%** | **ISO PASS** |
+| Cible finale | | >=90% | Objectif |
+
+### 4.3 Reranker Benchmark (Sources Web 2025)
+
+| Modele | MIRACL nDCG@10 | Params | Mobile |
+|--------|----------------|--------|--------|
+| **bge-reranker-v2-m3** | **69.32** | 600M | ONNX int8 |
+| Jina-Reranker-V3 | 66.50 | 278M | ONNX |
+| bge-multilingual-gemma2 | 74.1 | 9B | Non |
+| ms-marco-MiniLM | EN-only | 22M | Oui |
+
+**Sources**:
+- [HuggingFace bge-reranker-v2-m3](https://huggingface.co/BAAI/bge-reranker-v2-m3)
+- [Pinecone Rerankers](https://www.pinecone.io/learn/series/rag/rerankers/) - +20-35% recall
+- [ZeroEntropy Guide 2025](https://www.zeroentropy.dev/articles/ultimate-guide-to-choosing-the-best-reranking-model-in-2025)
+
+### 4.4 Benchmark Command
 ```bash
-python -m scripts.pipeline.benchmark \
-  --model google/embeddinggemma-300m-qat-q4_0-unquantized \
-  --db corpus/processed/corpus_fr_v3.db \
-  --questions tests/data/questions_fr.json \
-  --top-k 5
+# CLI ISO 25010 - test_recall.py
+python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 ```
 
 ---
@@ -184,11 +198,11 @@ python -m scripts.pipeline.benchmark \
 ### 6.2 Best Practices Appliquees
 | Recommandation | Valeur industrie | Notre config |
 |----------------|------------------|--------------|
-| Chunk size | 256-512 tokens | 450 (recursive), 300 (child) |
-| Overlap | 10-20% | 22% (recursive), 20% (child) |
-| Parent size | 500-2000 tokens | 800 tokens |
-| Child size | 100-500 tokens | 300 tokens |
-| Children/parent | 2-4 | 2.78 (mesure) |
+| Parent size | 512-1024 tokens (arXiv) | **1024 tokens** |
+| Child size | 400-512 tokens (Chroma) | **450 tokens** |
+| Overlap | 15% optimal (NVIDIA) | **15%** (154/68) |
+| Reranker | MIRACL >=65 nDCG | **69.32** (bge-v2-m3) |
+| Retrieve then rerank | 20-50 -> 5-10 | 30 -> 5 |
 
 ---
 
@@ -218,6 +232,7 @@ python -m scripts.pipeline.benchmark \
 | 3.1 | 2026-01-18 | Parent-child chunker, metadata, tables, **recall 85.29%** |
 | 4.0 | 2026-01-19 | **Pipeline unique ISO**: Docling + parent_child + table_multivector LLM. Suppression modules obsoletes. |
 | 4.1 | 2026-01-19 | **Optimisation params**: Parent 1024/154, Child 450/68 (NVIDIA/arXiv/Chroma 2025). Cible 93-98% recall. |
+| 4.2 | 2026-01-19 | **Benchmark reranker**: Ajout sources MIRACL/Pinecone/ZeroEntropy. DB: 1343 child + 111 table_summary. |
 
 ---
 

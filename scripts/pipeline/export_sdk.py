@@ -174,7 +174,13 @@ def create_vector_db(
         for chunk, embedding in zip(chunks, embeddings):
             _validate_chunk(chunk)
 
-            metadata_json = json.dumps(chunk.get("metadata", {}))
+            # Build metadata from all non-core fields (ISO 42001 traceability)
+            core_fields = {"id", "text", "source", "page", "tokens"}
+            metadata = {k: v for k, v in chunk.items() if k not in core_fields and v is not None}
+            # Merge with existing metadata if present
+            if "metadata" in chunk and isinstance(chunk["metadata"], dict):
+                metadata.update(chunk["metadata"])
+            metadata_json = json.dumps(metadata)
             embedding_blob = embedding_to_blob(embedding)
 
             cursor.execute(

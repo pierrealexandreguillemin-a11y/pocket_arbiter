@@ -20,12 +20,15 @@ from scripts.pipeline.export_serialization import blob_to_embedding
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-# Hybrid search parameters (from research - CHUNKING_STRATEGY.md)
-# Note: Poids inverses car EmbeddingGemma non-adapte domaine echecs FR.
-# BM25 plus efficace pour documents reglementaires keyword-heavy (TREC research).
-DEFAULT_VECTOR_WEIGHT = 0.3
-DEFAULT_BM25_WEIGHT = 0.7
-RRF_K = 60  # Reciprocal Rank Fusion constant
+# Hybrid search parameters (2025 enterprise standard - Funnel Mode)
+# Research: sqlite-rag, LlamaIndex Alpha=0.4, VectorHub/Superlinked, Databricks
+# - Pool initial large (100) pour ne pas perdre de candidats
+# - Weights: BM25=0.6 (keywords, art. numbers), Vector=0.4 (semantic)
+# - Rerank sur pool large pour +48% recall (Databricks research)
+DEFAULT_VECTOR_WEIGHT = 0.4
+DEFAULT_BM25_WEIGHT = 0.6
+DEFAULT_INITIAL_K = 100  # Funnel Mode: large initial pool
+RRF_K = 60  # Reciprocal Rank Fusion constant (standard)
 
 
 def retrieve_similar(
@@ -268,7 +271,7 @@ def retrieve_hybrid(
     top_k: int = 5,
     vector_weight: float = DEFAULT_VECTOR_WEIGHT,
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
-    initial_k: int = 20,
+    initial_k: int = DEFAULT_INITIAL_K,
 ) -> list[dict]:
     """
     Recherche hybride combinant similarite vectorielle et BM25.
@@ -331,7 +334,7 @@ def retrieve_hybrid_rerank(
     query_embedding: np.ndarray,
     query_text: str,
     reranker: "CrossEncoder",
-    top_k_retrieve: int = 20,
+    top_k_retrieve: int = DEFAULT_INITIAL_K,
     top_k_final: int = 5,
     vector_weight: float = DEFAULT_VECTOR_WEIGHT,
     bm25_weight: float = DEFAULT_BM25_WEIGHT,
@@ -339,13 +342,15 @@ def retrieve_hybrid_rerank(
     expanded_query_embedding: "np.ndarray | None" = None,
 ) -> list[dict]:
     """
-    Recherche hybride avec reranking cross-encoder.
+    Recherche hybride avec reranking cross-encoder (Funnel Mode).
 
-    Pipeline complet pour recall optimal:
+    Pipeline 2025 enterprise standard pour recall optimal:
     1. Query expansion (synonymes chess FR)
-    2. Retrieve top_k_retrieve avec hybrid search (BM25 + vector + RRF)
-    3. Rerank avec cross-encoder
-    4. Return top_k_final
+    2. Retrieve top_k_retrieve (100) avec hybrid search (BM25 + vector + RRF)
+    3. Rerank pool complet avec cross-encoder
+    4. Return top_k_final (5)
+
+    Research: Databricks +48% recall (74%->89%), VectorHub/Superlinked Funnel Mode.
 
     ISO Reference:
         - ISO/IEC 25010 - Performance efficiency (Recall >= 90%)
@@ -355,10 +360,10 @@ def retrieve_hybrid_rerank(
         query_embedding: Vecteur query normalise.
         query_text: Texte de la query pour BM25 et reranking.
         reranker: CrossEncoder charge pour reranking.
-        top_k_retrieve: Nombre de resultats initiaux (defaut 20).
+        top_k_retrieve: Pool initial avant rerank (defaut 100 - Funnel Mode).
         top_k_final: Nombre de resultats finaux apres reranking (defaut 5).
-        vector_weight: Poids de la recherche vectorielle (defaut 0.7).
-        bm25_weight: Poids de la recherche BM25 (defaut 0.3).
+        vector_weight: Poids de la recherche vectorielle (defaut 0.4).
+        bm25_weight: Poids de la recherche BM25 (defaut 0.6).
         use_query_expansion: Utiliser l'expansion de query (defaut True).
         expanded_query_embedding: Embedding de la query expandue (optionnel).
             Si fourni, utilise pour la recherche vectorielle.

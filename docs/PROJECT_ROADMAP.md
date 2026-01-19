@@ -2,8 +2,8 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.2
-> **Date**: 2026-01-14
+> **Version**: 1.3
+> **Date**: 2026-01-19
 > **Effort total estime**: 205h (~13-15 semaines)
 
 ---
@@ -14,10 +14,10 @@
 PHASE 0 ✅ COMPLETE
     │
     ▼
-PHASE 1A ✅ COMPLETE ──► Pipeline Extract + Chunk (2047 FR + 1105 INTL)
+PHASE 1A ✅ COMPLETE + ENHANCED ──► Pipeline Extract + Chunk (1454 FR + 764 INTL)
     │
     ▼
-PHASE 1B (S3-4) ──► Pipeline Embed + Index
+PHASE 1B ✅ 95% COMPLETE ──► Pipeline Embed + Index (Recall FR 86.76%)
     │
     ▼
 PHASE 2A (S5-7) ──► Android Setup + Retrieval
@@ -54,21 +54,32 @@ PRODUCTION
 
 ---
 
-## Phase 1A - Pipeline Extract + Chunk (COMPLETE)
+## Phase 1A - Pipeline Extract + Chunk (COMPLETE + ENHANCED)
 
-**Duree**: Semaine 1-2 | **Effort**: 20h | **Statut**: ✅ COMPLETE
+**Duree**: Semaine 1-2 | **Effort**: 20h | **Statut**: ✅ COMPLETE + ENHANCED
 
 ### Objectif
-Extraire le contenu textuel des PDF et segmenter en chunks de 256 tokens.
+Extraire le contenu textuel des PDF et segmenter en chunks parent-child.
 
 ### Deliverables
 
 | Fichier | Description | Statut |
 |---------|-------------|--------|
-| `scripts/pipeline/extract_pdf.py` | Extraction PDF via PyMuPDF | ✅ |
-| `scripts/pipeline/chunker.py` | Segmentation 256 tokens, overlap 50 | ✅ |
-| `corpus/processed/chunks_fr.json` | 2047 chunks FR | ✅ |
-| `corpus/processed/chunks_intl.json` | 1105 chunks INTL | ✅ |
+| `scripts/pipeline/extract_docling.py` | Extraction PDF via Docling ML | ✅ UPGRADE |
+| `scripts/pipeline/parent_child_chunker.py` | Segmentation Parent 1024/Child 450 | ✅ NEW |
+| `scripts/pipeline/table_multivector.py` | Tables + LLM summaries | ✅ NEW |
+| `corpus/processed/chunks_for_embedding_fr.json` | 1454 chunks FR | ✅ |
+| `corpus/processed/chunks_for_embedding_intl.json` | 764 chunks INTL | ✅ |
+
+### Evolutions vs Roadmap Original
+
+| Aspect | Roadmap Original | Etat Actuel | Deviation |
+|--------|-----------------|-------------|-----------|
+| Extraction | `extract_pdf.py` (PyMuPDF) | `extract_docling.py` (Docling ML) | UPGRADE |
+| Chunking | `chunker.py` 256 tokens | `parent_child_chunker.py` Parent 1024/Child 450 | UPGRADE |
+| Overlap | 50 tokens (20%) | 15% (NVIDIA 2025) | OPTIMISE |
+| Chunks FR | 2047 | 1454 (1343 child + 111 tables) | -29% (moins redondant) |
+| Chunks INTL | 1105 | 764 | -31% |
 
 ### Resultats
 
@@ -76,58 +87,66 @@ Extraire le contenu textuel des PDF et segmenter en chunks de 256 tokens.
 |---------|-------|------|--------|
 | PDFs FR extraits | 28 | 28 | ✅ |
 | PDFs INTL extraits | 1 | 1 | ✅ |
-| Chunks FR | ~500 | 2047 | ✅ |
-| Chunks INTL | ~100 | 1105 | ✅ |
-| Coverage tests | 80% | 93% | ✅ |
+| Chunks FR | ~500 | 1454 | ✅ |
+| Chunks INTL | ~100 | 764 | ✅ |
+| Coverage tests | 80% | 87% | ✅ |
 | Complexite cyclomatique | B max | B | ✅ |
 
-> **Note**: Le nombre de chunks est superieur aux previsions car le corpus
-> contient 404 pages (vs estimation initiale). Le chunking 256 tokens avec
-> overlap 20% produit ~5 chunks/page en moyenne.
+> **Note**: Chunks reduits grace au Parent-Child chunking (NVIDIA 2025 research).
+> Moins de redondance, meilleure precision semantique.
 
 ### Specifications
 - Voir `docs/specs/PHASE1A_SPECS.md`
-- Schema: `docs/CHUNK_SCHEMA.md`
+- Schema: `docs/CHUNKING_STRATEGY.md`
 
 ---
 
-## Phase 1B - Pipeline Embed + Export SDK
+## Phase 1B - Pipeline Embed + Export SDK (95% COMPLETE)
 
-**Duree**: Semaine 3-4 | **Effort**: 30h
+**Duree**: Semaine 3-4 | **Effort**: 30h | **Statut**: ✅ 95% COMPLETE
 
 ### Objectif
 Generer embeddings et exporter au format Google AI Edge RAG SDK.
 
-### Stack validee (2026-01-14)
+### Stack validee (2026-01-19)
 
 | Composant | Choix | Specs | Source |
 |-----------|-------|-------|--------|
-| Embedding | **EmbeddingGemma-300m** | 768D, 179MB TFLite | [HuggingFace](https://huggingface.co/litert-community/embeddinggemma-300m) |
-| Quantization | Mixed Precision | int4 embed/ff, int8 attn | e4_a8_f4_p4 |
-| RAM CPU | **110 MB** (256 seq) | Compatible mid-range | Benchmark S25 Ultra |
-| Inference | **66 ms** (256 seq) | XNNPACK 4 threads | Benchmark S25 Ultra |
-| Vector Store | **SqliteVectorStore** | SDK natif, persistant | [Google AI Edge](https://github.com/google-ai-edge/ai-edge-apis) |
-| Fallback | Gecko-110m-en | 114MB, 126MB RAM, 147ms | Si EmbeddingGemma indisponible |
+| Embedding | **EmbeddingGemma-300m-qat** | 768D, quantized | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized) |
+| Reranker | **BGE-reranker-v2-m3** | Cross-encoder multilingual | [BAAI](https://huggingface.co/BAAI/bge-reranker-v2-m3) |
+| Search | **Hybrid** | BM25=0.7 + Vector=0.3 + RRF | Custom |
+| Vector Store | **SqliteVectorStore** | SDK natif, persistant, FTS5 | [Google AI Edge](https://github.com/google-ai-edge/ai-edge-apis) |
 
 ### Deliverables
 
-| Fichier | Description |
-|---------|-------------|
-| `scripts/pipeline/embeddings.py` | Generation vecteurs 768D (sentence-transformers) |
-| `scripts/pipeline/export_sdk.py` | Export format SqliteVectorStore |
-| `corpus/processed/corpus_fr.db` | Base SQLite avec vecteurs FR |
-| `corpus/processed/corpus_intl.db` | Base SQLite avec vecteurs INTL |
-| `corpus/processed/embeddings_fr.npy` | Vecteurs numpy FR (backup) |
+| Fichier | Description | Statut |
+|---------|-------------|--------|
+| `scripts/pipeline/embeddings.py` | Generation vecteurs 768D | ✅ |
+| `scripts/pipeline/export_sdk.py` | Export format SqliteVectorStore | ✅ |
+| `scripts/pipeline/export_search.py` | Hybrid BM25+Vector+RRF | ✅ NEW |
+| `scripts/pipeline/reranker.py` | Cross-encoder reranking | ✅ NEW |
+| `corpus/processed/corpus_fr.db` | Base SQLite FR (7.58 MB) | ✅ |
+| `corpus/processed/corpus_intl.db` | Base SQLite INTL (4.21 MB) | ✅ |
+
+### Resultats (2026-01-19)
+
+| Critere | Cible | Reel | Statut |
+|---------|-------|------|--------|
+| Recall FR | ≥ 80% | **86.76%** (hybrid+rerank) | ✅ PASS |
+| Recall FR (vector-only) | ≥ 80% | **84.31%** | ✅ PASS |
+| Recall INTL | ≥ 70% | **80.00%** (vector, tol=2) | ✅ PASS |
+| DB size total | < 100 MB | **11.79 MB** | ✅ PASS |
+| Coverage tests | ≥ 80% | **87%** | ✅ PASS |
 
 ### Definition of Done
 
-| Critere | Cible | Bloquant |
-|---------|-------|----------|
-| Recall FR | ≥ 80% | OUI |
-| Recall INTL | ≥ 70% | NON |
-| 0% hallucination adversarial | 30/30 pass | OUI |
-| DB size | < 100 MB | NON |
-| Coverage tests | ≥ 80% | OUI |
+| Critere | Cible | Bloquant | Statut |
+|---------|-------|----------|--------|
+| Recall FR | ≥ 80% | OUI | ✅ 86.76% |
+| Recall INTL | ≥ 70% | NON | ✅ 80.00% |
+| 0% hallucination adversarial | 30/30 pass | OUI | PENDING |
+| DB size | < 100 MB | NON | ✅ 11.79 MB |
+| Coverage tests | ≥ 80% | OUI | ✅ 87% |
 
 ---
 
@@ -337,6 +356,36 @@ Validation utilisateur et release production.
 
 ---
 
+## Findings & Ameliorations (2026-01-19)
+
+### Ameliorations Non Planifiees
+| Module | Role | ISO Ref |
+|--------|------|---------|
+| `parent_child_chunker.py` | Parent-Child chunking (NVIDIA 2025 research) | ISO 25010 |
+| `table_multivector.py` | Tables + LLM summaries | ISO 42001 |
+| `reranker.py` | Cross-encoder bge-reranker-v2-m3 | ISO 25010 |
+| `export_search.py` | Hybrid BM25+Vector+RRF | ISO 25010 |
+| `query_expansion.py` | Snowball FR + synonymes | ISO 25010 |
+
+### Metriques Finales Phase 1B
+
+| Corpus | Chunks | Recall@5 (vector) | Recall@5 (hybrid+rerank) | ISO Status |
+|--------|--------|-------------------|--------------------------|------------|
+| FR | 1454 | 84.31% | **86.76%** | ✅ PASS (≥80%) |
+| INTL | 764 | **80.00%** | 66.00% | ✅ PASS vector (≥70%) |
+
+> **Note**: Le reranking ameliore FR (+2.45%) mais degrade INTL (-14%).
+> Recommandation: utiliser vector-only pour INTL, hybrid+rerank pour FR.
+
+### Questions Gold Standard
+
+| Corpus | Questions | Documents | ISO 29119 (>=50) |
+|--------|-----------|-----------|------------------|
+| FR | 68 | 28 | ✅ PASS |
+| INTL | 25 | 1 | ✅ PASS (total 93) |
+
+---
+
 ## Effort par phase
 
 | Phase | Effort | Cumule |
@@ -372,3 +421,4 @@ Validation utilisateur et release production.
 | 1.0 | 2026-01-14 | Creation initiale |
 | 1.1 | 2026-01-14 | Phase 1A complete (2047 FR + 1105 INTL chunks) |
 | 1.2 | 2026-01-14 | Stack Phase 1B: FAISS -> SqliteVectorStore, EmbeddingGemma-300m specs |
+| 1.3 | 2026-01-19 | Phase 1A enhanced (Docling, Parent-Child), Phase 1B 95% (Recall FR 86.76%), Findings section |

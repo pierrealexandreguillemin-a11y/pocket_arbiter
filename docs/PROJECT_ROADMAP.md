@@ -2,7 +2,7 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.5
+> **Version**: 1.6
 > **Date**: 2026-01-19
 > **Effort total estime**: 205h (~13-15 semaines)
 
@@ -124,7 +124,7 @@ Generer embeddings et exporter au format Google AI Edge RAG SDK.
 |---------|-------------|--------|
 | `scripts/pipeline/embeddings.py` | Generation vecteurs 768D | ✅ |
 | `scripts/pipeline/export_sdk.py` | Export format SqliteVectorStore | ✅ |
-| `scripts/pipeline/export_search.py` | Hybrid BM25+Vector+RRF | ✅ NEW |
+| `scripts/pipeline/export_search.py` | Hybrid BM25+Vector+RRF + glossary boost | ✅ ENHANCED |
 | `scripts/pipeline/reranker.py` | Cross-encoder reranking | ✅ NEW |
 | `corpus/processed/corpus_fr.db` | Base SQLite FR (7.58 MB) | ✅ |
 | `corpus/processed/corpus_intl.db` | Base SQLite INTL (4.21 MB) | ✅ |
@@ -442,3 +442,4 @@ Validation utilisateur et release production.
 | 1.3 | 2026-01-19 | Phase 1A enhanced (Docling, Parent-Child), Phase 1B 95% (Recall FR 86.76%), Findings section |
 | 1.4 | 2026-01-19 | **Phase 1B COMPLETE** - Recall FR 97.06% (gold standard v5.7 audit, 23 corrections), vector-only optimal |
 | 1.5 | 2026-01-19 | **source_filter** - Recall FR 100% avec filtrage document (FR-Q18, FR-Q50 resolus) |
+| 1.6 | 2026-01-19 | **glossary_boost** - Boost x3.5 glossaire DNA 2025 pour questions definition |

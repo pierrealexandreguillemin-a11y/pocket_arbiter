@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.1
+> **Version**: 2.2
 > **Date**: 2026-01-19
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -375,8 +375,29 @@ corpus/*.pdf --> Docling ML --> parent_child_chunker --> embeddings --> corpus_*
 | `parent_child_chunker.py` | Parent 1024/Child 450, 15% overlap | ISO 25010 |
 | `table_multivector.py` | Tables + LLM summaries | ISO 42001 |
 | `reranker.py` | bge-reranker-v2-m3 (query-time) | ISO 25010 |
-| `export_search.py` | Hybrid BM25+Vector+RRF | ISO 25010 |
+| `export_search.py` | Hybrid BM25+Vector+RRF + glossary boost | ISO 25010, 42001 |
 | `query_expansion.py` | Snowball FR + synonymes | ISO 25010 |
+
+#### Glossary Boost (DNA 2025 - Source canonique)
+
+**Principe**: Le glossaire officiel DNA 2025 (pages 67-70 LA-octobre + table summaries) est la source canonique pour les definitions. Un boost x3.5 est applique aux chunks glossaire pour les questions de type definition.
+
+**Implementation** (`export_search.py`):
+- `_is_glossary_chunk()`: Detection chunks glossaire (patterns ID + pages)
+- `glossary_boost` param: Multiplicateur de score (defaut 3.5)
+- `retrieve_with_glossary_boost()`: Auto-detection questions definition + boost
+- `DEFINITION_QUERY_PATTERNS`: Patterns detection ("qu'est-ce que", "définition de", etc.)
+
+**Usage**:
+```python
+# Boost automatique pour questions definition
+results = retrieve_with_glossary_boost(db, emb, "Qu'est-ce que le roque?")
+
+# Boost force (toutes queries)
+results = retrieve_similar(db, emb, glossary_boost=3.5)
+```
+
+**ISO Reference**: ISO 42001 (tracabilite sources), ISO 25010 (precision fonctionnelle)
 
 **Chunks statistiques (v4.0)**:
 | Corpus | Chunks | Child | Tables | DB Size |
@@ -409,6 +430,7 @@ corpus/*.pdf --> Docling ML --> parent_child_chunker --> embeddings --> corpus_*
 | 1.9 | 2026-01-19 | Claude Opus 4.5 | Pipeline v4 (Docling ML, Parent-Child 1024/450), Recall FR 86.76%, architecture section |
 | 2.0 | 2026-01-19 | Claude Opus 4.5 | **Recall FR 97.06%** (gold standard v5.7, 23 corrections audit), target 90% PASS |
 | 2.1 | 2026-01-19 | Claude Opus 4.5 | **source_filter** param - Recall FR 100% potentiel avec filtrage document |
+| 2.2 | 2026-01-19 | Claude Opus 4.5 | **glossary_boost** - Boost x3.5 glossaire DNA 2025 pour questions definition |
 
 ---
 

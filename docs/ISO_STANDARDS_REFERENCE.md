@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 1.9
+> **Version**: 2.0
 > **Date**: 2026-01-19
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -343,7 +343,7 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Code Coverage | 60% | **87%** | ISO 25010 |
 | Lint Warnings | 0 | **0** | ISO 25010 |
 | Mypy Errors | 0 | **0** | ISO 5055 |
-| Retrieval Recall FR | 80% | **86.76%** (hybrid+rerank) | ISO 25010 |
+| Retrieval Recall FR | 90% | **97.06%** (vector, tol=2) | ISO 25010 |
 | Retrieval Recall INTL | 70% | **80.00%** (vector, tol=2) | ISO 25010 |
 | Gold Standard | >= 50 questions | **68 FR + 25 INTL = 93** | ISO 29119 |
 | Corpus Coverage | 100% | **29 docs** (28 FR + 1 INTL) | ISO 25010 |
@@ -353,13 +353,11 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Docs indexes | 100% | 100% | ISO 999 |
 
 > **Note**: Recall@5 metriques (tolerance ±2 pages):
-> - **FR**: 86.76% (hybrid+rerank), 84.31% (vector-only)
-> - **INTL**: 80.00% (vector-only) - reranking non optimal pour EN
-> - Hybrid search (BM25=0.7 + vector=0.3 + RRF)
-> - Cross-encoder reranking (BGE-reranker-v2-m3)
-> - FTS5 tokenizer FR (unicode61 remove_diacritics)
-> - Snowball FR stemmer pour BM25
-> - Gold standard v6: **93 questions, 29 documents** (ISO compliant >= 50)
+> - **FR**: 97.06% (vector-only), 89.46% (hybrid) - vector-only optimal
+> - **INTL**: 80.00% (vector-only)
+> - Gold standard **v5.7**: 23 corrections audit (faux positifs elimines)
+> - Audit: `docs/GOLD_STANDARD_AUDIT_2026-01-19.md`
+> - **93 questions, 29 documents** (ISO compliant >= 50)
 > - **Chunking v4**: Parent-Child (Parent 1024/Child 450 tokens, 15% overlap)
 > - Voir: `docs/CHUNKING_STRATEGY.md`
 
@@ -408,6 +406,7 @@ corpus/*.pdf --> Docling ML --> parent_child_chunker --> embeddings --> corpus_*
 | 1.7 | 2026-01-16 | Claude Opus 4.5 | Gold standard v5 (68 questions, 28 docs), refactor token_utils |
 | 1.8 | 2026-01-18 | Claude Opus 4.5 | Chunking v3 (RecursiveCharacterTextSplitter, Parent-Document), lien docs |
 | 1.9 | 2026-01-19 | Claude Opus 4.5 | Pipeline v4 (Docling ML, Parent-Child 1024/450), Recall FR 86.76%, architecture section |
+| 2.0 | 2026-01-19 | Claude Opus 4.5 | **Recall FR 97.06%** (gold standard v5.7, 23 corrections audit), target 90% PASS |
 
 ---
 

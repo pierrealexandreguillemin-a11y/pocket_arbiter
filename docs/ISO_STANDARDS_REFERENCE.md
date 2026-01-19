@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.2
+> **Version**: 2.3
 > **Date**: 2026-01-19
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -385,16 +385,31 @@ corpus/*.pdf --> Docling ML --> parent_child_chunker --> embeddings --> corpus_*
 **Implementation** (`export_search.py`):
 - `_is_glossary_chunk()`: Detection chunks glossaire (patterns ID + pages)
 - `glossary_boost` param: Multiplicateur de score (defaut 3.5)
-- `retrieve_with_glossary_boost()`: Auto-detection questions definition + boost
+- `retrieve_with_glossary_boost()`: Auto-detection questions definition + boost + fallback
 - `DEFINITION_QUERY_PATTERNS`: Patterns detection ("qu'est-ce que", "définition de", etc.)
+
+**Features avancees (v2.3)**:
+- **Fallback intelligent**: Si boost actif mais 0 chunk glossaire remonte → retry sans boost (evite trous noirs)
+- **Logging structure JSONL**: Fichier `logs/retrieval.jsonl` pour analytics
+  - Format: 1 JSON par ligne (analytics-ready)
+  - Champs: timestamp, query, is_definition, matched_pattern, boost_applied, boost_factor, source_filter, results_count, glossary_hits, fallback_used, top_scores, top_sources
+- **Module dedie**: `scripts/pipeline/retrieval_logger.py` (separation concerns)
 
 **Usage**:
 ```python
-# Boost automatique pour questions definition
+# Boost automatique pour questions definition (avec fallback)
 results = retrieve_with_glossary_boost(db, emb, "Qu'est-ce que le roque?")
 
 # Boost force (toutes queries)
 results = retrieve_similar(db, emb, glossary_boost=3.5)
+
+# Analyse logs JSONL
+import json
+with open("logs/retrieval.jsonl") as f:
+    for line in f:
+        entry = json.loads(line)
+        if entry["fallback_used"]:
+            print(f"Fallback: {entry['query']}")
 ```
 
 **ISO Reference**: ISO 42001 (tracabilite sources), ISO 25010 (precision fonctionnelle)
@@ -431,6 +446,7 @@ results = retrieve_similar(db, emb, glossary_boost=3.5)
 | 2.0 | 2026-01-19 | Claude Opus 4.5 | **Recall FR 97.06%** (gold standard v5.7, 23 corrections audit), target 90% PASS |
 | 2.1 | 2026-01-19 | Claude Opus 4.5 | **source_filter** param - Recall FR 100% potentiel avec filtrage document |
 | 2.2 | 2026-01-19 | Claude Opus 4.5 | **glossary_boost** - Boost x3.5 glossaire DNA 2025 pour questions definition |
+| 2.3 | 2026-01-19 | Claude Opus 4.5 | **fallback + logging** - Fallback intelligent (0 glossaire → retry sans boost), logging structure `logs/retrieval_log.txt` |
 
 ---
 

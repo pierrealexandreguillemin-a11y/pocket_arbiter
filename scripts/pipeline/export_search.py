@@ -16,6 +16,7 @@ from typing import TYPE_CHECKING
 import numpy as np
 
 from scripts.pipeline.export_serialization import blob_to_embedding
+from scripts.pipeline.retrieval_logger import log_retrieval
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -636,6 +637,12 @@ def retrieve_with_glossary_boost(
     Combine source_filter (smart_retrieve) + glossary_boost pour maximiser
     la precision sur les questions de terminologie officielle.
 
+    Features:
+        - Auto-detection des questions de definition (patterns FR/EN)
+        - Boost x3.5 pour chunks glossaire (pages 67-70 LA-octobre + table summaries)
+        - Fallback intelligent: si boost actif mais 0 chunk glossaire -> global search
+        - Logging structure pour analyse post-mortem (logs/retrieval_log.txt)
+
     Args:
         db_path: Chemin de la base SQLite.
         query_embedding: Vecteur query normalise.
@@ -646,7 +653,8 @@ def retrieve_with_glossary_boost(
             Si False, applique toujours le boost.
 
     Returns:
-        Liste de dicts avec id, text, source, page, score, is_glossary, boost_applied.
+        Liste de dicts avec id, text, source, page, score, is_glossary, boost_applied,
+        fallback_used (si applicable).
 
     Example:
         >>> # Auto-detection: boost applique si question definition
@@ -660,27 +668,67 @@ def retrieve_with_glossary_boost(
     for keyword, source in SOURCE_FILTER_PATTERNS.items():
         if keyword in query_lower:
             selected_filter = source
-            logger.debug(f"glossary_boost: source filter '{keyword}' -> '{source}'")
             break
 
     # Determine if glossary boost should be applied
-    apply_boost = not auto_detect or _is_definition_query(query_text)
+    is_definition = _is_definition_query(query_text)
+    apply_boost = not auto_detect or is_definition
 
-    if apply_boost:
-        logger.debug(f"glossary_boost: applying x{boost_factor} boost")
+    # Detect matched pattern for logging
+    matched_pattern = None
+    if is_definition:
+        for pattern in DEFINITION_QUERY_PATTERNS:
+            if pattern in query_lower:
+                matched_pattern = pattern
+                break
 
-    # Retrieve with optional glossary boost
+    # Retrieve with optional glossary boost (fetch larger pool for potential fallback)
+    fetch_k = top_k * 2 if apply_boost else top_k
     results = retrieve_similar(
         db_path,
         query_embedding,
-        top_k=top_k,
+        top_k=fetch_k,
         source_filter=selected_filter,
         glossary_boost=boost_factor if apply_boost else None,
     )
 
-    # Add boost_applied flag to results
+    # Count glossary hits in results
+    glossary_hits = sum(1 for r in results if r.get("is_glossary", False))
+    fallback_used = False
+
+    # Fallback: if boost active but no glossary chunks returned -> retry without boost
+    if apply_boost and glossary_hits == 0 and len(results) > 0:
+        fallback_used = True
+        results = retrieve_similar(
+            db_path,
+            query_embedding,
+            top_k=top_k,
+            source_filter=selected_filter,
+            glossary_boost=None,
+        )
+
+    # Truncate to top_k
+    results = results[:top_k]
+
+    # Add metadata flags to results
     for result in results:
-        result["boost_applied"] = apply_boost
+        result["boost_applied"] = apply_boost and not fallback_used
+        result["fallback_used"] = fallback_used
+
+    # Structured logging (JSONL file for analytics)
+    log_retrieval(
+        query=query_text,
+        is_definition=is_definition,
+        matched_pattern=matched_pattern,
+        boost_applied=apply_boost,
+        boost_factor=boost_factor,
+        source_filter=selected_filter,
+        results_count=len(results),
+        glossary_hits=glossary_hits,
+        fallback_used=fallback_used,
+        top_scores=[round(r.get("score", 0), 4) for r in results[:3]],
+        top_sources=[r.get("source", "?")[:20] for r in results[:3]],
+    )
 
     return results
 

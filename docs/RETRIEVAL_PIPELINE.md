@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-RETR-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 2.0
+> **Version**: 2.1
 > **Date**: 2026-01-19
 > **Statut**: Approuve
 
@@ -135,7 +135,7 @@ results = retrieve_similar(db, emb, source_filter="LA-octobre")
 ### 7. Glossary Boost (DNA 2025)
 
 ```python
-# Boost x3.5 pour questions definition
+# Boost x3.5 pour questions definition (avec fallback intelligent)
 results = retrieve_with_glossary_boost(db, emb, "Qu'est-ce que le roque?")
 ```
 
@@ -143,6 +143,11 @@ results = retrieve_with_glossary_boost(db, emb, "Qu'est-ce que le roque?")
 - "qu'est-ce que", "c'est quoi", "définition de"
 - "que signifie", "que veut dire"
 - Glossaire pages 67-70 LA-octobre + table summaries
+
+**Features avancees (v2.1):**
+- **Fallback intelligent**: Si boost actif mais 0 chunk glossaire → retry sans boost
+- **Logging JSONL**: `logs/retrieval.jsonl` pour analytics (1 JSON par ligne)
+- **Module dedie**: `scripts/pipeline/retrieval_logger.py`
 
 ### 8. Hybrid Search (Disponible, non optimal)
 
@@ -229,6 +234,7 @@ scripts/pipeline/
 ├── embeddings.py             # EmbeddingGemma 768D
 ├── export_sdk.py             # Creation SQLite DB
 ├── export_search.py          # Vector search + source_filter + glossary_boost
+├── retrieval_logger.py       # Logging JSONL structuré (analytics)
 ├── query_expansion.py        # Synonymes + stemmer FR
 ├── reranker.py               # Cross-encoder (optionnel)
 └── tests/
@@ -254,6 +260,7 @@ scripts/pipeline/
 |---------|------|-------------|
 | 1.0 | 2026-01-15 | Creation initiale (PyMuPDF, 400 tokens) |
 | 2.0 | 2026-01-19 | **Rewrite complet**: Docling, Parent-Child, vector-only optimal, source_filter, glossary_boost |
+| 2.1 | 2026-01-19 | **Fallback + logging**: Fallback intelligent, logging structure `logs/retrieval_log.txt` |
 
 ---
 

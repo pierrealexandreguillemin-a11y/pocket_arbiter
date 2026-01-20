@@ -157,9 +157,11 @@
       "expected_pages": [
         49,
         50,
-        51,
-        135
-      ]
+        51
+      ],
+      "metadata": {
+        "audit_note": "Page 135 removed (was pairing algorithm, not rapid/blitz rules) - ISO 29119 NC fix 2026-01-20"
+      }
     },
     {
       "id": "intl_009",
@@ -295,9 +297,12 @@
         "rules"
       ],
       "expected_pages": [
-        64,
-        66
-      ]
+        22,
+        26
+      ],
+      "metadata": {
+        "audit_note": "Pages changed [64,66]->[22,26] (were glossary refs, now Article 3.7.5 content) - ISO 29119 NC fix 2026-01-20"
+      }
     },
     {
       "id": "intl_017",
@@ -408,18 +413,21 @@
       "id": "intl_023",
       "question": "How should an arbiter handle a quickplay finish situation?",
       "expected_articles": [
-        "10.2"
+        "III.1",
+        "III.2"
       ],
-      "source": "FIDE Laws of Chess",
+      "source": "FIDE Laws of Chess - Guidelines III",
       "difficulty": "hard",
       "tags": [
         "quickplay",
         "arbiter"
       ],
       "expected_pages": [
-        43,
-        56
-      ]
+        61
+      ],
+      "metadata": {
+        "audit_note": "Pages changed [43,56]->[61] (p43=Points, p56=blind - were WRONG; p61=Guidelines III quickplay) - ISO 29119 NC fix 2026-01-20"
+      }
     },
     {
       "id": "intl_024",

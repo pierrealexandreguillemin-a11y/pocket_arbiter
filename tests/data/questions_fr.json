@@ -1,6 +1,6 @@
 {
-  "version": "5.13",
-  "description": "Gold standard v5.13 - 86 questions with fixed Q77, Q85, Q86 expected pages",
+  "version": "5.14",
+  "description": "Gold standard v5.14 - 86 questions with 3 hard_cases (Q77, Q85, Q86) for real prod eval",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -3965,23 +3965,27 @@
     },
     {
       "id": "FR-Q77",
-      "question": "Quelles sont les règles concernant les joueurs inactifs et leur classement Elo Standard FIDE ?",
+      "question": "Un joueur qui n'a joué aucune partie pendant 18 mois voit-il son classement Elo Standard supprimé ? Dans quelles conditions exactement ?",
       "category": "classement",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
-        "inactif",
+        "inactivité",
+        "18 mois",
         "Elo",
-        "classement",
-        "liste"
+        "supprimé",
+        "classement"
       ],
       "expected_pages": [
-        183
+        183,
+        188
       ],
       "metadata": {
         "type": "regle",
-        "chapter": "6.1"
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Keyword '18 mois' absent du corpus Elo Ch6.1 - terme exact non present"
       },
       "validation": {
         "status": "VALIDATED",
@@ -4196,23 +4200,26 @@
     },
     {
       "id": "FR-Q85",
-      "question": "Comment l'arbitre doit-il gérer le procès-verbal et les réclamations après un match par équipes ?",
+      "question": "Dans quel délai un arbitre doit-il transmettre le rapport d'un match individuel (ex : match par équipes) à la DNA ?",
       "category": "arbitrage",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
-        "procès-verbal",
+        "délai",
+        "rapport",
         "match",
-        "réclamation",
-        "arbitre"
+        "DNA",
+        "transmission"
       ],
       "expected_pages": [
         165
       ],
       "metadata": {
         "type": "procedure",
-        "chapter": "5.1"
+        "chapter": "5.1",
+        "hard_case": true,
+        "hard_reason": "Keyword 'délai transmission DNA' absent de Ch5.1 - page 165 = gestion match sans delai specifique"
       },
       "validation": {
         "status": "VALIDATED",
@@ -4223,23 +4230,28 @@
     },
     {
       "id": "FR-Q86",
-      "question": "Comment gérer l'absence d'un joueur lors d'un tournoi et les abandons en cours de compétition ?",
+      "question": "Quelles sont les étapes que l'arbitre doit suivre pour la gestion administrative d'un tournoi en cas d'absence d'un joueur à la première ronde ?",
       "category": "arbitrage",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "keywords": [
         "absence",
-        "joueur",
-        "abandon",
+        "première ronde",
+        "forfait",
+        "gestion",
         "tournoi"
       ],
       "expected_pages": [
-        74
+        169,
+        170,
+        171
       ],
       "metadata": {
         "type": "procedure",
-        "chapter": "5.3"
+        "chapter": "5.3",
+        "hard_case": true,
+        "hard_reason": "Keyword 'absence premiere ronde' absent de Ch5.3 - pages 169-171 = gestion tournoi generale"
       },
       "validation": {
         "status": "VALIDATED",

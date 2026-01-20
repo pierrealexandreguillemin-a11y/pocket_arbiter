@@ -32,14 +32,28 @@ FALLBACK_MODEL_ID = "intfloat/multilingual-e5-base"
 
 EMBEDDING_DIM = 768
 FALLBACK_EMBEDDING_DIM = 768
-DEFAULT_BATCH_SIZE = 32
+# Google recommande 128-256 pour stabilité gradients et in-batch negatives
+# Source: ai.google.dev/gemma/docs/embeddinggemma/fine-tuning
+DEFAULT_BATCH_SIZE = 128
+
+# --- Matryoshka Representation Learning (MRL) ---
+# EmbeddingGemma supporte MRL: dimensions 768 → 512 → 256 → 128
+# Truncation sans re-training, perte <2% accuracy
+# Source: arxiv.org/abs/2509.20354, huggingface.co/blog/embeddinggemma
+MRL_DIMS = [768, 512, 256, 128]  # Dimensions supportées (nested)
+MRL_DIM_FULL = 768      # Meilleure qualité
+MRL_DIM_BALANCED = 256  # Équilibre qualité/performance (recommandé mobile)
+MRL_DIM_FAST = 128      # Minimum, +6x compression vs 768D
 
 # --- Prompts Officiels Google (OBLIGATOIRES pour performance optimale) ---
 # Source: https://huggingface.co/blog/embeddinggemma
+# Source: ai.google.dev/gemma/docs/embeddinggemma/inference
 # WARNING: EmbeddingGemma NE SUPPORTE PAS float16 (utiliser float32 ou bfloat16)
 
 PROMPT_QUERY = "task: search result | query: "
-PROMPT_DOCUMENT = "title: none | text: "
+# Document prompt avec title améliore relevance de ~4% (Google recommendation)
+PROMPT_DOCUMENT = "title: {title} | text: "
+PROMPT_DOCUMENT_NO_TITLE = "title: none | text: "
 PROMPT_QA = "task: question answering | query: "
 PROMPT_CLASSIFICATION = "task: classification | query: "
 PROMPT_CLUSTERING = "task: clustering | query: "

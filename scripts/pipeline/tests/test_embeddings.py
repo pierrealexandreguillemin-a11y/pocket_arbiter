@@ -30,6 +30,7 @@ from scripts.pipeline.embeddings import (
     FALLBACK_MODEL_ID,
     MODEL_ID,
     PROMPT_DOCUMENT,
+    PROMPT_DOCUMENT_NO_TITLE,
     PROMPT_QA,
     PROMPT_QUERY,
     embed_chunks,
@@ -121,7 +122,8 @@ class TestLoadEmbeddingModel:
         assert FALLBACK_MODEL_ID == "intfloat/multilingual-e5-base"
         assert EMBEDDING_DIM == 768
         assert FALLBACK_EMBEDDING_DIM == 768
-        assert DEFAULT_BATCH_SIZE == 32
+        # Google recommande 128-256 pour in-batch negatives
+        assert DEFAULT_BATCH_SIZE == 128
 
     def test_invalid_model_fallback(self):
         """Modele invalide declenche fallback vers modele alternatif."""
@@ -219,7 +221,9 @@ class TestGoogleOfficialAPI:
     def test_prompts_defined(self):
         """Verifie que les prompts officiels sont definis."""
         assert PROMPT_QUERY == "task: search result | query: "
-        assert PROMPT_DOCUMENT == "title: none | text: "
+        # PROMPT_DOCUMENT avec placeholder title (améliore relevance ~4%)
+        assert PROMPT_DOCUMENT == "title: {title} | text: "
+        assert PROMPT_DOCUMENT_NO_TITLE == "title: none | text: "
         assert PROMPT_QA == "task: question answering | query: "
 
     def test_is_embeddinggemma_model_true(self):

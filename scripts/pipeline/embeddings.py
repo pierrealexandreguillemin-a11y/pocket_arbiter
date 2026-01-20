@@ -28,9 +28,14 @@ from scripts.pipeline.embeddings_config import (
     FALLBACK_MODEL_ID,
     MODEL_ID,
     MODEL_ID_FULL,
+    MRL_DIM_BALANCED,
+    MRL_DIM_FAST,
+    MRL_DIM_FULL,
+    MRL_DIMS,
     PROMPT_CLASSIFICATION,
     PROMPT_CLUSTERING,
     PROMPT_DOCUMENT,
+    PROMPT_DOCUMENT_NO_TITLE,
     PROMPT_QA,
     PROMPT_QUERY,
     PROMPT_SIMILARITY,
@@ -61,8 +66,13 @@ __all__ = [
     "DEFAULT_BATCH_SIZE",
     "EMBEDDING_DIM",
     "FALLBACK_EMBEDDING_DIM",
+    "MRL_DIMS",
+    "MRL_DIM_FULL",
+    "MRL_DIM_BALANCED",
+    "MRL_DIM_FAST",
     "PROMPT_QUERY",
     "PROMPT_DOCUMENT",
+    "PROMPT_DOCUMENT_NO_TITLE",
     "PROMPT_QA",
     "PROMPT_CLASSIFICATION",
     "PROMPT_CLUSTERING",
@@ -193,6 +203,7 @@ def embed_query(
 def embed_documents(
     documents: list[str],
     model: "SentenceTransformer",
+    titles: list[str] | None = None,
     batch_size: int = DEFAULT_BATCH_SIZE,
     show_progress: bool = True,
     normalize: bool = True,
@@ -203,6 +214,9 @@ def embed_documents(
     Args:
         documents: Liste des documents/chunks a encoder.
         model: Modele SentenceTransformer charge.
+        titles: Liste optionnelle de titres (section/chapitre) pour chaque document.
+                Si fourni, utilise "title: {title} | text: " au lieu de "title: none".
+                Améliore la relevance de ~4% selon Google.
         batch_size: Taille de batch pour l'inference.
         show_progress: Afficher barre de progression.
         normalize: Normaliser les vecteurs (L2 norm = 1).
@@ -211,12 +225,35 @@ def embed_documents(
         np.ndarray de shape (N, dim) avec les embeddings.
 
     Raises:
-        ValueError: Si documents est vide.
+        ValueError: Si documents est vide ou titles de mauvaise taille.
     """
     if not documents:
         raise ValueError("documents list cannot be empty")
 
-    # EmbeddingGemma: utiliser methode officielle encode_document
+    if titles is not None and len(titles) != len(documents):
+        raise ValueError(f"titles length ({len(titles)}) != documents length ({len(documents)})")
+
+    # Si titles fournis, utiliser prompts manuels avec titles (meilleure relevance)
+    # Source: ai.google.dev/gemma/docs/embeddinggemma - "include titles when available"
+    if titles is not None and is_embeddinggemma_model(getattr(model, "model_card_data", {}).get("base_model", MODEL_ID)):
+        docs_with_prompts = []
+        for doc, title in zip(documents, titles):
+            if title:
+                prompt = PROMPT_DOCUMENT.format(title=title)
+            else:
+                prompt = PROMPT_DOCUMENT_NO_TITLE
+            docs_with_prompts.append(f"{prompt}{doc}")
+
+        embeddings = model.encode(
+            docs_with_prompts,
+            batch_size=batch_size,
+            show_progress_bar=show_progress,
+            normalize_embeddings=normalize,
+            convert_to_numpy=True,
+        )
+        return np.array(embeddings)
+
+    # EmbeddingGemma sans titles: utiliser methode officielle encode_document
     if hasattr(model, "encode_document"):
         embeddings = model.encode_document(
             documents,
@@ -276,6 +313,7 @@ def embed_chunks(
     chunks: list[dict],
     model: "SentenceTransformer",
     batch_size: int = DEFAULT_BATCH_SIZE,
+    use_titles: bool = True,
 ) -> tuple[np.ndarray, list[str]]:
     """
     Genere des embeddings pour des chunks du pipeline.
@@ -284,6 +322,8 @@ def embed_chunks(
         chunks: Liste de chunks conformes a CHUNK_SCHEMA.md.
         model: Modele SentenceTransformer charge.
         batch_size: Taille de batch.
+        use_titles: Extraire et utiliser section comme titre dans prompt.
+                    Améliore relevance de ~4% (Google recommendation).
 
     Returns:
         Tuple (embeddings array shape (N, dim), list of chunk IDs).
@@ -295,6 +335,7 @@ def embed_chunks(
         raise ValueError("chunks list cannot be empty")
 
     texts = []
+    titles = []
     ids = []
 
     for chunk in chunks:
@@ -302,8 +343,19 @@ def embed_chunks(
             raise ValueError("Invalid chunk format: missing 'text' or 'id'")
         texts.append(chunk["text"])
         ids.append(chunk["id"])
+        # Extraire section comme titre (ex: "CHAPITRE Ier", "Article 4.1")
+        # Fallback sur source filename si pas de section
+        if use_titles:
+            title = chunk.get("section") or chunk.get("source", "")
+            titles.append(title)
 
-    embeddings = embed_documents(texts, model, batch_size)
+    # Passer titles si use_titles activé (améliore relevance ~4%)
+    embeddings = embed_documents(
+        texts,
+        model,
+        titles=titles if use_titles else None,
+        batch_size=batch_size,
+    )
 
     return embeddings, ids
 
@@ -407,7 +459,11 @@ def main() -> None:
         "--batch-size", "-b", type=int, default=DEFAULT_BATCH_SIZE, help="Taille batch"
     )
     parser.add_argument(
-        "--truncate-dim", type=int, default=None, help="Dimension MRL reduite"
+        "--truncate-dim",
+        type=int,
+        default=None,
+        choices=MRL_DIMS,
+        help=f"Dimension MRL (Matryoshka): {MRL_DIMS}. 256 recommandé mobile, 768 default",
     )
     parser.add_argument("--verbose", "-v", action="store_true", help="Logs detailles")
 

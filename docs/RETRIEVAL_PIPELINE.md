@@ -82,15 +82,24 @@ result = converter.convert(pdf_path)
 - Embedding du summary (plus semantique que table brute)
 - 111 tables FR traitees (source: table_summaries_claude.json)
 
-### 4. Embedding
+### 4. Embedding (ISO 42001 A.6.2.2 Conforme)
 
 **Fichier:** `scripts/pipeline/embeddings.py`
 
-| Parametre | Valeur |
-|-----------|--------|
-| Modele | `google/embeddinggemma-300m-qat` |
-| Dimension | 768 |
-| Normalisation | L2 (cosine ready) |
+| Parametre | Valeur | Source |
+|-----------|--------|--------|
+| Modele | `google/embeddinggemma-300m-qat-q4_0` | HuggingFace |
+| Dimension | 768 (MRL: 128/256/512) | Google |
+| Batch size | 128 | Google recommendation |
+| Normalisation | L2 (cosine ready) | Standard |
+| Encodage | Asymétrique (query/document) | Google official |
+| Prompts | `task: search result \| query:` | Google official |
+| Titles | Section injectée dans prompt | +4% relevance |
+
+**Conformité Google/HuggingFace:**
+- `encode_query()` pour requêtes utilisateur
+- `encode_document()` pour chunks avec titles
+- Prompts officiels: `title: {section} | text: {chunk}`
 
 ### 5. Recherche Vectorielle (Optimal)
 

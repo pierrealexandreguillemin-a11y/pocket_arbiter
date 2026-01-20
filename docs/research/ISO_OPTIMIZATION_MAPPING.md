@@ -2,9 +2,9 @@
 
 > **Document ID**: RES-ISO-MAP-001
 > **ISO Reference**: ISO 25010, ISO 42001, ISO 12207, ISO 29119
-> **Version**: 1.0
+> **Version**: 1.1
 > **Date**: 2026-01-20
-> **Statut**: Draft
+> **Statut**: Approuve
 > **Classification**: Technique
 > **Auteur**: Claude Opus 4.5
 > **Mots-cles**: ISO, optimisations, RAG, qualite, architecture, conformite
@@ -18,6 +18,16 @@ Ce document etablit la correspondance entre les optimisations zero-runtime-cost 
 **Documents sources**:
 - `docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`
 - `docs/ISO_STANDARDS_REFERENCE.md`
+
+**Corpus FR (verifie 2026-01-20)**:
+| Composant | Count | Source |
+|-----------|-------|--------|
+| Parents | 617 | chunks_parent_child_fr.json |
+| Children | 1,343 | corpus_fr.db |
+| Table summaries | 111 | table_summaries_claude.json |
+| **Total DB** | **1,454** | corpus_fr.db |
+| PDFs sources | 28 | corpus/fr/ |
+| Gold standard | 134 Q (45 hard) | gold_standard_fr.json |
 
 ---
 
@@ -84,9 +94,11 @@ Ce document etablit la correspondance entre les optimisations zero-runtime-cost 
 ```
 ISO 25010 S4.2.1 Functional Suitability
 ├── Completeness: Couvrir variantes terminologiques
-├── Correctness: Synonymes valides (18 mois = un an)
+├── Correctness: Synonymes VERIFIES contre corpus (ex: "un an" ≠ "18 mois")
 └── Appropriateness: Match vocabulaire utilisateur
 ```
+
+> **WARNING**: Ne jamais injecter de synonymes non valides. Le corpus dit "un an" (12 mois), pas "18 mois".
 
 ---
 
@@ -95,7 +107,8 @@ ISO 25010 S4.2.1 Functional Suitability
 | Aspect | Details |
 |--------|---------|
 | **Optimisation** | Embed document complet, chunker apres |
-| **Source** | arXiv:2409.04701 |
+| **Source** | arXiv:2409.04701 (Günther et al.) |
+| **Limitation** | EmbeddingGemma 2048 tokens → **per-page seulement** |
 | **ISO 25010** | Performance efficiency (zero runtime cost) |
 | **ISO 42001** | A.5.3 Tracabilite (contexte global preserve) |
 | **ISO 12207** | 7.1.2 Config management (pipeline reproductible) |
@@ -155,17 +168,19 @@ ISO 42001 Annex A.5.3 Data Traceability
 | Aspect | Details |
 |--------|---------|
 | **Optimisation** | Lookup table questions connues → chunks |
-| **Questions** | Toutes questions gold standard |
+| **Questions** | Questions frequentes hors gold standard |
 | **ISO 25010** | Performance efficiency (O(1) lookup) |
 | **ISO 29119** | Part 2 Test documentation (questions cataloguees) |
-| **ISO 12207** | 7.2.6 Validation (100% recall garanti) |
-| **Metriques** | 100% recall questions connues |
+| **ISO 12207** | 7.2.6 Validation (usage production) |
+| **Metriques** | Separer "recall pure" vs "recall + cache" |
+
+> **WARNING ISO 29119**: Ne pas utiliser le cache pour calculer le recall gold standard (invalide le test). Le cache est pour la production, pas pour le benchmarking.
 
 ```
 ISO 29119-2 Test Documentation
-├── Test case: Question gold standard
-├── Expected: Chunks specifiques
-└── Actual: Lookup cache direct
+├── Test case: Question gold standard (SANS cache)
+├── Expected: Chunks via retrieval reel
+└── Cache: Questions frequentes production seulement
 ```
 
 ---
@@ -355,6 +370,19 @@ python scripts/iso/validate_project.py --phase 1 --gates
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-20 | Creation initiale - mapping 7 optimisations |
+| 1.1 | 2026-01-20 | Ajout stats corpus FR, corrections audit (synonymes, late chunking, hard cache) |
+
+---
+
+## 10. Provenance Donnees (ISO 42001 A.5.3)
+
+| Composant | Source | Genere par |
+|-----------|--------|------------|
+| Children chunks | parent_child_chunker.py | Pipeline automatique |
+| Parent chunks | parent_child_chunker.py | Pipeline automatique |
+| Table summaries FR | table_summaries_claude.json | **Claude Code** (111) |
+| Table summaries INTL | table_summaries_claude_intl.json | **Claude Code** (74) |
+| Embeddings | embeddings.py | EmbeddingGemma 300M |
 
 ---
 

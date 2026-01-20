@@ -3995,11 +3995,14 @@
         "hard_reason": "Keyword '18 mois' absent du corpus Elo Ch6.1 - terme exact non present"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "hard_case": true
     },
     {
       "id": "FR-Q78",
@@ -4229,11 +4232,14 @@
         "hard_reason": "Keyword 'délai transmission DNA' absent de Ch5.1 - page 165 = gestion match sans delai specifique"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "hard_case": true
     },
     {
       "id": "FR-Q86",
@@ -4261,11 +4267,14 @@
         "hard_reason": "Keyword 'absence premiere ronde' absent de Ch5.3 - pages 169-171 = gestion tournoi generale"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "hard_case": true
     },
     {
       "id": "FR-Q87",
@@ -4291,11 +4300,14 @@
         "hard_reason": "Keyword mismatch: 'premier classement' absent du corpus - terme exact est 'classement initial'"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "hard_case": true
     },
     {
       "id": "FR-Q88",
@@ -4491,11 +4503,14 @@
       "difficulty": "hard",
       "notes": "test synonymes + langage oral",
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "hard_case": true
     },
     {
       "id": "FR-Q95",
@@ -4523,11 +4538,14 @@
       "difficulty": "hard",
       "notes": "test négation + chiffres spécifiques",
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "hard_case": true
     },
     {
       "id": "FR-Q96",
@@ -4621,11 +4639,14 @@
       "difficulty": "hard",
       "notes": "test négation + langage oral",
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "hard_case": true
     },
     {
       "id": "FR-Q99",
@@ -4654,9 +4675,11 @@
       "difficulty": "hard",
       "notes": "test synonymes + langage naturel",
       "validation": {
-        "status": "VALIDATED",
+        "status": "PARTIAL_RECALL",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "67%",
+        "audit_note": "Partial recall - retrieves adjacent pages but not exact."
       },
       "audit": "added_2026-01-20_grok"
     },
@@ -4785,11 +4808,14 @@
       "difficulty": "hard",
       "notes": "test langage oral/SMS + formulation indirecte",
       "validation": {
-        "status": "VALIDATED",
+        "status": "HARD_CASE",
         "method": "manual_verification",
-        "details": []
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "hard_case": true
     },
     {
       "id": "FR-Q104",
@@ -5300,7 +5326,9 @@
       "validation": {
         "status": "PENDING_VALIDATION",
         "method": "recall_test_2026-01-20",
-        "details": ["Corrigé: pages 73-74→101-104 (Chapitre 3.1 Tournois toutes-rondes)"]
+        "details": [
+          "Corrigé: pages 73-74→101-104 (Chapitre 3.1 Tournois toutes-rondes)"
+        ]
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
@@ -5368,7 +5396,9 @@
       "validation": {
         "status": "PENDING_VALIDATION",
         "method": "recall_test_2026-01-20",
-        "details": ["Corrigé: pages 182-184→183,185 (Art. 7.1.4 + 8.2 calcul Ru)"]
+        "details": [
+          "Corrigé: pages 182-184→183,185 (Art. 7.1.4 + 8.2 calcul Ru)"
+        ]
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
@@ -5504,7 +5534,9 @@
       "validation": {
         "status": "PENDING_VALIDATION",
         "method": "recall_test_2026-01-20",
-        "details": ["Corrigé: pages 47,58→57,58 (Annexe A.5.5 + B blitz)"]
+        "details": [
+          "Corrigé: pages 47,58→57,58 (Annexe A.5.5 + B blitz)"
+        ]
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
@@ -5570,7 +5602,10 @@
       "validation": {
         "status": "FAILED_RETRIEVAL",
         "method": "recall_test_2026-01-20",
-        "details": ["0% recall: question spécifique zeitnot+incrément non retrievable", "Pages correctes mais terminologie dense dans corpus"]
+        "details": [
+          "0% recall: question spécifique zeitnot+incrément non retrievable",
+          "Pages correctes mais terminologie dense dans corpus"
+        ]
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
@@ -5706,7 +5741,10 @@
       "validation": {
         "status": "VALIDATED",
         "method": "recall_test_2026-01-20",
-        "details": ["Corrigé: pages 192-193→187-189 (Chapitre 6.2 début)", "Recall 100% après correction"]
+        "details": [
+          "Corrigé: pages 192-193→187-189 (Chapitre 6.2 début)",
+          "Recall 100% après correction"
+        ]
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
@@ -5742,7 +5780,9 @@
       "validation": {
         "status": "PENDING_VALIDATION",
         "method": "recall_test_2026-01-20",
-        "details": ["Corrigé: pages 182,183,192→183,185,187,188 (Ch6.1 + Ch6.2)"]
+        "details": [
+          "Corrigé: pages 182,183,192→183,185,187,188 (Ch6.1 + Ch6.2)"
+        ]
       },
       "difficulty": "hard",
       "audit": "2026-01-20",

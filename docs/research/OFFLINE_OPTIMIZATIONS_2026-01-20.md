@@ -95,10 +95,12 @@ De [Haystack](https://haystack.deepset.ai/blog/query-expansion) et [arXiv:2501.0
 **Validation recherche**: [Haystack Query Expansion](https://haystack.deepset.ai/blog/query-expansion)
 
 ```python
-# Ajouter synonymes directement dans le texte du chunk AVANT embedding
+# ATTENTION: Enrichir corpus avec synonymes CORRECTS uniquement
+# NE PAS injecter d'information fausse (ex: "18 mois" quand corpus dit "un an")
 SYNONYMS_TEMPORAL = {
-    "un an": "un an (12 mois, une annee)",
-    "une periode d'un an": "une periode d'un an (18 mois inclus si inactivite)",
+    "un an": "un an (12 mois, une annee, periode d'inactivite)",
+    # NOTE: Q77/Q94 demandent "18 mois" mais corpus dit "un an"
+    # -> Ces questions testent une premisse fausse, pas un echec retrieval
 }
 
 SYNONYMS_CHESS = {
@@ -122,27 +124,41 @@ def enrich_chunk(text: str) -> str:
 ### 2. Late Chunking (arXiv:2409.04701)
 
 **Cout runtime**: 0 (applique a l'indexation)
-**Innovation**: Embedder document complet, chunker APRES embedding
+**Innovation**: Embedder texte complet, chunker APRES embedding
+
+> **LIMITATION TECHNIQUE**: EmbeddingGemma = 2048 tokens context.
+> Un document de 200 pages >> 2048 tokens.
+> Late chunking PAR DOCUMENT = impossible avec ce modele.
+> Late chunking PAR PAGE = possible (~500-800 tokens/page).
 
 ```python
-# Late chunking: embed full doc, then chunk embeddings
-# Preserve contexte global dans chaque chunk embedding
+# Late chunking PAR PAGE (adapte a EmbeddingGemma 2048 tokens)
+# NE PAS utiliser pour document complet!
 
-def late_chunk_embed(full_text: str, chunk_boundaries: list[tuple]) -> list[np.ndarray]:
-    # 1. Embed full document avec long-context model
-    full_embeddings = embed_tokens(full_text)  # shape: (n_tokens, dim)
+def late_chunk_embed_per_page(page_text: str, chunk_size: int = 450) -> list[np.ndarray]:
+    """Late chunking au niveau page, pas document."""
+    # Verifier que page < 2048 tokens
+    if count_tokens(page_text) > 2000:
+        # Fallback: chunking standard
+        return standard_chunk_embed(page_text, chunk_size)
 
-    # 2. Mean pool par chunk boundary
+    # 1. Embed page complete
+    page_embeddings = embed_tokens(page_text)  # shape: (n_tokens, dim)
+
+    # 2. Chunker et mean pool
     chunk_embeddings = []
-    for start, end in chunk_boundaries:
-        chunk_emb = full_embeddings[start:end].mean(axis=0)
+    for start in range(0, len(page_embeddings), chunk_size):
+        end = min(start + chunk_size, len(page_embeddings))
+        chunk_emb = page_embeddings[start:end].mean(axis=0)
         chunk_embeddings.append(chunk_emb)
 
     return chunk_embeddings
+
+# Pour late chunking document complet: utiliser BGE-M3 (8K) ou Jina (8K)
 ```
 
-**Avantage**: Contexte global preserve sans LLM runtime.
-**Limitation**: Requiert embedding model long-context (EmbeddingGemma: 2048 tokens OK).
+**Avantage**: Contexte page preserve sans LLM runtime.
+**Limitation REELLE**: EmbeddingGemma 2048 tokens = late chunking PAR PAGE seulement.
 
 ---
 
@@ -185,12 +201,17 @@ def generate_variants(chunk_text: str, metadata: dict) -> list[str]:
 
 ```python
 # Ajouter titres de chapitre dans le texte du chunk
+# VERIFIE contre corpus_fr.db le 2026-01-20
 CHAPTER_TITLES = {
-    (182, 190): "Chapitre 6.1 - Classement Elo Standard FIDE",
-    (187, 192): "Chapitre 6.2 - Classement Rapide et Blitz",
-    (192, 200): "Chapitre 6.3 - Titres FIDE",
-    (101, 110): "Chapitre 3.1 - Tournois Toutes-Rondes",
-    (57, 66): "Annexes A et B - Cadences Rapide et Blitz",
+    # Chapitre 6 - La FIDE (pages verifiees)
+    (182, 186): "Chapitre 6.1 - Classement Elo Standard FIDE",
+    (187, 191): "Chapitre 6.2 - Classement Rapide et Blitz FIDE",
+    (192, 205): "Chapitre 6.3 - Titres FIDE",
+    # Chapitre 3 - Systemes d'appariements
+    (101, 105): "Chapitre 3.1 - Tournois Toutes-Rondes",
+    # Annexes A/B sont dans Chapitre 2.1 (Regles du jeu), pages 56-66
+    (56, 57): "Chapitre 2.1 Annexe A - Cadence Rapide",
+    (58, 66): "Chapitre 2.1 Annexe B - Cadence Blitz",
 }
 
 def enrich_with_chapter(chunk_text: str, page: int) -> str:
@@ -209,27 +230,35 @@ def enrich_with_chapter(chunk_text: str, page: int) -> str:
 **Cout runtime**: 1 lookup dict (negligeable)
 **Implementation**: Pre-computed mapping
 
+> **AVERTISSEMENT METRIQUES**: Le hard cache NE DOIT PAS etre utilise pour
+> calculer le recall gold standard. Sinon on mesure le cache, pas le retrieval.
+> Separer: "recall_pure" (sans cache) vs "recall_production" (avec cache).
+
 ```python
-# Pour questions exactes connues, bypass vector search
+# Pour questions frequentes connues en production, bypass vector search
+# NOTE: Ne pas utiliser ces questions dans le benchmark recall!
 HARD_QUESTIONS_CACHE = {
     # Hash de la question -> chunk_ids optimaux
-    "hash(18 mois elo)": ["chunk_183_1", "chunk_188_2"],
+    # Ces mappings sont pour UX production, pas pour tests
     "hash(sauter cm fm)": ["chunk_196_1", "chunk_197_1"],
     "hash(noter zeitnot)": ["chunk_50_1"],
 }
 
-def smart_retrieve(query: str, db, top_k=5):
-    query_hash = compute_query_hash(query)
+def smart_retrieve(query: str, db, top_k=5, use_cache=True):
+    if use_cache:
+        query_hash = compute_query_hash(query)
+        if query_hash in HARD_QUESTIONS_CACHE:
+            return get_chunks_by_ids(db, HARD_QUESTIONS_CACHE[query_hash])
 
-    # Fast path: question connue
-    if query_hash in HARD_QUESTIONS_CACHE:
-        return get_chunks_by_ids(db, HARD_QUESTIONS_CACHE[query_hash])
-
-    # Slow path: vector search standard
+    # Standard vector search
     return vector_search(db, embed(query), top_k)
+
+# Benchmark: TOUJOURS avec use_cache=False
+# Production: use_cache=True pour UX
 ```
 
-**Avantage**: 100% recall sur questions gold standard sans cout runtime
+**Avantage**: Meilleure UX sur questions frequentes
+**Limite**: Ne compte pas dans recall gold standard (ISO 29119)
 
 ---
 

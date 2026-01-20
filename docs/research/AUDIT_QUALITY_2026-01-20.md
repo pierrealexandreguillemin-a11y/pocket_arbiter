@@ -187,17 +187,15 @@ HARD_QUESTIONS_CACHE = {
 
 ---
 
-### NC-07: References arXiv non verifiees
+### NC-07: References arXiv ~~non verifiees~~ VERIFIEES
 
-**Papers cites**:
-- arXiv:2409.04701 (Late Chunking) - septembre 2024: OK
-- arXiv:2504.19754 (Reconstructing Context) - avril 2025: **Date future?**
-- arXiv:2506.00054 (RAG Survey) - mai 2025: **Date future?**
-- arXiv:2501.07391 (RAG Best Practices) - janvier 2025: OK
+**Papers cites** (tous verifies via arxiv.org 2026-01-20):
+- arXiv:2409.04701 (Late Chunking) - septembre 2024: ✅ Günther et al.
+- arXiv:2504.19754 (Reconstructing Context) - avril 2025: ✅ Merola & Singh, ECIR 2025
+- arXiv:2506.00054 (RAG Survey) - mai 2025: ✅ Sharma, IR/CL
+- arXiv:2501.07391 (RAG Best Practices) - janvier 2025: ✅ Verified
 
-**Probleme**: Papers dates 2025-2026 peuvent etre hallucines ou mal dates
-
-**Correction**: Verifier existence reelle de chaque paper
+**Statut**: RESOLU - Tous les papers existent et sont correctement references
 
 ---
 
@@ -265,19 +263,28 @@ Phase 3: 98% -> 99%+ (+1%)
 
 ## 6. Conclusion
 
-**Verdict**: Documents commits contiennent des erreurs significatives
+**Verdict**: Documents commits contenaient des erreurs significatives - **MAJORITE CORRIGEES**
 
-| Categorie | Count |
-|-----------|-------|
-| Non-conformites BLOQUANTES | 1 |
-| Non-conformites MAJEURES | 4 |
-| Non-conformites mineures | 3 |
-| Facilites prises | 3 |
+| Categorie | Initial | Corrige | Restant |
+|-----------|---------|---------|---------|
+| Non-conformites BLOQUANTES | 1 | 1 | 0 |
+| Non-conformites MAJEURES | 4 | 4 | 0 |
+| Non-conformites mineures | 3 | 2 | 1 |
+| Facilites prises | 3 | 1 | 2 |
 
-**Recommandation**:
-1. Corriger NC-01 (injection donnees fausses) immediatement
-2. Ne pas implementer le code tel quel
-3. Re-auditer apres corrections
+**Corrections effectuees**:
+- NC-01: Injection "18 mois" supprimee ✅
+- NC-02: Plages chapitres verifiees contre corpus_fr.db ✅
+- NC-03: 9 questions → status HARD_CASE ✅
+- NC-04: Warning hard cache ajoute ✅
+- NC-05: Late chunking per-page documente ✅
+- NC-07: Papers arXiv tous verifies ✅
+- NC-09 (NEW): "LLM Gemini" → "LLM Claude" (table summaries) ✅
+
+**Restant**:
+- NC-06: Aligner chiffres recall entre documents (mineur)
+- NC-08: Projections recall non testees (facilite)
+- Code non implemente (facilite - documentation seulement)
 
 ---
 
@@ -288,7 +295,9 @@ Phase 3: 98% -> 99%+ (+1%)
 3. **Distinguer enrichissement corpus vs expansion query** - l'un est dangereux
 4. **Hard cache != retrieval** - ne pas confondre les metriques
 5. **Verifier les limites techniques** des modeles avant de proposer des solutions
+6. **Verifier les metadata** des fichiers generes pour tracer la provenance
 
 ---
 
 *Audit realise conformement a ISO 9001:2015 Clause 9.2 - Audit interne*
+*Derniere mise a jour: 2026-01-20 - Re-audit apres corrections*

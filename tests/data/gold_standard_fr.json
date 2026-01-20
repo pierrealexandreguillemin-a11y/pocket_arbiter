@@ -1,6 +1,6 @@
 {
-  "version": "5.25",
-  "description": "Gold standard v5.25 - 149 questions (+10: 5 A02/R01 complexes, 5 unanswerable LA-octobre)",
+  "version": "5.26",
+  "description": "Gold standard v5.26 - 150 questions (+11: 5 A02/R01 complexes, 5 unanswerable LA, 1 ultimate hard)",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -9,7 +9,7 @@
     "iso_reference": "ISO 25010 FA-01, ISO 42001 A.7.3, ISO 29119"
   },
   "coverage": {
-    "total_questions": 149,
+    "total_questions": 150,
     "total_documents": 28,
     "documents_covered": [
       "2018_Reglement_Disciplinaire20180422.pdf",
@@ -58,15 +58,15 @@
     ]
   },
   "statistics": {
-    "total_questions": 149,
+    "total_questions": 150,
     "iso_target": "Recall@5 >= 80%",
     "min_questions_iso": 50,
     "compliant": true,
     "validated_questions": 128,
     "pending_validation": 21,
     "validation_rate": "86.0%",
-    "hard_cases": 55,
-    "hard_case_rate": "36.9%",
+    "hard_cases": 56,
+    "hard_case_rate": "37.3%",
     "avg_pages_per_question": 2.0,
     "failed_retrieval": 6,
     "recall_at_5": "TBD",
@@ -6355,6 +6355,38 @@
       },
       "difficulty": "hard",
       "audit": "added_2026-01-20_LA"
+    },
+    {
+      "id": "FR-Q150",
+      "question": "Selon l'article 12.9 des Lois du Jeu FIDE, quelle est la procedure exacte pour reclamer une nulle apres 75 coups sans prise ni mouvement de pion ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "article 12.9",
+        "75 coups",
+        "nulle",
+        "FIDE"
+      ],
+      "expected_pages": [70],
+      "metadata": {
+        "type": "edge",
+        "chapter": "9.6.2 (pas 12.9!)",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "PIEGE ULTIME: Article 12.9 EXISTE (sanctions p44,47,56) mais NE TRAITE PAS des 75 coups. Vraie regle = Art 9.6.2 p70",
+        "corpus_truth": "Art 12.9 = sanctions comportement incorrect (16 mentions). Art 9.6.2 p70 = regle 75 coups nulle automatique. Question melange deux articles distincts.",
+        "test_purpose": "Test double piege: article existe mais mauvais sujet + numero article trompeur (arXiv:2412.12300 cat.3 extreme)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Ultimate hard case - Art 12.9 existe (sanctions) mais 75 coups = Art 9.6.2"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_ultimate"
     }
   ]
 }

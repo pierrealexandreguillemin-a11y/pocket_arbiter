@@ -1,6 +1,6 @@
 {
-  "version": "5.14",
-  "description": "Gold standard v5.14 - 86 questions with 3 hard_cases (Q77, Q85, Q86) for real prod eval",
+  "version": "5.16",
+  "description": "Gold standard v5.16 - 93 questions, 4 hard_cases (Q77, Q85, Q86, Q87) for prod eval",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -4252,6 +4252,205 @@
         "chapter": "5.3",
         "hard_case": true,
         "hard_reason": "Keyword 'absence premiere ronde' absent de Ch5.3 - pages 169-171 = gestion tournoi generale"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q87",
+      "question": "Pour obtenir un premier classement Elo Standard FIDE, quelles sont les conditions minimales à remplir ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "premier classement",
+        "Elo",
+        "conditions",
+        "FIDE"
+      ],
+      "expected_pages": [
+        182,
+        183
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Keyword mismatch: 'premier classement' absent du corpus - terme exact est 'classement initial'"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q88",
+      "question": "Quelle est la différence de points Elo gagnés ou perdus pour une seule partie gagnée contre un adversaire avec exactement le même classement Elo ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "différence Elo",
+        "partie gagnée",
+        "gain",
+        "perte"
+      ],
+      "expected_pages": [
+        184,
+        185,
+        186
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q89",
+      "question": "Pour un tournoi de 9 rondes, quelle est la différence maximale d'Elo entre deux joueurs qui permet encore de considérer le tournoi comme équilibré pour le calcul du rating FIDE ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournoi",
+        "9 rondes",
+        "différence Elo",
+        "équilibré",
+        "rating"
+      ],
+      "expected_pages": [
+        184,
+        185
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q90",
+      "question": "Quel est le montant minimal d'indemnisation journalière pour un arbitre principal lors d'un tournoi national de plus de 100 joueurs en 2025 ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "indemnisation",
+        "journalière",
+        "arbitre principal",
+        "100 joueurs",
+        "national"
+      ],
+      "expected_pages": [
+        178
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q91",
+      "question": "Un arbitre adjoint dans un tournoi régional de 50 à 99 joueurs peut-il prétendre à une indemnisation forfaitaire ou horaire ? Quel est le barème appliqué ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre adjoint",
+        "tournoi régional",
+        "indemnisation",
+        "forfaitaire",
+        "barème"
+      ],
+      "expected_pages": [
+        179
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q92",
+      "question": "Quelles sont les conditions pour qu'un arbitre bénéficie du remboursement des frais de déplacement en plus de son indemnisation de base ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "frais de déplacement",
+        "remboursement",
+        "indemnisation",
+        "arbitre"
+      ],
+      "expected_pages": [
+        179,
+        180
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "manual_verification",
+        "details": []
+      },
+      "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q93",
+      "question": "Quel est le barème d'indemnisation spécifique pour un arbitre lors d'un match par équipes (ex : interclubs) avec moins de 20 joueurs ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "match par équipes",
+        "interclubs",
+        "indemnisation",
+        "barème"
+      ],
+      "expected_pages": [
+        180
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5"
       },
       "validation": {
         "status": "VALIDATED",

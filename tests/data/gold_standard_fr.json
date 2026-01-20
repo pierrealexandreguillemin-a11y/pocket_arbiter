@@ -1,6 +1,6 @@
 {
-  "version": "5.24",
-  "description": "Gold standard v5.24 - 139 questions, ajout 5 questions UAEval4RAG (sources diverses: LA, C01, A01, J01)",
+  "version": "5.25",
+  "description": "Gold standard v5.25 - 149 questions (+10: 5 A02/R01 complexes, 5 unanswerable LA-octobre)",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -9,7 +9,7 @@
     "iso_reference": "ISO 25010 FA-01, ISO 42001 A.7.3, ISO 29119"
   },
   "coverage": {
-    "total_questions": 134,
+    "total_questions": 149,
     "total_documents": 28,
     "documents_covered": [
       "2018_Reglement_Disciplinaire20180422.pdf",
@@ -58,18 +58,18 @@
     ]
   },
   "statistics": {
-    "total_questions": 134,
+    "total_questions": 149,
     "iso_target": "Recall@5 >= 80%",
     "min_questions_iso": 50,
     "compliant": true,
     "validated_questions": 128,
-    "pending_validation": 22,
-    "validation_rate": "95.5%",
-    "hard_cases": 45,
-    "hard_case_rate": "33.6%",
-    "avg_pages_per_question": 2.1,
+    "pending_validation": 21,
+    "validation_rate": "86.0%",
+    "hard_cases": 55,
+    "hard_case_rate": "36.9%",
+    "avg_pages_per_question": 2.0,
     "failed_retrieval": 6,
-    "recall_at_5": "90.17%",
+    "recall_at_5": "TBD",
     "iso_25010_pass": true
   },
   "questions": [
@@ -6035,6 +6035,326 @@
       },
       "difficulty": "hard",
       "audit": "added_2026-01-20_uaeval"
+    },
+    {
+      "id": "FR-Q140",
+      "question": "Un joueur mute qui a joue 3 matchs en N1 pour son ancien club peut-il aligner en N2 pour son nouveau club la meme saison, sachant que l'equipe N2 a deja 2 mutes alignes ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf",
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "mute",
+        "mutation",
+        "N1",
+        "N2",
+        "alignement"
+      ],
+      "expected_pages": [2, 6],
+      "metadata": {
+        "type": "edge",
+        "chapter": "R01 2.2 + A02 3.7.g",
+        "hard_case": true,
+        "hard_type": "MULTI_HOP_IMPOSSIBLE",
+        "hard_reason": "Combine definition mutation R01 + limite 3 mutes A02 - inference requise",
+        "corpus_truth": "R01 p2 definit mute, A02 p6 art 3.7.g limite 3 mutes/match - cas combine non explicite",
+        "test_purpose": "Test inference multi-doc R01+A02 (arXiv:2412.12300 cat.4)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Question complexe multi-document necessitant synthese"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_A02"
+    },
+    {
+      "id": "FR-Q141",
+      "question": "Qu'est-ce que le 'noyau' d'une equipe en Nationale et quelle est la regle des 50% ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "noyau",
+        "50%",
+        "equipe",
+        "nationale"
+      ],
+      "expected_pages": [6],
+      "metadata": {
+        "type": "definition",
+        "chapter": "A02 3.7.f",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Terme 'noyau' = jargon technique FFE, peut etre inconnu utilisateurs",
+        "corpus_truth": "A02 p6 art 3.7.f - noyau = 50% joueurs ayant deja joue pour equipe",
+        "test_purpose": "Test vocabulaire technique FFE (arXiv:2412.12300 cat.3)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Vocabulaire specialise FFE"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_A02"
+    },
+    {
+      "id": "FR-Q142",
+      "question": "Selon l'article 4.5 du reglement A02, quelles sont les sanctions en cas de tenue vestimentaire non conforme en N3 ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "article 4.5",
+        "tenue",
+        "vestimentaire",
+        "N3"
+      ],
+      "expected_pages": [],
+      "metadata": {
+        "type": "edge",
+        "chapter": "A02",
+        "hard_case": true,
+        "hard_type": "FALSE_PREMISE",
+        "hard_reason": "Article 4.5 n'existe pas - tenue vestimentaire = art 3.12 Top16 uniquement",
+        "corpus_truth": "FAUX - A02 art 3.12 p8 = tenue UNIQUEMENT Top16, pas N3. Art 4.5 inexistant",
+        "test_purpose": "Test rejection premisse fausse (arXiv:2412.12300 cat.5)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Article inexistant + regle inapplicable N3"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_A02"
+    },
+    {
+      "id": "FR-Q143",
+      "question": "Quelle est l'amende exacte pour un 5eme forfait individuel en N2 lors de la derniere ronde ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "amende",
+        "forfait",
+        "N2",
+        "derniere ronde"
+      ],
+      "expected_pages": [7],
+      "metadata": {
+        "type": "edge",
+        "chapter": "A02 3.8",
+        "hard_case": true,
+        "hard_type": "PARTIAL_INFO",
+        "hard_reason": "Bareme forfaits p7 existe mais cumul 5e forfait + derniere ronde non explicite",
+        "corpus_truth": "A02 p7 - 100 EUR a partir 4e forfait, amende doublee derniere ronde pour EQUIPE pas individu",
+        "test_purpose": "Test info partielle - combinaison regles (arXiv:2412.12300 cat.2)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Calcul combine non explicite dans reglement"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_A02"
+    },
+    {
+      "id": "FR-Q144",
+      "question": "En Top 16, combien de 'joueurs etrangers' peut-on aligner par match et quelle est la definition exacte ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "Top 16",
+        "joueurs etrangers",
+        "nationalite",
+        "quota"
+      ],
+      "expected_pages": [6],
+      "metadata": {
+        "type": "regle",
+        "chapter": "A02 3.7.h-i",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Confusion 'etranger' vs 'ressortissant UE residant' - definitions subtiles",
+        "corpus_truth": "A02 p6 art 3.7.h = min 5 FR, 3.7.i = 1 joueur FR + 1 joueuse FR obligatoires",
+        "test_purpose": "Test ambiguite terminologique (arXiv:2412.12300 cat.3)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Terminologie nationalite complexe"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_A02"
+    },
+    {
+      "id": "FR-Q145",
+      "question": "Selon l'article 9.7 des Lois du Jeu FIDE, quelle est la procedure pour reclamer une nulle apres 100 coups sans prise ni mouvement de pion ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "article 9.7",
+        "FIDE",
+        "100 coups",
+        "nulle"
+      ],
+      "expected_pages": [],
+      "metadata": {
+        "type": "edge",
+        "chapter": "FIDE",
+        "hard_case": true,
+        "hard_type": "FALSE_PREMISE",
+        "hard_reason": "Article 9.7 FIDE inexistant ET regle 100 coups n'existe pas (75 coups = art 9.6.2)",
+        "corpus_truth": "DOUBLE FAUX - Art 9.7 n'existe pas, regle 100 coups n'existe pas. Vraie regle = 75 coups art 9.6.2",
+        "test_purpose": "Test rejection double premisse fausse (arXiv:2412.12300 cat.5)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Article 9.7 verifie inexistant + regle 100 coups fausse. Audit 2026-01-20"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_LA_corrected"
+    },
+    {
+      "id": "FR-Q146",
+      "question": "Comment configurer les parametres anti-triche sur Lichess pour un tournoi officiel FFE en ligne ?",
+      "category": "tournoi",
+      "expected_docs": [],
+      "keywords": [
+        "Lichess",
+        "anti-triche",
+        "tournoi en ligne",
+        "FFE"
+      ],
+      "expected_pages": [],
+      "metadata": {
+        "type": "edge",
+        "chapter": "N/A",
+        "hard_case": true,
+        "hard_type": "OUT_OF_SCOPE",
+        "hard_reason": "Lichess = plateforme privee hors perimetre reglements FFE/FIDE",
+        "corpus_truth": "HORS SCOPE - Corpus = reglements officiels FFE/FIDE, pas plateformes tierces",
+        "test_purpose": "Test graceful failure hors scope plateforme (arXiv:2412.12300 cat.6)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Plateforme externe hors corpus"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_LA"
+    },
+    {
+      "id": "FR-Q147",
+      "question": "Quelle est la procedure exacte si un arbitre AFE1 detecte qu'un joueur utilise une montre connectee Apple Watch pendant une partie de championnat de France ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Apple Watch",
+        "montre connectee",
+        "arbitre",
+        "sanction"
+      ],
+      "expected_pages": [53, 54],
+      "metadata": {
+        "type": "edge",
+        "chapter": "11.3.2",
+        "hard_case": true,
+        "hard_type": "PARTIAL_INFO",
+        "hard_reason": "Regle appareils electroniques existe mais 'montre connectee' non explicitement mentionnee",
+        "corpus_truth": "LA p53-54 art 11.3.x = appareils electroniques interdits, montres connectees implicites",
+        "test_purpose": "Test info partielle technologie moderne (arXiv:2412.12300 cat.2)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Technologie moderne non explicitement listee"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_LA"
+    },
+    {
+      "id": "FR-Q148",
+      "question": "Si un joueur fait 2 coups illegaux en blitz puis son adversaire fait aussi un coup illegal, qui gagne la partie ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "coup illegal",
+        "blitz",
+        "2 coups",
+        "adversaire"
+      ],
+      "expected_pages": [48, 57],
+      "metadata": {
+        "type": "edge",
+        "chapter": "7.4 + A.4",
+        "hard_case": true,
+        "hard_type": "MULTI_HOP_IMPOSSIBLE",
+        "hard_reason": "Regles coups illegaux cadence rapide + regle 2 coups illegaux - combinaison complexe",
+        "corpus_truth": "LA p48 art 7.4 coups illegaux, p57 Annexe A blitz - combinaison 2+1 non explicite",
+        "test_purpose": "Test inference multi-regle (arXiv:2412.12300 cat.4)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Scenario combine necessitant inference"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_LA"
+    },
+    {
+      "id": "FR-Q149",
+      "question": "C'est quoi le 'flag' en echecs et qu'est-ce qui se passe quand ca tombe ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "flag",
+        "drapeau",
+        "temps",
+        "tombe"
+      ],
+      "expected_pages": [50],
+      "metadata": {
+        "type": "definition",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Anglicisme 'flag' = jargon joueurs, terme corpus = 'drapeau' ou 'chute du drapeau'",
+        "corpus_truth": "LA p50 art 6.1 = 'chute du drapeau' = temps ecoule, partie perdue sauf exceptions",
+        "test_purpose": "Test anglicisme vs terminologie officielle (arXiv:2412.12300 cat.3)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Anglicisme courant non present corpus"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_LA"
     }
   ]
 }

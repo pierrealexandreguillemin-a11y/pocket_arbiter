@@ -71,7 +71,7 @@ def full_project(tmp_path):
     (tmp_path / "prompts" / "README.md").write_text("# Prompts\n")
     (tmp_path / "prompts" / "CHANGELOG.md").write_text("# Changelog\n")
     (tmp_path / "prompts" / "test.txt").write_text("Test prompt\n")
-    (tmp_path / "tests" / "data" / "questions_fr.json").write_text('[{"q": "test"}]')
+    (tmp_path / "tests" / "data" / "gold_standard_fr.json").write_text('[{"q": "test"}]')
     (tmp_path / "corpus" / "INVENTORY.md").write_text("# Inventory\n")
     (tmp_path / ".iso" / "config.json").write_text('{"version": "1.0"}')
     (tmp_path / "scripts" / "requirements.txt").write_text("pytest\n")

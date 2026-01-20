@@ -102,7 +102,7 @@ class PhaseValidator(BaseChecker):
             checks.append(False)
 
         checks.append(
-            self.check_file_exists("tests/data/questions_fr.json", "Questions FR")
+            self.check_file_exists("tests/data/gold_standard_fr.json", "Questions FR")
         )
         return all(checks)
 

@@ -2,7 +2,7 @@
 
 > **Document ID**: RES-ISO-MAP-001
 > **ISO Reference**: ISO 25010, ISO 42001, ISO 12207, ISO 29119
-> **Version**: 1.1
+> **Version**: 1.2
 > **Date**: 2026-01-20
 > **Statut**: Approuve
 > **Classification**: Technique
@@ -27,7 +27,19 @@ Ce document etablit la correspondance entre les optimisations zero-runtime-cost 
 | Table summaries | 111 | table_summaries_claude.json |
 | **Total DB** | **1,454** | corpus_fr.db |
 | PDFs sources | 28 | corpus/fr/ |
-| Gold standard | 134 Q (45 hard) | gold_standard_fr.json |
+| Gold standard | 150 Q (46 hard) | gold_standard_fr.json |
+
+**Corpus INTL (verifie 2026-01-20)**:
+| Composant | Count | Source |
+|-----------|-------|--------|
+| Parents | 369 | chunks_parent_child_intl.json |
+| Children | 690 | corpus_intl.db |
+| Table summaries | 74 | table_summaries_claude_intl.json |
+| **Total DB** | **764** | corpus_intl.db |
+| PDFs sources | 1 | corpus/intl/ |
+| Gold standard | 43 Q (12 hard) | gold_standard_intl.json |
+
+**Total projet**: 2,218 chunks, 193 questions gold standard
 
 ---
 
@@ -42,7 +54,7 @@ Ce document etablit la correspondance entre les optimisations zero-runtime-cost 
 | | Functional appropriateness | Reponses pertinentes |
 | **Performance Efficiency** | Time behaviour | Latence < 5s |
 | | Resource utilization | RAM < 500MB |
-| | Capacity | 159 questions gold standard |
+| | Capacity | 193 questions gold standard |
 | **Reliability** | Availability | 100% offline |
 | | Fault tolerance | Fallback mechanisms |
 | **Maintainability** | Modularity | Separation chunking/embedding/search |
@@ -371,6 +383,7 @@ python scripts/iso/validate_project.py --phase 1 --gates
 |---------|------|-------------|
 | 1.0 | 2026-01-20 | Creation initiale - mapping 7 optimisations |
 | 1.1 | 2026-01-20 | Ajout stats corpus FR, corrections audit (synonymes, late chunking, hard cache) |
+| 1.2 | 2026-01-20 | Ajout corpus INTL (764 chunks, 43 Q), total projet 2218 chunks, 193 Q |
 
 ---
 

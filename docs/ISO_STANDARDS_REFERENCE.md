@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.5
+> **Version**: 2.6
 > **Date**: 2026-01-20
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -120,8 +120,8 @@ pocket_arbiter/
 **Test Data**:
 | File | Purpose |
 |------|---------|
-| `tests/data/gold_standard_fr.json` | French regulation questions (134 Q) |
-| `tests/data/gold_standard_intl.json` | FIDE questions (25 Q) |
+| `tests/data/gold_standard_fr.json` | French regulation questions (150 Q, 46 hard) |
+| `tests/data/gold_standard_intl.json` | FIDE questions (43 Q, 12 hard) |
 | `tests/data/adversarial.json` | Hallucination test cases |
 
 **Coverage Requirements**:
@@ -347,8 +347,8 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Lint Warnings | 0 | **0** | ISO 25010 |
 | Mypy Errors | 0 | **0** | ISO 5055 |
 | Retrieval Recall FR | 90% | **100.00%** (smart_retrieve, tol=2) | ISO 25010 |
-| Retrieval Recall INTL | 70% | **80.00%** (vector, tol=2) | ISO 25010 |
-| Gold Standard | >= 50 questions | **134 FR + 25 INTL = 159** | ISO 29119 |
+| Retrieval Recall INTL | 70% | **93.22%** (vector, tol=2) | ISO 25010 |
+| Gold Standard | >= 50 questions | **150 FR + 43 INTL = 193** | ISO 29119 |
 | Corpus Coverage | 100% | **29 docs** (28 FR + 1 INTL) | ISO 25010 |
 | Hallucination Rate | 0% | TBD | ISO 42001 |
 | Response Latency | < 5s | TBD | ISO 25010 |
@@ -356,9 +356,9 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Docs indexes | 100% | 100% | ISO 999 |
 
 > **Note**: Recall@5 metriques (tolerance ±2 pages):
-> - **FR**: **91.17%** (134 questions, 14 en echec)
-> - **INTL**: 80.00% (vector-only)
-> - Gold standard **v5.22**: 134 FR + 25 INTL = **159 questions** (45 hard cases)
+> - **FR**: **91.56%** (150 questions, v5.26, 46 hard cases)
+> - **INTL**: **93.22%** (43 questions, v2.0, 12 hard cases)
+> - Gold standard: 150 FR + 43 INTL = **193 questions** (58 hard cases)
 > - **Chunking v4**: Parent-Child (Parent 1024/Child 450 tokens, 15% overlap)
 > - **Analyse echecs**: `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md`
 > - **Optimisations**: `docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`
@@ -416,11 +416,12 @@ with open("logs/retrieval.jsonl") as f:
 
 **ISO Reference**: ISO 42001 (tracabilite sources), ISO 25010 (precision fonctionnelle)
 
-**Chunks statistiques (v4.0)**:
+**Chunks statistiques (v4.5)**:
 | Corpus | Chunks | Child | Tables | DB Size |
 |--------|--------|-------|--------|---------|
 | FR | 1454 | 1343 | 111 | 7.58 MB |
-| INTL | 764 | 764 | 0 | 4.21 MB |
+| INTL | 764 | 690 | 74 | 4.21 MB |
+| **Total** | **2218** | 2033 | 185 | 11.79 MB |
 
 ### 6.3 Recall Improvement Research (2026-01-20)
 
@@ -480,6 +481,7 @@ Contrainte Android mid-range: **RAM < 500MB**, **100% offline**, **latence < 5s*
 | 2.3 | 2026-01-19 | Claude Opus 4.5 | **fallback + logging** - Fallback intelligent, logging JSONL `logs/retrieval.jsonl` |
 | 2.4 | 2026-01-20 | Claude Opus 4.5 | **100% recall FR** - smart_retrieve avec patterns spécifiques, gold standard v5.8 |
 | 2.5 | 2026-01-20 | Claude Opus 4.5 | **Research docs**: Analyse 14 echecs + optimisations zero-runtime-cost, gold standard v5.22 (134 FR) |
+| 2.6 | 2026-01-20 | Claude Opus 4.5 | **Normalisation ISO**: FR 150 Q (91.56%), INTL 43 Q (93.22%), 2218 chunks total, tables INTL 74 summaries |
 
 ---
 

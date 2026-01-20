@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 4.4
+> **Version**: 4.5
 > **Date**: 2026-01-20
 > **Statut**: Approuve
 > **Classification**: Technique
@@ -130,14 +130,23 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 ## 4. Metriques de Validation
 
 ### 4.1 Gold Standard
-- **Source**: `tests/data/gold_standard_fr.json`
-- **Questions**: 134 (45 hard cases)
-- **Documents**: 28
+
+| Corpus | Source | Questions | Hard Cases | Documents |
+|--------|--------|-----------|------------|-----------|
+| **FR** | `tests/data/gold_standard_fr.json` | 150 | 46 (31%) | 28 |
+| **INTL** | `tests/data/gold_standard_intl.json` | 43 | 12 (28%) | 1 |
+| **Total** | | **193** | 58 | 29 |
 
 ### 4.2 Resultats Benchmark (2026-01-20)
 
-**Corpus FR**: 1343 child + 111 table_summary = **1454 chunks**
-**Gold Standard v5.22**: 134 questions (91.17% recall)
+| Corpus | Children | Table Summaries | Total Chunks |
+|--------|----------|-----------------|--------------|
+| **FR** | 1343 | 111 | **1454** |
+| **INTL** | 690 | 74 | **764** |
+| **Total** | 2033 | 185 | **2218** |
+
+**Gold Standard FR v5.26**: 150 questions (91.56% recall)
+**Gold Standard INTL v2.0**: 43 questions (93.22% recall)
 
 | Mode | Config | Recall@5 | Statut |
 |------|--------|----------|--------|
@@ -240,7 +249,10 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | `scripts/pipeline/export_sdk.py` | Export DB SQLite |
 | `corpus/processed/chunks_parent_child_fr.json` | Parents + children FR |
 | `corpus/processed/chunks_parent_child_intl.json` | Parents + children INTL |
-| `corpus/processed/tables_multivector_fr.json` | Tables FR |
+| `corpus/processed/tables_multivector_fr.json` | Tables FR (111 summaries) |
+| `corpus/processed/tables_multivector_intl.json` | Tables INTL (74 summaries) |
+| `corpus/processed/corpus_fr.db` | SQLite DB FR (1454 chunks) |
+| `corpus/processed/corpus_intl.db` | SQLite DB INTL (764 chunks) |
 
 ---
 
@@ -257,6 +269,7 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | 4.2 | 2026-01-19 | **Benchmark reranker**: Ajout sources MIRACL/Pinecone/ZeroEntropy. DB: 1343 child + 111 table_summary. |
 | 4.3 | 2026-01-19 | **Recall 97.06%**: Gold standard v5.7 audit, vector-only optimal, source_filter, glossary_boost |
 | 4.4 | 2026-01-20 | **Research docs**: Analyse echecs + optimisations zero-runtime, gold standard v5.22 (134 FR) |
+| 4.5 | 2026-01-20 | **Normalisation ISO**: FR 150 Q (91.56%), INTL 43 Q (93.22%), 2218 chunks total, tables INTL 74 summaries |
 
 ---
 

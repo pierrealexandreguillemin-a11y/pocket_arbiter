@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.0
+> **Version**: 1.1
 > **Date**: 2026-01-20
 > **Statut**: Approuve
 > **Classification**: Qualite
@@ -15,8 +15,9 @@
 Ce document definit les principes, exigences et normes appliquees au Gold Standard du projet Pocket Arbiter pour l'evaluation du systeme RAG.
 
 **Perimetre:**
-- Gold Standard FR: 134 questions (corpus reglements FFE)
-- Gold Standard INTL: 25 questions (corpus FIDE Laws of Chess)
+- Gold Standard FR: 150 questions (corpus reglements FFE, 46 hard cases)
+- Gold Standard INTL: 43 questions (corpus FIDE Arbiters Manual, 12 hard cases)
+- **Total**: 193 questions (58 hard cases)
 
 ---
 
@@ -200,17 +201,18 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 
 | Metrique | Formule | Seuil | Actuel |
 |----------|---------|-------|--------|
-| **Recall@5** | Pages trouvees / Pages attendues | >= 90% | 91.17% |
+| **Recall@5 FR** | Pages trouvees / Pages attendues | >= 90% | 91.56% |
+| **Recall@5 INTL** | Pages trouvees / Pages attendues | >= 90% | 93.22% |
 | **Tolerance** | +/- 2 pages adjacentes | Accepte | Oui |
 | **Coverage** | Questions / Categories | 100% | 13/13 |
 
-### 6.2 Etat Actuel (v5.23)
+### 6.2 Etat Actuel (2026-01-20)
 
-| Corpus | Questions | Hard Cases | Recall | Status |
-|--------|-----------|------------|--------|--------|
-| FR | 134 | 45 (34%) | 91.17% | PASS |
-| INTL | 25 | - | 80.00% | PASS |
-| **Total** | **159** | 45 | - | **ISO PASS** |
+| Corpus | Version | Questions | Hard Cases | Recall | Status |
+|--------|---------|-----------|------------|--------|--------|
+| FR | v5.26 | 150 | 46 (31%) | 91.56% | PASS |
+| INTL | v2.0 | 43 | 12 (28%) | 93.22% | PASS |
+| **Total** | | **193** | 58 | - | **ISO PASS** |
 
 ---
 
@@ -248,6 +250,14 @@ python -m scripts.pipeline.tests.test_recall --coverage
 | 5.16 | 2026-01-20 | 93 | 95.70% | Ajout questions Ch5-6 |
 | 5.22 | 2026-01-20 | 134 | 91.17% | +41 hard cases (annales) |
 | 5.23 | 2026-01-20 | 134 | 91.17% | Ajout corpus_truth, hard_type |
+| 5.26 | 2026-01-20 | 150 | 91.56% | +16 questions, normalisation ISO |
+
+### 8.1.1 Versions Gold Standard INTL
+
+| Version | Date | Questions | Recall | Changements |
+|---------|------|-----------|--------|-------------|
+| 1.0 | 2026-01-19 | 25 | 80.00% | Creation initiale |
+| 2.0 | 2026-01-20 | 43 | 93.22% | +18 hard cases UAEval4RAG, audit ISO 29119 |
 
 ### 8.2 Corrections Majeures
 

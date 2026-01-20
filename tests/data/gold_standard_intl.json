@@ -13,7 +13,8 @@
       "FALSE_PREMISE": 3,
       "OUT_OF_SCOPE": 2,
       "MULTI_HOP_IMPOSSIBLE": 2,
-      "PARTIAL_INFO": 0
+      "PARTIAL_INFO": 0,
+      "_note": "25 original questions implicitly ANSWERABLE (no hard_type metadata), 6 explicitly marked"
     }
   },
   "questions": [

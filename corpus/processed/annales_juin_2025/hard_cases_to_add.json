@@ -1,0 +1,391 @@
+[
+  {
+    "id": "FR-Q113",
+    "question": "Lors d'un tournoi, les deux joueurs se sont trompés de couleurs et ont joué 13 coups chacun. Un joueur a une dame d'avance. Quelle décision prendre en partie longue (1h+30s/coup) ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "couleur",
+      "erreur",
+      "partie longue",
+      "annuler"
+    ],
+    "expected_pages": [
+      48,
+      49
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Règle différente selon cadence longue vs rapide - piège examen",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q114",
+    "question": "En partie rapide (20min+10s/coup), les joueurs se sont trompés de couleurs après 8 coups. Un joueur a une dame d'avance. Que faire ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "couleur",
+      "erreur",
+      "rapide",
+      "continuer"
+    ],
+    "expected_pages": [
+      48,
+      49
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "En rapide la partie continue vs annulée en longue",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q115",
+    "question": "Un joueur annonce échec et mat à tort, son adversaire le croit et arrête la pendule. Le capitaine réclame car ce n'était pas mat. Quelle décision ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "annonce",
+      "mat",
+      "faux",
+      "abandon"
+    ],
+    "expected_pages": [
+      42,
+      43
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Acceptation = partie terminée même si annonce fausse",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q116",
+    "question": "A la cadence 5min+3s/coup, les noirs jouent un coup illégal et appuient sur la pendule. Quelle sanction appliquer ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "illégal",
+      "blitz",
+      "pendule",
+      "temps"
+    ],
+    "expected_pages": [
+      49,
+      58
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Gestion temps différent en blitz vs longue",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q117",
+    "question": "En partie longue 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour coup illégal. Ils en commettent un second. Quelle sanction ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "illégal",
+      "récidive",
+      "sanction",
+      "partie perdue"
+    ],
+    "expected_pages": [
+      49
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Gradation des sanctions selon nombre de coups illégaux",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q118",
+    "question": "Quel départage utilise dans son calcul les résultats des adversaires contre leurs propres adversaires ?",
+    "category": "classement",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "départage",
+      "sonneborn",
+      "berger",
+      "adversaires"
+    ],
+    "expected_pages": [
+      147,
+      148
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "4.2",
+      "hard_case": true,
+      "hard_reason": "Distinction fine entre départages (Buchholz vs Sonneborn)",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q119",
+    "question": "Pour un tournoi toutes rondes avec 7 équipes, combien de rondes faut-il programmer ?",
+    "category": "tournoi",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "rondes",
+      "toutes rondes",
+      "équipes",
+      "tournoi"
+    ],
+    "expected_pages": [
+      120,
+      121
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "3.5",
+      "hard_case": true,
+      "hard_reason": "Calcul nombre rondes selon système",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q120",
+    "question": "Dans l'appariement suisse, qu'est-ce qu'un flotteur descendant ?",
+    "category": "tournoi",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "flotteur",
+      "descendant",
+      "appariement",
+      "suisse"
+    ],
+    "expected_pages": [
+      124,
+      125,
+      126
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "3.5",
+      "hard_case": true,
+      "hard_reason": "Terminologie technique appariement",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q121",
+    "question": "Vous arbitrez un tournoi FIDE. Un joueur non classé gagne 5 parties contre des joueurs classés. Comment obtient-il son premier classement Elo ?",
+    "category": "classement",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "classement",
+      "FIDE",
+      "premier",
+      "elo",
+      "initial"
+    ],
+    "expected_pages": [
+      182,
+      183,
+      184
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "6.1",
+      "hard_case": true,
+      "hard_reason": "Calcul classement initial FIDE - formule spécifique",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q122",
+    "question": "Un joueur Elo 1800 gagne contre un joueur Elo 2200. Avec K=20, quel gain approximatif de points ?",
+    "category": "classement",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "elo",
+      "K",
+      "coefficient",
+      "gain",
+      "calcul"
+    ],
+    "expected_pages": [
+      183,
+      184,
+      185
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "6.1",
+      "hard_case": true,
+      "hard_reason": "Application formule Elo avec K variable",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q123",
+    "question": "Dans une finale Roi+Dame contre Roi seul, un joueur annonce mat en 2 mais se trompe. L'adversaire réclame la nulle. Quelle décision ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "mat",
+      "annonce",
+      "erreur",
+      "nulle",
+      "matériel"
+    ],
+    "expected_pages": [
+      54
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Interaction annonce mat et matériel insuffisant",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q124",
+    "question": "Quels sont les frais de déplacement remboursés pour un arbitre régional se déplaçant à 150 km ?",
+    "category": "arbitrage",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "indemnisation",
+      "déplacement",
+      "arbitre",
+      "frais",
+      "km"
+    ],
+    "expected_pages": [
+      176,
+      177
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "5.5",
+      "hard_case": true,
+      "hard_reason": "Barème indemnisation selon distance",
+      "source": "Annales-Juin-2025"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  }
+]

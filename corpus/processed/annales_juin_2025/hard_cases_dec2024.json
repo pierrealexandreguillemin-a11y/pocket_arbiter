@@ -1,0 +1,331 @@
+[
+  {
+    "id": "FR-Q125",
+    "question": "À quelle cadence la chute du drapeau doit-elle être signalée par l'arbitre s'il l'observe ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "drapeau",
+      "chute",
+      "arbitre",
+      "signaler",
+      "cadence"
+    ],
+    "expected_pages": [
+      47,
+      58
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Règle différente selon cadence (blitz vs standard)",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q126",
+    "question": "L'arbitre observe une position illégale sans avoir vu le dernier coup joué. Comment doit-il intervenir ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "position",
+      "illégale",
+      "arbitre",
+      "intervention"
+    ],
+    "expected_pages": [
+      49,
+      55
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Intervention arbitre selon observation directe ou non",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q127",
+    "question": "En cadence 1h30+30s, un joueur a moins de 5 minutes. Doit-il continuer à noter sa partie ?",
+    "category": "notation",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "noter",
+      "temps",
+      "zeitnot",
+      "minutes",
+      "incrément"
+    ],
+    "expected_pages": [
+      50,
+      51
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Obligation notation dépend de l'incrément (>=30s)",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q128",
+    "question": "La règle des 75 coups sans prise ni mouvement de pion entraîne-t-elle automatiquement la nulle ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "75",
+      "coups",
+      "nulle",
+      "automatique",
+      "pion"
+    ],
+    "expected_pages": [
+      53,
+      54
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Différence 50 coups (réclamation) vs 75 coups (automatique)",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q129",
+    "question": "Après combien de répétitions de position identique la partie est-elle automatiquement nulle ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "répétition",
+      "position",
+      "nulle",
+      "automatique",
+      "cinq"
+    ],
+    "expected_pages": [
+      52,
+      53
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Différence 3x (réclamation) vs 5x (automatique)",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q130",
+    "question": "Roi contre Roi + Fou est-il considéré comme matériel insuffisant pour mater ?",
+    "category": "regles_jeu",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "matériel",
+      "insuffisant",
+      "roi",
+      "fou",
+      "nulle"
+    ],
+    "expected_pages": [
+      46
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "1.3",
+      "hard_case": true,
+      "hard_reason": "Cas limite matériel insuffisant",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q131",
+    "question": "Comment est calculé le classement Elo Rapide par rapport au classement Standard ?",
+    "category": "classement",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "rapide",
+      "elo",
+      "classement",
+      "calcul",
+      "différence"
+    ],
+    "expected_pages": [
+      192,
+      193
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "6.2",
+      "hard_case": true,
+      "hard_reason": "Système distinct pour classement rapide (Ch 6.2)",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q132",
+    "question": "Un joueur classé uniquement en Rapide participe à son premier tournoi Standard. Comment obtient-il son Elo Standard ?",
+    "category": "classement",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "rapide",
+      "standard",
+      "premier",
+      "conversion",
+      "elo"
+    ],
+    "expected_pages": [
+      182,
+      183,
+      192
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "6.1",
+      "hard_case": true,
+      "hard_reason": "Passerelle entre classements rapide et standard",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q133",
+    "question": "Dans le système suisse, comment traiter un joueur qui demande un bye pour une ronde ?",
+    "category": "tournoi",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "bye",
+      "suisse",
+      "exempt",
+      "demi-point",
+      "appariement"
+    ],
+    "expected_pages": [
+      124,
+      125
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "3.5",
+      "hard_case": true,
+      "hard_reason": "Gestion bye vs exempt dans appariement",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  },
+  {
+    "id": "FR-Q134",
+    "question": "Quelle est la différence entre le Buchholz tronqué et le Buchholz médian ?",
+    "category": "classement",
+    "expected_docs": [
+      "LA-octobre2025.pdf"
+    ],
+    "keywords": [
+      "buchholz",
+      "tronqué",
+      "médian",
+      "départage"
+    ],
+    "expected_pages": [
+      147,
+      148,
+      149
+    ],
+    "metadata": {
+      "type": "hard_case",
+      "chapter": "4.2",
+      "hard_case": true,
+      "hard_reason": "Variantes de départage Buchholz",
+      "source": "Annales-Decembre-2024"
+    },
+    "validation": {
+      "status": "VALIDATED",
+      "method": "exam_corrige_verified",
+      "details": []
+    },
+    "difficulty": "hard",
+    "audit": "2026-01-20"
+  }
+]

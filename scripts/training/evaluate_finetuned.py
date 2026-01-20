@@ -9,7 +9,7 @@ Usage:
     python -m scripts.training.evaluate_finetuned \
         --model models/embeddinggemma-chess-fr \
         --db corpus/processed/corpus_fr_v3.db \
-        --questions tests/data/questions_fr.json
+        --questions tests/data/gold_standard_fr.json
 """
 
 import argparse

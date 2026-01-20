@@ -262,9 +262,9 @@ def main():
     # Define corpora
     corpora = []
     if args.corpus in ["fr", "both"]:
-        corpora.append(("FR", CORPUS_DIR / "corpus_fr.db", DATA_DIR / "questions_fr.json"))
+        corpora.append(("FR", CORPUS_DIR / "corpus_fr.db", DATA_DIR / "gold_standard_fr.json"))
     if args.corpus in ["intl", "both"]:
-        corpora.append(("INTL", CORPUS_DIR / "corpus_intl.db", DATA_DIR / "questions_intl.json"))
+        corpora.append(("INTL", CORPUS_DIR / "corpus_intl.db", DATA_DIR / "gold_standard_intl.json"))
 
     # Run benchmarks
     print("\n" + "=" * 60)

@@ -1,6 +1,6 @@
 {
-  "version": "5.17",
-  "description": "Gold standard v5.17 - 103 questions, 14 hard_cases for prod-like eval (Grok batch)",
+  "version": "5.19",
+  "description": "Gold standard v5.19 - 112 questions, 23 hard_cases (audit: FR-Q112 zeitnot, FR-Q107 poussins corrigés)",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -57,13 +57,14 @@
     ]
   },
   "statistics": {
-    "total_questions": 75,
+    "total_questions": 112,
     "iso_target": "Recall@5 >= 80%",
     "min_questions_iso": 50,
     "compliant": true,
-    "validated_questions": 68,
+    "validated_questions": 112,
     "validation_rate": "100.0%",
-    "avg_pages_per_question": 2.7
+    "hard_cases": 23,
+    "avg_pages_per_question": 2.5
   },
   "questions": [
     {
@@ -4638,6 +4639,168 @@
       "notes": "test langage oral/SMS + formulation indirecte",
       "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
       "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q104",
+      "question": "Mon roi peut plus bouger mais il est pas en échec, c'est quoi ?",
+      "category": "regles_jeu",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["pat", "roi", "coup légal", "nulle"],
+      "expected_pages": [43],
+      "metadata": {
+        "type": "definition",
+        "chapter": "5.2.1",
+        "hard_case": true,
+        "hard_reason": "Langage oral 'peut plus bouger' ≠ terme corpus 'ne dispose d'aucun coup légal'"
+      },
+      "difficulty": "hard",
+      "notes": "test langage oral vs terminologie officielle",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q105",
+      "question": "Mon adversaire a son téléphone dans sa poche mais il est éteint, c'est grave ?",
+      "category": "discipline",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["téléphone", "éteint", "portable", "perte"],
+      "expected_pages": [54],
+      "metadata": {
+        "type": "regle",
+        "chapter": "11.3.2",
+        "hard_case": true,
+        "hard_reason": "Cas limite 'éteint' - règle stricte souvent mal comprise"
+      },
+      "difficulty": "hard",
+      "notes": "test cas limite téléphone éteint",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q106",
+      "question": "On a joué 12 coups avec les mauvaises couleurs, on recommence la partie ?",
+      "category": "regles_jeu",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["couleurs", "inversées", "coups", "recommence"],
+      "expected_pages": [48],
+      "metadata": {
+        "type": "regle",
+        "chapter": "7.3",
+        "hard_case": true,
+        "hard_reason": "Question numérique '12 coups' vs seuil 'dix coups' - réponse = NON, on continue"
+      },
+      "difficulty": "hard",
+      "notes": "test numérique seuil 10 coups",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q107",
+      "question": "C'est quoi la cadence pour les poussins au championnat de France ?",
+      "category": "jeunes",
+      "expected_docs": ["J01_2025_26_Championnat_de_France_Jeunes.pdf"],
+      "keywords": ["cadence", "poussins", "U8", "championnat", "jeunes"],
+      "expected_pages": [4],
+      "metadata": {
+        "type": "regle",
+        "chapter": "Art. 8",
+        "hard_case": true,
+        "hard_reason": "Synonyme 'poussins' vs 'U8' - terminologie traditionnelle vs FIDE"
+      },
+      "difficulty": "hard",
+      "notes": "test synonyme catégorie jeunes",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q108",
+      "question": "Si un joueur en fauteuil roulant ne peut pas accéder à la salle, qui perd la partie ?",
+      "category": "handicap",
+      "expected_docs": ["H02_2025_26_Joueurs_a_mobilite_reduite.pdf"],
+      "keywords": ["fauteuil", "roulant", "accessibilité", "handicap", "mobilité"],
+      "expected_pages": [1],
+      "metadata": {
+        "type": "regle",
+        "chapter": "Art. 1",
+        "hard_case": true,
+        "hard_reason": "Terme 'fauteuil roulant' vs 'mobilité réduite' dans corpus"
+      },
+      "difficulty": "hard",
+      "notes": "test synonyme handicap + accessibilité",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q109",
+      "question": "Une équipe finit 9ème en Nationale 2, elle descend ou pas ?",
+      "category": "tournoi",
+      "expected_docs": ["A02_2025_26_Championnat_de_France_des_Clubs.pdf"],
+      "keywords": ["9ème", "descente", "N2", "Nationale 2"],
+      "expected_pages": [2],
+      "metadata": {
+        "type": "regle",
+        "chapter": "Art. 4",
+        "hard_case": true,
+        "hard_reason": "Question numérique '9ème' + langage oral 'elle descend ou pas'"
+      },
+      "difficulty": "hard",
+      "notes": "test numérique + langage oral",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q110",
+      "question": "Si je touche ma tour AVANT mon roi, j'ai pas le droit de roquer ?",
+      "category": "regles_jeu",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["tour", "roi", "roque", "toucher"],
+      "expected_pages": [42],
+      "metadata": {
+        "type": "regle",
+        "chapter": "4.4.2",
+        "hard_case": true,
+        "hard_reason": "NÉGATION 'pas le droit' + ordre inverse tour/roi"
+      },
+      "difficulty": "hard",
+      "notes": "test négation + ordre temporel",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q111",
+      "question": "C'est quoi la différence entre le pat et la nulle par répétition ?",
+      "category": "regles_jeu",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["pat", "nulle", "répétition", "différence"],
+      "expected_pages": [43, 51],
+      "metadata": {
+        "type": "definition",
+        "chapter": "5.2.1 + 9.2",
+        "hard_case": true,
+        "hard_reason": "QUESTION COMPOSÉE - nécessite retrieval sur 2 pages différentes (43 ET 51)"
+      },
+      "difficulty": "hard",
+      "notes": "test question composée multi-page",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_verified"
+    },
+    {
+      "id": "FR-Q112",
+      "question": "Qu'est-ce qui se passe quand un joueur est en zeitnot ?",
+      "category": "temps",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["zeitnot", "manque", "temps", "drapeau"],
+      "expected_pages": [50],
+      "metadata": {
+        "type": "definition",
+        "chapter": "8.1",
+        "hard_case": true,
+        "hard_reason": "SYNONYME 'zeitnot' absent du corpus - terme officiel = 'manque de temps'"
+      },
+      "difficulty": "hard",
+      "notes": "test synonyme terme allemand courant",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "corrected_2026-01-20_audit"
     }
   ]
 }

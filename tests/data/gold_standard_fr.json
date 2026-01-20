@@ -1,6 +1,6 @@
 {
-  "version": "5.23",
-  "description": "Gold standard v5.23 - 134 questions, ajout corpus_truth + hard_type pour Q77/Q94 (best practice arXiv:2412.12300)",
+  "version": "5.24",
+  "description": "Gold standard v5.24 - 139 questions, ajout 5 questions UAEval4RAG (sources diverses: LA, C01, A01, J01)",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -5861,6 +5861,180 @@
       "difficulty": "hard",
       "audit": "2026-01-20",
       "notes": "Hard case Annales exam - Variantes de départage Buchholz"
+    },
+    {
+      "id": "FR-Q135",
+      "question": "Quel est le bareme exact d'indemnisation kilometrique pour un arbitre AFE3 qui arbitre un Open de 250 joueurs sur 3 jours ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "bareme",
+        "indemnisation",
+        "kilometrique",
+        "AFE3",
+        "Open"
+      ],
+      "expected_pages": [
+        175,
+        176,
+        177
+      ],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.5",
+        "hard_case": true,
+        "hard_type": "PARTIAL_INFO",
+        "hard_reason": "Bareme existe mais cas specifique 250 joueurs non explicite",
+        "corpus_truth": "Baremes Ch5.5 p175-177 - tranches joueurs, pas cas exact 250",
+        "test_purpose": "Test graceful degradation sur info partielle (arXiv:2412.12300 cat.2)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Categorie PARTIAL_INFO - info existe mais incomplete"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_uaeval"
+    },
+    {
+      "id": "FR-Q136",
+      "question": "Si une equipe de Coupe de France est exclue en 16eme de finale pour alignement joueur non licencie, et que le club repecheur fait match nul au tour suivant, quel est le departage exact ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "Coupe de France",
+        "exclusion",
+        "repechage",
+        "departage",
+        "match nul"
+      ],
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "C01",
+        "hard_case": true,
+        "hard_type": "MULTI_HOP_IMPOSSIBLE",
+        "hard_reason": "Regles exclusion et departage existent separement mais combinaison non explicite",
+        "corpus_truth": "Exclusion Art 1.4, Departage Art 2.x - cas combine non defini",
+        "test_purpose": "Test limite inference multi-hop (arXiv:2412.12300 cat.4)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Categorie MULTI_HOP_IMPOSSIBLE - inference requise non disponible"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_uaeval"
+    },
+    {
+      "id": "FR-Q137",
+      "question": "Selon l'article 7.3 du reglement A01 Championnat de France, quelles sont les conditions de wild-card pour les joueurs etrangers ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "article 7.3",
+        "wild-card",
+        "joueurs etrangers",
+        "A01"
+      ],
+      "expected_pages": [],
+      "metadata": {
+        "type": "edge",
+        "chapter": "A01",
+        "hard_case": true,
+        "hard_type": "FALSE_PREMISE",
+        "hard_reason": "Article 7.3 n'existe pas dans A01 - numerotation inventee",
+        "corpus_truth": "FAUX - A01 n'a pas d'article 7.3. Conditions participation = Art 1.1",
+        "test_purpose": "Test rejection premisse fausse (arXiv:2412.12300 cat.5)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Categorie FALSE_PREMISE - question basee sur reference inexistante"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_uaeval"
+    },
+    {
+      "id": "FR-Q138",
+      "question": "Quelles sont les regles specifiques de Chess.com pour les tournois arena en bullet 1+0 ?",
+      "category": "tournoi",
+      "expected_docs": [],
+      "keywords": [
+        "Chess.com",
+        "arena",
+        "bullet",
+        "1+0",
+        "en ligne"
+      ],
+      "expected_pages": [],
+      "metadata": {
+        "type": "edge",
+        "chapter": "N/A",
+        "hard_case": true,
+        "hard_type": "OUT_OF_SCOPE",
+        "hard_reason": "Chess.com est une plateforme privee hors perimetre FFE/FIDE",
+        "corpus_truth": "HORS SCOPE - Corpus = reglements FFE/FIDE officiels uniquement",
+        "test_purpose": "Test graceful failure hors scope (arXiv:2412.12300 cat.6)"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Categorie OUT_OF_SCOPE - question hors perimetre corpus"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_uaeval"
+    },
+    {
+      "id": "FR-Q139",
+      "question": "Pour un joueur Pupille qui se qualifie a la fois au departemental et au regional Jeunes, quelle est la procedure exacte de choix entre les deux qualifications ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "Pupille",
+        "departemental",
+        "regional",
+        "qualification",
+        "choix"
+      ],
+      "expected_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "J01",
+        "hard_case": true,
+        "hard_type": "PARTIAL_INFO",
+        "hard_reason": "Qualifications existent mais procedure choix double qualification non detaillee",
+        "corpus_truth": "J01 Art 1.x - qualifications mentionnees, choix non explicite",
+        "test_purpose": "Test info partielle inspire cas reel arbitrage jeunes",
+        "source": "Cas-pratique-arbitrage"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Categorie PARTIAL_INFO - procedure exacte non explicite"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_uaeval"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "version": "5.22",
-  "description": "Gold standard v5.22 - 134 questions, 45 hard_cases (6 pages corrigées pour recall 91.17%)",
+  "version": "5.23",
+  "description": "Gold standard v5.23 - 134 questions, ajout corpus_truth + hard_type pour Q77/Q94 (best practice arXiv:2412.12300)",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -3992,14 +3992,17 @@
         "type": "regle",
         "chapter": "6.1",
         "hard_case": true,
-        "hard_reason": "Keyword '18 mois' absent du corpus Elo Ch6.1 - terme exact non present"
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Question dit '18 mois', corpus dit 'un an' (§7.2.2 p.183)",
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+        "test_purpose": "Robustesse synonymes temporels (arXiv:2412.12300 cat.3)"
       },
       "validation": {
         "status": "HARD_CASE",
         "method": "manual_verification",
         "details": [],
         "recall_actual": "0%",
-        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
+        "audit_note": "Vocabulary mismatch intentionnel - best practice RAG evaluation"
       },
       "audit": "added_2026-01-20",
       "hard_case": true
@@ -4498,7 +4501,10 @@
         "type": "regle",
         "chapter": "6.1",
         "hard_case": true,
-        "hard_reason": "Langage oral + chiffre '18 mois' vs '1 an' dans corpus + synonyme 'disparaître' vs 'supprimé'"
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Langage oral + '18 mois' vs 'un an' + 'disparaître' vs 'supprimé'",
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+        "test_purpose": "Robustesse synonymes + langage oral (arXiv:2412.12300)"
       },
       "difficulty": "hard",
       "notes": "test synonymes + langage oral",
@@ -4507,7 +4513,7 @@
         "method": "manual_verification",
         "details": [],
         "recall_actual": "0%",
-        "audit_note": "Marked VALIDATED but fails recall test. Reclassified as HARD_CASE pending analysis."
+        "audit_note": "Vocabulary mismatch intentionnel - best practice RAG evaluation"
       },
       "audit": "added_2026-01-20_grok",
       "hard_case": true

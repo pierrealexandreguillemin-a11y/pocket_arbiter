@@ -78,9 +78,9 @@ result = converter.convert(pdf_path)
 
 **Fichier:** `scripts/pipeline/table_multivector.py`
 
-- LLM genere summary par table (~40-50 tokens)
+- Claude Code genere summary par table (~40-50 tokens)
 - Embedding du summary (plus semantique que table brute)
-- 111 tables FR traitees
+- 111 tables FR traitees (source: table_summaries_claude.json)
 
 ### 4. Embedding
 

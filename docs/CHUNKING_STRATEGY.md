@@ -120,7 +120,7 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 
 **Implementation**: `scripts/pipeline/table_multivector.py`
 - Extraction: Docling ML (pas Camelot rules-based)
-- Summaries: LLM Gemini (ISO 42001 tracabilite)
+- Summaries: LLM Claude (ISO 42001 tracabilite) - 111 summaries
 - Pattern: Multi-vector (child embedded, parent stored)
 
 **Statut**: COMPLETE (2026-01-19)

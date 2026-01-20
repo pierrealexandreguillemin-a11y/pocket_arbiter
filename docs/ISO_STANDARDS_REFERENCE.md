@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.6
+> **Version**: 2.7
 > **Date**: 2026-01-20
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -364,17 +364,17 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 > - **Optimisations**: `docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`
 > - Voir: `docs/CHUNKING_STRATEGY.md`
 
-### 6.2 Pipeline Architecture (v4.0 - 2026-01-19)
+### 6.2 Pipeline Architecture (v5.0 - 2026-01-20)
 
 ```
-corpus/*.pdf --> Docling ML --> parent_child_chunker --> embeddings --> corpus_*.db
+corpus/*.pdf --> Docling ML --> chunker --> embeddings --> corpus_*.db
                            \--> table_multivector --> table_summaries --/
 ```
 
 | Module | Role | ISO Reference |
 |--------|------|---------------|
 | `extract_docling.py` | Extraction PDF ML | ISO 12207, 42001 |
-| `parent_child_chunker.py` | Parent 1024/Child 450, 15% overlap | ISO 25010 |
+| `chunker.py` | MarkdownHeader + Parent 1024/Child 450, 15% overlap | ISO 25010 |
 | `table_multivector.py` | Tables + LLM summaries | ISO 42001 |
 | `reranker.py` | bge-reranker-v2-m3 (query-time) | ISO 25010 |
 | `export_search.py` | Hybrid BM25+Vector+RRF + glossary boost | ISO 25010, 42001 |
@@ -416,12 +416,12 @@ with open("logs/retrieval.jsonl") as f:
 
 **ISO Reference**: ISO 42001 (tracabilite sources), ISO 25010 (precision fonctionnelle)
 
-**Chunks statistiques (v4.5)**:
-| Corpus | Chunks | Child | Tables | DB Size |
-|--------|--------|-------|--------|---------|
-| FR | 1454 | 1343 | 111 | 7.58 MB |
-| INTL | 764 | 690 | 74 | 4.21 MB |
-| **Total** | **2218** | 2033 | 185 | 11.79 MB |
+**Chunks statistiques (v5.0)**:
+| Corpus | Chunks Embedding | Children | Tables | Sections |
+|--------|------------------|----------|--------|----------|
+| FR | **1827** | 1716 | 111 | 99.9% |
+| INTL | **974** | 900 | 74 | 100% |
+| **Total** | **2801** | 2616 | 185 | ~100% |
 
 ### 6.3 Recall Improvement Research (2026-01-20)
 
@@ -482,6 +482,7 @@ Contrainte Android mid-range: **RAM < 500MB**, **100% offline**, **latence < 5s*
 | 2.4 | 2026-01-20 | Claude Opus 4.5 | **100% recall FR** - smart_retrieve avec patterns spécifiques, gold standard v5.8 |
 | 2.5 | 2026-01-20 | Claude Opus 4.5 | **Research docs**: Analyse 14 echecs + optimisations zero-runtime-cost, gold standard v5.22 (134 FR) |
 | 2.6 | 2026-01-20 | Claude Opus 4.5 | **Normalisation ISO**: FR 150 Q (91.56%), INTL 43 Q (93.22%), 2218 chunks total, tables INTL 74 summaries |
+| 2.7 | 2026-01-20 | Claude Opus 4.5 | **Pipeline v5.0**: chunker.py (MarkdownHeaderTextSplitter), 2801 chunks (1827 FR + 974 INTL), sections 99.9%+ |
 
 ---
 

@@ -106,14 +106,14 @@ scripts/
 ├── pipeline/
 │   ├── __init__.py
 │   ├── extract_docling.py      # Extraction PDF (Docling ML)
-│   ├── parent_child_chunker.py # Chunking hierarchique
+│   ├── chunker.py # Chunking hierarchique
 │   ├── table_multivector.py    # Tables + LLM summaries
 │   ├── token_utils.py          # Tokenization cl100k_base
 │   ├── embeddings.py           # Generation embeddings
 │   ├── utils.py                # Utilitaires communs
 │   └── tests/
 │       ├── __init__.py
-│       ├── test_parent_child_chunker.py
+│       ├── test_chunker.py
 │       ├── test_table_multivector.py
 │       └── conftest.py         # Fixtures pytest
 ├── requirements.txt            # Dependencies Python
@@ -144,8 +144,8 @@ scripts/
 │     │           │                                           │
 │     ▼           ▼                                           │
 │  ┌────────────────────┐  ┌────────────────────┐             │
-│  │parent_child_chunker│  │table_multivector.py│             │
-│  │        .py         │  │  - LLM summaries   │             │
+│  │    chunker.py      │  │table_multivector.py│             │
+│  │  MarkdownHeader +  │  │  - LLM summaries   │             │
 │  │ Parents: 1024 tok  │  │  - Multi-vector    │             │
 │  │ Children: 450 tok  │  │                    │             │
 │  │ Overlap: 15%       │  │                    │             │

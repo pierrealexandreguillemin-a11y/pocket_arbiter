@@ -50,7 +50,7 @@ TOKENIZER_NAME = "cl100k_base"  # Compatible GPT-4, embeddings OpenAI
 |---------|---------|--------|---------------|
 | `langchain-text-splitters` | >=0.3.0 | LangChain | RecursiveCharacterTextSplitter. Hierarchie semantique. |
 
-**Configuration** (parent_child_chunker.py):
+**Configuration** (chunker.py):
 ```python
 # NVIDIA 2025: 15% overlap optimal (FinanceBench)
 # arXiv 2025: 512-1024 tokens pour contexte large

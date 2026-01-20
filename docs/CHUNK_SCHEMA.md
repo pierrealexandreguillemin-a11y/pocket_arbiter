@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-SCH-001
 > **ISO Reference**: ISO 82045 - Document management
-> **Version**: 1.0
-> **Date**: 2026-01-14
+> **Version**: 2.0
+> **Date**: 2026-01-20
 
 ---
 
@@ -13,93 +13,83 @@ Ce document definit le schema JSON pour les chunks de texte utilises dans le pip
 
 ---
 
-## 2. Schema JSON (Draft-07)
+## 2. Schema JSON (Draft-07) - Parent-Child + Table Summary
 
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://pocket-arbiter/schemas/chunk.json",
-  "title": "RAG Chunk Schema",
-  "description": "Schema pour les chunks de texte du corpus d'arbitrage echecs",
+  "title": "RAG Chunk Schema v2.0",
+  "description": "Schema hierarchique Parent-Child pour RAG (NVIDIA 2025)",
   "type": "object",
-  "required": ["id", "text", "source", "page", "tokens", "metadata"],
+  "required": ["id", "text", "source", "tokens", "corpus", "chunk_type"],
   "properties": {
     "id": {
       "type": "string",
       "description": "Identifiant unique du chunk",
-      "pattern": "^(FR|INTL)-[0-9]{3}-[0-9]{3}-[0-9]{2}$",
-      "examples": ["FR-001-015-01", "INTL-001-042-03"]
+      "examples": ["LA-octobre2025.pdf-p001-c00", "doc-table0-summary"]
     },
     "text": {
       "type": "string",
       "description": "Contenu textuel du chunk",
-      "minLength": 50,
-      "maxLength": 2000
+      "minLength": 30
     },
     "source": {
       "type": "string",
       "description": "Nom du fichier PDF source",
-      "pattern": "^.+\\.pdf$",
-      "examples": ["LA-octobre2025.pdf", "FIDE_Laws_2024.pdf"]
-    },
-    "page": {
-      "type": "integer",
-      "description": "Numero de page dans le PDF source",
-      "minimum": 1
+      "pattern": "^.+\\.pdf$"
     },
     "tokens": {
       "type": "integer",
       "description": "Nombre de tokens (tiktoken cl100k_base)",
-      "minimum": 1,
-      "maximum": 512
+      "minimum": 1
     },
-    "metadata": {
-      "type": "object",
-      "description": "Metadonnees supplementaires",
-      "required": ["corpus", "extraction_date", "version"],
-      "properties": {
-        "section": {
-          "type": "string",
-          "description": "Section ou chapitre du document",
-          "examples": ["Regles du jeu", "Article 4", "Chapitre 3"]
-        },
-        "corpus": {
-          "type": "string",
-          "description": "Corpus d'appartenance",
-          "enum": ["fr", "intl"]
-        },
-        "extraction_date": {
-          "type": "string",
-          "description": "Date d'extraction ISO 8601",
-          "format": "date",
-          "examples": ["2026-01-14"]
-        },
-        "version": {
-          "type": "string",
-          "description": "Version du schema",
-          "pattern": "^[0-9]+\\.[0-9]+$",
-          "examples": ["1.0", "1.1"]
-        },
-        "article": {
-          "type": "string",
-          "description": "Reference article si applicable",
-          "examples": ["4.1", "6.2.1", "A.3"]
-        },
-        "prev_chunk_id": {
-          "type": "string",
-          "description": "ID du chunk precedent (pour overlap)",
-          "examples": ["FR-001-015-00"]
-        },
-        "next_chunk_id": {
-          "type": "string",
-          "description": "ID du chunk suivant (pour overlap)",
-          "examples": ["FR-001-015-02"]
-        }
-      }
+    "corpus": {
+      "type": "string",
+      "description": "Corpus d'appartenance",
+      "enum": ["fr", "intl"]
+    },
+    "chunk_type": {
+      "type": "string",
+      "description": "Type de chunk (hierarchie NVIDIA 2025)",
+      "enum": ["parent", "child", "table_summary"]
+    },
+    "section": {
+      "type": ["string", "null"],
+      "description": "Section extraite par MarkdownHeaderTextSplitter (h1/h2)",
+      "examples": ["CHAMPIONNAT DE FRANCE", "Article 4.1", "Chapitre 3"]
+    },
+    "article_num": {
+      "type": ["string", "null"],
+      "description": "Numero d'article extrait (h3/h4)",
+      "examples": ["4.1", "6.2.1", "1.2.3"]
+    },
+    "parent_id": {
+      "type": ["string", "null"],
+      "description": "ID du parent (pour child chunks)",
+      "examples": ["LA-octobre2025.pdf-p001"]
+    },
+    "table_type": {
+      "type": ["string", "null"],
+      "description": "Type de table (pour table_summary)",
+      "examples": ["schedule", "scoring", "other"]
+    },
+    "page": {
+      "type": ["integer", "null"],
+      "description": "Numero de page (optionnel)",
+      "minimum": 1
     }
   }
 }
 ```
+
+### 2.1 Types de chunks
+
+| Type | Taille | Usage | Overlap |
+|------|--------|-------|---------|
+| `parent` | 1024 tokens | Contexte LLM | 15% (154t) |
+| `child` | 450 tokens | Embedding/Search | 15% (68t) |
+| `table_summary` | ~50 tokens | Tables LLM summaries | - |
 
 ---
 

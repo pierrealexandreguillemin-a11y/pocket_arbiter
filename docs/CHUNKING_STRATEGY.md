@@ -47,11 +47,11 @@ REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 
 ## 3. Pipeline Unique ISO Conforme
 
-### 3.1 Architecture Finale (v4.0)
+### 3.1 Architecture Finale (v5.0)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│              PIPELINE UNIQUE ISO CONFORME                   │
+│              PIPELINE UNIQUE ISO CONFORME v5.0              │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  corpus/fr/*.pdf, corpus/intl/*.pdf                         │
@@ -59,27 +59,30 @@ REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 │        ▼                                                    │
 │  ┌──────────────────┐                                       │
 │  │ extract_docling  │  Docling (ML-based)                   │
-│  │     .py          │  - Extraction texte                   │
+│  │     .py          │  - Extraction markdown                │
+│  │                  │  - ## headers preserves               │
 │  │                  │  - Extraction tables                  │
-│  │                  │  - Detection sections                 │
 │  └────────┬─────────┘                                       │
 │           │                                                 │
 │     ┌─────┴─────┐                                           │
 │     │           │                                           │
 │     ▼           ▼                                           │
-│  [texte]     [tables]                                       │
+│  [markdown]  [tables]                                       │
 │     │           │                                           │
 │     ▼           ▼                                           │
 │  ┌────────────────────┐  ┌────────────────────┐             │
-│  │parent_child_chunker│  │table_multivector.py│             │
-│  │        .py         │  │  - LLM summaries   │             │
-│  │ Parents: 1024 tok  │  │  - Multi-vector    │             │
-│  │ Children: 450 tok  │  │                    │             │
+│  │    chunker.py      │  │table_multivector.py│             │
+│  │                    │  │  - LLM summaries   │             │
+│  │ MarkdownHeader     │  │                    │             │
+│  │   TextSplitter     │  │                    │             │
+│  │ + Recursive (450t) │  │                    │             │
 │  │ Overlap: 15%       │  │                    │             │
+│  │ Sections: 94%      │  │                    │             │
 │  └─────────┬──────────┘  └─────────┬──────────┘             │
 │            │                       │                        │
-│            ▼                       ▼                        │
-│     chunks_parent_child.json  tables_multivector.json       │
+│            └───────────┬───────────┘                        │
+│                        ▼                                    │
+│              chunks_for_embedding.json                      │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -88,11 +91,11 @@ REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 
 | Module | Role | ISO Reference |
 |--------|------|---------------|
-| `extract_docling.py` | Extraction PDF (ML-based) | ISO 12207, 42001 |
-| `parent_child_chunker.py` | Chunking hierarchique | ISO 25010 |
+| `extract_docling.py` | Extraction PDF → Markdown | ISO 12207, 42001 |
+| `chunker.py` | Chunking hierarchique Parent-Child (MarkdownHeader + Recursive) | ISO 25010 |
 | `table_multivector.py` | Tables + summaries LLM | ISO 42001 |
 | `token_utils.py` | Tokenization cl100k_base | ISO 25010 |
-| `embeddings.py` | Generation embeddings | ISO 25010 |
+| `embeddings.py` | EmbeddingGemma 768D + titles | ISO 42001, 25010 |
 
 ### 3.3 Configuration Parent-Child (Optimisée 2025)
 
@@ -104,7 +107,7 @@ REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 | Chroma 2025 | 400-512 sweet spot (85-90% recall) | Child 450 tokens |
 
 ```python
-# parent_child_chunker.py - OPTIMISÉ
+# chunker.py - OPTIMISÉ
 PARENT_CHUNK_SIZE = 1024   # arXiv: contexte large
 PARENT_CHUNK_OVERLAP = 154  # NVIDIA: 15% optimal
 
@@ -139,11 +142,11 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 
 ### 4.2 Resultats Benchmark (2026-01-20)
 
-| Corpus | Children | Table Summaries | Total Chunks |
-|--------|----------|-----------------|--------------|
-| **FR** | 1343 | 111 | **1454** |
-| **INTL** | 690 | 74 | **764** |
-| **Total** | 2033 | 185 | **2218** |
+| Corpus | Parents | Children | Table Summaries | Total Embedding | Sections |
+|--------|---------|----------|-----------------|-----------------|----------|
+| **FR** | 1670 | 1716 | 111 | **1827** | 99.9% |
+| **INTL** | 782 | 900 | 74 | **974** | 100% |
+| **Total** | 2452 | 2616 | 185 | **2801** | ~100% |
 
 **Gold Standard FR v5.26**: 150 questions (91.56% recall)
 **Gold Standard INTL v2.0**: 43 questions (93.22% recall)
@@ -242,7 +245,7 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | Fichier | Role |
 |---------|------|
 | `scripts/pipeline/extract_docling.py` | Extraction PDF ML-based |
-| `scripts/pipeline/parent_child_chunker.py` | Chunking hierarchique |
+| `scripts/pipeline/chunker.py` | Chunking hierarchique |
 | `scripts/pipeline/table_multivector.py` | Tables + LLM summaries |
 | `scripts/pipeline/token_utils.py` | Tokenization cl100k_base |
 | `scripts/pipeline/embeddings.py` | Generation embeddings |

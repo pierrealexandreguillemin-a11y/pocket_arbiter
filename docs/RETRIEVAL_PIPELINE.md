@@ -17,12 +17,12 @@
 │                                                                             │
 │  PDFs FFE ──→ Extraction ──→ Chunking ──→ Embedding ──→ Storage            │
 │    29 docs    Docling ML    Parent-Child  768D vectors  SQLite + FTS5      │
-│                             1454 FR chunks                                  │
-│                             764 INTL chunks                                 │
+│                             1827 FR chunks (children + tables)              │
+│                             974 INTL chunks (children + tables)             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  RETRIEVAL (runtime) - Recall 97.06%                                        │
+│  RETRIEVAL (runtime) - Recall FR 91.56%, INTL 93.22%                        │
 │  ────────────────────                                                       │
 │                                                                             │
 │  User Query ──→ Embedding ──→ Vector Search ──→ source_filter ──→ Top-5    │
@@ -61,7 +61,7 @@ result = converter.convert(pdf_path)
 
 ### 2. Chunking Parent-Child (NVIDIA 2025)
 
-**Fichier:** `scripts/pipeline/parent_child_chunker.py`
+**Fichier:** `scripts/pipeline/chunker.py`
 
 | Parametre | Valeur | Justification |
 |-----------|--------|---------------|
@@ -241,7 +241,7 @@ Tolerance: ±2 pages adjacentes acceptees
 ```
 scripts/pipeline/
 ├── extract_docling.py        # Extraction PDF (Docling ML)
-├── parent_child_chunker.py   # Chunking Parent 1024/Child 450
+├── chunker.py   # Chunking Parent 1024/Child 450
 ├── table_multivector.py      # Tables + LLM summaries
 ├── embeddings.py             # EmbeddingGemma 768D
 ├── export_sdk.py             # Creation SQLite DB

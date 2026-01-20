@@ -66,7 +66,7 @@ Extraire le contenu textuel des PDF et segmenter en chunks parent-child.
 | Fichier | Description | Statut |
 |---------|-------------|--------|
 | `scripts/pipeline/extract_docling.py` | Extraction PDF via Docling ML | ✅ UPGRADE |
-| `scripts/pipeline/parent_child_chunker.py` | Segmentation Parent 1024/Child 450 | ✅ NEW |
+| `scripts/pipeline/chunker.py` | Segmentation Parent 1024/Child 450 | ✅ NEW |
 | `scripts/pipeline/table_multivector.py` | Tables + LLM summaries | ✅ NEW |
 | `corpus/processed/chunks_for_embedding_fr.json` | 1454 chunks FR | ✅ |
 | `corpus/processed/chunks_for_embedding_intl.json` | 764 chunks INTL | ✅ |
@@ -76,7 +76,7 @@ Extraire le contenu textuel des PDF et segmenter en chunks parent-child.
 | Aspect | Roadmap Original | Etat Actuel | Deviation |
 |--------|-----------------|-------------|-----------|
 | Extraction | `extract_pdf.py` (PyMuPDF) | `extract_docling.py` (Docling ML) | UPGRADE |
-| Chunking | `chunker.py` 256 tokens | `parent_child_chunker.py` Parent 1024/Child 450 | UPGRADE |
+| Chunking | `chunker.py` 256 tokens | `chunker.py` Parent 1024/Child 450 | UPGRADE |
 | Overlap | 50 tokens (20%) | 15% (NVIDIA 2025) | OPTIMISE |
 | Chunks FR | 2047 | 1454 (1343 child + 111 tables) | -29% (moins redondant) |
 | Chunks INTL | 1105 | 764 | -31% |
@@ -383,7 +383,7 @@ Validation utilisateur et release production.
 
 | Module | Role | ISO Ref |
 |--------|------|---------|
-| `parent_child_chunker.py` | Parent-Child chunking (NVIDIA 2025 research) | ISO 25010 |
+| `chunker.py` | Parent-Child chunking (NVIDIA 2025 research) | ISO 25010 |
 | `table_multivector.py` | Tables + LLM summaries | ISO 42001 |
 | `export_search.py` | Hybrid BM25+Vector+RRF (teste, non retenu) | ISO 25010 |
 | `query_expansion.py` | Snowball FR + synonymes | ISO 25010 |

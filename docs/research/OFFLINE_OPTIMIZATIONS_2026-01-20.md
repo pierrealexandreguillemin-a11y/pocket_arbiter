@@ -403,7 +403,7 @@ val results = ragPipeline.retrieve(query, topK = 5)
 
 | Fichier | Modification |
 |---------|-------------|
-| `parent_child_chunker.py` | Ajouter `enrich_chunk()` |
+| `chunker.py` | Ajouter `enrich_chunk()` |
 | `export_sdk.py` | Ajouter colonne `is_intro` |
 | `export_search.py` | WHERE `is_intro = FALSE` |
 | Nouveau: `chunk_enrichment.py` | Synonymes, abreviations, chapters |

@@ -391,8 +391,8 @@ python scripts/iso/validate_project.py --phase 1 --gates
 
 | Composant | Source | Genere par |
 |-----------|--------|------------|
-| Children chunks | parent_child_chunker.py | Pipeline automatique |
-| Parent chunks | parent_child_chunker.py | Pipeline automatique |
+| Children chunks | chunker.py | Pipeline automatique |
+| Parent chunks | chunker.py | Pipeline automatique |
 | Table summaries FR | table_summaries_claude.json | **Claude Code** (111) |
 | Table summaries INTL | table_summaries_claude_intl.json | **Claude Code** (74) |
 | Embeddings | embeddings.py | EmbeddingGemma 300M |

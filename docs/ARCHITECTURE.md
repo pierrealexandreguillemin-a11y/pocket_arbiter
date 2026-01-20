@@ -105,7 +105,7 @@ pocket_arbiter/
 |   +-- pipeline/               # Scripts extraction/indexation v4.0
 |   |   +-- __init__.py
 |   |   +-- extract_docling.py  # Extraction PDF (Docling ML)
-|   |   +-- parent_child_chunker.py # Chunking Parent 1024/Child 450
+|   |   +-- chunker.py # Chunking Parent 1024/Child 450
 |   |   +-- table_multivector.py # Tables + LLM summaries
 |   |   +-- embeddings.py       # Generation embeddings 768D
 |   |   +-- embeddings_config.py # Configuration modeles
@@ -333,7 +333,7 @@ PDF Reglement (29 docs)
 [extract_docling.py] --> Texte + Tables (Docling ML)
     |
     v
-[parent_child_chunker.py] --> Chunks Parent 1024/Child 450 (15% overlap)
+[chunker.py] --> Chunks Parent 1024/Child 450 (15% overlap)
     |                          1454 FR + 764 INTL chunks
     |
     v

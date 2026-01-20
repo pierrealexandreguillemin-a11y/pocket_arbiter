@@ -1,6 +1,6 @@
 {
-  "version": "5.16",
-  "description": "Gold standard v5.16 - 93 questions, 4 hard_cases (Q77, Q85, Q86, Q87) for prod eval",
+  "version": "5.17",
+  "description": "Gold standard v5.17 - 103 questions, 14 hard_cases for prod-like eval (Grok batch)",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -4458,6 +4458,186 @@
         "details": []
       },
       "audit": "added_2026-01-20"
+    },
+    {
+      "id": "FR-Q94",
+      "question": "Si un joueur joue pas du tout pendant 18 mois, son Elo finit par disparaître ou pas ?",
+      "category": "classement",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["inactivité", "18 mois", "Elo", "disparaître"],
+      "expected_pages": [183],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Langage oral + chiffre '18 mois' vs '1 an' dans corpus + synonyme 'disparaître' vs 'supprimé'"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage oral",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q95",
+      "question": "C'est pas possible d'avoir un Elo sans faire au moins 5 parties, si ?",
+      "category": "classement",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["premier classement", "5 parties", "Elo", "conditions"],
+      "expected_pages": [182, 183],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Négation ('pas possible') + chiffre '5' imprécis + langage oral"
+      },
+      "difficulty": "hard",
+      "notes": "test négation + chiffres spécifiques",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q96",
+      "question": "Quelle différence d'Elo max pour que mon tournoi de 9 rondes soit quand même valable pour le rating FIDE ?",
+      "category": "classement",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["différence Elo", "9 rondes", "tournoi", "rating FIDE"],
+      "expected_pages": [184, 185],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Synonyme 'différence d'Elo max' vs terme officiel 'écart maximal' + langage naturel"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage naturel",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q97",
+      "question": "Pour devenir GM, il faut combien de normes et quel Elo mini en 2025-2026 ?",
+      "category": "titres",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["GM", "normes", "Elo minimum", "Grand Maître"],
+      "expected_pages": [192, 193, 194],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "hard_case": true,
+        "hard_reason": "Multi-parties (2 sous-questions) + abréviation 'GM' + retrieval doit couvrir plusieurs sections"
+      },
+      "difficulty": "hard",
+      "notes": "test multi-parties + abréviations",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q98",
+      "question": "Est-ce qu'on peut sauter le CM pour passer directement FM, ou c'est obligé ?",
+      "category": "titres",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["CM", "FM", "progression", "titres"],
+      "expected_pages": [196, 197, 198],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "hard_case": true,
+        "hard_reason": "Négation ('sauter / pas obligé') + langage très oral + abréviations CM/FM"
+      },
+      "difficulty": "hard",
+      "notes": "test négation + langage oral",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q99",
+      "question": "Une norme de titre, elle reste valide combien de temps si j'attends pour demander ?",
+      "category": "titres",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["norme", "validité", "durée", "titre"],
+      "expected_pages": [200, 201, 202],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "hard_case": true,
+        "hard_reason": "Langage oral + synonyme 'valide' vs 'validité' + formulation indirecte"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage naturel",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q100",
+      "question": "Qu'est-ce que l'arbitre doit absolument faire avant de lancer un tournoi homologué FFE ?",
+      "category": "arbitrage",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["arbitre", "obligations", "avant tournoi", "homologué"],
+      "expected_pages": [166, 167, 168],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.2",
+        "hard_case": true,
+        "hard_reason": "Synonyme 'lancer' vs terme officiel 'début' + formulation naturelle"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage naturel",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q101",
+      "question": "Si je suis arbitre adjoint dans un petit tournoi régional, j'ai droit à combien d'euros par jour ?",
+      "category": "arbitrage",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["arbitre adjoint", "indemnisation", "régional", "euros"],
+      "expected_pages": [179],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.5",
+        "hard_case": true,
+        "hard_reason": "Langage très oral + imprécision 'petit' + formulation question directe"
+      },
+      "difficulty": "hard",
+      "notes": "test langage oral + synonymes",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q102",
+      "question": "Faut-il envoyer le rapport technique le soir même ou le lendemain après un tournoi ?",
+      "category": "arbitrage",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["rapport technique", "délai", "envoi", "tournoi"],
+      "expected_pages": [172, 173, 174, 175],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.4",
+        "hard_case": true,
+        "hard_reason": "Multi-parties (2 options) + formulation temporelle ambiguë + négation implicite"
+      },
+      "difficulty": "hard",
+      "notes": "test multi-parties + langage naturel",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
+    },
+    {
+      "id": "FR-Q103",
+      "question": "Mon joueur arrive pas à la première ronde, je fais quoi comme arbitre ?",
+      "category": "arbitrage",
+      "expected_docs": ["LA-octobre2025.pdf"],
+      "keywords": ["absence", "première ronde", "arbitre", "forfait"],
+      "expected_pages": [169, 170, 171],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.3",
+        "hard_case": true,
+        "hard_reason": "Langage ultra-informel SMS-like ('arrive pas', 'je fais quoi') → embedding risque de rater"
+      },
+      "difficulty": "hard",
+      "notes": "test langage oral/SMS + formulation indirecte",
+      "validation": {"status": "VALIDATED", "method": "manual_verification", "details": []},
+      "audit": "added_2026-01-20_grok"
     }
   ]
 }

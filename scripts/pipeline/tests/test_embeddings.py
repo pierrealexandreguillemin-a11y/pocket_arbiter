@@ -30,7 +30,7 @@ from scripts.pipeline.embeddings import (
     FALLBACK_MODEL_ID,
     MODEL_ID,
     PROMPT_DOCUMENT,
-    PROMPT_DOCUMENT_NO_TITLE,
+    PROMPT_DOCUMENT_WITH_TITLE,
     PROMPT_QA,
     PROMPT_QUERY,
     embed_chunks,
@@ -219,11 +219,12 @@ class TestGoogleOfficialAPI:
     """
 
     def test_prompts_defined(self):
-        """Verifie que les prompts officiels sont definis."""
+        """Verifie que les prompts officiels Google sont definis."""
         assert PROMPT_QUERY == "task: search result | query: "
-        # PROMPT_DOCUMENT avec placeholder title (améliore relevance ~4%)
-        assert PROMPT_DOCUMENT == "title: {title} | text: "
-        assert PROMPT_DOCUMENT_NO_TITLE == "title: none | text: "
+        # PROMPT_DOCUMENT = Google default pour documents sans titre
+        assert PROMPT_DOCUMENT == "title: none | text: "
+        # PROMPT_DOCUMENT_WITH_TITLE = template avec titre (~4% relevance boost)
+        assert PROMPT_DOCUMENT_WITH_TITLE == "title: {title} | text: "
         assert PROMPT_QA == "task: question answering | query: "
 
     def test_is_embeddinggemma_model_true(self):

@@ -35,7 +35,7 @@ from scripts.pipeline.embeddings_config import (
     PROMPT_CLASSIFICATION,
     PROMPT_CLUSTERING,
     PROMPT_DOCUMENT,
-    PROMPT_DOCUMENT_NO_TITLE,
+    PROMPT_DOCUMENT_WITH_TITLE,
     PROMPT_QA,
     PROMPT_QUERY,
     PROMPT_SIMILARITY,
@@ -72,7 +72,7 @@ __all__ = [
     "MRL_DIM_FAST",
     "PROMPT_QUERY",
     "PROMPT_DOCUMENT",
-    "PROMPT_DOCUMENT_NO_TITLE",
+    "PROMPT_DOCUMENT_WITH_TITLE",
     "PROMPT_QA",
     "PROMPT_CLASSIFICATION",
     "PROMPT_CLUSTERING",
@@ -233,15 +233,15 @@ def embed_documents(
     if titles is not None and len(titles) != len(documents):
         raise ValueError(f"titles length ({len(titles)}) != documents length ({len(documents)})")
 
-    # Si titles fournis, utiliser prompts manuels avec titles (meilleure relevance)
+    # Si titles fournis, utiliser prompts manuels avec titles (meilleure relevance +4%)
     # Source: ai.google.dev/gemma/docs/embeddinggemma - "include titles when available"
     if titles is not None and is_embeddinggemma_model(getattr(model, "model_card_data", {}).get("base_model", MODEL_ID)):
         docs_with_prompts = []
         for doc, title in zip(documents, titles):
             if title:
-                prompt = PROMPT_DOCUMENT.format(title=title)
+                prompt = PROMPT_DOCUMENT_WITH_TITLE.format(title=title)
             else:
-                prompt = PROMPT_DOCUMENT_NO_TITLE
+                prompt = PROMPT_DOCUMENT  # Défaut Google: "title: none"
             docs_with_prompts.append(f"{prompt}{doc}")
 
         embeddings = model.encode(
@@ -309,6 +309,43 @@ def generate_query_embedding(
     return embed_query(query, model, normalize=normalize)
 
 
+def _extract_chunk_title(chunk: dict) -> str:
+    """
+    Extrait un titre riche depuis un chunk pour l'embedding.
+
+    Combine les champs disponibles pour maximiser la relevance (~4% boost):
+    - section: "CHAPITRE Ier", "Titre VII", "Article 4.1"
+    - article_num: numero d'article si disponible
+    - source: nom du fichier PDF (fallback)
+    - table_type: pour les tables summaries
+
+    Examples:
+        - "CHAPITRE Ier - Article 3" (section + article)
+        - "Titre VII" (section only)
+        - "Table LA-octobre2025" (table summary)
+        - "Statuts FFE" (source filename cleaned)
+    """
+    section = (chunk.get("section") or "").strip()
+    article_num = chunk.get("article_num")
+    source = (chunk.get("source") or "").replace(".pdf", "").strip()
+    table_type = chunk.get("table_type")
+
+    # Table summaries: "Table {source}"
+    if table_type:
+        return f"Table {source}" if source else "Table"
+
+    # Section + article: "CHAPITRE Ier - Article 3"
+    if section and article_num:
+        return f"{section} - Article {article_num}"
+
+    # Section only
+    if section:
+        return section
+
+    # Fallback: source filename (cleaned)
+    return source
+
+
 def embed_chunks(
     chunks: list[dict],
     model: "SentenceTransformer",
@@ -322,8 +359,8 @@ def embed_chunks(
         chunks: Liste de chunks conformes a CHUNK_SCHEMA.md.
         model: Modele SentenceTransformer charge.
         batch_size: Taille de batch.
-        use_titles: Extraire et utiliser section comme titre dans prompt.
-                    Améliore relevance de ~4% (Google recommendation).
+        use_titles: Extraire et utiliser titres riches dans prompt.
+                    Combine section/article/source pour ~4% relevance boost.
 
     Returns:
         Tuple (embeddings array shape (N, dim), list of chunk IDs).
@@ -343,11 +380,8 @@ def embed_chunks(
             raise ValueError("Invalid chunk format: missing 'text' or 'id'")
         texts.append(chunk["text"])
         ids.append(chunk["id"])
-        # Extraire section comme titre (ex: "CHAPITRE Ier", "Article 4.1")
-        # Fallback sur source filename si pas de section
         if use_titles:
-            title = chunk.get("section") or chunk.get("source", "")
-            titles.append(title)
+            titles.append(_extract_chunk_title(chunk))
 
     # Passer titles si use_titles activé (améliore relevance ~4%)
     embeddings = embed_documents(

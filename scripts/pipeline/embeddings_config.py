@@ -51,9 +51,10 @@ MRL_DIM_FAST = 128      # Minimum, +6x compression vs 768D
 # WARNING: EmbeddingGemma NE SUPPORTE PAS float16 (utiliser float32 ou bfloat16)
 
 PROMPT_QUERY = "task: search result | query: "
-# Document prompt avec title améliore relevance de ~4% (Google recommendation)
-PROMPT_DOCUMENT = "title: {title} | text: "
-PROMPT_DOCUMENT_NO_TITLE = "title: none | text: "
+# Document prompt - défaut Google = "title: none"
+# Avec titre (+4% relevance): "title: {actual_title} | text: "
+PROMPT_DOCUMENT = "title: none | text: "  # Défaut Google officiel
+PROMPT_DOCUMENT_WITH_TITLE = "title: {title} | text: "  # Optionnel si titre dispo
 PROMPT_QA = "task: question answering | query: "
 PROMPT_CLASSIFICATION = "task: classification | query: "
 PROMPT_CLUSTERING = "task: clustering | query: "

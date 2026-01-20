@@ -357,8 +357,8 @@ adversarial_questions:
 
 | Fichier | Contenu | Usage |
 |---------|---------|-------|
-| `tests/data/questions_fr.json` | 25 questions FR avec réponses attendues | Tests recall |
-| `tests/data/questions_intl.json` | 25 questions INTL avec réponses attendues | Tests recall |
+| `tests/data/gold_standard_fr.json` | 134 questions FR avec expected_pages | Tests recall |
+| `tests/data/gold_standard_intl.json` | 25 questions INTL avec expected_pages | Tests recall |
 | `tests/data/adversarial.json` | 30 questions pièges | Tests hallucination |
 | `tests/data/eval_template.csv` | Template évaluation humaine | Tests fidélité |
 

@@ -133,8 +133,8 @@ pocket_arbiter/
 |
 +-- tests/                      # Donnees de test
 |   +-- data/
-|   |   +-- questions_fr.json   # Questions test FR
-|   |   +-- questions_intl.json # Questions test INTL
+|   |   +-- gold_standard_fr.json   # Questions test FR (134 Q)
+|   |   +-- gold_standard_intl.json # Questions test INTL (25 Q)
 |   |   +-- adversarial.json    # Tests anti-hallucination
 |   +-- reports/                # Rapports de test
 |

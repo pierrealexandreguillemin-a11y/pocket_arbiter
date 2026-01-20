@@ -200,17 +200,17 @@ Recall@k = Pages attendues trouvees dans top-k / Total pages attendues
 Tolerance: ±2 pages adjacentes acceptees
 ```
 
-### Gold Standard v5.7
+### Gold Standard v5.22
 
 **Fichiers:**
-- `tests/data/questions_fr.json` (68 questions)
-- `tests/data/questions_intl.json` (25 questions)
+- `tests/data/gold_standard_fr.json` (134 questions, 45 hard cases)
+- `tests/data/gold_standard_intl.json` (25 questions)
 
-| Corpus | Questions | Documents | Audit |
-|--------|-----------|-----------|-------|
-| FR | 68 | 28 | v5.7 (23 corrections) |
-| INTL | 25 | 1 | - |
-| **Total** | **93** | **29** | ISO 29119 compliant |
+| Corpus | Questions | Hard Cases | Recall@5 | Audit |
+|--------|-----------|------------|----------|-------|
+| FR | 134 | 45 | 91.17% | v5.22 (2026-01-20) |
+| INTL | 25 | - | - | - |
+| **Total** | **159** | **45** | ISO 25010 PASS |
 
 ### Resultats (2026-01-19)
 

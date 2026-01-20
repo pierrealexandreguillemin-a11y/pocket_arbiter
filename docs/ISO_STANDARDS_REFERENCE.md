@@ -120,8 +120,8 @@ pocket_arbiter/
 **Test Data**:
 | File | Purpose |
 |------|---------|
-| `tests/data/questions_fr.json` | French regulation questions |
-| `tests/data/questions_intl.json` | FIDE questions |
+| `tests/data/gold_standard_fr.json` | French regulation questions (134 Q) |
+| `tests/data/gold_standard_intl.json` | FIDE questions (25 Q) |
 | `tests/data/adversarial.json` | Hallucination test cases |
 
 **Coverage Requirements**:

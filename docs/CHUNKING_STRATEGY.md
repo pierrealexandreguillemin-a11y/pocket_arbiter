@@ -130,14 +130,14 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 ## 4. Metriques de Validation
 
 ### 4.1 Gold Standard
-- **Source**: `tests/data/questions_fr.json`
-- **Questions**: 68 (ISO 29119 >= 50)
+- **Source**: `tests/data/gold_standard_fr.json`
+- **Questions**: 134 (45 hard cases)
 - **Documents**: 28
 
-### 4.2 Resultats Benchmark (2026-01-19)
+### 4.2 Resultats Benchmark (2026-01-20)
 
 **Corpus FR**: 1343 child + 111 table_summary = **1454 chunks**
-**Gold Standard v5.7**: 68 questions (23 corrections audit)
+**Gold Standard v5.22**: 134 questions (91.17% recall)
 
 | Mode | Config | Recall@5 | Statut |
 |------|--------|----------|--------|

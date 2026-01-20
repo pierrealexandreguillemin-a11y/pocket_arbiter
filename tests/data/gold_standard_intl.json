@@ -1,12 +1,20 @@
 {
   "metadata": {
     "corpus": "intl",
-    "version": "1.1",
-    "description": "Questions gold standard pour evaluer le retrieval sur le corpus INTL (FIDE)",
+    "version": "2.0",
+    "description": "Questions gold standard pour evaluer le retrieval sur le corpus INTL (FIDE) - UAEval4RAG enriched",
     "created": "2026-01-10",
-    "updated": "2026-01-19",
-    "total_questions": 25,
-    "source": "FIDE Laws of Chess + Arbiters Manual"
+    "updated": "2026-01-20",
+    "total_questions": 43,
+    "source": "FIDE Laws of Chess + Arbiters Manual",
+    "distribution": {
+      "ANSWERABLE": 31,
+      "VOCABULARY_MISMATCH": 5,
+      "FALSE_PREMISE": 3,
+      "OUT_OF_SCOPE": 2,
+      "MULTI_HOP_IMPOSSIBLE": 2,
+      "PARTIAL_INFO": 0
+    }
   },
   "questions": [
     {
@@ -447,13 +455,268 @@
         47,
         65
       ]
+    },
+    {
+      "id": "intl_026",
+      "question": "What is the exact procedure when a player is in zeitnot and cannot record moves?",
+      "expected_articles": ["8.4"],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["time-trouble", "notation"],
+      "expected_pages": [38, 39],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "German term 'zeitnot' (0 mentions) vs 'time trouble' (4 mentions) in corpus",
+        "corpus_truth": "Art 8.4 p38-39 covers recording in time trouble, term 'zeitnot' not used"
+      }
+    },
+    {
+      "id": "intl_027",
+      "question": "According to Article 12.10 of FIDE Laws, what penalties apply to spectators who interfere with a game?",
+      "expected_articles": [],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["spectators", "false-premise"],
+      "expected_pages": [],
+      "metadata": {
+        "hard_type": "FALSE_PREMISE",
+        "hard_reason": "Article 12.10 does not exist - highest is 12.9 (verified 0 mentions)",
+        "corpus_truth": "FALSE - Article 12.10 non-existent. Spectator rules in 12.7 only"
+      }
+    },
+    {
+      "id": "intl_028",
+      "question": "What are Chess.com's official rules for handling disconnections in rated games?",
+      "expected_articles": [],
+      "source": "N/A",
+      "difficulty": "hard",
+      "tags": ["online", "out-of-scope"],
+      "expected_pages": [],
+      "metadata": {
+        "hard_type": "OUT_OF_SCOPE",
+        "hard_reason": "Chess.com is a private platform, not covered by FIDE regulations",
+        "corpus_truth": "OUT OF SCOPE - Corpus covers FIDE official regulations only, not private platforms"
+      }
+    },
+    {
+      "id": "intl_029",
+      "question": "If both players flag falls simultaneously and neither notices, who wins?",
+      "expected_articles": ["6.8", "6.11"],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["time", "flag-fall", "edge-case"],
+      "expected_pages": [33, 34],
+      "metadata": {
+        "hard_type": "MULTI_HOP_IMPOSSIBLE",
+        "hard_reason": "Simultaneous flag fall scenario requires inference from separate rules",
+        "corpus_truth": "Art 6.8/6.11 cover flag fall but simultaneous scenario not explicitly addressed"
+      }
+    },
+    {
+      "id": "intl_030",
+      "question": "What happens if a player makes a 'mouse slip' in an online FIDE-rated game?",
+      "expected_articles": [],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["online", "mouse-slip"],
+      "expected_pages": [],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Term 'mouse slip' is online chess jargon, not in FIDE Laws terminology",
+        "corpus_truth": "Online chess regulations exist but 'mouse slip' term not used - refers to misclick"
+      }
+    },
+    {
+      "id": "intl_031",
+      "question": "According to Article 12.11, what is the procedure for filing a formal protest against an arbiter?",
+      "expected_articles": [],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["protest", "false-premise"],
+      "expected_pages": [],
+      "metadata": {
+        "hard_type": "FALSE_PREMISE",
+        "hard_reason": "Article 12.11 does not exist (verified 0 mentions) - highest is 12.9",
+        "corpus_truth": "FALSE - Article 12.11 non-existent. Appeals covered in separate FIDE regulations"
+      }
+    },
+    {
+      "id": "intl_032",
+      "question": "What is the exact Elo rating requirement to become a FIDE Master?",
+      "expected_articles": ["1.4", "B01"],
+      "source": "FIDE Handbook - Title Regulations",
+      "difficulty": "hard",
+      "tags": ["rating", "title", "edge-case"],
+      "expected_pages": [168, 169],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - Title requirements in separate chapter (Ch7), FM=2100 rating on p169",
+        "corpus_truth": "FIDE Title Regulations p169: FM rating floor = 2100 (not 2300 as commonly believed)"
+      }
+    },
+    {
+      "id": "intl_033",
+      "question": "How should Lichess arena tournaments handle berserking according to FIDE rules?",
+      "expected_articles": [],
+      "source": "N/A",
+      "difficulty": "hard",
+      "tags": ["online", "out-of-scope"],
+      "expected_pages": [],
+      "metadata": {
+        "hard_type": "OUT_OF_SCOPE",
+        "hard_reason": "Lichess berserking is platform-specific feature not covered by FIDE",
+        "corpus_truth": "OUT OF SCOPE - Berserking is Lichess feature, FIDE has no jurisdiction"
+      }
+    },
+    {
+      "id": "intl_034",
+      "question": "If an arbiter makes a wrong decision and it affects the game result, can the game be replayed?",
+      "expected_articles": ["12.9"],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["arbiter", "appeal"],
+      "expected_pages": [45, 46],
+      "metadata": {
+        "hard_type": "MULTI_HOP_IMPOSSIBLE",
+        "hard_reason": "Combines arbiter powers (12.9) with appeal procedures not in Laws",
+        "corpus_truth": "Art 12.9 covers arbiter powers, replay/appeal procedures in separate regulations"
+      }
+    },
+    {
+      "id": "intl_035",
+      "question": "What is the procedure for 'pre-moving' in FIDE blitz games?",
+      "expected_articles": [],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["blitz", "online"],
+      "expected_pages": [],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Pre-moving is online chess feature, not applicable to OTB FIDE games",
+        "corpus_truth": "FIDE blitz rules (Annex A/B) cover OTB play, pre-moving is online-only concept"
+      }
+    },
+    {
+      "id": "intl_036",
+      "question": "According to Article 3.15, what is the procedure for completing an en passant capture?",
+      "expected_articles": [],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["en-passant", "false-premise"],
+      "expected_pages": [],
+      "metadata": {
+        "hard_type": "FALSE_PREMISE",
+        "hard_reason": "Article 3.15 does not exist (verified 0 mentions) - en passant is in Article 3.7.3",
+        "corpus_truth": "FALSE - Article 3.15 non-existent. En passant capture defined in Article 3.7.3.1 (p22)"
+      }
+    },
+    {
+      "id": "intl_037",
+      "question": "What special rules apply when a visually impaired player competes against a sighted opponent?",
+      "expected_articles": ["D.1", "D.2", "D.3"],
+      "source": "FIDE Laws of Chess - Appendix D",
+      "difficulty": "hard",
+      "tags": ["blind", "disabled", "edge-case"],
+      "expected_pages": [55, 56],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - Appendix D rarely queried, specific regulations for blind/visually impaired",
+        "corpus_truth": "Appendix D (p55-56) covers two boards, assistant, notation, time, etc."
+      }
+    },
+    {
+      "id": "intl_038",
+      "question": "If a chess clock becomes defective during a game, what should the arbiter do?",
+      "expected_articles": ["6.10", "6.11"],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["clock", "defect", "edge-case"],
+      "expected_pages": [33, 34],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Term 'defective clock' not used - corpus uses 'incorrect setting' (6.10.2) and 'pause/interrupt' (6.11)",
+        "corpus_truth": "No explicit 'defective clock' article. Art 6.10.2 (p34) covers incorrect settings, Art 6.11 covers interruption. Arbiter uses best judgement."
+      }
+    },
+    {
+      "id": "intl_039",
+      "question": "What are the exact conditions for a valid en passant capture?",
+      "expected_articles": ["3.7.3.1"],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": ["en-passant", "pawn", "edge-case"],
+      "expected_pages": [22],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - specific conditions (same rank, adjacent file, just advanced two squares)",
+        "corpus_truth": "Article 3.7.3.1 (p22) - pawn same rank, adjacent file, opponent pawn just advanced 2 squares"
+      }
+    },
+    {
+      "id": "intl_040",
+      "question": "What information must be recorded on the envelope when a game is adjourned?",
+      "expected_articles": ["I.2"],
+      "source": "FIDE Laws of Chess - Guidelines",
+      "difficulty": "hard",
+      "tags": ["adjournment", "sealed-move", "edge-case"],
+      "expected_pages": [57, 58],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - adjournment is rare in modern chess, specific envelope requirements",
+        "corpus_truth": "Guidelines I.2 (p57-58) - names, position, times, sealed move number, draw offer, date/time/venue"
+      }
+    },
+    {
+      "id": "intl_041",
+      "question": "What does 'Kurze Rochade' mean when announced by a visually impaired player?",
+      "expected_articles": ["D.2"],
+      "source": "FIDE Laws of Chess - Appendix D",
+      "difficulty": "hard",
+      "tags": ["blind", "german", "vocabulary-mismatch", "tricky"],
+      "expected_pages": [55],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "TRICKY: German term 'Kurze Rochade' for blind players - retrieval must link German chess terminology to Appendix D rules",
+        "corpus_truth": "Appendix D.2 (p55): 'Kurze Rochade' = German for 'short castling' (kingside O-O). Used when blind player announces moves verbally."
+      }
+    },
+    {
+      "id": "intl_042",
+      "question": "According to FIDE Laws, at what exact moment is an illegal move considered 'completed'?",
+      "expected_articles": ["7.5.1"],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["illegal-move", "definition", "technical", "tricky"],
+      "expected_pages": [36],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "TRICKY: Technical definition - 'completed' has precise legal meaning (not intuitive). Tests semantic understanding of technical terms.",
+        "corpus_truth": "Article 7.5.1 (p36): 'An illegal move is completed once the player has pressed his/her clock.' Clock press = completion trigger."
+      }
+    },
+    {
+      "id": "intl_043",
+      "question": "Under what circumstances is pressing the chess clock before making a move permitted?",
+      "expected_articles": ["6.2.4"],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": ["clock", "forbidden", "negation", "tricky"],
+      "expected_pages": [30],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "TRICKY: Negation trap - question asks 'permitted' but answer is NEVER (forbidden). Tests retrieval with inverted logic.",
+        "corpus_truth": "Article 6.2.4 (p30): 'It is forbidden to press the clock before moving.' Answer: NEVER permitted - explicitly prohibited."
+      }
     }
   ],
   "coverage": {
-    "rules": 10,
-    "time": 4,
+    "rules": 12,
+    "time": 6,
     "draw": 5,
-    "arbiter": 4,
-    "penalty": 2
+    "arbiter": 5,
+    "penalty": 2,
+    "edge_cases": 7,
+    "hard_cases": 11,
+    "tricky_cases": 3
   }
 }

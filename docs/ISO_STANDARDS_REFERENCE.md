@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.4
+> **Version**: 2.5
 > **Date**: 2026-01-20
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -302,6 +302,9 @@ python scripts/iso/validate_project.py --phase N --gates --verbose
 | `docs/DVC_GUIDE.md` | DOC-GUIDE-001 | - | Guide technique DVC |
 | `corpus/INVENTORY.md` | CORP-INV-001 | ISO 12207 | Tracabilite corpus |
 | `prompts/CHANGELOG.md` | PROM-LOG-001 | ISO 42001 | Historique prompts |
+| `docs/GOLD_STANDARD_AUDIT_2026-01-20.md` | AUDIT-GS-001 | ISO 29119 | Audit gold standard v5.22 |
+| `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md` | RES-RECALL-001 | ISO 25010 | Analyse 14 echecs recall |
+| `docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md` | RES-OPTIM-001 | ISO 25010 | Optimisations zero-runtime |
 
 **Hierarchie documentaire**:
 ```
@@ -345,7 +348,7 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Mypy Errors | 0 | **0** | ISO 5055 |
 | Retrieval Recall FR | 90% | **100.00%** (smart_retrieve, tol=2) | ISO 25010 |
 | Retrieval Recall INTL | 70% | **80.00%** (vector, tol=2) | ISO 25010 |
-| Gold Standard | >= 50 questions | **68 FR + 25 INTL = 93** | ISO 29119 |
+| Gold Standard | >= 50 questions | **134 FR + 25 INTL = 159** | ISO 29119 |
 | Corpus Coverage | 100% | **29 docs** (28 FR + 1 INTL) | ISO 25010 |
 | Hallucination Rate | 0% | TBD | ISO 42001 |
 | Response Latency | < 5s | TBD | ISO 25010 |
@@ -353,12 +356,12 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Docs indexes | 100% | 100% | ISO 999 |
 
 > **Note**: Recall@5 metriques (tolerance ±2 pages):
-> - **FR**: **100.00%** avec `smart_retrieve` (auto source_filter)
+> - **FR**: **91.17%** (134 questions, 14 en echec)
 > - **INTL**: 80.00% (vector-only)
-> - Gold standard **v5.8**: FR-Q18 expected page fix (57→56)
-> - **93 questions, 29 documents** (ISO compliant >= 50)
+> - Gold standard **v5.22**: 134 FR + 25 INTL = **159 questions** (45 hard cases)
 > - **Chunking v4**: Parent-Child (Parent 1024/Child 450 tokens, 15% overlap)
-> - **smart_retrieve**: Auto source_filter basé sur patterns spécifiques
+> - **Analyse echecs**: `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md`
+> - **Optimisations**: `docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`
 > - Voir: `docs/CHUNKING_STRATEGY.md`
 
 ### 6.2 Pipeline Architecture (v4.0 - 2026-01-19)
@@ -419,6 +422,35 @@ with open("logs/retrieval.jsonl") as f:
 | FR | 1454 | 1343 | 111 | 7.58 MB |
 | INTL | 764 | 764 | 0 | 4.21 MB |
 
+### 6.3 Recall Improvement Research (2026-01-20)
+
+**Analyse des 14 echecs** (`docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md`):
+
+| Cause Racine | Questions | % |
+|--------------|-----------|---|
+| Langage oral/informel | Q95, Q98, Q103 | 21% |
+| Cross-chapter content | Q85, Q86, Q132 | 21% |
+| Mismatch terminologique | Q77, Q94 | 14% |
+| Abreviations | Q98, Q119 | 14% |
+| Semantic drift | Q87, Q121 | 14% |
+| Combinaison termes | Q99, Q125, Q127 | 21% |
+
+**Optimisations Zero-Runtime-Cost** (`docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`):
+
+Contrainte Android mid-range: **RAM < 500MB**, **100% offline**, **latence < 5s**
+
+| Phase | Action Index-Time | Impact | Effort |
+|-------|-------------------|--------|--------|
+| 1 | Synonymes dans chunks ("18 mois"→"un an") | +3% | 30min |
+| 1 | Abreviations expandues (CM, FM, GM) | +1% | 30min |
+| 1 | Flag `is_intro` pages 1-10 | +2% | 30min |
+| 2 | Chapter titles dans chunks | +2% | 2h |
+| 2 | Hard questions cache (lookup table) | +1% | 2h |
+
+**Principe**: Enrichir corpus/embeddings a l'indexation, zero modele supplementaire en production.
+
+**Cible**: 91% → 95-98% recall sans impact runtime.
+
 ### Review Cadence
 - Pre-commit: Every commit
 - CI: Every push
@@ -447,6 +479,7 @@ with open("logs/retrieval.jsonl") as f:
 | 2.2 | 2026-01-19 | Claude Opus 4.5 | **glossary_boost** - Boost x3.5 glossaire DNA 2025 pour questions definition |
 | 2.3 | 2026-01-19 | Claude Opus 4.5 | **fallback + logging** - Fallback intelligent, logging JSONL `logs/retrieval.jsonl` |
 | 2.4 | 2026-01-20 | Claude Opus 4.5 | **100% recall FR** - smart_retrieve avec patterns spécifiques, gold standard v5.8 |
+| 2.5 | 2026-01-20 | Claude Opus 4.5 | **Research docs**: Analyse 14 echecs + optimisations zero-runtime-cost, gold standard v5.22 (134 FR) |
 
 ---
 

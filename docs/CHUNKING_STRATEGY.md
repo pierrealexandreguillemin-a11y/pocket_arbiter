@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 4.3
-> **Date**: 2026-01-19
+> **Version**: 4.4
+> **Date**: 2026-01-20
 > **Statut**: Approuve
 > **Classification**: Technique
 > **Auteur**: Claude Opus 4.5
@@ -169,6 +169,24 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 ```
 
+### 4.5 Ameliorations Proposees (Zero-Runtime-Cost)
+
+**Contrainte**: Android mid-range (RAM < 500MB, offline, latence < 5s)
+
+**Analyse echecs**: `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md` (14 questions, 6 causes racines)
+
+**Optimisations index-time** (`docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`):
+
+| Action | Impact Recall | Runtime Cost |
+|--------|---------------|--------------|
+| Synonymes dans chunks ("18 mois"→"un an") | +3% | 0 |
+| Abreviations expandues (CM, FM, GM) | +1% | 0 |
+| Flag `is_intro` pages 1-10 | +2% | 0 |
+| Chapter titles dans chunks | +2% | 0 |
+| Hard questions cache | +1% | 1 dict lookup |
+
+**Cible**: 91.17% → 95-98% recall sans impact production.
+
 ---
 
 ## 5. Conformite ISO
@@ -238,6 +256,7 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | 4.1 | 2026-01-19 | **Optimisation params**: Parent 1024/154, Child 450/68 (NVIDIA/arXiv/Chroma 2025). Cible 93-98% recall. |
 | 4.2 | 2026-01-19 | **Benchmark reranker**: Ajout sources MIRACL/Pinecone/ZeroEntropy. DB: 1343 child + 111 table_summary. |
 | 4.3 | 2026-01-19 | **Recall 97.06%**: Gold standard v5.7 audit, vector-only optimal, source_filter, glossary_boost |
+| 4.4 | 2026-01-20 | **Research docs**: Analyse echecs + optimisations zero-runtime, gold standard v5.22 (134 FR) |
 
 ---
 

@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-RETR-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 2.1
-> **Date**: 2026-01-19
+> **Version**: 2.2
+> **Date**: 2026-01-20
 > **Statut**: Approuve
 
 ---
@@ -212,6 +212,9 @@ Tolerance: ±2 pages adjacentes acceptees
 | INTL | 25 | - | - | - |
 | **Total** | **159** | **45** | ISO 25010 PASS |
 
+**Analyse echecs (14 questions)**: `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md`
+**Optimisations zero-runtime**: `docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`
+
 ### Resultats (2026-01-19)
 
 | Mode | Recall FR | Recall INTL | Status |
@@ -261,6 +264,7 @@ scripts/pipeline/
 | 1.0 | 2026-01-15 | Creation initiale (PyMuPDF, 400 tokens) |
 | 2.0 | 2026-01-19 | **Rewrite complet**: Docling, Parent-Child, vector-only optimal, source_filter, glossary_boost |
 | 2.1 | 2026-01-19 | **Fallback + logging**: Fallback intelligent, logging structure `logs/retrieval_log.txt` |
+| 2.2 | 2026-01-20 | **Research docs**: Lien analyse echecs + optimisations zero-runtime, gold standard v5.22 |
 
 ---
 

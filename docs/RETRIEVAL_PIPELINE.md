@@ -2,9 +2,9 @@
 
 > **Document ID**: DOC-RETR-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 2.2
-> **Date**: 2026-01-20
-> **Statut**: Approuve
+> **Version**: 2.3
+> **Date**: 2026-01-22
+> **Statut**: COMPLETE - Recall 91.17% atteint
 
 ---
 
@@ -274,6 +274,7 @@ scripts/pipeline/
 | 2.0 | 2026-01-19 | **Rewrite complet**: Docling, Parent-Child, vector-only optimal, source_filter, glossary_boost |
 | 2.1 | 2026-01-19 | **Fallback + logging**: Fallback intelligent, logging structure `logs/retrieval_log.txt` |
 | 2.2 | 2026-01-20 | **Research docs**: Lien analyse echecs + optimisations zero-runtime, gold standard v5.22 |
+| 2.3 | 2026-01-22 | **COMPLETE**: Recall 91.17% atteint, Phase 1B triplets synthetiques 5434 questions |
 
 ---
 

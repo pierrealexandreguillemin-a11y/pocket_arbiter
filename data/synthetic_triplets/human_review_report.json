@@ -1,0 +1,47 @@
+{
+  "total_reviewed": 99,
+  "kept": 94,
+  "removed": 5,
+  "removed_questions": [
+    {
+      "question": "Combien de joueurs sont dans chaque équipe pour cette table ?",
+      "category": "arbitre_organisateur",
+      "difficulty": "easy",
+      "chunk_id": "LA-octobre2025.pdf-p357-c00",
+      "corpus": "ffe"
+    },
+    {
+      "question": "Qui joue contre le joueur numéro 1 au tour R6?",
+      "category": "arbitre_terrain",
+      "difficulty": "easy",
+      "chunk_id": "LA-octobre2025.pdf-p350-c02",
+      "corpus": "ffe"
+    },
+    {
+      "question": "Quel est le coup joué sur l'echiquier N°31 entre les cases F9 et C9 ?",
+      "category": "arbitre_terrain",
+      "difficulty": "easy",
+      "chunk_id": "LA-octobre2025.pdf-p386-c02",
+      "corpus": "ffe"
+    },
+    {
+      "question": "Sur quel echiquier le coup D3 - C3 est-il joué?",
+      "category": "question_joueur",
+      "difficulty": "medium",
+      "chunk_id": "LA-octobre2025.pdf-p371-c01",
+      "corpus": "ffe"
+    },
+    {
+      "question": "Puis-je savoir qui joue sur l'Echiquier N°8?",
+      "category": "question_joueur",
+      "difficulty": "easy",
+      "chunk_id": "LA-octobre2025.pdf-p366-c02",
+      "corpus": "ffe"
+    }
+  ],
+  "removal_reasons": {
+    "TABLE_EXAMPLE": 4,
+    "VAGUE": 1
+  },
+  "verdict": "PASS"
+}

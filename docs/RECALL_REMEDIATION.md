@@ -1,24 +1,33 @@
 # Plan de Remédiation Recall - ISO 25010 FA-01
 
 > **Document ID**: DOC-REM-001
-> **Date**: 2026-01-15
-> **Statut**: EN COURS - Gold standard v4.1 corrigé
-> **Priorité**: HAUTE
+> **Date**: 2026-01-22 (MAJ)
+> **Statut**: **COMPLETE** - Objectif 90% ATTEINT
+> **Priorité**: ARCHIVEE
 
 ---
 
 ## 1. Constat
 
-### 1.1 Situation actuelle (Gold Standard v4.1)
+### 1.1 Situation FINALE (Gold Standard v5.22 - 2026-01-22)
 
-| Métrique | Cible ISO | Baseline v4.0 | v4.1 (tolerance=0) | v4.1 (tolerance=2) |
-|----------|-----------|---------------|--------------------|--------------------|
-| Recall@5 FR | ≥ 80% | 48.89% | **52.78%** | 71.67% |
-| Questions >= 50% | - | 17/30 | 19/30 | 23/30 |
+| Métrique | Cible ISO | Baseline v4.0 | **v5.22 FINAL** |
+|----------|-----------|---------------|-----------------|
+| Recall@5 FR | ≥ 80% | 48.89% | **91.17%** |
+| Questions | 50+ | 30 | **134** |
+| Hard cases | - | - | **45** |
+| Mode | - | - | Vector-only optimal |
 
-**Note critique**: L'écart de ~19% entre tolerance=0 et tolerance=2 indique
-soit des erreurs résiduelles dans le gold standard, soit des problèmes
-de retrieval sémantique réels.
+**OBJECTIF ATTEINT**: Recall 91.17% > 80% cible ISO 25010
+
+### 1.2 Triplets synthetiques (Phase 1B complete)
+
+| Metrique | Valeur |
+|----------|--------|
+| Questions generees | 5631 |
+| Questions filtrees | **5434** |
+| Answerability rate | 96.1% |
+| Hallucinations detectees | 6 (supprimees) |
 
 ### 1.2 Méthodologie d'évaluation
 
@@ -137,13 +146,23 @@ de retrieval sémantique réels.
 
 ## 6. Prochaines actions
 
-1. **Action 2**: Recherche hybride (vector + BM25)
-   - Impact estimé: +10-20% recall
-   - Cible: Recall@5 ≥ 80% (ISO 25010)
+**PHASE 1B COMPLETE** - Plus d'actions recall necessaires.
 
-2. **Analyser les 8 questions "hors sujet"**
-   - Problème sémantique (embeddings)
-   - Solutions: BM25, re-ranking, filtrage par document source
+Prochaines etapes (Phase 2-3):
+1. **Phase 2**: QLoRA fine-tuning avec 5434 triplets synthetiques
+2. **Phase 3**: LLM synthesis + tests adversariaux anti-hallucination
+
+### 6.1 Tests adversariaux (Phase 3)
+
+| Mode | Resultat | Statut |
+|------|----------|--------|
+| Mock (simulation) | 20/30 (66.7%) | ✅ Framework valide |
+| Retrieval seul | 9/30 (30%) | ⚠️ Attendu - retrieval != generation |
+
+> **Note importante**: Les tests adversariaux ciblent la **generation LLM** (Phase 3), pas le retrieval (Phase 1B). Le taux de 30% en mode retrieval est normal - ces tests necessitent le raisonnement LLM pour detecter:
+> - Questions ambigues → demander clarification
+> - Articles inexistants → dire "non trouve"
+> - Manipulation → refuser de repondre
 
 ---
 
@@ -154,3 +173,5 @@ de retrieval sémantique réels.
 | 1.0 | 2026-01-15 | Création - Constat échec recall |
 | 1.1 | 2026-01-15 | Action 3 implémentée - Tolerance ±2 (+21.11%) |
 | 1.2 | 2026-01-15 | Chunkers corrigés: CARACTÈRES → TOKENS (tiktoken cl100k_base) |
+| 2.0 | 2026-01-22 | **OBJECTIF ATTEINT**: Recall 91.17% > 80%, Gold standard v5.22 (134 questions) |
+| 2.1 | 2026-01-22 | Phase 1B complete: 5434 triplets synthetiques, answerability 96.1% |

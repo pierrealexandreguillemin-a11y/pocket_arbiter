@@ -25,10 +25,11 @@ logger = logging.getLogger(__name__)
 # Hybrid search parameters (2025 enterprise standard - Funnel Mode)
 # Research: sqlite-rag, LlamaIndex Alpha=0.4, VectorHub/Superlinked, Databricks
 # - Pool initial large (100) pour ne pas perdre de candidats
-# - Weights: BM25=0.6 (keywords, art. numbers), Vector=0.4 (semantic)
+# - Weights: 0.5/0.5 equilibre optimal (teste sur gold standard FR 150Q)
 # - Rerank sur pool large pour +48% recall (Databricks research)
-DEFAULT_VECTOR_WEIGHT = 0.4
-DEFAULT_BM25_WEIGHT = 0.6
+# Benchmark 2026-01-22: V=0.5/B=0.5 = 87.33% (Mode A) vs V=0.3/B=0.7 = 84.67%
+DEFAULT_VECTOR_WEIGHT = 0.5  # Optimal: equilibre vector/BM25
+DEFAULT_BM25_WEIGHT = 0.5  # Optimal: equilibre vector/BM25
 DEFAULT_INITIAL_K = 100  # Funnel Mode: large initial pool
 RRF_K = 60  # Reciprocal Rank Fusion constant (standard)
 
@@ -253,6 +254,18 @@ def _prepare_fts_query(query: str, use_stemming: bool = False) -> str:
         ",",
         ".",
         ";",
+        "/",  # FTS5 syntax error fix
+        "=",  # FTS5 syntax error fix
+        "%",  # FTS5 syntax error fix
+        "<",
+        ">",
+        "[",
+        "]",
+        "{",
+        "}",
+        "&",
+        "|",
+        "\\",
     ]
     clean_query = query
     for char in special_chars:

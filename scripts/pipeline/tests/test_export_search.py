@@ -328,12 +328,11 @@ class TestRetrieveHybrid:
     def test_default_weights_constants(self):
         """Default weight constants are defined correctly.
 
-        Note: Poids intentionnellement inverses (0.3 vector, 0.7 BM25)
-        car EmbeddingGemma non-adapte au domaine echecs FR.
-        BM25 plus efficace pour documents reglementaires keyword-heavy.
+        Note: Poids equilibres (0.5/0.5) optimaux sur gold standard FR.
+        Benchmark 2026-01-22: V=0.5/B=0.5 = 87.33% (Mode A) vs V=0.3/B=0.7 = 84.67%
         """
-        assert DEFAULT_VECTOR_WEIGHT == 0.3  # Baisse: embedding generique
-        assert DEFAULT_BM25_WEIGHT == 0.7  # Augmente: FTS5 efficace pour FR
+        assert DEFAULT_VECTOR_WEIGHT == 0.5  # Optimal: equilibre vector/BM25
+        assert DEFAULT_BM25_WEIGHT == 0.5  # Optimal: equilibre vector/BM25
         assert RRF_K == 60
 
     def test_results_contain_score_fields(

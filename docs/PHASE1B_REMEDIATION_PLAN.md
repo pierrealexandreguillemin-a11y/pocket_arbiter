@@ -116,10 +116,28 @@ Similarity scores:
 | `api` | Endpoint reel | Tests integration |
 | `retrieval` | Retrieval seul | Debug embeddings |
 
-### 4.3 Resultats mock
+### 4.3 Resultats retrieval reel (EmbeddingGemma)
 
-Le mode mock valide le framework. Les echecs en mock sont attendus (mock simpliste).
-Le vrai test se fera avec l'endpoint RAG.
+**Test avec retrieval reel** (30 questions adversariales):
+
+| Categorie | Pass | Analyse |
+|-----------|------|---------|
+| hors_sujet | 1/9 | Scores 0.45-0.60 - embedding trouve contenu "similaire" |
+| invention | 0/3 | Chunks pertinents trouves |
+| article_inexistant | 0/2 | Articles proches trouves |
+| ambigue | 2/2 | OK - detection longueur |
+| futur | 1/1 | OK - detection keywords |
+
+**Conclusion critique ISO 42001**:
+
+> Le retrieval semantique seul **NE PEUT PAS** detecter les risques d'hallucination.
+> Meme les questions hors-sujet ("poker aux echecs") obtiennent des scores > 0.4
+> car l'embedding trouve des chunks avec mots similaires ("regles du jeu").
+>
+> **Le grounding LLM en Phase 3 est CRITIQUE** pour:
+> - Refuser d'inventer
+> - Detecter l'absence d'information pertinente
+> - Citer les sources exactes
 
 ---
 

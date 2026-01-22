@@ -51,11 +51,14 @@
 
 ### 2.2 Points restants
 
-| Point | Priorite | Action |
-|-------|----------|--------|
-| Test adversarial sur RAG reel | P1 | Attendre endpoint API |
-| Human review echantillon | P2 | 99 questions a revoir |
-| QLoRA fine-tuning | P3 | Avec triplets filtres |
+| Point | Priorite | Action | Phase |
+|-------|----------|--------|-------|
+| Human review echantillon | P1 | 99 questions a revoir | 1B |
+| QLoRA fine-tuning | P2 | Avec triplets filtres | 1C |
+| Test adversarial sur RAG reel | P3 | Apres integration LLM | **3** |
+
+> **Note**: Les tests adversariaux mode `api` sont prevus pour Phase 3 (LLM Synthesis).
+> Voir `docs/PROJECT_ROADMAP.md` ligne 155.
 
 ---
 

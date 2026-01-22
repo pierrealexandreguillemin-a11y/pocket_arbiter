@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-SCH-001
 > **ISO Reference**: ISO 82045 - Document management
-> **Version**: 2.0
-> **Date**: 2026-01-20
+> **Version**: 2.1
+> **Date**: 2026-01-22
 
 ---
 
@@ -22,7 +22,7 @@ Ce document definit le schema JSON pour les chunks de texte utilises dans le pip
   "title": "RAG Chunk Schema v2.0",
   "description": "Schema hierarchique Parent-Child pour RAG (NVIDIA 2025)",
   "type": "object",
-  "required": ["id", "text", "source", "tokens", "corpus", "chunk_type"],
+  "required": ["id", "text", "source", "tokens", "corpus", "chunk_type", "page"],
   "properties": {
     "id": {
       "type": "string",
@@ -41,7 +41,7 @@ Ce document definit le schema JSON pour les chunks de texte utilises dans le pip
     },
     "tokens": {
       "type": "integer",
-      "description": "Nombre de tokens (tiktoken cl100k_base)",
+      "description": "Nombre de tokens (EmbeddingGemma tokenizer)",
       "minimum": 1
     },
     "corpus": {
@@ -75,8 +75,8 @@ Ce document definit le schema JSON pour les chunks de texte utilises dans le pip
       "examples": ["schedule", "scoring", "other"]
     },
     "page": {
-      "type": ["integer", "null"],
-      "description": "Numero de page (optionnel)",
+      "type": "integer",
+      "description": "Numero de page (OBLIGATOIRE - ISO 42001 A.6.2.2)",
       "minimum": 1
     }
   }
@@ -247,6 +247,8 @@ def validate_chunks(chunks_file: str, schema_file: str) -> bool:
 
 | Version | Date | Changements |
 |---------|------|-------------|
+| 2.1 | 2026-01-22 | Tokenizer: tiktoken → EmbeddingGemma, page coverage 100% |
+| 2.0 | 2026-01-20 | Parent-Child architecture, table_summary type |
 | 1.0 | 2026-01-14 | Creation initiale |
 
 ---

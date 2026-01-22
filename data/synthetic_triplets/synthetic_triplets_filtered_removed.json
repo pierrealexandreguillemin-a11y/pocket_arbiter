@@ -1,0 +1,634 @@
+{
+  "table_numeric": [
+    {
+      "question": "Qui est chargé de délivrer les certificats de non contre-indication pour les licenciés ?",
+      "chunk_id": "2022_Reglement_medical_19082022.pdf-p000-c00",
+      "similarity": 0.251434326171875,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qu'est-ce qu'un licencié doit faire pour obtenir une licence ou la renouveler ?",
+      "chunk_id": "2022_Reglement_medical_19082022.pdf-p000-c00",
+      "similarity": 0.286898136138916,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Contre qui joue l'équipe E2 lors de la ronde 3?",
+      "chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p042-c00",
+      "similarity": 0.3220130205154419,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Qui affronte B4 à la ronde 1?",
+      "chunk_id": "LA-octobre2025.pdf-p368-c01",
+      "similarity": 0.3165533244609833,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est l'opponent de A1 à la ronde 2 ?",
+      "chunk_id": "LA-octobre2025.pdf-p376-c01",
+      "similarity": 0.3469381332397461,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qui a gagné la partie entre ERIC et CLAUDE à la ronde 3?",
+      "chunk_id": "LA-octobre2025.pdf-p493-c00",
+      "similarity": 0.2252494841814041,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qui a gagné la partie entre ERIC et ISIDORE à la ronde 4 ?",
+      "chunk_id": "LA-octobre2025.pdf-p503-c00",
+      "similarity": 0.2145434468984604,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel joueur a le plus de points après le tournoi?",
+      "chunk_id": "LA-octobre2025.pdf-p506-c01",
+      "similarity": 0.25613686442375183,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est le score de ERIC contre FATOU?",
+      "chunk_id": "LA-octobre2025.pdf-p506-c01",
+      "similarity": 0.3369014859199524,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Comment déterminer la variation d'Elo en fonction du score d'un joueur dans un tournoi ?",
+      "chunk_id": "LA-octobre2025.pdf-p602-c01",
+      "similarity": 0.3124178647994995,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est l'Elo minimum pour obtenir le titre de Grand Maitre (GM) avec 6 victoires ?",
+      "chunk_id": "LA-octobre2025.pdf-p665-c02",
+      "similarity": 0.2950434684753418,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "J'ai 6 victoires, quel titre puis-je obtenir si mon elo est de 2687 ou plus ?",
+      "chunk_id": "LA-octobre2025.pdf-p665-c02",
+      "similarity": 0.3336830139160156,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est l'Elo correspondant à un score de 9 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p668-c02",
+      "similarity": 0.31165504455566406,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est l'Elo minimal pour avoir un score de 8 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p668-c02",
+      "similarity": 0.23792070150375366,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "J'ai un score de 91/2 points, quel est mon Elo possible ?",
+      "chunk_id": "LA-octobre2025.pdf-p668-c02",
+      "similarity": 0.3356155455112457,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Comment un arbitre terrain gérerait-il une situation où un joueur conteste une évaluation basée sur ce tableau ?",
+      "chunk_id": "LA-octobre2025.pdf-p643-c01",
+      "similarity": 0.2798804044723511,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Un organisateur de tournoi souhaitant utiliser ce tableau pour établir des équipes équilibrées, comment procéderait-il pour former des équipes avec des joueurs de niveaux différents ?",
+      "chunk_id": "LA-octobre2025.pdf-p643-c01",
+      "similarity": 0.313215047121048,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le classement minimum pour un joueur pour atteindre l'échelon 3 ?",
+      "chunk_id": "LA-octobre2025.pdf-p657-c02",
+      "similarity": 0.30447471141815186,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est l'écart de points Elo entre un joueur ayant 7 points et un joueur ayant 6 points avec un classement de 2451-2489 ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c00",
+      "similarity": 0.3377019762992859,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Pour un classement de 2257-2300, combien de points peut avoir un joueur ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c00",
+      "similarity": 0.33930304646492004,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est le nombre de points Elo minimum pour un joueur ayant 5 points et un classement de 2600-2635 ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c00",
+      "similarity": 0.27845194935798645,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Comment déterminez-vous la tranche de points Elo pour un score de 7 ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c02",
+      "similarity": 0.3353385925292969,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le classement Elo pour un joueur avec un score de 6 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p660-c00",
+      "similarity": 0.3134145438671112,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Comment déterminer le classement Elo pour un joueur avec un score de 5,5 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p660-c00",
+      "similarity": 0.2670653760433197,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le classement Elo minimum pour un joueur avec un score de 4 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p660-c00",
+      "similarity": 0.2717440128326416,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est le classement Elo correspondant à un score de 9 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p661-c01",
+      "similarity": 0.31135252118110657,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est l'écart de points Elo entre un score de 8 points et un score de 7 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p661-c01",
+      "similarity": 0.25066378712654114,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est le classement Elo minimum pour un joueur ayant obtenu un score de 6 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p661-c01",
+      "similarity": 0.22170665860176086,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le classement Elo correspondant à un score de 9 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p663-c01",
+      "similarity": 0.31400996446609497,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est l'échelon de classement pour un joueur ayant un score de 8 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p663-c01",
+      "similarity": 0.3138984143733978,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Comment sont répartis les joueurs en fonction de leur score dans un tournoi ?",
+      "chunk_id": "LA-octobre2025.pdf-p663-c01",
+      "similarity": 0.2680405378341675,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qu'est-ce que représente la première colonne du tableau?",
+      "chunk_id": "LA-octobre2025.pdf-p643-c01",
+      "similarity": 0.34152618050575256,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Comment un organisateur de tournoi pourrait-il utiliser ce tableau pour établir des règles de départage ?",
+      "chunk_id": "LA-octobre2025.pdf-p643-c02",
+      "similarity": 0.30181676149368286,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le classement Elo pour un score de 7 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c00",
+      "similarity": 0.28280186653137207,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est le nombre de points nécessaires pour atteindre un classement Elo de 2450-2485 ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c00",
+      "similarity": 0.3244116008281708,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est le classement Elo pour un score de 6 points et demi ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c00",
+      "similarity": 0.2959451973438263,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le classement Elo pour un joueur ayant 7 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c02",
+      "similarity": 0.3072328269481659,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Si je fais 5 points, quel est mon classement Elo approximatif ?",
+      "chunk_id": "LA-octobre2025.pdf-p659-c02",
+      "similarity": 0.2960934638977051,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est le classement Elo minimum pour avoir un score de 6 en compétition ?",
+      "chunk_id": "LA-octobre2025.pdf-p660-c00",
+      "similarity": 0.29950782656669617,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Comment déterminer le classement Elo pour un score de 5 dans un tournoi ?",
+      "chunk_id": "LA-octobre2025.pdf-p660-c00",
+      "similarity": 0.28797876834869385,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Si j'ai un score de 4, quel est le classement Elo minimum que je peux avoir ?",
+      "chunk_id": "LA-octobre2025.pdf-p660-c00",
+      "similarity": 0.2652648687362671,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est le classement Elo correspondant à un score de 9 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p661-c01",
+      "similarity": 0.31135252118110657,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Comment définir les groupes de joueurs en fonction de leur score pour un tournoi ?",
+      "chunk_id": "LA-octobre2025.pdf-p661-c01",
+      "similarity": 0.2637769877910614,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Si j'ai un score de 7 points, dans quelle fourchette de classement Elo me situe ?",
+      "chunk_id": "LA-octobre2025.pdf-p661-c01",
+      "similarity": 0.2924342453479767,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Salut, je voudrais savoir quel est le classement Elo minimum pour obtenir le titre de Maître International (MI) avec 5,5 points en 13 rondes ?",
+      "chunk_id": "LA-octobre2025.pdf-p661-c02",
+      "similarity": 0.3421197533607483,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est le classement Elo correspondant à un score de 9 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p663-c01",
+      "similarity": 0.31400996446609497,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Comment définir les groupes de joueurs en fonction de leur classement Elo pour un tournoi ?",
+      "chunk_id": "LA-octobre2025.pdf-p663-c01",
+      "similarity": 0.2773282825946808,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le niveau d'élo necessaire pour obtenir le titre de Maitre International (MI) avec un score de 8 points ?",
+      "chunk_id": "LA-octobre2025.pdf-p666-c01",
+      "similarity": 0.24930278956890106,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est le score minimum requis pour obtenir le titre de Grand Maitre Femme (GMF) ?",
+      "chunk_id": "LA-octobre2025.pdf-p666-c01",
+      "similarity": 0.24666090309619904,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Comment déterminer la catégorie d'un joueur en fonction de son classement Elo dans ce tableau ?",
+      "chunk_id": "LA-octobre2025.pdf-p667-c01",
+      "similarity": 0.32614871859550476,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le classement Elo pour un joueur ayant un score de 9 ?",
+      "chunk_id": "LA-octobre2025.pdf-p667-c02",
+      "similarity": 0.29557546973228455,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Comment déterminez-vous la catégorie de classement Elo pour un joueur ayant un score de 81⁄2 ?",
+      "chunk_id": "LA-octobre2025.pdf-p667-c02",
+      "similarity": 0.30393147468566895,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Comment déterminer la fourchette de points Elo pour un joueur avec un score de 8 ?",
+      "chunk_id": "LA-octobre2025.pdf-p669-c00",
+      "similarity": 0.29812338948249817,
+      "category": "arbitre_organisateur"
+    }
+  ],
+  "hallucination": [
+    {
+      "question": "Puis-je utiliser mon téléphone en salle de jeu si je suis pas en train de jouer ?",
+      "chunk_id": "LA-octobre2025.pdf-p029-c00",
+      "similarity": 0.28475943207740784,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Est-ce que les joueurs doivent appliquer les règles du jeu d'échecs tout seuls ?",
+      "chunk_id": "LA-octobre2025.pdf-p312-c00",
+      "similarity": 0.3459319472312927,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Puis-je utiliser mon téléphone pour chercher des conseils pendant une partie en ligne?",
+      "chunk_id": "LA-octobre2025.pdf-p319-c00",
+      "similarity": 0.33961227536201477,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Puis-je garder mon téléphone dans la salle de jeu si je le mets en mode avion ?",
+      "chunk_id": "LA-octobre2025.pdf-p467-c00",
+      "similarity": 0.27861660718917847,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Qu'est-ce qu'un 'bye' dans le contexte d'un tournoi d'échecs ?",
+      "chunk_id": "LA-octobre2025-table11-summary",
+      "similarity": 0.2950867712497711,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Qu'est-ce que signifie 'toutes rondes' dans le contexte d'un tournoi d'échecs ?",
+      "chunk_id": "LA-octobre2025-table85-summary",
+      "similarity": 0.34013065695762634,
+      "category": "question_joueur"
+    }
+  ],
+  "vague": [],
+  "example_names": [],
+  "low_similarity": [
+    {
+      "question": "Qu'est-ce qu'il faut faire si l'on a répondu OUI à une ou plusieurs questions ?",
+      "chunk_id": "2022_Reglement_medical_19082022.pdf-p030-c00",
+      "similarity": 0.3345159888267517,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Qui propose l'engagement d'équipes dans les compétitions internationales ?",
+      "chunk_id": "2024_Statuts20240420.pdf-p047-c00",
+      "similarity": 0.339499294757843,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Comment les joueurs peuvent-ils se qualifier pour les tournois des candidats ?",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p013-c00",
+      "similarity": 0.3410905599594116,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quelle commission traite des questions liées à l'environnement ?",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p028-c01",
+      "similarity": 0.3460492193698883,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qu'est-ce que le « pack colosse » déployé par la fédération?",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p034-c00",
+      "similarity": 0.3076275587081909,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qu'est-ce que le plan « 30' APQ »?",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p072-c00",
+      "similarity": 0.25736311078071594,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le but du plan '5000 terrains'?",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p077-c00",
+      "similarity": 0.33643120527267456,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Où trouve-t-on les règles techniques ?",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p090-c00",
+      "similarity": 0.30442747473716736,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qui est responsable de faire les appariements dans un tournoi ?",
+      "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p012-c00",
+      "similarity": 0.32083025574684143,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Puis-je accepter un cadeau d'un joueur pendant un tournoi ?",
+      "chunk_id": "LA-octobre2025.pdf-p014-c01",
+      "similarity": 0.32773393392562866,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Où sont publiées les annales d'examens ?",
+      "chunk_id": "LA-octobre2025.pdf-p063-c00",
+      "similarity": 0.30687811970710754,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Puis-je demander à l'arbitre de m'apparier avec un joueur en particulier pour réaliser une norme ou une performance ?",
+      "chunk_id": "LA-octobre2025.pdf-p130-c01",
+      "similarity": 0.3468017876148224,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Dois-je éviter les échanges privés avec un mineur si je suis en position de supervision ?",
+      "chunk_id": "LA-octobre2025.pdf-p148-c00",
+      "similarity": 0.3158210515975952,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quels sont les comportements à éviter lors d'un événement échiquéen ?",
+      "chunk_id": "LA-octobre2025.pdf-p151-c00",
+      "similarity": 0.3205253779888153,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Que doit faire l'arbitre immédiatement après la chute d'un drapeau selon l'article 6.4 ?",
+      "chunk_id": "LA-octobre2025.pdf-p195-c01",
+      "similarity": 0.33566993474960327,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Que se passe-t-il lorsque les deux cadrans d'une pendule électronique affichent 0.00 ?",
+      "chunk_id": "LA-octobre2025.pdf-p195-c02",
+      "similarity": 0.3403916358947754,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel est le but d'afficher un grand dispositif de compte à rebours numérique sur le lieu de la compétition?",
+      "chunk_id": "LA-octobre2025.pdf-p197-c00",
+      "similarity": 0.3490791320800781,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qui est responsable de la vérification de l'apparition à trois reprises d'une même position ?",
+      "chunk_id": "LA-octobre2025.pdf-p213-c00",
+      "similarity": 0.2995516061782837,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Quel type d'horloge est recommandé pour conclure une partie ?",
+      "chunk_id": "LA-octobre2025.pdf-p237-c02",
+      "similarity": 0.29228100180625916,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qui est chargé de s'assurer que le règlement d'une compétition est suivi?",
+      "chunk_id": "LA-octobre2025.pdf-p239-c00",
+      "similarity": 0.2903122007846832,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qu'est-ce qu'une pièce dérangée ou mal placée selon l'article 7.4.1 ?",
+      "chunk_id": "LA-octobre2025.pdf-p240-c00",
+      "similarity": 0.3086678981781006,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qui est responsable de l'annonce des options choisies dans le règlement d'une compétition ?",
+      "chunk_id": "LA-octobre2025.pdf-p242-c02",
+      "similarity": 0.332045316696167,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qui assume la responsabilité de corriger les références dans le texte officiel ?",
+      "chunk_id": "LA-octobre2025.pdf-p244-c00",
+      "similarity": 0.31842610239982605,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Quel est le but du chapitre 2.3 du texte?",
+      "chunk_id": "LA-octobre2025.pdf-p264-c00",
+      "similarity": 0.3458039462566376,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Pourquoi est-il conseillé aux parents d'amener un réhausseur pour les plus petits?",
+      "chunk_id": "LA-octobre2025.pdf-p283-c01",
+      "similarity": 0.3288877010345459,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Puis-je choisir la pièce que je veux promouvoir en ligne ?",
+      "chunk_id": "LA-octobre2025.pdf-p288-c01",
+      "similarity": 0.31073427200317383,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Puis-je proposer nulle pour distraire mon adversaire ?",
+      "chunk_id": "LA-octobre2025.pdf-p300-c01",
+      "similarity": 0.3208796977996826,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Qui enquête sur une situation où des allégations de triche sont survenues ?",
+      "chunk_id": "LA-octobre2025.pdf-p334-c01",
+      "similarity": 0.2575245499610901,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Puis-je garder mon téléphone avec moi pendant la partie ou est-ce que je dois le ranger dans une zone de stockage ?",
+      "chunk_id": "LA-octobre2025.pdf-p466-c00",
+      "similarity": 0.3332494795322418,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Puis-je discuter avec un parent pendant une partie pour un passage de rafraichissement ?",
+      "chunk_id": "LA-octobre2025.pdf-p472-c00",
+      "similarity": 0.32917165756225586,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Puis-je demander la nulle via un assistant ?",
+      "chunk_id": "LA-octobre2025.pdf-p541-c00",
+      "similarity": 0.1909613311290741,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Qui sont les victimes les plus fréquentes de violences ?",
+      "chunk_id": "LA-octobre2025.pdf-p544-c00",
+      "similarity": 0.3499339818954468,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Puis-je sortir de la zone de jeu avec mon téléphone éteint pendant la partie ?",
+      "chunk_id": "LA-octobre2025.pdf-p548-c00",
+      "similarity": 0.2775886356830597,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quelles sont les conditions pour demander un bye ?",
+      "chunk_id": "LA-octobre2025.pdf-p557-c01",
+      "similarity": 0.323209285736084,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Quel est le délai de retard autorisé avant le forfait sportif ?",
+      "chunk_id": "LA-octobre2025.pdf-p557-c01",
+      "similarity": 0.3299447000026703,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Où doit être effectué le paiement des droits d'homologation de préférence ?",
+      "chunk_id": "LA-octobre2025.pdf-p580-c00",
+      "similarity": 0.1706378161907196,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Qu'est-ce qui est privilégié pour les déplacements ?",
+      "chunk_id": "LA-octobre2025.pdf-p585-c00",
+      "similarity": 0.31250983476638794,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Puis-je demander une nullité à tout moment pendant la partie ?",
+      "chunk_id": "LA-octobre2025.pdf-p699-c00",
+      "similarity": 0.2664276659488678,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Que se passe-t-il en cas de différence entre les règles ?",
+      "chunk_id": "LA-octobre2025.pdf-p656-c00",
+      "similarity": 0.20513881742954254,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Que se passe-t-il en cas de différence entre les règles ?",
+      "chunk_id": "LA-octobre2025.pdf-p656-c00",
+      "similarity": 0.20513881742954254,
+      "category": "question_joueur"
+    },
+    {
+      "question": "Qui est responsable du paiement des droits de titre dans le cas général ?",
+      "chunk_id": "LA-octobre2025.pdf-p679-c02",
+      "similarity": 0.32971474528312683,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qu'est-ce qu'un arbitre doit savoir utiliser efficacement pour contrôler le temps de jeu ?",
+      "chunk_id": "LA-octobre2025.pdf-p691-c00",
+      "similarity": 0.34232816100120544,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qui est chargé de collecter les résultats et de vérifier leur conformité ?",
+      "chunk_id": "règlement_n4_2024_2025__1_.pdf-p007-c00",
+      "similarity": 0.33927106857299805,
+      "category": "arbitre_terrain"
+    },
+    {
+      "question": "Qui est chargé de collecter les résultats et de vérifier leur conformité ?",
+      "chunk_id": "règlement_régionale_2024_2025.pdf-p007-c00",
+      "similarity": 0.33469024300575256,
+      "category": "arbitre_organisateur"
+    },
+    {
+      "question": "Où trouve-t-on les informations concernant la feuille de partie ?",
+      "chunk_id": "LA-octobre2025-table5-summary",
+      "similarity": 0.3171318769454956,
+      "category": "arbitre_organisateur"
+    }
+  ]
+}

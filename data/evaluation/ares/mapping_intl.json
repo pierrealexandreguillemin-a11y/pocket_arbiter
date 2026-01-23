@@ -1,0 +1,802 @@
+{
+  "corpus": "intl",
+  "version": "2.4",
+  "total_samples": 88,
+  "positive_count": 62,
+  "negative_count": 26,
+  "negative_ratio": 0.29545454545454547,
+  "samples": [
+    {
+      "gs_id": "intl_001",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        26
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_002",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        49
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_003",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        28
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_004",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent032-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        41
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_005",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent025-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        33
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_006",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        36
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_007",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        23
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_008",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        49
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_009",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent035-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        44
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_010",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        42
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_011",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        36
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_012",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        40
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_013",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        23
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_014",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_015",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p037-parent028-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        37
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_016",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        22
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_017",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        49
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_018",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        41
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_019",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        45
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_020",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        28
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_021",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        36
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_022",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        47
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_023",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent051-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        61
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_024",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        28
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_025",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        47
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_032",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent148-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        168
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_037",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        55
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_039",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        22
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_040",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent048-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        57
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_042",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        36
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_043",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        30
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_044",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent016-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        18
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_045",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent017-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        20
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_046",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        23
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_047",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        21
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_048",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        25
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_049",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        26
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_050",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        28
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_051",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        28
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_052",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        21
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_053",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        25
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_054",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        30
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_055",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent024-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        32
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_056",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent023-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        31
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_057",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent026-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        33
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_058",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        30
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_059",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        30
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_060",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        35
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_061",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        35
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_062",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        35
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_063",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        36
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_064",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_065",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_066",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent030-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        39
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_067",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        41
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_068",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        40
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_069",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        28
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_070",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        42
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_071",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        47
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_072",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        45
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_073",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        47
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_074",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        45
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "intl_053_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        55
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_002_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p099-parent290-child03",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        99
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_018_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p116-parent099-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        116
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_015_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p067-parent056-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        67
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_060_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent040-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        50
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_056_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p099-parent290-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        99
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_070_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p233-parent213-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        233
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_006_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p260-parent232-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        260
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_039_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p010-parent010-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        10
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_002_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        45
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_014_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p116-parent094-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        116
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_045_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p266-parent235-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        266
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_002_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p242-parent219-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        242
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_013_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p328-parent280-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        328
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_054_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p320-parent275-child01",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        320
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_047_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p183-parent165-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        183
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_015_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p188-parent176-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        188
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_050_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p130-parent110-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        130
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_064_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p002-parent001-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        2
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_061_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025-table39-summary",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        213
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_011_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p316-parent274-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        316
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_039_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p163-parent135-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        163
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_018_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p077-parent063-child02",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        77
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_014_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p351-parent298-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        351
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_022_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent041-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        50
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "intl_006_neg",
+      "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p171-parent151-child00",
+      "source": "FIDE_Arbiters_Manual_2025.pdf",
+      "pages": [
+        171
+      ],
+      "label": 0
+    }
+  ]
+}

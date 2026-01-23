@@ -1,0 +1,2683 @@
+{
+  "corpus": "fr",
+  "version": "5.30",
+  "total_samples": 297,
+  "positive_count": 209,
+  "negative_count": 88,
+  "negative_ratio": 0.2962962962962963,
+  "samples": [
+    {
+      "gs_id": "FR-Q01",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        41
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q02",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        46
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q03",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        46
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q04",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        46
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q05",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        48
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q06",
+      "chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        40
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q07",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent180-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        51
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q08",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        52
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q09",
+      "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        39
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q10",
+      "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        39
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q11",
+      "chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        53
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q12",
+      "chunk_id": "LA-octobre2025.pdf-p059-parent194-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        59
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q13",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        50
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q14",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        51
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q15",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        55
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q16",
+      "chunk_id": "LA-octobre2025.pdf-p072-parent217-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        72
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q17",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent026-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        4
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q18",
+      "chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        56
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q19",
+      "chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        58
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q20",
+      "chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+      "source": "R02_2025_26_Regles_generales_Annexes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q21",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00",
+      "source": "R03_2025_26_Competitions_homologuees.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q22",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent011-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q23",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q24",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q25",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q26",
+      "chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p001-parent001-child00",
+      "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q27",
+      "chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent007-child00",
+      "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q28",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q29",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q30",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q31",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q32",
+      "chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q33",
+      "chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q34",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q35",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q36",
+      "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p001-parent001-child01",
+      "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q37",
+      "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent014-child00",
+      "source": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q38",
+      "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q39",
+      "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q40",
+      "chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
+      "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q41",
+      "chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p004-parent016-child00",
+      "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+      "pages": [
+        4
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q42",
+      "chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent000-child00",
+      "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q43",
+      "chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
+      "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q44",
+      "chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "source": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q45",
+      "chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "source": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q46",
+      "chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "source": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q47",
+      "chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00",
+      "source": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q48",
+      "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "source": "E02-Le_classement_rapide.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q49",
+      "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00",
+      "source": "E02-Le_classement_rapide.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q50",
+      "chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "source": "2024_Statuts20240420.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q51",
+      "chunk_id": "2024_Statuts20240420.pdf-p005-parent009-child00",
+      "source": "2024_Statuts20240420.pdf",
+      "pages": [
+        5
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q52",
+      "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00",
+      "source": "2025_Reglement_Interieur_20250503.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q53",
+      "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p008-parent022-child00",
+      "source": "2025_Reglement_Interieur_20250503.pdf",
+      "pages": [
+        8
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q54",
+      "chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "source": "2023_Reglement_Financier20230610.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q55",
+      "chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "source": "2023_Reglement_Financier20230610.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q56",
+      "chunk_id": "2022_Reglement_medical_19082022.pdf-p002-parent001-child00",
+      "source": "2022_Reglement_medical_19082022.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q57",
+      "chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent013-child00",
+      "source": "2022_Reglement_medical_19082022.pdf",
+      "pages": [
+        5
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q58",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent020-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        7
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q59",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q60",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q61",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q65",
+      "chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent002-child00",
+      "source": "Interclubs_DepartementalBdr.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q66",
+      "chunk_id": "InterclubsJeunes_PACABdr.pdf-p001-parent000-child00",
+      "source": "InterclubsJeunes_PACABdr.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q67",
+      "chunk_id": "LA-octobre2025.pdf-p142-parent417-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        142
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q68",
+      "chunk_id": "LA-octobre2025.pdf-p141-parent412-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        141
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q69",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        44
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q70",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        41
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q71",
+      "chunk_id": "LA-octobre2025.pdf-p018-parent073-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        18
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q72",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        46
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q73",
+      "chunk_id": "LA-octobre2025.pdf-p063-parent201-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        63
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q74",
+      "chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        54
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q75",
+      "chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        61
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q76",
+      "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        183
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q78",
+      "chunk_id": "LA-octobre2025.pdf-p185-parent546-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        185
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q79",
+      "chunk_id": "LA-octobre2025.pdf-p193-parent573-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        193
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q80",
+      "chunk_id": "LA-octobre2025.pdf-p192-parent572-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        192
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q81",
+      "chunk_id": "LA-octobre2025.pdf-p197-parent584-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        197
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q82",
+      "chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        166
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q83",
+      "chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        172
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q84",
+      "chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        178
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q85",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent487-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        165
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q86",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        46
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q87",
+      "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        183
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q88",
+      "chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        185
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q89",
+      "chunk_id": "LA-octobre2025-table73-summary",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        184
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q90",
+      "chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        178
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q91",
+      "chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        179
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q92",
+      "chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        178
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q93",
+      "chunk_id": "LA-octobre2025.pdf-p180-parent528-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        180
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q95",
+      "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        183
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q96",
+      "chunk_id": "LA-octobre2025-table73-summary",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        184
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q97",
+      "chunk_id": "LA-octobre2025.pdf-p192-parent571-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        192
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q98",
+      "chunk_id": "LA-octobre2025.pdf-p196-parent579-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        196
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q100",
+      "chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        166
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q101",
+      "chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        179
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q102",
+      "chunk_id": "LA-octobre2025.pdf-p172-parent512-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        172
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q103",
+      "chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        166
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q104",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        43
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q105",
+      "chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        54
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q106",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        48
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q107",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent018-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        4
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q108",
+      "chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "source": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q109",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "source": "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q110",
+      "chunk_id": "LA-octobre2025.pdf-p042-parent162-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        42
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q111",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        43
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q112",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        50
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q113",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        48
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q114",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        48
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q115",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        43
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q116",
+      "chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        58
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q117",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        49
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q118",
+      "chunk_id": "LA-octobre2025.pdf-p151-parent447-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        151
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q119",
+      "chunk_id": "LA-octobre2025.pdf-p102-parent300-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        102
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q120",
+      "chunk_id": "LA-octobre2025.pdf-p126-parent367-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        126
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q121",
+      "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        183
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q122",
+      "chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        185
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q123",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        43
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q124",
+      "chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        178
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q125",
+      "chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        57
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q126",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        49
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q127",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        50
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q128",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        52
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q129",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        52
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q130",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        47
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q131",
+      "chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        188
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q132",
+      "chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        188
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q133",
+      "chunk_id": "LA-octobre2025.pdf-p124-parent357-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        124
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q134",
+      "chunk_id": "LA-octobre2025.pdf-p151-parent440-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        151
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q151",
+      "chunk_id": "LA-octobre2025.pdf-p039-parent158-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        39
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q152",
+      "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        39
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q153",
+      "chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        40
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q154",
+      "chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        40
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q155",
+      "chunk_id": "LA-octobre2025.pdf-p040-parent159-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        40
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q156",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        44
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q157",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        44
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q158",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q159",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q160",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        37
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q161",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        41
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q162",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        43
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q163",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        43
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q164",
+      "chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        45
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q165",
+      "chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        45
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q166",
+      "chunk_id": "LA-octobre2025.pdf-p008-parent010-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        8
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q167",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        10
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q168",
+      "chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        59
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q169",
+      "chunk_id": "LA-octobre2025.pdf-p061-parent199-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        61
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q170",
+      "chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        61
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q171",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p003-parent006-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q172",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent012-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        4
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q173",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        4
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q174",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent010-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        4
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q175",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent011-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        4
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q176",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q177",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q178",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q179",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q180",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q181",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q182",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q183",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p002-parent007-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q184",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q185",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q186",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q187",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q188",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q189",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q190",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q191",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q192",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q193",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent012-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q194",
+      "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "source": "E02-Le_classement_rapide.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q195",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        44
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q196",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        47
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q197",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        37
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q198",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        37
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q199",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        37
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q200",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q201",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q202",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        38
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q203",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        41
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q204",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        43
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q205",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        37
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q206",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        37
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q207",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        44
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q208",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        44
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q209",
+      "chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        59
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q210",
+      "chunk_id": "LA-octobre2025.pdf-p061-parent199-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        61
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q211",
+      "chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        61
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q212",
+      "chunk_id": "LA-octobre2025.pdf-p061-parent199-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        61
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q213",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q214",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q215",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q216",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        3
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q217",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q218",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q219",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        5
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q220",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "source": "2018_Reglement_Disciplinaire20180422.pdf",
+      "pages": [
+        5
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q221",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent009-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q222",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q223",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q224",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent006-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        2
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q225",
+      "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "source": "E02-Le_classement_rapide.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q226",
+      "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "source": "E02-Le_classement_rapide.pdf",
+      "pages": [
+        1
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q227",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        52
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q228",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        52
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q229",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        55
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q230",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        55
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q231",
+      "chunk_id": "LA-octobre2025.pdf-p065-parent204-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        65
+      ],
+      "label": 1
+    },
+    {
+      "gs_id": "FR-Q183_neg",
+      "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent005-child00",
+      "source": "A01_2025_26_Championnat_de_France.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q07_neg",
+      "chunk_id": "LA-octobre2025.pdf-p200-parent599-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        200
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q71_neg",
+      "chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent001-child01",
+      "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q58_neg",
+      "chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent005-child00",
+      "source": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf",
+      "pages": [
+        2
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q208_neg",
+      "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p016-parent063-child00",
+      "source": "2025_Reglement_Interieur_20250503.pdf",
+      "pages": [
+        16
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q193_neg",
+      "chunk_id": "LA-octobre2025.pdf-p200-parent599-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        200
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q159_neg",
+      "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p010-parent032-child00",
+      "source": "2025_Reglement_Interieur_20250503.pdf",
+      "pages": [
+        10
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q171_neg",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        46
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q09_neg",
+      "chunk_id": "2023_Reglement_Financier20230610.pdf-p001-parent003-child00",
+      "source": "2023_Reglement_Financier20230610.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q24_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p014-parent035-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        14
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q60_neg",
+      "chunk_id": "LA-octobre2025.pdf-p091-parent272-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        91
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q174_neg",
+      "chunk_id": "2023_Reglement_Financier20230610.pdf-p001-parent000-child00",
+      "source": "2023_Reglement_Financier20230610.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q163_neg",
+      "chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p007-parent035-child00",
+      "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+      "pages": [
+        7
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q203_neg",
+      "chunk_id": "LA-octobre2025.pdf-p137-parent465-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        137
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q199_neg",
+      "chunk_id": "LA-octobre2025.pdf-p115-parent326-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        115
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q111_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p014-parent036-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        14
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q118_neg",
+      "chunk_id": "LA-octobre2025.pdf-p127-parent372-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        127
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q72_neg",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent000-child00",
+      "source": "R01_2025_26_Regles_generales.pdf",
+      "pages": [
+        6
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q02_neg",
+      "chunk_id": "LA-octobre2025.pdf-p201-parent611-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        201
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q226_neg",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent026-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        5
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q198_neg",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        46
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q89_neg",
+      "chunk_id": "Interclubs_DepartementalBdr.pdf-p003-parent017-child00",
+      "source": "Interclubs_DepartementalBdr.pdf",
+      "pages": [
+        3
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q40_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p012-parent026-child01",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        12
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q215_neg",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent023-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        10
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q27_neg",
+      "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p012-parent043-child00",
+      "source": "2025_Reglement_Interieur_20250503.pdf",
+      "pages": [
+        12
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q101_neg",
+      "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p014-parent052-child00",
+      "source": "2025_Reglement_Interieur_20250503.pdf",
+      "pages": [
+        14
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q93_neg",
+      "chunk_id": "règlement_régionale_2024_2025.pdf-p001-parent002-child00",
+      "source": "règlement_régionale_2024_2025.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q90_neg",
+      "chunk_id": "LA-octobre2025.pdf-p134-parent392-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        134
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q68_neg",
+      "chunk_id": "LA-octobre2025.pdf-p226-parent687-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        226
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q12_neg",
+      "chunk_id": "LA-octobre2025.pdf-p197-parent584-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        197
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q121_neg",
+      "chunk_id": "LA-octobre2025.pdf-p107-parent317-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        107
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q32_neg",
+      "chunk_id": "LA-octobre2025.pdf-p024-parent110-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        24
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q21_neg",
+      "chunk_id": "LA-octobre2025.pdf-p115-parent330-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        115
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q76_neg",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
+      "source": "R03_2025_26_Competitions_homologuees.pdf",
+      "pages": [
+        2
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q180_neg",
+      "chunk_id": "LA-octobre2025.pdf-p142-parent417-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        142
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q95_neg",
+      "chunk_id": "LA-octobre2025.pdf-p122-parent353-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        122
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q50_neg",
+      "chunk_id": "LA-octobre2025.pdf-p186-parent550-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        186
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q18_neg",
+      "chunk_id": "2024_Statuts20240420.pdf-p004-parent008-child01",
+      "source": "2024_Statuts20240420.pdf",
+      "pages": [
+        4
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q189_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p020-parent058-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        20
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q217_neg",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent018-child00",
+      "source": "J01_2025_26_Championnat_de_France_Jeunes.pdf",
+      "pages": [
+        4
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q21_neg",
+      "chunk_id": "C04_2025_26_Coupe_de_la_parité-table1-summary",
+      "source": "C04_2025_26_Coupe_de_la_parité.pdf",
+      "pages": [
+        5
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q60_neg",
+      "chunk_id": "LA-octobre2025-table15-summary",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        106
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q26_neg",
+      "chunk_id": "LA-octobre2025.pdf-p024-parent108-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        24
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q72_neg",
+      "chunk_id": "LA-octobre2025.pdf-p062-parent200-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        62
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q182_neg",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00",
+      "source": "R03_2025_26_Competitions_homologuees.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q96_neg",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent004-child00",
+      "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q97_neg",
+      "chunk_id": "LA-octobre2025.pdf-p016-parent056-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        16
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q54_neg",
+      "chunk_id": "LA-octobre2025.pdf-p168-parent500-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        168
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q69_neg",
+      "chunk_id": "LA-octobre2025.pdf-p172-parent547-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        172
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q194_neg",
+      "chunk_id": "LA-octobre2025.pdf-p155-parent466-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        155
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q19_neg",
+      "chunk_id": "LA-octobre2025.pdf-p138-parent403-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        138
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q182_neg",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p004-parent019-child00",
+      "source": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf",
+      "pages": [
+        4
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q156_neg",
+      "chunk_id": "LA-octobre2025.pdf-p196-parent583-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        196
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q42_neg",
+      "chunk_id": "LA-octobre2025.pdf-p066-parent212-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        66
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q101_neg",
+      "chunk_id": "Interclubs_DepartementalBdr.pdf-p001-parent000-child00",
+      "source": "Interclubs_DepartementalBdr.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q183_neg",
+      "chunk_id": "LA-octobre2025.pdf-p180-parent528-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        180
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q162_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p014-parent034-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        14
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q195_neg",
+      "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p004-parent022-child01",
+      "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+      "pages": [
+        4
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q216_neg",
+      "chunk_id": "LA-octobre2025.pdf-p212-parent639-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        212
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q15_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p019-parent054-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        19
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q230_neg",
+      "chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent007-child00",
+      "source": "2023_Reglement_Financier20230610.pdf",
+      "pages": [
+        2
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q226_neg",
+      "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p003-parent014-child00",
+      "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+      "pages": [
+        3
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q106_neg",
+      "chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01",
+      "source": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q17_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p009-parent020-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        9
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q165_neg",
+      "chunk_id": "LA-octobre2025-table39-summary",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        119
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q203_neg",
+      "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent003-child00",
+      "source": "J03_2025_26_Championnat_de_France_scolaire.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q55_neg",
+      "chunk_id": "LA-octobre2025.pdf-p159-parent475-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        159
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q131_neg",
+      "chunk_id": "LA-octobre2025.pdf-p029-parent133-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        29
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q184_neg",
+      "chunk_id": "LA-octobre2025.pdf-p066-parent209-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        66
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q37_neg",
+      "chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent004-child00",
+      "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+      "pages": [
+        2
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q36_neg",
+      "chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p002-parent004-child01",
+      "source": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf",
+      "pages": [
+        2
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q210_neg",
+      "chunk_id": "LA-octobre2025.pdf-p115-parent339-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        115
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q157_neg",
+      "chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
+      "source": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf",
+      "pages": [
+        1
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q211_neg",
+      "chunk_id": "LA-octobre2025.pdf-p126-parent368-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        126
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q113_neg",
+      "chunk_id": "LA-octobre2025-table85-summary",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        200
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q169_neg",
+      "chunk_id": "LA-octobre2025.pdf-p032-parent139-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        32
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q95_neg",
+      "chunk_id": "Contrat_de_delegation_15032022.pdf-p014-parent034-child00",
+      "source": "Contrat_de_delegation_15032022.pdf",
+      "pages": [
+        14
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q36_neg",
+      "chunk_id": "LA-octobre2025.pdf-p093-parent277-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        93
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q130_neg",
+      "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p012-parent040-child00",
+      "source": "2025_Reglement_Interieur_20250503.pdf",
+      "pages": [
+        12
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q213_neg",
+      "chunk_id": "2024_Statuts20240420.pdf-p005-parent011-child00",
+      "source": "2024_Statuts20240420.pdf",
+      "pages": [
+        5
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q29_neg",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent018-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        4
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q180_neg",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent027-child00",
+      "source": "C01_2025_26_Coupe_de_France.pdf",
+      "pages": [
+        5
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q222_neg",
+      "chunk_id": "LA-octobre2025.pdf-p173-parent515-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        173
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q112_neg",
+      "chunk_id": "LA-octobre2025.pdf-p131-parent388-child01",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        131
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q17_neg",
+      "chunk_id": "LA-octobre2025.pdf-p025-parent113-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        25
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q101_neg",
+      "chunk_id": "LA-octobre2025.pdf-p130-parent384-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        130
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q123_neg",
+      "chunk_id": "LA-octobre2025.pdf-p104-parent308-child02",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        104
+      ],
+      "label": 0
+    },
+    {
+      "gs_id": "FR-Q65_neg",
+      "chunk_id": "LA-octobre2025.pdf-p115-parent333-child00",
+      "source": "LA-octobre2025.pdf",
+      "pages": [
+        115
+      ],
+      "label": 0
+    }
+  ]
+}

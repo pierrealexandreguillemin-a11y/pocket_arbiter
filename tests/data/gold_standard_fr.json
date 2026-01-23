@@ -1,6 +1,6 @@
 {
-  "version": "5.29",
-  "description": "Gold standard v5.29 - 237 questions (+21 adversarial UAEval4RAG/SQuAD2-CR)",
+  "version": "5.30",
+  "description": "Gold standard v5.30 - semantic validation with expected_chunk_id",
   "methodology": {
     "author": "Arbitre professionnel FFE",
     "approach": "Questions pratiques terrain couvrant tous règlements",
@@ -104,7 +104,8 @@
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01"
     },
     {
       "id": "FR-Q02",
@@ -137,7 +138,8 @@
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "REMEMBER"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
     },
     {
       "id": "FR-Q03",
@@ -170,7 +172,8 @@
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "REMEMBER"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
     },
     {
       "id": "FR-Q04",
@@ -201,7 +204,8 @@
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01"
     },
     {
       "id": "FR-Q05",
@@ -229,7 +233,8 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00"
     },
     {
       "id": "FR-Q06",
@@ -259,7 +264,8 @@
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_v2_2026-01-19"
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
     },
     {
       "id": "FR-Q07",
@@ -290,7 +296,8 @@
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent180-child01"
     },
     {
       "id": "FR-Q08",
@@ -323,7 +330,8 @@
         "reasoning_type": "LEXICAL_MATCH",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_final_2026-01-19"
+      "audit": "strict_final_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02"
     },
     {
       "id": "FR-Q09",
@@ -353,7 +361,8 @@
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_v2_2026-01-19"
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
     },
     {
       "id": "FR-Q10",
@@ -381,7 +390,8 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
     },
     {
       "id": "FR-Q11",
@@ -409,7 +419,8 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00"
     },
     {
       "id": "FR-Q12",
@@ -439,7 +450,8 @@
         "reasoning_type": "LEXICAL_MATCH",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent194-child00"
     },
     {
       "id": "FR-Q13",
@@ -469,7 +481,8 @@
         "reasoning_type": "LEXICAL_MATCH",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_v2_2026-01-19"
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02"
     },
     {
       "id": "FR-Q14",
@@ -500,7 +513,8 @@
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
       },
-      "audit": "strict_v2_2026-01-19"
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01"
     },
     {
       "id": "FR-Q15",
@@ -533,7 +547,8 @@
         "reasoning_type": "LEXICAL_MATCH",
         "cognitive_level": "ANALYZE"
       },
-      "audit": "strict_v2_2026-01-19"
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
     },
     {
       "id": "FR-Q16",
@@ -596,7 +611,8 @@
         "cognitive_level": "ANALYZE",
         "hard_type": "ANSWERABLE"
       },
-      "audit": "strict_final_2026-01-19"
+      "audit": "strict_final_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p072-parent217-child00"
     },
     {
       "id": "FR-Q17",
@@ -622,7 +638,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent026-child00"
     },
     {
       "id": "FR-Q18",
@@ -688,7 +705,8 @@
         "cognitive_level": "ANALYZE",
         "hard_type": "ANSWERABLE"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00"
     },
     {
       "id": "FR-Q19",
@@ -754,7 +772,8 @@
         "cognitive_level": "ANALYZE",
         "hard_type": "ANSWERABLE"
       },
-      "audit": "strict_2026-01-19"
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
     },
     {
       "id": "FR-Q20",
@@ -780,7 +799,8 @@
         "answer_type": "LIST",
         "reasoning_type": "LEXICAL_MATCH",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q21",
@@ -808,7 +828,8 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "REMEMBER"
-      }
+      },
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00"
     },
     {
       "id": "FR-Q22",
@@ -836,7 +857,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent011-child00"
     },
     {
       "id": "FR-Q23",
@@ -864,7 +886,8 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00"
     },
     {
       "id": "FR-Q24",
@@ -892,7 +915,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
     },
     {
       "id": "FR-Q25",
@@ -920,7 +944,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
     },
     {
       "id": "FR-Q26",
@@ -948,7 +973,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q27",
@@ -976,7 +1002,8 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent007-child00"
     },
     {
       "id": "FR-Q28",
@@ -1004,7 +1031,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q29",
@@ -1032,7 +1060,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q30",
@@ -1060,7 +1089,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q31",
@@ -1088,7 +1118,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q32",
@@ -1116,7 +1147,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q33",
@@ -1145,7 +1177,8 @@
         "answer_type": "LIST",
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q34",
@@ -1173,7 +1206,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00"
     },
     {
       "id": "FR-Q35",
@@ -1201,7 +1235,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00"
     },
     {
       "id": "FR-Q36",
@@ -1229,7 +1264,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p001-parent001-child01"
     },
     {
       "id": "FR-Q37",
@@ -1257,7 +1293,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent014-child00"
     },
     {
       "id": "FR-Q38",
@@ -1285,7 +1322,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q39",
@@ -1313,7 +1351,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q40",
@@ -1341,7 +1380,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q41",
@@ -1369,7 +1409,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p004-parent016-child00"
     },
     {
       "id": "FR-Q42",
@@ -1396,7 +1437,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent000-child00"
     },
     {
       "id": "FR-Q43",
@@ -1426,7 +1468,8 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q44",
@@ -1452,7 +1495,8 @@
         "answer_type": "LIST",
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q45",
@@ -1478,7 +1522,8 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "REMEMBER"
-      }
+      },
+      "expected_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q46",
@@ -1507,7 +1552,8 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "LEXICAL_MATCH",
         "cognitive_level": "REMEMBER"
-      }
+      },
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q47",
@@ -1536,7 +1582,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00"
     },
     {
       "id": "FR-Q48",
@@ -1562,7 +1609,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q49",
@@ -1588,7 +1636,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q50",
@@ -1618,7 +1667,8 @@
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
       },
-      "audit": "strict_v3_2026-01-19"
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00"
     },
     {
       "id": "FR-Q51",
@@ -1646,7 +1696,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "2024_Statuts20240420.pdf-p005-parent009-child00"
     },
     {
       "id": "FR-Q52",
@@ -1674,7 +1725,8 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00"
     },
     {
       "id": "FR-Q53",
@@ -1702,7 +1754,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p008-parent022-child00"
     },
     {
       "id": "FR-Q54",
@@ -1730,7 +1783,8 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-Q55",
@@ -1758,7 +1812,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-Q56",
@@ -1788,7 +1843,8 @@
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
       },
-      "audit": "semantic_correction_2026-01-23"
+      "audit": "semantic_correction_2026-01-23",
+      "expected_chunk_id": "2022_Reglement_medical_19082022.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q57",
@@ -1818,7 +1874,8 @@
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_v3_2026-01-19"
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent013-child00"
     },
     {
       "id": "FR-Q58",
@@ -1846,7 +1903,8 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "REMEMBER"
-      }
+      },
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent020-child00"
     },
     {
       "id": "FR-Q59",
@@ -1874,7 +1932,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q60",
@@ -1904,7 +1963,8 @@
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "UNDERSTAND"
       },
-      "audit": "strict_v3_2026-01-19"
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00"
     },
     {
       "id": "FR-Q61",
@@ -1935,7 +1995,8 @@
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
       },
-      "audit": "strict_v3_2026-01-19"
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00"
     },
     {
       "id": "FR-Q62",
@@ -1962,7 +2023,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "reglement_n4_2024_2025__1_.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q63",
@@ -1989,7 +2051,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "reglement_n4_2024_2025__1_.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-Q64",
@@ -2016,7 +2079,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "reglement_regionale_2024_2025.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-Q65",
@@ -2044,7 +2108,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent002-child00"
     },
     {
       "id": "FR-Q66",
@@ -2071,7 +2136,8 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
-      }
+      },
+      "expected_chunk_id": "InterclubsJeunes_PACABdr.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q67",
@@ -2100,7 +2166,8 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
-      }
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p142-parent417-child00"
     },
     {
       "id": "FR-Q68",
@@ -2130,7 +2197,8 @@
         "reasoning_type": "LEXICAL_MATCH",
         "cognitive_level": "APPLY"
       },
-      "audit": "strict_v3_2026-01-19"
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p141-parent412-child00"
     },
     {
       "id": "FR-Q69",
@@ -2160,7 +2228,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
     },
     {
       "id": "FR-Q70",
@@ -2191,7 +2260,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00"
     },
     {
       "id": "FR-Q71",
@@ -2223,7 +2293,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent073-child00"
     },
     {
       "id": "FR-Q72",
@@ -2252,7 +2323,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
     },
     {
       "id": "FR-Q73",
@@ -2284,7 +2356,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p063-parent201-child00"
     },
     {
       "id": "FR-Q74",
@@ -2314,7 +2387,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
     },
     {
       "id": "FR-Q75",
@@ -2347,7 +2421,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00"
     },
     {
       "id": "FR-Q76",
@@ -2377,7 +2452,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
     },
     {
       "id": "FR-Q77",
@@ -2417,7 +2493,8 @@
         "audit_note": "Vocabulary mismatch intentionnel - best practice RAG evaluation"
       },
       "audit": "added_2026-01-20",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
     },
     {
       "id": "FR-Q78",
@@ -2446,7 +2523,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent546-child00"
     },
     {
       "id": "FR-Q79",
@@ -2478,7 +2556,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p193-parent573-child00"
     },
     {
       "id": "FR-Q80",
@@ -2511,7 +2590,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p192-parent572-child00"
     },
     {
       "id": "FR-Q81",
@@ -2542,7 +2622,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p197-parent584-child00"
     },
     {
       "id": "FR-Q82",
@@ -2574,7 +2655,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00"
     },
     {
       "id": "FR-Q83",
@@ -2605,7 +2687,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00"
     },
     {
       "id": "FR-Q84",
@@ -2637,7 +2720,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00"
     },
     {
       "id": "FR-Q85",
@@ -2672,7 +2756,8 @@
         "auto_fixed": true
       },
       "audit": "added_2026-01-20",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p165-parent487-child00"
     },
     {
       "id": "FR-Q86",
@@ -2709,7 +2794,8 @@
         "auto_fixed": true
       },
       "audit": "added_2026-01-20",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
     },
     {
       "id": "FR-Q87",
@@ -2742,7 +2828,8 @@
         "method": "corpus_verified"
       },
       "audit": "added_2026-01-20",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
     },
     {
       "id": "FR-Q88",
@@ -2776,7 +2863,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00"
     },
     {
       "id": "FR-Q89",
@@ -2809,7 +2897,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025-table73-summary"
     },
     {
       "id": "FR-Q90",
@@ -2839,7 +2928,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00"
     },
     {
       "id": "FR-Q91",
@@ -2871,7 +2961,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00"
     },
     {
       "id": "FR-Q92",
@@ -2904,7 +2995,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00"
     },
     {
       "id": "FR-Q93",
@@ -2936,7 +3028,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20"
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p180-parent528-child00"
     },
     {
       "id": "FR-Q94",
@@ -2976,7 +3069,8 @@
         "audit_note": "Vocabulary mismatch intentionnel - best practice RAG evaluation"
       },
       "audit": "added_2026-01-20_grok",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child01"
     },
     {
       "id": "FR-Q95",
@@ -3011,7 +3105,8 @@
         "method": "corpus_verified"
       },
       "audit": "added_2026-01-20_grok",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
     },
     {
       "id": "FR-Q96",
@@ -3048,7 +3143,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025-table73-summary"
     },
     {
       "id": "FR-Q97",
@@ -3083,7 +3179,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p192-parent571-child00"
     },
     {
       "id": "FR-Q98",
@@ -3119,7 +3216,8 @@
         "method": "corpus_verified"
       },
       "audit": "added_2026-01-20_grok",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p196-parent579-child00"
     },
     {
       "id": "FR-Q99",
@@ -3157,7 +3255,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p200-parent595-child00"
     },
     {
       "id": "FR-Q100",
@@ -3192,7 +3291,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00"
     },
     {
       "id": "FR-Q101",
@@ -3228,7 +3328,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00"
     },
     {
       "id": "FR-Q102",
@@ -3264,7 +3365,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_grok"
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent512-child00"
     },
     {
       "id": "FR-Q103",
@@ -3303,7 +3405,8 @@
         "auto_fixed": true
       },
       "audit": "added_2026-01-20_grok",
-      "hard_case": true
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00"
     },
     {
       "id": "FR-Q104",
@@ -3336,7 +3439,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-Q105",
@@ -3369,7 +3473,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
     },
     {
       "id": "FR-Q106",
@@ -3402,7 +3507,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00"
     },
     {
       "id": "FR-Q107",
@@ -3436,7 +3542,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent018-child00"
     },
     {
       "id": "FR-Q108",
@@ -3472,7 +3579,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00"
     },
     {
       "id": "FR-Q109",
@@ -3508,7 +3616,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
     },
     {
       "id": "FR-Q110",
@@ -3541,7 +3650,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02"
     },
     {
       "id": "FR-Q111",
@@ -3575,7 +3685,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "added_2026-01-20_verified"
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-Q112",
@@ -3608,7 +3719,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "audit": "corrected_2026-01-20_audit"
+      "audit": "corrected_2026-01-20_audit",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00"
     },
     {
       "id": "FR-Q113",
@@ -3646,7 +3758,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Règle différente selon cadence longue vs rapide - "
+      "notes": "Hard case Annales exam - Règle différente selon cadence longue vs rapide - ",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00"
     },
     {
       "id": "FR-Q114",
@@ -3681,7 +3794,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - En rapide la partie continue vs annulée en longue"
+      "notes": "Hard case Annales exam - En rapide la partie continue vs annulée en longue",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00"
     },
     {
       "id": "FR-Q115",
@@ -3719,7 +3833,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Acceptation = partie terminée même si annonce faus"
+      "notes": "Hard case Annales exam - Acceptation = partie terminée même si annonce faus",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
     },
     {
       "id": "FR-Q116",
@@ -3754,7 +3869,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Gestion temps différent en blitz vs longue"
+      "notes": "Hard case Annales exam - Gestion temps différent en blitz vs longue",
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
     },
     {
       "id": "FR-Q117",
@@ -3788,7 +3904,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Gradation des sanctions selon nombre de coups illé"
+      "notes": "Hard case Annales exam - Gradation des sanctions selon nombre de coups illé",
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-Q118",
@@ -3824,7 +3941,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Distinction fine entre départages (Buchholz vs Son"
+      "notes": "Hard case Annales exam - Distinction fine entre départages (Buchholz vs Son",
+      "expected_chunk_id": "LA-octobre2025.pdf-p151-parent447-child00"
     },
     {
       "id": "FR-Q119",
@@ -3861,7 +3979,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Chapitre 3.1 Les tournois toutes-rondes"
+      "notes": "Hard case Annales exam - Chapitre 3.1 Les tournois toutes-rondes",
+      "expected_chunk_id": "LA-octobre2025.pdf-p102-parent300-child00"
     },
     {
       "id": "FR-Q120",
@@ -3897,7 +4016,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Terminologie technique appariement"
+      "notes": "Hard case Annales exam - Terminologie technique appariement",
+      "expected_chunk_id": "LA-octobre2025.pdf-p126-parent367-child00"
     },
     {
       "id": "FR-Q121",
@@ -3933,7 +4053,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Art. 7.1.4 (5 parties min), Art. 8.2 (calcul initial Ru)"
+      "notes": "Hard case Annales exam - Art. 7.1.4 (5 parties min), Art. 8.2 (calcul initial Ru)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
     },
     {
       "id": "FR-Q122",
@@ -3970,7 +4091,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Application formule Elo avec K variable"
+      "notes": "Hard case Annales exam - Application formule Elo avec K variable",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00"
     },
     {
       "id": "FR-Q123",
@@ -4007,7 +4129,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Interaction annonce mat et matériel insuffisant"
+      "notes": "Hard case Annales exam - Interaction annonce mat et matériel insuffisant",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-Q124",
@@ -4043,7 +4166,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Barème indemnisation selon distance"
+      "notes": "Hard case Annales exam - Barème indemnisation selon distance",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00"
     },
     {
       "id": "FR-Q125",
@@ -4079,7 +4203,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Annexe A Art. A.5.5 (rapide) + Annexe B (blitz via B.3)"
+      "notes": "Hard case Annales exam - Annexe A Art. A.5.5 (rapide) + Annexe B (blitz via B.3)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-Q126",
@@ -4114,7 +4239,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Intervention arbitre selon observation directe ou "
+      "notes": "Hard case Annales exam - Intervention arbitre selon observation directe ou ",
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
     },
     {
       "id": "FR-Q127",
@@ -4149,7 +4275,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case - Art. 8.4: formulation question trop spécifique pour retrieval dense (zeitnot+incrément)"
+      "notes": "Hard case - Art. 8.4: formulation question trop spécifique pour retrieval dense (zeitnot+incrément)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02"
     },
     {
       "id": "FR-Q128",
@@ -4185,7 +4312,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Différence 50 coups (réclamation) vs 75 coups (aut"
+      "notes": "Hard case Annales exam - Différence 50 coups (réclamation) vs 75 coups (aut",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01"
     },
     {
       "id": "FR-Q129",
@@ -4221,7 +4349,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Différence 3x (réclamation) vs 5x (automatique)"
+      "notes": "Hard case Annales exam - Différence 3x (réclamation) vs 5x (automatique)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01"
     },
     {
       "id": "FR-Q130",
@@ -4258,7 +4387,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Cas limite matériel insuffisant"
+      "notes": "Hard case Annales exam - Cas limite matériel insuffisant",
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00"
     },
     {
       "id": "FR-Q131",
@@ -4295,7 +4425,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Chapitre 6.2 pages 187-189 (classement Rapide/Blitz)"
+      "notes": "Hard case Annales exam - Chapitre 6.2 pages 187-189 (classement Rapide/Blitz)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00"
     },
     {
       "id": "FR-Q132",
@@ -4333,7 +4464,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Passerelle Ch6.1 (183,185 initial) + Ch6.2 (187,188 rapide)"
+      "notes": "Hard case Annales exam - Passerelle Ch6.1 (183,185 initial) + Ch6.2 (187,188 rapide)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00"
     },
     {
       "id": "FR-Q133",
@@ -4371,7 +4503,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Gestion bye vs exempt dans appariement"
+      "notes": "Hard case Annales exam - Gestion bye vs exempt dans appariement",
+      "expected_chunk_id": "LA-octobre2025.pdf-p124-parent357-child01"
     },
     {
       "id": "FR-Q134",
@@ -4407,7 +4540,8 @@
       },
       "difficulty": "hard",
       "audit": "2026-01-20",
-      "notes": "Hard case Annales exam - Variantes de départage Buchholz"
+      "notes": "Hard case Annales exam - Variantes de départage Buchholz",
+      "expected_chunk_id": "LA-octobre2025.pdf-p151-parent440-child00"
     },
     {
       "id": "FR-Q135",
@@ -4667,7 +4801,8 @@
         "audit_note": "Vocabulaire specialise FFE"
       },
       "difficulty": "hard",
-      "audit": "added_2026-01-20_A02"
+      "audit": "added_2026-01-20_A02",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02"
     },
     {
       "id": "FR-Q142",
@@ -4786,7 +4921,8 @@
         "audit_note": "Terminologie nationalite complexe"
       },
       "difficulty": "hard",
-      "audit": "added_2026-01-20_A02"
+      "audit": "added_2026-01-20_A02",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child00"
     },
     {
       "id": "FR-Q145",
@@ -4967,7 +5103,8 @@
         "audit_note": "Anglicisme courant non present corpus"
       },
       "difficulty": "hard",
-      "audit": "added_2026-01-20_LA"
+      "audit": "added_2026-01-20_LA",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
     },
     {
       "id": "FR-Q150",
@@ -5004,7 +5141,8 @@
         "audit_note": "Ultimate hard case - Art 12.9 existe (sanctions) mais 75 coups = Art 9.6.2"
       },
       "difficulty": "hard",
-      "audit": "added_2026-01-20_ultimate"
+      "audit": "added_2026-01-20_ultimate",
+      "expected_chunk_id": "LA-octobre2025.pdf-p066-parent214-child02"
     },
     {
       "id": "FR-ADV-001",
@@ -6735,7 +6873,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00"
     },
     {
       "question": "Comment fonctionne la prise en passant aux échecs ?",
@@ -6763,7 +6902,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
     },
     {
       "question": "Comment fonctionne la promotion du pion ?",
@@ -6791,7 +6931,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
     },
     {
       "question": "Quand le roque est-il définitivement interdit ?",
@@ -6819,7 +6960,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
     },
     {
       "question": "Quand le roque est-il temporairement interdit ?",
@@ -6847,7 +6989,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child02"
     },
     {
       "question": "Que signifie la chute du drapeau aux échecs ?",
@@ -6875,7 +7018,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
     },
     {
       "question": "Comment fonctionne la pendule aux échecs ?",
@@ -6903,7 +7047,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
     },
     {
       "question": "Comment se déplace la tour aux échecs ?",
@@ -6931,7 +7076,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00"
     },
     {
       "question": "Comment se déplace la dame aux échecs ?",
@@ -6959,7 +7105,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child01"
     },
     {
       "question": "Quelle est la position initiale des pièces aux échecs ?",
@@ -6988,7 +7135,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01"
     },
     {
       "question": "Quand considère-t-on que le roi est en échec ?",
@@ -7017,7 +7165,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
     },
     {
       "question": "Comment gagne-t-on une partie aux échecs ?",
@@ -7046,7 +7195,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
     },
     {
       "question": "Comment abandonner une partie aux échecs ?",
@@ -7075,7 +7225,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
     },
     {
       "question": "Comment fonctionne la cadence Fischer ?",
@@ -7104,7 +7255,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01"
     },
     {
       "question": "Comment fonctionne le temps différé Bronstein ?",
@@ -7133,7 +7285,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01"
     },
     {
       "question": "Quels sont les engagements de l'arbitre FFE ?",
@@ -7162,7 +7315,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p008-parent010-child00"
     },
     {
       "question": "Quels frais sont inclus dans le défraiement des arbitres ?",
@@ -7191,7 +7345,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00"
     },
     {
       "question": "Quel système de notation est reconnu par la FIDE ?",
@@ -7220,7 +7375,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00"
     },
     {
       "question": "Quelles adaptations pour les joueurs handicapés visuels ?",
@@ -7249,7 +7405,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child01"
     },
     {
       "question": "Comment fonctionne l'échiquier pour personnes aveugles ?",
@@ -7278,7 +7435,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00"
     },
     {
       "question": "Les débats disciplinaires de la FFE sont-ils publics ?",
@@ -7307,7 +7465,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p003-parent006-child00"
     },
     {
       "question": "Quel délai pour la convocation à l'audience disciplinaire ?",
@@ -7337,7 +7496,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent012-child00"
     },
     {
       "question": "Quelles obligations de confidentialité en discipline FFE ?",
@@ -7366,7 +7526,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01"
     },
     {
       "question": "Comment se déroule l'instruction disciplinaire FFE ?",
@@ -7395,7 +7556,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent010-child00"
     },
     {
       "question": "Qu'est-ce qu'une mesure conservatoire en discipline FFE ?",
@@ -7424,7 +7586,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent011-child00"
     },
     {
       "question": "Quand débute et se termine la saison FFE ?",
@@ -7453,7 +7616,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00"
     },
     {
       "question": "Quelles sont les compétitions fédérales FFE ?",
@@ -7482,7 +7646,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00"
     },
     {
       "question": "Qu'est-ce qu'un joueur muté à la FFE ?",
@@ -7511,7 +7676,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
     },
     {
       "question": "Qu'est-ce qu'un forfait administratif à la FFE ?",
@@ -7540,7 +7706,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00"
     },
     {
       "question": "Qui peut prononcer un forfait administratif FFE ?",
@@ -7569,7 +7736,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00"
     },
     {
       "question": "Qui peut participer aux Championnats de France Jeunes ?",
@@ -7598,7 +7766,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00"
     },
     {
       "question": "Quelles conditions de licence pour jeunes étrangers aux championnats ?",
@@ -7627,7 +7796,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00"
     },
     {
       "question": "Comment fonctionne la phase zone interdépartementale jeunes ?",
@@ -7656,7 +7826,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p002-parent007-child00"
     },
     {
       "question": "Quelles qualifications d'office aux Championnats Jeunes ?",
@@ -7685,7 +7856,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00"
     },
     {
       "question": "Quel score minimal pour qualification d'office jeunes ?",
@@ -7714,7 +7886,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00"
     },
     {
       "question": "Quels tournois au Championnat de France individuel ?",
@@ -7743,7 +7916,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00"
     },
     {
       "question": "Combien de joueuses au Tournoi National Féminin ?",
@@ -7772,7 +7946,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00"
     },
     {
       "question": "Comment se qualifier au Tournoi National Féminin ?",
@@ -7801,7 +7976,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00"
     },
     {
       "question": "Quel âge minimum pour le tournoi Vétérans FFE ?",
@@ -7830,7 +8006,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00"
     },
     {
       "question": "Quelle tranche d'âge pour le tournoi Seniors Plus FFE ?",
@@ -7859,7 +8036,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00"
     },
     {
       "question": "Comment est structurée la Coupe de France échecs ?",
@@ -7888,7 +8066,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00"
     },
     {
       "question": "Combien d'équipes par club en Coupe de France ?",
@@ -7917,7 +8096,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00"
     },
     {
       "question": "Quelles règles aux parties de Coupe de France ?",
@@ -7948,7 +8128,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent012-child00"
     },
     {
       "question": "Quelles parties comptent pour le classement rapide FFE ?",
@@ -7977,7 +8158,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00"
     },
     {
       "question": "Comment manipuler la pendule d'échecs ?",
@@ -8006,7 +8188,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00"
     },
     {
       "question": "Que faire si la pendule est défectueuse ?",
@@ -8035,7 +8218,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00"
     },
     {
       "question": "Qu'est-ce qu'une colonne aux échecs ?",
@@ -8064,7 +8248,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02"
     },
     {
       "question": "Qu'est-ce qu'une rangée aux échecs ?",
@@ -8093,7 +8278,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02"
     },
     {
       "question": "Qu'est-ce qu'une diagonale aux échecs ?",
@@ -8122,7 +8308,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02"
     },
     {
       "question": "Comment une pièce prend-elle une autre pièce ?",
@@ -8151,7 +8338,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00"
     },
     {
       "question": "Quand une pièce attaque-t-elle une case ?",
@@ -8180,7 +8368,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00"
     },
     {
       "question": "Comment se déplace le fou aux échecs ?",
@@ -8209,7 +8398,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00"
     },
     {
       "question": "Peut-on déplacer une pièce qui expose le roi à l'échec ?",
@@ -8238,7 +8428,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
     },
     {
       "question": "Quand la partie est-elle nulle par pat ?",
@@ -8267,7 +8458,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "question": "Quel matériel minimum pour faire mat ?",
@@ -8296,7 +8488,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01"
     },
     {
       "question": "Qu'est-ce qu'une position morte aux échecs ?",
@@ -8325,7 +8518,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01"
     },
     {
       "question": "Quand peut-on adouber les pièces ?",
@@ -8354,7 +8548,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00"
     },
     {
       "question": "Que faire si un joueur ne peut pas utiliser la pendule ?",
@@ -8383,7 +8578,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01"
     },
     {
       "question": "Comment noter les coups aux échecs ?",
@@ -8412,7 +8608,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00"
     },
     {
       "question": "Comment annoncer les coups pour joueurs aveugles ?",
@@ -8441,7 +8638,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child00"
     },
     {
       "question": "Quels critères pour l'échiquier des joueurs aveugles ?",
@@ -8470,7 +8668,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00"
     },
     {
       "question": "Comment noter pour les personnes handicapées visuelles ?",
@@ -8499,7 +8698,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child02"
     },
     {
       "question": "Qu'est-ce que le tournoi Accession Roger Ferry ?",
@@ -8528,7 +8728,8 @@
         "method": "semantic_verification",
         "verified_date": "2026-01-23"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00"
     },
     {
       "question": "Quels clubs peuvent participer aux compétitions fédérales ?",
@@ -8556,7 +8757,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00"
     },
     {
       "question": "Quelles catégories au Championnat de France Jeunes ?",
@@ -8584,7 +8786,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00"
     },
     {
       "question": "Quel Elo minimum pour qualification d'office jeunes ?",
@@ -8612,7 +8815,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00"
     },
     {
       "question": "Comment est composée la Commission Régionale de Discipline ?",
@@ -8640,7 +8844,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00"
     },
     {
       "question": "Comment peut-on mettre fin au mandat d'un membre disciplinaire ?",
@@ -8668,7 +8873,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00"
     },
     {
       "question": "La personne poursuivie peut-elle être assistée d'un avocat ?",
@@ -8699,7 +8905,8 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01"
     },
     {
       "question": "Peut-on demander un interprète en audience disciplinaire ?",
@@ -8727,7 +8934,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01"
     },
     {
       "question": "Quel est le format des Opens au Championnat de France ?",
@@ -8755,7 +8963,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent009-child00"
     },
     {
       "question": "Comment qualifier les premières du National Féminin précédent ?",
@@ -8783,7 +8992,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00"
     },
     {
       "question": "Quelles joueuses sont qualifiées par Elo au National Féminin ?",
@@ -8811,7 +9021,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00"
     },
     {
       "question": "Qui informe les clubs du lieu des matchs de Coupe de France ?",
@@ -8839,7 +9050,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent006-child00"
     },
     {
       "question": "Quelle durée minimum pour partie en cadence rapide ?",
@@ -8867,7 +9079,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00"
     },
     {
       "question": "Quelle durée maximum pour partie en cadence rapide ?",
@@ -8895,7 +9108,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00"
     },
     {
       "question": "Comment vérifier une réclamation de nulle ?",
@@ -8923,7 +9137,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02"
     },
     {
       "question": "Quand la partie est-elle nulle sur demande ?",
@@ -8951,7 +9166,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02"
     },
     {
       "question": "Quel est le rôle principal de l'arbitre aux échecs ?",
@@ -8979,7 +9195,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
     },
     {
       "question": "Quand l'arbitre doit-il intervenir pendant une partie ?",
@@ -9007,7 +9224,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child01"
     },
     {
       "question": "Comment fonctionne le Chess960 ?",
@@ -9035,7 +9253,8 @@
         "status": "VALIDATED",
         "method": "corpus_verified"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p065-parent204-child00"
     }
   ],
   "metadata": {

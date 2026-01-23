@@ -2,9 +2,9 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.6
-> **Date**: 2026-01-19
-> **Effort total estime**: 205h (~13-15 semaines)
+> **Version**: 1.8
+> **Date**: 2026-01-22
+> **Effort total estime**: 215h (~14-16 semaines)
 
 ---
 
@@ -14,10 +14,13 @@
 PHASE 0 ✅ COMPLETE
     │
     ▼
-PHASE 1A ✅ COMPLETE + ENHANCED ──► Pipeline Extract + Chunk (1454 FR + 764 INTL)
+PHASE 1A ✅ COMPLETE + ENHANCED ──► Pipeline v6.0 Dual-Mode (Mode A: 2540 FR, Mode B: 1331 FR)
     │
     ▼
-PHASE 1B ✅ COMPLETE ──► Pipeline Embed + Index (Recall FR 97.06%)
+PHASE 1B ✅ COMPLETE ──► Pipeline Embed + Index (Recall FR 91.56%, INTL 93.22%)
+    │
+    ▼
+PHASE 1C (OPTIONAL) ──► Fine-tuning MRL+LoRA EmbeddingGemma (+5-15% recall)
     │
     ▼
 PHASE 2A (S5-7) ──► Android Setup + Retrieval
@@ -66,20 +69,27 @@ Extraire le contenu textuel des PDF et segmenter en chunks parent-child.
 | Fichier | Description | Statut |
 |---------|-------------|--------|
 | `scripts/pipeline/extract_docling.py` | Extraction PDF via Docling ML | ✅ UPGRADE |
-| `scripts/pipeline/chunker.py` | Segmentation Parent 1024/Child 450 | ✅ NEW |
+| `scripts/pipeline/chunker_hybrid.py` | Mode A: HybridChunker + Parent 1024/Child 450 | ✅ NEW v6.0 |
+| `scripts/pipeline/chunker_langchain.py` | Mode B: LangChain + section fusion + Parent 1024/Child 450 | ✅ NEW v6.0 |
 | `scripts/pipeline/table_multivector.py` | Tables + LLM summaries | ✅ NEW |
-| `corpus/processed/chunks_for_embedding_fr.json` | 1454 chunks FR | ✅ |
-| `corpus/processed/chunks_for_embedding_intl.json` | 764 chunks INTL | ✅ |
+| `corpus/processed/chunks_mode_a_fr.json` | Mode A: 2540 chunks FR (HybridChunker) | ✅ |
+| `corpus/processed/chunks_mode_b_fr.json` | Mode B: 1331 chunks FR (LangChain+fusion) | ✅ |
+| `corpus/processed/chunks_mode_a_intl.json` | Mode A: 1412 chunks INTL | ✅ |
+| `corpus/processed/chunks_mode_b_intl.json` | Mode B: 866 chunks INTL | ✅ |
 
 ### Evolutions vs Roadmap Original
 
 | Aspect | Roadmap Original | Etat Actuel | Deviation |
 |--------|-----------------|-------------|-----------|
 | Extraction | `extract_pdf.py` (PyMuPDF) | `extract_docling.py` (Docling ML) | UPGRADE |
-| Chunking | `chunker.py` 256 tokens | `chunker.py` Parent 1024/Child 450 | UPGRADE |
-| Overlap | 50 tokens (20%) | 15% (NVIDIA 2025) | OPTIMISE |
-| Chunks FR | 2047 | 1454 (1343 child + 111 tables) | -29% (moins redondant) |
-| Chunks INTL | 1105 | 764 | -31% |
+| Chunking | `chunker.py` 256 tokens | **Dual-mode v6.0**: HybridChunker (A) + LangChain (B) | UPGRADE |
+| Parent/Child | N/A | Parent 1024t / Child 450t / 15% overlap | NEW (NVIDIA 2025) |
+| Tokenizer | tiktoken | EmbeddingGemma (unifié chunking+embedding) | UPGRADE |
+| Mode A FR | N/A | 2540 chunks (HybridChunker preserves structure) | NEW |
+| Mode B FR | N/A | 1331 chunks (LangChain + section fusion) | NEW |
+| Mode A INTL | N/A | 1412 chunks | NEW |
+| Mode B INTL | N/A | 866 chunks | NEW |
+| Page provenance | N/A | 100% coverage (ISO 42001 A.6.2.2) | NEW |
 
 ### Resultats
 
@@ -87,13 +97,14 @@ Extraire le contenu textuel des PDF et segmenter en chunks parent-child.
 |---------|-------|------|--------|
 | PDFs FR extraits | 28 | 28 | ✅ |
 | PDFs INTL extraits | 1 | 1 | ✅ |
-| Chunks FR | ~500 | 1454 | ✅ |
-| Chunks INTL | ~100 | 764 | ✅ |
+| Chunks FR | ~500 | 1827 | ✅ |
+| Chunks INTL | ~100 | 974 | ✅ |
+| Sections coverage | 95%+ | 99.9%+ | ✅ |
 | Coverage tests | 80% | 87% | ✅ |
 | Complexite cyclomatique | B max | B | ✅ |
 
-> **Note**: Chunks reduits grace au Parent-Child chunking (NVIDIA 2025 research).
-> Moins de redondance, meilleure precision semantique.
+> **Note**: Pipeline v5.0 avec MarkdownHeaderTextSplitter pour couverture sections 99.9%+.
+> Total: 2801 chunks (1827 FR + 974 INTL).
 
 ### Specifications
 - Voir `docs/specs/PHASE1A_SPECS.md`
@@ -108,11 +119,12 @@ Extraire le contenu textuel des PDF et segmenter en chunks parent-child.
 ### Objectif
 Generer embeddings et exporter au format Google AI Edge RAG SDK.
 
-### Stack validee (2026-01-19)
+### Stack validee (2026-01-22)
 
 | Composant | Choix | Specs | Source |
 |-----------|-------|-------|--------|
-| Embedding | **EmbeddingGemma-300m-qat** | 768D, quantized | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized) |
+| Embedding | **EmbeddingGemma-300M (full)** | 768D, 308M params, full precision | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m) |
+| Tokenizer | **EmbeddingGemma tokenizer** | Unifié chunking + embedding (ISO 42001) | Google |
 | Search | **Vector-only** | Cosine similarity (optimal apres audit) | Custom |
 | Vector Store | **SqliteVectorStore** | SDK natif, persistant, FTS5 | [Google AI Edge](https://github.com/google-ai-edge/ai-edge-apis) |
 
@@ -129,25 +141,70 @@ Generer embeddings et exporter au format Google AI Edge RAG SDK.
 | `corpus/processed/corpus_fr.db` | Base SQLite FR (7.58 MB) | ✅ |
 | `corpus/processed/corpus_intl.db` | Base SQLite INTL (4.21 MB) | ✅ |
 
-### Resultats (2026-01-19)
+### Resultats (2026-01-21)
 
 | Critere | Cible | Reel | Statut |
 |---------|-------|------|--------|
-| Recall FR | ≥ 90% | **97.06%** (vector, tol=2) | ✅ PASS |
-| Recall INTL | ≥ 70% | **80.00%** (vector, tol=2) | ✅ PASS |
-| DB size total | < 100 MB | **11.79 MB** | ✅ PASS |
+| Recall FR | ≥ 90% | **91.56%** (150 Q, smart_retrieve, tol=2) | ✅ PASS |
+| Recall INTL | ≥ 70% | **93.22%** (43 Q, vector, tol=2) | ✅ PASS |
+| Gold Standard FR | ≥ 50 Q | **150 questions** (46 hard cases) | ✅ ISO 29119 |
+| Gold Standard INTL | ≥ 30 Q | **43 questions** (12 hard cases) | ✅ ISO 29119 |
+| DB size total | < 100 MB | **~15 MB** | ✅ PASS |
 | Coverage tests | ≥ 80% | **87%** | ✅ PASS |
-| Gold Standard | v5.7 audite | 23 corrections | ✅ ISO 29119 |
 
 ### Definition of Done
 
 | Critere | Cible | Bloquant | Statut |
 |---------|-------|----------|--------|
-| Recall FR | ≥ 90% | OUI | ✅ **97.06%** |
-| Recall INTL | ≥ 70% | NON | ✅ 80.00% |
+| Recall FR | ≥ 90% | OUI | ✅ **91.56%** (150 Q) |
+| Recall INTL | ≥ 70% | NON | ✅ **93.22%** (43 Q) |
+| Gold Standard | ≥ 50 Q FR + 30 Q INTL | OUI | ✅ **193 questions** |
 | 0% hallucination adversarial | 30/30 pass | OUI | PENDING (Phase 3) |
-| DB size | < 100 MB | NON | ✅ 11.79 MB |
+| DB size | < 100 MB | NON | ✅ ~15 MB |
 | Coverage tests | ≥ 80% | OUI | ✅ 87% |
+
+---
+
+## Phase 1C - Fine-tuning EmbeddingGemma (OPTIONAL)
+
+**Duree**: 1-2 jours | **Effort**: 10h | **Statut**: PLANNED
+
+### Objectif
+Ameliorer recall sur hard cases via fine-tuning domain-specific MRL + LoRA.
+
+### Justification
+- 46 hard cases FR (30.6% des questions)
+- 12 hard cases INTL (27.9% des questions)
+- Gain attendu: +5-15% recall sur hard cases
+
+### Stack
+
+| Composant | Choix | Source |
+|-----------|-------|--------|
+| Model | EmbeddingGemma-300M | [Google AI](https://ai.google.dev/gemma/docs/embeddinggemma) |
+| Framework | Sentence Transformers v3 | [SBERT](https://sbert.net/) |
+| Loss | CachedMultipleNegativesRankingLoss | Best for retrieval |
+| MRL | Truncation 768→256D | 3x compression |
+
+### Deliverables
+
+| Fichier | Description |
+|---------|-------------|
+| `docs/research/LORA_FINETUNING_GUIDE.md` | Guide complet pre-notebook | ✅ DONE |
+| `notebooks/finetune_embeddinggemma.ipynb` | Notebook Kaggle/Colab | TODO |
+| `models/embeddinggemma-chess-fr/` | Modele fine-tune | TODO |
+
+### Definition of Done
+
+| Critere | Cible | Bloquant |
+|---------|-------|----------|
+| Recall FR | ≥ 95% | NON |
+| Hard cases FR | < 25/150 | NON |
+| Overfitting | Val loss stable | OUI |
+
+### Documentation
+- Guide complet: `docs/research/LORA_FINETUNING_GUIDE.md`
+- Sources: `docs/ISO_VECTOR_SOLUTIONS.md`
 
 ---
 
@@ -335,8 +392,10 @@ Validation utilisateur et release production.
 
 | Phase | Metrique | Cible | Reel | Bloquant |
 |-------|----------|-------|------|----------|
-| 1B | Recall FR | ≥ 90% | **97.06%** | OUI ✅ |
-| 1B | Recall INTL | ≥ 70% | **80.00%** | NON ✅ |
+| 1B | Recall FR | ≥ 90% | **91.56%** (150 Q) | OUI ✅ |
+| 1B | Recall INTL | ≥ 70% | **93.22%** (43 Q) | NON ✅ |
+| 1B | Gold Standard | ≥ 80 Q | **193 questions** | OUI ✅ |
+| 1C | Recall FR (post fine-tune) | ≥ 95% | TBD | NON |
 | 3 | Hallucination | 0% | TBD | OUI |
 | 3 | Fidelite | ≥ 85% | TBD | OUI |
 | 4 | RAM | < 500MB | TBD | OUI |
@@ -357,50 +416,69 @@ Validation utilisateur et release production.
 
 ---
 
-## Findings & Ameliorations (2026-01-19)
+## Findings & Ameliorations (2026-01-21)
 
-### Gold Standard Audit v5.7
+### Pipeline v5.0
 
-**23 corrections appliquees** - Elimination des faux positifs (keyword matches sans contenu substantiel):
-- FR-Q68: p29 → p141 (chapitre anti-triche, pas mention ethique)
-- FR-Q18: p58 → p57 (Annexe A Rapides, pas Annexe B Blitz)
-- Voir: `docs/GOLD_STANDARD_AUDIT_2026-01-19.md`
+**Chunking ameliore** avec `MarkdownHeaderTextSplitter` pour couverture sections 99.9%+:
+- Voir: `docs/CHUNKING_STRATEGY.md`
+- Total: 2801 chunks (1827 FR + 974 INTL)
 
-### Benchmark Search Modes
+### Gold Standard v5.26
+
+| Corpus | Questions | Hard Cases | Documents | Version |
+|--------|-----------|------------|-----------|---------|
+| FR | 150 | 46 (30.6%) | 28 | v5.26 |
+| INTL | 43 | 12 (27.9%) | 1 | v2.0 |
+| **Total** | **193** | **58** | **29** | - |
+
+> Voir: `docs/research/AUDIT_GS_v5.25_2026-01-20.md`
+
+### Benchmark Search Modes (150 Q FR)
 
 | Mode | Recall@5 FR | Failed | Conclusion |
 |------|-------------|--------|------------|
-| **Vector-only** | **97.06%** | 2/68 | ✅ OPTIMAL (baseline) |
-| **+ source_filter** | **100%** | 0/68 | ✅ PERFECT (edge cases) |
-| Hybrid (BM25 0.6) | 89.46% | 8/68 | ❌ -7.6% regression |
+| **smart_retrieve** | **91.56%** | 14/150 | ✅ OPTIMAL (prod) |
+| **+ glossary_boost** | 92%+ | ~12/150 | ✅ Definitions |
+| Vector-only | 89% | 16/150 | Baseline |
 
-> **source_filter**: Parametre optionnel de `retrieve_similar()` pour filtrer par document.
-> - FR-Q18: `source_filter="LA-octobre"` → page 57 trouvee
-> - FR-Q50: `source_filter="Statuts"` → page 2 trouvee
-> - Implementation: ~15 lignes (Option B vs multi-index 200+ lignes)
+### Analyse 14 echecs FR
+
+| Cause Racine | Questions | % |
+|--------------|-----------|---|
+| Langage oral/informel | Q95, Q98, Q103 | 21% |
+| Cross-chapter content | Q85, Q86, Q132 | 21% |
+| Mismatch terminologique | Q77, Q94 | 14% |
+| Abreviations | Q98, Q119 | 14% |
+
+> Voir: `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md`
 
 ### Ameliorations Non Planifiees
 
 | Module | Role | ISO Ref |
 |--------|------|---------|
-| `chunker.py` | Parent-Child chunking (NVIDIA 2025 research) | ISO 25010 |
-| `table_multivector.py` | Tables + LLM summaries | ISO 42001 |
-| `export_search.py` | Hybrid BM25+Vector+RRF (teste, non retenu) | ISO 25010 |
-| `query_expansion.py` | Snowball FR + synonymes | ISO 25010 |
+| `chunker.py` | MarkdownHeader + Parent-Child (NVIDIA 2025) | ISO 25010 |
+| `table_multivector.py` | Tables + LLM summaries (185 tables) | ISO 42001 |
+| `export_search.py` | smart_retrieve + glossary_boost | ISO 25010 |
+| `LORA_FINETUNING_GUIDE.md` | Guide fine-tuning MRL+LoRA | ISO 42001 |
 
 ### Metriques Finales Phase 1B
 
-| Corpus | Chunks | Recall@5 (vector, tol=2) | ISO Status |
-|--------|--------|--------------------------|------------|
-| FR | 1454 | **97.06%** | ✅ PASS (≥90%) |
-| INTL | 764 | **80.00%** | ✅ PASS (≥70%) |
+| Corpus | Chunks | Recall@5 (tol=2) | Hard Cases | ISO Status |
+|--------|--------|------------------|------------|------------|
+| FR | 1827 | **91.56%** | 46/150 | ✅ PASS (≥90%) |
+| INTL | 974 | **93.22%** | 12/43 | ✅ PASS (≥70%) |
+| **Total** | **2801** | - | **58/193** | ✅ |
 
-### Questions Gold Standard
+### Plan Amelioration (Phase 1C)
 
-| Corpus | Questions | Documents | Version | ISO 29119 (>=50) |
-|--------|-----------|-----------|---------|------------------|
-| FR | 68 | 28 | v5.7 (audite) | ✅ PASS |
-| INTL | 25 | 1 | v1.0 | ✅ PASS (total 93) |
+| Action | Gain Attendu | Effort | Priorite |
+|--------|--------------|--------|----------|
+| Fine-tuning MRL+LoRA | +5-15% hard cases | 10h | P0 |
+| Synonymes index-time | +3% | 1h | P1 |
+| Abreviations expandues | +1% | 1h | P1 |
+
+> Voir: `docs/research/LORA_FINETUNING_GUIDE.md`, `docs/ISO_VECTOR_SOLUTIONS.md`
 
 ---
 
@@ -410,13 +488,14 @@ Validation utilisateur et release production.
 |-------|--------|--------|
 | 1A | 20h | 20h |
 | 1B | 30h | 50h |
-| 2A | 40h | 90h |
-| 2B | 30h | 120h |
-| 3 | 40h | 160h |
-| 4A | 10h | 170h |
-| 4B | 15h | 185h |
-| 5 | 20h | 205h |
-| **TOTAL** | **205h** | |
+| 1C (optional) | 10h | 60h |
+| 2A | 40h | 100h |
+| 2B | 30h | 130h |
+| 3 | 40h | 170h |
+| 4A | 10h | 180h |
+| 4B | 15h | 195h |
+| 5 | 20h | 215h |
+| **TOTAL** | **215h** | |
 
 ---
 
@@ -426,9 +505,13 @@ Validation utilisateur et release production.
 |----------|-------------|
 | `docs/specs/PHASE1A_SPECS.md` | Specifications Phase 1A |
 | `docs/CHUNK_SCHEMA.md` | Schema JSON chunks |
+| `docs/CHUNKING_STRATEGY.md` | Strategie chunking v5.0 |
 | `docs/AI_POLICY.md` | Politique IA ISO 42001 |
 | `docs/QUALITY_REQUIREMENTS.md` | Exigences qualite ISO 25010 |
 | `docs/TEST_PLAN.md` | Plan de tests ISO 29119 |
+| `docs/ISO_VECTOR_SOLUTIONS.md` | Solutions vector-based RAG |
+| `docs/research/LORA_FINETUNING_GUIDE.md` | Guide fine-tuning MRL+LoRA |
+| `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md` | Analyse 14 echecs recall |
 
 ---
 
@@ -443,3 +526,6 @@ Validation utilisateur et release production.
 | 1.4 | 2026-01-19 | **Phase 1B COMPLETE** - Recall FR 97.06% (gold standard v5.7 audit, 23 corrections), vector-only optimal |
 | 1.5 | 2026-01-19 | **source_filter** - Recall FR 100% avec filtrage document (FR-Q18, FR-Q50 resolus) |
 | 1.6 | 2026-01-19 | **glossary_boost** - Boost x3.5 glossaire DNA 2025 pour questions definition |
+| 1.7 | 2026-01-21 | **Pipeline v5.0** - 2801 chunks (1827 FR + 974 INTL), gold standard 193 Q, Phase 1C fine-tuning MRL+LoRA |
+| 1.8 | 2026-01-22 | **Pipeline v6.0 Dual-Mode** - Mode A HybridChunker (2540 FR), Mode B LangChain+fusion (1331 FR), EmbeddingGemma 308M full, 100% page provenance |
+| 1.9 | 2026-01-23 | **Benchmark Chunking Optimizations** - Dual-size 81.72% (-5.22%), Semantic 82.89% (-4.05%) vs Baseline 86.94%. Recommandation: conserver baseline 450t single-size. |

@@ -1,25 +1,25 @@
 """
-Markdown Chunker - Pocket Arbiter
+Chunker - Pocket Arbiter
 
-Pipeline ISO conforme: Docling markdown → MarkdownHeaderTextSplitter → Parent-Child chunks.
-
-Exploite la structure extraite par Docling (## headings) pour:
-- Extraire automatiquement les sections/articles via metadata
-- Chunking hierarchique Parent-Child (NVIDIA 2025)
-- Preserver la hierarchie documentaire
+Pipeline ISO conforme avec deux modes:
+1. DoclingDocument (prioritaire): HybridChunker avec 100% page provenance
+2. Markdown fallback: MarkdownHeaderTextSplitter pour backward compatibility
 
 ISO Reference:
     - ISO/IEC 12207 S7.3.3 - Implementation
     - ISO/IEC 25010 S4.2 - Performance efficiency (Recall >= 90%)
-    - ISO/IEC 42001 A.6.2.2 - AI traceability
+    - ISO/IEC 42001 A.6.2.2 - AI traceability (page provenance)
 
-Research Sources (2025):
+Research Sources (2025-2026):
+    - Docling Discussion #1012: export_to_markdown() loses page metadata
+    - Docling Discussion #444: Use chunk.meta.doc_items[].prov[].page_no
     - NVIDIA: 15% overlap optimal (FinanceBench)
     - arXiv: 512-1024 tokens pour contexte large
     - Chroma: 400-512 tokens sweet spot (85-90% recall)
 
 Pipeline:
-    Docling (markdown) → MarkdownHeaderTextSplitter → Parent (1024t) → Child (450t)
+    Mode 1: DoclingDocument JSON → HybridChunker → Child chunks (100% pages)
+    Mode 2: Docling markdown → MarkdownHeaderTextSplitter → Parent-Child chunks
 
 Usage:
     python -m scripts.pipeline.chunker \
@@ -30,8 +30,11 @@ Usage:
 import argparse
 import json
 import logging
+import os
 import re
 from pathlib import Path
+# Workaround for Windows symlink permission issue with HuggingFace
+os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
 
@@ -65,6 +68,7 @@ def chunk_markdown(
     markdown: str,
     source: str,
     corpus: str = "fr",
+    page_map: list[dict] | None = None,
 ) -> tuple[list[dict], list[dict]]:
     """
     Chunk markdown avec extraction automatique des sections (Parent-Child).
@@ -73,11 +77,61 @@ def chunk_markdown(
         markdown: Texte markdown extrait par Docling.
         source: Nom du fichier source.
         corpus: Corpus (fr/intl).
+        page_map: Liste de pages [{page_num, text}] pour mapping page (optionnel).
 
     Returns:
-        Tuple (parent_chunks, child_chunks) avec metadata section/article.
+        Tuple (parent_chunks, child_chunks) avec metadata section/article/page.
     """
     tokenizer = get_tokenizer()
+
+    # Build page lookup with normalized text
+    def normalize_for_match(text: str) -> str:
+        """Normalize text for fuzzy matching."""
+        # Remove markdown headers and formatting
+        text = re.sub(r"^#+\s*", "", text, flags=re.MULTILINE)
+        # Collapse whitespace (newlines, tabs, multiple spaces)
+        text = re.sub(r"\s+", " ", text)
+        # Lowercase
+        return text.lower().strip()
+
+    # Pre-normalize all pages once
+    normalized_pages = []
+    if page_map:
+        for page in page_map:
+            normalized_pages.append({
+                "page_num": page["page_num"],
+                "text_norm": normalize_for_match(page.get("text", "")),
+            })
+
+    def find_page(text: str) -> int:
+        """Find the page number for a text snippet using fuzzy matching."""
+        if not normalized_pages:
+            return 0
+
+        text_norm = normalize_for_match(text)
+        if len(text_norm) < 20:
+            return 0
+
+        # Try multiple snippets from the text
+        snippets = [
+            text_norm[:80],  # Start
+            text_norm[50:130] if len(text_norm) > 130 else text_norm[:80],  # Early middle
+        ]
+
+        for snippet in snippets:
+            if len(snippet) < 20:
+                continue
+            for page in normalized_pages:
+                if snippet in page["text_norm"]:
+                    return page["page_num"]
+
+        # Fallback: shorter snippet
+        short_snippet = text_norm[:40]
+        for page in normalized_pages:
+            if short_snippet in page["text_norm"]:
+                return page["page_num"]
+
+        return 0
 
     # Step 1: Split by headers -> extract section metadata
     header_splitter = MarkdownHeaderTextSplitter(
@@ -124,12 +178,14 @@ def chunk_markdown(
                 continue
 
             parent_tokens = count_tokens(parent_text, tokenizer)
-            parent_id = f"{source}-p{len(parent_chunks):03d}"
+            page = find_page(parent_text)
+            parent_id = f"{source}-p{page:03d}-parent{len(parent_chunks):03d}"
 
             parent_chunks.append({
                 "id": parent_id,
                 "text": parent_text,
                 "source": source,
+                "page": page,
                 "section": section,
                 "article_num": article_num,
                 "tokens": parent_tokens,
@@ -149,12 +205,14 @@ def chunk_markdown(
                 if child_tokens < MIN_CHUNK_TOKENS:
                     continue
 
-                child_id = f"{parent_id}-c{c_idx:02d}"
+                child_page = find_page(child_text) or page
+                child_id = f"{source}-p{child_page}-parent{len(parent_chunks)-1:03d}-child{c_idx:02d}"
 
                 child_chunks.append({
                     "id": child_id,
                     "text": child_text,
                     "source": source,
+                    "page": child_page,
                     "section": section,
                     "article_num": article_num,
                     "parent_id": parent_id,
@@ -170,14 +228,16 @@ def process_docling_output(
     input_dir: Path,
     output_file: Path,
     corpus: str = "fr",
+    raw_dir: Path | None = None,
 ) -> dict:
     """
     Process tous les fichiers Docling d'un corpus (Parent-Child).
 
     Args:
-        input_dir: Dossier contenant les JSON Docling.
+        input_dir: Dossier contenant les JSON Docling (markdown).
         output_file: Fichier de sortie chunks (children pour embedding).
         corpus: Nom du corpus.
+        raw_dir: Dossier contenant les raw JSON (pages avec page_num).
 
     Returns:
         Rapport de traitement.
@@ -186,10 +246,12 @@ def process_docling_output(
     json_files = [f for f in json_files if f.name != "extraction_report.json"]
 
     logger.info(f"Found {len(json_files)} Docling files in {input_dir}")
+    if raw_dir:
+        logger.info(f"Using raw pages from {raw_dir} for page mapping")
 
     all_parents = []
     all_children = []
-    stats = {"files": 0, "parents": 0, "children": 0, "with_section": 0}
+    stats = {"files": 0, "parents": 0, "children": 0, "with_section": 0, "with_page": 0}
 
     for json_file in json_files:
         with open(json_file, encoding="utf-8") as f:
@@ -202,12 +264,22 @@ def process_docling_output(
             logger.warning(f"Empty markdown: {json_file.name}")
             continue
 
-        parents, children = chunk_markdown(markdown, source, corpus)
+        # Load page map from raw extraction if available
+        page_map = None
+        if raw_dir:
+            raw_file = raw_dir / json_file.name
+            if raw_file.exists():
+                with open(raw_file, encoding="utf-8") as f:
+                    raw_data = json.load(f)
+                page_map = raw_data.get("pages", [])
+
+        parents, children = chunk_markdown(markdown, source, corpus, page_map)
 
         stats["files"] += 1
         stats["parents"] += len(parents)
         stats["children"] += len(children)
         stats["with_section"] += sum(1 for c in children if c.get("section"))
+        stats["with_page"] += sum(1 for c in children if c.get("page", 0) > 0)
 
         all_parents.extend(parents)
         all_children.extend(children)
@@ -226,9 +298,11 @@ def process_docling_output(
         json.dump({"chunks": all_children, "total": len(all_children)}, f, ensure_ascii=False, indent=2)
 
     pct_section = 100 * stats["with_section"] / max(1, stats["children"])
+    pct_page = 100 * stats["with_page"] / max(1, stats["children"])
     logger.info(f"Saved {stats['parents']} parents to {parents_file}")
     logger.info(f"Saved {stats['children']} children to {output_file}")
     logger.info(f"  with_section: {stats['with_section']} ({pct_section:.1f}%)")
+    logger.info(f"  with_page: {stats['with_page']} ({pct_page:.1f}%)")
 
     return stats
 
@@ -239,11 +313,14 @@ def main() -> None:
     parser.add_argument("--input", "-i", type=Path, required=True, help="Docling output directory")
     parser.add_argument("--output", "-o", type=Path, required=True, help="Output chunks JSON (children)")
     parser.add_argument("--corpus", "-c", type=str, default="fr", help="Corpus name (fr/intl)")
+    parser.add_argument("--raw-dir", "-r", type=Path, help="Raw extraction directory (for page mapping)")
 
     args = parser.parse_args()
 
-    stats = process_docling_output(args.input, args.output, args.corpus)
+    stats = process_docling_output(args.input, args.output, args.corpus, args.raw_dir)
     print(f"\nProcessed {stats['files']} files -> {stats['parents']} parents, {stats['children']} children")
+    if args.raw_dir:
+        print(f"  with_page: {stats['with_page']} ({100*stats['with_page']/max(1,stats['children']):.1f}%)")
 
 
 if __name__ == "__main__":

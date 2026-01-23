@@ -167,6 +167,10 @@ def extract_pdf_docling(
             }
             tables.append(table_data)
 
+    # Export full document structure for chunking with page provenance (ISO 42001)
+    # See: https://github.com/docling-project/docling/discussions/1012
+    doc_dict = doc.export_to_dict()
+
     return {
         "filename": pdf_path.name,
         "markdown": markdown,
@@ -174,6 +178,7 @@ def extract_pdf_docling(
         "total_tables": len(tables),
         "extraction_date": get_timestamp(),
         "extractor": "docling",
+        "docling_document": doc_dict,  # Full DoclingDocument for page provenance (ISO 42001)
     }
 
 

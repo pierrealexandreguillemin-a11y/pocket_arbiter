@@ -18,14 +18,18 @@ if TYPE_CHECKING:
 # ISO 42001 A.6.2.2 - Documentation modeles
 # ISO 25010 PR-01 - RAM < 500MB, PR-04 - Stockage < 200MB
 
-# Modele principal: QAT Q4 (Quantization Aware Training)
-# - Taille: ~229MB (conforme ISO 42001 §5.1)
-# - MTEB: 69.31 EN / 60.62 Multilingual
-# - Source: https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized
-MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
+# Modele principal: EmbeddingGemma 300M Full Precision
+# - Taille: ~1.2GB RAM
+# - MTEB: 69.31 EN / 60.62 Multilingual (meilleure qualité)
+# - Source: https://huggingface.co/google/embeddinggemma-300m
+# NOTE: Full precision recommandé pour meilleur recall (arXiv 2509.11552)
+MODEL_ID = "google/embeddinggemma-300m"
 
-# Fallback: modele complet F32 (si QAT non disponible)
-MODEL_ID_FULL = "google/embeddinggemma-300m"
+# Alias pour compatibilité (MODEL_ID = MODEL_ID_FULL maintenant)
+MODEL_ID_FULL = MODEL_ID
+
+# Ancien modele Q4 (deprecated - recall inférieur)
+MODEL_ID_Q4 = "google/embeddinggemma-300m-qat-q4_0-unquantized"
 
 # Fallback leger pour tests CI/CD
 FALLBACK_MODEL_ID = "intfloat/multilingual-e5-base"

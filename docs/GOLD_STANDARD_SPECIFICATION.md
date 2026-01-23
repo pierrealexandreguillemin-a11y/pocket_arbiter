@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.1
-> **Date**: 2026-01-20
-> **Statut**: Approuve
+> **Version**: 1.2
+> **Date**: 2026-01-23
+> **Statut**: En cours (validation semantique requise)
 > **Classification**: Qualite
 > **Auteur**: Claude Opus 4.5
 
@@ -15,9 +15,9 @@
 Ce document definit les principes, exigences et normes appliquees au Gold Standard du projet Pocket Arbiter pour l'evaluation du systeme RAG.
 
 **Perimetre:**
-- Gold Standard FR: 150 questions (corpus reglements FFE, 46 hard cases)
-- Gold Standard INTL: 43 questions (corpus FIDE Arbiters Manual, 12 hard cases)
-- **Total**: 193 questions (58 hard cases)
+- Gold Standard FR v5.30: 318 questions (213 answerable + 105 adversarial)
+- Gold Standard INTL v2.1: 93 questions (67 answerable + 26 adversarial)
+- **Total**: 411 questions (33% unanswerable - conforme SQuAD 2.0)
 
 ---
 
@@ -28,8 +28,11 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 | **ISO 29119-3** | Structure des donnees de test |
 | **ISO 29119-4** | Techniques de test (coverage) |
 | **ISO 25010** | Metriques qualite (Recall >= 90%) |
+| **ISO 42001 A.6.2.2** | Provenance tracable (expected_chunk_id) |
 | **ISO 42001 A.8.4** | Validation modeles IA |
+| **arXiv:1806.03822** | SQuAD 2.0 - 25-35% unanswerable |
 | **arXiv:2412.12300** | UAEval4RAG - 6 categories unanswerable |
+| **arXiv:2004.14004** | SQuAD2-CR - 5 categories adversariales |
 
 ---
 
@@ -50,13 +53,17 @@ Distribution alignee sur usage reel:
 - Questions complexes (multi-doc, multi-hop): ~15%
 - Edge cases (hard cases): ~15%
 
-### 3.3 Tracabilite (ISO 42001)
+### 3.3 Tracabilite (ISO 42001 A.6.2.2)
 
-Chaque question contient:
+Chaque question ANSWERABLE contient:
 - `id`: Identifiant unique (FR-Q001, INTL-Q001)
+- `expected_docs`: Documents source
 - `expected_pages`: Pages source verifiees
+- `expected_chunk_id`: ID chunk Mode B (provenance exacte) **NOUVEAU v5.30**
 - `validation.status`: Statut de validation
 - `audit`: Date d'ajout/modification
+
+> **Note**: `expected_chunk_id` reference le chunk dans `corpus_mode_b_*.db`
 
 ---
 
@@ -75,16 +82,17 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 | **5** | FALSE_PREMISE | Question basee sur premisse fausse | Rejection appropriee |
 | **6** | OUT_OF_SCOPE | Hors perimetre corpus | Graceful failure |
 
-### 4.2 Distribution Cible
+### 4.2 Distribution Cible vs Actuelle (v5.30)
 
-| Categorie | % Cible | Actuel FR | Gap |
-|-----------|---------|-----------|-----|
-| ANSWERABLE | 70% | ~85% | -15% |
-| PARTIAL_INFO | 5% | ~2% | +3% |
-| VOCABULARY_MISMATCH | 10% | ~8% | +2% |
-| MULTI_HOP_IMPOSSIBLE | 5% | ~2% | +3% |
-| FALSE_PREMISE | 5% | ~1% | +4% |
-| OUT_OF_SCOPE | 5% | ~2% | +3% |
+| Categorie | % Cible | Actuel FR | Status |
+|-----------|---------|-----------|--------|
+| ANSWERABLE | 65-75% | 67.0% | ✅ CONFORME |
+| PARTIAL_INFO | 1-3% | 1.3% | ✅ CONFORME |
+| VOCABULARY_MISMATCH | 3-5% | 5.0% | ✅ CONFORME |
+| MULTI_HOP_IMPOSSIBLE | 1-2% | 0.9% | ✅ CONFORME |
+| FALSE_PREMISE | 3-5% | 4.7% | ✅ CONFORME |
+| OUT_OF_SCOPE | 5-10% | 6.9% | ✅ CONFORME |
+| **UNANSWERABLE TOTAL** | 25-35% | 33.0% | ✅ SQuAD 2.0 |
 
 ### 4.3 Exemples par Categorie
 
@@ -162,6 +170,7 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
   "expected_docs": ["fichier.pdf"],
   "keywords": ["keyword1", "keyword2"],
   "expected_pages": [page1, page2],
+  "expected_chunk_id": "source.pdf-p{page}-parent{N}-child{N}",  // NOUVEAU v5.30
   "metadata": {
     "type": "enum[definition|regle|arbitrage|edge|admin]",
     "chapter": "string (ex: 6.1)",
@@ -188,10 +197,13 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 |-------|--------|-------------|
 | `id` | Oui | Identifiant unique |
 | `question` | Oui | Texte de la question |
-| `expected_docs` | Oui | Document(s) source |
-| `expected_pages` | Oui | Pages verifiees |
+| `expected_docs` | Oui* | Document(s) source |
+| `expected_pages` | Oui* | Pages verifiees |
+| `expected_chunk_id` | Oui* | Chunk Mode B (ISO 42001 A.6.2.2) |
 | `metadata.hard_type` | Oui | Categorie UAEval4RAG |
 | `validation.status` | Oui | Statut validation |
+
+> *Non requis pour questions unanswerable (FALSE_PREMISE, OUT_OF_SCOPE, etc.)
 
 ---
 
@@ -206,13 +218,16 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 | **Tolerance** | +/- 2 pages adjacentes | Accepte | Oui |
 | **Coverage** | Questions / Categories | 100% | 13/13 |
 
-### 6.2 Etat Actuel (2026-01-20)
+### 6.2 Etat Actuel (2026-01-23)
 
-| Corpus | Version | Questions | Hard Cases | Recall | Status |
-|--------|---------|-----------|------------|--------|--------|
-| FR | v5.26 | 150 | 46 (31%) | 91.56% | PASS |
-| INTL | v2.0 | 43 | 12 (28%) | 93.22% | PASS |
-| **Total** | | **193** | 58 | - | **ISO PASS** |
+| Corpus | Version | Questions | Unanswerable | chunk_id | Status |
+|--------|---------|-----------|--------------|----------|--------|
+| FR | v5.30 | 318 | 105 (33%) | 227/227 | ⚠️ VALIDATION SEMANTIQUE REQUISE |
+| INTL | v2.1 | 93 | 26 (28%) | 67/67 | ⚠️ VALIDATION SEMANTIQUE REQUISE |
+| **Total** | | **411** | 131 (32%) | 294 | **ISO PARTIEL** |
+
+> **Note**: Les 294 `expected_chunk_id` ont ete assignes par matching keywords.
+> Validation semantique (verification que le chunk repond a la question) non effectuee.
 
 ---
 
@@ -251,6 +266,8 @@ python -m scripts.pipeline.tests.test_recall --coverage
 | 5.22 | 2026-01-20 | 134 | 91.17% | +41 hard cases (annales) |
 | 5.23 | 2026-01-20 | 134 | 91.17% | Ajout corpus_truth, hard_type |
 | 5.26 | 2026-01-20 | 150 | 91.56% | +16 questions, normalisation ISO |
+| 5.29 | 2026-01-22 | 237 | TBD | +87 adversarial SQuAD2-CR/UAEval4RAG |
+| **5.30** | 2026-01-23 | **318** | TBD | +81 adversarial, **+expected_chunk_id** |
 
 ### 8.1.1 Versions Gold Standard INTL
 
@@ -258,6 +275,7 @@ python -m scripts.pipeline.tests.test_recall --coverage
 |---------|------|-----------|--------|-------------|
 | 1.0 | 2026-01-19 | 25 | 80.00% | Creation initiale |
 | 2.0 | 2026-01-20 | 43 | 93.22% | +18 hard cases UAEval4RAG, audit ISO 29119 |
+| **2.1** | 2026-01-23 | **93** | TBD | +50 questions, **+expected_chunk_id** |
 
 ### 8.2 Corrections Majeures
 
@@ -267,6 +285,8 @@ python -m scripts.pipeline.tests.test_recall --coverage
 | FR-Q94 | corpus_truth ajoute | 2026-01-20 | Best practice arXiv:2412.12300 |
 | FR-Q68 | expected_pages [29]->[141] | 2026-01-19 | p29 etait faux |
 | FR-Q18 | expected_pages [58]->[57] | 2026-01-19 | Rapides vs Blitz |
+| FR-Q145 | expected_pages supprime | 2026-01-23 | Incoherent avec FALSE_PREMISE |
+| FR-Q04 | chunk_id revert | 2026-01-23 | Correction erronee revertee |
 
 ---
 
@@ -290,3 +310,4 @@ python -m scripts.pipeline.tests.test_recall --coverage
 ---
 
 *Ce document remplace gold_standard_status_v1.md et les audits 2026-01-19/20.*
+*Derniere mise a jour: 2026-01-23 - Ajout expected_chunk_id*

@@ -301,3 +301,28 @@ Phase 3: 98% -> 99%+ (+1%)
 
 *Audit realise conformement a ISO 9001:2015 Clause 9.2 - Audit interne*
 *Derniere mise a jour: 2026-01-20 - Re-audit apres corrections*
+
+---
+
+## 8. Addendum 2026-01-23
+
+### Nouvelles Non-Conformites
+
+| NC | Description | Severite | Status |
+|----|-------------|----------|--------|
+| NC-10 | 294 expected_chunk_id assignes par keywords seul | MAJEUR | A FAIRE |
+| NC-11 | Validation semantique non effectuee | MAJEUR | A FAIRE |
+| NC-12 | FR-Q145 expected_pages incoherent avec FALSE_PREMISE | MINEUR | CORRIGE |
+
+### Corrections Effectuees 2026-01-23
+
+- FR-Q145: expected_pages supprime (coherent avec FALSE_PREMISE)
+- FR-Q04: chunk_id revert (correction erronee)
+- Tests unitaires add_expected_chunk_id.py: 10 tests ajoutes
+
+### Travail Restant
+
+- Validation semantique des 294 expected_chunk_id (verification que le chunk REPOND a la question)
+- Estimation: ~5% erreurs dans les assignations actuelles
+
+*Mise a jour: 2026-01-23*

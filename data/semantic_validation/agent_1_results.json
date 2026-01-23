@@ -1,0 +1,402 @@
+{
+  "batch": 1,
+  "agent": "opus",
+  "validated_at": "2026-01-23T14:30:00Z",
+  "results": [
+    {
+      "id": "FR-Q01",
+      "question": "Quelle est la regle du toucher-jouer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p042-parent163-child02) parle de l'article 4.7.3 sur la promotion et 4.8 sur la perte du droit de protester. La regle du toucher-jouer est definie a l'article 4.3 dans le chunk p041-parent162-child01 qui explique que si le joueur touche une piece avec l'intention de la deplacer/prendre, il doit deplacer/prendre la premiere piece touchee.",
+      "new_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q02",
+      "question": "Combien de temps un joueur a-t-il pour arriver avant forfait ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 6.7.1 qui explique que le delai de forfait doit etre specifie par le reglement, et que si aucun delai n'est indique, celui-ci est egal a zero. Le joueur qui arrive apres le delai perd la partie. Information complete et pertinente.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q03",
+      "question": "Que faire si un joueur arrive en retard a sa partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q02, contient les regles sur le delai de forfait (6.7.1, 6.7.2). Explique que le joueur blanc perd le temps ecoule jusqu'a son arrivee et les conditions de forfait. Pertinent pour cette question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q04",
+      "question": "Comment reclamer le gain au temps (drapeau) ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 6.8 sur la chute du drapeau et 6.9 sur les consequences. Explique qu'un drapeau est considere comme tombe quand l'arbitre le constate ou qu'une reclamation valide est faite. Contenu pertinent et complet.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q05",
+      "question": "Quelle est la procedure en cas de coup illegal ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p047-parent173-child01) parle de l'article 6.11 sur l'interruption de partie, pas des coups illegaux. L'article 7.5 sur les coups illegaux se trouve dans le chunk p048-parent175-child00 qui explique la procedure complete: retablir la position precedente, appliquer la regle de la piece touchee, et les sanctions.",
+      "new_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q06",
+      "question": "Comment effectuer correctement le roque ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.8.2 qui decrit le roque: mouvement combine du roi et de la tour, le roi deplace de deux cases depuis sa case initiale vers la tour. Explique aussi les conditions de perte definitive du droit de roquer.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q07",
+      "question": "Quand peut-on reclamer la nulle par repetition de position ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk p051-parent179-child00 parle de l'article 9.1 sur les propositions de nulle. L'article 9.2 specifique sur la repetition de position est plus detaille dans le chunk p051-parent180-child00 qui explique les conditions exactes (meme position pour la 3eme fois, meme joueur au trait, memes coups possibles).",
+      "new_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q08",
+      "question": "Comment fonctionne la regle des 50 coups ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk actuel contient l'article 9.4-9.5 mais pas la regle des 50 coups specifiquement. L'article 9.3 sur les 50 coups se trouve dans le chunk p052-parent180-child02 qui explique que la partie est nulle si les 50 derniers coups ont ete joues sans mouvement de pion ni prise.",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q09",
+      "question": "Comment fonctionne la prise en passant ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les articles 3.7.3.1 et 3.7.3.2 qui definissent la prise en passant: un pion peut prendre un pion adverse qui vient d'avancer de deux cases comme s'il n'avait avance que d'une case. Cette prise n'est autorisee que sur le coup suivant.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q10",
+      "question": "Quelles sont les regles de promotion du pion ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.7.3.3 et 3.7.3.4 sur la promotion: quand un pion atteint la rangee la plus eloignee, il doit etre remplace par une dame, tour, fou ou cavalier de meme couleur. Le choix n'est pas restreint aux pieces capturees.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q11",
+      "question": "Quelle sanction pour telephone portable en salle de jeu ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 11.3.2.2: si un appareil est decouvert sur un joueur, il perd la partie et l'adversaire gagne. La note precise qu'aucun telephone n'est autorise meme eteint. Contenu tres pertinent et complet.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q12",
+      "question": "Comment noter une partie en notation algebrique ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk actuel presente l'Annexe C de maniere generale. La description detaillee du systeme algebrique (colonnes a-h, rangees 1-8, abreviations des pieces) est dans le chunk p059-parent194-child00.",
+      "new_chunk_id": "LA-octobre2025.pdf-p059-parent194-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q13",
+      "question": "Quand peut-on arreter de noter sa partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 8.4: si un joueur dispose de moins de 5 minutes et ne beneficie pas d'un increment de 30 secondes ou plus, il n'est pas dans l'obligation de noter. Reponse precise a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q14",
+      "question": "Quelles sont les regles pour proposer la nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 9.1.2.1: le joueur propose la nulle apres avoir joue son coup et avant d'appuyer sur sa pendule. L'offre ne peut etre retiree et reste valable jusqu'a acceptation/refus. Contenu complet et pertinent.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q15",
+      "question": "Quels sont les pouvoirs et devoirs de l'arbitre ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient l'article 12.1 qui est un debut de reponse (l'arbitre s'assure de l'observation des regles). Le role complet est detaille dans les chunks suivants mais celui-ci est acceptable comme point d'entree.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q16",
+      "question": "Quelles sont les conditions d'homologation d'un tournoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p072-parent217-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle du preambule des regles de competition FIDE et mentionne les competitions homologuees, mais ne detaille pas les conditions specifiques d'homologation. Le contenu est pertinent mais partiel.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q17",
+      "question": "Comment traiter une reclamation pendant une partie ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent026-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle de la Commission d'Appels Sportifs pour les reclamations apres decision, mais pas du traitement immediat pendant la partie. Le contenu est partiellement pertinent car il couvre les appels.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q18",
+      "question": "Quelles sont les cadences officielles parties rapides ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe A qui definit une partie rapide: tous les coups en plus de 10 minutes mais moins de 60 minutes, ou temps + 60x increment entre 10 et 60 minutes. Exemples detailles fournis.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q19",
+      "question": "Quelles sont les cadences officielles blitz ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe B qui definit une partie blitz: tous les coups en 10 minutes ou moins, ou temps + 60x increment inferieur ou egal a 10 minutes. Exemple concret avec calcul fourni.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q20",
+      "question": "Quelles sont les annexes aux regles generales ?",
+      "current_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk explique le principe des annexes (aide a la decision pour les competitions federales) mais ne liste pas toutes les annexes. Contenu introductif pertinent mais incomplet.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q21",
+      "question": "Quelles competitions sont homologuees par la FFE ?",
+      "current_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit les competitions homologuees: competitions et tournois officiels de la FFE. La FFE est le seul organisme permettant l'homologation FIDE des tournois en France. Les resultats sont pris en compte pour les classements.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q22",
+      "question": "Comment s'inscrire au Championnat de France individuel ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent011-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2.6 sur les inscriptions et selections: la DTF etablit la liste au 15 avril, les Ligues doivent envoyer les classements au 15 juin. Information procedurale pertinente.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q23",
+      "question": "Quelles sont les conditions de participation au Ch. France ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille les conditions de qualification pour le tournoi Accession: Elo superieur a 2200 (ou 1950 pour les joueuses), elimines des nationaux, premiers de l'Accession/Open precedent, etc. Contenu detaille.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q24",
+      "question": "Comment fonctionne le Championnat de France des Clubs ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.3 sur les engagements: calendrier d'inscription, droits, obligations des clubs (salle, Coupe de France, equipes jeunes/feminines). Vue d'ensemble du fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q25",
+      "question": "Quelles sont les regles des interclubs ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q24. Contient les regles sur les engagements, obligations des clubs N1/N2/N3, Coupe de France obligatoire, equipes jeunes/feminines pour Top16/N1. Pertinent pour les regles interclubs.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q26",
+      "question": "Comment se deroule le Ch. France Clubs parties rapides ?",
+      "current_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.2 sur le deroulement: equipes de 4, max 2 equipes par club, deux phases (suisse 15 rondes puis phase finale pour les 4 premiers), systeme Armageddon en cas d'egalite.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q27",
+      "question": "Quelles sont les cadences du Ch. France Clubs rapide ?",
+      "current_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p002-parent009-child00) parle de la feuille de composition d'equipe, pas des cadences. Les cadences sont dans le chunk p002-parent007-child00: 15 minutes + 3 secondes par coup, et Armageddon 5/4 minutes.",
+      "new_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent007-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q28",
+      "question": "Comment fonctionne la Coupe de France des echecs ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.2 sur le deroulement: matchs a eliminations directes, vainqueurs qualifies pour le tour suivant. Entree en 32e pour Top16 et tenant du titre, en 64e pour N1. Contenu pertinent.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q29",
+      "question": "Quelles sont les regles de la Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q28. Contient les regles de base: eliminations directes, qualifications par niveau, exemptions possibles pour N2/N3. Point d'entree valide pour les regles.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q30",
+      "question": "Comment participer a la Coupe Jean-Claude Loubatiere ?",
+      "current_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.1 sur la structure: competition annuelle, nombre d'equipes illimite par club, premiere phase dans le departement. Information de base pour participer.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q31",
+      "question": "Quelles sont les specificites de la Coupe Loubatiere ?",
+      "current_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q30. Les specificites sont: equipes illimitees, competition departementale en premiere phase. Pertinent comme introduction aux specificites.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q32",
+      "question": "Comment fonctionne la Coupe de la parite ?",
+      "current_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient l'article 1.1 sur la structure de base: competition annuelle, equipes illimitees. Mais ne detaille pas le fonctionnement specifique (equipes mixtes, etc.).",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q33",
+      "question": "Quelles sont les conditions pour la Coupe de la parite ?",
+      "current_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Meme chunk que Q32. Contient la structure de base mais pas les conditions specifiques de participation (composition mixte requise, etc.). Contenu partiel.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q34",
+      "question": "Comment fonctionne le Championnat de France Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2 sur l'organisation generale: 7 tournois mixtes U8 a U20, 7 tournois feminins, phases qualificatives, qualifies d'office. Vue d'ensemble complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q35",
+      "question": "Quelles sont les categories d'age aux echecs jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk mentionne les categories U8 a U20 et U8F a U20F. Repond a la question sur les categories d'age.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q36",
+      "question": "Comment participer au Ch. France Interclubs Jeunes ?",
+      "current_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p001-parent001-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle des accessions/relegations et repechages, pas vraiment de comment participer initialement. Contenu lie mais pas optimal pour la question.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q37",
+      "question": "Quelles sont les regles des interclubs jeunes ?",
+      "current_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent014-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient l'article 3.5 sur le role des capitaines specifique aux jeunes (paroles autorisees), mais ne couvre pas l'ensemble des regles. Contenu partiel.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q38",
+      "question": "Comment fonctionne le Championnat de France scolaire ?",
+      "current_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.2 sur la structure: deux categories (ecoles et colleges), conditions de scolarisation en France ou AEFE. Contenu pertinent.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q39",
+      "question": "Quelles sont les conditions du Ch. France scolaire ?",
+      "current_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q38. Conditions: eleves scolarises en France (maternelle a CM2 pour ecoles, 6e a 3e pour colleges), ULIS/SEGPA inclus, AEFE accepte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q40",
+      "question": "Comment fonctionne le Ch. France Clubs Feminin ?",
+      "current_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.1 sur la structure: 3 divisions (Top 12F, N1F, N2F), organisation par la CTF. Vue d'ensemble du fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q41",
+      "question": "Quelles sont les regles du Ch. France Clubs Feminin ?",
+      "current_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p004-parent016-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.4 sur le statut et qualification des joueuses, homologation, responsabilite des clubs. Regles importantes pour la competition.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q42",
+      "question": "Comment participer au Ch. individuel Feminin rapide ?",
+      "current_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.1 sur les conditions de participation: joueuses francaises, UE residant en France, monegasques/andorranes licenciees FFE, etrangeres code FRA, jeunes scolarisees en France.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q43",
+      "question": "Quelles sont les cadences du Ch. Feminin rapide ?",
+      "current_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle du deroulement en deux phases et des qualifications, mais ne precise pas explicitement les cadences en minutes. Le document ne semble pas contenir de chunk specifique sur les cadences.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    }
+  ],
+  "summary": {
+    "total": 43,
+    "keep": 30,
+    "wrong_corrected": 4,
+    "wrong_no_chunk": 0,
+    "partial_acceptable": 6,
+    "partial_improved": 3
+  }
+}

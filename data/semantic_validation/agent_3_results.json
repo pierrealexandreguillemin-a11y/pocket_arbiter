@@ -1,0 +1,402 @@
+{
+  "batch": 3,
+  "agent": "opus",
+  "validated_at": "2026-01-23T14:30:00Z",
+  "results": [
+    {
+      "id": "FR-Q87",
+      "question": "Pour obtenir un premier classement Elo Standard FIDE, quelles sont les conditions minimales a remplir ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.1.4 qui precise: 'Un classement pour un joueur ou une joueuse entrant dans la liste sera publie lorsqu'il sera base sur au moins 5 parties jouees contre des adversaires classes. Il n'est pas necessaire que ces parties proviennent d'un seul tournoi. Les resultats d'autres tournois joues lors de periodes de classement consecutives, d'au plus 26 mois, sont regroupees pour obtenir le classement initial. Celui-ci doit etre d'au moins 1400.' Ce chunk repond completement a la question sur les conditions minimales.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q88",
+      "question": "Quelle est la difference de points Elo gagnes ou perdus pour une seule partie gagnee contre un adversaire avec exactement le meme classement Elo ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk decrit la formule de calcul du changement de classement (8.3) mais ne donne pas directement la valeur numerique. Pour deux joueurs de meme Elo (D=0), PD=0.5, donc pour une victoire (score=1), deltaR = 1-0.5 = 0.5, et avec K variable le gain depend du coefficient K. Le chunk explique le processus mais la reponse exacte necessite aussi le coefficient K (chunk p185-parent546). La reponse partielle est acceptable car elle guide vers le calcul.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q89",
+      "question": "Pour un tournoi de 9 rondes, quelle est la difference maximale d'Elo entre deux joueurs qui permet encore de considerer le tournoi comme equilibre pour le calcul du rating FIDE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne (p185-parent545) parle du calcul du changement de classement mais ne mentionne pas la difference maximale d'Elo pour les tournois equilibres. L'article 8.3.1 mentionne 400 points comme difference maximale comptabilisee, mais ce n'est pas specifique aux 9 rondes. La table 73 (LA-octobre2025-table73-summary) est un meilleur choix car elle traite des conversions Elo et probabilites.",
+      "new_chunk_id": "LA-octobre2025-table73-summary",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q90",
+      "question": "Quel est le montant minimal d'indemnisation journaliere pour un arbitre principal lors d'un tournoi national de plus de 100 joueurs en 2025 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les principes generaux d'indemnisation: 'L'indemnite d'arbitrage est calculee de maniere journaliere, elle est comprise entre 50 euros (plancher) et 100 euros (plafond) par jour.' Ce chunk repond directement a la question sur le montant minimal (50 euros plancher).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q91",
+      "question": "Un arbitre adjoint dans un tournoi regional de 50 a 99 joueurs peut-il pretendre a une indemnisation forfaitaire ou horaire ? Quel est le bareme applique ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk decrit le calcul des indemnites pour les evenements homologues FFE et mentionne les indemnites pour arbitres adjoints. Il indique que l'indemnite est journaliere et soumise a negociation, avec un tableau donnant les fourchettes (50 a 80 euros pour adjoint en cadence classique). Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q92",
+      "question": "Quelles sont les conditions pour qu'un arbitre beneficie du remboursement des frais de deplacement en plus de son indemnisation de base ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p179-parent525-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne parle de l'hebergement, pas des frais de deplacement. Le chunk correct est p178-parent523-child00 qui traite specifiquement des frais de deplacement avec les formules de calcul et les conditions.",
+      "new_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q93",
+      "question": "Quel est le bareme d'indemnisation specifique pour un arbitre lors d'un match par equipes (ex : interclubs) avec moins de 20 joueurs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p180-parent528-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les tarifs adoptes pour les competitions federales, incluant: 'Pour les competitions par equipes (Matchs des interclubs, phase qualificative des competitions federales). Le montant de l'indemnite est de 50 euros pour une demi-journee et de 85 euros pour une journee complete.' Repond parfaitement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q94",
+      "question": "Si un joueur joue pas du tout pendant 18 mois, son Elo finit par disparaitre ou pas ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Ce chunk parle du classement initial mais pas de l'inactivite. Le chunk p183-parent539-child01 est plus pertinent car il traite specifiquement de l'article 7.2.2 sur les personnes inactives: 'Un joueur ou une joueuse est considere comme s'il/si elle ne joue aucune partie prise en compte pour le classement dans une periode d'un an.' Le chunk mentionne 'un an' (12 mois), pas 18 mois - donc la reponse serait que 12 mois suffisent pour etre marque inactif.",
+      "new_chunk_id": "LA-octobre2025.pdf-p183-parent539-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q95",
+      "question": "C'est pas possible d'avoir un Elo sans faire au moins 5 parties, si ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.1.4 qui confirme: 'Un classement pour un joueur ou une joueuse entrant dans la liste sera publie lorsqu'il sera base sur au moins 5 parties jouees contre des adversaires classes.' Le chunk repond exactement a la question (il faut bien 5 parties minimum).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q96",
+      "question": "Quelle difference d'Elo max pour que mon tournoi de 9 rondes soit quand meme valable pour le rating FIDE ?",
+      "current_chunk_id": "LA-octobre2025-table73-summary",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk est un resume de table sur la conversion Elo. Pour la difference maximale d'Elo dans un tournoi, l'article 8.3.1 (p185) mentionne 400 points. Ce chunk table est pertinent mais partial car il ne donne pas directement la reponse. La reponse complete necessite aussi le chunk p185-parent545-child00.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q97",
+      "question": "Pour devenir GM, il faut combien de normes et quel Elo mini en 2025-2026 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p192-parent571-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les definitions des titres avec les conditions: 'Une performance de GM est >=2600 contre des adversaires avec un classement moyen >=2380.' Il mentionne aussi que 3 normes sont requises et le classement minimum. Le chunk p192-parent572-child00 complete avec le tableau des Elo minimums (GM: 2300 minimum publie). Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q98",
+      "question": "Est-ce qu'on peut sauter le CM pour passer directement FM, ou c'est oblige ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p196-parent579-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite des titres des adversaires requis pour les normes mais ne repond pas directement a la question de la progression CM vers FM. La progression des titres n'est pas obligatoirement sequentielle - on peut obtenir directement FM si on remplit les conditions. Ce chunk est partiellement pertinent mais ne repond pas directement.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q99",
+      "question": "Une norme de titre, elle reste valide combien de temps si j'attends pour demander ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p200-parent595-child00",
+      "verdict": "WRONG_NO_CHUNK",
+      "reason": "Le chunk assigne traite des championnats continentaux/mondiaux par equipes et des grilles de normes, mais ne mentionne pas la duree de validite d'une norme. La validite des normes est generalement illimitee selon les regles FIDE actuelles, mais aucun chunk du corpus ne semble traiter explicitement cette question de validite temporelle des normes.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q100",
+      "question": "Qu'est-ce que l'arbitre doit absolument faire avant de lancer un tournoi homologue FFE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste exactement ce que l'arbitre principal doit faire: 'S'assurer que le tournoi est homologue, Rediger un reglement interieur, S'assurer que tous les joueurs participants sont en regle envers la FFE, Interdire aux joueurs suspendus la participation.' Ce chunk repond parfaitement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q101",
+      "question": "Si je suis arbitre adjoint dans un petit tournoi regional, j'ai droit a combien d'euros par jour ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le tableau des indemnites avec les fourchettes pour arbitres adjoints: 50 a 75 euros pour rapide/blitz, 50 a 65 euros pour journee a 1 ronde en classique, 50 a 80 euros pour journee a plus d'une ronde. Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q102",
+      "question": "Faut-il envoyer le rapport technique le soir meme ou le lendemain apres un tournoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p172-parent512-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk mentionne: 'La sauvegarde (boule) PAPI du tournoi doit etre envoyee le jour meme sur le site federal.' Repond directement a la question - c'est le jour meme.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q103",
+      "question": "Mon joueur arrive pas a la premiere ronde, je fais quoi comme arbitre ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p168-parent499-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite des contraintes FIDE (duree tournoi, codes FIDE) mais pas de la gestion des absences. Pour la gestion des joueurs absents/forfaits, le chunk sur les obligations de l'arbitre (p166-parent492 ou p169) serait plus pertinent car il mentionne les enquetes pour forfaits non justifies.",
+      "new_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q104",
+      "question": "Mon roi peut plus bouger mais il est pas en echec, c'est quoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient exactement la definition: '5.2.1. La partie est nulle lorsque le joueur ou la joueuse au trait ne dispose d'aucun coup legal et que son roi n'est pas en echec. On dit alors que la partie se termine par le \"pat\".' Repond parfaitement a la question - c'est le pat.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q105",
+      "question": "Mon adversaire a son telephone dans sa poche mais il est eteint, c'est grave ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite de l'article 11.3 sur les telephones et mentionne la possibilite d'inclure dans le reglement 'la possibilite d'apporter un tel appareil au tournoi, pourvu que certaines conditions soient remplies: que l'appareil soit completement eteint et range dans un sac a part.' Il mentionne aussi la sanction par defaut (partie perdue) si le telephone sonne. La regle de base est stricte - telephone interdit meme eteint, sauf si le reglement l'autorise explicitement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q106",
+      "question": "On a joue 12 coups avec les mauvaises couleurs, on recommence la partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.3: 'Si une partie a debute avec des couleurs inversees et que les deux adversaires ont joue moins de dix coups, alors la partie est interrompue et une nouvelle partie est jouee avec les couleurs correctes. Apres dix coups ou plus, la partie continue.' Avec 12 coups (>10), la partie continue - pas de recommencement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q107",
+      "question": "C'est quoi la cadence pour les poussins au championnat de France ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk mentionne les categories U8 (poussins) mais ne donne pas directement la cadence. Le chunk p004-parent018-child00 donne les cadences: 'Minimum 15 min + 5 sec./coup pour les categories U8, U8F, U10, U10F' pour les qualifications departementales.",
+      "new_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q108",
+      "question": "Si un joueur en fauteuil roulant ne peut pas acceder a la salle, qui perd la partie ?",
+      "current_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne que le reglement H01 fixe le cas general et que H02 s'applique pour la mobilite reduite, mais ne donne pas directement la reponse sur qui perd si l'accessibilite n'est pas assuree. En principe, si l'organisateur n'assure pas l'accessibilite, c'est la responsabilite de l'organisateur, pas du joueur. Le chunk est pertinent mais la reponse n'est pas explicite.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q109",
+      "question": "Une equipe finit 9eme en Nationale 2, elle descend ou pas ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite des engagements et inscriptions mais pas directement des relegations en N2. Il mentionne les divisions (N1, N2, N3) mais pas le systeme de montee/descente specifique. Pour connaitre si le 9eme descend, il faudrait le reglement specifique des relegations N2.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q110",
+      "question": "Si je touche ma tour AVANT mon roi, j'ai pas le droit de roquer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite exactement de ce cas dans l'article 4.4.2: si on touche la tour avant le roi pour roquer, on doit deplacer la tour si possible, sinon deplacer le roi. L'article 4.4.3 precise aussi le cas ou le roque serait illegal. Le chunk repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q111",
+      "question": "C'est quoi la difference entre le pat et la nulle par repetition ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk definit bien le pat (5.2.1: roi pas en echec mais aucun coup legal), mais la nulle par repetition est dans un autre article (9.2 sur p51-52). C'est une question composee qui necessite 2 chunks. Ce chunk couvre une partie de la reponse.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q112",
+      "question": "Qu'est-ce qui se passe quand un joueur est en zeitnot ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite de l'article 8.5 sur les feuilles de parties incompletes et mentionne le cas du joueur en manque de temps. Il indique que l'arbitre ne doit pas donner d'information sur le nombre de coups restants. L'article 8.4 (chunk precedent p050-parent177-child02) precise qu'un joueur avec moins de 5 minutes n'est pas oblige de noter si l'increment est inferieur a 30 secondes.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q113",
+      "question": "Lors d'un tournoi, les deux joueurs se sont trompes de couleurs et ont joue 13 coups chacun. Un joueur a une dame d'avance. Quelle decision prendre en partie longue (1h+30s/coup) ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.3: 'Apres dix coups ou plus, la partie continue.' Avec 13 coups et en partie longue, la partie continue avec les couleurs inversees. La dame d'avance n'a pas d'impact sur cette regle. Repond parfaitement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q114",
+      "question": "En partie rapide (20min+10s/coup), les joueurs se sont trompes de couleurs apres 8 coups. Un joueur a une dame d'avance. Que faire ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.3: avec moins de 10 coups (8 coups ici), la partie devrait normalement etre recommencee. Cependant, le chunk p048-parent174-child01 ajoute: 'Dans le cas ou une partie avec couleurs inversees finirait par des moyens normaux [...] avant que dix (10) coups ne soient acheves, le resultat de la partie est maintenu.' En rapide, la regle est la meme. Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q115",
+      "question": "Un joueur annonce echec et mat a tort, son adversaire le croit et arrete la pendule. Le capitaine reclame car ce n'etait pas mat. Quelle decision ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 5.1.2: 'La partie est perdue par le joueur ou la joueuse qui declare abandonner (cela met immediatement fin a la partie).' Si l'adversaire accepte le mat (en arretant la pendule), cela equivaut a un abandon. Le resultat est maintenu meme si l'annonce etait fausse. 'A la fin d'une partie, l'arbitre doit s'assurer que les deux feuilles affichent le meme resultat.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q116",
+      "question": "A la cadence 5min+3s/coup, les noirs jouent un coup illegal et appuient sur la pendule. Quelle sanction appliquer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe B sur les parties blitz. 5min+3s = 5+(3x60) = 8 minutes donc c'est du blitz. L'article B.3 renvoie aux regles du rapide (Annexe A) pour les sanctions: 'les sanctions pour coups irreguliers et reclamations de nulle incorrectes sont d'une minute.' La sanction est donc d'ajouter 1 minute au temps de l'adversaire.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q117",
+      "question": "En partie longue 50min+10s/coup, vous avez deja sanctionne une fois les noirs pour coup illegal. Ils en commettent un second. Quelle sanction ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.5.5: 'pour le premier coup illegal acheve par un joueur ou une joueuse, l'arbitre donne deux minutes supplementaires a son adversaire ; pour le second coup illegal acheve par la meme personne, l'arbitre declare la partie perdue par celle-ci.' La partie est donc perdue pour les noirs.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q118",
+      "question": "Quel departage utilise dans son calcul les resultats des adversaires contre leurs propres adversaires ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p151-parent450-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite du Koya qui compte les points contre adversaires a 50%+. Le departage qui utilise les resultats des adversaires contre leurs propres adversaires est le Sonneborn-Berger (Sb) decrit dans le chunk LA-octobre2025.pdf-p151-parent447-child00: 'Il est obtenu en ajoutant, pour chaque ronde, le score ajuste de l'adversaire multiplie par le nombre de points marques contre lui.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p151-parent447-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q119",
+      "question": "Pour un tournoi toutes rondes avec 7 equipes, combien de rondes faut-il programmer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p102-parent299-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk parle du systeme Rutsch mais pas du nombre de rondes. Pour 7 participants en toutes-rondes, c'est 7-1=6 rondes si pair, ou 7 rondes avec exemption si impair. Le chunk p102-parent300-child00 est plus pertinent car il explique: 'Dans ces tournois, a chaque ronde, une personne est exempte' et donne l'exemple de 7 participants.",
+      "new_chunk_id": "LA-octobre2025.pdf-p102-parent300-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q120",
+      "question": "Dans l'appariement suisse, qu'est-ce qu'un flotteur descendant ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p126-parent367-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit clairement le flotteur descendant dans le contexte de l'appariement suisse: 'L'appariement d'un niveau est compose de paires de joueurs/joueuses apparies ensemble et de flotteurs descendants. [...] Pour chaque flotteur descendant, la D-S est definie comme la difference entre le score du flotteur descendant et une valeur artificielle...' Un flotteur descendant est un joueur apparie dans un niveau inferieur a son score.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q121",
+      "question": "Vous arbitrez un tournoi FIDE. Un joueur non classe gagne 5 parties contre des joueurs classes. Comment obtient-il son premier classement Elo ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.1.4 sur les conditions du premier classement (5 parties minimum). Pour le calcul, le chunk p185-parent544-child00 (article 8.2) explique la formule: 'Ru = Ra + dp' ou Ra est le classement moyen des adversaires avec 2 adversaires virtuels a 1800. Ce chunk est le point de depart correct.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q122",
+      "question": "Un joueur Elo 1800 gagne contre un joueur Elo 2200. Avec K=20, quel gain approximatif de points ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent544-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk assigne traite du classement initial Ru, pas du calcul de variation pour joueurs deja classes. Le chunk p185-parent545-child00 est plus pertinent car il decrit l'article 8.3 avec la formule: 'deltaR x K = la variation de Classement.' Avec D=400 (difference plafonnee), PD environ 0.09, gain = (1-0.09) x 20 = environ 18 points.",
+      "new_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q123",
+      "question": "Dans une finale Roi+Dame contre Roi seul, un joueur annonce mat en 2 mais se trompe. L'adversaire reclame la nulle. Quelle decision ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite de l'article 11.7 sur le refus de se conformer aux regles. Pour une reclamation de nulle avec materiel insuffisant (Roi seul), c'est l'article 5.2.2 sur la position morte et l'article 9 sur les reclamations de nulle qui s'appliquent. Roi+Dame contre Roi seul n'est PAS une position morte - le mat est possible. La partie continue.",
+      "new_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q124",
+      "question": "Quels sont les frais de deplacement rembourses pour un arbitre regional se deplacant a 150 km ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les regles de frais de deplacement: 'Cas General: 0,32 euro/km pour une distance aller 0-110 km. Cas Long deplacement: Au dela d'une distance de 110 km aller, utiliser le tableau et la formule: R= C + (DxK). Le remboursement total correspond au remboursement de la distance aller multiplie par 2 + 20 euros forfaitaires.' Pour 150 km, c'est le cas long deplacement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q125",
+      "question": "A quelle cadence la chute du drapeau doit-elle etre signalee par l'arbitre s'il l'observe ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk traite du rapide mais l'article A.5.5 complet est dans le chunk suivant p057-parent191-child02: 'L'arbitre doit aussi annoncer la chute du drapeau, s'il/si elle la constate.' C'est pour le rapide et le blitz (via B.3). En cadence longue, l'arbitre n'annonce pas necessairement.",
+      "new_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q126",
+      "question": "L'arbitre observe une position illegale sans avoir vu le dernier coup joue. Comment doit-il intervenir ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.5.1 et mentionne: 'Si l'arbitre observe un coup illegal acheve, il doit toujours intervenir immediatement. Il ne doit pas attendre qu'une reclamation soit faite par l'adversaire.' Pour une position illegale sans avoir vu le coup, le chunk p049-parent176-child00 mentionne la restauration de position (art. 7.6).",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q127",
+      "question": "En cadence 1h30+30s, un joueur a moins de 5 minutes. Doit-il continuer a noter sa partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 8.4: 'Si un joueur ou une joueuse dispose de moins de cinq minutes a sa pendule au cours d'une periode de jeu donnee et ne beneficie pas d'un temps additionnel de 30 secondes ou plus a chaque coup, alors pour le reste de la periode il/elle n'est pas dans l'obligation de respecter les exigences de l'Article 8.1.1.' Avec +30s d'increment (>=30s), le joueur DOIT continuer a noter.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q128",
+      "question": "La regle des 75 coups sans prise ni mouvement de pion entraine-t-elle automatiquement la nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk traite de la regle des 50 coups (reclamation) a l'article 9.3. La regle des 75 coups (automatique) est dans le chunk p052-parent181-child01 article 9.6.2: 'Une suite d'au moins 75 coups a ete jouee par chacun des deux adversaires, sans aucun mouvement de pion ni prise. Si le dernier coup produit un mat, celui-ci est prioritaire.' Oui, c'est automatique a 75 coups.",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q129",
+      "question": "Apres combien de repetitions de position identique la partie est-elle automatiquement nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 9.6.1: 'La meme position est apparue, comme en 9.2.2 au moins cinq fois' alors la partie est nulle automatiquement. Il precise aussi: 'les 5 occurrences de la meme position n'ont pas a etre consecutives.' La reponse est 5 repetitions (vs 3 pour la reclamation).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    }
+  ],
+  "summary": {
+    "total": 43,
+    "keep": 25,
+    "wrong_corrected": 5,
+    "wrong_no_chunk": 1,
+    "partial_acceptable": 6,
+    "partial_improved": 6
+  }
+}

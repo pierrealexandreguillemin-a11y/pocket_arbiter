@@ -1,0 +1,656 @@
+{
+  "batch_name": "batch_2",
+  "count": 40,
+  "questions": [
+    {
+      "id": "FR-Q128",
+      "question": "La règle des 75 coups sans prise ni mouvement de pion entraîne-t-elle automatiquement la nulle ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "chunk_text": "La vérification d'une réclamation de nulle se fait en présence des deux adversaires. Il vaut mieux reconstituer toute la partie sans se fier uniquement aux feuilles de parties. On peut utiliser l'ordinateur si les parties sont retransmises.  \n- 9.3. La partie est nulle, sur une demande correcte du joueur/de la joueuse ayant le trait, si :\n- 9.3.1. il/elle indique son coup, qui ne peut être changé, en l'écrivant sur sa feuille de partie en papier ou en le notant sur sa feuille de partie électronique et déclare à l'arbitre son intention de jouer ce coup ayant pour conséquence que les 50 derniers coups ont été joués par chacun des deux adversaires sans mouvement de pion ni aucune prise, ou\n- 9.3.2. les 50 derniers coups ont été achevés par chacun des deux adversaires sans mouvement de pion ni aucune prise.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "75",
+        "coups",
+        "nulle",
+        "automatique",
+        "pion"
+      ]
+    },
+    {
+      "id": "FR-Q129",
+      "question": "Après combien de répétitions de position identique la partie est-elle automatiquement nulle ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "chunk_text": "- 9.6. Si l'une ou les deux situations suivantes se produisent, alors la partie est nulle :\n- 9.6.1. La même position est apparue, comme en 9.2.2 au moins cinq fois ;\n- 9.6.2. Une suite d'au moins 75 coups a été jouée par chacun des deux adversaires, sans aucun mouvement de pion ni prise. Si le dernier coup produit un mat, celui-ci est prioritaire.  \nEn 9.6.1, les 5 occurrences de la même position n'ont pas à être consécutives.  \nDans les deux articles 9.6.1 et 9.6.2, l'arbitre doit intervenir et arrêter la partie, déclarant la partie nulle.  \nSi le match nul associé à l'un ou l'autre des articles ci -dessus n'est pas remarqué pendant la partie, un des deux adversaires peut faire appel du résultat en utilisant la procédure d'appel normale.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "répétition",
+        "position",
+        "nulle",
+        "automatique",
+        "cinq"
+      ]
+    },
+    {
+      "id": "FR-Q13",
+      "question": "Quand peut-on arrêter de noter sa partie ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "chunk_text": "- 8.3. Les feuilles de partie sont la propriété de l'organisateur ou l' organisatrice de la compétition. Une feuille de partie électronique présentant un défaut évident sera remplacée par l'arbitre.  \nUn joueur ou une joueuse ne doit pas garder l'original de sa feuille de partie, sauf si le règlement de la compétition en décide autrement. Elle appartient à l'organisateur ou à l'organisatrice . Il/Elle doit la donner à l'arbitre dès la fin de la partie et il/elle peut garder la copie (s'il y en a une).  \n- 8.4. Si un joueur ou une joueuse dispose de moins de cinq minutes à sa pendule au cours d'une période de jeu donnée et ne bénéficie pas d'un temps additionnel de 30 secondes ou plus à chaque coup, alors pour le reste de la période il/elle n'est pas dans l'obligation de respecter les exigences de l'Article 8.1.1.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "noter",
+        "temps",
+        "moins",
+        "minutes"
+      ]
+    },
+    {
+      "id": "FR-Q130",
+      "question": "Roi contre Roi + Fou est-il considéré comme matériel insuffisant pour mater ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "chunk_text": "## Le tableau suivant indique quelques situations avec les résultats correspondants :  \n| Pièce du joueur n'ayant plus de temps. | Pièces de l'adversaire | Résultat |\n|------------------------------------------|-----------------------------|------------------------------------------------------|\n| Roi + Dame | Roi +Cavalier ou Roi + Fou | Match nul |\n| Roi + Tour | Roi + Cavalier | Victoire pour l'adversaire (car un mat est possible) |\n| Roi + Tour | Roi + Fou | Match nul |\n| Roi + Cavalier | Roi + Cavalier | Victoire pour l'adversaire |\n| Roi + Cavalier | Roi + Fou | Victoire pour l'adversaire |\n| Roi + Fou | Roi + Cavalier | Victoire pour l'adversaire |\n| Roi + Fou | Roi + Fou (couleur opposée) | Victoire pour l'adversaire |\n| Roi + Fou | Roi + Fou (même couleur) | Match nul |\n| Roi + Pion | Roi + Cavalier | Victoire pour l'adversaire |",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "roi",
+        "fou",
+        "tableau",
+        "suivant",
+        "indique",
+        "quelques"
+      ]
+    },
+    {
+      "id": "FR-Q131",
+      "question": "Comment est calculé le classement Elo Rapide par rapport au classement Standard ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "chunk_text": "## 6. Listes Officielles du Classement Rapide et blitz de la FIDE  \n- 6.1. Le premier jour de chaque mois, la FIDE prépare une liste des classements intégrant les parties prises en compte durant la période de classement à partir de la liste précédente. Cela est fait en utilisant la formule du système de classement.\n- 6.1.1. La période de classement (pour les nouveaux classés, voir 6.1.4) est la période pendant laquelle une certaine liste de classements est valide.\n- 6.1.2. Les données suivantes, concernant chaque joueur et joueuse dont le classement est d'au moins 1 400 dans la liste actuelle, sont publiées : Titre de la FIDE, Fédération, Classement Actuel, Code FIDE, Nombre de parties prises en compte dans la période de classement, Année de naissance, Sexe et la valeur actuelle du coefficient K pour le joueur.\n- 6.1.3. La date de clôture des tournois prise en compte pour une liste est de 3 jours avant la date de publication de la liste, les tournois se terminant à cette date ou avant sont pris en compte pour le calcul du classement. Les manifestations officielles de la FIDE sont prises en compte pour le classement même si elles se terminent le dernier jour avant la date de publication du classement.\n- 6.1.4. Un classement pour un joueur ou une joueuse entrant dans la liste sera publié lorsqu'il sera basé sur au moins 5 parties jouées contre des adversaires classés. Il n'est pas nécessaire que ces parties proviennent d'un seul tournoi. Les résultats d'autres tournois joués lors de périodes de classement consécutives, d'au plus 26 mois, sont regroupés pour obtenir le classement initial. Celui-ci doit être d' au moins 1400.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapide",
+        "elo",
+        "classement",
+        "calcul",
+        "différence"
+      ]
+    },
+    {
+      "id": "FR-Q132",
+      "question": "Un joueur classé uniquement en Rapide participe à son premier tournoi Standard. Comment obtient-il son Elo Standard ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "chunk_text": "## 6. Listes Officielles du Classement Rapide et blitz de la FIDE  \n- 6.1. Le premier jour de chaque mois, la FIDE prépare une liste des classements intégrant les parties prises en compte durant la période de classement à partir de la liste précédente. Cela est fait en utilisant la formule du système de classement.\n- 6.1.1. La période de classement (pour les nouveaux classés, voir 6.1.4) est la période pendant laquelle une certaine liste de classements est valide.\n- 6.1.2. Les données suivantes, concernant chaque joueur et joueuse dont le classement est d'au moins 1 400 dans la liste actuelle, sont publiées : Titre de la FIDE, Fédération, Classement Actuel, Code FIDE, Nombre de parties prises en compte dans la période de classement, Année de naissance, Sexe et la valeur actuelle du coefficient K pour le joueur.\n- 6.1.3. La date de clôture des tournois prise en compte pour une liste est de 3 jours avant la date de publication de la liste, les tournois se terminant à cette date ou avant sont pris en compte pour le calcul du classement. Les manifestations officielles de la FIDE sont prises en compte pour le classement même si elles se terminent le dernier jour avant la date de publication du classement.\n- 6.1.4. Un classement pour un joueur ou une joueuse entrant dans la liste sera publié lorsqu'il sera basé sur au moins 5 parties jouées contre des adversaires classés. Il n'est pas nécessaire que ces parties proviennent d'un seul tournoi. Les résultats d'autres tournois joués lors de périodes de classement consécutives, d'au plus 26 mois, sont regroupés pour obtenir le classement initial. Celui-ci doit être d' au moins 1400.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapide",
+        "standard",
+        "premier",
+        "conversion",
+        "elo"
+      ]
+    },
+    {
+      "id": "FR-Q133",
+      "question": "Dans le système suisse, comment traiter un joueur qui demande un bye pour une ronde ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p124-parent357-child01",
+      "chunk_text": "3. Les personnes qui abandonnent le tournoi ne seront plus appariées.\n4. Les personnes ayant prévenu de leur absence lors de certaines rondes ne seront pas appariées pour ces rondes et ne marqueront aucun point (sauf si le règlement du tournoi en décide autrement).\n5. Seules les parties jouées comptent dans les situations où l'historique des couleurs est à prendre en compte.  \nPar exemple, les séquences suivantes :  \n- o NBN=B (partie non jouée à la 4 e ronde) sera considérée comme si elle avait été la suivante : =NBNB.\n- o BN=BN compterait comme =BNBN\n- o NBB=N=B comme ==NBBNB\n6. Deux joueurs appariés ensemble qui n'ont pas joué leur partie peuvent à nouveau être appariés ensemble à l'occasion d'une future ronde.\n7. Les résultats d'une ronde doivent être publiés à l'endroit prévu à cet effet et à l'heure annoncée par le planning du tournoi.\n8. Dans le cas où :\n- o Un résultat erroné a été enregistré\n- o Une partie a été jouée couleurs inversées\n- o Le classement Elo d'un joueu r/d'une joueuse doit être corrigé (et les numéros d'appariement probablement rectifiés cf. C.04.2.C.3)  \net que le joueur/la joueuse signale le fait à l'arbitre dans un certain délai après la publication des résultats, la nouvelle information sera prise en compte pour le classement et les appariements de la ronde suivante. Le délai en-deçà duquel la réclamation devra être effectuée doit être indiqué dans le règlement du tournoi.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "exempt",
+        "appariement",
+        "personnes",
+        "abandonnent",
+        "tournoi",
+        "seront"
+      ]
+    },
+    {
+      "id": "FR-Q134",
+      "question": "Quelle est la différence entre le Buchholz tronqué et le Buchholz médian ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p149-parent436-child02",
+      "chunk_text": "Soumarinov : 0 + 0 + 0 + 1 + 2 + 3 = 6.  \nAvantage pour l'arbitre : le Cumulatif n'étant qu'une simple addition, il est facile à calculer.  \nCet avantage peut devenir un inconvénient : il est facile à anticiper (dans un groupe de point, la valeur du Cumulatif change, mais pas l'ordre). Ceci peut encourager des « arrangements » à la dernière ronde. Il peut aussi s'avérer injuste quand un groupe de joueurs se « neutralisent » : c'est le 1 er à avoir perdu qui est défavorisé.  \n6.5.1. Cumulatif tronqué : o n ne commence l'addition qu'à partir du score de la 2 ème ronde (si on tronque une partie), on ne commence l'addition qu'à partir du score de la 3 ème ronde (si on tronque deux parties)",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "buchholz",
+        "tronqué",
+        "médian",
+        "départage"
+      ]
+    },
+    {
+      "id": "FR-Q14",
+      "question": "Quelles sont les règles pour proposer la nulle ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+      "chunk_text": "- 9.1.2. Cependant, si le règlement de la compétition permet les nulles par accord mutuel, les règles suivantes s'appliqueront :\n- 9.1.2.1. Un joueur ou une joueuse souhaitant proposer la nulle le fait après avoir joué un coup sur l'échiquier et avant d'appuyer sur sa pendule. Une offre à tout autre moment durant le jeu est toujours valable, mais l'Article 11.5 doit être pris en considération. Aucune condition ne peut être liée à cette offre. Dans les deux cas, l'offre ne peut être retirée et reste valable jusqu'à ce que l'adversaire l'accepte, la rejette oralement, la rejette en touchant une pièce avec l'intention de la jouer ou de la prendre ; ou que la partie ne se soit terminée autrement.\n- 9.1.2.2. L'offre de nulle est notée par chacun des deux adversaires sur sa feuille de partie avec un symbole (=).  \nIl s'agit d'une règle utile pour l'arbitre et son utilisation doit être encouragée. Si un joueur ou une joueuse prétend qu'il est distrait par des offres de nulle répétées, sa feuille de partie doit être examinée pour en trouver la preuve sous la forme de plusieurs (=) affichés.  \n- 9.1.2.3. Une réclamation de nulle au titre de 9.2 ou 9.3 est assimilée à une proposition de nulle.  \nLa séquence de proposition de nulle est : 1. jouer un coup 2. proposer nulle 3. appuyer sur la pendule. Si un joueur ou une joueuse dévie de cet ordre, la demande reste valable mais il/elle peut recevoir une sanction selon l'article 12.9. Note de traduction : Car cela peut être considéré comme une gêne de l'adversaire",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "nulle",
+        "propos",
+        "offre",
+        "pendule"
+      ]
+    },
+    {
+      "id": "FR-Q15",
+      "question": "Quels sont les pouvoirs et devoirs de l'arbitre ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "chunk_text": "## Article 12 Le rôle de l'Arbitre (voir Préambule)  \n- 12.1. L'arbitre s'assure de l'observation des Règles du Jeu d'Échecs.  \nL'arbitre doit être présent/présente et surveiller les parties. En cas d'infraction, il/elle intervient, il/elle ne doit pas attendre la demande de l'adversaire. Exemple : un joueur ou une joueuse touche volontairement une pièce et en joue une autre. L'arbitre doit l'obliger à jouer la pièce touchée, s'il existe un coup légal.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "décision",
+        "article",
+        "voir",
+        "assure",
+        "observation"
+      ]
+    },
+    {
+      "id": "FR-Q151",
+      "question": "Comment fonctionne le déplacement du pion ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00",
+      "chunk_text": "## 3.7. Le pion  \n- 3.7.1. Un pion peut se déplacer sur la case immédiatement devant lui sur la même colonne, à condition que cette case soit inoccupée.\n- 3.7.2. Lors de son premier déplacement un pion peut se déplacer comme au 3.7.1, ou alors il peut avancer de deux cases sur la même colonne, à condition que ces deux cases soient inoccupées.\n- 3.7.3. Un pion peut se déplacer sur une case occupée par une pièce adverse située en diagonale devant lui, sur une colonne adjacente. Ce pion prend alors la pièce en question.  \n<!-- image -->",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pion",
+        "déplacer",
+        "case",
+        "colonne"
+      ]
+    },
+    {
+      "id": "FR-Q152",
+      "question": "Comment fonctionne la prise en passant aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "chunk_text": "## Note de traduction : Les deux articles suivants définissent la prise en passant.  \n- 3.7.3.1. Un pion occupant une case située sur la même rangée et sur une colonne adjacente à un pion adverse qui vient d ' avancer de deux cases en un seul coup depuis sa case de départ, peut prendre ce pion adverse comme si ce dernier n ' avait été avancé que d ' une seule case.\n- 3.7.3.2. Cette prise n'est autorisée que sur le coup qui suit l'avance ment du pion adverse. Cette prise est appelée « prise en passant ».  \n<!-- image -->  \nNote de traduction : Les trois articles suivants définissent la promotion.  \n<!-- image -->  \n- 3.5. Lors de leurs déplacements, un fou, une tour ou une dame ne peuvent passer par-dessus des pièces qui se trouveraient sur leur chemin.\n- 3.6. Un cavalier peut se déplacer sur l ' une des cases les plus proches de celle où il se trouve mais non située sur la même rangée, la même colonne ou la même diagonale.  \n<!-- image -->  \n- 3.7.3.3. Quand un joueur ou une joueuse au trait déplace un pion sur la rangée la plus éloignée de sa position de départ, il/elle doit remplacer ce pion -lors de ce coup- par une nouvelle dame, une nouvelle tour, un nouveau fou ou un nouveau cavalier de la même cou leur sur cette case d'arrivée que l'on nomme case de « promotion ».\n- 3.7.3.4. Le choix du joueur ou de la joueuse n ' est pas restreint aux pièces capturées précédemment.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "prise",
+        "passant",
+        "pion",
+        "avance"
+      ]
+    },
+    {
+      "id": "FR-Q153",
+      "question": "Comment fonctionne la promotion du pion ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "chunk_text": "- 3.7.3.4. Le choix du joueur ou de la joueuse n ' est pas restreint aux pièces capturées précédemment.\n- 3.7.3.5. Ce remplacement d ' un pion par une autre pièce est appelé promotion. La nouvelle pièce issue de cette promotion est immédiatement active.  \nDans le cas d'une promotion, si le joueur ou la joueuse ne trouve pas la pièce nécessaire, il/elle a le droit d e mettre immédiatement la pendule en pause et d'appeler l'arbitre pour qu'on lui apporte la pièce qu'il /elle désire. L'arbitre doit fournir la pièce demandée et redémarrer la pendule. Le joueur ou la joueuse continue alors de réfléchir à son coup. Il/Elle n'a pas l'obligation de faire la promotion en utilisant la pièce demandée.  \n- 3.8. Le roi peut se déplacer de deux façons différentes :\n- 3.8.1. En se déplaçant sur une case adjacente\n- 3.8.2. En « roquant ». C'est un mouvement combiné du roi et de l' une des tours de même couleur le long de la première rangée du joueur ou de la joueuse. Le roque compte pour un seul coup, il est joué de la façon suivante : le roi est déplacé de deux cases depuis sa case initiale vers une tour située sur sa case initiale, puis cette tour est déplacée sur la case que le roi vient de traverser.\n- 3.8.2.1. Le droit de roquer est définitivement perdu :\n- 1) Si le roi s ' est déjà déplacé, ou\n- 2) Avec une tour qui s ' est déjà déplacée.\n- 3.8.2.2. Le roque est temporairement interdit :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "promotion",
+        "pion",
+        "pièce",
+        "remplacement"
+      ]
+    },
+    {
+      "id": "FR-Q154",
+      "question": "Quand le roque est-il définitivement interdit ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "chunk_text": "- 3.7.3.4. Le choix du joueur ou de la joueuse n ' est pas restreint aux pièces capturées précédemment.\n- 3.7.3.5. Ce remplacement d ' un pion par une autre pièce est appelé promotion. La nouvelle pièce issue de cette promotion est immédiatement active.  \nDans le cas d'une promotion, si le joueur ou la joueuse ne trouve pas la pièce nécessaire, il/elle a le droit d e mettre immédiatement la pendule en pause et d'appeler l'arbitre pour qu'on lui apporte la pièce qu'il /elle désire. L'arbitre doit fournir la pièce demandée et redémarrer la pendule. Le joueur ou la joueuse continue alors de réfléchir à son coup. Il/Elle n'a pas l'obligation de faire la promotion en utilisant la pièce demandée.  \n- 3.8. Le roi peut se déplacer de deux façons différentes :\n- 3.8.1. En se déplaçant sur une case adjacente\n- 3.8.2. En « roquant ». C'est un mouvement combiné du roi et de l' une des tours de même couleur le long de la première rangée du joueur ou de la joueuse. Le roque compte pour un seul coup, il est joué de la façon suivante : le roi est déplacé de deux cases depuis sa case initiale vers une tour située sur sa case initiale, puis cette tour est déplacée sur la case que le roi vient de traverser.\n- 3.8.2.1. Le droit de roquer est définitivement perdu :\n- 1) Si le roi s ' est déjà déplacé, ou\n- 2) Avec une tour qui s ' est déjà déplacée.\n- 3.8.2.2. Le roque est temporairement interdit :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "roque",
+        "interdit",
+        "roi",
+        "tour"
+      ]
+    },
+    {
+      "id": "FR-Q155",
+      "question": "Quand le roque est-il temporairement interdit ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child02",
+      "chunk_text": "- 1) Si le roi s ' est déjà déplacé, ou\n- 2) Avec une tour qui s ' est déjà déplacée.\n- 3.8.2.2. Le roque est temporairement interdit :\n- 3) Si la case occupée par le roi, la case qu ' il doit traverser ou la case sur laquelle il doit arriver, est attaquée par une ou plusieurs pièces adverses, ou\n- 4) Si une pièce quelconque se situe entre le roi et la tour avec laquelle le roque est envisagé.  \n<!-- image -->  \n<!-- image -->",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "roque",
+        "temporairement",
+        "attaqué",
+        "pièce"
+      ]
+    },
+    {
+      "id": "FR-Q156",
+      "question": "Que signifie la chute du drapeau aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "chunk_text": "## Article 6 La pendule d'échecs  \n- 6.1. La 'pendule d'échecs' désigne une horloge munie de deux afficheurs, reliés entre eux de telle manière qu'un seul puisse fonctionner à la fois. Dans les Règles du Jeu d'Échecs, le terme 'pendule' désigne l'un des deux afficheurs. Chacun des afficheurs est m uni d'un 'drapeau'.\n- La 'chute du drapeau' signifie la fin du temps imparti à un joueur ou une joueuse.  \nCertaines pendules électroniques affichent le symbole « -» à la place d'un drapeau.  \n- 6.2. Manipulation de la pendule d'échecs :\n- 6.2.1. Pendant la partie, chaque joueur ou joueuse, après avoir joué son coup sur l'échiquier, arrête sa pendule et démarre celle de son adversaire (autrement dit, il/elle appuie sur sa pendule). Ceci 'achève' le coup. Un coup est également achevé si :\n- 6.2.1.1. le coup met fin à la partie (voir les Articles 5.1.1, 5.2.1, 5.2.2 et 9.6), ou\n- 6.2.1.2. l e joueur ou la joueuse a joué son prochain coup, alors que son coup précédent n'était pas achevé.  \nNormalement, lorsqu'un joueur ou une joueuse oublie d'appuyer sur sa pendule après avoir joué son coup, l'une des possibilités suivantes s'applique :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "chute",
+        "drapeau",
+        "temps",
+        "fin"
+      ]
+    },
+    {
+      "id": "FR-Q157",
+      "question": "Comment fonctionne la pendule aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "chunk_text": "## Article 6 La pendule d'échecs  \n- 6.1. La 'pendule d'échecs' désigne une horloge munie de deux afficheurs, reliés entre eux de telle manière qu'un seul puisse fonctionner à la fois. Dans les Règles du Jeu d'Échecs, le terme 'pendule' désigne l'un des deux afficheurs. Chacun des afficheurs est m uni d'un 'drapeau'.\n- La 'chute du drapeau' signifie la fin du temps imparti à un joueur ou une joueuse.  \nCertaines pendules électroniques affichent le symbole « -» à la place d'un drapeau.  \n- 6.2. Manipulation de la pendule d'échecs :\n- 6.2.1. Pendant la partie, chaque joueur ou joueuse, après avoir joué son coup sur l'échiquier, arrête sa pendule et démarre celle de son adversaire (autrement dit, il/elle appuie sur sa pendule). Ceci 'achève' le coup. Un coup est également achevé si :\n- 6.2.1.1. le coup met fin à la partie (voir les Articles 5.1.1, 5.2.1, 5.2.2 et 9.6), ou\n- 6.2.1.2. l e joueur ou la joueuse a joué son prochain coup, alors que son coup précédent n'était pas achevé.  \nNormalement, lorsqu'un joueur ou une joueuse oublie d'appuyer sur sa pendule après avoir joué son coup, l'une des possibilités suivantes s'applique :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pendule",
+        "horloge",
+        "afficheurs",
+        "drapeau"
+      ]
+    },
+    {
+      "id": "FR-Q158",
+      "question": "Comment se déplace la tour aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "chunk_text": "## Article 3 Le déplacement des pièces  \n- 3.1. Il est interdit de déplacer une pièce sur une case occupée par une pièce de même couleur.\n- 3.1.1. Si une pièce se déplace sur une case occupée par une pièce adverse, cette dernière est immédiatement prise et retirée de l ' échiquier, dans le cadre du même coup.\n- 3.1.2. On dit d'une pièce qu'elle attaque une pièce adverse si elle peut prendre celle-ci sur la case où elle se trouve conformément aux Articles 3.2 à 3.8.\n- 3.1.3. On considère qu'une pièce attaque une case, même si cette pièce ne se trouve pas en mesure de se déplacer sur cette case parce que ce faisant elle laisserait ou mettrait en prise le roi de son propre camp.  \nLe fait d'être clouée devant son propre roi n'empêche pas une pièce d'attaquer les cases sur lesquelles elle pourrait se déplacer. Même une pièce clouée peut \"mettre en échec\" le roi de l'adversaire.  \n- 3.2. Un fou peut se déplacer sur n 'importe quelle case le long d'une des diagonales sur lesquelles il se trouve.  \n<!-- image -->  \nAu départ, chaque camp dispose de deux fous, l'un se déplace sur les cases blanches, l'autre sur les cases noires. Si un joueur ou une joueuse possède deux fous ou plus sur des cases de la même couleur, il est probable que le 2 ème fou soit le résultat d'une promotion (voir article 3.7.3.3), ou qu'un coup illégal a été joué.  \n- 3.3. Une tour peut se déplacer sur n ' importe quelle case de la colonne ou de la rangée sur lesquelles elle se trouve.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tour",
+        "déplacer",
+        "colonne",
+        "rangée"
+      ]
+    },
+    {
+      "id": "FR-Q159",
+      "question": "Comment se déplace la dame aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child01",
+      "chunk_text": "- 3.3. Une tour peut se déplacer sur n ' importe quelle case de la colonne ou de la rangée sur lesquelles elle se trouve.\n- 3.4. Une dame peut se déplacer sur n ' importe quelle case de la colonne, la rangée ou d ' une des diagonales sur lesquelles elle se trouve.  \n<!-- image -->",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "dame",
+        "déplacer",
+        "colonne",
+        "diagonale"
+      ]
+    },
+    {
+      "id": "FR-Q16",
+      "question": "Quelles sont les conditions d'homologation d'un tournoi ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p072-parent217-child00",
+      "chunk_text": "## Préambule  \nToutes les compétitions d'échecs internationales sont jouées selon les Règles du Jeu de la FIDE (E.I.01A). Les Règles générales pour les compétitions FIDE sont utilisées conjointement avec les Règles du Jeu d'Échecs et sont applicables à toutes les compéti tions officielles de la FIDE. Il est recommandé qu'elles soient également appliquées à tous les tournois comptant pour le classement FIDE, en les adaptant si c'est nécessaire.  \nLes organisateurs/organisatrices, les Compétiteurs/Compétitrices et les Arbitres impliqués dans toute compétition doivent prendre connaissance de ces règlements avant le début de la compétition.  \nLes lois nationales du pays accueillant la compétition prévalent sur les règles FIDE.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournois",
+        "homologues",
+        "arbitre",
+        "fide"
+      ]
+    },
+    {
+      "id": "FR-Q160",
+      "question": "Quelle est la position initiale des pièces aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "chunk_text": "- Si aucun des deux adversaires ne peut gagner, la partie est automatiquement un match nul. L'arbitre doit donc intervenir pour le déclarer lorsque :\n- (a) aucun des deux adversaires n'a de matériel suffisant pour mater, ou\n- (b) la position est telle qu'aucun des adversaires ne peut faire échec et mat (appelée position morte). L'exemple le plus simple de (a) est R v R.  \nCe qui suit, où les blancs viennent de jouer h5, est un exemple de position morte :  \nArticle 2 La position initiale des pièces sur l'échiquier  \n<!-- image -->  \n- 2.1. L'échiquier est constitué d'une grille carrée de 8 x 8 cases dessinant 64 cases de taille égale, alternativement claires (les cases « blanches ») et foncées (les cases « noires »).\n- L ' échiquier se trouve placé entre les deux adversaires de telle manière que la case d ' angle la plus proche et située du côté droit de chaque joueur ou joueuse soit blanche.\n- 2.2. Au début de la partie, les Blancs disposent de 16 pièces de couleur claire (les pièces « blanches »), les Noirs disposant de 16 pièces de couleur sombre (les pièces « noires »). Ces pièces sont les suivantes :\n- 2.3. La position initiale des pièces sur l ' échiquier est la suivante :  \n<!-- image -->  \n<!-- image -->",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "position",
+        "initiale",
+        "pièces",
+        "échiquier"
+      ]
+    },
+    {
+      "id": "FR-Q161",
+      "question": "Quand considère-t-on que le roi est en échec ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "chunk_text": "## 3.9. Mise du roi en échec :  \n- 3.9.1. Le roi est dit « en échec » s'il est attaqué par une ou plusieurs pièces adverses, même si ces pièces ne peuvent pas se déplacer sur la case occupée par ce roi parce qu ' elles laisseraient ou mettraient en échec le roi de leur propre camp.\n- 3.9.2. Aucune pièce ne peut être déplacée si elle expose le roi de son propre camp à un échec ou si elle le laisse en échec.\n- 3.10. Coup légaux et illégaux, positions illégales :\n- 3.10.1. Un coup est dit légal lorsqu ' il respecte toutes les conditions associées fixées par les articles 3.1 à 3.9.\n- 3.10.2. Un coup est dit illégal quand il ne respecte pas l ' une des conditions associées fixées par les articles 3.1 à 3.9\n- 3.10.3. Une position est illégale lorsqu'elle ne peut avoir été atteinte par aucune suite de coups légaux.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "roi",
+        "échec",
+        "attaqué",
+        "pièce"
+      ]
+    },
+    {
+      "id": "FR-Q162",
+      "question": "Comment gagne-t-on une partie aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "chunk_text": "## Article 5  \n- La fin de la partie\n- 5.1.1. La partie est gagnée par le joueur ou la joueuse qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit conforme à l'Article 3 et aux Articles 4.2 à 4.7.\n- 5.1.2. La partie est perdue par le joueur ou la joueuse qui déclare abandonner (cela met immédiatement fin à la partie), excepté si la position est telle que son roi ne peut pas être mis échec et mat par aucune suite de coups légaux de son adversaire. Dans ce cas, le résultat de la partie est un match nul.  \nUn joueur ou une joueuse peut abandonner de plusieurs façons :  \n- en arrêtant la pendule,\n- en annonçant son abandon,\n- en couchant son roi,\n- en tendant la main à son adversaire,\n- -en signant sa feuille de partie, etc ...  \nToutes ces possibilités peuvent être mal interprétées et la situation doit être clarifiée (NdT : par l'arbitre). À la fin d'une partie, l'arbitre doit s'assurer que les deux feuilles affichent le même résultat.  \nUn joueur ou une joueuse qui quitte une partie sans abandonner ni prévenir l'arbitre fait ainsi preuve de discourtoisie. L 'Arbitre en chef peut lui infliger une sanction pour manque de sportivité.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "gagné",
+        "mat",
+        "roi",
+        "partie"
+      ]
+    },
+    {
+      "id": "FR-Q163",
+      "question": "Comment abandonner une partie aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "chunk_text": "## Article 5  \n- La fin de la partie\n- 5.1.1. La partie est gagnée par le joueur ou la joueuse qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit conforme à l'Article 3 et aux Articles 4.2 à 4.7.\n- 5.1.2. La partie est perdue par le joueur ou la joueuse qui déclare abandonner (cela met immédiatement fin à la partie), excepté si la position est telle que son roi ne peut pas être mis échec et mat par aucune suite de coups légaux de son adversaire. Dans ce cas, le résultat de la partie est un match nul.  \nUn joueur ou une joueuse peut abandonner de plusieurs façons :  \n- en arrêtant la pendule,\n- en annonçant son abandon,\n- en couchant son roi,\n- en tendant la main à son adversaire,\n- -en signant sa feuille de partie, etc ...  \nToutes ces possibilités peuvent être mal interprétées et la situation doit être clarifiée (NdT : par l'arbitre). À la fin d'une partie, l'arbitre doit s'assurer que les deux feuilles affichent le même résultat.  \nUn joueur ou une joueuse qui quitte une partie sans abandonner ni prévenir l'arbitre fait ainsi preuve de discourtoisie. L 'Arbitre en chef peut lui infliger une sanction pour manque de sportivité.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "abandonner",
+        "perdue",
+        "partie",
+        "fin"
+      ]
+    },
+    {
+      "id": "FR-Q164",
+      "question": "Comment fonctionne la cadence Fischer ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "chunk_text": "Dans les règles du jeu d'échecs, l'incrément et le temps différé sont traités de la même manière. Par exemple, lorsqu'on calcule la durée d'une session de jeu, les deux sont multipliés par 60 pour trouver le temps total.  \nCADENCE FISCHER : Un temps fixe supplémentaire (incrément) est ajouté au temps principal de réflexion des joueurs/joueuses à chaque coup achevé. L'incrément pour le premier coup est ajouté avant le début de la partie. Si un joueur/une joueuse joue rapidement alors son temps restant peut augmenter.  \nIl existe deux types de cadences en temps différé, Bronstein et Simple (ou US). Avec le délai, un joueur/une joueuse ne peut jamais augmenter son temps au-delà de celui qu'il avait au début d'un coup. Si l'horloge est pressée avant que tout le temps de bonus ait été utilisé alors le temps de bonus restant est perdu.  \nLes deux méthodes de temps différé ont le même effet global.  \nCADENCE DELAY - SIMPLE : La pendule affiche le temps principal. Un autre affichage montre le compte à rebours du temps bonus, ce n'est que lorsque celui -ci est épuisé que le temps principal commence à diminuer.  \nCADENCE BRONSTEIN DELAY : Dans ce mode, le bonus est ajouté au temps principal et la pendule commence immédiatement le compte à rebours.  \n- 6.4. Immédiatement après la chute d'un drapeau, les exigences de l'Article 6.3.1 doivent être contrôlées.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Fischer",
+        "incrément",
+        "temps",
+        "coup"
+      ]
+    },
+    {
+      "id": "FR-Q165",
+      "question": "Comment fonctionne le temps différé Bronstein ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "chunk_text": "Dans les règles du jeu d'échecs, l'incrément et le temps différé sont traités de la même manière. Par exemple, lorsqu'on calcule la durée d'une session de jeu, les deux sont multipliés par 60 pour trouver le temps total.  \nCADENCE FISCHER : Un temps fixe supplémentaire (incrément) est ajouté au temps principal de réflexion des joueurs/joueuses à chaque coup achevé. L'incrément pour le premier coup est ajouté avant le début de la partie. Si un joueur/une joueuse joue rapidement alors son temps restant peut augmenter.  \nIl existe deux types de cadences en temps différé, Bronstein et Simple (ou US). Avec le délai, un joueur/une joueuse ne peut jamais augmenter son temps au-delà de celui qu'il avait au début d'un coup. Si l'horloge est pressée avant que tout le temps de bonus ait été utilisé alors le temps de bonus restant est perdu.  \nLes deux méthodes de temps différé ont le même effet global.  \nCADENCE DELAY - SIMPLE : La pendule affiche le temps principal. Un autre affichage montre le compte à rebours du temps bonus, ce n'est que lorsque celui -ci est épuisé que le temps principal commence à diminuer.  \nCADENCE BRONSTEIN DELAY : Dans ce mode, le bonus est ajouté au temps principal et la pendule commence immédiatement le compte à rebours.  \n- 6.4. Immédiatement après la chute d'un drapeau, les exigences de l'Article 6.3.1 doivent être contrôlées.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Bronstein",
+        "différé",
+        "temps",
+        "délai"
+      ]
+    },
+    {
+      "id": "FR-Q166",
+      "question": "Quels sont les engagements de l'arbitre FFE ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p008-parent010-child00",
+      "chunk_text": "## L'Arbitre s'engage à :  \n- Connaître avec précision et faire appliquer les règles et règlements ;  \n- Se tenir informé des évolutions règlementaires pour maintenir les niveaux de connaissances et de compétences associés à son niveau dans l'arbitrage ;  \n- Être bien préparé pour chaque compétition :  \n- o Être ponctuel ;  \n- o Porter une tenue vestimentaire appropriée ;  \n- o Disposer des équipements nécessaires à sa fonction ...  \n- Être et demeurer exemplaire en toutes circonstances :  \n- o Ne pas consommer d'alcool ou fumer en étant en fonction ;  \n- o Eviter une proximité inappropriée avec les joueurs et joueuses ;  \n- o Faire preuve de maîtrise de soi et de rigueur dans chacune de ses interventions.  \n- o Se conformer strictement aux lois en vigueur en France.  \n- Communiquer avec l'ensemble des acteurs de la compétition :  \n- o En se montrant respectueux dans chacun des échanges ;  \n- o En expliquant clairement les décisions prises ;  \n- o En se montrant disponible pour répondre à tout questionnement des participants ;  \n- o En étant à l'écoute de tout signalement, toute accusation de fraude ou de violence ;  \n- o En fournissant les informations et éléments nécessaires aux instances qui en auraient l'utilité.  \n- S'abstenir de toute critique publique ou commentaire préjudiciable dans le cadre de sa fonction :  \n- o A l'égard des autres arbitres ou de la Fédération Française d'Echecs ;  \n- o A l'encontre des organisateurs des tournois pour lesquels il officie ;",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "engage",
+        "règles",
+        "compétition"
+      ]
+    },
+    {
+      "id": "FR-Q167",
+      "question": "Quels frais sont inclus dans le défraiement des arbitres ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+      "chunk_text": "## Article 5 Défraiement des arbitres  \nDès sa nomination, l'arbitre et l'équipe d'organisation devront définir l'ensemble des frais liés à l'arbitrage. L'arbitre en chef a la mission de s'assurer que les frais liés aux arbitres adjoints aient été aussi pris en compte. Ces frais incluent :  \n- Indemnités des arbitres suivant les tarifs officiels du \"barème d'indemnisation des arbitres\" ;\n- Frais de déplacements ;\n- Hébergement et restauration ;  \nLe s arbitres sont en droit de solliciter le paiement de leurs indemnités avant la dernière ronde du tournoi. En l'absence de paiement, les arbitres ne communiqueront pas les résultats aux autorités fédérales ou internationales.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "défraiement",
+        "arbitre",
+        "indemnités",
+        "frais"
+      ]
+    },
+    {
+      "id": "FR-Q168",
+      "question": "Quel système de notation est reconnu par la FIDE ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "chunk_text": "## Annexe C : La notation algébrique  \nLa FIDE ne reconnaît qu'un seul système de notation pour ses propres tournois et pour ses matchs : le Système Algébrique. Elle préconise l'utilisation de cette notation uniforme dans la littérature et les périodiques échiquéens.  \nLes feuilles de parties, utilisant un autre système que la notation algébrique, ne peuvent pas être utilisées comme preuve dans le cas où ces feuilles sont normalement utilisées à cet effet. L' arbitre qui constate qu'un autre système de notation que le système algébrique est utilisé doit avertir de cette obligation.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "FIDE",
+        "notation",
+        "algébrique",
+        "système"
+      ]
+    },
+    {
+      "id": "FR-Q169",
+      "question": "Quelles adaptations pour les joueurs handicapés visuels ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child01",
+      "chunk_text": "- D.2.3. Un coup est considéré comme « effectué » lorsque :\n- D.2.3.1. Dans le cas d'une prise, la pièce capturée a été retirée de l'échiquier du joueur /de la joueuse dont c'est le tour de jouer,\n- D.2.3.2. Une pièce a été placée dans une autre ouverture de fixation,\n- D.2.3.3. Le coup a été annoncé.\n- D.2.4. Ce n'est qu'à partir de ce moment que la pendule adverse peut être enclenchée.\n- D.2.5. Concernant les points D.2.2 et D.2.3, les Règles du Jeu normales s'appliquent pour les joueurs et joueuses voyants.\n- D.2.6. Pendules d'échecs pour les personnes handicapées visuelles :\n- D.2.6.1. Une pendule d'échecs spécialement conçue pour les personnes handicapées visuelles doit être acceptée, elle doit être en mesure d'annoncer le temps et le nombre de coups aux joueurs et aux joueuses déficients visuels.\n- D.2.6.2. Une horloge analogique avec les caractéristiques suivantes est une alternative autorisée :\n- 1) Un cadran muni d'aiguilles renforcées. Chaque période de 5 minutes marquée par un point en relief et chaque période de 15 minutes marquée par 2 points en relief.\n- 2) Un drapeau facilement perceptible au toucher. Il faut s'assurer que le drapeau n'empêche pas le joueur de sentir l'aiguille des minutes durant les 5 dernières minutes d'une heure.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "aveugle",
+        "échiquier",
+        "spécial",
+        "handicap"
+      ]
+    },
+    {
+      "id": "FR-Q17",
+      "question": "Comment traiter une réclamation pendant une partie ?",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent026-child00",
+      "chunk_text": "## 7.2 Commission d'Appels Sportifs  \nEn règle générale, dans toutes les compétitions fédérales, il peut être fait appel, dans le cadre de l'article 9.5 du Règlement intérieur, auprès de la commission d'appels sportifs (CAS) des décisions d'arbitres, des directions de groupe, des directions de la compétition, des organes déconcentrés de la FFE et, dans le cadre de l'article 9.2.1 du Règlement Intérieur, de la commission technique fédérale.  \nSous peine d'irrecevabilité, l'appel doit être formulé dans un délai de dix jours à compter de la date de réception de la décision contestée. La réclamation doit être formulée par tout moyen permettant de vérifier la date de dépôt de la réclamation et d'obtenir un avis de réception.  \nR01-4/6",
+      "corpus": "fr",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "réclam",
+        "arbitre",
+        "décision",
+        "appel"
+      ]
+    },
+    {
+      "id": "FR-Q170",
+      "question": "Comment fonctionne l'échiquier pour personnes aveugles ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "chunk_text": "## Annexe D : Règles pour les parties avec des personnes aveugles et handicapées visuelles  \nD.1 L'organisateur ou l'organisatrice, après consultation de l'arbitre, p eut adapter les règles suivantes en fonction des circonstances locales. Durant les compétitions d'échecs entre personnes voyantes et personnes handicapées visuelles (légalement aveugles) chaque joueur ou joueuse peut demander l'utilisation de deux échiquiers : la personne voyante utilisant un échiquier standard, la personne handicapée visuelle utilisant un échiquier spécial. L'échiquier spécial doit répondre aux critères suivants :  \n- D.1.1. Mesurer au moins 20 cm sur 20 cm\n- D.1.2. Les cases noires doivent être légèrement surélevées\n- D.1.3. Chaque case doit contenir une ouverture de fixation\n- D.1.4. Les critères pour les pièces sont :\n- D.1.4.1. Chaque pièce doit contenir une tige s'encastrant dans l'ouverture de fixation\n- D.1.4.2. Les pièces sont de modèle Staunton, les pièces noires comportant une marque spécifique.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "échiquier",
+        "handicap",
+        "visuel",
+        "cases"
+      ]
+    },
+    {
+      "id": "FR-Q171",
+      "question": "Les débats disciplinaires de la FFE sont-ils publics ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p003-parent006-child00",
+      "chunk_text": "## ARTICLE 6 - PUBLICITE DES DEBATS  \nLes débats devant les organes disciplinaires sont publics.  \nToutefois, le président de séance peut, d'office ou à la demande d'une des parties, le cas échéant de son représentant légal, de son conseil mandaté par un pouvoir écrit ou de son avocat, interdire au public l'accès de la salle pendant tout ou partie de l'audience dans l'intérêt de l'ordre public ou de la sérénité des débats ou lorsque le respect de la vie privée ou du secret professionnel le justifie.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "débats",
+        "public",
+        "audience",
+        "salle"
+      ]
+    },
+    {
+      "id": "FR-Q172",
+      "question": "Quel délai pour la convocation à l'audience disciplinaire ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent012-child00",
+      "chunk_text": "## ARTICLE 12 - CONVOCATION A L'AUDIENCE  \nLa personne poursuivie et, le cas échéant, son représentant légal sont convoqués devant l'organe disciplinaire dans les conditions prévues à l'article 8, dix jours au moins avant l'audience. La convocation énonce à l'intéressé les griefs retenus à son encontre ainsi que ses droits définis au présent article.  \nLa personne poursuivie ainsi que, le cas échéant, son représentant légal, son conseil mandaté par un pouvoir écrit ou son avocat peuvent consulter, avant la séance, le rapport et l'intégralité du dossier, sur demande adressée au président de l'organe disciplinaire, par courrier recommandé avec accusé de réception ou par courrier électronique. Ces documents lui seront alors transmis par courrier électronique.  \nIls peuvent demander que soient entendues les personnes de leur choix, dont ils communiquent les noms quarante-huit heures au moins avant la réunion de l'organe disciplinaire. Pour tenir compte de l'éloignement géographique ou de contraintes professionnelles ou médicales des personnes dont l'audition est demandée, celle-ci peut être réalisée par conférence téléphonique sous réserve de l'accord du président de l'organe disciplinaire et de la personne poursuivie.  \nLe président de l'organe disciplinaire peut refuser, par décision motivée, les demandes d'audition manifestement abusives.  \nLors de la séance, la personne poursuivie peut être accompagnée par toute personne. Elle peut être représentée, le cas échéant, par son représentant légal, par son conseil ou son avocat. Des observations écrites ou orales peuvent être présentées par la personne poursuivie ou par les personnes qui l'assistent ou la représentent.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "convocation",
+        "audience",
+        "dix",
+        "jours"
+      ]
+    },
+    {
+      "id": "FR-Q173",
+      "question": "Quelles obligations de confidentialité en discipline FFE ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
+      "chunk_text": "Elles ne peuvent être membre des organes disciplinaires saisis de l'affaire qu'elles ont instruite, ni avoir un intérêt direct ou indirect à l'affaire. Elles sont astreintes à une obligation de confidentialité pour tous les faits, actes et informations dont elles ont connaissance en raison de leurs fonctions. Toute méconnaissance de ces obligations constitue une faute.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "confidentialité",
+        "faits",
+        "informations",
+        "fonctions"
+      ]
+    },
+    {
+      "id": "FR-Q174",
+      "question": "Comment se déroule l'instruction disciplinaire FFE ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent010-child00",
+      "chunk_text": "## ARTICLE 10 - INSTRUCTION  \nLorsque l'affaire fait l'objet d'une instruction, l'instructeur établit un rapport qu'il adresse à l'organe disciplinaire et à la personne poursuivie au vu des éléments du dossier et de tout renseignement recueilli par tout moyen. Il n'a pas compétence pour clore de lui-même une affaire.  \nLes personnes chargées de l'instruction exercent leur mission en toute impartialité et objectivité et peuvent :  \n-  Entendre toute personne dont l'audition paraît utile ;\n-  Demander à toute personne des informations nécessaires à la procédure.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "instruction",
+        "rapport",
+        "organe",
+        "disciplinaire"
+      ]
+    },
+    {
+      "id": "FR-Q175",
+      "question": "Qu'est-ce qu'une mesure conservatoire en discipline FFE ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent011-child00",
+      "chunk_text": "## ARTICLE 11 - MESURE CONSERVATOIRE  \nLorsque les circonstances le justifient, notamment au regard de la gravité des faits, le Bureau Fédéral peut prononcer à l'encontre de la personne poursuivie, à tout moment de la procédure disciplinaire de première instance et par décision motivée, une mesure conservatoire dans l'attente de la notification de la décision de l'organe disciplinaire.  \nLa mesure conservatoire prend fin en cas de retrait de celle-ci par les personnes ou les organes compétents. Elle prend également fin si l'organe disciplinaire n'est pas en mesure de statuer dans le délai qui lui est imparti à l'article 16 du présent règlement.  \nLes décisions relatives aux mesures conservatoires sont notifiées aux personnes poursuivies dans les conditions prévues à l'article 8 et sont insusceptibles d'appel.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "mesure",
+        "conservatoire",
+        "Bureau",
+        "Fédéral"
+      ]
+    },
+    {
+      "id": "FR-Q176",
+      "question": "Quand débute et se termine la saison FFE ?",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "chunk_text": "## Principe  \nLes compétitions fédérales sont toutes organisées une fois chaque saison. Les règles générales sont applicables à toutes les compétitions fédérales. La saison débute le 1er septembre et s'achève le 31 août. Seuls les clubs affiliés ayant respecté leurs engagements et exigences réglementaires envers la FFE, la Ligue et le CDJE, peuvent participer à une compétition fédérale officielle.  \nLes compétitions fédérales sont :  \n- Les Coupes (Coupe de France, Coupe Loubatière, Coupe de la parité)\n- Les Championnats de France par équipes (des Clubs, des clubs Féminins, des scolaires, des interclubs Jeunes)\n- Les Championnats de France (individuel, Féminin de parties rapide, des Jeunes, Universitaire, rapide, blitz)",
+      "corpus": "fr",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "saison",
+        "septembre",
+        "août",
+        "débute"
+      ]
+    },
+    {
+      "id": "FR-Q177",
+      "question": "Quelles sont les compétitions fédérales FFE ?",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "chunk_text": "## Principe  \nLes compétitions fédérales sont toutes organisées une fois chaque saison. Les règles générales sont applicables à toutes les compétitions fédérales. La saison débute le 1er septembre et s'achève le 31 août. Seuls les clubs affiliés ayant respecté leurs engagements et exigences réglementaires envers la FFE, la Ligue et le CDJE, peuvent participer à une compétition fédérale officielle.  \nLes compétitions fédérales sont :  \n- Les Coupes (Coupe de France, Coupe Loubatière, Coupe de la parité)\n- Les Championnats de France par équipes (des Clubs, des clubs Féminins, des scolaires, des interclubs Jeunes)\n- Les Championnats de France (individuel, Féminin de parties rapide, des Jeunes, Universitaire, rapide, blitz)",
+      "corpus": "fr",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "compétitions",
+        "fédérales",
+        "Coupes",
+        "Championnats"
+      ]
+    },
+    {
+      "id": "FR-Q178",
+      "question": "Qu'est-ce qu'un joueur muté à la FFE ?",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+      "chunk_text": "## 2.2. La Mutation  \nEst muté(e) :  \n- Tout joueur ou joueuse licencié(e) tout ou partie de la saison précédente dans un club français autre que son club pour la saison en cours, et pour le compte duquel il ou elle a participé à une compétition par équipe.\n- Tout joueur ou joueuse de nationalité étrangère (hormis les ressortissants de l'Union Européenne résidant en France) non licencié(e) dans le même club la saison précédente ou qui lors de la saison précédente, a été licencié(e) après le 30 novembre et avait le statut de muté(e).  \nUn joueur ou une joueuse qui change de club en cours de saison est muté(e) pour le restant de la saison.",
+      "corpus": "fr",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "muté",
+        "joueur",
+        "club",
+        "licencié"
+      ]
+    }
+  ]
+}

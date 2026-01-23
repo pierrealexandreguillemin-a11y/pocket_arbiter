@@ -1,0 +1,402 @@
+{
+  "batch": 2,
+  "agent": "opus",
+  "validated_at": "2026-01-23T18:30:00Z",
+  "results": [
+    {
+      "id": "FR-Q44",
+      "question": "Quelles sont les regles pour les joueurs handicapes ?",
+      "current_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child01 contient les points 9-12 des regles handicapes. Le chunk child00 contient les points 1-8 plus complets pour une question generale sur 'les regles'. child00 est plus adapte car il couvre le cadre general (acces, non-discrimination, accessibilite, pendule).",
+      "new_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q45",
+      "question": "Quelle conduite tenir pour joueurs en situation de handicap ?",
+      "current_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les lignes directrices 1-8 sur la conduite a tenir: acces aux salles, non-discrimination, adaptation des conditions de jeu, assistance. Repond completement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q46",
+      "question": "Quelles regles pour joueurs a mobilite reduite ?",
+      "current_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk introduit le cadre general et mentionne le protocole pour competitions etalees dans le temps. C'est une introduction aux regles specifiques qui renvoie au reglement H01. Acceptable car c'est le point d'entree du document H02.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q47",
+      "question": "Comment organiser un tournoi pour joueurs a mobilite reduite ?",
+      "current_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child00 est une introduction generale. Les chunks parent001 (Phase I) et parent002 (Phase II) contiennent les procedures concretes d'organisation: bulletin d'engagement, calendrier, appariements, locaux accessibles.",
+      "new_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q48",
+      "question": "Comment fonctionne le classement rapide FFE ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit le classement rapide: parties de moins de 60 min et plus de 10 min/joueur. C'est la definition de base du fonctionnement. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q49",
+      "question": "Comment sont calcules les points Elo rapide ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les regles de compatibilite (+/- 320 points), seuil d'entree (7 parties), plancher (800) et publication mensuelle. Repond partiellement au calcul des points Elo rapide.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q50",
+      "question": "Quels sont les objectifs de la FFE selon les statuts ?",
+      "current_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 1.1 'Objet et duree' qui liste explicitement les objectifs: organiser/diriger/controler/promouvoir les echecs, etablir regles techniques, delivrer licences, titres de champions, creer liens entre membres. Parfait.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q51",
+      "question": "Comment adherer a la FFE ?",
+      "current_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel parle de l'objet et duree de la FFE, pas de l'adhesion. L'adhesion est couverte dans les articles sur les licences et membres. Il faudrait un chunk sur les conditions d'adhesion.",
+      "new_chunk_id": "2024_Statuts20240420.pdf-p005-parent009-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q52",
+      "question": "Quelles sont les regles du reglement interieur FFE ?",
+      "current_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p005-parent016-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel traite de la fusion-absorption entre clubs (article 4.2.1), pas des regles generales du reglement interieur. Pour une question generale, il faudrait le sommaire ou l'introduction.",
+      "new_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q53",
+      "question": "Comment fonctionne l'organisation de la FFE ?",
+      "current_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p008-parent022-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite des ligues regionales (section 5.2): competences, relations avec collectivites, discipline, arbitrage, formation elite, competitions. C'est une partie de l'organisation de la FFE. Acceptable.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q54",
+      "question": "Quelles sont les regles financieres de la FFE ?",
+      "current_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 5 'Modalites d'engagement et reglement des depenses': delegation signature, ordonnancement, justificatifs. C'est une regle financiere importante.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q55",
+      "question": "Comment fonctionne le reglement financier FFE ?",
+      "current_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique le fonctionnement des depenses: President ordonnance, Tresorier met en oeuvre, justificatifs obligatoires. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q56",
+      "question": "Quelles sont les regles medicales aux echecs ?",
+      "current_chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent009-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel traite uniquement des 'Licencies mineurs' (article 3.1.1). Pour une question generale sur les regles medicales, le sommaire (p001-parent000-child00) ou le preambule serait plus adapte.",
+      "new_chunk_id": "2022_Reglement_medical_19082022.pdf-p001-parent000-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q57",
+      "question": "Comment fonctionne le controle antidopage aux echecs ?",
+      "current_chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent013-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 4.2 'Substances interdites' avec la liste des molecules surveillees (Amphetamines, Modafinil, Ephedrine, Cafeine, Codeine). Repond bien a la question sur l'antidopage.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q58",
+      "question": "Quelles sanctions disciplinaires existent a la FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent020-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 20 'SANCTIONS DISCIPLINAIRES' avec la liste complete des 16 sanctions: avertissement, blame, amende, perte de rencontres, penalite points, declassement, interdiction, radiation, etc. Parfait.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q59",
+      "question": "Comment fonctionne la procedure disciplinaire FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 2 'DEFINITION - COMPOSITION' qui decrit les organes disciplinaires (CFD, CRD, Commission d'Appel), leurs competences et les faits sanctionnables. Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q60",
+      "question": "Qu'est-ce que le contrat de delegation FFE ?",
+      "current_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child01 parle de la strategie FFE et de l'olympiade. Le chunk child00 contient le Preambule qui definit la delegation: reconnaissance superieure, prerogatives de puissance publique, mission de service public, monopole legal. Meilleur pour une definition.",
+      "new_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q61",
+      "question": "Quelles sont les obligations de la FFE en delegation ?",
+      "current_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le Preambule explique le cadre general des obligations mais ne liste pas les obligations specifiques. Il faudrait les articles detailles du contrat. Acceptable comme point d'entree.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q62",
+      "question": "Comment fonctionne le championnat de Nationale 4 ?",
+      "current_chunk_id": "reglement_n4_2024_2025__1_.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 1.1 'Structure' du N4: organisation par la Ligue PACA, 5 accessions en N3, 5 groupes de 8 equipes. Repond a la question sur le fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q63",
+      "question": "Quelles sont les regles de la Nationale 4 ?",
+      "current_chunk_id": "reglement_n4_2024_2025__1_.pdf-p002-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 2.1 'Direction de la competition': direction nommee par la Presidence, repartition geographique des groupes, validation calendrier, collecte resultats. Ce sont des regles organisationnelles.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q64",
+      "question": "Comment fonctionne le championnat regional ?",
+      "current_chunk_id": "reglement_regionale_2024_2025.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 1.1 'Structure' du championnat regional: organisation par Ligue PACA, nombre de groupes, groupes de 8 equipes max, repechages. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q65",
+      "question": "Quelles sont les regles des interclubs departementaux ?",
+      "current_chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 1.1 'Structure' de la Nationale VI (Departementale): organisation par CDJE13, equipes de 4 joueurs, droit d'accession en Nationale V. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q66",
+      "question": "Comment fonctionnent les interclubs jeunes regionaux ?",
+      "current_chunk_id": "InterclubsJeunes_PACABdr.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 2 'Structure des groupes d'interclubs Jeunes des Bouches-du-Rhone': Nationale 3 Jeunes, nombre d'equipes selon inscriptions, groupe Reserve. Repond bien.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q67",
+      "question": "Quelles sont les mesures anti-triche aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p142-parent417-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les 'Mesures de prevention accrues': equipements anti-triche, controle regulier, zone de stockage appareils, examens parties, controles aleatoires. Repond completement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q68",
+      "question": "Comment detecter la triche en tournoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p141-parent412-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le Chapitre 4.1 'Directives contre la tricherie': niveaux de protection (standard, eleve, maximal), signalement a la Fair-Play Commission, utilisation de la FFE comme intermediaire. Repond a la detection.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q69",
+      "question": "Qu'est-ce que la chute du drapeau dans une partie d'echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 6 'La pendule d'echecs' qui definit explicitement: 'La chute du drapeau signifie la fin du temps imparti a un joueur ou une joueuse.' Definition parfaite.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q70",
+      "question": "Que signifie j'adoube et quand peut-on l'utiliser ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 4.2.1 qui explique: 'Seul le joueur au trait peut recentrer une piece sur sa case, a condition d'en exprimer l'intention au prealable (par exemple en disant j'adoube ou I adjust)'. Definition et usage parfaits.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q71",
+      "question": "Quelles sont les exigences pour les stages pratiques des arbitres candidats ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p018-parent073-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 8.1 'Cursus d'arbitrage': delai de 24 mois pour valider les conditions, prise en compte des examens et stages pratiques, perte du benefice si delai depasse. Repond aux exigences.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q72",
+      "question": "Quelles sont les regles concernant le retard et le forfait en debut de partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 6.7 'Delai de forfait': delai specifie dans reglement, forfait si arrivee apres delai, blancs perdent temps si absents, annonces avant debut ronde. Repond completement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q73",
+      "question": "Qu'est-ce qu'un coup sous enveloppe dans une partie ajournee ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p063-parent151-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel est juste un sommaire des Directives (I, II, III). Le chunk LA-octobre2025.pdf-p063-parent201-child00 contient la procedure complete d'ajournement: I.1 'Procedure d'ajournement' avec la definition du coup sous enveloppe.",
+      "new_chunk_id": "LA-octobre2025.pdf-p063-parent201-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q74",
+      "question": "Quelles sanctions pour l'utilisation d'un appareil electronique pendant la partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite de l'Article 11.3 sur la conduite des joueurs et appareils electroniques: partie perdue si telephone sonne, possibilite de sanction moins severe (amende), conditions de rangement. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q75",
+      "question": "Quelles adaptations pour les joueurs avec deficience visuelle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe D 'Regles pour les parties avec des personnes aveugles et handicapees visuelles': deux echiquiers, echiquier special avec cases surelevees, ouvertures de fixation, pieces Staunton marquees. Parfait.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q76",
+      "question": "Quelle est la frequence minimale des mises a jour du classement Elo Standard FIDE depuis 2025 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 7.1: 'Le premier jour de chaque mois, la FIDE prepare une liste des classements'. La frequence est donc mensuelle. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q77",
+      "question": "Un joueur qui n'a joue aucune partie pendant 18 mois voit-il son classement Elo Standard supprime ? Dans quelles conditions exactement ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "HARD_CASE - Question mentionne 18 mois mais le corpus dit 'un an' (12 mois). Le chunk child01 (7.2.2) precise: 'Un joueur est considere comme inactif s'il ne joue aucune partie dans une periode d'un an'. Le classement n'est pas supprime, juste marque inactif. Test de robustesse vocabulaire.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q78",
+      "question": "Comment est calcule le coefficient K pour un joueur ayant plus de 30 parties et un Elo superieur a 2400 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent546-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 8.3.3 'K est le coefficient de developpement': K=10 quand classement publie atteint 2400, K reste a 10 meme si redescend sous 2400. Repond exactement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q79",
+      "question": "Quelles sont les conditions exactes pour obtenir le titre de Grand Maitre (GM) en 2025-2026, y compris le nombre de normes et le niveau minimal requis ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p193-parent573-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient la section 1.1 'Administration' avec des regles sur les tournois permettant l'obtention de normes mais pas directement les conditions GM. Les conditions specifiques (2500 Elo, normes) sont dans d'autres chunks du chapitre 6.3.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q80",
+      "question": "Un joueur peut-il obtenir le titre de Maitre FIDE (FM) sans passer par le titre de Candidat Maitre (CM), et quelles sont les voies possibles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p192-parent572-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 0.6 'L'Octroi des Titres' avec les classements minimums: GM=2300, MI=2200, MF=2100, CM=2000. Cela montre que les titres sont independants (pas de prerequis CM pour FM). Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q81",
+      "question": "Quelle est la duree de validite d'une norme de titre FIDE si elle n'est pas utilisee pour une demande de titre ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p197-parent584-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient la section 1.5 'Conditions pour l'obtention du titre' avec les regles sur les normes (27 parties minimum, classements requis). La duree de validite specifique n'est pas explicitement mentionnee dans ce chunk mais le child01 mentionne les normes avant 1/7/2005 devant etre enregistrees avant 1/7/2013.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q82",
+      "question": "Quelles sont les obligations administratives minimales qu'un arbitre doit respecter avant le debut d'un tournoi homologue FFE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient 'Dans l'ordre l'arbitre principal d'un tournoi doit': s'assurer homologation, rediger reglement interieur, verifier licences joueurs, interdire joueurs suspendus. Liste complete des obligations avant tournoi.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q83",
+      "question": "Comment un arbitre doit-il gerer la redaction et la transmission du Rapport Technique de fin de tournoi ? Quels elements doivent y figurer obligatoirement ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le Chapitre 5.4 'Rapport Technique et fin de tournoi': redaction et envoi, envoi par voie informatisee, garantie du serieux de l'arbitre. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q84",
+      "question": "Quel est le bareme d'indemnisation minimal pour un arbitre principal lors d'un tournoi national avec plus de 100 joueurs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les 'PRINCIPES GENERAUX' du bareme: minimum 1 arbitre titre par tranche de 100 joueurs, indemnite journaliere 50-100 euros, paiement avant derniere ronde. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q85",
+      "question": "Dans quel delai un arbitre doit-il transmettre le rapport d'un match individuel (ex : match par equipes) a la DNA ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel est un SOMMAIRE (table des matieres du Livre de l'Arbitre). Le chunk sur la gestion du match (parent487 ou parent488) serait plus pertinent, mais ne contient pas de delai specifique pour la DNA. Le chunk parent493 mentionne 'transmettre a la DNA les formulaires de plaintes' mais pas de delai.",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent487-child00",
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q86",
+      "question": "Quelles sont les etapes que l'arbitre doit suivre pour la gestion administrative d'un tournoi en cas d'absence d'un joueur a la premiere ronde ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p169-parent503-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel parle de la 'part fixe' des droits d'homologation (15 ou 50 euros). Pour l'absence d'un joueur en premiere ronde, le chunk sur le delai de forfait (p046-parent171) ou la gestion du tournoi (p172-parent512) serait plus adapte.",
+      "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "summary": {
+    "total": 43,
+    "keep": 30,
+    "wrong_corrected": 6,
+    "wrong_no_chunk": 0,
+    "partial_acceptable": 5,
+    "partial_improved": 2
+  }
+}

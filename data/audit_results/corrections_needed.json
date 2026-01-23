@@ -1,0 +1,594 @@
+{
+  "corrections_needed": 98,
+  "corrections": [
+    {
+      "id": "FR-Q08",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk explique réclamations de nulle (9.4-9.5) mais pas la règle des 50 coups",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q103",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk parle contraintes FIDE sur durée tournoi, pas de procédure pour joueur absent à première ronde",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q107",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk est introductif sur championnat jeunes (3.1) sans détails sur cadences des poussins",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q108",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk est introductif sur cas général, ne répond pas à la question spécifique du joueur en fauteuil",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q109",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk parle d'engagements et obligations clubs, pas du système de relégation N2",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q116",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk explique Blitz (Annexe B) mais 5min+3s est Rapide, pas Blitz",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q119",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk décrit système Rutsch mais ne donne pas le nombre de rondes (n-1)",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q122",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk explique calcul initial 8.2 pour non-classé, pas gain points pour joueurs classés avec K=20",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q125",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk parle cadence blitz et positions illégales, pas signalisation drapeau par arbitre",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q128",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk discusses 50-move rule, not 75-move rule as asked",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q132",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk does not address conversion from Rapid-only to first Standard tournament",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q134",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk discusses Cumulative truncated, not Buchholz systems",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q16",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk provides preamble but not homologation conditions",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q17",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk discusses appeals procedure, not during-game complaint handling",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q196",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk traite du cas où le joueur ne peut PAS utiliser la pendule, pas du cas où elle est défectueuse",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q212",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk décrit critères d'échiquier pour handicapés visuels, pas la notation Braille",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q219",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Question porte sur assistance d'avocat, chunk ne parle que d'interprète pour langue",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q221",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk décrit tournoi Accession, pas le format des Opens (A, B, C)",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q23",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk ne parle que du tournoi Accession, pas des conditions générales de participation au Ch. France",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q27",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk parle de composition d'équipe et Elo, pas des cadences de la compétition",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q36",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk parle d'accession et repêchages, pas du processus de participation aux interclubs jeunes",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q43",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk décrit les phases (ZID et finale), pas les cadences de la compétition",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q59",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de la procédure",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q61",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas des obligations",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q65",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas des interclubs",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q73",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas du coup sous enveloppe",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q78",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas du calcul",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q80",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de FM",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q82",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas des obligations d'arbitre",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q85",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas du délai",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q86",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de la gestion administrative",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q87",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas du premier classement",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q88",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de la différence de points",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q91",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de l'indemnisation",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q92",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de l'indemnisation",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q93",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de l'indemnisation",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q96",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Faible pertinence thématique",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q98",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de FM",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q99",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Ne parle pas de la durée de validité",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_003",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Chunk covers stalemate/checkmate, not insufficient material.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_009",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address phone handling.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_010",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not explain the 75-move rule.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_011",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address illegal move penalties.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_015",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address both players making illegal moves.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_018",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not explain 50-move rule for draw.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_022",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address arbiter penalties.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_032",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address FIDE Master Elo requirement.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_039",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address en passant.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_045",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not explain knight movement.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_049",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not explain move completion criteria.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_050",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not outline checkmate conditions.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_055",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address late arrival time.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_066",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not explain when recording stops.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_068",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not explain threefold repetition claim.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_069",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address insufficient material draw.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_070",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not explain 75-move rule.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "intl_073",
+      "action_needed": "REPLACE_CHUNK",
+      "reason": "Does not address arbiter penalty powers.",
+      "priority": "HIGH"
+    },
+    {
+      "id": "FR-Q05",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk explique mise en pause et demande d'assistance (6.11) mais pas la procédure complète de coup illégal",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q07",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk parle de nulle par accord (9.1) mais pas spécifiquement de triple répétition (9.2)",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q101",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk explique principes de négociation mais pas montant spécifique pour arbitre adjoint régional",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q102",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk parle d'envoi boule PAPI jour même, pas spécifiquement du rapport technique",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q111",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk explique pat (5.2.1) mais pas nulle par répétition pour comparaison",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q112",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk parle feuilles incomplètes et demande coups restants mais pas règles spécifiques zeitnot",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q115",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk explique abandon (5.1.2) mais pas spécifiquement annonce mat faux",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q123",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk explique article 11.7 sanctions générales mais pas cette situation d'annonce mat faux",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q126",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk explique intervention arbitre mais parle de coup illégal observé, pas position illégale sans voir coup",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q130",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Table present but does not specifically answer about King+Bishop vs King",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q131",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Discusses Rapid rating list but not how it's calculated differently from Standard",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q133",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Discusses absent players but not bye request handling specifically",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q191",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk donne une structure minimale (ouverte aux clubs affiliés) sans détailler phases/matchs",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q195",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk énumère les manipulations interdites mais ne décrit pas la manipulation correcte",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q20",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk donne le principe des annexes sans énumérer les types spécifiques",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q21",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk donne la définition mais ne énumère pas les types de compétitions homologuées",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q213",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk nomme le tournoi mais ne le définit pas (pas d'explication de son rôle)",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q22",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk décrit le processus de classement FFE et transmission des Ligues, pas la procédure d'inscription directe",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q231",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk décrit seule la position initiale aléatoire, manque détails complets du fonctionnement",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q24",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk parle surtout des engagements des clubs, pas du fonctionnement complet du championnat",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q25",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk énumère engagements des clubs, pas vraiment les règles de jeu des interclubs",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q29",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk décrit système de matchs mais manque d'autres règles comme calendrier, forfait, etc.",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q30",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk décrit structure et limitation d'équipes, mais ne détaille pas le processus d'inscription/participation",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q32",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk très limité, ne fournit que la structure générale sans fonctionnement détaillé",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q33",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk très limité, énonce seule structure générale, pas les conditions précises",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q37",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk décrit seule les règles du capitaine, pas l'ensemble des règles des interclubs jeunes",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q39",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk décrit structure/catégories, pas vraiment les conditions de participation spécifiques",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q41",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk énonce une règle sur statut des joueuses, pas l'ensemble des règles de la compétition",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q46",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Renvoie à H01 mais sans détails spécifiques",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q47",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentionne organisation générale (H01) sans détails",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q49",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentionne critères (compatibilité, seuils) sans formule exacte",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q62",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentionne N4 sans détails",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q63",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentionne N4 sans règles",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q66",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentionne interclub jeunes sans détails",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q68",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentionne triche sans détection",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q75",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Pertinence thématique partielle",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q83",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentionne rapport sans détails",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "FR-Q89",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Parle d'équilibre sans critère d'Elo",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "intl_021",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Chunk addresses completed moves but context unclear.",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "intl_046",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Discusses castling but lacks full rules.",
+      "priority": "MEDIUM"
+    },
+    {
+      "id": "intl_053",
+      "action_needed": "REVIEW_CHUNK",
+      "reason": "Mentions adjustment but not purpose.",
+      "priority": "MEDIUM"
+    }
+  ],
+  "audit_note": "Updated 2026-01-23: Removed 0 UNANSWERABLE questions"
+}

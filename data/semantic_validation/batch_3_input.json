@@ -1,0 +1,1561 @@
+{
+  "batch": 3,
+  "corpus": "fr",
+  "questions": [
+    {
+      "id": "FR-Q87",
+      "question": "Pour obtenir un premier classement Elo Standard FIDE, quelles sont les conditions minimales à remplir ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "premier classement",
+        "Elo",
+        "conditions",
+        "FIDE"
+      ],
+      "expected_pages": [
+        182,
+        183
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Keyword mismatch: 'premier classement' absent du corpus - terme exact est 'classement initial'",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
+    },
+    {
+      "id": "FR-Q88",
+      "question": "Quelle est la différence de points Elo gagnés ou perdus pour une seule partie gagnée contre un adversaire avec exactement le même classement Elo ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "table",
+        "conversion",
+        "elo",
+        "variante",
+        "probabilite",
+        "tranches"
+      ],
+      "expected_pages": [
+        184,
+        185,
+        186
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00"
+    },
+    {
+      "id": "FR-Q89",
+      "question": "Pour un tournoi de 9 rondes, quelle est la différence maximale d'Elo entre deux joueurs qui permet encore de considérer le tournoi comme équilibré pour le calcul du rating FIDE ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournoi",
+        "table",
+        "conversion",
+        "elo",
+        "variante",
+        "probabilite"
+      ],
+      "expected_pages": [
+        184,
+        185
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00"
+    },
+    {
+      "id": "FR-Q90",
+      "question": "Quel est le montant minimal d'indemnisation journalière pour un arbitre principal lors d'un tournoi national de plus de 100 joueurs en 2025 ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "indemnisation",
+        "journalière",
+        "arbitre principal",
+        "100 joueurs",
+        "national"
+      ],
+      "expected_pages": [
+        178
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00"
+    },
+    {
+      "id": "FR-Q91",
+      "question": "Un arbitre adjoint dans un tournoi régional de 50 à 99 joueurs peut-il prétendre à une indemnisation forfaitaire ou horaire ? Quel est le barème appliqué ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre adjoint",
+        "parfois",
+        "arbitre",
+        "dernier",
+        "comprend",
+        "alors"
+      ],
+      "expected_pages": [
+        179
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00"
+    },
+    {
+      "id": "FR-Q92",
+      "question": "Quelles sont les conditions pour qu'un arbitre bénéficie du remboursement des frais de déplacement en plus de son indemnisation de base ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "remboursement",
+        "arbitre",
+        "parfois",
+        "dernier",
+        "comprend",
+        "alors"
+      ],
+      "expected_pages": [
+        179,
+        180
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent525-child00"
+    },
+    {
+      "id": "FR-Q93",
+      "question": "Quel est le barème d'indemnisation spécifique pour un arbitre lors d'un match par équipes (ex : interclubs) avec moins de 20 joueurs ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "interclubs",
+        "tarifs",
+        "ces",
+        "celles",
+        "directeur",
+        "ffe"
+      ],
+      "expected_pages": [
+        180
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p180-parent528-child00"
+    },
+    {
+      "id": "FR-Q94",
+      "question": "Si un joueur joue pas du tout pendant 18 mois, son Elo finit par disparaître ou pas ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "inactivité",
+        "18 mois",
+        "Elo",
+        "disparaître"
+      ],
+      "expected_pages": [
+        183
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Langage oral + '18 mois' vs 'un an' + 'disparaître' vs 'supprimé'",
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+        "test_purpose": "Robustesse synonymes + langage oral (arXiv:2412.12300)",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage oral",
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Vocabulary mismatch intentionnel - best practice RAG evaluation"
+      },
+      "audit": "added_2026-01-20_grok",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
+    },
+    {
+      "id": "FR-Q95",
+      "question": "C'est pas possible d'avoir un Elo sans faire au moins 5 parties, si ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "premier classement",
+        "5 parties",
+        "Elo",
+        "conditions"
+      ],
+      "expected_pages": [
+        182,
+        183
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Négation ('pas possible') + chiffre '5' imprécis + langage oral",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test négation + chiffres spécifiques",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_grok",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
+    },
+    {
+      "id": "FR-Q96",
+      "question": "Quelle différence d'Elo max pour que mon tournoi de 9 rondes soit quand même valable pour le rating FIDE ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournoi",
+        "table",
+        "conversion",
+        "elo",
+        "variante",
+        "probabilite"
+      ],
+      "expected_pages": [
+        184,
+        185
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Synonyme 'différence d'Elo max' vs terme officiel 'écart maximal' + langage naturel",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage naturel",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025-table73-summary"
+    },
+    {
+      "id": "FR-Q97",
+      "question": "Pour devenir GM, il faut combien de normes et quel Elo mini en 2025-2026 ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "GM",
+        "normes",
+        "Elo minimum",
+        "Grand Maître"
+      ],
+      "expected_pages": [
+        192,
+        193,
+        194
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "hard_case": true,
+        "hard_reason": "Multi-parties (2 sous-questions) + abréviation 'GM' + retrieval doit couvrir plusieurs sections",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test multi-parties + abréviations",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p192-parent571-child00"
+    },
+    {
+      "id": "FR-Q98",
+      "question": "Est-ce qu'on peut sauter le CM pour passer directement FM, ou c'est obligé ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "CM",
+        "FM",
+        "progression",
+        "titres"
+      ],
+      "expected_pages": [
+        196,
+        197,
+        198
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "hard_case": true,
+        "hard_reason": "Négation ('sauter / pas obligé') + langage très oral + abréviations CM/FM",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "difficulty": "hard",
+      "notes": "test négation + langage oral",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_grok",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p196-parent579-child00"
+    },
+    {
+      "id": "FR-Q99",
+      "question": "Une norme de titre, elle reste valide combien de temps si j'attends pour demander ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "titre",
+        "utilisable",
+        "uniquement",
+        "championnats",
+        "continentaux",
+        "mondiaux"
+      ],
+      "expected_pages": [
+        200,
+        201,
+        202
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "hard_case": true,
+        "hard_reason": "Langage oral + synonyme 'valide' vs 'validité' + formulation indirecte",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage naturel",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p200-parent595-child00"
+    },
+    {
+      "id": "FR-Q100",
+      "question": "Qu'est-ce que l'arbitre doit absolument faire avant de lancer un tournoi homologué FFE ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "obligations",
+        "avant tournoi",
+        "homologué"
+      ],
+      "expected_pages": [
+        166,
+        167,
+        168
+      ],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.2",
+        "hard_case": true,
+        "hard_reason": "Synonyme 'lancer' vs terme officiel 'début' + formulation naturelle",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "difficulty": "hard",
+      "notes": "test synonymes + langage naturel",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00"
+    },
+    {
+      "id": "FR-Q101",
+      "question": "Si je suis arbitre adjoint dans un petit tournoi régional, j'ai droit à combien d'euros par jour ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre adjoint",
+        "parfois",
+        "arbitre",
+        "dernier",
+        "comprend",
+        "alors"
+      ],
+      "expected_pages": [
+        179
+      ],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.5",
+        "hard_case": true,
+        "hard_reason": "Langage très oral + imprécision 'petit' + formulation question directe",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "difficulty": "hard",
+      "notes": "test langage oral + synonymes",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00"
+    },
+    {
+      "id": "FR-Q102",
+      "question": "Faut-il envoyer le rapport technique le soir même ou le lendemain après un tournoi ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapport technique",
+        "délai",
+        "envoi",
+        "tournoi"
+      ],
+      "expected_pages": [
+        172,
+        173,
+        174,
+        175
+      ],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.4",
+        "hard_case": true,
+        "hard_reason": "Multi-parties (2 options) + formulation temporelle ambiguë + négation implicite",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "difficulty": "hard",
+      "notes": "test multi-parties + langage naturel",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_grok",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent512-child00"
+    },
+    {
+      "id": "FR-Q103",
+      "question": "Mon joueur arrive pas à la première ronde, je fais quoi comme arbitre ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "part",
+        "fixe",
+        "image",
+        "euros",
+        "tournois"
+      ],
+      "expected_pages": [
+        168,
+        169,
+        171
+      ],
+      "metadata": {
+        "type": "admin",
+        "chapter": "5.3",
+        "hard_case": true,
+        "hard_reason": "Langage ultra-informel SMS-like ('arrive pas', 'je fais quoi') → embedding risque de rater",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "difficulty": "hard",
+      "notes": "test langage oral/SMS + formulation indirecte",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "page_170_missing_corrected_to_168_169_171_2026-01-23",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p168-parent499-child00"
+    },
+    {
+      "id": "FR-Q104",
+      "question": "Mon roi peut plus bouger mais il est pas en échec, c'est quoi ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pat",
+        "roi",
+        "coup légal",
+        "nulle"
+      ],
+      "expected_pages": [
+        43
+      ],
+      "metadata": {
+        "type": "definition",
+        "chapter": "5.2.1",
+        "hard_case": true,
+        "hard_reason": "Langage oral 'peut plus bouger' ≠ terme corpus 'ne dispose d'aucun coup légal'",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test langage oral vs terminologie officielle",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
+    },
+    {
+      "id": "FR-Q105",
+      "question": "Mon adversaire a son téléphone dans sa poche mais il est éteint, c'est grave ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "téléphone",
+        "éteint",
+        "portable",
+        "perte"
+      ],
+      "expected_pages": [
+        54
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "11.3.2",
+        "hard_case": true,
+        "hard_reason": "Cas limite 'éteint' - règle stricte souvent mal comprise",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test cas limite téléphone éteint",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+    },
+    {
+      "id": "FR-Q106",
+      "question": "On a joué 12 coups avec les mauvaises couleurs, on recommence la partie ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "couleurs",
+        "inversées",
+        "coups",
+        "recommence"
+      ],
+      "expected_pages": [
+        48
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "7.3",
+        "hard_case": true,
+        "hard_reason": "Question numérique '12 coups' vs seuil 'dix coups' - réponse = NON, on continue",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test numérique seuil 10 coups",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00"
+    },
+    {
+      "id": "FR-Q107",
+      "question": "C'est quoi la cadence pour les poussins au championnat de France ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "cadence",
+        "poussins",
+        "U8",
+        "championnat",
+        "jeunes"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "Art. 8",
+        "hard_case": true,
+        "hard_reason": "Synonyme 'poussins' vs 'U8' - terminologie traditionnelle vs FIDE",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test synonyme catégorie jeunes",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00"
+    },
+    {
+      "id": "FR-Q108",
+      "question": "Si un joueur en fauteuil roulant ne peut pas accéder à la salle, qui perd la partie ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "cas",
+        "concernant",
+        "organisation",
+        "tournois",
+        "h01"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "Art. 1",
+        "hard_case": true,
+        "hard_reason": "Terme 'fauteuil roulant' vs 'mobilité réduite' dans corpus",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "difficulty": "hard",
+      "notes": "test synonyme handicap + accessibilité",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q109",
+      "question": "Une équipe finit 9ème en Nationale 2, elle descend ou pas ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "N2",
+        "engagements",
+        "fin",
+        "championnat",
+        "hormis",
+        "top"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "Art. 4",
+        "hard_case": true,
+        "hard_reason": "Question numérique '9ème' + langage oral 'elle descend ou pas'",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test numérique + langage oral",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+    },
+    {
+      "id": "FR-Q110",
+      "question": "Si je touche ma tour AVANT mon roi, j'ai pas le droit de roquer ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tour",
+        "roi",
+        "roque",
+        "toucher"
+      ],
+      "expected_pages": [
+        42
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "4.4.2",
+        "hard_case": true,
+        "hard_reason": "NÉGATION 'pas le droit' + ordre inverse tour/roi",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "difficulty": "hard",
+      "notes": "test négation + ordre temporel",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02"
+    },
+    {
+      "id": "FR-Q111",
+      "question": "C'est quoi la différence entre le pat et la nulle par répétition ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pat",
+        "nulle",
+        "répétition",
+        "différence"
+      ],
+      "expected_pages": [
+        43,
+        51
+      ],
+      "metadata": {
+        "type": "definition",
+        "chapter": "5.2.1 + 9.2",
+        "hard_case": true,
+        "hard_reason": "QUESTION COMPOSÉE - nécessite retrieval sur 2 pages différentes (43 ET 51)",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "difficulty": "hard",
+      "notes": "test question composée multi-page",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20_verified",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
+    },
+    {
+      "id": "FR-Q112",
+      "question": "Qu'est-ce qui se passe quand un joueur est en zeitnot ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "zeitnot",
+        "manque",
+        "temps",
+        "drapeau"
+      ],
+      "expected_pages": [
+        50
+      ],
+      "metadata": {
+        "type": "definition",
+        "chapter": "8.1",
+        "hard_case": true,
+        "hard_reason": "SYNONYME 'zeitnot' absent du corpus - terme officiel = 'manque de temps'",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "difficulty": "hard",
+      "notes": "test synonyme terme allemand courant",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "corrected_2026-01-20_audit",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00"
+    },
+    {
+      "id": "FR-Q113",
+      "question": "Lors d'un tournoi, les deux joueurs se sont trompés de couleurs et ont joué 13 coups chacun. Un joueur a une dame d'avance. Quelle décision prendre en partie longue (1h+30s/coup) ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "couleur",
+        "erreur",
+        "article",
+        "doivent",
+        "position",
+        "arbitre"
+      ],
+      "expected_pages": [
+        48,
+        49
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Règle différente selon cadence longue vs rapide - piège examen",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Règle différente selon cadence longue vs rapide - ",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00"
+    },
+    {
+      "id": "FR-Q114",
+      "question": "En partie rapide (20min+10s/coup), les joueurs se sont trompés de couleurs après 8 coups. Un joueur a une dame d'avance. Que faire ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "couleur",
+        "erreur",
+        "rapide",
+        "continuer"
+      ],
+      "expected_pages": [
+        48,
+        49
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "En rapide la partie continue vs annulée en longue",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - En rapide la partie continue vs annulée en longue",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00"
+    },
+    {
+      "id": "FR-Q115",
+      "question": "Un joueur annonce échec et mat à tort, son adversaire le croit et arrête la pendule. Le capitaine réclame car ce n'était pas mat. Quelle décision ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "mat",
+        "abandon",
+        "cas",
+        "joueur",
+        "joueuse",
+        "doit"
+      ],
+      "expected_pages": [
+        42,
+        43
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Acceptation = partie terminée même si annonce fausse",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Acceptation = partie terminée même si annonce faus",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+    },
+    {
+      "id": "FR-Q116",
+      "question": "A la cadence 5min+3s/coup, les noirs jouent un coup illégal et appuient sur la pendule. Quelle sanction appliquer ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "illégal",
+        "blitz",
+        "pendule",
+        "temps"
+      ],
+      "expected_pages": [
+        49,
+        58
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Gestion temps différent en blitz vs longue",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Gestion temps différent en blitz vs longue",
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+    },
+    {
+      "id": "FR-Q117",
+      "question": "En partie longue 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour coup illégal. Ils en commettent un second. Quelle sanction ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "illégal",
+        "récidive",
+        "sanction",
+        "partie perdue"
+      ],
+      "expected_pages": [
+        49
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Gradation des sanctions selon nombre de coups illégaux",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Gradation des sanctions selon nombre de coups illé",
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
+    },
+    {
+      "id": "FR-Q118",
+      "question": "Quel départage utilise dans son calcul les résultats des adversaires contre leurs propres adversaires ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "départage",
+        "sonneborn",
+        "berger",
+        "adversaires"
+      ],
+      "expected_pages": [
+        149,
+        150,
+        151
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "4.2",
+        "hard_case": true,
+        "hard_reason": "Distinction fine entre départages (Buchholz vs Sonneborn)",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Distinction fine entre départages (Buchholz vs Son",
+      "expected_chunk_id": "LA-octobre2025.pdf-p151-parent450-child00"
+    },
+    {
+      "id": "FR-Q119",
+      "question": "Pour un tournoi toutes rondes avec 7 équipes, combien de rondes faut-il programmer ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rondes",
+        "toutes rondes",
+        "équipes",
+        "tournoi"
+      ],
+      "expected_pages": [
+        101,
+        102,
+        103,
+        104
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "3.1",
+        "hard_case": true,
+        "hard_reason": "Calcul nombre rondes toutes-rondes (N-1 ou N)",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Chapitre 3.1 Les tournois toutes-rondes",
+      "expected_chunk_id": "LA-octobre2025.pdf-p102-parent299-child00"
+    },
+    {
+      "id": "FR-Q120",
+      "question": "Dans l'appariement suisse, qu'est-ce qu'un flotteur descendant ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "flotteur",
+        "descendant",
+        "appariement",
+        "suisse"
+      ],
+      "expected_pages": [
+        124,
+        125,
+        126
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "3.5",
+        "hard_case": true,
+        "hard_reason": "Terminologie technique appariement",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Terminologie technique appariement",
+      "expected_chunk_id": "LA-octobre2025.pdf-p126-parent367-child00"
+    },
+    {
+      "id": "FR-Q121",
+      "question": "Vous arbitrez un tournoi FIDE. Un joueur non classé gagne 5 parties contre des joueurs classés. Comment obtient-il son premier classement Elo ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "classement",
+        "FIDE",
+        "premier",
+        "elo",
+        "initial"
+      ],
+      "expected_pages": [
+        183,
+        185
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Calcul classement initial FIDE - Art. 7.1.4 (5 parties min) + 8.2 (formule Ru)",
+        "source": "Annales-Juin-2025",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Art. 7.1.4 (5 parties min), Art. 8.2 (calcul initial Ru)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
+    },
+    {
+      "id": "FR-Q122",
+      "question": "Un joueur Elo 1800 gagne contre un joueur Elo 2200. Avec K=20, quel gain approximatif de points ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "elo",
+        "K",
+        "coefficient",
+        "gain",
+        "calcul"
+      ],
+      "expected_pages": [
+        183,
+        184,
+        185
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_reason": "Application formule Elo avec K variable",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Application formule Elo avec K variable",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent544-child00"
+    },
+    {
+      "id": "FR-Q123",
+      "question": "Dans une finale Roi+Dame contre Roi seul, un joueur annonce mat en 2 mais se trompe. L'adversaire réclame la nulle. Quelle décision ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "mat",
+        "nulle",
+        "partie",
+        "pas",
+        "encore",
+        "imaginons"
+      ],
+      "expected_pages": [
+        54
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Interaction annonce mat et matériel insuffisant",
+        "source": "Annales-Juin-2025",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Interaction annonce mat et matériel insuffisant",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01"
+    },
+    {
+      "id": "FR-Q124",
+      "question": "Quels sont les frais de déplacement remboursés pour un arbitre régional se déplaçant à 150 km ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "indemnisation",
+        "déplacement",
+        "arbitre",
+        "frais",
+        "km"
+      ],
+      "expected_pages": [
+        178,
+        179
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "5.5",
+        "hard_case": true,
+        "hard_reason": "Barème indemnisation selon distance",
+        "source": "Annales-Juin-2025",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Barème indemnisation selon distance",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00"
+    },
+    {
+      "id": "FR-Q125",
+      "question": "À quelle cadence la chute du drapeau doit-elle être signalée par l'arbitre s'il l'observe ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "drapeau",
+        "chute",
+        "arbitre",
+        "signaler",
+        "cadence"
+      ],
+      "expected_pages": [
+        57,
+        58
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "2.1",
+        "hard_case": true,
+        "hard_reason": "Art. A.5.5 (rapide) et B.3 (blitz) - arbitre DOIT signaler drapeau",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Annexe A Art. A.5.5 (rapide) + Annexe B (blitz via B.3)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+    },
+    {
+      "id": "FR-Q126",
+      "question": "L'arbitre observe une position illégale sans avoir vu le dernier coup joué. Comment doit-il intervenir ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "position",
+        "illégale",
+        "arbitre",
+        "intervention"
+      ],
+      "expected_pages": [
+        49,
+        55
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Intervention arbitre selon observation directe ou non",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Intervention arbitre selon observation directe ou ",
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+    },
+    {
+      "id": "FR-Q127",
+      "question": "En cadence 1h30+30s, un joueur a moins de 5 minutes. Doit-il continuer à noter sa partie ?",
+      "category": "notation",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "noter",
+        "temps",
+        "zeitnot",
+        "minutes",
+        "incrément"
+      ],
+      "expected_pages": [
+        50
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "2.1",
+        "hard_case": true,
+        "hard_reason": "Art. 8.4 - Obligation notation si incrément >=30s (OUI avec +30s)",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case - Art. 8.4: formulation question trop spécifique pour retrieval dense (zeitnot+incrément)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02"
+    },
+    {
+      "id": "FR-Q128",
+      "question": "La règle des 75 coups sans prise ni mouvement de pion entraîne-t-elle automatiquement la nulle ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "75",
+        "coups",
+        "nulle",
+        "automatique",
+        "pion"
+      ],
+      "expected_pages": [
+        52,
+        70
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Différence 50 coups (réclamation) vs 75 coups (automatique)",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Différence 50 coups (réclamation) vs 75 coups (aut",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02"
+    },
+    {
+      "id": "FR-Q129",
+      "question": "Après combien de répétitions de position identique la partie est-elle automatiquement nulle ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "répétition",
+        "position",
+        "nulle",
+        "automatique",
+        "cinq"
+      ],
+      "expected_pages": [
+        52,
+        53
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Différence 3x (réclamation) vs 5x (automatique)",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Différence 3x (réclamation) vs 5x (automatique)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01"
+    }
+  ]
+}

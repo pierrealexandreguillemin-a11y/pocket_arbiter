@@ -1,0 +1,321 @@
+{
+  "batch": "batch_6",
+  "total": 62,
+  "results": [
+    {
+      "id": "intl_001",
+      "action": "KEEP",
+      "reason": "Chunk clearly explains touch-move rule and forced moves."
+    },
+    {
+      "id": "intl_002",
+      "action": "KEEP",
+      "reason": "Chunk explains increment per move for rapid chess."
+    },
+    {
+      "id": "intl_003",
+      "action": "WRONG",
+      "reason": "Chunk covers stalemate/checkmate, not insufficient material."
+    },
+    {
+      "id": "intl_004",
+      "action": "KEEP",
+      "reason": "Chunk explains threefold repetition claim requirements."
+    },
+    {
+      "id": "intl_005",
+      "action": "KEEP",
+      "reason": "Chunk explains flag fall discovery and timing rules."
+    },
+    {
+      "id": "intl_006",
+      "action": "KEEP",
+      "reason": "Chunk explains restoration procedure for illegal moves."
+    },
+    {
+      "id": "intl_007",
+      "action": "KEEP",
+      "reason": "Chunk addresses castling rules with piece attacks."
+    },
+    {
+      "id": "intl_008",
+      "action": "KEEP",
+      "reason": "Chunk covers arbiter duties in rapid/blitz."
+    },
+    {
+      "id": "intl_009",
+      "action": "WRONG",
+      "reason": "Does not address phone handling."
+    },
+    {
+      "id": "intl_010",
+      "action": "WRONG",
+      "reason": "Does not explain the 75-move rule."
+    },
+    {
+      "id": "intl_011",
+      "action": "WRONG",
+      "reason": "Does not address illegal move penalties."
+    },
+    {
+      "id": "intl_012",
+      "action": "KEEP",
+      "reason": "Chunk explains how to offer a draw."
+    },
+    {
+      "id": "intl_013",
+      "action": "KEEP",
+      "reason": "Chunk outlines castling conditions."
+    },
+    {
+      "id": "intl_014",
+      "action": "KEEP",
+      "reason": "Chunk addresses move recording requirements."
+    },
+    {
+      "id": "intl_015",
+      "action": "WRONG",
+      "reason": "Does not address both players making illegal moves."
+    },
+    {
+      "id": "intl_016",
+      "action": "KEEP",
+      "reason": "Chunk explains pawn promotion rules."
+    },
+    {
+      "id": "intl_017",
+      "action": "KEEP",
+      "reason": "Chunk specifies time controls for rapid."
+    },
+    {
+      "id": "intl_018",
+      "action": "WRONG",
+      "reason": "Does not explain 50-move rule for draw."
+    },
+    {
+      "id": "intl_019",
+      "action": "KEEP",
+      "reason": "Chunk covers arbiter options for disruptions."
+    },
+    {
+      "id": "intl_020",
+      "action": "KEEP",
+      "reason": "Chunk defines checkmate per FIDE rules."
+    },
+    {
+      "id": "intl_021",
+      "action": "PARTIAL",
+      "reason": "Chunk addresses completed moves but context unclear."
+    },
+    {
+      "id": "intl_022",
+      "action": "WRONG",
+      "reason": "Does not address arbiter penalties."
+    },
+    {
+      "id": "intl_023",
+      "action": "KEEP",
+      "reason": "Chunk addresses quickplay finish rules."
+    },
+    {
+      "id": "intl_024",
+      "action": "KEEP",
+      "reason": "Chunk defines stalemate correctly."
+    },
+    {
+      "id": "intl_025",
+      "action": "KEEP",
+      "reason": "Chunk explains when arbiter can intervene."
+    },
+    {
+      "id": "intl_032",
+      "action": "WRONG",
+      "reason": "Does not address FIDE Master Elo requirement."
+    },
+    {
+      "id": "intl_037",
+      "action": "KEEP",
+      "reason": "Chunk covers special rules for visually impaired."
+    },
+    {
+      "id": "intl_039",
+      "action": "WRONG",
+      "reason": "Does not address en passant."
+    },
+    {
+      "id": "intl_040",
+      "action": "KEEP",
+      "reason": "Chunk specifies envelope recording for adjourned games."
+    },
+    {
+      "id": "intl_042",
+      "action": "KEEP",
+      "reason": "Chunk clarifies when illegal move is considered made."
+    },
+    {
+      "id": "intl_043",
+      "action": "KEEP",
+      "reason": "Chunk covers clock pressing before move rules."
+    },
+    {
+      "id": "intl_044",
+      "action": "KEEP",
+      "reason": "Chunk describes initial board position."
+    },
+    {
+      "id": "intl_045",
+      "action": "WRONG",
+      "reason": "Does not explain knight movement."
+    },
+    {
+      "id": "intl_046",
+      "action": "PARTIAL",
+      "reason": "Discusses castling but lacks full rules."
+    },
+    {
+      "id": "intl_047",
+      "action": "KEEP",
+      "reason": "Chunk explains pawn promotion at eighth rank."
+    },
+    {
+      "id": "intl_048",
+      "action": "KEEP",
+      "reason": "Chunk explains touch-move rule from Article 4."
+    },
+    {
+      "id": "intl_049",
+      "action": "WRONG",
+      "reason": "Does not explain move completion criteria."
+    },
+    {
+      "id": "intl_050",
+      "action": "WRONG",
+      "reason": "Does not outline checkmate conditions."
+    },
+    {
+      "id": "intl_051",
+      "action": "KEEP",
+      "reason": "Chunk explains stalemate and when it occurs."
+    },
+    {
+      "id": "intl_052",
+      "action": "KEEP",
+      "reason": "Chunk explains en passant capture mechanics."
+    },
+    {
+      "id": "intl_053",
+      "action": "PARTIAL",
+      "reason": "Mentions adjustment but not purpose."
+    },
+    {
+      "id": "intl_054",
+      "action": "KEEP",
+      "reason": "Chunk covers clock handling per Article 6."
+    },
+    {
+      "id": "intl_055",
+      "action": "WRONG",
+      "reason": "Does not address late arrival time."
+    },
+    {
+      "id": "intl_056",
+      "action": "KEEP",
+      "reason": "Chunk explains flag fall consequences."
+    },
+    {
+      "id": "intl_057",
+      "action": "KEEP",
+      "reason": "Chunk covers chess clock requirements."
+    },
+    {
+      "id": "intl_058",
+      "action": "KEEP",
+      "reason": "Chunk explains Fischer time control."
+    },
+    {
+      "id": "intl_059",
+      "action": "KEEP",
+      "reason": "Chunk explains Bronstein time delay."
+    },
+    {
+      "id": "intl_060",
+      "action": "KEEP",
+      "reason": "Chunk explains what happens with illegal moves."
+    },
+    {
+      "id": "intl_061",
+      "action": "KEEP",
+      "reason": "Chunk covers incorrect initial position."
+    },
+    {
+      "id": "intl_062",
+      "action": "KEEP",
+      "reason": "Chunk addresses illegal move penalties."
+    },
+    {
+      "id": "intl_063",
+      "action": "KEEP",
+      "reason": "Chunk covers piece displacement handling."
+    },
+    {
+      "id": "intl_064",
+      "action": "KEEP",
+      "reason": "Chunk explains move recording requirements."
+    },
+    {
+      "id": "intl_065",
+      "action": "KEEP",
+      "reason": "Chunk covers move notation system."
+    },
+    {
+      "id": "intl_066",
+      "action": "WRONG",
+      "reason": "Does not explain when recording stops."
+    },
+    {
+      "id": "intl_067",
+      "action": "KEEP",
+      "reason": "Chunk explains 50-move rule for draw."
+    },
+    {
+      "id": "intl_068",
+      "action": "WRONG",
+      "reason": "Does not explain threefold repetition claim."
+    },
+    {
+      "id": "intl_069",
+      "action": "WRONG",
+      "reason": "Does not address insufficient material draw."
+    },
+    {
+      "id": "intl_070",
+      "action": "WRONG",
+      "reason": "Does not explain 75-move rule."
+    },
+    {
+      "id": "intl_071",
+      "action": "KEEP",
+      "reason": "Chunk covers arbiter duties from Article 12."
+    },
+    {
+      "id": "intl_072",
+      "action": "KEEP",
+      "reason": "Chunk covers forbidden player behavior."
+    },
+    {
+      "id": "intl_073",
+      "action": "WRONG",
+      "reason": "Does not address arbiter penalty powers."
+    },
+    {
+      "id": "intl_074",
+      "action": "KEEP",
+      "reason": "Chunk covers electronic device violation handling."
+    }
+  ],
+  "summary": {
+    "keep": 41,
+    "wrong": 18,
+    "partial": 3
+  }
+}

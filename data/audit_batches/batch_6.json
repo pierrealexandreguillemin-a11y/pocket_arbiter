@@ -1,0 +1,1024 @@
+{
+  "batch_name": "batch_6",
+  "count": 62,
+  "questions": [
+    {
+      "id": "intl_001",
+      "question": "What happens if a player touches a piece but cannot make a legal move with it?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "chunk_text": "According to this rule, if a player has not said 'I adjust' or something similar before touching a piece and touching the piece is not accidental, the touched piece must be moved. For example, if White played 1 Be2xg5 by lifting the bishop and then removing the knight, the bishop on e2 must be moved as it was touched intending to move.  \n<!-- image -->  \nThe accidental touch doesn't imply a psychological analysis of the player's intentions.  \n- 4.4 If a player having the move:\n- 4.4.1 touches his/her king and a rook he/she must castle on that side if it is legal to do so\n- 4.4.2 deliberately touches a rook and then his/her king he/she is not allowed to castle on that side on that move and the situation shall be governed by Article 4.3.1.  \nIn this case the player must move his/her rook, if possible. If no rook move is possible, he/she should move his/her king. (Article 4.3.1)  \n- 4.4.3 intending to castle, touches the king and then a rook, but castling with this rook is illegal, the player must make another legal move with his/her king (which may include castling with the other rook). If the king has no legal move, the player is free to make any legal move.  \nPlease note that castling is a king move. If a player tries to castle and it is found to be illegal, then the player must make a king move that is legal. If there is no legal move of the king the player is free to make any move - he/she is not obliged to move the rook (but see 4.4.2).",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "player",
+        "touches",
+        "piece",
+        "but"
+      ]
+    },
+    {
+      "id": "intl_002",
+      "question": "How much time is added after each move in a rapid game?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "chunk_text": "## Appendix A. Rapid chess  \n- A.1 A Rapid chess' game is one where either all the moves must be completed in a fixed time of more than 10 minutes but less than 60 minutes for each player; or the time allotted plus 60 times any increment is of more than 10 minutes but less than 60 minutes for each player.  \nExample 1: According to the Tournament Regulations of an event, the time control is 30 minutes for the whole game and 30 seconds increment for each move. That is: for 60 moves we would get 30'+ (30\"x 60) = 30' +30' = 60'. Then such a game is considered to be standard chess.  \nAs according to Article A1 \"A Rapid Chess\" is a game where all moves must be completed in more than 10 minutes and less than 60 minutes for each player.  \nExample 2: According to the Tournament Regulations of an event, the time control is 10 minutes for the whole game and 5 seconds increment for each move. That is: for 60 moves we would get 10'+ (5' x 60) = 10' +5' = 15'. So according to Article A.1 such a game is considered to be Rapid Chess.  \nWhen doing these calculations games using delays are treated in the same way.  \n- A.2 Players do not need to record the moves, but do not lose their rights to claims normally based on a scoresheet. The player can, at any time, ask the arbiter to provide him/her with a scoresheet, in order to write the moves.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "time",
+        "each",
+        "appendix",
+        "rapid",
+        "one",
+        "either"
+      ]
+    },
+    {
+      "id": "intl_003",
+      "question": "When can an arbiter declare a game drawn due to insufficient material?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "chunk_text": "## Article 5: The Completion of the Game  \n- 5.1.1 The game is won by the player who has checkmated his/her opponent's king. This immediately ends the game, provided that the move producing the checkmate position was in accordance with Article 3 and Articles 4.2 - 4.7.\n- 5.1.2 The game is lost by the player who declares he/she resigns (this immediately ends the game), unless the position is such that the opponent cannot checkmate the player's king by any possible series of legal moves. In this case the result of the game is a draw.  \nA player may resign in a number of different ways:  \n- -pausing the clock\n- -announcing his/her resignation\n- -knocking over his/her king\n- -reaching out his/her hand to the opponent\n- -signing the score sheets, and so on.  \nAll of these possibilities are capable of being misinterpreted. Therefore, the situation has to be clarified.  \nAt the end of a game the arbiter should ensure that both scoresheets show the same result. A player who does not wish to continue a game and leaves without resigning - or notifying the arbiter - is being discourteous. He/She may be penalized, at the discretion of the Chief Arbiter, for poor sportsmanship.  \n- 5.2.1 The game is drawn when the player to move has no legal move and his/her king is not in check. The game is said to end in 'stalemate'. This immediately ends the game, provided that the move producing the stalemate position was in accordance with Article 3 and Articles 4.2 - 4.7.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "declare",
+        "game",
+        "drawn"
+      ]
+    },
+    {
+      "id": "intl_004",
+      "question": "What are the requirements for a valid claim of threefold repetition?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child00",
+      "chunk_text": "## Some examples of unacceptable conditions :  \nThe player requires the opponent to accept the offer within 2 minutes.  \nIn a team competition: a draw is offered under the condition that another game in the match shall be resigned or shall be drawn as well.  \nIn both cases the offer of a draw is valid, but not the attached condition.  \nRegarding 9.1.2.3: If a player claims a draw, the opponent has the possibility to agree immediately to the draw. In this case the arbiter does not need to check the correctness of the claim. But be careful. If there is a draw restriction (for example: no draw offers are allowed before 30 moves have been completed by both players) and the claim has been submitted before that move (perhaps after 28 moves), then the claim has to be checked by the Arbiter, even if the opponent would agree to the draw. As mentioned, a claim of a draw under Article 9.2 or 9.3 shall be considered to be an offer of a draw. If the opponent chooses to check the claim, the offer loses its validity.  \n- 9.2 The game is drawn, upon a correct claim by a player having the move, when the same position for at least the third time (not necessarily by a repetition of moves): .\n- 9.2.1 is about to appear, if he/she first indicates his/her move, which cannot be changed, by writing it on the paper scoresheet or entering it on the electronic scoresheet and declares to the arbiter his/her intention to make this move, or\n- 9.2.2 has just appeared, and the player claiming the draw has the move.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "valid",
+        "claim",
+        "article",
+        "drawn",
+        "draw",
+        "offers"
+      ]
+    },
+    {
+      "id": "intl_005",
+      "question": "If a player's flag falls and no one notices, what should happen when it is discovered?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent045-child01",
+      "chunk_text": "- 6.8 A flag is considered to have fallen when the arbiter observes the fact or when either player has made a valid claim to that effect.  \nA flag is considered to have fallen when it is noticed or claimed, not when it physically happened. If a result is reached between a flag fall and the fall being noticed, the result is not changed. The arbiter should announce flag fall as soon as he notices it  \n- 6.9 Except where one of Articles 5.1.1, 5.1.2, 5.2.1, 5.2.2, 5.2.3 applies, if a player does not complete the prescribed number of moves in the allotted time, the game is lost by that player. However, the game is drawn if the position is such that the opponent cannot checkmate the player's king by any possible series of legal moves.  \nAlso in the case of articles 9.6.1 and 9.6.2, even if a player does not complete the prescribed number of moves in the allotted time, the game is drawn.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "player",
+        "flag",
+        "one",
+        "notices"
+      ]
+    },
+    {
+      "id": "intl_006",
+      "question": "What is the procedure when an illegal move is discovered several moves later?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent047-child02",
+      "chunk_text": "It is very important that the irregularity must be discovered during the game. After the players have signed the scoresheets or it is clear in another way that the game is over, corrections are not possible. The result stands.  \nWhen the irregularity is discovered during the game the game, the game restarts from the restored position. The 'touch move' rule applies so the piece to be played should be, if possible, the one first touched, either the piece illegally moved or the piece captured.  \nIf the irregularity was caused by a check being missed the touched piece should be used to block the check or capture the checking piece, if possible.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "illegal",
+        "move",
+        "discovered"
+      ]
+    },
+    {
+      "id": "intl_007",
+      "question": "Can a player castle if the rook is attacked?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "chunk_text": "## 3.8 There are two different ways of moving the king: 3.8.1 by moving to an adjoining square  \n<!-- image -->  \n3.8.2 by 'castling'. This is a move of the king and either rook of the same colour along the player's first rank, counting as a single move of the king and executed as follows: the king is transferred from its original square two squares towards the rook on its original square, then that rook is transferred to the square the king has just crossed.  \n<!-- image -->  \nBefore white kingside castling Before black queenside castling  \nBefore white queenside castling Before black kingside castling  \n<!-- image -->  \nAfter white kingside castling  \n<!-- image -->  \nAfter black queenside castling  \nAfter white queenside castling After black kingside castling  \n<!-- image -->  \n- 3.8.2.1 The right to castle has been lost:\n- 3.8.2.1.1 If the king has already moved, or\n- 3.8.2.1.2 With a rook that has already moved.\n- 3.8.2.2 Castling is prevented temporarily:\n- 3.8.2.2.1 if the square on which the king stands, or the square which it must cross, or the square which it is to occupy, is attacked by one or more of the opponent's pieces, or\n- 3.8.2.2.2 if there is any piece between the king and the rook with which castling is to be effected.\n- 3.9 The king in check:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "player",
+        "castle",
+        "rook",
+        "attacked"
+      ]
+    },
+    {
+      "id": "intl_008",
+      "question": "What are the arbiter's duties during a rapid or blitz tournament?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "chunk_text": "## Appendix A. Rapid chess  \n- A.1 A Rapid chess' game is one where either all the moves must be completed in a fixed time of more than 10 minutes but less than 60 minutes for each player; or the time allotted plus 60 times any increment is of more than 10 minutes but less than 60 minutes for each player.  \nExample 1: According to the Tournament Regulations of an event, the time control is 30 minutes for the whole game and 30 seconds increment for each move. That is: for 60 moves we would get 30'+ (30\"x 60) = 30' +30' = 60'. Then such a game is considered to be standard chess.  \nAs according to Article A1 \"A Rapid Chess\" is a game where all moves must be completed in more than 10 minutes and less than 60 minutes for each player.  \nExample 2: According to the Tournament Regulations of an event, the time control is 10 minutes for the whole game and 5 seconds increment for each move. That is: for 60 moves we would get 10'+ (5' x 60) = 10' +5' = 15'. So according to Article A.1 such a game is considered to be Rapid Chess.  \nWhen doing these calculations games using delays are treated in the same way.  \n- A.2 Players do not need to record the moves, but do not lose their rights to claims normally based on a scoresheet. The player can, at any time, ask the arbiter to provide him/her with a scoresheet, in order to write the moves.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "rapid",
+        "appendix",
+        "one",
+        "either",
+        "completed"
+      ]
+    },
+    {
+      "id": "intl_009",
+      "question": "How should an arbiter handle a mobile phone ringing during a game?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent057-child00",
+      "chunk_text": "## Article 11: The Conduct of the Players  \n- 11.1 The players shall take no action that will bring the game of chess into disrepute.  \nThis is an Article which can be used for many infringements that are not specifically mentioned in the articles of the Laws of Chess.  \n- 11.2 Playing venue and playing area:\n- 11.2.1 The 'playing venue' is defined as the 'playing area', rest rooms, toilets, refreshment area, area set aside for smoking and other places as designated by the arbiter.\n- 11.2.2 The playing area is defined as the place where the games of a competition are played.\n- 11.2.3 Only with the permission of the arbiter can:\n- 11.2.3.1 a player leave the playing venue,\n- 11.2.3.2 the player having the move be allowed to leave the playing area.\n- 11.2.3.3 a person who is neither a player nor arbiter be allowed access to the playing area.  \nIf possible, spectators should not enter the playing area. It is advisable to have all other rooms (smoking areas, toilets, refreshment areas, and so on) always under the control of the Arbiters or assistants.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "mobile",
+        "phone"
+      ]
+    },
+    {
+      "id": "intl_010",
+      "question": "What is the 75-move rule and when does it apply?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p029-parent040-child00",
+      "chunk_text": "## 6.2 Handling the chessclock:  \n- 6.2.1 During the game each player, having made his/her move on the chessboard, shall pause his/her own clock and start his/her opponent's clock (that is to say, he/she shall press his/her clock). This 'completes' the move. A move is also completed if:\n- 6.2.1.1 the move ends the game (see Articles 5.1.1, 5.2.1, 5.2.2, 9.2.1, 9.6.1 and 9.6.2), or\n- 6.2.1.2 the player has made his/her next move, when his/her previous move was not completed.  \nNormally, when the player forgets to press his/her clock after making his/her move, the opponent has the following possibilities:  \n(a) To wait for the player to press his/her clock. In this case there is a possibility to have a flag fall and the player to lose on time. Some may think that this is quite unfair, but the Arbiter cannot intervene and inform the player.  \n(b) To remind the player to press his/her clock. In this case the game will continue normally.  \n(c) To make his/her next move. In this case the player can also make his/her next move and press his/her clock. If the game is played with move-counter active, then one move has been missed by both players.  \nThe following situation may happen:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "move",
+        "rule",
+        "competitive",
+        "rules",
+        "play",
+        "article"
+      ]
+    },
+    {
+      "id": "intl_011",
+      "question": "What is the penalty for making an illegal move in a standard game?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "chunk_text": "It is very important that the irregularity must be discovered during the game. After the players have signed the scoresheets or it is clear in another way that the game is over, corrections are not possible. The result stands.  \nWhen the irregularity is discovered during the game the game, the game restarts from the restored position. The 'touch move' rule applies so the piece to be played should be, if possible, the one first touched, either the piece illegally moved or the piece captured.  \nIf the irregularity was caused by a check being missed the touched piece should be used to block the check or capture the checking piece, if possible.  \nA move cannot be declared illegal until the player has completed his/her move by pressing his/her clock. So, the player can correct his/her move without being penalized, even if he/she had already released the piece on the board, provided he/she hasn't pressed the clock. Of course, he/she must comply with the relevant parts of article 4.  \nIf an arbiter observes an illegal move he/she must always intervene immediately. He/She should not wait for a claim to be submitted by a player.  \n- 7.5.2 If the player has moved a pawn to the furthest distant rank, pressed the clock, but not replaced the pawn with a new piece, the move is illegal. The pawn shall be replaced by a queen of the same colour as the pawn.\n- 7.5.3 If the player presses the clock without making a move, it shall be considered and penalised as if an illegal move.  \nIf a player restarts the opponent's clock instead of pausing it an arbiter may regard this as an accident and punish it less severely.  \nFor example: Player B makes an illegal move. Player A, instead of pausing the clock, restarts the opponent's clock. Is this an infringement of Article 7.5.3?",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "making",
+        "illegal",
+        "move"
+      ]
+    },
+    {
+      "id": "intl_012",
+      "question": "How should a player correctly offer a draw?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "chunk_text": "## Article 9: The Drawn Game  \n- 9.1 Draw offers and event regulations:\n- 9.1.1 The regulations of an event may specify that players cannot offer or agree to a draw, whether in less than a specified number of moves or at all, without the consent of the arbiter.  \nIf a competition applies this rule, then the required number of moves or the no agreement at all condition, should be communicated to the players in the invitation to the tournament. It is advisable for the arbiter to repeat the rule before the start of the tournament. It is clear that the rule applies only for draw agreements. Articles 9.2,  \n9.3 and 9.6 still apply during the whole game and give the possibility to the players to draw in less than the specified number of moves, which must be accepted by the arbiter. For example, if two players claim a draw by three-fold occurrence after 20 moves, in a tournament where there is a draw restriction rule before 30 moves have been completed by both players, then the arbiter must allow the draw. If neither player claims a draw by three-fold occurrence, and an arbiter is aware that the same position (per 9.2.2) has occurred at least 5 times, then he/she must intervene, see Article 9.6.1.  \nThis article does not specify a penalty in case of its violation. Unless the tournament regulations specifies one, the arbiter may act according to art. 12.9.  \n- 9.1.2 However, if the regulations of an event allow a draw agreement the following shall apply:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "player",
+        "offer",
+        "draw"
+      ]
+    },
+    {
+      "id": "intl_013",
+      "question": "What are the conditions for castling to be legal?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "chunk_text": "## 3.8 There are two different ways of moving the king: 3.8.1 by moving to an adjoining square  \n<!-- image -->  \n3.8.2 by 'castling'. This is a move of the king and either rook of the same colour along the player's first rank, counting as a single move of the king and executed as follows: the king is transferred from its original square two squares towards the rook on its original square, then that rook is transferred to the square the king has just crossed.  \n<!-- image -->  \nBefore white kingside castling Before black queenside castling  \nBefore white queenside castling Before black kingside castling  \n<!-- image -->  \nAfter white kingside castling  \n<!-- image -->  \nAfter black queenside castling  \nAfter white queenside castling After black kingside castling  \n<!-- image -->  \n- 3.8.2.1 The right to castle has been lost:\n- 3.8.2.1.1 If the king has already moved, or\n- 3.8.2.1.2 With a rook that has already moved.\n- 3.8.2.2 Castling is prevented temporarily:\n- 3.8.2.2.1 if the square on which the king stands, or the square which it must cross, or the square which it is to occupy, is attacked by one or more of the opponent's pieces, or\n- 3.8.2.2.2 if there is any piece between the king and the rook with which castling is to be effected.\n- 3.9 The king in check:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "castling",
+        "legal",
+        "two",
+        "different",
+        "ways",
+        "moving"
+      ]
+    },
+    {
+      "id": "intl_014",
+      "question": "When must a player record the moves during a game?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+      "chunk_text": "- 8.1.5 Both players must record the offer of a draw on the scoresheet with a symbol (=).\n- 8.1.6 If a player is unable to keep score, an assistant, who must be acceptable to the arbiter, may be provided by the player to record the moves. his/her clock shall be adjusted by the arbiter in an equitable way. This adjustment of the clock shall not apply to a player with a disability.\n- 8.2 The scoresheet shall be visible to the arbiter through out the game.  \nThe scoresheet does not have to be visible to the opponent (except when the opponent needs it to bring his/her own scoresheet up to date e.g. to satisfy 8.5.2) but the arbiter must be able to see it and, most importantly, how many moves have been recorded. It is acceptable for a player to have a pen on his/her scoresheet but it should not obscure the last move from the arbiter.  \n- 8.3 The scoresheets are the property of the organiser of the competition. An electronic scoresheet with an evident defect shall be replaced by the arbiter.  \nA player is not allowed to keep the original scoresheet, unless the tournament regulations specify otherwise. It belongs to the Organisers. The player has to deliver it to the arbiter when the game is finished and should keep a copy (if any).  \n- 8.4 If a player has less than five minutes left on his/her clock during an allotted period of time and does not have additional time of 30 seconds or more added with each move, then for the remainder of the period he/she is not obliged to meet the requirements of Article 8.1.1.  \n- 8.5 Incomplete scoresheets:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "player",
+        "record",
+        "moves",
+        "during"
+      ]
+    },
+    {
+      "id": "intl_015",
+      "question": "What happens if both players have made an illegal move?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent068-child02",
+      "chunk_text": "- A.5.1 From the initial position, once 10 moves have been completed by each player,\n- A.5.1.1 No change can be made to the clock setting, unless the schedule of the event would be adversely affected\n- A.5.1.2 No claim can be made regarding incorrect set-up or orientation of the chessboard. In case of incorrect king placement, castling is not allowed. In case of incorrect rook placement, castling with this rook is not allowed.\n- A.5.2 If the arbiter observes an action taken under Article 7.5.1, 7.5.2, 7.5.3 or 7.5.4, he/she shall act according to Article 7.5.5, provided the opponent has not made his/her next move. If the arbiter does not intervene, the opponent is entitled to claim, provided the opponent has not made his/her next move. If the opponent does not claim and the arbiter does not intervene, the illegal move shall stand and the game shall continue. Once the opponent has made his/her next move, an illegal move cannot be corrected unless this is agreed by the players without intervention of the arbiter.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "players",
+        "made",
+        "illegal"
+      ]
+    },
+    {
+      "id": "intl_016",
+      "question": "How is the pawn promotion completed correctly?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "chunk_text": "- 3.7.3.4 The player's choice is not restricted to pieces that have been captured previously.\n- 3.7.3.5 This exchange of a pawn for another piece is called promotion, and the effect of the new piece is immediate.  \n<!-- image -->  \nIn case of a promotion when the player cannot find the required piece, he/she has the right to pause the clock immediately and ask the Arbiter to bring him the piece he/she wants. The arbiter should provide the requested piece and restart the clock. The player then continues to consider his/her move. He/She is not obliged to promote to the requested piece.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "pawn",
+        "promotion",
+        "choice",
+        "restricted",
+        "captured",
+        "previously"
+      ]
+    },
+    {
+      "id": "intl_017",
+      "question": "What are the time controls for a FIDE rated rapid game?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "chunk_text": "## Appendix A. Rapid chess  \n- A.1 A Rapid chess' game is one where either all the moves must be completed in a fixed time of more than 10 minutes but less than 60 minutes for each player; or the time allotted plus 60 times any increment is of more than 10 minutes but less than 60 minutes for each player.  \nExample 1: According to the Tournament Regulations of an event, the time control is 30 minutes for the whole game and 30 seconds increment for each move. That is: for 60 moves we would get 30'+ (30\"x 60) = 30' +30' = 60'. Then such a game is considered to be standard chess.  \nAs according to Article A1 \"A Rapid Chess\" is a game where all moves must be completed in more than 10 minutes and less than 60 minutes for each player.  \nExample 2: According to the Tournament Regulations of an event, the time control is 10 minutes for the whole game and 5 seconds increment for each move. That is: for 60 moves we would get 10'+ (5' x 60) = 10' +5' = 15'. So according to Article A.1 such a game is considered to be Rapid Chess.  \nWhen doing these calculations games using delays are treated in the same way.  \n- A.2 Players do not need to record the moves, but do not lose their rights to claims normally based on a scoresheet. The player can, at any time, ask the arbiter to provide him/her with a scoresheet, in order to write the moves.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "time",
+        "rapid",
+        "appendix",
+        "one",
+        "either",
+        "completed"
+      ]
+    },
+    {
+      "id": "intl_018",
+      "question": "When can a player claim a draw by the 50-move rule?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "chunk_text": "## Article 9: The Drawn Game  \n- 9.1 Draw offers and event regulations:\n- 9.1.1 The regulations of an event may specify that players cannot offer or agree to a draw, whether in less than a specified number of moves or at all, without the consent of the arbiter.  \nIf a competition applies this rule, then the required number of moves or the no agreement at all condition, should be communicated to the players in the invitation to the tournament. It is advisable for the arbiter to repeat the rule before the start of the tournament. It is clear that the rule applies only for draw agreements. Articles 9.2,  \n9.3 and 9.6 still apply during the whole game and give the possibility to the players to draw in less than the specified number of moves, which must be accepted by the arbiter. For example, if two players claim a draw by three-fold occurrence after 20 moves, in a tournament where there is a draw restriction rule before 30 moves have been completed by both players, then the arbiter must allow the draw. If neither player claims a draw by three-fold occurrence, and an arbiter is aware that the same position (per 9.2.2) has occurred at least 5 times, then he/she must intervene, see Article 9.6.1.  \nThis article does not specify a penalty in case of its violation. Unless the tournament regulations specifies one, the arbiter may act according to art. 12.9.  \n- 9.1.2 However, if the regulations of an event allow a draw agreement the following shall apply:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "player",
+        "claim",
+        "draw",
+        "move"
+      ]
+    },
+    {
+      "id": "intl_019",
+      "question": "What are the arbiter's options when a player disturbs the opponent?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "chunk_text": "## 11.5 It is forbidden to distract or annoy the opponent in any manner whatsoever. This includes unreasonable claims, unreasonable offers of a draw or the introduction of a source of noise into the playing area.  \nEven if the draw offers or claims are quite reasonable, repeating them too often can annoy the opponent. The arbiter must always intervene when the opponent is disturbed or distracted.  \n- 11.6 Infraction of any part of Articles 11.1 - 11.5 shall lead to penalties in accordance with Article 12.9.\n- 11.7 Persistent refusal by a player to comply with the Laws of Chess shall be penalised by loss of the game. The arbiter shall decide the score of the opponent.  \nIt is very difficult to give a general guideline for the application of this Article, but if an arbiter has to warn the player for the third or fourth time, this is a good reason to declare the game lost. It is necessary to inform the player that Article 11.7 shall be applied at the next infringement.  \n- 11.8 If both players are found guilty according to Article 11.7, the game shall be declared lost by both players.\n- 11.9 A player shall have the right to request from the arbiter an explanation of particular points in the Laws of Chess.  \nFor example, players often ask if they can castle or capture 'en passant' in the position on their board. An arbiter must not answer 'yes' or 'no' but must inform them of the meaning of the appropriate Law. It is also common for a player to ask how to claim a draw (see comment under article 9.2.3.2).  \n- 11.10 Unless the regulations of an event specify otherwise, a player may appeal against any decision of the arbiter, even if the player has signed the scoresheet (see Article 8.7).",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "player",
+        "opponent"
+      ]
+    },
+    {
+      "id": "intl_020",
+      "question": "How is checkmate defined according to FIDE rules?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "chunk_text": "## Article 5: The Completion of the Game  \n- 5.1.1 The game is won by the player who has checkmated his/her opponent's king. This immediately ends the game, provided that the move producing the checkmate position was in accordance with Article 3 and Articles 4.2 - 4.7.\n- 5.1.2 The game is lost by the player who declares he/she resigns (this immediately ends the game), unless the position is such that the opponent cannot checkmate the player's king by any possible series of legal moves. In this case the result of the game is a draw.  \nA player may resign in a number of different ways:  \n- -pausing the clock\n- -announcing his/her resignation\n- -knocking over his/her king\n- -reaching out his/her hand to the opponent\n- -signing the score sheets, and so on.  \nAll of these possibilities are capable of being misinterpreted. Therefore, the situation has to be clarified.  \nAt the end of a game the arbiter should ensure that both scoresheets show the same result. A player who does not wish to continue a game and leaves without resigning - or notifying the arbiter - is being discourteous. He/She may be penalized, at the discretion of the Chief Arbiter, for poor sportsmanship.  \n- 5.2.1 The game is drawn when the player to move has no legal move and his/her king is not in check. The game is said to end in 'stalemate'. This immediately ends the game, provided that the move producing the stalemate position was in accordance with Article 3 and Articles 4.2 - 4.7.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "according",
+        "rules",
+        "article",
+        "completion",
+        "won",
+        "checkmated"
+      ]
+    },
+    {
+      "id": "intl_021",
+      "question": "What happens when a player completes a move but the position remains impossible?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "chunk_text": "It is very important that the irregularity must be discovered during the game. After the players have signed the scoresheets or it is clear in another way that the game is over, corrections are not possible. The result stands.  \nWhen the irregularity is discovered during the game the game, the game restarts from the restored position. The 'touch move' rule applies so the piece to be played should be, if possible, the one first touched, either the piece illegally moved or the piece captured.  \nIf the irregularity was caused by a check being missed the touched piece should be used to block the check or capture the checking piece, if possible.  \nA move cannot be declared illegal until the player has completed his/her move by pressing his/her clock. So, the player can correct his/her move without being penalized, even if he/she had already released the piece on the board, provided he/she hasn't pressed the clock. Of course, he/she must comply with the relevant parts of article 4.  \nIf an arbiter observes an illegal move he/she must always intervene immediately. He/She should not wait for a claim to be submitted by a player.  \n- 7.5.2 If the player has moved a pawn to the furthest distant rank, pressed the clock, but not replaced the pawn with a new piece, the move is illegal. The pawn shall be replaced by a queen of the same colour as the pawn.\n- 7.5.3 If the player presses the clock without making a move, it shall be considered and penalised as if an illegal move.  \nIf a player restarts the opponent's clock instead of pausing it an arbiter may regard this as an accident and punish it less severely.  \nFor example: Player B makes an illegal move. Player A, instead of pausing the clock, restarts the opponent's clock. Is this an infringement of Article 7.5.3?",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "player",
+        "move",
+        "but"
+      ]
+    },
+    {
+      "id": "intl_022",
+      "question": "What are the default time penalties an arbiter can give?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p034-parent046-child01",
+      "chunk_text": "It is essential to write down the times shown on the two clocks and the number of moves made before making any adjustment.  \n- 6.11.1 If the game needs to be interrupted, the arbiter shall pause the chessclock.  \nFor example, if a fire alarm goes off. Before asking the players to evacuate the building the arbiter should, if possible, ask those at their boards to pause the clocks.  \n- 6.11.2 A player may pause the chessclock only in order to seek the arbiter's assistance, for example when promotion has taken place and the piece required is not available.\n- 6.11.3 The arbiter shall decide when the game restarts.\n- 6.11.4 If a player pauses the chessclock in order to seek the arbiter's assistance, the arbiter shall determine whether the player had any valid reason for doing so. If the player has no valid reason for pausing the chessclock, the player shall be penalised in accordance with Article 12.9.  \nValid reasons for pausing the clock include:  \n-  An irregularity, such as an illegal move or position, being discovered a player being disturbed by his/her opponent or by spectators;\n-  Illness\n-  A toilet break is not usually a valid reason but could be in the case of a disabled or unwell player.\n- 6.12.1 Screens, monitors, or demonstration boards showing the current position on the chessboard, the moves and the number of moves made/completed, and clocks which also show the number of moves, are allowed in the playing hall.\n- 6.12.2 The player may not make a claim relying only on information shown in this manner.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "time",
+        "arbiter",
+        "essential",
+        "write",
+        "times",
+        "shown"
+      ]
+    },
+    {
+      "id": "intl_023",
+      "question": "How should an arbiter handle a quickplay finish situation?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent088-child00",
+      "chunk_text": "## Guidelines III. Games without increment including Quickplay Finishes  \n- III.1 A 'quickplay finish' is the phase of a game when all the remaining moves must be completed in a finite time.  \nExample 1: According to the tournament regulations of an event, the time control is 2 hours for 30 moves and then 1 hour for the end of the game. The last 1 hour will be played according to the rules of the Quickplay finish.  \nExample 2: According to the tournament regulations of an event, the time control is 2 hours for the whole game. It means that the whole game will be played according to the rules of the Quickplay finish.  \n- III.2.1 The Guidelines below concerning the final period of the game including Quickplay Finishes, shall only be used at an event if their use has been announced beforehand.\n- III.2.2 These Guidelines shall apply only to standard chess and rapid chess games without increment and not to blitz games.\n- III.3.1 If both flags have fallen and it is impossible to establish which flag fell first then:\n- III.3.1.1 the game shall continue if this occurs in any period of the game except the last period.\n- III.3.1.2 the game is drawn if this occurs in the period of a game in which all remaining moves must be completed.\n- III.4 If the player having the move has less than two minutes left on his/her clock, he/she may request that an increment extra five seconds be introduced for both players. This constitutes the offer of a draw. If the offer refused, and the arbiter agrees to the request, the clocks shall then be set with the extra time; the opponent shall be awarded two extra minutes and the game shall continue.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "quickplay",
+        "finish"
+      ]
+    },
+    {
+      "id": "intl_024",
+      "question": "What is the definition of stalemate?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "chunk_text": "## Article 5: The Completion of the Game  \n- 5.1.1 The game is won by the player who has checkmated his/her opponent's king. This immediately ends the game, provided that the move producing the checkmate position was in accordance with Article 3 and Articles 4.2 - 4.7.\n- 5.1.2 The game is lost by the player who declares he/she resigns (this immediately ends the game), unless the position is such that the opponent cannot checkmate the player's king by any possible series of legal moves. In this case the result of the game is a draw.  \nA player may resign in a number of different ways:  \n- -pausing the clock\n- -announcing his/her resignation\n- -knocking over his/her king\n- -reaching out his/her hand to the opponent\n- -signing the score sheets, and so on.  \nAll of these possibilities are capable of being misinterpreted. Therefore, the situation has to be clarified.  \nAt the end of a game the arbiter should ensure that both scoresheets show the same result. A player who does not wish to continue a game and leaves without resigning - or notifying the arbiter - is being discourteous. He/She may be penalized, at the discretion of the Chief Arbiter, for poor sportsmanship.  \n- 5.2.1 The game is drawn when the player to move has no legal move and his/her king is not in check. The game is said to end in 'stalemate'. This immediately ends the game, provided that the move producing the stalemate position was in accordance with Article 3 and Articles 4.2 - 4.7.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "stalemate",
+        "article",
+        "completion",
+        "won",
+        "checkmated",
+        "his"
+      ]
+    },
+    {
+      "id": "intl_025",
+      "question": "When can an arbiter intervene during a game without a claim from a player?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent065-child00",
+      "chunk_text": "## 12.1 The arbiter shall see that the Laws of Chess are observed.  \nThe arbiter must be present and control the games.  \nIf the arbiter observes any infringement, he/she must intervene. He/She must not wait for a claim from a player.  \nExample: A player touches a piece and makes a move with another one. The arbiter shall require the player to play the touched piece, if legal.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "intervene",
+        "during",
+        "game"
+      ]
+    },
+    {
+      "id": "intl_032",
+      "question": "What is the exact Elo rating requirement to become a FIDE Master?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent355-child00",
+      "chunk_text": "## Introduction  \n- 0.1 Only the titles as in 0.3 are acknowledged by FIDE.\n- 0.2 The following regulations can only be altered by the FIDE Council following recommendation by the Qualification Commission (QC). For tournaments, such changes shall apply to those starting on or after the date on which they become effective.\n- 0.3 FIDE titles for players are administered by the Qualification Commission, which is the final judging unit. The titles are for over-the-board standard chess (as defined in the Laws of Chess).\n- Open: Grandmaster (GM), International Master (IM), FIDE Master (FM), Candidate Master (CM). Women's: Woman Grandmaster (WGM), Woman International Master (WIM), Woman FIDE Master (WFM), Woman Candidate Master (WCM).\n- 0.4 The titles are valid for life from the date confirmed by the FIDE Council.\n- 0.4.1 Use of a FIDE title or rating to subvert the ethical principles of the title or rating system may subject a person to revocation of their title upon recommendation by the Qualification and Ethics Commissions and final action by FIDE Council.\n- 0.4.2 A title can be used for results of opponents only in tournaments starting after its confirmation. (Exception: see 1.1.4).\n- 0.4.3 In terms of the age of achieving a title, the title is considered to be achieved when the last result is achieved, and the rating requirement is fulfilled, whichever date is later.\n- 0.4.4 In case it is found after a title has been awarded that the player was in breach of the Fair Play Regulations in one or more of the tournaments on which the title application was based, then the title may be removed by the Qualification Commission. The player or their federation may appeal this decision to FIDE Council within 30 days after they had been informed in writing.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "rating",
+        "requirement",
+        "become"
+      ]
+    },
+    {
+      "id": "intl_037",
+      "question": "What special rules apply when a visually impaired player competes against a sighted opponent?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child00",
+      "chunk_text": "## Appendix D. Rules for play with blind and visually disabled players  \n- D.1 The organiser, after consulting the arbiter, shall have the power to adapt the following rules according to local circumstances. In competitive chess between sighted and visually disabled (legally blind) players either player may demand the use of two boards, the sighted player using a normal board, the visually disabled player using one specially constructed. This board must meet the following requirements:\n- D.1.1 measure at least 20 cm by 20 cm,\n- D.1.2 have the black squares slightly raised,\n- D.1.3 have a securing aperture in each square,\n- D.1.4 The requirements for the pieces are:\n- D.1.4.1 all are provided with a peg that fits into the securing aperture of the board,\n- D.1.4.2 all are of Staunton design, the black pieces being specially marked.\n- D.2 The following regulations shall govern play:\n- D.2.1 The moves shall be announced clearly, repeated by the opponent and executed on his/her chessboard. When promoting a pawn, the player must announce which piece is chosen. To make the announcement as clear as possible, the use of the following names is suggested instead of the corresponding letters:  \nA - Anna B - Bella C - Cesar D - David E - Eva F - Felix G - Gustav H - Hector  \nUnless the arbiter decides otherwise, ranks from White to Black shall be given the German numbers  \n- 1 - eins\n- 5 - fuenf\n- 2 - zwei\n- 6 - sechs\n- 3 - drei\n- 7 - Sieben\n- 4 - vier",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "special",
+        "rules",
+        "visually"
+      ]
+    },
+    {
+      "id": "intl_039",
+      "question": "What are the exact conditions for a valid en passant capture?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "chunk_text": "- 3.7.3.4 The player's choice is not restricted to pieces that have been captured previously.\n- 3.7.3.5 This exchange of a pawn for another piece is called promotion, and the effect of the new piece is immediate.  \n<!-- image -->  \nIn case of a promotion when the player cannot find the required piece, he/she has the right to pause the clock immediately and ask the Arbiter to bring him the piece he/she wants. The arbiter should provide the requested piece and restart the clock. The player then continues to consider his/her move. He/She is not obliged to promote to the requested piece.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "choice",
+        "restricted",
+        "captured",
+        "previously",
+        "exchange",
+        "pawn"
+      ]
+    },
+    {
+      "id": "intl_040",
+      "question": "What information must be recorded on the envelope when a game is adjourned?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent082-child01",
+      "chunk_text": "- I.2.7 the date, time and venue of resumption of play.\n- I.3 The arbiter shall check the accuracy of the information on the envelope and is responsible for its safekeeping.\n- I.4 If a player proposes a draw after his/her opponent has sealed his/her move, the offer is valid until the opponent has accepted it or rejected it as in Article 9.1.\n- I.5 Before the game is to be resumed, the position immediately before the sealed move shall be set up on the chessboard, and the times used by each player when the game was adjourned shall be indicated on the clocks.\n- I.6 If prior to the resumption the game is agreed drawn, or if one of the players notifies the arbiter that he/she resigns, the game is concluded.\n- I.7 The envelope shall be opened only when the player who must reply to the sealed move is present.  \n- I.8 Except in the cases mentioned in Articles 5, 5.2.2, 6.9 and 9.6, the game is lost by a player whose recording of his/her sealed move:\n- I.8.1 is ambiguous, or\n- I.8.2 is recorded in such a way that its true significance is impossible to establish, or\n- I.8.3 is illegal.\n- I.9 If, at the agreed resumption time:\n- I.9.1 the player having to reply to the sealed move is present, the envelope is opened, the sealed move is made on the chessboard and his/her clock is started,",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "information",
+        "recorded",
+        "envelope",
+        "game"
+      ]
+    },
+    {
+      "id": "intl_042",
+      "question": "According to FIDE Laws, at what exact moment is an illegal move considered 'completed'?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "chunk_text": "It is very important that the irregularity must be discovered during the game. After the players have signed the scoresheets or it is clear in another way that the game is over, corrections are not possible. The result stands.  \nWhen the irregularity is discovered during the game the game, the game restarts from the restored position. The 'touch move' rule applies so the piece to be played should be, if possible, the one first touched, either the piece illegally moved or the piece captured.  \nIf the irregularity was caused by a check being missed the touched piece should be used to block the check or capture the checking piece, if possible.  \nA move cannot be declared illegal until the player has completed his/her move by pressing his/her clock. So, the player can correct his/her move without being penalized, even if he/she had already released the piece on the board, provided he/she hasn't pressed the clock. Of course, he/she must comply with the relevant parts of article 4.  \nIf an arbiter observes an illegal move he/she must always intervene immediately. He/She should not wait for a claim to be submitted by a player.  \n- 7.5.2 If the player has moved a pawn to the furthest distant rank, pressed the clock, but not replaced the pawn with a new piece, the move is illegal. The pawn shall be replaced by a queen of the same colour as the pawn.\n- 7.5.3 If the player presses the clock without making a move, it shall be considered and penalised as if an illegal move.  \nIf a player restarts the opponent's clock instead of pausing it an arbiter may regard this as an accident and punish it less severely.  \nFor example: Player B makes an illegal move. Player A, instead of pausing the clock, restarts the opponent's clock. Is this an infringement of Article 7.5.3?",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "according",
+        "important",
+        "irregularity",
+        "discovered",
+        "signed",
+        "scoresheets"
+      ]
+    },
+    {
+      "id": "intl_043",
+      "question": "Under what circumstances is pressing the chess clock before making a move permitted?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "chunk_text": "If a player makes a move with one hand and presses the clock with the other, it is not considered as an illegal move, but it is penalized according to article 12.9.  \n- 6.2.4 The players must handle the chessclock properly. It is forbidden to press it forcibly, to pick it up, to press the clock before moving or to knock it over. Improper clock handling shall be penalised in accordance with Article 12.9.  \nWhere a player presses the clock without making a move, as mentioned in article 6.2.4, it is considered as an illegal move and it is penalized according to article 7.5.3.  \n- 6.2.5 Only the player whose clock is running is allowed to adjust the pieces.\n- 6.2.6 If a player is unable to use the clock, an assistant, who must be acceptable to the arbiter, may be provided by the player to perform this operation. His/Her clock shall be adjusted by the arbiter in an equitable way. This adjustment of the clock shall not apply to the clock of a player with a disability.  \nIt is clear that the player himself has to provide an assistant. He/She has to introduce this assistant to the arbiter, in advance and not just before the start of the round. It is usual that 10 minutes are deducted from the time of the player who needs an assistant. No deduction should be made in the case of a disabled player.  \n- 6.3 Allotted time:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "chess",
+        "clock",
+        "makes",
+        "one",
+        "hand",
+        "presses"
+      ]
+    },
+    {
+      "id": "intl_044",
+      "question": "What is the initial position of the pieces on the chessboard?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent031-child00",
+      "chunk_text": "## Article 2: The Initial Position of the Pieces on the Chessboard  \n- 2.1 The chessboard is composed of an 8 x 8 grid of 64 equal squares alternately light (the 'white' squares) and dark (the 'black' squares).  \nThe chessboard is placed between the players in such a way that the near corner square to the right of the player is white.  \n- 2.2 At the beginning of the game White has 16 light-coloured pieces (the 'white' pieces); Black has 16 dark-coloured pieces (the 'black' pieces).  \nThese pieces are as follows:  \n| A white king | usually indicated by the symbol |\n|-------------------|-----------------------------------|\n| A white queen | usually indicated by the symbol |\n| Two white rooks | usually indicated by the symbol |\n| Two white bishops | usually indicated by the symbol |\n| Two white knights | usually indicated by the symbol |\n| Eight white pawns | usually indicated by the symbol |\n| A black king | usually indicated by the symbol |\n| A black queen | usually indicated by the symbol |\n| Two black rooks | usually indicated by the symbol |\n| Two black bishops | usually indicated by the symbol |\n| Two black knights | usually indicated by the symbol |\n| Eight black pawns | usually indicated by the symbol |",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "initial",
+        "position",
+        "pieces",
+        "chessboard"
+      ]
+    },
+    {
+      "id": "intl_045",
+      "question": "How does the knight move according to FIDE Laws?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent033-child00",
+      "chunk_text": "## Article 3: The Moves of the Pieces  \n- 3.1 It is not permitted to move a piece to a square occupied by a piece of the same colour.\n- 3.1.1 If a piece moves to a square occupied by an opponent's piece the latter is captured and removed from the chessboard as part of the same move.\n- 3.1.2 A piece is said to attack an opponent's piece if the piece could make a capture on that square according to Articles 3.2 to 3.8.\n- 3.1.3 A piece is considered to attack a square even if this piece is constrained from moving to that square because it would then leave or place the king of its own colour under attack.  \nBeing pinned against its own king does not stop a piece from attacking the squares it could otherwise move to. Even a pinned piece can 'check' the opponent's king.  \n- 3.2 The bishop may move to any square along a diagonal on which it stands.  \n<!-- image -->  \nInitially, each player has two bishops, one of which moves on light squares, the other one on dark squares. If a player has two (or more) bishops on squares of the same colour, it must be that the second bishop is the result of a promotion (See article 3.7.3.5), or an illegal move was played.  \n- 3.3 The rook may move to any square along the file or the rank on which it stands.  \n<!-- image -->  \n- 3.4 The queen may move to any square along the file, the rank or a diagonal on which it stands.\n- 3.5 When making these moves, the bishop, rook or queen may not move over any intervening pieces.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "knight",
+        "move",
+        "squares",
+        "L-shape"
+      ]
+    },
+    {
+      "id": "intl_046",
+      "question": "What are the rules for castling in FIDE Laws?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "chunk_text": "## 3.8 There are two different ways of moving the king: 3.8.1 by moving to an adjoining square  \n<!-- image -->  \n3.8.2 by 'castling'. This is a move of the king and either rook of the same colour along the player's first rank, counting as a single move of the king and executed as follows: the king is transferred from its original square two squares towards the rook on its original square, then that rook is transferred to the square the king has just crossed.  \n<!-- image -->  \nBefore white kingside castling Before black queenside castling  \nBefore white queenside castling Before black kingside castling  \n<!-- image -->  \nAfter white kingside castling  \n<!-- image -->  \nAfter black queenside castling  \nAfter white queenside castling After black kingside castling  \n<!-- image -->  \n- 3.8.2.1 The right to castle has been lost:\n- 3.8.2.1.1 If the king has already moved, or\n- 3.8.2.1.2 With a rook that has already moved.\n- 3.8.2.2 Castling is prevented temporarily:\n- 3.8.2.2.1 if the square on which the king stands, or the square which it must cross, or the square which it is to occupy, is attacked by one or more of the opponent's pieces, or\n- 3.8.2.2.2 if there is any piece between the king and the rook with which castling is to be effected.\n- 3.9 The king in check:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "castling",
+        "king",
+        "rook",
+        "conditions"
+      ]
+    },
+    {
+      "id": "intl_047",
+      "question": "What happens when a pawn reaches the eighth rank?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "chunk_text": "<!-- image -->  \n- 3.4 The queen may move to any square along the file, the rank or a diagonal on which it stands.\n- 3.5 When making these moves, the bishop, rook or queen may not move over any intervening pieces.\n- 3.6 The knight may move to one of the squares nearest to that on which it stands but not on the same rank, file or diagonal.\n- 3.7 The pawn:\n- 3.7.1 The pawn may move forward to the square immediately in front of it on the same file, provided that this square is unoccupied, or\n- 3.7.2 on its first move the pawn may move as in 3.7.1 or alternatively it may advance two squares along the same file, provided that both squares are unoccupied, or\n- 3.7.3 the pawn may move to a square occupied by an opponent's piece diagonally in front of it on an adjacent file, capturing that piece.  \n<!-- image -->  \n<!-- image -->  \n<!-- image -->  \n- 3.7.3.1 A pawn occupying a square on the same rank as and on an adjacent file to an opponent's pawn which has just advanced two squares in one move from its original square may capture this opponent's pawn as though the latter had been moved only one square.\n- 3.7.3.2 This capture is only legal on the move following this advance and is called an 'en passant' capture.\n- 3.7.3.3 When a player, having the move, plays a pawn to the rank furthest from its starting position, he/she must exchange that pawn as part of the same move for a new queen, rook, bishop or knight of the same colour on the intended square of arrival. This is called the square of 'promotion'.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "pawn",
+        "promotion",
+        "eighth",
+        "rank"
+      ]
+    },
+    {
+      "id": "intl_048",
+      "question": "What is the touch-move rule according to Article 4?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "chunk_text": "According to this rule, if a player has not said 'I adjust' or something similar before touching a piece and touching the piece is not accidental, the touched piece must be moved. For example, if White played 1 Be2xg5 by lifting the bishop and then removing the knight, the bishop on e2 must be moved as it was touched intending to move.  \n<!-- image -->  \nThe accidental touch doesn't imply a psychological analysis of the player's intentions.  \n- 4.4 If a player having the move:\n- 4.4.1 touches his/her king and a rook he/she must castle on that side if it is legal to do so\n- 4.4.2 deliberately touches a rook and then his/her king he/she is not allowed to castle on that side on that move and the situation shall be governed by Article 4.3.1.  \nIn this case the player must move his/her rook, if possible. If no rook move is possible, he/she should move his/her king. (Article 4.3.1)  \n- 4.4.3 intending to castle, touches the king and then a rook, but castling with this rook is illegal, the player must make another legal move with his/her king (which may include castling with the other rook). If the king has no legal move, the player is free to make any legal move.  \nPlease note that castling is a king move. If a player tries to castle and it is found to be illegal, then the player must make a king move that is legal. If there is no legal move of the king the player is free to make any move - he/she is not obliged to move the rook (but see 4.4.2).",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "touch",
+        "move",
+        "piece",
+        "Article 4"
+      ]
+    },
+    {
+      "id": "intl_049",
+      "question": "When is a move considered completed according to FIDE Laws?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent035-child02",
+      "chunk_text": "It may happen that a player moves his/her king to the final castle square but doesn't move the rook before pressing the clock. In such case, it has to be understood whether he/she made an illegal move or he/she omitted to finish his/her castle move.  \nThis case doesn't occur if castling itself is illegal on that side.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "move",
+        "completed",
+        "clock",
+        "press"
+      ]
+    },
+    {
+      "id": "intl_050",
+      "question": "What are the conditions for checkmate?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "chunk_text": "## Article 5: The Completion of the Game  \n- 5.1.1 The game is won by the player who has checkmated his/her opponent's king. This immediately ends the game, provided that the move producing the checkmate position was in accordance with Article 3 and Articles 4.2 - 4.7.\n- 5.1.2 The game is lost by the player who declares he/she resigns (this immediately ends the game), unless the position is such that the opponent cannot checkmate the player's king by any possible series of legal moves. In this case the result of the game is a draw.  \nA player may resign in a number of different ways:  \n- -pausing the clock\n- -announcing his/her resignation\n- -knocking over his/her king\n- -reaching out his/her hand to the opponent\n- -signing the score sheets, and so on.  \nAll of these possibilities are capable of being misinterpreted. Therefore, the situation has to be clarified.  \nAt the end of a game the arbiter should ensure that both scoresheets show the same result. A player who does not wish to continue a game and leaves without resigning - or notifying the arbiter - is being discourteous. He/She may be penalized, at the discretion of the Chief Arbiter, for poor sportsmanship.  \n- 5.2.1 The game is drawn when the player to move has no legal move and his/her king is not in check. The game is said to end in 'stalemate'. This immediately ends the game, provided that the move producing the stalemate position was in accordance with Article 3 and Articles 4.2 - 4.7.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "checkmate",
+        "king",
+        "escape",
+        "game"
+      ]
+    },
+    {
+      "id": "intl_051",
+      "question": "What is stalemate and when does it occur?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "chunk_text": "## Article 5: The Completion of the Game  \n- 5.1.1 The game is won by the player who has checkmated his/her opponent's king. This immediately ends the game, provided that the move producing the checkmate position was in accordance with Article 3 and Articles 4.2 - 4.7.\n- 5.1.2 The game is lost by the player who declares he/she resigns (this immediately ends the game), unless the position is such that the opponent cannot checkmate the player's king by any possible series of legal moves. In this case the result of the game is a draw.  \nA player may resign in a number of different ways:  \n- -pausing the clock\n- -announcing his/her resignation\n- -knocking over his/her king\n- -reaching out his/her hand to the opponent\n- -signing the score sheets, and so on.  \nAll of these possibilities are capable of being misinterpreted. Therefore, the situation has to be clarified.  \nAt the end of a game the arbiter should ensure that both scoresheets show the same result. A player who does not wish to continue a game and leaves without resigning - or notifying the arbiter - is being discourteous. He/She may be penalized, at the discretion of the Chief Arbiter, for poor sportsmanship.  \n- 5.2.1 The game is drawn when the player to move has no legal move and his/her king is not in check. The game is said to end in 'stalemate'. This immediately ends the game, provided that the move producing the stalemate position was in accordance with Article 3 and Articles 4.2 - 4.7.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "stalemate",
+        "draw",
+        "legal",
+        "move"
+      ]
+    },
+    {
+      "id": "intl_052",
+      "question": "How does en passant capture work?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "chunk_text": "<!-- image -->  \n- 3.4 The queen may move to any square along the file, the rank or a diagonal on which it stands.\n- 3.5 When making these moves, the bishop, rook or queen may not move over any intervening pieces.\n- 3.6 The knight may move to one of the squares nearest to that on which it stands but not on the same rank, file or diagonal.\n- 3.7 The pawn:\n- 3.7.1 The pawn may move forward to the square immediately in front of it on the same file, provided that this square is unoccupied, or\n- 3.7.2 on its first move the pawn may move as in 3.7.1 or alternatively it may advance two squares along the same file, provided that both squares are unoccupied, or\n- 3.7.3 the pawn may move to a square occupied by an opponent's piece diagonally in front of it on an adjacent file, capturing that piece.  \n<!-- image -->  \n<!-- image -->  \n<!-- image -->  \n- 3.7.3.1 A pawn occupying a square on the same rank as and on an adjacent file to an opponent's pawn which has just advanced two squares in one move from its original square may capture this opponent's pawn as though the latter had been moved only one square.\n- 3.7.3.2 This capture is only legal on the move following this advance and is called an 'en passant' capture.\n- 3.7.3.3 When a player, having the move, plays a pawn to the rank furthest from its starting position, he/she must exchange that pawn as part of the same move for a new queen, rook, bishop or knight of the same colour on the intended square of arrival. This is called the square of 'promotion'.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "en passant",
+        "pawn",
+        "capture",
+        "adjacent"
+      ]
+    },
+    {
+      "id": "intl_053",
+      "question": "What is the purpose of the 'j'adoube' or 'I adjust' declaration?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child00",
+      "chunk_text": "## Article 4: The Act of Moving the Pieces  \n- 4.1 Each move must be played with one hand only.\n- 4.2 Adjusting the pieces or other physical contact with a piece:\n- 4.2.1 Only the player having the move may adjust one or more pieces on their squares, provided that he/she first expresses his/her intention (for example by saying 'j'adoube' or 'I adjust').  \nArticle 4.2.1 may only be used to correct displaced pieces. If the opponent is not present then an arbiter, if present, should be informed before any adjustment takes place. The player should always announce his/her intention to adjust a piece. If he/she does not do this then the normal touch move rules apply (see 4.3).  \n- 4.2.2 Any other physical contact with a piece, except for clearly accidental contact, shall be considered to be intent.\n- 4.3 Except as provided in Article 4.2.1, if the player having the move touches on the chessboard, with the intention of moving or capturing:\n- 4.3.1 one or more of his/her own pieces, he/she must move the first piece touched that can be moved.\n- 4.3.2 one or more of his/her opponent's pieces, he/she must capture the first piece touched that can be captured.\n- 4.3.3 one or more pieces of each colour, he/she must capture the first touched opponent's piece with his/her first touched piece or, if this is illegal, move or capture the first piece touched that can be moved or captured. If it is unclear whether the player's own piece or his/her opponent's was touched first, the player's own piece shall be considered to have been touched before his/her opponent's.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "adjust",
+        "j'adoube",
+        "piece",
+        "touch"
+      ]
+    },
+    {
+      "id": "intl_054",
+      "question": "How should the chess clock be handled according to Article 6?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "chunk_text": "If a player makes a move with one hand and presses the clock with the other, it is not considered as an illegal move, but it is penalized according to article 12.9.  \n- 6.2.4 The players must handle the chessclock properly. It is forbidden to press it forcibly, to pick it up, to press the clock before moving or to knock it over. Improper clock handling shall be penalised in accordance with Article 12.9.  \nWhere a player presses the clock without making a move, as mentioned in article 6.2.4, it is considered as an illegal move and it is penalized according to article 7.5.3.  \n- 6.2.5 Only the player whose clock is running is allowed to adjust the pieces.\n- 6.2.6 If a player is unable to use the clock, an assistant, who must be acceptable to the arbiter, may be provided by the player to perform this operation. His/Her clock shall be adjusted by the arbiter in an equitable way. This adjustment of the clock shall not apply to the clock of a player with a disability.  \nIt is clear that the player himself has to provide an assistant. He/She has to introduce this assistant to the arbiter, in advance and not just before the start of the round. It is usual that 10 minutes are deducted from the time of the player who needs an assistant. No deduction should be made in the case of a disabled player.  \n- 6.3 Allotted time:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "clock",
+        "handle",
+        "press",
+        "hand"
+      ]
+    },
+    {
+      "id": "intl_055",
+      "question": "What is the default time for arriving late to a game?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent044-child00",
+      "chunk_text": "## 6.6 At the time determined for the start of the game White's clock is started.  \nIn matches and smaller tournaments, where there are enough arbiters to do so, the clocks may be started by the arbiters.  \nIn general, in tournaments with many players the arbiter announces the start of the round and states that White's clock is started. The arbiter then goes round the room checking that White's clock has been started on all boards.  \nWhere the move-counter is used to add time after the first time control (at least 30 moves), it is desirable for arbiters to start all White's clocks.  \nIn large tournaments where the move-counter is used, the Chief Arbiter should decide whether the length of time needed to start all of the clocks justifies this being done by the arbiters rather than by the player. If the players start the clock, when the arbiters go around checking that the clocks have been started, they must also make sure that the clock correctly indicates which player is white.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "default",
+        "time",
+        "determined",
+        "start",
+        "white",
+        "started"
+      ]
+    },
+    {
+      "id": "intl_056",
+      "question": "What happens when a flag falls on the chess clock?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent042-child00",
+      "chunk_text": "## 6.4 Immediately after a flag falls, the requirements of Article 6.3.1 must be checked.  \nThis means that the arbiter and/or the players have to check if the minimum numbers of moves have been completed.  \nConsider a game of 90 minutes for 30 moves and 30 minutes for the rest of the game. It is normal to investigate whether 30 moves have been completed by both players only after a flag has fallen.  \nIf a move-counter is used in a digital clock, then it is possible to establish whether 30 moves have been made before a flag fall, as some indication appears on the clock if the player does not complete the 30 moves before the allotted time.  \nWhere electronic clocks are used and both clocks show 0.00, the Arbiter can usually establish which flag fell first, with the help of the help of some indication or any other flag indication. Where mechanical clocks are used then article III.3.1 of the Guidelines about games without increment including Quickplay Finishes is applied.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "flag",
+        "falls",
+        "time",
+        "expire"
+      ]
+    },
+    {
+      "id": "intl_057",
+      "question": "What are the requirements for chess clock settings?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+      "chunk_text": "## 6.10 Chessclock setting:  \nThis means that a simple flag fall might not lead the arbiter to declare the game lost for the player whose flag has fallen. The Arbiter has to check the final position on the chessboard and only if the opponent can checkmate the player's king by any possible series of legal moves, can he/she declare the game won by the opponent. Where there are forced moves that lead to a checkmate or to a stalemate by the player, then the result of the game is declared as a draw. The table below shows a few situations with the corresponding results:  \n- 6.10.1 Every indication given by the chessclock is considered to be conclusive in the absence of any evident defect. A chessclock with an evident defect shall be replaced by the arbiter, who shall use his/her best judgement when determining the times to be shown on the replacement chessclock.  \nIt is desirable to check the clocks during the round, for instance every 30 minutes, and to record the times and the number of moves made, by using a time-control sheet (see at the end of the Manual), even though the games are broadcast.  \nThis can be particularly valuable when an increment is used.  \nIf a chess-clock must be replaced, it must be done as soon as possible and it is essential to mark it as defective and to separate it from the clocks that work correctly.  \n- 6.10.2 If during a game it is found that the setting of either or both clocks is incorrect, either player or the arbiter shall pause the chessclock immediately. The arbiter shall install the correct setting and adjust the times and move-counter, if necessary he/she shall use his/her best judgement when determining the clock settings.  \nIt is essential to write down the times shown on the two clocks and the number of moves made before making any adjustment.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "clock",
+        "settings",
+        "increment",
+        "time"
+      ]
+    },
+    {
+      "id": "intl_058",
+      "question": "What is Fischer time control?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "chunk_text": "It is clear that the player himself has to provide an assistant. He/She has to introduce this assistant to the arbiter, in advance and not just before the start of the round. It is usual that 10 minutes are deducted from the time of the player who needs an assistant. No deduction should be made in the case of a disabled player.  \n- 6.3 Allotted time:\n- 6.3.1 When using a chessclock, each player must complete a minimum number of moves or all moves in an allotted period of time including any additional amount of time added with each move. All these must be specified in advance.  \nA game may have more than one period. The requirements of the subsequent total number of moves and the additional amount of time with each move for each period must be specified in advance. These parameters should not change during a tournament. A play-off may have different time controls.  \n- 6.3.2 The time saved by a player during one period is added to his/her time available for the next period, where applicable. In the time-delay mode both players receive an allotted 'main thinking time'. Each player also receives a 'fixed extra time' with every move. The countdown of the main thinking time only commences after the fixed extra time has expired. Provided the player presses his/her clock before the expiration of the fixed extra time, the main thinking time does not change, irrespective of the proportion of the fixed extra time used.  \nIn the Laws of Chess Increment and Delay are treated in the same way. For example, when calculating the length of the playing session both are multiplied by 60 to find the total time.  \nINCREMENT: a specified amount of time added to the players main (thinking) time with each move played. The first increment is added at the start of the game. Often called Fischer Bonus and shown on some clocks as FISCH. If a player moves quickly their time can increase.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "Fischer",
+        "increment",
+        "time",
+        "control"
+      ]
+    },
+    {
+      "id": "intl_059",
+      "question": "What is Bronstein time delay?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "chunk_text": "It is clear that the player himself has to provide an assistant. He/She has to introduce this assistant to the arbiter, in advance and not just before the start of the round. It is usual that 10 minutes are deducted from the time of the player who needs an assistant. No deduction should be made in the case of a disabled player.  \n- 6.3 Allotted time:\n- 6.3.1 When using a chessclock, each player must complete a minimum number of moves or all moves in an allotted period of time including any additional amount of time added with each move. All these must be specified in advance.  \nA game may have more than one period. The requirements of the subsequent total number of moves and the additional amount of time with each move for each period must be specified in advance. These parameters should not change during a tournament. A play-off may have different time controls.  \n- 6.3.2 The time saved by a player during one period is added to his/her time available for the next period, where applicable. In the time-delay mode both players receive an allotted 'main thinking time'. Each player also receives a 'fixed extra time' with every move. The countdown of the main thinking time only commences after the fixed extra time has expired. Provided the player presses his/her clock before the expiration of the fixed extra time, the main thinking time does not change, irrespective of the proportion of the fixed extra time used.  \nIn the Laws of Chess Increment and Delay are treated in the same way. For example, when calculating the length of the playing session both are multiplied by 60 to find the total time.  \nINCREMENT: a specified amount of time added to the players main (thinking) time with each move played. The first increment is added at the start of the game. Often called Fischer Bonus and shown on some clocks as FISCH. If a player moves quickly their time can increase.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "Bronstein",
+        "delay",
+        "time",
+        "control"
+      ]
+    },
+    {
+      "id": "intl_060",
+      "question": "What should happen when an illegal move is discovered?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "chunk_text": "If a game with reversed colours has ended by normal means (for example checkmate, resignation or draw by agreement), in less than ten (10) moves by both players, then the result stands.  \n- 7.4 Displaced pieces:\n- 7.4.1 If a player displaces one or more pieces, he/she shall re-establish the correct position in his/her own time.\n- 7.4.2 If necessary, either the player or h i s / h e r opponent shall pause the chessclock and ask for the arbiter's assistance.\n- 7.4.3 The arbiter may penalise the player who displaces the pieces.  \nPlayer A's clock is running when Player B accidentally displaces a piece. Player A should not restart Player B's clock but should pause the clock and summon the arbiter. The arbiter may then either add time to A's clock or subtract time from B's clock. If A restarts B's clock this creates several problems with increments being wrongly added and the move counter affected.  \nMost problems happen in Rapid Chess or Blitz. The penalty should be according to Article 12.9. A player should not be forfeited immediately for accidentally displacing a piece. If he/she did it deliberately, perhaps in order to gain time, or does it several times, that is different.  \n- 7.5 Illegal moves:\n- 7.5.1 An illegal move is completed once the player has pressed his/her clock. If during a game it is found that an illegal move has been completed, the position immediately before the irregularity shall be reinstated. If the position immediately before the irregularity cannot be determined, the game shall continue from the last identifiable position prior to the irregularity. Articles 4.3 and 4.7 apply to the move replacing the illegal move. The game shall then continue from this reinstated position.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "illegal",
+        "move",
+        "penalty",
+        "discovered"
+      ]
+    },
+    {
+      "id": "intl_061",
+      "question": "What happens if the initial position was incorrect?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child00",
+      "chunk_text": "## Article 7: Irregularities  \n- 7.1 If an irregularity occurs and the pieces have to be restored to a previous position, the arbiter shall use his/her best judgement to determine the times to be shown on the chessclock. This includes the right not to change the clock times. He/She shall also, if necessary, adjust the clock's move-counter.\n- 7.2.1 If during a game it is found that the initial position of the pieces was incorrect, the game shall be cancelled and a new game shall be played.  \nThe error must be discovered before the end of the game otherwise the result will stand. If an electronic board shows this error or stops recording the moves, the operator should inform the arbiter. It is the arbiter's duty to check if such a situation has been caused by an irregularity in play.  \n- 7.2.2 If during a game it is found that the chessboard has been placed contrary to Article 2.1, the game shall continue but the position reached must be transferred to a correctly placed chessboard.\n- 7.3 If a game has started with colours reversed then, if less than 10 moves have been made by both players, it shall be discontinued and a new game played with the correct colours. After 10 moves or more, the game shall continue.  \nAfter Black has made move 10 the game shall continue, otherwise, a new game shall be played with the correct colours. It doesn't matter what the current position on the chessboard is and how many pieces or pawns have been captured.  \nIf a game with reversed colours has ended by normal means (for example checkmate, resignation or draw by agreement), in less than ten (10) moves by both players, then the result stands.  \n- 7.4 Displaced pieces:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "initial",
+        "position",
+        "incorrect",
+        "restart"
+      ]
+    },
+    {
+      "id": "intl_062",
+      "question": "What is the penalty for making an illegal move?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "chunk_text": "If a game with reversed colours has ended by normal means (for example checkmate, resignation or draw by agreement), in less than ten (10) moves by both players, then the result stands.  \n- 7.4 Displaced pieces:\n- 7.4.1 If a player displaces one or more pieces, he/she shall re-establish the correct position in his/her own time.\n- 7.4.2 If necessary, either the player or h i s / h e r opponent shall pause the chessclock and ask for the arbiter's assistance.\n- 7.4.3 The arbiter may penalise the player who displaces the pieces.  \nPlayer A's clock is running when Player B accidentally displaces a piece. Player A should not restart Player B's clock but should pause the clock and summon the arbiter. The arbiter may then either add time to A's clock or subtract time from B's clock. If A restarts B's clock this creates several problems with increments being wrongly added and the move counter affected.  \nMost problems happen in Rapid Chess or Blitz. The penalty should be according to Article 12.9. A player should not be forfeited immediately for accidentally displacing a piece. If he/she did it deliberately, perhaps in order to gain time, or does it several times, that is different.  \n- 7.5 Illegal moves:\n- 7.5.1 An illegal move is completed once the player has pressed his/her clock. If during a game it is found that an illegal move has been completed, the position immediately before the irregularity shall be reinstated. If the position immediately before the irregularity cannot be determined, the game shall continue from the last identifiable position prior to the irregularity. Articles 4.3 and 4.7 apply to the move replacing the illegal move. The game shall then continue from this reinstated position.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "illegal",
+        "move",
+        "penalty",
+        "time"
+      ]
+    },
+    {
+      "id": "intl_063",
+      "question": "How does the arbiter handle displacement of pieces?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "chunk_text": "It is very important that the irregularity must be discovered during the game. After the players have signed the scoresheets or it is clear in another way that the game is over, corrections are not possible. The result stands.  \nWhen the irregularity is discovered during the game the game, the game restarts from the restored position. The 'touch move' rule applies so the piece to be played should be, if possible, the one first touched, either the piece illegally moved or the piece captured.  \nIf the irregularity was caused by a check being missed the touched piece should be used to block the check or capture the checking piece, if possible.  \nA move cannot be declared illegal until the player has completed his/her move by pressing his/her clock. So, the player can correct his/her move without being penalized, even if he/she had already released the piece on the board, provided he/she hasn't pressed the clock. Of course, he/she must comply with the relevant parts of article 4.  \nIf an arbiter observes an illegal move he/she must always intervene immediately. He/She should not wait for a claim to be submitted by a player.  \n- 7.5.2 If the player has moved a pawn to the furthest distant rank, pressed the clock, but not replaced the pawn with a new piece, the move is illegal. The pawn shall be replaced by a queen of the same colour as the pawn.\n- 7.5.3 If the player presses the clock without making a move, it shall be considered and penalised as if an illegal move.  \nIf a player restarts the opponent's clock instead of pausing it an arbiter may regard this as an accident and punish it less severely.  \nFor example: Player B makes an illegal move. Player A, instead of pausing the clock, restarts the opponent's clock. Is this an infringement of Article 7.5.3?",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "position",
+        "important",
+        "irregularity",
+        "discovered",
+        "signed"
+      ]
+    },
+    {
+      "id": "intl_064",
+      "question": "When is move recording required according to FIDE Laws?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "chunk_text": "## Article 8: The Recording of the Moves  \n- 8.1 How the moves shall be recorded:\n- 8.1.1 In the course of play each player is required to record his/her own moves and those of his/her opponent in the correct manner, move after move, as clearly and legibly as possible, in one of the following ways:\n- 8.1.1.1 by writing in the algebraic notation (Appendix C), on the paper 'scoresheet' prescribed for the competition.\n- 8.1.1.2 by entering moves on the FIDE certified 'electronic scoresheet' prescribed for the competition.\n- 8.1.2 It is forbidden to record the moves in advance, unless the player is claiming a draw according to Article 9.2, or 9.3 or adjourning a game according to Guidelines I.1.1  \nNotice that it is normally forbidden to record the move before playing it. Only in the case of a draw claim (Article 9.2. and 9.3) and adjourning is it allowed to do so.  \nEven if an opponent has only one legal move, this must not be recorded by the player in advance  \n- 8.1.3 A player may reply to his/her opponent's move before recording it, if he/she so wishes. He/She must record his/her previous move before making another.\n- 8.1.4 The scoresheet shall be used only for recording the moves, the times of the clocks, offers of a draw, matters relating to a claim and other relevant data.\n- 8.1.5 Both players must record the offer of a draw on the scoresheet with a symbol (=).",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "recording",
+        "moves",
+        "scoresheet",
+        "required"
+      ]
+    },
+    {
+      "id": "intl_065",
+      "question": "What notation system is used for recording moves?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "chunk_text": "## Article 8: The Recording of the Moves  \n- 8.1 How the moves shall be recorded:\n- 8.1.1 In the course of play each player is required to record his/her own moves and those of his/her opponent in the correct manner, move after move, as clearly and legibly as possible, in one of the following ways:\n- 8.1.1.1 by writing in the algebraic notation (Appendix C), on the paper 'scoresheet' prescribed for the competition.\n- 8.1.1.2 by entering moves on the FIDE certified 'electronic scoresheet' prescribed for the competition.\n- 8.1.2 It is forbidden to record the moves in advance, unless the player is claiming a draw according to Article 9.2, or 9.3 or adjourning a game according to Guidelines I.1.1  \nNotice that it is normally forbidden to record the move before playing it. Only in the case of a draw claim (Article 9.2. and 9.3) and adjourning is it allowed to do so.  \nEven if an opponent has only one legal move, this must not be recorded by the player in advance  \n- 8.1.3 A player may reply to his/her opponent's move before recording it, if he/she so wishes. He/She must record his/her previous move before making another.\n- 8.1.4 The scoresheet shall be used only for recording the moves, the times of the clocks, offers of a draw, matters relating to a claim and other relevant data.\n- 8.1.5 Both players must record the offer of a draw on the scoresheet with a symbol (=).",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "notation",
+        "algebraic",
+        "recording",
+        "moves"
+      ]
+    },
+    {
+      "id": "intl_066",
+      "question": "When can a player stop recording moves?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent050-child02",
+      "chunk_text": "- 8.5 Incomplete scoresheets:\n- 8.5.1 If neither player keeps score under Article 8.4, the arbiter or an assistant should try to be present and keep score. In this case, immediately after a flag has fallen the arbiter shall pause the chessclock. Then both players shall update their scoresheets, using the arbiter's or the opponent's scoresheet.  \nIt happens quite often that in this time trouble phase the player asks the arbiter how many moves are left until the time control. The arbiter must not answer this as it would be giving advice. Even if the required number of moves have been made the arbiter should not intervene until after a flag fall. At this point the arbiter should pause the chess-clock and request both players to update their scoresheets. When they are completed the arbiter will restart the clock of the player on the move. If a player delays updating his/her scoresheet, sometimes contemplating his/her next move, he/she should be warned.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "stop",
+        "recording",
+        "time",
+        "trouble"
+      ]
+    },
+    {
+      "id": "intl_067",
+      "question": "What is the 50-move rule for claiming a draw?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child01",
+      "chunk_text": "- 9.2.2 has just appeared, and the player claiming the draw has the move.\n- 9.2.3 Positions are considered the same if and only if the same player has the move, pieces of the same kind and colour occupy the same squares and the possible moves of all the pieces of both players are the same. Thus positions are not the same if:\n- 9.2.3.1 at the start of the sequence a pawn could have been captured en passant\n- 9.2.3.2 a king had castling rights with a rook that has not been moved, but forfeited these after moving. The castling rights are lost only after the king or rook is moved.  \nOnly the player whose move it is, and whose clock is running, is allowed to claim a draw in this way. If the procedure of a draw claim is correct, but the player forgets or doesn't know that he/she shall write his/her intended move, it is advisable that instead of rejecting the claim, the arbiter says 'Make your claim legal', if the player asks how he/she can make his/her claim legal, the arbiter can, according to article 11.2, explains conditions of a correct claim.  \nThe correctness of a claim must be checked in the presence of both players. It is also advisable to replay the game and not to decide by only using the score sheets. If electronic boards are used it is possible to check it on the computer.  \n- 9.3 The game is drawn, upon a correct claim by a player having the move, if:\n- 9.3.1 he/she indicates his/her move, which cannot be changed, by writing it on the paper scoresheet or entering it on the electronic scoresheet and declares to the arbiter his/her intention to make this move which will result in the last 50 moves by each player having been made without the movement of any pawn and without any capture, or",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "50",
+        "moves",
+        "draw",
+        "claim"
+      ]
+    },
+    {
+      "id": "intl_068",
+      "question": "How does one claim a draw by threefold repetition?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "chunk_text": "## Article 9: The Drawn Game  \n- 9.1 Draw offers and event regulations:\n- 9.1.1 The regulations of an event may specify that players cannot offer or agree to a draw, whether in less than a specified number of moves or at all, without the consent of the arbiter.  \nIf a competition applies this rule, then the required number of moves or the no agreement at all condition, should be communicated to the players in the invitation to the tournament. It is advisable for the arbiter to repeat the rule before the start of the tournament. It is clear that the rule applies only for draw agreements. Articles 9.2,  \n9.3 and 9.6 still apply during the whole game and give the possibility to the players to draw in less than the specified number of moves, which must be accepted by the arbiter. For example, if two players claim a draw by three-fold occurrence after 20 moves, in a tournament where there is a draw restriction rule before 30 moves have been completed by both players, then the arbiter must allow the draw. If neither player claims a draw by three-fold occurrence, and an arbiter is aware that the same position (per 9.2.2) has occurred at least 5 times, then he/she must intervene, see Article 9.6.1.  \nThis article does not specify a penalty in case of its violation. Unless the tournament regulations specifies one, the arbiter may act according to art. 12.9.  \n- 9.1.2 However, if the regulations of an event allow a draw agreement the following shall apply:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "draw",
+        "claim",
+        "article",
+        "drawn",
+        "offers",
+        "event"
+      ]
+    },
+    {
+      "id": "intl_069",
+      "question": "What are the conditions for a draw by insufficient material?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "chunk_text": "## Article 5: The Completion of the Game  \n- 5.1.1 The game is won by the player who has checkmated his/her opponent's king. This immediately ends the game, provided that the move producing the checkmate position was in accordance with Article 3 and Articles 4.2 - 4.7.\n- 5.1.2 The game is lost by the player who declares he/she resigns (this immediately ends the game), unless the position is such that the opponent cannot checkmate the player's king by any possible series of legal moves. In this case the result of the game is a draw.  \nA player may resign in a number of different ways:  \n- -pausing the clock\n- -announcing his/her resignation\n- -knocking over his/her king\n- -reaching out his/her hand to the opponent\n- -signing the score sheets, and so on.  \nAll of these possibilities are capable of being misinterpreted. Therefore, the situation has to be clarified.  \nAt the end of a game the arbiter should ensure that both scoresheets show the same result. A player who does not wish to continue a game and leaves without resigning - or notifying the arbiter - is being discourteous. He/She may be penalized, at the discretion of the Chief Arbiter, for poor sportsmanship.  \n- 5.2.1 The game is drawn when the player to move has no legal move and his/her king is not in check. The game is said to end in 'stalemate'. This immediately ends the game, provided that the move producing the stalemate position was in accordance with Article 3 and Articles 4.2 - 4.7.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "draw",
+        "checkmate",
+        "article",
+        "completion",
+        "won",
+        "checkmated"
+      ]
+    },
+    {
+      "id": "intl_070",
+      "question": "When does the 75-move rule apply for automatic draw?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "chunk_text": "## Article 9: The Drawn Game  \n- 9.1 Draw offers and event regulations:\n- 9.1.1 The regulations of an event may specify that players cannot offer or agree to a draw, whether in less than a specified number of moves or at all, without the consent of the arbiter.  \nIf a competition applies this rule, then the required number of moves or the no agreement at all condition, should be communicated to the players in the invitation to the tournament. It is advisable for the arbiter to repeat the rule before the start of the tournament. It is clear that the rule applies only for draw agreements. Articles 9.2,  \n9.3 and 9.6 still apply during the whole game and give the possibility to the players to draw in less than the specified number of moves, which must be accepted by the arbiter. For example, if two players claim a draw by three-fold occurrence after 20 moves, in a tournament where there is a draw restriction rule before 30 moves have been completed by both players, then the arbiter must allow the draw. If neither player claims a draw by three-fold occurrence, and an arbiter is aware that the same position (per 9.2.2) has occurred at least 5 times, then he/she must intervene, see Article 9.6.1.  \nThis article does not specify a penalty in case of its violation. Unless the tournament regulations specifies one, the arbiter may act according to art. 12.9.  \n- 9.1.2 However, if the regulations of an event allow a draw agreement the following shall apply:",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "moves",
+        "draw",
+        "article",
+        "drawn",
+        "offers",
+        "event"
+      ]
+    },
+    {
+      "id": "intl_071",
+      "question": "What are the main duties of the arbiter according to Article 12?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child00",
+      "chunk_text": "## 12.2 The arbiter shall:  \n- 12.2.1 ensure fair play,\n- 12.2.2 act in the best interest of the competition,\n- 12.2.3 ensure that a good playing environment is maintained,\n- 12.2.4 ensure that the players are not disturbed,\n- 12.2.5 supervise the progress of the competition,\n- 12.2.6 take special measures in the interests of disabled players and those who need medical attention,\n- 12.2.7 follow the Fair play Rules or Guidelines  \nThe Arbiter must take care to avoid any kind of cheating by the players.  \n- 12.3 The arbiter shall observe the games, especially when the players are short of time, enforce decisions he/she has made, and impose penalties on players where appropriate.\n- 12.4 The arbiter may appoint assistants to observe games, for example when several players are short of time.\n- 12.5 The arbiter may award either or both players additional time in the event of external disturbance of the game.\n- 12.6 The arbiter must not intervene in a game except in cases described by the Laws of Chess. He/She shall not indicate the number of moves completed, except in applying Article 8.5 when at least one flag has fallen. The arbiter shall refrain from informing a player that his/her opponent has completed a move or that the player has not pressed his/her clock.\n- 12.7 If someone observes an irregularity, he/she may inform only the arbiter. Players in other games must not to speak about or otherwise interfere in a game. Spectators are not allowed to interfere in a game. The arbiter may expel offenders from the playing venue.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "arbiter",
+        "duties",
+        "Article 12",
+        "shall"
+      ]
+    },
+    {
+      "id": "intl_072",
+      "question": "What behavior is forbidden for players according to Article 11?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "chunk_text": "## 11.5 It is forbidden to distract or annoy the opponent in any manner whatsoever. This includes unreasonable claims, unreasonable offers of a draw or the introduction of a source of noise into the playing area.  \nEven if the draw offers or claims are quite reasonable, repeating them too often can annoy the opponent. The arbiter must always intervene when the opponent is disturbed or distracted.  \n- 11.6 Infraction of any part of Articles 11.1 - 11.5 shall lead to penalties in accordance with Article 12.9.\n- 11.7 Persistent refusal by a player to comply with the Laws of Chess shall be penalised by loss of the game. The arbiter shall decide the score of the opponent.  \nIt is very difficult to give a general guideline for the application of this Article, but if an arbiter has to warn the player for the third or fourth time, this is a good reason to declare the game lost. It is necessary to inform the player that Article 11.7 shall be applied at the next infringement.  \n- 11.8 If both players are found guilty according to Article 11.7, the game shall be declared lost by both players.\n- 11.9 A player shall have the right to request from the arbiter an explanation of particular points in the Laws of Chess.  \nFor example, players often ask if they can castle or capture 'en passant' in the position on their board. An arbiter must not answer 'yes' or 'no' but must inform them of the meaning of the appropriate Law. It is also common for a player to ask how to claim a draw (see comment under article 9.2.3.2).  \n- 11.10 Unless the regulations of an event specify otherwise, a player may appeal against any decision of the arbiter, even if the player has signed the scoresheet (see Article 8.7).",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "forbidden",
+        "distract",
+        "annoy",
+        "opponent"
+      ]
+    },
+    {
+      "id": "intl_073",
+      "question": "What powers does the arbiter have for penalizing players?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child01",
+      "chunk_text": "- 12.7 If someone observes an irregularity, he/she may inform only the arbiter. Players in other games must not to speak about or otherwise interfere in a game. Spectators are not allowed to interfere in a game. The arbiter may expel offenders from the playing venue.  \nIf a spectator sees a flag fall, or any other offence, they should tell the arbiter. They should not announce it.  \n- 12.8 Unless authorised by the arbiter, it is forbidden for anybody to use a mobile phone or any kind of communication device in the playing venue or any contiguous area designated by the arbiter.  \nIn general, nobody is allowed to use their mobiles in the playing hall or adjoining area during the games.  \n- 12.9 Options available to the arbiter concerning penalties:\n- 12.9.1 warning,\n- 12.9.2 increasing the remaining time of the opponent,\n- 12.9.3 reducing the remaining time of the offending player,\n- 12.9.4 increasing the points scored in the game by the opponent to the maximum available for that game,\n- 12.9.5 reducing the points scored in the game by the offending person,\n- 12.9.6 declaring the game to be lost by the offending player (the arbiter shall also decide the opponent's score),\n- 12.9.7 a fine announced in advance,\n- 12.9.8 exclusion from one or more rounds,\n- 12.9.9 expulsion from the competition.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "12.9",
+        "penalty",
+        "warning",
+        "expulsion"
+      ]
+    },
+    {
+      "id": "intl_074",
+      "question": "How does the arbiter handle electronic device violations?",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent060-child00",
+      "chunk_text": "## 11.3.3 The arbiter may require the player to allow his/her clothes, bags, other items or body to be inspected, in private. The arbiter or person authorised by the arbiter shall inspect the player, and shall be of the same gender as the player. If a player refuses to cooperate with these obligations, the arbiter shall take measures in accordance with Article 12.9.  \nThe regulations about electronic devices are now very strict. No mobile phone is allowed in the playing venue and it makes no difference if it is switched on or off. If a mobile phone (even switched off) is found with a player, his/her game is immediately lost and the opponent shall win. The result shall be 1-0 or 0-1. It doesn't matter if, when the mobile phone is found, the opponent cannot checkmate the offending player by any series of legal moves: he/she wins the game. The opponent may have cheated earlier.  \nIt is different if the game has not yet started. Suppose the following situation occurs: There is no zero-tolerance. Player A is in the playing hall at the start of the round. His/Her opponent, Player B is absent. Immediately after player A made his/her first move his/her mobile rings. The arbiter declares the game lost for Player A. Some minutes later, but still on time, Player B arrives. The score is '-/+', it is not a 'played' game and it cannot be rated.",
+      "corpus": "intl",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "keywords": [
+        "electronic",
+        "device",
+        "phone",
+        "violation"
+      ]
+    }
+  ]
+}

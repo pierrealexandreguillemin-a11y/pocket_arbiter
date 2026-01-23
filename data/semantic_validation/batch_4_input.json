@@ -1,0 +1,1361 @@
+{
+  "batch": 4,
+  "corpus": "fr",
+  "questions": [
+    {
+      "id": "FR-Q130",
+      "question": "Roi contre Roi + Fou est-il considéré comme matériel insuffisant pour mater ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "roi",
+        "fou",
+        "tableau",
+        "suivant",
+        "indique",
+        "quelques"
+      ],
+      "expected_pages": [
+        47
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "1.3",
+        "hard_case": true,
+        "hard_reason": "Cas limite matériel insuffisant",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Cas limite matériel insuffisant",
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00"
+    },
+    {
+      "id": "FR-Q131",
+      "question": "Comment est calculé le classement Elo Rapide par rapport au classement Standard ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapide",
+        "elo",
+        "classement",
+        "calcul",
+        "différence"
+      ],
+      "expected_pages": [
+        187,
+        188,
+        189
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "6.2",
+        "hard_case": true,
+        "hard_reason": "Chapitre 6.2 - Système distinct pour classement Rapide et Blitz",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Chapitre 6.2 pages 187-189 (classement Rapide/Blitz)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00"
+    },
+    {
+      "id": "FR-Q132",
+      "question": "Un joueur classé uniquement en Rapide participe à son premier tournoi Standard. Comment obtient-il son Elo Standard ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapide",
+        "standard",
+        "premier",
+        "conversion",
+        "elo"
+      ],
+      "expected_pages": [
+        183,
+        185,
+        187,
+        188
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "6.1+6.2",
+        "hard_case": true,
+        "hard_reason": "Cross-chapter: Ch6.1 (initial Standard) + Ch6.2 (Rapide) - passerelle",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Passerelle Ch6.1 (183,185 initial) + Ch6.2 (187,188 rapide)",
+      "expected_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00"
+    },
+    {
+      "id": "FR-Q133",
+      "question": "Dans le système suisse, comment traiter un joueur qui demande un bye pour une ronde ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "exempt",
+        "appariement",
+        "personnes",
+        "abandonnent",
+        "tournoi",
+        "seront"
+      ],
+      "expected_pages": [
+        124,
+        125
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "3.5",
+        "hard_case": true,
+        "hard_reason": "Gestion bye vs exempt dans appariement",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Gestion bye vs exempt dans appariement",
+      "expected_chunk_id": "LA-octobre2025.pdf-p124-parent357-child01"
+    },
+    {
+      "id": "FR-Q134",
+      "question": "Quelle est la différence entre le Buchholz tronqué et le Buchholz médian ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "buchholz",
+        "tronqué",
+        "médian",
+        "départage"
+      ],
+      "expected_pages": [
+        149,
+        150,
+        154
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "4.2",
+        "hard_case": true,
+        "hard_reason": "Variantes de départage Buchholz",
+        "source": "Annales-Decembre-2024",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "hard",
+      "audit": "2026-01-20",
+      "notes": "Hard case Annales exam - Variantes de départage Buchholz",
+      "expected_chunk_id": "LA-octobre2025.pdf-p149-parent436-child02"
+    },
+    {
+      "id": "FR-Q141",
+      "question": "Qu'est-ce que le 'noyau' d'une equipe en Nationale et quelle est la regle des 50% ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "noyau",
+        "50%",
+        "equipe",
+        "nationale"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "metadata": {
+        "type": "definition",
+        "chapter": "A02 3.7.f",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Terme 'noyau' = jargon technique FFE, peut etre inconnu utilisateurs",
+        "corpus_truth": "A02 p6 art 3.7.f - noyau = 50% joueurs ayant deja joue pour equipe",
+        "test_purpose": "Test vocabulaire technique FFE (arXiv:2412.12300 cat.3)",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Vocabulaire specialise FFE"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_A02",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02"
+    },
+    {
+      "id": "FR-Q144",
+      "question": "En Top 16, combien de 'joueurs etrangers' peut-on aligner par match et quelle est la definition exacte ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "Top 16",
+        "joueurs etrangers",
+        "nationalite",
+        "quota"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "A02 3.7.h-i",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Confusion 'etranger' vs 'ressortissant UE residant' - definitions subtiles",
+        "corpus_truth": "A02 p6 art 3.7.h = min 5 FR, 3.7.i = 1 joueur FR + 1 joueuse FR obligatoires",
+        "test_purpose": "Test ambiguite terminologique (arXiv:2412.12300 cat.3)",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Terminologie nationalite complexe"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_A02",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child00"
+    },
+    {
+      "id": "FR-Q149",
+      "question": "C'est quoi le 'flag' en echecs et qu'est-ce qui se passe quand ca tombe ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "flag",
+        "drapeau",
+        "temps",
+        "tombe"
+      ],
+      "expected_pages": [
+        50
+      ],
+      "metadata": {
+        "type": "definition",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Anglicisme 'flag' = jargon joueurs, terme corpus = 'drapeau' ou 'chute du drapeau'",
+        "corpus_truth": "LA p50 art 6.1 = 'chute du drapeau' = temps ecoule, partie perdue sauf exceptions",
+        "test_purpose": "Test anglicisme vs terminologie officielle (arXiv:2412.12300 cat.3)",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Anglicisme courant non present corpus"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_LA",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00"
+    },
+    {
+      "id": "FR-Q150",
+      "question": "Selon l'article 12.9 des Lois du Jeu FIDE, quelle est la procedure exacte pour reclamer une nulle apres 75 coups sans prise ni mouvement de pion ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "article 12.9",
+        "75 coups",
+        "nulle",
+        "FIDE"
+      ],
+      "expected_pages": [
+        70
+      ],
+      "metadata": {
+        "type": "edge",
+        "chapter": "9.6.2 (pas 12.9!)",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "PIEGE ULTIME: Article 12.9 EXISTE (sanctions p44,47,56) mais NE TRAITE PAS des 75 coups. Vraie regle = Art 9.6.2 p70",
+        "corpus_truth": "Art 12.9 = sanctions comportement incorrect (16 mentions). Art 9.6.2 p70 = regle 75 coups nulle automatique. Question melange deux articles distincts.",
+        "test_purpose": "Test double piege: article existe mais mauvais sujet + numero article trompeur (arXiv:2412.12300 cat.3 extreme)",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "recall_actual": "N/A",
+        "audit_note": "Ultimate hard case - Art 12.9 existe (sanctions) mais 75 coups = Art 9.6.2"
+      },
+      "difficulty": "hard",
+      "audit": "added_2026-01-20_ultimate",
+      "expected_chunk_id": "LA-octobre2025-table6-summary"
+    },
+    {
+      "question": "Comment fonctionne le déplacement du pion ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        39
+      ],
+      "keywords": [
+        "pion",
+        "déplacer",
+        "case",
+        "colonne"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q151",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00"
+    },
+    {
+      "question": "Comment fonctionne la prise en passant aux échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        39
+      ],
+      "keywords": [
+        "prise",
+        "passant",
+        "pion",
+        "avance"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q152",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
+    },
+    {
+      "question": "Comment fonctionne la promotion du pion ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        40
+      ],
+      "keywords": [
+        "promotion",
+        "pion",
+        "pièce",
+        "remplacement"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q153",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
+    },
+    {
+      "question": "Quand le roque est-il définitivement interdit ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        40
+      ],
+      "keywords": [
+        "roque",
+        "interdit",
+        "roi",
+        "tour"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q154",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
+    },
+    {
+      "question": "Quand le roque est-il temporairement interdit ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        40
+      ],
+      "keywords": [
+        "roque",
+        "temporairement",
+        "attaqué",
+        "pièce"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q155",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child02"
+    },
+    {
+      "question": "Que signifie la chute du drapeau aux échecs ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        44
+      ],
+      "keywords": [
+        "chute",
+        "drapeau",
+        "temps",
+        "fin"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "FR-Q156",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
+    },
+    {
+      "question": "Comment fonctionne la pendule aux échecs ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        44
+      ],
+      "keywords": [
+        "pendule",
+        "horloge",
+        "afficheurs",
+        "drapeau"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q157",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
+    },
+    {
+      "question": "Comment se déplace la tour aux échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        38
+      ],
+      "keywords": [
+        "tour",
+        "déplacer",
+        "colonne",
+        "rangée"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q158",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00"
+    },
+    {
+      "question": "Comment se déplace la dame aux échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        38
+      ],
+      "keywords": [
+        "dame",
+        "déplacer",
+        "colonne",
+        "diagonale"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q159",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child01"
+    },
+    {
+      "question": "Quelle est la position initiale des pièces aux échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        37
+      ],
+      "keywords": [
+        "position",
+        "initiale",
+        "pièces",
+        "échiquier"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q160",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01"
+    },
+    {
+      "question": "Quand considère-t-on que le roi est en échec ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        41
+      ],
+      "keywords": [
+        "roi",
+        "échec",
+        "attaqué",
+        "pièce"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q161",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+    },
+    {
+      "question": "Comment gagne-t-on une partie aux échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        43
+      ],
+      "keywords": [
+        "gagné",
+        "mat",
+        "roi",
+        "partie"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q162",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+    },
+    {
+      "question": "Comment abandonner une partie aux échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        43
+      ],
+      "keywords": [
+        "abandonner",
+        "perdue",
+        "partie",
+        "fin"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q163",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+    },
+    {
+      "question": "Comment fonctionne la cadence Fischer ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        45
+      ],
+      "keywords": [
+        "Fischer",
+        "incrément",
+        "temps",
+        "coup"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q164",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01"
+    },
+    {
+      "question": "Comment fonctionne le temps différé Bronstein ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        45
+      ],
+      "keywords": [
+        "Bronstein",
+        "différé",
+        "temps",
+        "délai"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q165",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01"
+    },
+    {
+      "question": "Quels sont les engagements de l'arbitre FFE ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        8
+      ],
+      "keywords": [
+        "arbitre",
+        "engage",
+        "règles",
+        "compétition"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q166",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p008-parent010-child00"
+    },
+    {
+      "question": "Quels frais sont inclus dans le défraiement des arbitres ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        10
+      ],
+      "keywords": [
+        "défraiement",
+        "arbitre",
+        "indemnités",
+        "frais"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q167",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00"
+    },
+    {
+      "question": "Quel système de notation est reconnu par la FIDE ?",
+      "category": "notation",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        59
+      ],
+      "keywords": [
+        "FIDE",
+        "notation",
+        "algébrique",
+        "système"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "FR-Q168",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00"
+    },
+    {
+      "question": "Quelles adaptations pour les joueurs handicapés visuels ?",
+      "category": "handicap",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        61
+      ],
+      "keywords": [
+        "aveugle",
+        "échiquier",
+        "spécial",
+        "handicap"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q169",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child01"
+    },
+    {
+      "question": "Comment fonctionne l'échiquier pour personnes aveugles ?",
+      "category": "handicap",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        61
+      ],
+      "keywords": [
+        "échiquier",
+        "handicap",
+        "visuel",
+        "cases"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q170",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00"
+    },
+    {
+      "question": "Les débats disciplinaires de la FFE sont-ils publics ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "keywords": [
+        "débats",
+        "public",
+        "audience",
+        "salle"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q171",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p003-parent006-child00"
+    },
+    {
+      "question": "Quel délai pour la convocation à l'audience disciplinaire ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "expected_pages": [
+        4,
+        5
+      ],
+      "keywords": [
+        "convocation",
+        "audience",
+        "dix",
+        "jours"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q172",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent012-child00"
+    },
+    {
+      "question": "Quelles obligations de confidentialité en discipline FFE ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "keywords": [
+        "confidentialité",
+        "faits",
+        "informations",
+        "fonctions"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q173",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01"
+    },
+    {
+      "question": "Comment se déroule l'instruction disciplinaire FFE ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "keywords": [
+        "instruction",
+        "rapport",
+        "organe",
+        "disciplinaire"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q174",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent010-child00"
+    },
+    {
+      "question": "Qu'est-ce qu'une mesure conservatoire en discipline FFE ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "keywords": [
+        "mesure",
+        "conservatoire",
+        "Bureau",
+        "Fédéral"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q175",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent011-child00"
+    },
+    {
+      "question": "Quand débute et se termine la saison FFE ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "keywords": [
+        "saison",
+        "septembre",
+        "août",
+        "débute"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q176",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00"
+    },
+    {
+      "question": "Quelles sont les compétitions fédérales FFE ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "keywords": [
+        "compétitions",
+        "fédérales",
+        "Coupes",
+        "Championnats"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q177",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00"
+    },
+    {
+      "question": "Qu'est-ce qu'un joueur muté à la FFE ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "keywords": [
+        "muté",
+        "joueur",
+        "club",
+        "licencié"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q178",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+    },
+    {
+      "question": "Qu'est-ce qu'un forfait administratif à la FFE ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "keywords": [
+        "forfait",
+        "administratif",
+        "sanction",
+        "sportif"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q179",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00"
+    },
+    {
+      "question": "Qui peut prononcer un forfait administratif FFE ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "keywords": [
+        "forfait",
+        "administratif",
+        "direction",
+        "groupe"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "FR-Q180",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00"
+    },
+    {
+      "question": "Qui peut participer aux Championnats de France Jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "keywords": [
+        "jeunes",
+        "français",
+        "licenciés",
+        "scolaris"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q181",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00"
+    },
+    {
+      "question": "Quelles conditions de licence pour jeunes étrangers aux championnats ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "keywords": [
+        "étrangers",
+        "licences",
+        "novembre",
+        "FFE"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q182",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00"
+    },
+    {
+      "question": "Comment fonctionne la phase zone interdépartementale jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "keywords": [
+        "Ligue",
+        "règlement",
+        "ZID",
+        "qualification"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q183",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p002-parent007-child00"
+    },
+    {
+      "question": "Quelles qualifications d'office aux Championnats Jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "keywords": [
+        "qualifiés",
+        "score",
+        "catégorie",
+        "Elo"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "FR-Q184",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "difficulty": "medium",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00"
+    }
+  ]
+}

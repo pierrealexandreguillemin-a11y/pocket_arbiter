@@ -1,0 +1,1332 @@
+{
+  "batch": 2,
+  "corpus": "fr",
+  "questions": [
+    {
+      "id": "FR-Q44",
+      "question": "Quelles sont les règles pour les joueurs handicapés ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "joueur",
+        "adaptation",
+        "règle"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01"
+    },
+    {
+      "id": "FR-Q45",
+      "question": "Quelle conduite tenir pour joueurs en situation de handicap ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "situation",
+        "conduite",
+        "joueur"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "expected_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q46",
+      "question": "Quelles règles pour joueurs à mobilité réduite ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "accès",
+        "cas",
+        "concernant",
+        "organisation",
+        "tournois",
+        "h01"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "FACTUAL",
+        "reasoning_type": "LEXICAL_MATCH",
+        "cognitive_level": "REMEMBER"
+      },
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q47",
+      "question": "Comment organiser un tournoi pour joueurs à mobilité réduite ?",
+      "category": "handicap",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "organisation",
+        "tournoi",
+        "cas",
+        "concernant",
+        "tournois",
+        "h01"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q48",
+      "question": "Comment fonctionne le classement rapide FFE ?",
+      "category": "classement",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "classement",
+        "rapide",
+        "elo",
+        "calcul"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q49",
+      "question": "Comment sont calculés les points Elo rapide ?",
+      "category": "classement",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "elo",
+        "rapide",
+        "point",
+        "calcul"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q50",
+      "question": "Quels sont les objectifs de la FFE selon les statuts ?",
+      "category": "administration",
+      "expected_docs": [
+        "2024_Statuts20240420.pdf"
+      ],
+      "keywords": [
+        "statut",
+        "FFE",
+        "objet",
+        "fédération"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        2
+      ],
+      "metadata": {
+        "article_num": "Article 1",
+        "section": "Titre I",
+        "audit_note": "p5,7 removed (licence/vote, pas objectifs)",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00"
+    },
+    {
+      "id": "FR-Q51",
+      "question": "Comment adhérer à la FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2024_Statuts20240420.pdf"
+      ],
+      "keywords": [
+        "adhésion",
+        "licence",
+        "membre",
+        "FFE"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        2,
+        3,
+        5
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00"
+    },
+    {
+      "id": "FR-Q52",
+      "question": "Quelles sont les règles du règlement intérieur FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2025_Reglement_Interieur_20250503.pdf"
+      ],
+      "keywords": [
+        "règlement",
+        "intérieur",
+        "FFE",
+        "membre"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        2,
+        3,
+        5
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p005-parent016-child00"
+    },
+    {
+      "id": "FR-Q53",
+      "question": "Comment fonctionne l'organisation de la FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2025_Reglement_Interieur_20250503.pdf"
+      ],
+      "keywords": [
+        "organisation",
+        "FFE",
+        "comité",
+        "commission"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        8,
+        9,
+        11
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p008-parent022-child00"
+    },
+    {
+      "id": "FR-Q54",
+      "question": "Quelles sont les règles financières de la FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2023_Reglement_Financier20230610.pdf"
+      ],
+      "keywords": [
+        "financier",
+        "budget",
+        "cotisation",
+        "FFE"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        4
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00"
+    },
+    {
+      "id": "FR-Q55",
+      "question": "Comment fonctionne le règlement financier FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "2023_Reglement_Financier20230610.pdf"
+      ],
+      "keywords": [
+        "règlement",
+        "financier",
+        "budget",
+        "engagement"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        4
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00"
+    },
+    {
+      "id": "FR-Q56",
+      "question": "Quelles sont les règles médicales aux échecs ?",
+      "category": "administration",
+      "expected_docs": [
+        "2022_Reglement_medical_19082022.pdf"
+      ],
+      "keywords": [
+        "médical",
+        "santé",
+        "dopage",
+        "contrôle"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "audit": "semantic_correction_2026-01-23",
+      "expected_chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent009-child00"
+    },
+    {
+      "id": "FR-Q57",
+      "question": "Comment fonctionne le contrôle antidopage aux échecs ?",
+      "category": "administration",
+      "expected_docs": [
+        "2022_Reglement_medical_19082022.pdf"
+      ],
+      "keywords": [
+        "dopage",
+        "contrôle",
+        "substance",
+        "interdit"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        5
+      ],
+      "metadata": {
+        "article_num": "Section 4",
+        "section": "Dopage",
+        "audit_note": "p1,6 removed (table des matieres, suite)",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent013-child00"
+    },
+    {
+      "id": "FR-Q58",
+      "question": "Quelles sanctions disciplinaires existent à la FFE ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "sanction",
+        "disciplin",
+        "avertissement",
+        "exclusion"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        2,
+        7,
+        8
+      ],
+      "metadata": {
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent020-child00"
+    },
+    {
+      "id": "FR-Q59",
+      "question": "Comment fonctionne la procédure disciplinaire FFE ?",
+      "category": "discipline",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "disciplin",
+        "procédure",
+        "commission",
+        "appel"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q60",
+      "question": "Qu'est-ce que le contrat de délégation FFE ?",
+      "category": "administration",
+      "expected_docs": [
+        "Contrat_de_delegation_15032022.pdf"
+      ],
+      "keywords": [
+        "délégation",
+        "contrat",
+        "ministère",
+        "FFE"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        3
+      ],
+      "metadata": {
+        "article_num": "Preambule",
+        "section": "Introduction",
+        "audit_note": "p8,15,21 removed (implementation, pas definition)",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child01"
+    },
+    {
+      "id": "FR-Q61",
+      "question": "Quelles sont les obligations de la FFE en délégation ?",
+      "category": "administration",
+      "expected_docs": [
+        "Contrat_de_delegation_15032022.pdf"
+      ],
+      "keywords": [
+        "délégation",
+        "obligation",
+        "mission",
+        "service"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        3,
+        9
+      ],
+      "metadata": {
+        "article_num": "Art. 1-6, 2-3",
+        "section": "Obligations",
+        "audit_note": "p21 removed (ressources humaines)",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00"
+    },
+    {
+      "id": "FR-Q62",
+      "question": "Comment fonctionne le championnat de Nationale 4 ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "règlement_n4_2024_2025__1_.pdf"
+      ],
+      "keywords": [
+        "nationale",
+        "N4",
+        "division",
+        "championnat"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "règlement_n4_2024_2025__1_.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q63",
+      "question": "Quelles sont les règles de la Nationale 4 ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "règlement_n4_2024_2025__1_.pdf"
+      ],
+      "keywords": [
+        "nationale",
+        "N4",
+        "règle",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "règlement_n4_2024_2025__1_.pdf-p002-parent004-child00"
+    },
+    {
+      "id": "FR-Q64",
+      "question": "Comment fonctionne le championnat régional ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "règlement_régionale_2024_2025.pdf"
+      ],
+      "keywords": [
+        "régional",
+        "championnat",
+        "ligue",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "règlement_régionale_2024_2025.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q65",
+      "question": "Quelles sont les règles des interclubs départementaux ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "Interclubs_DepartementalBdr.pdf"
+      ],
+      "keywords": [
+        "départemental",
+        "interclub",
+        "comité",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        2,
+        3,
+        4
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent002-child00"
+    },
+    {
+      "id": "FR-Q66",
+      "question": "Comment fonctionnent les interclubs jeunes régionaux ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "InterclubsJeunes_PACABdr.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "régional",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "InterclubsJeunes_PACABdr.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q67",
+      "question": "Quelles sont les mesures anti-triche aux échecs ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf",
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "triche",
+        "anti",
+        "électronique",
+        "fairplay"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        141,
+        142,
+        143
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p142-parent417-child00"
+    },
+    {
+      "id": "FR-Q68",
+      "question": "Comment détecter la triche en tournoi ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "triche",
+        "détection",
+        "analyse",
+        "partie"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        141
+      ],
+      "metadata": {
+        "article_num": "Chapitre 4.1",
+        "section": "Directives contre la tricherie",
+        "audit_note": "p29 was wrong - p141 is main anti-triche chapter",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "LEXICAL_MATCH",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_v3_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p141-parent412-child00"
+    },
+    {
+      "id": "FR-Q69",
+      "question": "Qu'est-ce que la chute du drapeau dans une partie d'échecs ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "drapeau",
+        "chute",
+        "temps",
+        "pendule"
+      ],
+      "expected_pages": [
+        44,
+        46
+      ],
+      "metadata": {
+        "type": "definition",
+        "glossary": true,
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
+    },
+    {
+      "id": "FR-Q70",
+      "question": "Que signifie j'adoube et quand peut-on l'utiliser ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "adoube",
+        "ajuster",
+        "pièce",
+        "toucher"
+      ],
+      "expected_pages": [
+        38,
+        41
+      ],
+      "metadata": {
+        "type": "definition",
+        "glossary": true,
+        "article": "4.2",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00"
+    },
+    {
+      "id": "FR-Q71",
+      "question": "Quelles sont les exigences pour les stages pratiques des arbitres candidats ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "stage",
+        "pratique",
+        "arbitre",
+        "candidat"
+      ],
+      "expected_pages": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "metadata": {
+        "type": "regle",
+        "section": "DNA",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent073-child00"
+    },
+    {
+      "id": "FR-Q72",
+      "question": "Quelles sont les règles concernant le retard et le forfait en début de partie ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "retard",
+        "forfait",
+        "début",
+        "partie"
+      ],
+      "expected_pages": [
+        46
+      ],
+      "metadata": {
+        "type": "regle",
+        "article": "6.7",
+        "answer_type": "LIST",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
+    },
+    {
+      "id": "FR-Q73",
+      "question": "Qu'est-ce qu'un coup sous enveloppe dans une partie ajournée ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "enveloppe",
+        "coup",
+        "directives",
+        "parties",
+        "chess960",
+        "iii"
+      ],
+      "expected_pages": [
+        63
+      ],
+      "metadata": {
+        "type": "definition",
+        "glossary": true,
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p063-parent151-child00"
+    },
+    {
+      "id": "FR-Q74",
+      "question": "Quelles sanctions pour l'utilisation d'un appareil électronique pendant la partie ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "électronique",
+        "téléphone",
+        "montre",
+        "sanction"
+      ],
+      "expected_pages": [
+        53,
+        54
+      ],
+      "metadata": {
+        "type": "regle",
+        "article": "11.3",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+    },
+    {
+      "id": "FR-Q75",
+      "question": "Quelles adaptations pour les joueurs avec déficience visuelle ?",
+      "category": "handicap",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "notation",
+        "fide",
+        "seul",
+        "ses",
+        "propres"
+      ],
+      "expected_pages": [
+        61,
+        62
+      ],
+      "metadata": {
+        "type": "regle",
+        "section": "Annexe D",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "page_59_60_corrected_to_61_62_2026-01-23",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00"
+    },
+    {
+      "id": "FR-Q76",
+      "question": "Quelle est la fréquence minimale des mises à jour du classement Elo Standard FIDE depuis 2025 ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "mise à jour",
+        "Elo",
+        "Standard",
+        "FIDE",
+        "fréquence"
+      ],
+      "expected_pages": [
+        183
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
+    },
+    {
+      "id": "FR-Q77",
+      "question": "Un joueur qui n'a joué aucune partie pendant 18 mois voit-il son classement Elo Standard supprimé ? Dans quelles conditions exactement ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "inactivité",
+        "18 mois",
+        "Elo",
+        "supprimé",
+        "classement"
+      ],
+      "expected_pages": [
+        183,
+        188
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "hard_case": true,
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Question dit '18 mois', corpus dit 'un an' (§7.2.2 p.183)",
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+        "test_purpose": "Robustesse synonymes temporels (arXiv:2412.12300 cat.3)",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "HARD_CASE",
+        "method": "manual_verification",
+        "details": [],
+        "recall_actual": "0%",
+        "audit_note": "Vocabulary mismatch intentionnel - best practice RAG evaluation"
+      },
+      "audit": "added_2026-01-20",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00"
+    },
+    {
+      "id": "FR-Q78",
+      "question": "Comment est calculé le coefficient K pour un joueur ayant plus de 30 parties et un Elo supérieur à 2400 ?",
+      "category": "classement",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "coefficient K",
+        "2400",
+        "calcul",
+        "Elo"
+      ],
+      "expected_pages": [
+        185
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.1",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent546-child00"
+    },
+    {
+      "id": "FR-Q79",
+      "question": "Quelles sont les conditions exactes pour obtenir le titre de Grand Maître (GM) en 2025-2026, y compris le nombre de normes et le niveau minimal requis ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Grand Maître",
+        "GM",
+        "norme",
+        "titre",
+        "2500"
+      ],
+      "expected_pages": [
+        192,
+        193,
+        197
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p193-parent573-child00"
+    },
+    {
+      "id": "FR-Q80",
+      "question": "Un joueur peut-il obtenir le titre de Maitre FIDE (FM) sans passer par le titre de Candidat Maitre (CM), et quelles sont les voies possibles ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Candidat Maître",
+        "CM",
+        "partie",
+        "fide",
+        "181",
+        "chapitre"
+      ],
+      "expected_pages": [
+        192,
+        194
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p192-parent572-child00"
+    },
+    {
+      "id": "FR-Q81",
+      "question": "Quelle est la durée de validité d'une norme de titre FIDE si elle n'est pas utilisée pour une demande de titre ?",
+      "category": "titres",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "norme",
+        "validité",
+        "durée",
+        "titre",
+        "FIDE"
+      ],
+      "expected_pages": [
+        193,
+        197
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "6.3",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p197-parent584-child00"
+    },
+    {
+      "id": "FR-Q82",
+      "question": "Quelles sont les obligations administratives minimales qu'un arbitre doit respecter avant le début d'un tournoi homologué FFE ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "obligations",
+        "administratives",
+        "tournoi",
+        "homologué",
+        "avant"
+      ],
+      "expected_pages": [
+        166,
+        167,
+        168
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.2",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00"
+    },
+    {
+      "id": "FR-Q83",
+      "question": "Comment un arbitre doit-il gérer la rédaction et la transmission du Rapport Technique de fin de tournoi ? Quels éléments doivent y figurer obligatoirement ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Rapport Technique",
+        "fin tournoi",
+        "rédaction",
+        "transmission"
+      ],
+      "expected_pages": [
+        172,
+        173,
+        174
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.4",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00"
+    },
+    {
+      "id": "FR-Q84",
+      "question": "Quel est le barème d'indemnisation minimal pour un arbitre principal lors d'un tournoi national avec plus de 100 joueurs ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "barème",
+        "indemnisation",
+        "arbitre",
+        "tournoi",
+        "national"
+      ],
+      "expected_pages": [
+        178,
+        179,
+        180
+      ],
+      "metadata": {
+        "type": "regle",
+        "chapter": "5.5",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "added_2026-01-20",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00"
+    },
+    {
+      "id": "FR-Q85",
+      "question": "Dans quel délai un arbitre doit-il transmettre le rapport d'un match individuel (ex : match par équipes) à la DNA ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapport",
+        "match",
+        "chapitre",
+        "gestion",
+        "165",
+        "obligations"
+      ],
+      "expected_pages": [
+        165
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.1",
+        "hard_case": true,
+        "hard_reason": "Keyword 'délai transmission DNA' absent de Ch5.1 - page 165 = gestion match sans delai specifique",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "added_2026-01-20",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02"
+    },
+    {
+      "id": "FR-Q86",
+      "question": "Quelles sont les étapes que l'arbitre doit suivre pour la gestion administrative d'un tournoi en cas d'absence d'un joueur à la première ronde ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournoi",
+        "part",
+        "fixe",
+        "image",
+        "euros",
+        "tournois"
+      ],
+      "expected_pages": [
+        168,
+        169,
+        171
+      ],
+      "metadata": {
+        "type": "procedure",
+        "chapter": "5.3",
+        "hard_case": true,
+        "hard_reason": "Keyword 'absence premiere ronde' absent de Ch5.3 - pages 169-171 = gestion tournoi generale",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "audit": "page_170_missing_corrected_to_168_169_171_2026-01-23",
+      "hard_case": true,
+      "expected_chunk_id": "LA-octobre2025.pdf-p169-parent503-child00"
+    }
+  ]
+}

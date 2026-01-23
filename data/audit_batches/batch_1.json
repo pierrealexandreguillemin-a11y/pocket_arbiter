@@ -1,0 +1,672 @@
+{
+  "batch_name": "batch_1",
+  "count": 40,
+  "questions": [
+    {
+      "id": "FR-Q01",
+      "question": "Quelle est la règle du toucher-jouer ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
+      "chunk_text": "- 4.7.3. Lors d'une promotion : lorsque la main du joueur ou de la joueuse a relâché la nouvelle pièce sur la case de promotion et que le pion a été retiré de l'échiquier.\n- 4.8. Un joueur ou une joueuse perd le droit de protester quant à la violation par son adversaire des Articles 4.1 à 4.7, dès l'instant où il/elle touche une pièce avec l'intention de la déplacer ou de la prendre.\n- 4.9. Si un joueur ou une joueuse est dans l'incapacité de déplacer les pièces, il/elle peut fournir un assistant ou une assistante, qui doit avoir l'agrément de l'arbitre, pour réaliser cette opération.  \nLorsque l' arbitre observe une violation de l'article 4, son intervention est obligatoire , sans attendre que l'adversaire l a réclame.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "toucher",
+        "jouer",
+        "pièce",
+        "déplacer"
+      ]
+    },
+    {
+      "id": "FR-Q02",
+      "question": "Combien de temps un joueur a-t-il pour arriver avant forfait ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "chunk_text": "## 6.7. Délai de forfait :  \n- 6.7.1. Le règlement d'une compétition doit spécifier à l'avance un délai de forfait. Si aucun délai de forfait n'est indiqué, celui-ci est égal à zéro. Tout joueur ou joueuse qui arrive devant son échiquier après le délai de forfait perd la partie, à moins que l'arbitre n'en décide autrement.\n- 6.7.2. Si le règlement d'une manifestation spécifie que le délai de forfait est différent de zéro et qu'aucun des deux adversaires n'est présent initialement, l a personne ayant les blancs perd tout le temps écoulé jusqu'à ce qu' elle arrive, à moins que les règles de la compétition ne spécifient autre chose ou que l'arbitre ne décide autrement.  \nLe début de la ronde est le moment où l'annonce est faite par l'arbitre. Si le délai de forfait est zéro, l'arbitre doit déclarer la partie perdue pour les joueurs et joueuses qui ne sont pas présents/présentes à leur échiquier.  \nIl est préférable d'afficher un grand dispositif de compte à rebours numérique sur le lieu de la compétition. Pour les événements FIDE avec moins de 30 joueurs, une annonce doit être faite cinq minutes avant le début de la ronde et une minute avant le début de la partie.  \nAutrement, une horloge doit être accrochée au mur à l'intérieur du lieu de la compétition et indiquer l'heure officielle du tournoi.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "temps",
+        "forfait",
+        "tournois",
+        "peu",
+        "assez",
+        "arbitres"
+      ]
+    },
+    {
+      "id": "FR-Q03",
+      "question": "Que faire si un joueur arrive en retard à sa partie ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "chunk_text": "## 6.7. Délai de forfait :  \n- 6.7.1. Le règlement d'une compétition doit spécifier à l'avance un délai de forfait. Si aucun délai de forfait n'est indiqué, celui-ci est égal à zéro. Tout joueur ou joueuse qui arrive devant son échiquier après le délai de forfait perd la partie, à moins que l'arbitre n'en décide autrement.\n- 6.7.2. Si le règlement d'une manifestation spécifie que le délai de forfait est différent de zéro et qu'aucun des deux adversaires n'est présent initialement, l a personne ayant les blancs perd tout le temps écoulé jusqu'à ce qu' elle arrive, à moins que les règles de la compétition ne spécifient autre chose ou que l'arbitre ne décide autrement.  \nLe début de la ronde est le moment où l'annonce est faite par l'arbitre. Si le délai de forfait est zéro, l'arbitre doit déclarer la partie perdue pour les joueurs et joueuses qui ne sont pas présents/présentes à leur échiquier.  \nIl est préférable d'afficher un grand dispositif de compte à rebours numérique sur le lieu de la compétition. Pour les événements FIDE avec moins de 30 joueurs, une annonce doit être faite cinq minutes avant le début de la ronde et une minute avant le début de la partie.  \nAutrement, une horloge doit être accrochée au mur à l'intérieur du lieu de la compétition et indiquer l'heure officielle du tournoi.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "forfait",
+        "pendule",
+        "tournois",
+        "peu",
+        "assez",
+        "arbitres"
+      ]
+    },
+    {
+      "id": "FR-Q04",
+      "question": "Comment réclamer le gain au temps (drapeau) ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "chunk_text": "Autrement, une horloge doit être accrochée au mur à l'intérieur du lieu de la compétition et indiquer l'heure officielle du tournoi.  \nSi le délai de forfait n'est pas 0(zéro), il est conseillé que l'arbitre annonce publiquement l'heure du début de la ronde et qu'il/elle note l'heure de départ. Si le délai de forfait est par exemple de 30 minutes et que la ronde devait commencer à 15h00, mais a effectivement commencé à 15h15, les joueurs et joueuses ne perdent par forfait qu'à 15h45.  \n- 6.8. On considère qu'un drapeau est tombé quand l'arbitre constate le fait ou que l'un ou l'autre des deux adversaires a fait une réclamation valide à ce sujet.  \nUn drapeau est considéré comme tombé quand le fait est noté ou demandé, pas quand il est effectivement tombé. Si un résultat est atteint avant que l'on remarque la chute du drapeau alors ce résultat est conservé. L'arbitre doit annoncer la chute du drapeau dès qu'il/elle le remarque.  \n6.9. En dehors de l'application de l'un des articles 5.1.1, 5.1.2, 5.2.1, 5.2.2 ou 5.2.3, si un joueur ou une joueuse n'a pas achevé le nombre de coups prescrits dans le temps imparti, la partie est perdue par ce joueur ou cette joueuse. Toutefois, la partie est déclarée nulle, si la position est telle que son adversaire ne peut mater son roi par aucune suite de coups légaux.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "temps",
+        "drapeau",
+        "chute",
+        "réclam"
+      ]
+    },
+    {
+      "id": "FR-Q05",
+      "question": "Quelle est la procédure en cas de coup illégal ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "chunk_text": "- 6.11.1. Si la partie doit être interrompue, l'arbitre met la pendule d'échecs en pause.  \nPar exemple, lors d' une alarme incendie. Avant de demander aux joueurs et joueuses d'évacuer le bâtiment, l'arbitre devrait, si possible, demander à ceux et celles qui se trouvent à leur échiquier de mettre leurs pendules en pause.  \n- 6.11.2. Un joueur ou une joueuse ne peut mettre la pendule d'échecs en pause que pour demander l'assistance de l'arbitre, par exemple lorsqu'une promotion va avoir lieu alors que la pièce requise n'est pas disponible.\n- 6.11.3. L'arbitre décide du moment où la partie reprend.\n- 6.11.4. Si un joueur ou une joueuse met la pendule d'échecs en pause pour demander l'assistance de l'arbitre, l'arbitre détermine si cette mise en pause de la pendule d'échecs est justifiée. En l'absence de raison valable, le joueur ou la joueuse reçoit une pénalité selon l'article 12.9.  \nLes raisons valables pour mettre la pendule en pause incluent :  \nUne irrégularité, telle qu'une position ou un coup illégal ;  \nUne personne est dérangée par son adversaire et/ou par des spectateurs/spectatrices ; fait un malaise.  \nUne pause toilette n'est généralement pas une raison valable sauf dans le cas d'une personne handicapée ou malade.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "illégal",
+        "irrégul",
+        "coup",
+        "pénalité"
+      ]
+    },
+    {
+      "id": "FR-Q06",
+      "question": "Comment effectuer correctement le roque ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "chunk_text": "- 3.7.3.4. Le choix du joueur ou de la joueuse n ' est pas restreint aux pièces capturées précédemment.\n- 3.7.3.5. Ce remplacement d ' un pion par une autre pièce est appelé promotion. La nouvelle pièce issue de cette promotion est immédiatement active.  \nDans le cas d'une promotion, si le joueur ou la joueuse ne trouve pas la pièce nécessaire, il/elle a le droit d e mettre immédiatement la pendule en pause et d'appeler l'arbitre pour qu'on lui apporte la pièce qu'il /elle désire. L'arbitre doit fournir la pièce demandée et redémarrer la pendule. Le joueur ou la joueuse continue alors de réfléchir à son coup. Il/Elle n'a pas l'obligation de faire la promotion en utilisant la pièce demandée.  \n- 3.8. Le roi peut se déplacer de deux façons différentes :\n- 3.8.1. En se déplaçant sur une case adjacente\n- 3.8.2. En « roquant ». C'est un mouvement combiné du roi et de l' une des tours de même couleur le long de la première rangée du joueur ou de la joueuse. Le roque compte pour un seul coup, il est joué de la façon suivante : le roi est déplacé de deux cases depuis sa case initiale vers une tour située sur sa case initiale, puis cette tour est déplacée sur la case que le roi vient de traverser.\n- 3.8.2.1. Le droit de roquer est définitivement perdu :\n- 1) Si le roi s ' est déjà déplacé, ou\n- 2) Avec une tour qui s ' est déjà déplacée.\n- 3.8.2.2. Le roque est temporairement interdit :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "roque",
+        "roi",
+        "tour",
+        "case"
+      ]
+    },
+    {
+      "id": "FR-Q07",
+      "question": "Quand peut-on réclamer la nulle par répétition de position ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "chunk_text": "## Article 9 La partie nulle  \n- 9.1. Propositions de nulles et règlement des compétitions :\n- 9.1.1. Le règlement d'une compétition peut spécifier que les deux adversaires ne peuvent pas proposer ou convenir d'une partie nulle, soit en dessous d'un nombre défini de coups soit pas du tout, sans le consentement de l'arbitre.  \nSi un tournoi applique cette règle, alors le nombre de coups nécessaires ou l'impossibilité de proposer nulle doivent être indiqués sur l'invitation du tournoi. Il est conseillé à l'arbitre de rappeler la règle au début du tournoi. La règle ne s'applique qu'aux propositions de nulle, les articles 9.2, 9.3 et 9.6 s'appliquent toujours pendant la partie. Ces derniers offrent la possibilité aux joueurs et joueuses d'atteindre une nulle en moins de coups que la limite imposée dans le tournoi, mais celleci doit être validée par l'arbitre (par exemple : si deux adversaires font nulle par triple apparition d'une position au bout de 20 coups dans un tournoi imposant au moins 30 coups aux deux adversaires avant de faire nulle par accord mutuel, alors l'Arbitre doit accepter la nulle avant d'arrêter la partie). Si aucun joueur ou joueuse ne réclame un nul par triple répétition, et qu e l' arbitre sait que la même position (selon 9.2.2) s'est produite au moins 5 fois, alors il doit intervenir, voir l'article 9.6.1.  \n- 9.1.2. Cependant, si le règlement de la compétition permet les nulles par accord mutuel, les règles suivantes s'appliqueront :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "nulle",
+        "répétition",
+        "position",
+        "triple"
+      ]
+    },
+    {
+      "id": "FR-Q08",
+      "question": "Comment fonctionne la règle des 50 coups ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+      "chunk_text": "## Voir le commentaire de l'article 9.2  \n- 9.4. Si le joueur ou la joueuse touche une pièce comme dans l'Article 4.3, il/elle perd le droit de réclamer la nulle selon l'Article 9.2 ou 9.3 lors de ce coup.  \nLe droit de réclamer un match nul est restitué au coup suivant mais ne peut être effectué rétrospectivement.  \n- 9.5. Réclamations de partie nulle.\n- 9.5.1. Si une personne réclame la nulle en application de l'Article 9.2 ou 9.3, elle ou l'arbitre met la pendule d'échecs en pause (voir Article 6.12.1 ou 6.12.2). Elle n'a pas le droit de retirer sa réclamation.\n- 9.5.2. Si la réclamation est jugée correcte, la partie est déclarée immédiatement nulle.\n- 9.5.3. Si la réclamation est jugée incorrecte, l'arbitre ajoute deux minutes au temps de réflexion restant de l'adversaire. La partie doit continuer. Si la réclamation était basée sur un coup prévu, ce coup doit être joué en respectant les Articles 3 et 4.  \nCette réclamation n'est pas traitée comme un coup illégal, toutefois i l est stipulé que le coup prévu doit être joué, s'il s'agit d'un coup illégal, un autre coup doit être joué avec la même pièce. Tous les autres éléments de l'article 4 s'appliquent.  \n- 9.6. Si l'une ou les deux situations suivantes se produisent, alors la partie est nulle :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "glossaire",
+        "termes",
+        "arbitrage",
+        "organisateur",
+        "pat",
+        "pendule"
+      ]
+    },
+    {
+      "id": "FR-Q09",
+      "question": "Comment fonctionne la prise en passant ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "chunk_text": "## Note de traduction : Les deux articles suivants définissent la prise en passant.  \n- 3.7.3.1. Un pion occupant une case située sur la même rangée et sur une colonne adjacente à un pion adverse qui vient d ' avancer de deux cases en un seul coup depuis sa case de départ, peut prendre ce pion adverse comme si ce dernier n ' avait été avancé que d ' une seule case.\n- 3.7.3.2. Cette prise n'est autorisée que sur le coup qui suit l'avance ment du pion adverse. Cette prise est appelée « prise en passant ».  \n<!-- image -->  \nNote de traduction : Les trois articles suivants définissent la promotion.  \n<!-- image -->  \n- 3.5. Lors de leurs déplacements, un fou, une tour ou une dame ne peuvent passer par-dessus des pièces qui se trouveraient sur leur chemin.\n- 3.6. Un cavalier peut se déplacer sur l ' une des cases les plus proches de celle où il se trouve mais non située sur la même rangée, la même colonne ou la même diagonale.  \n<!-- image -->  \n- 3.7.3.3. Quand un joueur ou une joueuse au trait déplace un pion sur la rangée la plus éloignée de sa position de départ, il/elle doit remplacer ce pion -lors de ce coup- par une nouvelle dame, une nouvelle tour, un nouveau fou ou un nouveau cavalier de la même cou leur sur cette case d'arrivée que l'on nomme case de « promotion ».\n- 3.7.3.4. Le choix du joueur ou de la joueuse n ' est pas restreint aux pièces capturées précédemment.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "passant",
+        "pion",
+        "prise",
+        "case"
+      ]
+    },
+    {
+      "id": "FR-Q10",
+      "question": "Quelles sont les règles de promotion du pion ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "chunk_text": "## Note de traduction : Les deux articles suivants définissent la prise en passant.  \n- 3.7.3.1. Un pion occupant une case située sur la même rangée et sur une colonne adjacente à un pion adverse qui vient d ' avancer de deux cases en un seul coup depuis sa case de départ, peut prendre ce pion adverse comme si ce dernier n ' avait été avancé que d ' une seule case.\n- 3.7.3.2. Cette prise n'est autorisée que sur le coup qui suit l'avance ment du pion adverse. Cette prise est appelée « prise en passant ».  \n<!-- image -->  \nNote de traduction : Les trois articles suivants définissent la promotion.  \n<!-- image -->  \n- 3.5. Lors de leurs déplacements, un fou, une tour ou une dame ne peuvent passer par-dessus des pièces qui se trouveraient sur leur chemin.\n- 3.6. Un cavalier peut se déplacer sur l ' une des cases les plus proches de celle où il se trouve mais non située sur la même rangée, la même colonne ou la même diagonale.  \n<!-- image -->  \n- 3.7.3.3. Quand un joueur ou une joueuse au trait déplace un pion sur la rangée la plus éloignée de sa position de départ, il/elle doit remplacer ce pion -lors de ce coup- par une nouvelle dame, une nouvelle tour, un nouveau fou ou un nouveau cavalier de la même cou leur sur cette case d'arrivée que l'on nomme case de « promotion ».\n- 3.7.3.4. Le choix du joueur ou de la joueuse n ' est pas restreint aux pièces capturées précédemment.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "promotion",
+        "pion",
+        "dame",
+        "pièce"
+      ]
+    },
+    {
+      "id": "FR-Q100",
+      "question": "Qu'est-ce que l'arbitre doit absolument faire avant de lancer un tournoi homologué FFE ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "chunk_text": "## Dans l'ordre l'arbitre principal d'un tournoi doit :  \n- → S'assurer que le tournoi est homologué (Voire demander l'homologation au nom de l'organisateur)  \nDans le titre du tournoi, il est obligatoire de préciser clairement les critères restrictifs (Elo, âge, genre, territorial, ...)  \n- → Rédiger un règlement intérieur pour le tournoi qui devra être diffusé sur le site fédéral avant la tenue du tournoi.\n- → S'assurer que tous les joueurs participants au tournoi sont en règle envers la FFE et effectuer toutes les démarches d'enquêtes pour les forfaits non justifiés et les procédures disciplinaires.\n- → Interdire aux joueurs suspendus la participation à tout événement se déroulant en lien avec la FFE  \nLa liste des joueurs suspendus est disponible sur la page de la commission fédérale de discipline :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "obligations",
+        "avant tournoi",
+        "homologué"
+      ]
+    },
+    {
+      "id": "FR-Q101",
+      "question": "Si je suis arbitre adjoint dans un petit tournoi régional, j'ai droit à combien d'euros par jour ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "chunk_text": "## 4) Calcul des indemnités pour les événements homologués par la FFE  \n- ➔ L'indemnité journalière est soumise à négociation entre l'équipe d'organisation et les arbitres. En l'absence d'accord préalable, l'indemnité la plus basse du type de tournoi correspondant sera appliquée.  \nIl est vivement conseillé que le montant négocié de l'indemnité soit formalisé par une trace écrite (mail) et le plus tôt possible au moment du recrutement des arbitres. Cela permet également à l'équipe d'organisation de budgétiser le plus précisément possible l'événement.  \n- ➔ L'indemnité de l'arbitre en chef est toujours supérieure ou égale à celle des arbitres adjoints.\n- ➔ Un arbitre ayant obtenu une dérogation pour arbitrer un tournoi que son titre ne lui permet normalement pas d'arbitrer devra utiliser la plage d'indemnité d'un arbitre adjoint.\n- ➔ Les éléments suivants seront pris en compte dans la négociation :\n- o Nombre de joueurs et joueuses\n- o Nombre de rondes\n- o Montant des prix\n- o Nombre de joueurs et joueuses titrés\n- o Tournoi simple ou festival\n- o Spécificités de l'événement\n- ➔ Indemnités Normes : Dans le cadre d'un tournoi à normes, l'arbitre principal pourra négocier un maximum de 50€ supplémentaire à son indemnité totale sur le tournoi (même si aucune norme n'est distribuée)\n- ➔ Frais matériel : Dans le cadre de la mise à disposition de son matériel informatique, l'arbitre pourra négocier un maximum de 20 € supplémentaire à son indemnité totale sur le tournoi.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre adjoint",
+        "parfois",
+        "arbitre",
+        "dernier",
+        "comprend",
+        "alors"
+      ]
+    },
+    {
+      "id": "FR-Q102",
+      "question": "Faut-il envoyer le rapport technique le soir même ou le lendemain après un tournoi ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent512-child00",
+      "chunk_text": "## Gestion des résultats du tournoi.  \nLa sauvegarde (boule) PAPI du tournoi doit être envoyé le jour même sur le site fédéral http://admin.echecs.asso.fr  \nUniquement en cas de problème technique, il est possible d'envoyer votre boule PAPI à Erick Mouret par mail ( erick.mouret@echecs.asso.fr )  \nRemarque : Le Fichier Papi doit être posté même si la situation des joueurs et joueuses (licence) n'est pas régularisée. Il est préférable d'avoir une irrégularité qui sera traitée a posteriori plutôt que de pénaliser le responsable fédéral chargé de la transmission à la FIDE et tous les autres joueurs et joueuses qui ne verraient pas le tournoi comptabilisé pour leur classement.  \n- → Il est possible d'envoyer le fichier Papi une ronde après l'autre pour permettre l'affichage des appariements en ligne.\n- → L'arbitre doit m arquer le Tournoi \"Terminé\" ce qui indique au responsable des homologations que le tournoi peut être traité.\n- → Une fois le Tournoi marqué \"Terminé\" il n'est plus possible de le modifier. Il faut demander le déverrouillage du tournoi pour prévenir le responsable des homologations qu'il va y avoir des modifications dans le résultat.  \nLes droits d'homologation sont dans tous les cas recalculés à chaque envoi d'une nouvelle boule Papi, les arbitres ne doivent pas oublier de supprimer les joueurs ou joueuses n'ayant joué aucune ronde (sinon ils sont comptés dans les frais d'homologation). La facture des frais d'homologation est aussi disponible dans la page de gestion du club référent à la rubrique tournoi.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapport technique",
+        "délai",
+        "envoi",
+        "tournoi"
+      ]
+    },
+    {
+      "id": "FR-Q103",
+      "question": "Mon joueur arrive pas à la première ronde, je fais quoi comme arbitre ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p168-parent499-child00",
+      "chunk_text": "## Contraintes de la FIDE  \nLa FIDE n'accepte pas les tournois durant plus de 30 jours . De tels Tournois doivent désormais faire l'objet de plusieurs demandes avec le nombre de rondes à la fin (Ex : Tournoi Interne 2019 r1-3, Tournoi Interne 2019 r45 etc...)  \nLa FIDE demande désormais la date de chaque partie. Il faut donc indiquer ces dates dans le formulaire d'homologation. Attention la FIDE n'autorise pas plus de 12 heures de jeu par jour. (Sur la base de parties de 60 coups) Il est aussi rappelé qu'un joueur étranger doit obligatoirement avoir un code FIDE faute de quoi (en plus d'être désormais considéré comme non licencié) le tournoi ne peut être pris en compte. Un joueur souhaitant être classé sous FRA aura son code ajouté automatiquement.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "part",
+        "fixe",
+        "image",
+        "euros",
+        "tournois"
+      ]
+    },
+    {
+      "id": "FR-Q104",
+      "question": "Mon roi peut plus bouger mais il est pas en échec, c'est quoi ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "chunk_text": "Un joueur ou une joueuse qui quitte une partie sans abandonner ni prévenir l'arbitre fait ainsi preuve de discourtoisie. L 'Arbitre en chef peut lui infliger une sanction pour manque de sportivité.  \n- 5.2.1. La partie est nulle lorsque le joueur ou la joueuse au trait ne dispose d'aucun coup légal et que son roi n'est pas en échec. On dit alors que la partie se termine par le \"pat\". Cela met immédiatement fin à la partie, à condition que le coup amenant cette position soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.\n- 5.2.2. La partie est nulle lorsque survient une position dans laquelle aucun des deux adversaires ne peut mettre échec et mat le roi adverse par une suite de coups légaux. On dit alors que la partie se termine sur une \"position morte\". Ceci met immédiatement fin à la partie, à condition que le coup amenant cette position soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.\n- 5.2.3. La partie est nulle en cas d'accord mutuel entre les deux adversaires au cours de la partie, sous réserve que chaque joueur ou joueuse ait joué au moins un coup. Ceci met immédiatement fin à la partie.  \nCette règle n'est applicable que si l'article 9.1.1 (ne pas accepter une partie nulle par accord mutuel avant un nombre déterminé de coups) n'est pas utilisé.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pat",
+        "roi",
+        "coup légal",
+        "nulle"
+      ]
+    },
+    {
+      "id": "FR-Q105",
+      "question": "Mon adversaire a son téléphone dans sa poche mais il est éteint, c'est grave ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "chunk_text": "C'est différent si la partie n'a pas encore commencé. Imaginons la situation suivante : Le forfait n'est pas à zéro minute. Le joueur/la joueuse A est dans la salle de jeu au démarrage de la ronde. Son adversaire, le joueur/la joueuse B, est en retard . Immédiatement après avoir joué son premier coup, le téléphone de A sonne. L'arbitre déclare la partie perdue pour A. Quelques minutes plus tard, mais dans les temps pour ne pas être forfait, B arrive. Le résultat est 0F -1F, car ceci n'est pas une parti e « jouée » et ne peut être comptabilisée pour le classement Elo.  \nCependant, il y a une possibilité ici pour l' arbitre en lien avec l'équipe organisatrice de définir à l'avance (dans le règlement de la manifestation) une sanction moins sévère pour la violation de cet article (par exemple : une amende) On peut également inclure dans le règlement de la manifestation la possibilité d'apporter un tel appareil au tournoi, pourvu que certaines conditions soient remplies : que l'appareil soit complètement éteint et rangé dans un sac à part, afin qu'il ne soit pas en contact avec le joueur/la joueuse et qu 'il /elle n'ait pas accès à son sac pendant la partie, sans l'autorisation de l'arbitre (et qu'il /elle ne puisse prendre le sac pour aller aux toilettes etc).  \nUn joueur ou une joueuse qui arrive après le début d'une ronde doit avoir la possibilité de ranger son appareil avant de jouer son premier coup, soit en le confiant à l' équipe organisatrice , soit en le plaçant dans un sac si c'est autorisé.  \n- 11.3.4. Fumer (y compris les cigarettes électroniques) est autorisé uniquement dans la section du lieu de la compétition désignée par l'arbitre.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "téléphone",
+        "éteint",
+        "portable",
+        "perte"
+      ]
+    },
+    {
+      "id": "FR-Q106",
+      "question": "On a joué 12 coups avec les mauvaises couleurs, on recommence la partie ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "chunk_text": "## Article 7 Irrégularités  \n- 7.1. Si une irrégularité apparaît et que les pièces doivent être replacées dans une position antérieure, l'arbitre f ait preuve du plus grand discernement pour déterminer les temps à afficher sur la pendule d'échecs . Ceci inclut le droit de ne pas changer les temps affichés. Il/Elle ajuste aussi, si nécessaire, le compteur de coups de la pendule.\n- 7.2.1. Si au cours d'une partie, on constate que la position initiale des pièces était incorrecte, la partie est annulée et une nouvelle partie est jouée.  \nLa position incorrecte doit être constatée pendant la partie, sinon le résultat restera en l'état. Si une partie est disputée sur un échiquier électronique qui montre cette erreur ou cesse d'enregistrer les coups , les responsables de retransmission peuvent alors signaler le problème à l'arbitre. Il est du devoir de l'arbitre de vérifier si cette situation a été causée par une irrégularité dans le jeu.  \n- 7.2.2. Si au cours d'une partie, on constate que l'échiquier a été placé en contradiction avec l'article 2.1, la partie continue, mais la position atteinte doit être transférée sur un échiquier correctement disposé.\n- 7.3. Si une partie a débuté avec des couleurs inversées et que les deux adversaires ont joué moins de dix coups, alors la partie est interrompue et une nouvelle partie est jouée avec les couleurs correctes. Après dix coups ou plus, la partie continue.  \nAprès que les noirs aient joué leur 10ème coup la partie devra continuer, dans le cas contraire une nouvelle partie sera jouée avec les bonnes couleurs. Peu importe la position atteinte sur l'échiquier ni combien de pièces ou de pions ont été capturés.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "couleurs",
+        "inversées",
+        "coups",
+        "recommence"
+      ]
+    },
+    {
+      "id": "FR-Q107",
+      "question": "C'est quoi la cadence pour les poussins au championnat de France ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
+      "chunk_text": "## 3.1. Règles  \nUn tournoi est organisé pour chaque catégorie jeunes : U8, U10, U12, U14, U16, U18, U20 et U8F, U10F, U12F, U14F, U16F, U18F, U20F.  \nLors des phases qualificatives, les joueurs et joueuses d'une même catégorie d'âge peuvent être regroupés dans un tournoi mixte.  \nLes titres de Champion, Championne, vice-Champion, vice-Championne de France sont attribués au 1 r et 2 e de chaque tournoi.  \nIl est obligatoire de pointer sur place pour être apparié à la 1 ère ronde.  \nLors du Championnat de France, les rondes 2 et 3 sont jouées le deuxième jour.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "cadence",
+        "poussins",
+        "U8",
+        "championnat",
+        "jeunes"
+      ]
+    },
+    {
+      "id": "FR-Q108",
+      "question": "Si un joueur en fauteuil roulant ne peut pas accéder à la salle, qui perd la partie ?",
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "chunk_text": "## Le cas général concernant l'organisation des tournois est fixé par le règlement H01.  \nCe règlement s'applique aussi aux compétitions par équipes et particulièrement dans le cas de rassemblements.  \nDans le cas de compétitions étalées dans le temps, l'établissement du calendrier devra suivre le protocole suivant :",
+      "corpus": "fr",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "cas",
+        "concernant",
+        "organisation",
+        "tournois",
+        "h01"
+      ]
+    },
+    {
+      "id": "FR-Q109",
+      "question": "Une équipe finit 9ème en Nationale 2, elle descend ou pas ?",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "chunk_text": "## 1.3 Engagements  \nDès la fin du championnat (hormis TOP 16), la FFE publie un calendrier de l'intersaison. Ce calendrier indique la procédure d'inscription que les clubs devront suivre pour participer à la saison suivante. Sous peine de noninscription au championnat, les droits d'inscription doivent être réglés avant la date limite fixée par la FFE.  \nLes clubs de N1, N2 et N3 doivent mettre gratuitement à disposition dans leur ville une salle permettant de bonnes conditions de jeu pour les matchs qui y seraient fixés, en désignant la personne chargée de l'organisation.  \nL'inscription en Coupe de France est obligatoire pour les clubs du Top 16 et N1.  \nLes clubs du Top 16 doivent avoir une équipe engagée en Interclubs Jeunes et une équipe féminine engagée en Championnat de France Féminin des Clubs. Ces équipes devront jouer au complet au minimum la moitié des matchs prévus dans le calendrier de la division concernée. Tout club en infraction sera interdit de jouer en Top 16 et N1 la saison suivante.  \nLes clubs de N1 doivent avoir une équipe engagée en Interclubs Jeunes ou une équipe féminine engagée en Championnat de France Féminin des Clubs. Cette équipe devra jouer au complet au minimum la moitié des matchs prévus dans le calendrier de la division concernée. Tout club en infraction sera interdit de jouer en Top 16 et N1 la saison suivante.  \nCette équipe ne doit pas être issue d'une entente telle que définie à l'article 11 des Règles Générales.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "N2",
+        "engagements",
+        "fin",
+        "championnat",
+        "hormis",
+        "top"
+      ]
+    },
+    {
+      "id": "FR-Q11",
+      "question": "Quelle sanction pour téléphone portable en salle de jeu ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+      "chunk_text": "- 11.3.2.2. S'il est évident qu'un joueur ou une joueuse a un tel appareil sur sa personne dans le lieu de la compétition, il/elle perd la partie. La victoire est attribuée à l 'adversaire. Le règlement d'une compétition peut spécifier une sanction différente, moins sévère.\n- 11.3.3. L'arbitre p eut exiger des joueurs et joueuses le droit d'inspecter en privé leurs vêtements, sacs, autres objets ou corps. L'arbitre, ou une personne mandatée par l'arbitre , inspecte le joueur ou la joueuse et doit être du même genre que le joueur ou la joueuse. Si un joueur ou une joueuse refuse de se soumettre à ces obligations, l'arbitre prend des mesures conformément à l'article 12.9.  \nNote de traduction : En France, les arbitres ne sont pas habilités à procéder à une fouille. L'adaptation envisageable est de demander aux joueurs et joueuses de vous présenter le contenu de leurs sacs et de vous montrer où se trouve leur téléphone portable.  \nLes règlements régissant les appareils électroniques sont à présent très stricts. Aucun téléphone mobile, montre connecté ou appareil du même type n'est autorisé dans la salle de tournoi et cela ne fait aucune différence qu'il soit  \nallumé ou non. Si un téléphone mobile (même éteint) est découvert sur un joueur, sa partie est immédiatement perdue et son adversaire gagne. Le résultat est 1-0 ou 0-1. Peu importe si, lorsque le téléphone mobile est découvert, l'adversaire ne peut pas mater le roi du joueur fautif par aucune suite de coups légaux : il gagne la partie. L'adversaire peut avoir triché plus tôt.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "téléphone",
+        "portable",
+        "sanction",
+        "perdu"
+      ]
+    },
+    {
+      "id": "FR-Q110",
+      "question": "Si je touche ma tour AVANT mon roi, j'ai pas le droit de roquer ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02",
+      "chunk_text": "Dans ce cas, le joueur ou la joueuse doit déplacer sa tour, si c'est possible. Si aucun mouvement de tour n'est possible, il/elle doit déplacer son roi. (Article 4.3.1)  \n- 4.4.3. ayant l'intention de roquer, touche d'abord son roi puis une de ses tours alors que le roque avec cette tour est illégal, le joueur ou la joueuse doit effectuer un autre coup légal avec son roi (éventuellement le roque impliquant l'autre tour). Si le roi ne dispose d'aucun coup légal alors le joueur ou la joueuse est libre d'effectuer n'importe quel coup légal ;  \nVeuillez noter que le roque est un mouvement de roi. Si un joueur ou une joueuse essaie de roquer et que cela s'avère illégal, alors il/elle doit faire un mouvement de roi qui est légal. S'il n'y a pas de mouvement légal du roi, le joueur ou",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tour",
+        "roi",
+        "roque",
+        "toucher"
+      ]
+    },
+    {
+      "id": "FR-Q111",
+      "question": "C'est quoi la différence entre le pat et la nulle par répétition ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "chunk_text": "Un joueur ou une joueuse qui quitte une partie sans abandonner ni prévenir l'arbitre fait ainsi preuve de discourtoisie. L 'Arbitre en chef peut lui infliger une sanction pour manque de sportivité.  \n- 5.2.1. La partie est nulle lorsque le joueur ou la joueuse au trait ne dispose d'aucun coup légal et que son roi n'est pas en échec. On dit alors que la partie se termine par le \"pat\". Cela met immédiatement fin à la partie, à condition que le coup amenant cette position soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.\n- 5.2.2. La partie est nulle lorsque survient une position dans laquelle aucun des deux adversaires ne peut mettre échec et mat le roi adverse par une suite de coups légaux. On dit alors que la partie se termine sur une \"position morte\". Ceci met immédiatement fin à la partie, à condition que le coup amenant cette position soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.\n- 5.2.3. La partie est nulle en cas d'accord mutuel entre les deux adversaires au cours de la partie, sous réserve que chaque joueur ou joueuse ait joué au moins un coup. Ceci met immédiatement fin à la partie.  \nCette règle n'est applicable que si l'article 9.1.1 (ne pas accepter une partie nulle par accord mutuel avant un nombre déterminé de coups) n'est pas utilisé.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pat",
+        "nulle",
+        "répétition",
+        "différence"
+      ]
+    },
+    {
+      "id": "FR-Q112",
+      "question": "Qu'est-ce qui se passe quand un joueur est en zeitnot ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+      "chunk_text": "## 8.5. Feuilles de parties incomplètes  \n- 8.5.1. Si aucun des adversaires n'est dans l'obligation de noter les coups en application de l'Article 8.4, l'arbitre, un assistant ou une assistante doit essayer d'être présent/présente et de noter les coups. Dans ce cas, immédiatement après la chute d'un drapeau, l'arbitre doit mettre la pendule d'échecs en pause. Ensuite, les deux adversaires doiven t mettre à jour leurs feuille de partie, en utilisant celle de l'arbitre ou de l'adversaire.  \nIl arrive assez souvent qu'un joueur ou une joueuse en manque de temps demande à l'arbitre combien de coups il lui reste à jouer avant le contrôle de temps. L'arbitre ne doit jamais donner cette information même si les deux adversaires ont achevé le nombre requis de coups car cela reviendrait à donner des conseils. L'arbitre ne doit intervenir qu'après la chute du drapeau. A ce moment-là il/elle doit mettre la pendule en pause et demander aux deux adversaires de mettre à jour leurs feuilles de parties. Seulement après, l'arbitre enclenche de nouveau la pendule. Si un joueur ou une joueuse tarde à mettre à jour sa feuille de partie, notamment pour réfléchir à son prochain coup, l'arbitre doit l'avertir.  \n- 8.5.2. Si un seul des deux adversaires n'a pas noté les coups en application de l'Article 8.4, il /elle doit, dès la chute d'un des drapeaux, mettre à jour sa feuille de partie avant de jouer une pièce sur l'échiquier. A condition qu'il/elle ait le trait, il/elle peut utiliser la feuille de partie de son adversaire, mais doit la rendre avant de jouer un coup.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "zeitnot",
+        "manque",
+        "temps",
+        "drapeau"
+      ]
+    },
+    {
+      "id": "FR-Q113",
+      "question": "Lors d'un tournoi, les deux joueurs se sont trompés de couleurs et ont joué 13 coups chacun. Un joueur a une dame d'avance. Quelle décision prendre en partie longue (1h+30s/coup) ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "chunk_text": "## Article 7 Irrégularités  \n- 7.1. Si une irrégularité apparaît et que les pièces doivent être replacées dans une position antérieure, l'arbitre f ait preuve du plus grand discernement pour déterminer les temps à afficher sur la pendule d'échecs . Ceci inclut le droit de ne pas changer les temps affichés. Il/Elle ajuste aussi, si nécessaire, le compteur de coups de la pendule.\n- 7.2.1. Si au cours d'une partie, on constate que la position initiale des pièces était incorrecte, la partie est annulée et une nouvelle partie est jouée.  \nLa position incorrecte doit être constatée pendant la partie, sinon le résultat restera en l'état. Si une partie est disputée sur un échiquier électronique qui montre cette erreur ou cesse d'enregistrer les coups , les responsables de retransmission peuvent alors signaler le problème à l'arbitre. Il est du devoir de l'arbitre de vérifier si cette situation a été causée par une irrégularité dans le jeu.  \n- 7.2.2. Si au cours d'une partie, on constate que l'échiquier a été placé en contradiction avec l'article 2.1, la partie continue, mais la position atteinte doit être transférée sur un échiquier correctement disposé.\n- 7.3. Si une partie a débuté avec des couleurs inversées et que les deux adversaires ont joué moins de dix coups, alors la partie est interrompue et une nouvelle partie est jouée avec les couleurs correctes. Après dix coups ou plus, la partie continue.  \nAprès que les noirs aient joué leur 10ème coup la partie devra continuer, dans le cas contraire une nouvelle partie sera jouée avec les bonnes couleurs. Peu importe la position atteinte sur l'échiquier ni combien de pièces ou de pions ont été capturés.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "couleur",
+        "erreur",
+        "article",
+        "doivent",
+        "position",
+        "arbitre"
+      ]
+    },
+    {
+      "id": "FR-Q114",
+      "question": "En partie rapide (20min+10s/coup), les joueurs se sont trompés de couleurs après 8 coups. Un joueur a une dame d'avance. Que faire ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "chunk_text": "## Article 7 Irrégularités  \n- 7.1. Si une irrégularité apparaît et que les pièces doivent être replacées dans une position antérieure, l'arbitre f ait preuve du plus grand discernement pour déterminer les temps à afficher sur la pendule d'échecs . Ceci inclut le droit de ne pas changer les temps affichés. Il/Elle ajuste aussi, si nécessaire, le compteur de coups de la pendule.\n- 7.2.1. Si au cours d'une partie, on constate que la position initiale des pièces était incorrecte, la partie est annulée et une nouvelle partie est jouée.  \nLa position incorrecte doit être constatée pendant la partie, sinon le résultat restera en l'état. Si une partie est disputée sur un échiquier électronique qui montre cette erreur ou cesse d'enregistrer les coups , les responsables de retransmission peuvent alors signaler le problème à l'arbitre. Il est du devoir de l'arbitre de vérifier si cette situation a été causée par une irrégularité dans le jeu.  \n- 7.2.2. Si au cours d'une partie, on constate que l'échiquier a été placé en contradiction avec l'article 2.1, la partie continue, mais la position atteinte doit être transférée sur un échiquier correctement disposé.\n- 7.3. Si une partie a débuté avec des couleurs inversées et que les deux adversaires ont joué moins de dix coups, alors la partie est interrompue et une nouvelle partie est jouée avec les couleurs correctes. Après dix coups ou plus, la partie continue.  \nAprès que les noirs aient joué leur 10ème coup la partie devra continuer, dans le cas contraire une nouvelle partie sera jouée avec les bonnes couleurs. Peu importe la position atteinte sur l'échiquier ni combien de pièces ou de pions ont été capturés.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "couleur",
+        "erreur",
+        "rapide",
+        "continuer"
+      ]
+    },
+    {
+      "id": "FR-Q115",
+      "question": "Un joueur annonce échec et mat à tort, son adversaire le croit et arrête la pendule. Le capitaine réclame car ce n'était pas mat. Quelle décision ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "chunk_text": "## Article 5  \n- La fin de la partie\n- 5.1.1. La partie est gagnée par le joueur ou la joueuse qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit conforme à l'Article 3 et aux Articles 4.2 à 4.7.\n- 5.1.2. La partie est perdue par le joueur ou la joueuse qui déclare abandonner (cela met immédiatement fin à la partie), excepté si la position est telle que son roi ne peut pas être mis échec et mat par aucune suite de coups légaux de son adversaire. Dans ce cas, le résultat de la partie est un match nul.  \nUn joueur ou une joueuse peut abandonner de plusieurs façons :  \n- en arrêtant la pendule,\n- en annonçant son abandon,\n- en couchant son roi,\n- en tendant la main à son adversaire,\n- -en signant sa feuille de partie, etc ...  \nToutes ces possibilités peuvent être mal interprétées et la situation doit être clarifiée (NdT : par l'arbitre). À la fin d'une partie, l'arbitre doit s'assurer que les deux feuilles affichent le même résultat.  \nUn joueur ou une joueuse qui quitte une partie sans abandonner ni prévenir l'arbitre fait ainsi preuve de discourtoisie. L 'Arbitre en chef peut lui infliger une sanction pour manque de sportivité.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "mat",
+        "abandon",
+        "cas",
+        "joueur",
+        "joueuse",
+        "doit"
+      ]
+    },
+    {
+      "id": "FR-Q116",
+      "question": "A la cadence 5min+3s/coup, les noirs jouent un coup illégal et appuient sur la pendule. Quelle sanction appliquer ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "chunk_text": "## Annexe B : Parties en cadence Blitz  \n- B.1 Une partie d'échecs en cadence Blitz est une partie durant laquelle soit tous les coups doivent être effectués dans un temps limité de 10 minutes ou moins pour chaque joueur ou joueuse, soit le temps alloué + 60 fois un incrément quelconque est inférieur ou égal à 10 minutes pour chaque joueur ou joueuse.  \nSelon le règlement d'un événement, le contrôle du temps est de 5 minutes pour toute la partie et de 5 secondes pour chaque coup.  \nC'est-à-dire : pour 60 coups, nous aurions 5 '+ (5'x60) = 5' + 5 '= 10'.  \nSelon l'art. B.1 nous avons une partie de Blitz.  \nB.2 Les Règles de Compétition s'appliquent si :  \n- B.2.1. un ou une arbitre supervise une partie et\n- B.2.2. c haque partie est enregistrée par l'arbitre, son assistant ou son assistante et, si possible, par des moyens électroniques.\n- B.2.3. Le joueur ou la joueuse au trait peut à tout moment demander à l'arbitre, son assistant ou son assistante de lui montrer la feuille de partie. Cette requête ne peut être réalisée que cinq fois au maximum. D'autres demandes doivent être considérées comme des distractions de l'adversaire.  \nSi les règles de compétition sont utilisées, elles doivent s'appliquer à chaque ronde. Elles ne peuvent pas être introduites, par exemple, que pour la finale.  \nEn Blitz et en Rapide, si le joueur demande à l'arbitre de voir la feuille de match, la pendule ne doit pas être arrêtée.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "illégal",
+        "blitz",
+        "pendule",
+        "temps"
+      ]
+    },
+    {
+      "id": "FR-Q117",
+      "question": "En partie longue 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour coup illégal. Ils en commettent un second. Quelle sanction ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "chunk_text": "## Ce n'est pas applicable si la partie s'est terminée avant que la pendule soit actionnée.  \n- 7.5.5. Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbi tre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux.  \nLe joueur ou la joueuse perd la partie, dès lors qu'il /elle achève deux (2) coups illégaux décrits cidessus, quels qu'ils soient. Cependant, quand 2 actions illégales se produisent lors d'un même coup (par exemple, un roque illégal et joué à deux mains, une promotion illégale et jouée à deux mains, une prise illégale et jouée à deux mains), cela compte pour un (1) seul coup illégal et la partie ne doit pas être déclarée terminée juste pour cela, sauf s'il s'agit de la deuxième irrégularité.  \nLa prise du roi est un coup illégal et doit être sanctionnée en tant que tel.  \n7.6. Si au cours d'une partie, on constate qu'une pièce a été dérangée de sa bonne case, la position est rétablie telle qu'elle était avant l'irrégularité. Si la position immédiatement avant l'irrégularité ne peut être déterminée, la partie continue à partir de la dernière posi tion identifiable antérieure à l'irrégularité. La partie se poursui t alors à partir de cette position rétablie.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "illégal",
+        "récidive",
+        "sanction",
+        "partie perdue"
+      ]
+    },
+    {
+      "id": "FR-Q118",
+      "question": "Quel départage utilise dans son calcul les résultats des adversaires contre leurs propres adversaires ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p151-parent450-child00",
+      "chunk_text": "## 9.2. Koya (Pour les toute-rondes) (Ko)  \nLe nombre de points obtenus contre tous les adversaires ayant un score au moins égal à 50% du maximum possible sur ce tournoi.  \n- 9.2.1. On peut augmenter ou réduire le score de référence d'un ou plusieurs demi -points pour modifier le nombre d'adversaires contribu ant au calcul de ce départage.  \nChapitre 4.2 :Les systèmes de départages  \nExemple : Le tournoi suivant est en 9 rondes. Avoir 50% correspond à avoir 4,5 pts. Pour calculer le Koya il suffit donc de ne prendre les résultats que jusqu'au joueur N° 7  \n| | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | Score | Koya |\n|----|----------|-----|-----|-----|-----|-----|-----|-----|-----|-----|------|---------|--------|\n| 1 | DIANE | | 1 | 0,5 | 0 | 1 | 0,5 | 0,5 | 0,5 | 1 | 1 | 6 | 31⁄2 |\n| 2 | ALMA | 0 | | 0,5 | 1 | 0,5 | 0,5 | 0,5 | 1 | 1 | 1 | 6 | 3 |\n| 3 | GUY | 0,5 | 0,5 | | 0,5 | 0,5 | 0,5 | 0,5 | 0,5 | 0,5 | 1 | 5 | 3 |",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "départage",
+        "sonneborn",
+        "berger",
+        "adversaires"
+      ]
+    },
+    {
+      "id": "FR-Q119",
+      "question": "Pour un tournoi toutes rondes avec 7 équipes, combien de rondes faut-il programmer ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p102-parent299-child00",
+      "chunk_text": "## LE SYSTÉME RUTSCH  \nLe système Rutsch est un système d'appariement des tournois toutes rondes. Il s'appuie sur le principe du taquin et il est apparu au milieu du 19 ème siècle. Ce n'est que bien plus tard que son application se fit dans des tournois toutes rondes.  \nEn allemand, le glissement -caractéristique de cette méthode -se dit « ein Rutsch ».  \nIl se décline en deux méthodologies que voici :  \nDans les exemples donnés, un joueur/une joueuse sur case noire joue sa partie avec les noirs.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rondes",
+        "toutes rondes",
+        "équipes",
+        "tournoi"
+      ]
+    },
+    {
+      "id": "FR-Q12",
+      "question": "Comment noter une partie en notation algébrique ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "chunk_text": "## Annexe C : La notation algébrique  \nLa FIDE ne reconnaît qu'un seul système de notation pour ses propres tournois et pour ses matchs : le Système Algébrique. Elle préconise l'utilisation de cette notation uniforme dans la littérature et les périodiques échiquéens.  \nLes feuilles de parties, utilisant un autre système que la notation algébrique, ne peuvent pas être utilisées comme preuve dans le cas où ces feuilles sont normalement utilisées à cet effet. L' arbitre qui constate qu'un autre système de notation que le système algébrique est utilisé doit avertir de cette obligation.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "not",
+        "feuille",
+        "algébrique",
+        "case"
+      ]
+    },
+    {
+      "id": "FR-Q120",
+      "question": "Dans l'appariement suisse, qu'est-ce qu'un flotteur descendant ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p126-parent367-child00",
+      "chunk_text": "## A.8 Différence de Score du niveau d'Appariement (D -SA)  \nL'appariement d'un niveau est composé de paires de joueurs /joueuses appariés ensemble et de flotteurs descendants. La Différence de Score du niveau d'appariement (D-SA) est une liste des Différences de Score (D-S voir ci-dessous), classées de la plus grande à la plus petite.  \nPour chaque paire dans un appariement, la D-S est définie comme la valeur absolue de la différence entre les scores des deux adversaires.  \nPour chaque flotteur descendant, la D-S est définie comme la différence entre le score du flotteur descendant et une valeur artificielle qui est un point en dessous du score du joueur le plus bas du niveau étudié (même quand cela donne une valeur négative)  \nNote : La valeur artificielle définie ci-dessus a été choisie pour être strictement inférieure au score le plus bas du niveau, et suffisamment générique pour fonctionner avec différents systèmes d'attribution des points et en présence de niveaux inexistants, vides ou peu occupés qui peuvent suivre le niveau étudié.  \nLa/les différence(s) de scores de niveau d'appariement (D -SA) sont comparées lexicographiquement ( c'est -à-dire leurs différences de scores respectives sont comparées une par une du début à la fin -dans la/les première(s) différence(s) de score correspondante(s) qui sont différentes, la plus petite définit la D-SA inférieure ).",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "flotteur",
+        "descendant",
+        "appariement",
+        "suisse"
+      ]
+    },
+    {
+      "id": "FR-Q121",
+      "question": "Vous arbitrez un tournoi FIDE. Un joueur non classé gagne 5 parties contre des joueurs classés. Comment obtient-il son premier classement Elo ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "chunk_text": "## 7. Liste Officielle du Classement de la FIDE  \n- 7.1. Le premier jour de chaque mois, la FIDE prépare une liste des classements intégrant les parties prises en compte durant la période de classement à partir de la liste précédente. Cela est fait en utilisant la formule du système de classement.\n- 7.1.1. La période de classement (pour les nouveaux classés, voir 7.1.4) est la période pendant laquelle une certaine liste de classements est valide.\n- 7.1.2. Les données suivantes, concernant chaque joueur et joueuse dont le classement est d'au moins 1 400 dans la liste actuelle, sont publiées : Titre de la FIDE, Fédération, Classement Actuel, Code FIDE, Nombre de parties prises en compte dans la période de classement, Année de naissance, Sexe et la valeur actuelle du coefficient K.\n- 7.1.3. La date de clôture des tournois prise en compte pour une liste est de 3 jours avant la date de publication de la liste, les tournois se terminant à cette date ou avant sont pris en compte pour le calcul du classement. Les manifestations officielles de la FIDE sont prises en compte pour le classement même si elles se terminent le dernier jour avant la date de publication du classement.\n- 7.1.4. Un classement pour un joueur ou une joueuse entrant dans la liste sera publié lorsqu'il sera basé sur au moins 5 parties jouées contre des adversaires classés. Il n'est pas nécessaire que ces parties proviennent d'un seul tournoi. Les résultats d'autres tournois joués lors de périodes de classement consécutives, d'au plus 26 mois, sont regroupées pour obtenir le classement initial. Celui-ci doit être d' au moins 1400.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "classement",
+        "FIDE",
+        "premier",
+        "elo",
+        "initial"
+      ]
+    },
+    {
+      "id": "FR-Q122",
+      "question": "Un joueur Elo 1800 gagne contre un joueur Elo 2200. Avec K=20, quel gain approximatif de points ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent544-child00",
+      "chunk_text": "## 8.2. Détermination du Classement initial 'Ru' d'un joueur ou d'une joueuse (Voir Exemple)  \n- 8.2.1. Si une personne non classée marque zéro point dans sa première manifestation, c e score n'est pas pris en compte. Dans le cas contraire, son classement est calculé en utilisant tous ses résultats tel qu'indiqué au 7.1.4.\n- 8.2.2. Ra est le classement moyen des adversaires classés auxquels se sont ajoutés deux adversaires virtuels classés 1800. On considère que les résultats contre ces adversaires virtuels sont des matchs nuls.\n- 8.2.3. Ru = Ra + dp.  \nRu est arrondi à l'entier le plus proche.  \nLe classement initial maximal est 2200.  \n- 8.2.4. Si une personne non classée reçoit un classement publié avant qu'un tournoi dans lequel elle a joué soit pris en compte pour le classement, alors ce tournoi est pris en compte en la considérant comme une personne classée avec son classement actuel. Cependant, pour le calcul du classement de ses adversaires, elle est comptabilisée comme une personne non classée.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "elo",
+        "K",
+        "coefficient",
+        "gain",
+        "calcul"
+      ]
+    },
+    {
+      "id": "FR-Q123",
+      "question": "Dans une finale Roi+Dame contre Roi seul, un joueur annonce mat en 2 mais se trompe. L'adversaire réclame la nulle. Quelle décision ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01",
+      "chunk_text": "- 11.7. Le refus obstiné d'un joueur ou d'une joueuse de se conformer aux Règles du Jeu d'Échecs est sanctionné par la perte de la partie. L'Arbitre décide du score de l'adversaire.  \nIl est très difficile de donner des directives générales pour l'application de cet article, mais si l' arbitre doit avertir un joueur ou une joueuse pour la 3 ème ou 4 ème fois, c'est une raison suffisante pour déclarer la partie perdue. Il est nécessaire d'informer le joueur ou la joueuse que l'Article 11.7 est appliqué à la prochaine infraction.  \n- 11.8. Si la culpabilité est attribuée aux deux adversaires en application de l'Article 11.7, la partie sera déclarée perdue pour les deux adversaires.\n- 11.9. Un joueur ou une joueuse a le droit de demander à l'arbitre l'explication d'un point particulier des Règles du Jeu d'Échecs.  \nPar exemple, les joueurs et joueuses demandent souvent s'ils peuvent roquer ou capturer en passant dans la position sur l'échiquier. L' arbitre ne doit pas répondre par oui ou par non mais doit l'informer du sens de la règle appropriée. Il est également courant pour un joueur ou une joueuse de demander comment réclamer un match nul. (Voir commentaire sous l'article 9.2.2.2)  \n- 11.10. À moins que le règlement d'une compétition spécifie autre chose, un joueur ou une joueuse peut faire appel de toute décision de l'arbitre, même s' il/si elle a signé la feuille de partie (voir Article 8.7).",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "mat",
+        "nulle",
+        "partie",
+        "pas",
+        "encore",
+        "imaginons"
+      ]
+    },
+    {
+      "id": "FR-Q124",
+      "question": "Quels sont les frais de déplacement remboursés pour un arbitre régional se déplaçant à 150 km ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "chunk_text": "## 2) FRAIS DE DÉPLACEMENTS  \nLe calcul des frais de déplacement est régi par les tarifs fédéraux(2025) et le règlement financier de la FFE(2023). Ces documents restent la référence de calcul pour les frais de déplacement qui peuvent être sujet à évolution.  \nL'utilisation des transports en commun doit être privilégiée à chaque fois que possible.  \nNote : Le kilométrage est calculé sur le déplacement réel effectué -dans la limite d'un trajet raisonnable .  \n- ➔ Si l'arbitre doit nécessairement utiliser son véhicule :\n- o Cas Général : 0,32 € / km pour une distance aller 0 -110 km\n- o Cas Long déplacement : Au delà d'une distance de 110 km aller, utiliser le tableau et la formule ci-dessous  \nFormule de remboursement du trajet aller : R= C + (DxK)  \nLe remboursement total correspond au remboursement de la « distance aller » multiplié par 2 + 20 € forfaitaires couvrant les frais annexes.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "indemnisation",
+        "déplacement",
+        "arbitre",
+        "frais",
+        "km"
+      ]
+    },
+    {
+      "id": "FR-Q125",
+      "question": "À quelle cadence la chute du drapeau doit-elle être signalée par l'arbitre s'il l'observe ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "chunk_text": "Cela signifie que le joueur ou la joueuse ne perd pas la partie avec le premier coup illégal, mais seulement avec le second, comme dans les échecs standard. La sanction n'est toutefois que d'une minute.  \nA.5.3. Pour réclamer un gain au temps, le demandeur ou la demandeuse peut mettre la pendule d'échecs en pause et avertir l'arbitre. Cependant, la partie est nulle si la position est telle qu'il/elle ne peut pas mater le roi adverse par une suite de coups légaux.  \nSi les deux pendules indiquent 0.00, aucune réclamation pour gagner au temps ne peut être soumise par les deux adversaires, mais l'arbitre décide du résultat du match en fonction du drapeau qui apparaît sur l'une des pendules. Le joueur/la joueuse dont la pendule affiche cette indication perd la partie sauf si son adversaire ne peut mater par aucune suite de coups légaux.  \nA.5.4. Si l'arbitre observe deux rois en échec ou qu' un pion est resté sur la rangée la plus éloignée de sa case de départ, il/elle attend jusqu'à ce que le coup suivant soit achevé. Ensuite, si la position sur l'échiquier est toujours illégale, il/elle déclare la partie nulle.  \nL'arbitre arrive sur un échiquier où les deux rois sont en échec. Si cette situation continue après que le prochain coup soit joué alors l'arbitre déclarera la partie nulle. Si le coup de la personne au trait retire son roi de l'échec mais que l'adversaire est toujours en échec, alors le jeu continue car ce n'est plus une position illégale. Si l 'adversaire reste en échec après avoir achevé son prochain coup, l'arbitre doit le sanctionner d' un coup illégal.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "drapeau",
+        "chute",
+        "arbitre",
+        "signaler",
+        "cadence"
+      ]
+    },
+    {
+      "id": "FR-Q126",
+      "question": "L'arbitre observe une position illégale sans avoir vu le dernier coup joué. Comment doit-il intervenir ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "chunk_text": "Si l' arbitre observe un coup illégal achevé, il doit toujours intervenir immédiatement. Il ne doit pas attendre qu'une réclamation soit faite par l'adversaire .  \n- 7.5.2. Si un joueur ou une joueuse a déplacé un pion sur la rangée la plus éloignée, a appuyé sur la pendule, mais n'a pas remplacé le pion par une nouvelle pièce, le coup est illégal. Le pion doit être remplacé par une dame de la même couleur que le pion.\n- 7.5.3. Si un joueur ou une joueuse appuie sur la pendule sans jouer un coup, cela est considéré comme un coup illégal et pénalisé comme tel.  \nSi un joueur ou une joueuse redémarre la pendule de l'adversaire au lieu de mettre la pendule en pause, l' arbitre peut considérer cela comme un accident et le sanctionner moins sévèrement.  \nPar exemple : Une personne effectue un coup illégal. Son adversaire réappuie sur la pendule au lieu de la mettre en pause. Est-ce une violation de l'article 7.5.3?  \nDans ce cas, l'action de l'adversaire peut être considérée comme accidentelle . Quand une pendule est enclenchée par erreur, l'arbitre doit décider si cette action constitue un coup illégal ou une distraction.  \n- 7.5.4. Si un joueur ou une joueuse utilise ses deux mains pour jouer un coup (en cas de roque, prise ou promotion, par exemple) et appuie sur la pendule, cela est considéré comme un coup illégal et pénalisé comme tel.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "position",
+        "illégale",
+        "arbitre",
+        "intervention"
+      ]
+    },
+    {
+      "id": "FR-Q127",
+      "question": "En cadence 1h30+30s, un joueur a moins de 5 minutes. Doit-il continuer à noter sa partie ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "chunk_text": "- 8.3. Les feuilles de partie sont la propriété de l'organisateur ou l' organisatrice de la compétition. Une feuille de partie électronique présentant un défaut évident sera remplacée par l'arbitre.  \nUn joueur ou une joueuse ne doit pas garder l'original de sa feuille de partie, sauf si le règlement de la compétition en décide autrement. Elle appartient à l'organisateur ou à l'organisatrice . Il/Elle doit la donner à l'arbitre dès la fin de la partie et il/elle peut garder la copie (s'il y en a une).  \n- 8.4. Si un joueur ou une joueuse dispose de moins de cinq minutes à sa pendule au cours d'une période de jeu donnée et ne bénéficie pas d'un temps additionnel de 30 secondes ou plus à chaque coup, alors pour le reste de la période il/elle n'est pas dans l'obligation de respecter les exigences de l'Article 8.1.1.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "noter",
+        "temps",
+        "zeitnot",
+        "minutes",
+        "incrément"
+      ]
+    }
+  ]
+}

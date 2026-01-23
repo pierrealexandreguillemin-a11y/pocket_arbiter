@@ -3227,25 +3227,19 @@
         "LA-octobre2025.pdf"
       ],
       "keywords": [
+        "norme",
+        "validité",
+        "durée",
         "titre",
-        "utilisable",
-        "uniquement",
-        "championnats",
-        "continentaux",
-        "mondiaux"
+        "expiration"
       ],
-      "expected_pages": [
-        200,
-        201,
-        202
-      ],
+      "expected_pages": [],
       "metadata": {
         "type": "regle",
         "chapter": "6.3",
-        "hard_case": true,
-        "hard_reason": "Langage oral + synonyme 'valide' vs 'validité' + formulation indirecte",
-        "answer_type": "FACTUAL",
-        "reasoning_type": "MULTI_SENTENCE",
+        "answer_type": "UNANSWERABLE",
+        "unanswerable_reason": "Durée validité normes titre non documentée dans corpus. Art.1.5.5 ne couvre que normes pré-2005.",
+        "unanswerable_type": "CORPUS_INSUFFICIENT",
         "cognitive_level": "ANALYZE"
       },
       "difficulty": "hard",
@@ -3255,8 +3249,7 @@
         "method": "corpus_verified",
         "auto_fixed": true
       },
-      "audit": "added_2026-01-20_grok",
-      "expected_chunk_id": "LA-octobre2025.pdf-p200-parent595-child00"
+      "audit": "reclassified_unanswerable_2026-01-23"
     },
     {
       "id": "FR-Q100",

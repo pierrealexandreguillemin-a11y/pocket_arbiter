@@ -1,0 +1,889 @@
+{
+  "batch_name": "batch_5",
+  "count": 53,
+  "questions": [
+    {
+      "id": "FR-Q45",
+      "question": "Quelle conduite tenir pour joueurs en situation de handicap ?",
+      "expected_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "chunk_text": "<!-- image -->  \n1. Ces lignes directrices s'appliquent à toutes les compétitions se déroulant sur le territoire relevant de l'autorité de la FFE.\n2. Personne n'a le droit de refuser de jouer avec une personne contre laquelle elle a été apparié correctement, notamment si sa raison est fondée sur un handicap de l' adversaire.\n3. Toute salle de compétition pour le jeu d'échecs doit être accessible à toutes les personnes.\n4. Un bulletin d'inscription sera remis aux joueuses et joueurs inscrits, qui seront invités à informer l'organisation sur l'éventualité d'une déficience qui nécessiterait de prendre de précautions particulières. Il en sera de même pour les compétitions par équipes.\n5. Aucune personne ne doit être pénalisée au temps du fait de son handicap.\n6. Toute personne en situation de handicap qui souhaite que son matériel soit placé à un endroit précis ou avec une orientation particulière, a le droit de le faire, à condition que cela ne désavantage pas son adversaire. L'arbitre principal de l'épreuve doit veiller à ce que les besoins des deux joueurs et/ou joueuses soient pris en compte.\n7. Toutes les conditions de jeu doivent être imprimées et affichées sur tous les tableaux d'information avant le début des parties, y compris les plans de la salle montrant l'emplacement des toilettes, du bar, de la salle d'analyse, des issues de secours, etc. ...\n8. Si une personne en a fait une demande préalable, des copies de toutes les informations devront être disponibles en gros caractères.  \nSi un joueur ou joueuse est aveugle, ou incapable de lire les gros caractères, alors ces informations doivent lui être lues avant le début de la partie, à sa demande et sans déranger les autres joueurs et joueuses.",
+      "corpus": "fr",
+      "expected_docs": [
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "situation",
+        "conduite",
+        "joueur"
+      ]
+    },
+    {
+      "id": "FR-Q46",
+      "question": "Quelles règles pour joueurs à mobilité réduite ?",
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "chunk_text": "## Le cas général concernant l'organisation des tournois est fixé par le règlement H01.  \nCe règlement s'applique aussi aux compétitions par équipes et particulièrement dans le cas de rassemblements.  \nDans le cas de compétitions étalées dans le temps, l'établissement du calendrier devra suivre le protocole suivant :",
+      "corpus": "fr",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "accès",
+        "cas",
+        "concernant",
+        "organisation",
+        "tournois",
+        "h01"
+      ]
+    },
+    {
+      "id": "FR-Q47",
+      "question": "Comment organiser un tournoi pour joueurs à mobilité réduite ?",
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "chunk_text": "## Le cas général concernant l'organisation des tournois est fixé par le règlement H01.  \nCe règlement s'applique aussi aux compétitions par équipes et particulièrement dans le cas de rassemblements.  \nDans le cas de compétitions étalées dans le temps, l'établissement du calendrier devra suivre le protocole suivant :",
+      "corpus": "fr",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "keywords": [
+        "organisation",
+        "tournoi",
+        "cas",
+        "concernant",
+        "tournois",
+        "h01"
+      ]
+    },
+    {
+      "id": "FR-Q48",
+      "question": "Comment fonctionne le classement rapide FFE ?",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "chunk_text": "## LE CLASSEMENT RAPIDE  \nLe calcul de l'Elo Rapide(ci-dessous désigné Rapide)porte sur les parties de moins de 60 min et de plus de 10 min/joueur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "classement",
+        "rapide",
+        "elo",
+        "calcul"
+      ]
+    },
+    {
+      "id": "FR-Q49",
+      "question": "Comment sont calculés les points Elo rapide ?",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00",
+      "chunk_text": "## 1. COMPATIBILITE  \nLa règle de compatibilité appliquée pour le Rapide est de ± 320 points .  \nLe seuil d'entrée au Rapide est de 7 parties compatibles.  \nPlancher Rapide : 800. Les calculs sont publiés mensuellement.",
+      "corpus": "fr",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "elo",
+        "rapide",
+        "point",
+        "calcul"
+      ]
+    },
+    {
+      "id": "FR-Q50",
+      "question": "Quels sont les objectifs de la FFE selon les statuts ?",
+      "expected_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "chunk_text": "## 1.1 Objet et durée  \nL'association dite « Fédération Française des Échecs » (FFE) a été fondée le 19 mars 1921 sous le régime de la loi du 1 er juillet 1901. Elle est membre fondateur de la Fédération Internationale des Échecs (FIDE), créée à Paris le 20 juillet 1924.  \nElle a été agréée par le ministère de la Jeunesse et des Sports le 19 janvier 2000. À ce titre, elle est reconnue établissement d'utilité publique.  \nElle bénéficie également de l'agrément jeunesse et éducation populaire.  \nElle a notamment pour objet :  \n- -d'organiser, de diriger, de contrôler, de promouvoir et de favoriser l'enseignement et la pratique du jeu d'échecs sous toutes ses formes et notamment du jeu d'échecs par internet (e-chess ou e-sport échecs) et du jeu d'échecs aléatoires Fischer (échecs 960) sur l'ensemble du territoire national ;\n- -d'établir les règles techniques ;\n- -de procéder à la délivrance des licences ;\n- -de délivrer les titres de champions et de championnes de France ;\n- -de créer et de maintenir un lien entre ses membres affiliés, ses comités départementaux et ses ligues régionales.  \nElle s'interdit toute discrimination et veille au respect de la charte de déontologie du sport établie par le Comité National Olympique et Sportif Français (CNOSF). Elle édicte aussi sa propre charte d'éthique qu'elle veille à faire respecter.  \nSa durée est illimitée.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2024_Statuts20240420.pdf"
+      ],
+      "keywords": [
+        "statut",
+        "FFE",
+        "objet",
+        "fédération"
+      ]
+    },
+    {
+      "id": "FR-Q51",
+      "question": "Comment adhérer à la FFE ?",
+      "expected_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "chunk_text": "## 1.1 Objet et durée  \nL'association dite « Fédération Française des Échecs » (FFE) a été fondée le 19 mars 1921 sous le régime de la loi du 1 er juillet 1901. Elle est membre fondateur de la Fédération Internationale des Échecs (FIDE), créée à Paris le 20 juillet 1924.  \nElle a été agréée par le ministère de la Jeunesse et des Sports le 19 janvier 2000. À ce titre, elle est reconnue établissement d'utilité publique.  \nElle bénéficie également de l'agrément jeunesse et éducation populaire.  \nElle a notamment pour objet :  \n- -d'organiser, de diriger, de contrôler, de promouvoir et de favoriser l'enseignement et la pratique du jeu d'échecs sous toutes ses formes et notamment du jeu d'échecs par internet (e-chess ou e-sport échecs) et du jeu d'échecs aléatoires Fischer (échecs 960) sur l'ensemble du territoire national ;\n- -d'établir les règles techniques ;\n- -de procéder à la délivrance des licences ;\n- -de délivrer les titres de champions et de championnes de France ;\n- -de créer et de maintenir un lien entre ses membres affiliés, ses comités départementaux et ses ligues régionales.  \nElle s'interdit toute discrimination et veille au respect de la charte de déontologie du sport établie par le Comité National Olympique et Sportif Français (CNOSF). Elle édicte aussi sa propre charte d'éthique qu'elle veille à faire respecter.  \nSa durée est illimitée.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2024_Statuts20240420.pdf"
+      ],
+      "keywords": [
+        "adhésion",
+        "licence",
+        "membre",
+        "FFE"
+      ]
+    },
+    {
+      "id": "FR-Q52",
+      "question": "Quelles sont les règles du règlement intérieur FFE ?",
+      "expected_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p005-parent016-child00",
+      "chunk_text": "## 4.2.1 La fusion-absorption  \nCette forme de fusion entraîne la dissolution d'une association (le club absorbé) et la transmission de son patrimoine à une autre association (le club absorbant).  \nL'autorisation de fusion-absorption ne sera éventuellement accordée par le comité directeur de la FFE qu'après transmission du dossier par la ligue régionale de rattachement du club absorbeur avec avis circonstancié(s) de la (ou des) ligue(s) régionale(s) concernée(s).  \nSi un club contrevient à un refus de fusion prononcé par le comité directeur, le club absorbé perd ses droits et ses joueurs seront considérés comme mutés dans le club absorbeur. Le club absorbeur perd quant à lui les droits du club absorbé et sera considéré comme un nouveau club partant au bas de la hiérarchie sportive.  \nIl en est de même si le club absorbeur n'a pas obtenu son homologation définitive dans les délais prescrits.  \nLa fusion-absorption est effective dès que l'autorisation est accordée par le comité directeur. Elle ne sera toutefois officiellement homologuée que si les conditions d'affiliations prévues aux 1.2 et 1.4 du règlement intérieur sont actualisées aux vues des procès-verbaux de l'assemblée générale des associations concernées.  \nSur le plan sportif, tout club absorbeur bénéficie de la qualification des équipes des clubs d'origine, dans les limites prévues par les règlements de la FFE.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2025_Reglement_Interieur_20250503.pdf"
+      ],
+      "keywords": [
+        "règlement",
+        "intérieur",
+        "FFE",
+        "membre"
+      ]
+    },
+    {
+      "id": "FR-Q53",
+      "question": "Comment fonctionne l'organisation de la FFE ?",
+      "expected_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p008-parent022-child00",
+      "chunk_text": "## 5.2 Les ligues régionales  \nLes ligues régionales favorisent le développement de la pratique des Échecs et appliquent la politique fédérale dans leur ressort territorial défini par les services déconcentrés du ministère chargé des Sports.  \nDans leur ressort territorial, les ligues ont aussi compétence pour les relations avec les collectivités territoriales et la presse, la discipline, l'arbitrage, la formation de l'élite, l'organisation des compétitions et le suivi administratif et technique. Elles ont délégation pour assurer le contrôle de compatibilité des statuts et règlement intérieur des comités départementaux de leur ressort territorial, avec les statuts et règlement intérieur fédéraux.  \nElles sont chargées de faire appliquer la politique fédérale par les comités départementaux et d'assurer le suivi administratif des clubs en lieu et place des comités non constitués.  \nDans le mois qui suit la réunion de chaque assemblée générale, les ligues régionales sont tenues d'en adresser le procès-verbal au secrétaire général de la FFE, ainsi que les pièces comptables et financières produites à cette occasion qui seront soumises à la commission de contrôle économique et de gestion dans les conditions prévues dans son règlement intérieur. Elles se doivent également de communiquer au secrétaire général de la FFE le compte rendu des réunions de leur comité directeur.  \nLors de l'assemblée générale des ligues régionales, le nombre total de voix dont peut disposer un délégué est limité à 15 % du total des voix de la ligue régionale concernée. Cette limite est arrondie à l'unité supérieure et ne s'applique qu'aux ligues régionales composées d'au moins 10 clubs.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2025_Reglement_Interieur_20250503.pdf"
+      ],
+      "keywords": [
+        "organisation",
+        "FFE",
+        "comité",
+        "commission"
+      ]
+    },
+    {
+      "id": "FR-Q54",
+      "question": "Quelles sont les règles financières de la FFE ?",
+      "expected_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "chunk_text": "## 5. MODALITÉS D'ENGAGEMENT ET DE RÈGLEMENT DES DÉPENSES  \nLes différents degrés de décision relatifs à la gestion financière et comptable sont définis par les statuts et par le règlement intérieur de la Fédération. En application des statuts, seul le Président donne délégation de signature aux personnes habilitées à effectuer des opérations financières. Le Président ordonnance les dépenses, le Trésorier et/ou son adjoint, autorisé à cet effet, met en œuvre les règlements financiers.  \nLes règlements ne sont effectués que sur présentation d'une facture ou d'un justificatif.  \nToute personne titulaire d'une carte de paiement ou habilitée à émettre des chèques doit impérativement remettre les justificatifs de ses règlements au Trésorier, dans les plus brefs délais.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2023_Reglement_Financier20230610.pdf"
+      ],
+      "keywords": [
+        "financier",
+        "budget",
+        "cotisation",
+        "FFE"
+      ]
+    },
+    {
+      "id": "FR-Q55",
+      "question": "Comment fonctionne le règlement financier FFE ?",
+      "expected_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "chunk_text": "## 5. MODALITÉS D'ENGAGEMENT ET DE RÈGLEMENT DES DÉPENSES  \nLes différents degrés de décision relatifs à la gestion financière et comptable sont définis par les statuts et par le règlement intérieur de la Fédération. En application des statuts, seul le Président donne délégation de signature aux personnes habilitées à effectuer des opérations financières. Le Président ordonnance les dépenses, le Trésorier et/ou son adjoint, autorisé à cet effet, met en œuvre les règlements financiers.  \nLes règlements ne sont effectués que sur présentation d'une facture ou d'un justificatif.  \nToute personne titulaire d'une carte de paiement ou habilitée à émettre des chèques doit impérativement remettre les justificatifs de ses règlements au Trésorier, dans les plus brefs délais.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2023_Reglement_Financier20230610.pdf"
+      ],
+      "keywords": [
+        "règlement",
+        "financier",
+        "budget",
+        "engagement"
+      ]
+    },
+    {
+      "id": "FR-Q56",
+      "question": "Quelles sont les règles médicales aux échecs ?",
+      "expected_chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent009-child00",
+      "chunk_text": "## 3.1.1 Licenciés mineurs  \nPour les personnes mineures, en vue de l'obtention ou du renouvellement de la licence, le licencié et les personnes exerçant l'autorité parentale renseignent conjointement un questionnaire relatif à son état de santé dont le contenu est précisé par arrêté conjoint du ministre chargé de la santé et du ministre chargé des sports (Cf Annexe).  \nLes personnes exerçant l'autorité parentale sur le licencié mineur attestent par écrit (cf. Annexe) auprès de leurs clubs que chacune des rubriques du questionnaire donne lieu à une réponse négative. Afin de respecter le secret médical, le questionnaire de santé renseigné ne doit pas être remis au club ni à la fédération.  \nÀ défaut, elles sont tenues de produire un certificat médical attestant de l'absence de contreindication à la pratique du jeu d'échecs en et hors compétition datant de moins de six mois.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2022_Reglement_medical_19082022.pdf"
+      ],
+      "keywords": [
+        "médical",
+        "santé",
+        "dopage",
+        "contrôle"
+      ]
+    },
+    {
+      "id": "FR-Q57",
+      "question": "Comment fonctionne le contrôle antidopage aux échecs ?",
+      "expected_chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent013-child00",
+      "chunk_text": "## 4.2 Substances interdites  \nLa liste des complètes des interdictions est disponible sur le site de l'agence française de lutte contre le dopage à l'adresse suivante : https://www.afld.fr/  \nPour la pratique du jeu d'échecs, une attention particulière est portée sur les molécules suivantes :  \n- Amphétamines. Exemple : méthylphénidate/Ritaline®\n- Modafinil/Modiodal®\n- Éphédrine et méthyléphédrine - (Si concentration urinaire supérieure à 10μg/ml)\n- Pseudoéphédrine (Si concentration urinaires supérieure à 150μg/ml)  \nCertaines molécules ne sont pas sur la liste des interdictions mais présentes dans le programme de surveillance de l'Agence Mondiale Antidopage :  \n- Caféine\n- Codéine",
+      "corpus": "fr",
+      "expected_docs": [
+        "2022_Reglement_medical_19082022.pdf"
+      ],
+      "keywords": [
+        "dopage",
+        "contrôle",
+        "substance",
+        "interdit"
+      ]
+    },
+    {
+      "id": "FR-Q58",
+      "question": "Quelles sanctions disciplinaires existent à la FFE ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent020-child00",
+      "chunk_text": "## ARTICLE 20 - SANCTIONS DISCIPLINAIRES  \nLes sanctions applicables sont:  \n1. Un avertissement ;\n2. Un blâme ;\n3. Une amende : lorsque cette amende est infligée à une personne physique, elle ne peut excéder un montant de 45 000 euros ;\n4. Une perte d'une ou plusieurs rencontres sportives ;\n5. Une pénalité en points ;\n6. Un déclassement ;\n7. Une non homologation d'un résultat sportif ;\n8. L'interdiction temporaire d'accueillir des rencontres à domicile ;\n9. Une interdiction temporaire ou définitive de participer aux manifestations sportives organisées par la FFE ;\n10. Une interdiction temporaire ou définitive de participer directement ou indirectement à l'organisation et au déroulement des compétitions et manifestations sportives organisées par la FFE ;\n11. Une interdiction d'exercice de fonction ;\n12. Un retrait provisoire de la licence ;\n13. Une interdiction pour une durée déterminée d'être licencié de la FFE ou de s'y affilier ;\n14. Une radiation ;\n15. Une inéligibilité pour une durée déterminée aux instances dirigeantes ;\n16. La radiation ou l'interdiction d'appartenir pour une durée déterminée à une instance disciplinaire.  \nUne ou plusieurs sanctions peuvent être choisies parmi les sanctions énumérées ci-dessus dans le respect du principe de proportionnalité. Elles sont prononcées en considération de la gravité des faits et du comportement de leur auteur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "sanction",
+        "disciplin",
+        "avertissement",
+        "exclusion"
+      ]
+    },
+    {
+      "id": "FR-Q59",
+      "question": "Comment fonctionne la procédure disciplinaire FFE ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00",
+      "chunk_text": "## ARTICLE 2 - DEFINITION - COMPOSITION  \nIl est institué différents organes investis du pouvoir disciplinaire à l'égard :  \n-  des licenciés de la FFE ;\n-  des associations affiliées à la FFE ;\n-  tout membre, préposé, salarié ou bénévole de ces associations agissant en qualité de dirigeant ou de licencié de fait.  \nCes organes sont les suivants :  \n-  Un organe disciplinaire fédéral de 1 re instance dénommé « Commission Fédérale de Discipline » (CFD) ;\n-  Un organe disciplinaire régional de 1 re instance dénommé « Commission Régionale de Discipline » (CRD) dans chaque organe déconcentré régional de la FFE, saisi lorsque le Bureau Fédéral décide d'engager des poursuites selon les modalités prévues à l'article 9, sans transmettre directement l'affaire à la Commission Fédérale de Discipline, en fonction de la gravité du litige ;\n-  Un organe disciplinaire d'appel dénommé « Commission d'Appel », compétent pour trancher les appels interjetés à l'encontre de toutes décisions rendues en 1 re instance.  \nCes organes disciplinaires sont compétents pour prononcer des sanctions à raison des faits suivants, commis par une personne physique ou morale en une des qualités mentionnées ci-dessus à la date de commission des faits :  \n-  faits contraires aux règles posées par les statuts et règlements de la Fédération Française des Echecs ou de ses organes déconcentrés ;\n-  brutalités et insultes à l'égard d'un autre participant, d'un officiel ou du public lors d'une compétition organisée ou homologuée par la FFE ;",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "disciplin",
+        "procédure",
+        "commission",
+        "appel"
+      ]
+    },
+    {
+      "id": "FR-Q60",
+      "question": "Qu'est-ce que le contrat de délégation FFE ?",
+      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child01",
+      "chunk_text": "La stratégie de la FFE constitue la réponse de la fédération aux enjeux identifiés dans le contrat d'engagement républicain et dans les orientations du ministre chargé des sports.  \nPour l'olympiade 2022 - 2025, les orientations ministérielles ont été adressées aux fédérations par courrier en date du 29 octobre 2021.  \nLe présent contrat est établi en application des dispositions du décret n° 2022-238 du 24 février 2022 relatif aux conditions d'attribution et de retrait de la délégation accordée aux fédérations sportives ainsi qu'au contenu et aux modalités du contrat de délégation.",
+      "corpus": "fr",
+      "expected_docs": [
+        "Contrat_de_delegation_15032022.pdf"
+      ],
+      "keywords": [
+        "délégation",
+        "contrat",
+        "ministère",
+        "FFE"
+      ]
+    },
+    {
+      "id": "FR-Q61",
+      "question": "Quelles sont les obligations de la FFE en délégation ?",
+      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "chunk_text": "## Préambule  \nLa délégation est, après l'agrément, l'étape supérieure dans le degré de reconnaissance des fédérations sportives par l'État. Seules peuvent être « délégataires » les fédérations qui ont, au préalable, reçu l'agrément délivré par le ministre chargé des sports prévu à l'article L. 131-8 du code du sport.  \nUne seule fédération est susceptible de recevoir la délégation pour une même discipline sportive.  \nLes fédérations délégataires disposent de prérogatives de puissance publique et se voient confier une mission de service public. A ce titre, elles disposent d'un monopole légal dans les domaines explicitement prévu par la loi ou le règlement.  \nDans ces domaines l'Etat, en sa qualité de déléguant, et les fédérations, en leur qualité de délégataire, contractualisent les conditions dans lesquelles ces prérogatives et ces missions inhérentes à la délégation sont exercées.  \nCette capacité à contractualiser a été instaurée par la loi n° 2021-1109 du 24 août 2021 confortant le respect des principes de la République, notamment son article 63. Cette loi modifie le code du sport dont il résulte une nouvelle rédaction de l'article L. 131-14 et un nouvel article L. 131-15-2.  \nOutre le principe d'un contrat de délégation, le cadre préalable à sa conclusion y est également défini.  \nAinsi, le ministre chargé des sports définit les orientations et fixe le cadre dans lequel les stratégies nationales des fédérations sont établies. Ces stratégies nationales visent notamment à promouvoir les principes du contrat d'engagement républicain. Ce contrat figure en annexe du décret n°2021-1947 du 31 décembre 2021",
+      "corpus": "fr",
+      "expected_docs": [
+        "Contrat_de_delegation_15032022.pdf"
+      ],
+      "keywords": [
+        "délégation",
+        "obligation",
+        "mission",
+        "service"
+      ]
+    },
+    {
+      "id": "FR-Q62",
+      "question": "Comment fonctionne le championnat de Nationale 4 ?",
+      "expected_chunk_id": "règlement_n4_2024_2025__1_.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.1 Structure  \nLe championnat de France des clubs de Nationale 4 ou N4 est organisé chaque saison par la Ligue Provence Alpes Côte d' Azur des Échecs.  \nLe nombre d'accession en N3 attribué à la ligue est déterminé par la FFE. La ligue dispose de 5 accessions. Elle organise cette répartition avec la création de 5 groupes de N4.  \nChaque groupe est constitué de 8 équipes. S'il y a lieu, la direction technique de la Ligue procède à des repêchages en utilisant les départages de l'article 4.4 du règlement fédéral.",
+      "corpus": "fr",
+      "expected_docs": [
+        "règlement_n4_2024_2025__1_.pdf"
+      ],
+      "keywords": [
+        "nationale",
+        "N4",
+        "division",
+        "championnat"
+      ]
+    },
+    {
+      "id": "FR-Q63",
+      "question": "Quelles sont les règles de la Nationale 4 ?",
+      "expected_chunk_id": "règlement_n4_2024_2025__1_.pdf-p002-parent004-child00",
+      "chunk_text": "## 2.1 Direction de la compétition  \nLe directeur et/ou la directrice de la nationale 4 ainsi que les directions de groupe sont nommées par la Présidence de la Ligue. La direction technique de la Ligue répartit les équipes inscrites en N4 entre les différents groupes. La proximité géographique est retenue comme critère principal de répartition des groupes afin de limiter les déplacements.  \nLa direction de groupe est chargée de concevoir un calendrier cohérent, de le soumettre à la direction technique de la Ligue pour validation, de faire respecter les règlements, de collecter les résultats, d'en vérifier la conformité et de les diffuser sur le site fédéral.",
+      "corpus": "fr",
+      "expected_docs": [
+        "règlement_n4_2024_2025__1_.pdf"
+      ],
+      "keywords": [
+        "nationale",
+        "N4",
+        "règle",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q64",
+      "question": "Comment fonctionne le championnat régional ?",
+      "expected_chunk_id": "règlement_régionale_2024_2025.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.1 Structure  \nLe championnat de France des clubs de Régionale est organisé chaque saison par la Ligue Provence Alpes Côte d'Azur des Échecs.  \nLe nombre de groupes de Régionale dans la mesure du possible doit être égal au maximum au nombre de groupe de N4.  \nChaque groupe est normalement constitué au maximum de 8 équipes. S'il y a lieu, la Ligue propose des repêchages aux clubs afin de compléter si possible les groupes à 8 équipes en utilisant les départages de l'article 4.4 du règlement fédéral.",
+      "corpus": "fr",
+      "expected_docs": [
+        "règlement_régionale_2024_2025.pdf"
+      ],
+      "keywords": [
+        "régional",
+        "championnat",
+        "ligue",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q65",
+      "question": "Quelles sont les règles des interclubs départementaux ?",
+      "expected_chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent002-child00",
+      "chunk_text": "## 1.1 Structure  \nLe championnat par équipes de Nationale VI est organisé chaque saison sous la responsabilité du C.D.J.E 13  \nLes championnats par équipes organisés chaque saison sous la responsabilité des Comités Départementaux, selon des procédures approuvées par la Ligue, est :  \nLa Nationale VI (ou Départementale), composé d'un ou plusieurs groupes d'équipes de 4 joueurs. Au moins une équipe par département a le droit d'accéder à la Nationale V (ou Régionale) à l'issue de chaque saison. Le nombre d'équipes promues par département est établi en fonction du nombre de licenciés de chaque département.",
+      "corpus": "fr",
+      "expected_docs": [
+        "Interclubs_DepartementalBdr.pdf"
+      ],
+      "keywords": [
+        "départemental",
+        "interclub",
+        "comité",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q66",
+      "question": "Comment fonctionnent les interclubs jeunes régionaux ?",
+      "expected_chunk_id": "InterclubsJeunes_PACABdr.pdf-p001-parent000-child00",
+      "chunk_text": "## 2. Structure des groupes d'interclubs Jeunes des Bouches-du-Rhône  \nUn seul groupe de Nationale 3 Jeunes est mis en place pour permettre l'accession en Nationale 2 Jeunes.  \nLe nombre d'équipes inscrites dans les Bouches-du-Rhône détermine le nombre d'équipes en Nationale 3 Jeunes :  \n-  Entre 1 et 10 équipes : le groupe de Nationale 3 Jeunes est constitué de toutes les équipes inscrites.\n-  Entre 11 et 13 équipes : le groupe de Nationale 3 Jeunes est constitué de 6 équipes\n-  Entre 14 et 19 équipes : le groupe de Nationale 3 Jeunes est constitué de 8 équipes\n-  A partir de 20 équipes : le groupe de Nationale 3 Jeunes est constitué de 10 équipes  \nLorsque le nombre d'équipes inscrites est supérieur au nombre d'équipe en Nationale 3 jeunes, un ou plusieurs groupes de Nationale 3 « Réserve » sont créés.",
+      "corpus": "fr",
+      "expected_docs": [
+        "InterclubsJeunes_PACABdr.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "régional",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q67",
+      "question": "Quelles sont les mesures anti-triche aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p142-parent417-child00",
+      "chunk_text": "## Mesures de prévention accrues  \nEn plus des mesures de prévention standard, les mesures suivantes s'appliquent :  \n- → Adopter au moins deux des équipements anti-triche recommandés dans la partie correspondante.\n- → L'arbitre en chef doit mettre en place un système de contrôle régulier du lieu de la compétition avant, pendant et après la ronde, en collaboration avec les responsables de la sécurité.\n- → L'équipe d'organisation est fortement encouragée à mettre en place une zone de stockage pour les appareils électroniques.\n- → L'équipe d'organisation et les arbitres sont encouragés à faire des examens des parties en cours des tournois via l'un des outils d'examen conseillé par la FIDE\n- → L'arbitre en chef travaille avec les arbitres anti -triche pour mettre en place d'éventuels contrôles aléatoires.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf",
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "triche",
+        "anti",
+        "électronique",
+        "fairplay"
+      ]
+    },
+    {
+      "id": "FR-Q68",
+      "question": "Comment détecter la triche en tournoi ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p141-parent412-child00",
+      "chunk_text": "## Chapitre 4.1 : Les directives contre la tricherie  \nRéalisé d'après les directives anti -triche de la FIDE -document datant du 21 avril 2022  \nComplété avec les mesures de protections anti-triche -Document approuvé par la FIDE en 2018  \nCette traduction en français ne présente que des extraits choisis. La lecture des textes officiels intégraux est conseillée en guise d'approfondissement pour les arbitres FIDE et Internationaux.  \nLa Fédération Française d'Echecs dispose de l'autorité suffisante pour statuer sur des cas de triche durant les événements où la surveillance anti-triche reste standard.  \nPour les tournois dans lesquels le niveau de protection doit être élevé voire maximal (Evénements de la FIDE, tournois où le montant des prix dépasse 20000 €, tournois ou des normes de MI et GMI peuvent être obtenues, tournois toutesrondes avec une moyenne Elo supérieure à 2400,...), les cas de triche doivent être remontés à la « Fair-Play Commission » (FPL) de la FIDE qui pourra éventuellement décider de laisser la fédération nationale statuer)  \nIl est demandé aux arbitres fédéraux d'utiliser la Fédération Française d'Echecs comme intermédiaire pour tout signalement de triche à envoyer à la FIDE",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "triche",
+        "détection",
+        "analyse",
+        "partie"
+      ]
+    },
+    {
+      "id": "FR-Q69",
+      "question": "Qu'est-ce que la chute du drapeau dans une partie d'échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "chunk_text": "## Article 6 La pendule d'échecs  \n- 6.1. La 'pendule d'échecs' désigne une horloge munie de deux afficheurs, reliés entre eux de telle manière qu'un seul puisse fonctionner à la fois. Dans les Règles du Jeu d'Échecs, le terme 'pendule' désigne l'un des deux afficheurs. Chacun des afficheurs est m uni d'un 'drapeau'.\n- La 'chute du drapeau' signifie la fin du temps imparti à un joueur ou une joueuse.  \nCertaines pendules électroniques affichent le symbole « -» à la place d'un drapeau.  \n- 6.2. Manipulation de la pendule d'échecs :\n- 6.2.1. Pendant la partie, chaque joueur ou joueuse, après avoir joué son coup sur l'échiquier, arrête sa pendule et démarre celle de son adversaire (autrement dit, il/elle appuie sur sa pendule). Ceci 'achève' le coup. Un coup est également achevé si :\n- 6.2.1.1. le coup met fin à la partie (voir les Articles 5.1.1, 5.2.1, 5.2.2 et 9.6), ou\n- 6.2.1.2. l e joueur ou la joueuse a joué son prochain coup, alors que son coup précédent n'était pas achevé.  \nNormalement, lorsqu'un joueur ou une joueuse oublie d'appuyer sur sa pendule après avoir joué son coup, l'une des possibilités suivantes s'applique :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "drapeau",
+        "chute",
+        "temps",
+        "pendule"
+      ]
+    },
+    {
+      "id": "FR-Q70",
+      "question": "Que signifie j'adoube et quand peut-on l'utiliser ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "chunk_text": "## Article 4 L ' exécution du déplacement des pièces  \n- 4.1. Chaque coup doit être exécuté à l ' aide d ' une seule main.\n- 4.2. Ajustement des pièces ou tout autre contact physique avec une pièce :\n- 4.2.1. Seul le joueur ou la joueuse ayant le trait peut recentrer une ou plusieurs pièces sur leurs cases respectives, à la condition d'en exprimer l'intention au préalable (par exemple en disant «j' adoube» ou «I adjust»).  \nL'Article 4.2.1 peut être utilisé uniquement pour corriger le placement de pièces mal placées. Si l'adversaire est absent alors il faut informer, si possible, un ou une arbitre avant que tout ajustement ait lieu. Le joueur ou la joueuse doit toujours annon cer son intention d'ajuster une pièce. S'il/elle ne le fait pas, les règles normales de la ' pièce touchée' s'appliquent (voir 4.3).  \n- 4.2.2. Tout autre contact physique avec une pièce, à l'exception d'un contact clairement accidentel, doit être considéré comme intentionnel.  \nSelon cette règle, si un joueur ou une joueuse n'a pas dit « j'adoube » ou quelque chose de similaire avant de toucher une pièce et que le contact n'est pas accidentel alors la pièce touchée doit être déplacée.  \nPar exemple, si les Blancs ont joué 1. Fe2xg5 en soulevant le fou et en retirant le cavalier (ce coup n'est pas possible) alors le fou sur e2 doit être déplacé car il a été touché dans l'intention de le déplacer.  \n<!-- image -->",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "adoube",
+        "ajuster",
+        "pièce",
+        "toucher"
+      ]
+    },
+    {
+      "id": "FR-Q71",
+      "question": "Quelles sont les exigences pour les stages pratiques des arbitres candidats ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent073-child00",
+      "chunk_text": "## 8.1. Cursus d'arbitrage  \nA partir du stage de formation théorique suivi (SJ, SC ou SO), les candidats disposent d'un délai de 24 mois calendaire pour valider toutes les conditions nécessaires à l'obtention du titre d'arbitre fédéral associé.  \nLa prise en compte du respect de ce délai prend en compte la date officielle de passage des examens validés et la date de clôture des tournois où les attestations de stage pratiques ont été obtenues.  \nPassé ce délai, dans le cas où les candidats n'ont pas obtenu le titre, le bénéfice des éventuelles U.V. obtenus et stages pratiques effectués est perdu et ils doivent recommencer l'intégralité du cursus.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "stage",
+        "pratique",
+        "arbitre",
+        "candidat"
+      ]
+    },
+    {
+      "id": "FR-Q72",
+      "question": "Quelles sont les règles concernant le retard et le forfait en début de partie ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "chunk_text": "## 6.7. Délai de forfait :  \n- 6.7.1. Le règlement d'une compétition doit spécifier à l'avance un délai de forfait. Si aucun délai de forfait n'est indiqué, celui-ci est égal à zéro. Tout joueur ou joueuse qui arrive devant son échiquier après le délai de forfait perd la partie, à moins que l'arbitre n'en décide autrement.\n- 6.7.2. Si le règlement d'une manifestation spécifie que le délai de forfait est différent de zéro et qu'aucun des deux adversaires n'est présent initialement, l a personne ayant les blancs perd tout le temps écoulé jusqu'à ce qu' elle arrive, à moins que les règles de la compétition ne spécifient autre chose ou que l'arbitre ne décide autrement.  \nLe début de la ronde est le moment où l'annonce est faite par l'arbitre. Si le délai de forfait est zéro, l'arbitre doit déclarer la partie perdue pour les joueurs et joueuses qui ne sont pas présents/présentes à leur échiquier.  \nIl est préférable d'afficher un grand dispositif de compte à rebours numérique sur le lieu de la compétition. Pour les événements FIDE avec moins de 30 joueurs, une annonce doit être faite cinq minutes avant le début de la ronde et une minute avant le début de la partie.  \nAutrement, une horloge doit être accrochée au mur à l'intérieur du lieu de la compétition et indiquer l'heure officielle du tournoi.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "retard",
+        "forfait",
+        "début",
+        "partie"
+      ]
+    },
+    {
+      "id": "FR-Q73",
+      "question": "Qu'est-ce qu'un coup sous enveloppe dans une partie ajournée ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p063-parent151-child00",
+      "chunk_text": "## DIRECTIVES  \nDirectives I : Parties ajournées  \nDirectives II : Règles du Chess960  \nDirectives III : Parties sans incrément amenant des fins de  \npartie au KO",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "enveloppe",
+        "coup",
+        "directives",
+        "parties",
+        "chess960",
+        "iii"
+      ]
+    },
+    {
+      "id": "FR-Q74",
+      "question": "Quelles sanctions pour l'utilisation d'un appareil électronique pendant la partie ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "chunk_text": "C'est différent si la partie n'a pas encore commencé. Imaginons la situation suivante : Le forfait n'est pas à zéro minute. Le joueur/la joueuse A est dans la salle de jeu au démarrage de la ronde. Son adversaire, le joueur/la joueuse B, est en retard . Immédiatement après avoir joué son premier coup, le téléphone de A sonne. L'arbitre déclare la partie perdue pour A. Quelques minutes plus tard, mais dans les temps pour ne pas être forfait, B arrive. Le résultat est 0F -1F, car ceci n'est pas une parti e « jouée » et ne peut être comptabilisée pour le classement Elo.  \nCependant, il y a une possibilité ici pour l' arbitre en lien avec l'équipe organisatrice de définir à l'avance (dans le règlement de la manifestation) une sanction moins sévère pour la violation de cet article (par exemple : une amende) On peut également inclure dans le règlement de la manifestation la possibilité d'apporter un tel appareil au tournoi, pourvu que certaines conditions soient remplies : que l'appareil soit complètement éteint et rangé dans un sac à part, afin qu'il ne soit pas en contact avec le joueur/la joueuse et qu 'il /elle n'ait pas accès à son sac pendant la partie, sans l'autorisation de l'arbitre (et qu'il /elle ne puisse prendre le sac pour aller aux toilettes etc).  \nUn joueur ou une joueuse qui arrive après le début d'une ronde doit avoir la possibilité de ranger son appareil avant de jouer son premier coup, soit en le confiant à l' équipe organisatrice , soit en le plaçant dans un sac si c'est autorisé.  \n- 11.3.4. Fumer (y compris les cigarettes électroniques) est autorisé uniquement dans la section du lieu de la compétition désignée par l'arbitre.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "électronique",
+        "téléphone",
+        "montre",
+        "sanction"
+      ]
+    },
+    {
+      "id": "FR-Q75",
+      "question": "Quelles adaptations pour les joueurs avec déficience visuelle ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "chunk_text": "## Annexe D : Règles pour les parties avec des personnes aveugles et handicapées visuelles  \nD.1 L'organisateur ou l'organisatrice, après consultation de l'arbitre, p eut adapter les règles suivantes en fonction des circonstances locales. Durant les compétitions d'échecs entre personnes voyantes et personnes handicapées visuelles (légalement aveugles) chaque joueur ou joueuse peut demander l'utilisation de deux échiquiers : la personne voyante utilisant un échiquier standard, la personne handicapée visuelle utilisant un échiquier spécial. L'échiquier spécial doit répondre aux critères suivants :  \n- D.1.1. Mesurer au moins 20 cm sur 20 cm\n- D.1.2. Les cases noires doivent être légèrement surélevées\n- D.1.3. Chaque case doit contenir une ouverture de fixation\n- D.1.4. Les critères pour les pièces sont :\n- D.1.4.1. Chaque pièce doit contenir une tige s'encastrant dans l'ouverture de fixation\n- D.1.4.2. Les pièces sont de modèle Staunton, les pièces noires comportant une marque spécifique.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "notation",
+        "fide",
+        "seul",
+        "ses",
+        "propres"
+      ]
+    },
+    {
+      "id": "FR-Q76",
+      "question": "Quelle est la fréquence minimale des mises à jour du classement Elo Standard FIDE depuis 2025 ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "chunk_text": "## 7. Liste Officielle du Classement de la FIDE  \n- 7.1. Le premier jour de chaque mois, la FIDE prépare une liste des classements intégrant les parties prises en compte durant la période de classement à partir de la liste précédente. Cela est fait en utilisant la formule du système de classement.\n- 7.1.1. La période de classement (pour les nouveaux classés, voir 7.1.4) est la période pendant laquelle une certaine liste de classements est valide.\n- 7.1.2. Les données suivantes, concernant chaque joueur et joueuse dont le classement est d'au moins 1 400 dans la liste actuelle, sont publiées : Titre de la FIDE, Fédération, Classement Actuel, Code FIDE, Nombre de parties prises en compte dans la période de classement, Année de naissance, Sexe et la valeur actuelle du coefficient K.\n- 7.1.3. La date de clôture des tournois prise en compte pour une liste est de 3 jours avant la date de publication de la liste, les tournois se terminant à cette date ou avant sont pris en compte pour le calcul du classement. Les manifestations officielles de la FIDE sont prises en compte pour le classement même si elles se terminent le dernier jour avant la date de publication du classement.\n- 7.1.4. Un classement pour un joueur ou une joueuse entrant dans la liste sera publié lorsqu'il sera basé sur au moins 5 parties jouées contre des adversaires classés. Il n'est pas nécessaire que ces parties proviennent d'un seul tournoi. Les résultats d'autres tournois joués lors de périodes de classement consécutives, d'au plus 26 mois, sont regroupées pour obtenir le classement initial. Celui-ci doit être d' au moins 1400.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "mise à jour",
+        "Elo",
+        "Standard",
+        "FIDE",
+        "fréquence"
+      ]
+    },
+    {
+      "id": "FR-Q78",
+      "question": "Comment est calculé le coefficient K pour un joueur ayant plus de 30 parties et un Elo supérieur à 2400 ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent546-child00",
+      "chunk_text": "## 8.3.3. K est le coefficient de développement.  \n- ➔ K = 40 pour une personne nouvelle dans la liste de classement jusqu'à ce qu' elle ait terminé des manifestations représentant au moins 30 parties.\n- ➔ K = 20 tant que le classement du joueur ou de la joueuse reste au-dessous de 2400.\n- ➔ K = 10 lorsque le classement publié du joueur ou de la joueuse a atteint 2400. Le coefficient reste ensuite à ce niveau, même si le classement de la personne repasse au-dessous de 2400.\n- ➔ K = 40 pour toute personne jusqu'à la fin de l'année calendaire de son 18 ème anniversaire, tant que son classement reste en dessous de 2300.\n- ➔ Si le nombre de parties (n) d' un joueur ou d'une joueuse, sur une certaine période de classement , multiplié par le facteur K (comme défini ci-dessus) dépasse 700, alors K doit être le plus grand nombre entier permettant que K x n ne dépasse pas 700.\n- 8.3.4. La variation de classement est arrondie à l'entier le plus proche ; 0.5 est arrondi à 0",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "coefficient K",
+        "2400",
+        "calcul",
+        "Elo"
+      ]
+    },
+    {
+      "id": "FR-Q79",
+      "question": "Quelles sont les conditions exactes pour obtenir le titre de Grand Maître (GM) en 2025-2026, y compris le nombre de normes et le niveau minimal requis ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p193-parent573-child00",
+      "chunk_text": "## 1.1. Administration  \n- 1.1.1. Le jeu doit se dérouler selon les Règles du Jeu de la FIDE ou les règles des compétitions en jeu hybride. (Paragraphe IIIb) des règles FIDE du jeu d'échecs en ligne ) . Toute modification du format d'un tournoi après qu'il a commencé nécessite l'accord de la présidence de la CH. Les tournois où les joueurs/joueuses ont des conditions différentes en termes de rondes et d'appariements ne sont pas valables. Sauf accord préalable du directeur/de la directrice de la CH, les tournois doivent être enregistrés au moi ns 30 jours à l'avance sur le serveur de la FIDE.\n- 1.1.2. Il ne doit pas y avoir plus de 12 heures de jeu par jour. Ceci est calculé sur la base de parties de 60 coups, bien que les parties jouées avec incrément puissent durer plus longtemps.\n- 1.1.3. Il ne doit pas y avoir plus de deux rondes jouées par jour.  \nChaque joueur ou joueuse devra disposer d'au moins deux heures pour achever l'ensemble de ses coups, en supposant que la partie dure 60 coups.  \n- a) Dans les dossiers de candidature pour le titre de GM ou GMF basés sur des normes, au moins une norme devra être obtenue dans un tournoi comprenant au moins 3 jours à une ronde par jour.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Grand Maître",
+        "GM",
+        "norme",
+        "titre",
+        "2500"
+      ]
+    },
+    {
+      "id": "FR-Q80",
+      "question": "Un joueur peut-il obtenir le titre de Maitre FIDE (FM) sans passer par le titre de Candidat Maitre (CM), et quelles sont les voies possibles ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p192-parent572-child00",
+      "chunk_text": "## 0.6. L'Octroi des Titres  \n0.6.1. De tels titres sont enregistrés par présidence de la CH sur conseil du Bureau de la FIDE. Ils sont octroyés par la FIDE.  \nChapitre 6.3 :Titres de la FIDE  \n- 0.6.2. Pour qu'un titre direct soit attribué immédiatement, un candidat ou une candidate doit avoir atteint à un moment ou à un autre, le classement minimum publié ou intermédiaire -Voir 1.5.3a) -de :  \n| GM | 2300 |\n|------|--------|\n| MI | 2200 |\n| MF | 2100 |\n| CM | 2000 |  \n| GMF | 2100 |\n|-------|--------|\n| MIF | 2000 |\n| MFF | 1900 |\n| CMF | 1800 |  \nCette obligation ne s'applique pas pour les titres directs de CM ou CMF obtenus lors des olympiades d'échecs mixtes ou féminines.  \nPour les classements obtenus après le 1 er janvier 2024, les joueurs et joueuses devront avoir joué au moins 30 parties comptabilisées pour le classement.  \nSi un candidat ou une candidate a un classement en-dessous du seuil requis, le titre est attribué sous condition et sera attribué définitivement à la demande de la fédération nationale dès que le candidat ou la candidate atteindra le classement minimum requis. Tout joueur ou joueuse avec un titre conditionnel peut prendre un titre inférieur lorsqu'il atteint le classement requis pour ce titre inférieur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Candidat Maître",
+        "CM",
+        "partie",
+        "fide",
+        "181",
+        "chapitre"
+      ]
+    },
+    {
+      "id": "FR-Q81",
+      "question": "Quelle est la durée de validité d'une norme de titre FIDE si elle n'est pas utilisée pour une demande de titre ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p197-parent584-child00",
+      "chunk_text": "## 1.5. Conditions pour l'obtention du titre, une fois les normes réalisées  \n- 1.5.1. Les normes obtenues dans les tournois doivent représenter au moins 27 parties\n- 1.5.2. Si une norme est valable pour plusieurs titres, alors elle peut être utilisée dans le cadre de la candidature pour chacun d'entre eux.\n- 1.5.3. Le candidat doit avoir atteint à un moment ou un autre un classement comme suit :  \nGM≥ 2500  \nMI≥ 2400  \nGMF≥ 2300  \n- a) Un tel classement n'a pas besoin d'être publié.  \nIl peut être obtenu au milieu d'une période de classement ou même au milieu d'un tournoi.  \nLe joueur ou la joueuse peut alors ignorer les résultats ultérieurs pour les besoins de sa candidature au titre.  \nCependant la charge de prouver que ce classement a été atteint incombe à la fédération du candidat/de la candidate au titre. Les candidatures aux titres basées sur des classements non publiés ne seront acceptées par la FIDE qu'après accord de l'Administrateur du Classement et de la CH. Les classements au milieu d'une période ne peuvent être confirmés qu'une fois tous les tournois pour cette période reçus et pris en compte par la FIDE.  \n- 1.5.4. Un résultat de titre sera valable s'il a été obtenu conformément à la Réglementation des Titres de la FIDE en vigueur au moment du tournoi où la norme a été obtenue.  \nMIF≥ 2200  \nChapitre 6.3 :Titres de la FIDE",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "norme",
+        "validité",
+        "durée",
+        "titre",
+        "FIDE"
+      ]
+    },
+    {
+      "id": "FR-Q82",
+      "question": "Quelles sont les obligations administratives minimales qu'un arbitre doit respecter avant le début d'un tournoi homologué FFE ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "chunk_text": "## Dans l'ordre l'arbitre principal d'un tournoi doit :  \n- → S'assurer que le tournoi est homologué (Voire demander l'homologation au nom de l'organisateur)  \nDans le titre du tournoi, il est obligatoire de préciser clairement les critères restrictifs (Elo, âge, genre, territorial, ...)  \n- → Rédiger un règlement intérieur pour le tournoi qui devra être diffusé sur le site fédéral avant la tenue du tournoi.\n- → S'assurer que tous les joueurs participants au tournoi sont en règle envers la FFE et effectuer toutes les démarches d'enquêtes pour les forfaits non justifiés et les procédures disciplinaires.\n- → Interdire aux joueurs suspendus la participation à tout événement se déroulant en lien avec la FFE  \nLa liste des joueurs suspendus est disponible sur la page de la commission fédérale de discipline :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "obligations",
+        "administratives",
+        "tournoi",
+        "homologué",
+        "avant"
+      ]
+    },
+    {
+      "id": "FR-Q83",
+      "question": "Comment un arbitre doit-il gérer la rédaction et la transmission du Rapport Technique de fin de tournoi ? Quels éléments doivent y figurer obligatoirement ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
+      "chunk_text": "## Chapitre 5.4 : Rapport Technique et fin de tournoi.  \nL'arbitre principal d'un tournoi homologué doit s'assurer de la rédaction et de l'envoi d'un rapport technique.  \nSauf exception, l'ensemble des documents constituant celui -ci sont envoyés par voie informatisés aux différents acteurs du suivi du tournoi.  \nLe rapport technique est une garantie indispensable du sérieux de l'arbitre dans l'ensemble de ses missions, en cas de réclamation d'un joueur ou d'enquête sur le déroulement d'un tournoi  \nL'arbitre devra également s'assurer des dernières étapes de gestion d'un tournoi une fois que celui -ci est considéré comme terminé.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Rapport Technique",
+        "fin tournoi",
+        "rédaction",
+        "transmission"
+      ]
+    },
+    {
+      "id": "FR-Q84",
+      "question": "Quel est le barème d'indemnisation minimal pour un arbitre principal lors d'un tournoi national avec plus de 100 joueurs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "chunk_text": "## 1) PRINCIPES GÉNÉRAUX  \n- Les principes de ce barème ont été votés par le comité directeur de la F.F.E de juin 2024.\n- U n événement doit respecter le minimum d'un ou d'une arbitre titré par tranche de 100 joueurs.\n- L'arbitre en chef peut négocier un nombre d'arbitres plus confortable avec l'équipe d'organisation.\n- L'indemnité d'arbitrage est calculée de manière journalière, elle est comprise entre 50 € (plancher) et 100 € (plafond) par jour.\n- Le montant précis est négocié avec l'organisateur suivant les règles établies dans ce chapitre du livre de l'arbitre.\n- Les arbitres stagiaires n'ayant pas de titre ne perçoivent aucune indemnité, mais ont le droit aux frais d'hébergement. L'organisateur n'est pas tenu de leur verser des frais de déplacements.\n- Dès lors qu'un tournoi est homologué, l'organisateur est tenu de faire appel à des arbitres fédéraux ayant au moins le titre minimal requis (voir règlements fédéraux : tournois homologués). L'indemnisation de l'arbitre est obligatoire et doit nécessairement figurer dans le budget de l'événement. Si un /une arbitre fait don d'une somme correspondant partiellement ou totalement au montant de l'indemnité due, cette opération apparaît à la fois en dépenses (ligne budgétaire « arbitrage ») et en recettes (don).\n- Le paiement de l'indemnité s'effectue avant le début de la dernière ronde. Une fiche d'indemnisation, signée par l'arbitre et par l'organisateur, est établie en double exemplaire.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "barème",
+        "indemnisation",
+        "arbitre",
+        "tournoi",
+        "national"
+      ]
+    },
+    {
+      "id": "FR-Q85",
+      "question": "Dans quel délai un arbitre doit-il transmettre le rapport d'un match individuel (ex : match par équipes) à la DNA ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "chunk_text": "| Chapitre 5.1 : Gestion d'un match ............................................................................................................................165 |\n| Chapitre 5.2 : Obligations administratives d'un tournoi ...........................................................................................166 |\n| Chapitre 5.3 : Gestion du Tournoi.............................................................................................................................169 |\n| Chapitre 5.4 : Rapport Technique et fin de tournoi..................................................................................................172 |\n| Chapitre 5.5 : Barème d'indemnisation des arbitres ................................................................................................178 |\n| Partie 6: La FIDE ............................................................................................................................................................181 |\n| Chapitre 6.1 : Le classement Standard de la FIDE.....................................................................................................182 |\n| Chapitre 6.2 : Le classement Rapide et Blitz de la FIDE ............................................................................................187 |\n| Chapitre 6.3 : Titres de la FIDE..................................................................................................................................192 |",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rapport",
+        "match",
+        "chapitre",
+        "gestion",
+        "165",
+        "obligations"
+      ]
+    },
+    {
+      "id": "FR-Q86",
+      "question": "Quelles sont les étapes que l'arbitre doit suivre pour la gestion administrative d'un tournoi en cas d'absence d'un joueur à la première ronde ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p169-parent503-child00",
+      "chunk_text": "## Une part fixe :  \n<!-- image -->  \n- → 15 euros pour les Tournois à cadence lente, rapide ou blitz FIDE sans normes possibles.\n- → 50 euros pour les Tournois où des normes sont possibles  \nLes parts fixes sont doublées si la demande d'homologation a été faite en retard.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournoi",
+        "part",
+        "fixe",
+        "image",
+        "euros",
+        "tournois"
+      ]
+    },
+    {
+      "id": "FR-Q87",
+      "question": "Pour obtenir un premier classement Elo Standard FIDE, quelles sont les conditions minimales à remplir ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "chunk_text": "## 7. Liste Officielle du Classement de la FIDE  \n- 7.1. Le premier jour de chaque mois, la FIDE prépare une liste des classements intégrant les parties prises en compte durant la période de classement à partir de la liste précédente. Cela est fait en utilisant la formule du système de classement.\n- 7.1.1. La période de classement (pour les nouveaux classés, voir 7.1.4) est la période pendant laquelle une certaine liste de classements est valide.\n- 7.1.2. Les données suivantes, concernant chaque joueur et joueuse dont le classement est d'au moins 1 400 dans la liste actuelle, sont publiées : Titre de la FIDE, Fédération, Classement Actuel, Code FIDE, Nombre de parties prises en compte dans la période de classement, Année de naissance, Sexe et la valeur actuelle du coefficient K.\n- 7.1.3. La date de clôture des tournois prise en compte pour une liste est de 3 jours avant la date de publication de la liste, les tournois se terminant à cette date ou avant sont pris en compte pour le calcul du classement. Les manifestations officielles de la FIDE sont prises en compte pour le classement même si elles se terminent le dernier jour avant la date de publication du classement.\n- 7.1.4. Un classement pour un joueur ou une joueuse entrant dans la liste sera publié lorsqu'il sera basé sur au moins 5 parties jouées contre des adversaires classés. Il n'est pas nécessaire que ces parties proviennent d'un seul tournoi. Les résultats d'autres tournois joués lors de périodes de classement consécutives, d'au plus 26 mois, sont regroupées pour obtenir le classement initial. Celui-ci doit être d' au moins 1400.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "premier classement",
+        "Elo",
+        "conditions",
+        "FIDE"
+      ]
+    },
+    {
+      "id": "FR-Q88",
+      "question": "Quelle est la différence de points Elo gagnés ou perdus pour une seule partie gagnée contre un adversaire avec exactement le même classement Elo ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "chunk_text": "## 8.3. Détermination du changement de classement pour les joueurs et joueuses classés (Voir Exemple)  \n- 8.3.1. Pour chaque partie jouée contre une personne classée, on détermine la différence de classement avec elle, D.  \nPour les joueurs et joueuses ayant un classement en dessous de 2650, une différence de classement de plus de 400 points est comptabilisée pour le calcul du classement comme s'il s'agissait d'une différence de 400 points. Pour les joueurs et joueuses classés 2650 et plus, la différence de classement sera utilisée normalement.  \n- 8.3.2. (a) Utiliser le tableau 8.1.2 pour déterminer la probabilité de score PD pour chaque partie.\n- (b) ∆R = score PD. Pour chaque partie, le score est 1, 0.5 ou 0.\n- ( c) Σ∆R = la somme des ∆R pour un tournoi ou une période de classement.\n- (d) Σ∆R x K = la variation de Classement pour un tournoi ou une période de classement.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "table",
+        "conversion",
+        "elo",
+        "variante",
+        "probabilite",
+        "tranches"
+      ]
+    },
+    {
+      "id": "FR-Q89",
+      "question": "Pour un tournoi de 9 rondes, quelle est la différence maximale d'Elo entre deux joueurs qui permet encore de considérer le tournoi comme équilibré pour le calcul du rating FIDE ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "chunk_text": "## 8.3. Détermination du changement de classement pour les joueurs et joueuses classés (Voir Exemple)  \n- 8.3.1. Pour chaque partie jouée contre une personne classée, on détermine la différence de classement avec elle, D.  \nPour les joueurs et joueuses ayant un classement en dessous de 2650, une différence de classement de plus de 400 points est comptabilisée pour le calcul du classement comme s'il s'agissait d'une différence de 400 points. Pour les joueurs et joueuses classés 2650 et plus, la différence de classement sera utilisée normalement.  \n- 8.3.2. (a) Utiliser le tableau 8.1.2 pour déterminer la probabilité de score PD pour chaque partie.\n- (b) ∆R = score PD. Pour chaque partie, le score est 1, 0.5 ou 0.\n- ( c) Σ∆R = la somme des ∆R pour un tournoi ou une période de classement.\n- (d) Σ∆R x K = la variation de Classement pour un tournoi ou une période de classement.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournoi",
+        "table",
+        "conversion",
+        "elo",
+        "variante",
+        "probabilite"
+      ]
+    },
+    {
+      "id": "FR-Q90",
+      "question": "Quel est le montant minimal d'indemnisation journalière pour un arbitre principal lors d'un tournoi national de plus de 100 joueurs en 2025 ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "chunk_text": "## 1) PRINCIPES GÉNÉRAUX  \n- Les principes de ce barème ont été votés par le comité directeur de la F.F.E de juin 2024.\n- U n événement doit respecter le minimum d'un ou d'une arbitre titré par tranche de 100 joueurs.\n- L'arbitre en chef peut négocier un nombre d'arbitres plus confortable avec l'équipe d'organisation.\n- L'indemnité d'arbitrage est calculée de manière journalière, elle est comprise entre 50 € (plancher) et 100 € (plafond) par jour.\n- Le montant précis est négocié avec l'organisateur suivant les règles établies dans ce chapitre du livre de l'arbitre.\n- Les arbitres stagiaires n'ayant pas de titre ne perçoivent aucune indemnité, mais ont le droit aux frais d'hébergement. L'organisateur n'est pas tenu de leur verser des frais de déplacements.\n- Dès lors qu'un tournoi est homologué, l'organisateur est tenu de faire appel à des arbitres fédéraux ayant au moins le titre minimal requis (voir règlements fédéraux : tournois homologués). L'indemnisation de l'arbitre est obligatoire et doit nécessairement figurer dans le budget de l'événement. Si un /une arbitre fait don d'une somme correspondant partiellement ou totalement au montant de l'indemnité due, cette opération apparaît à la fois en dépenses (ligne budgétaire « arbitrage ») et en recettes (don).\n- Le paiement de l'indemnité s'effectue avant le début de la dernière ronde. Une fiche d'indemnisation, signée par l'arbitre et par l'organisateur, est établie en double exemplaire.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "indemnisation",
+        "journalière",
+        "arbitre principal",
+        "100 joueurs",
+        "national"
+      ]
+    },
+    {
+      "id": "FR-Q91",
+      "question": "Un arbitre adjoint dans un tournoi régional de 50 à 99 joueurs peut-il prétendre à une indemnisation forfaitaire ou horaire ? Quel est le barème appliqué ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "chunk_text": "## 4) Calcul des indemnités pour les événements homologués par la FFE  \n- ➔ L'indemnité journalière est soumise à négociation entre l'équipe d'organisation et les arbitres. En l'absence d'accord préalable, l'indemnité la plus basse du type de tournoi correspondant sera appliquée.  \nIl est vivement conseillé que le montant négocié de l'indemnité soit formalisé par une trace écrite (mail) et le plus tôt possible au moment du recrutement des arbitres. Cela permet également à l'équipe d'organisation de budgétiser le plus précisément possible l'événement.  \n- ➔ L'indemnité de l'arbitre en chef est toujours supérieure ou égale à celle des arbitres adjoints.\n- ➔ Un arbitre ayant obtenu une dérogation pour arbitrer un tournoi que son titre ne lui permet normalement pas d'arbitrer devra utiliser la plage d'indemnité d'un arbitre adjoint.\n- ➔ Les éléments suivants seront pris en compte dans la négociation :\n- o Nombre de joueurs et joueuses\n- o Nombre de rondes\n- o Montant des prix\n- o Nombre de joueurs et joueuses titrés\n- o Tournoi simple ou festival\n- o Spécificités de l'événement\n- ➔ Indemnités Normes : Dans le cadre d'un tournoi à normes, l'arbitre principal pourra négocier un maximum de 50€ supplémentaire à son indemnité totale sur le tournoi (même si aucune norme n'est distribuée)\n- ➔ Frais matériel : Dans le cadre de la mise à disposition de son matériel informatique, l'arbitre pourra négocier un maximum de 20 € supplémentaire à son indemnité totale sur le tournoi.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre adjoint",
+        "parfois",
+        "arbitre",
+        "dernier",
+        "comprend",
+        "alors"
+      ]
+    },
+    {
+      "id": "FR-Q92",
+      "question": "Quelles sont les conditions pour qu'un arbitre bénéficie du remboursement des frais de déplacement en plus de son indemnisation de base ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent525-child00",
+      "chunk_text": "## 3) HÉBERGEMENT  \nIl est parfois nécessaire de prévoir pour l'arbitre un hébergement. Ce dernier comprend alors les nuitées en hôtel 2 étoiles ou équivalent et les repas au tarif conforme aux textes en vigueur, s'il n'y a ni pension complète, ni repas préparés par le comit é organisateur. Il convient que cet hébergement soit négocié entre l'arbitre et l'organisateur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "remboursement",
+        "arbitre",
+        "parfois",
+        "dernier",
+        "comprend",
+        "alors"
+      ]
+    },
+    {
+      "id": "FR-Q93",
+      "question": "Quel est le barème d'indemnisation spécifique pour un arbitre lors d'un match par équipes (ex : interclubs) avec moins de 20 joueurs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p180-parent528-child00",
+      "chunk_text": "## 5) Tarifs adoptés pour les compétitions fédérales :  \nCes indemnités sont celles votées par le comité directeur de la FFE de juin 2024. Elles peuvent être soumises à modification ultérieure par cette même instance.  \n- ➔ Pour les compétitions par équipes (Matchs des interclubs, phase qualificative des compétitions fédérales).  \nLe montant de l'indemnité est de 50€ pour une demi -journée et de 85€ pour une journée complète.  \n- ➔ Pour les finales des compétitions fédérales, nous appliquerons les indemnités journalières ci-dessous:  \n| Compétitions Fédérales | Durée de la compétition | Arbitre Principal | Arbitre Adjoint |\n|-----------------------------------------------------------------------|---------------------------|---------------------|--------------------------|\n| Top16 | 11 jours | 100 € | 85€ |\n| Championnat de France Rapide et Blitz | 2 jours | 100€ | 85€ |\n| Phase finale de la Coupe de France | 2 jours | 75€ | 50€ (adjoint facultatif) |\n| Phase finale du Top12F | 2 jours | 75€ | 50€ (adjoint facultatif) |\n| Phase finale de la Coupe Loubatière | 2 jours | 100€ | 50€ |\n| Phase finale de la Coupe de la Parité | 2 jours | 100€ | 50€ |\n| Phase finale des championnats de France scolaires (écoles + collèges) | 3 jours | 100€ | 75€ |",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "interclubs",
+        "tarifs",
+        "ces",
+        "celles",
+        "directeur",
+        "ffe"
+      ]
+    },
+    {
+      "id": "FR-Q95",
+      "question": "C'est pas possible d'avoir un Elo sans faire au moins 5 parties, si ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "chunk_text": "## 7. Liste Officielle du Classement de la FIDE  \n- 7.1. Le premier jour de chaque mois, la FIDE prépare une liste des classements intégrant les parties prises en compte durant la période de classement à partir de la liste précédente. Cela est fait en utilisant la formule du système de classement.\n- 7.1.1. La période de classement (pour les nouveaux classés, voir 7.1.4) est la période pendant laquelle une certaine liste de classements est valide.\n- 7.1.2. Les données suivantes, concernant chaque joueur et joueuse dont le classement est d'au moins 1 400 dans la liste actuelle, sont publiées : Titre de la FIDE, Fédération, Classement Actuel, Code FIDE, Nombre de parties prises en compte dans la période de classement, Année de naissance, Sexe et la valeur actuelle du coefficient K.\n- 7.1.3. La date de clôture des tournois prise en compte pour une liste est de 3 jours avant la date de publication de la liste, les tournois se terminant à cette date ou avant sont pris en compte pour le calcul du classement. Les manifestations officielles de la FIDE sont prises en compte pour le classement même si elles se terminent le dernier jour avant la date de publication du classement.\n- 7.1.4. Un classement pour un joueur ou une joueuse entrant dans la liste sera publié lorsqu'il sera basé sur au moins 5 parties jouées contre des adversaires classés. Il n'est pas nécessaire que ces parties proviennent d'un seul tournoi. Les résultats d'autres tournois joués lors de périodes de classement consécutives, d'au plus 26 mois, sont regroupées pour obtenir le classement initial. Celui-ci doit être d' au moins 1400.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "premier classement",
+        "5 parties",
+        "Elo",
+        "conditions"
+      ]
+    },
+    {
+      "id": "FR-Q96",
+      "question": "Quelle différence d'Elo max pour que mon tournoi de 9 rondes soit quand même valable pour le rating FIDE ?",
+      "expected_chunk_id": "LA-octobre2025-table73-summary",
+      "chunk_text": "Table conversion Elo variante: p, dp, probabilite (18 tranches).",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournoi",
+        "table",
+        "conversion",
+        "elo",
+        "variante",
+        "probabilite"
+      ]
+    },
+    {
+      "id": "FR-Q97",
+      "question": "Pour devenir GM, il faut combien de normes et quel Elo mini en 2025-2026 ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p192-parent571-child00",
+      "chunk_text": "## 0.5. Définitions  \nDans le texte qui suit, quelques termes spéciaux sont utilisés.  \n- « Le classement » fait référence au classement Elo Standard de la FIDE pour le joueur ou la joueuse concernée.\n- « La performance de classement » est basée sur les résultats du joueur ou de la joueuse et le classement moyen des adversaires (voir 1.4.6 à 1.4.8).\n- « La performance de titre » est un résultat qui donne une performance de classement telle que définie de 1.4.6 à 1.4.9 par rapport à la moyenne minimale des adversaires pour ce titre.  \nUne performance de GM est ≥2600 contre des adversaires avec un classement moyen ≥2380.  \nUne performance de MI est ≥2450 contre des adversaires avec un classement moyen ≥2230.  \nUne performance de GMF est ≥2400 contre des adversaires avec un classement moyen ≥2180.  \nUne performance de MIF est ≥2250 contre des adversaires avec un classement moyen ≥2030.  \nUne norme de titre est une performance de titre remplissant les critères additionnels concernant la répartition des titres et des nationalités des joueurs et joueuses selon ce qui est spécifié dans les articles 1.4.2 à 1.4.5.  \nLe titre direct (titre automatique) est un titre gagné en obtenant une certaine place ou résultat dans un tournoi. Après demande de la fédération du joueur/de la joueuse et confirmation par la commission d'homologation, ces titres sont octroyés automatiquement par la FIDE. https://handbook.fide.com/chapter/B01DirectTitles2024",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "GM",
+        "normes",
+        "Elo minimum",
+        "Grand Maître"
+      ]
+    },
+    {
+      "id": "FR-Q98",
+      "question": "Est-ce qu'on peut sauter le CM pour passer directement FM, ou c'est obligé ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p196-parent579-child00",
+      "chunk_text": "## 1.4.5. Titres des adversaires -voir Annexe pour les valeurs exactes :  \n- a) Au moins 50% des adversaires devront avoir un titre (TH) comme en 0.3, CM et CMF exclus.\n- b) Pour une norme de GM au moins 1/3 des adversaires, avec un minimum de 3, doivent être GM.\n- c) Pour une norme de MI, au moins 1/3 des adversaires, avec un minimum de 3, doivent être MI ou GM.\n- d) Pour une norme de GMF, au moins 1/3 des adversaires, avec un minimum de 3, doivent être GMF, MI ou GM.\n- e) Pour une norme de MIF, au moins 1/3 des adversaires, avec un minimum de 3, doivent être MIF, GMF, MI ou GM.\n- f) Les tournois toutes rondes en \"aller-retour\" requièrent un minimum de 6 joueurs et joueuses. Pour ces évé nements, le nombre d'adversaires avec les titres exigés par les articles 1.4.5b à 1.4.5e est divisé par deux -arrondi à l'entier supérieur .",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "CM",
+        "FM",
+        "progression",
+        "titres"
+      ]
+    },
+    {
+      "id": "FR-Q99",
+      "question": "Une norme de titre, elle reste valide combien de temps si j'attends pour demander ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p200-parent595-child00",
+      "chunk_text": "## Utilisable uniquement pour les championnats continentaux/mondiaux par équipes en 7 à 9 rondes.  \n| 7 rondes | GM | MI | GMF | MIF |\n|-----------------------------------|-----------|-----------|-----------|-----------|\n| Un minimum de | 3GM | 3 MI | 3 GMF | 3 MIF |\n| Classement plancher pour 1 joueur | 2200 | 2050 | 2000 | 1850 |\n| Porteurs de titres | 4 | 4 | 4 | 4 |\n| Nb max. d'une fédération | Aucun | Aucun | Aucun | Aucun |\n| Nb max. de sa fédération | Aucun | Aucun | Aucun | Aucun |\n| Nb min. autre fédération | Aucun | Aucun | Aucun | Aucun |\n| 51⁄2 | 2380-2441 | 2230-2291 | 2180-2241 | 2030-2091 |\n| 5 | 2442-2497 | 2292-2347 | 2242-2297 | 2092-2147 |\n| 41⁄2 | 2498-2549 | 2348-2399 | 2298-2349 | 2148-2199 |\n| 4 | 2550-2599 | 2400-2449 | 2350-2399 | 2200-2249 |",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "titre",
+        "utilisable",
+        "uniquement",
+        "championnats",
+        "continentaux",
+        "mondiaux"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,648 @@
+{
+  "batch_name": "batch_3",
+  "count": 40,
+  "questions": [
+    {
+      "id": "FR-Q179",
+      "question": "Qu'est-ce qu'un forfait administratif à la FFE ?",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "chunk_text": "## 3.1.3. Forfait administratif  \n- il s'agit d'un forfait non sportif, découlant d'une sanction.  \nLes conséquences du forfait administratif peuvent impliquer une sanction sportive et/ou financière prononcée par l'autorité compétente.  \n- Uniquement la direction de groupe ou la direction de la compétition peuvent sanctionner un forfait administratif.\n- Il ne peut y avoir une double sanction administrative à l'encontre d'une joueuse ou d'un joueur. Seule la sanction administrative la plus sévère sera retenue.",
+      "corpus": "fr",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "forfait",
+        "administratif",
+        "sanction",
+        "sportif"
+      ]
+    },
+    {
+      "id": "FR-Q18",
+      "question": "Quelles sont les cadences officielles parties rapides ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+      "chunk_text": "## Annexe A : Parties en cadence rapide  \nA.1 Une partie d'échecs en cadence rapide est une partie durant laquelle soit tous les coups doivent être effectués dans un temps limité de plus de 10 minutes mais moins de 60 minutes pour chaque joueur ou joueuse ; soit le temps alloué + 60 fois un incrément quelconque est de plus de 10 minutes mais moins de 60 minutes pour chaque joueur ou joueuse.  \nExemple 1: Selon le règlement du tournoi d'un événement, le contrôle du temps est de 30 minutes pour toute la partie et de 30 secondes pour chaque coup. C'est-à-dire : pour 60 coups, nous obtiendrions 30 '+ (30 \"x 60) = 30' +30 '= 60'. Comme le stipule l'article A1\" Une partie 'd'échecs rapides' est une partie où tous les coups doivent être complétés en moins de 60 minutes pour chaque joueur, alors une telle partie est considérée comme une partie d'échecs standard. Exemple 2: Selon le règlement du tournoi d'un événement, le contrôle du temps est de 10 minutes pour toute la partie et de 5 secondes pour chaque coup. C'est-à-dire : pour 60 coups, nous aurions 10 '+ (5 ́ x 60) = 10' +5 '= 15'. Ainsi, selon l'article A.1, une telle partie est considérée comme une partie d'échecs rapides.  \nLorsque vous effectuez ces calculs, les parties utilisant le mode « delay » sont traitées de la même manière",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "rapide",
+        "cadence",
+        "coups"
+      ]
+    },
+    {
+      "id": "FR-Q180",
+      "question": "Qui peut prononcer un forfait administratif FFE ?",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "chunk_text": "## 3.1.3. Forfait administratif  \n- il s'agit d'un forfait non sportif, découlant d'une sanction.  \nLes conséquences du forfait administratif peuvent impliquer une sanction sportive et/ou financière prononcée par l'autorité compétente.  \n- Uniquement la direction de groupe ou la direction de la compétition peuvent sanctionner un forfait administratif.\n- Il ne peut y avoir une double sanction administrative à l'encontre d'une joueuse ou d'un joueur. Seule la sanction administrative la plus sévère sera retenue.",
+      "corpus": "fr",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "forfait",
+        "administratif",
+        "direction",
+        "groupe"
+      ]
+    },
+    {
+      "id": "FR-Q181",
+      "question": "Qui peut participer aux Championnats de France Jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "chunk_text": "## 1. Préambule  \n- 1.1 . Les Championnats de France Jeunes sont ouverts aux jeunes joueuses et joueurs français licenciés ainsi que les jeunes joueuses et joueurs étrangers licenciés et scolarisés en France. Dans ce deuxième cas, les licences doivent être prises auprès de la FFE au plus tard le 30 novembre de la saison en cours.\n- 1.2. Les joueuses et joueurs étrangers des catégories U18, U18F, U20 et U20F non scolarisés doivent résider en France depuis au moins deux ans et être licenciés auprès de la FFE également depuis au moins deux ans.\n- 1.3. La notion de qualification sportive étant parfaitement décrite dans l'ensemble des règlements nationaux, les remplacements pour désistements ainsi que les dérogations doivent toujours ménager en premier lieu cet esprit sportif.\n- 1.4. Les dates des qualifications départementales et zones interdépartementales ne doivent pas coïncider avec celles du Championnat de France des clubs et Championnat de France Interclubs jeunes, dès lors qu'au moins un club de département (ou de la ZID) est concerné.\n- 1.5. Les Ligues souhaitant des dérogations sur un point du présent règlement doivent faire la demande à la Commission Technique Fédérale (CTF) avant les qualifications départementales. Sans l'accord de la CTF, les dérogations ne sont pas possibles. Toute Ligue contrevenant à cet article s'expose à des sanctions pouvant aller jusqu'à l'invalidation des qualifications concernées.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "jeunes",
+        "français",
+        "licenciés",
+        "scolaris"
+      ]
+    },
+    {
+      "id": "FR-Q182",
+      "question": "Quelles conditions de licence pour jeunes étrangers aux championnats ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "chunk_text": "## 1. Préambule  \n- 1.1 . Les Championnats de France Jeunes sont ouverts aux jeunes joueuses et joueurs français licenciés ainsi que les jeunes joueuses et joueurs étrangers licenciés et scolarisés en France. Dans ce deuxième cas, les licences doivent être prises auprès de la FFE au plus tard le 30 novembre de la saison en cours.\n- 1.2. Les joueuses et joueurs étrangers des catégories U18, U18F, U20 et U20F non scolarisés doivent résider en France depuis au moins deux ans et être licenciés auprès de la FFE également depuis au moins deux ans.\n- 1.3. La notion de qualification sportive étant parfaitement décrite dans l'ensemble des règlements nationaux, les remplacements pour désistements ainsi que les dérogations doivent toujours ménager en premier lieu cet esprit sportif.\n- 1.4. Les dates des qualifications départementales et zones interdépartementales ne doivent pas coïncider avec celles du Championnat de France des clubs et Championnat de France Interclubs jeunes, dès lors qu'au moins un club de département (ou de la ZID) est concerné.\n- 1.5. Les Ligues souhaitant des dérogations sur un point du présent règlement doivent faire la demande à la Commission Technique Fédérale (CTF) avant les qualifications départementales. Sans l'accord de la CTF, les dérogations ne sont pas possibles. Toute Ligue contrevenant à cet article s'expose à des sanctions pouvant aller jusqu'à l'invalidation des qualifications concernées.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "étrangers",
+        "licences",
+        "novembre",
+        "FFE"
+      ]
+    },
+    {
+      "id": "FR-Q183",
+      "question": "Comment fonctionne la phase zone interdépartementale jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p002-parent007-child00",
+      "chunk_text": "## 2.4. Phase(s) zone interdépartementale  \nChaque Ligue doit obligatoirement rédiger un règlement et adresser un exemplaire à la CTF à chaque saison, au plus tard 1 mois avant le début de la phase départementale de la Ligue. La CTF le validera en s'assurant qu'il est bien compatible avec le mode de qualification global. À défaut, la CTF pourra invalider les qualifications des zones interdépartementales.  \nUne ligue composée de plusieurs ZID peut faire le choix de championnats par ZID ou d'un championnat unique. Dans ce dernier cas, elle peut faire le choix suivant concernant les qualifications :  \n1) Un classement séparé par ZID avec les places qualificatives associées.  \n2) Un classement unique avec une place minimum dans chaque catégorie pour chaque ZID.  \nLes Ligues composées de plusieurs ZID peuvent compléter les places qualificatives laissées vacantes dans une catégorie d'une des ZID, en les proposant aux autres ZID. Les places doivent être proposées alternativement aux ZID, en commençant par la mieux classée dans les quotas de chacune des catégories concernées.  \nLes quotas de places qualificatives allouées aux zones interdépartementales à l'issue de leurs sélections internes sont établis mathématiquement selon l'indice de recrutement ci-dessous.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "Ligue",
+        "règlement",
+        "ZID",
+        "qualification"
+      ]
+    },
+    {
+      "id": "FR-Q184",
+      "question": "Quelles qualifications d'office aux Championnats Jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "chunk_text": "## 2.6. Qualifications d'office  \nSont qualifiés pour les Championnats de France U16, U14, U12, U10 et U8, en catégorie mixte ou féminine :  \n- Les jeunes changeant de catégorie ayant obtenu un score minimal de 6,5/9 dans le championnat précédent.\n- Les jeunes ne changeant pas de catégorie et ayant obtenu un score minimal de 6/9 dans le championnat précédent.\n- Les jeunes atteignant un Elo en cadence standard minimum en juillet ou août de la saison précédente ou en septembre de la nouvelle saison :\n- 2100 pour les U16, 1900 pour les U16F ;\n- 2000 pour les U14, 1850 pour les U14F ;\n- 1900 pour les U12, 1700 pour les U12F ;\n- 1750 pour les U10, 1600 pour les U10F ;\n- Un joueur ou une joueuse par tournoi mixte et une joueuse par tournoi féminin choisis par l'organisateur.\n- La ou le premier classé de chaque catégorie des Open A et B de la saison précédente.  \nLa qualité de qualifié ou qualifiée d'office doit impérativement être confirmée par une prise de licence A avant le 1 er décembre de la saison en cours ; à défaut, la qualification d'office est annulée.  \nSi les qualifiés et qualifiées d'office participent aux phases qualificatives départementales et/ou des zones interdépartementales, ils sont retirés lors de l'établissement de la liste des places qualificatives.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "qualifiés",
+        "score",
+        "catégorie",
+        "Elo"
+      ]
+    },
+    {
+      "id": "FR-Q185",
+      "question": "Quel score minimal pour qualification d'office jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "chunk_text": "## 2.6. Qualifications d'office  \nSont qualifiés pour les Championnats de France U16, U14, U12, U10 et U8, en catégorie mixte ou féminine :  \n- Les jeunes changeant de catégorie ayant obtenu un score minimal de 6,5/9 dans le championnat précédent.\n- Les jeunes ne changeant pas de catégorie et ayant obtenu un score minimal de 6/9 dans le championnat précédent.\n- Les jeunes atteignant un Elo en cadence standard minimum en juillet ou août de la saison précédente ou en septembre de la nouvelle saison :\n- 2100 pour les U16, 1900 pour les U16F ;\n- 2000 pour les U14, 1850 pour les U14F ;\n- 1900 pour les U12, 1700 pour les U12F ;\n- 1750 pour les U10, 1600 pour les U10F ;\n- Un joueur ou une joueuse par tournoi mixte et une joueuse par tournoi féminin choisis par l'organisateur.\n- La ou le premier classé de chaque catégorie des Open A et B de la saison précédente.  \nLa qualité de qualifié ou qualifiée d'office doit impérativement être confirmée par une prise de licence A avant le 1 er décembre de la saison en cours ; à défaut, la qualification d'office est annulée.  \nSi les qualifiés et qualifiées d'office participent aux phases qualificatives départementales et/ou des zones interdépartementales, ils sont retirés lors de l'établissement de la liste des places qualificatives.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "score",
+        "minimal",
+        "championnat",
+        "précédent"
+      ]
+    },
+    {
+      "id": "FR-Q186",
+      "question": "Quels tournois au Championnat de France individuel ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2. Structure  \nLe championnat est constitué de dix tournois :  \n- Tournoi National\n- Tournoi National Féminin\n- Tournoi Accession \"Roger FERRY\"\n- Tournoi Vétérans\n- Tournoi Seniors Plus\n- Tournoi Open A\n- Tournoi Open B\n- Tournoi Open C\n- Tournoi Open D\n- Tournoi Open E",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "tournois",
+        "National",
+        "Accession",
+        "Open"
+      ]
+    },
+    {
+      "id": "FR-Q187",
+      "question": "Combien de joueuses au Tournoi National Féminin ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "chunk_text": "## 2.2. Tournoi National Féminin (16 joueuses)  \nSont qualifiées dans l'ordre pour le tournoi National Féminin :  \n1. Les trois premières du National Féminin précédent ;\n2. Les trois premières joueuses du classement final du tournoi Accession précédent, puis à défaut de l'Open A ;\n3. Les 8 joueuses ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours ;\n4. La championne de France féminine U20F de la saison en cours ;\n5. La joueuse jeune (toutes catégories féminines jeunes confondues) ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours. En cas de qualification par l'un des 4 premiers critères, la place revient dans l'ordre aux jeunes joueuses suivantes, dans la limite des 3 premières places.  \nEn cas de désistements selon chaque critère de qualification, les remplacements sont effectués selon le critère 3 (meilleur Elo moyen).  \nEn cas d'égalité à la moyenne Elo dans les critères de qualification concernés, les joueuses sont départagées par le meilleur Elo lors de la dernière publication, puis la précédente et ainsi de suite jusqu'à obtenir un départage.  \nToutes les joueuses doivent être sur la liste des joueuses actives de la FIDE le 1 er avril de l'année en cours.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "National",
+        "Féminin",
+        "16",
+        "joueuses"
+      ]
+    },
+    {
+      "id": "FR-Q188",
+      "question": "Comment se qualifier au Tournoi National Féminin ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "chunk_text": "## 2.2. Tournoi National Féminin (16 joueuses)  \nSont qualifiées dans l'ordre pour le tournoi National Féminin :  \n1. Les trois premières du National Féminin précédent ;\n2. Les trois premières joueuses du classement final du tournoi Accession précédent, puis à défaut de l'Open A ;\n3. Les 8 joueuses ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours ;\n4. La championne de France féminine U20F de la saison en cours ;\n5. La joueuse jeune (toutes catégories féminines jeunes confondues) ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours. En cas de qualification par l'un des 4 premiers critères, la place revient dans l'ordre aux jeunes joueuses suivantes, dans la limite des 3 premières places.  \nEn cas de désistements selon chaque critère de qualification, les remplacements sont effectués selon le critère 3 (meilleur Elo moyen).  \nEn cas d'égalité à la moyenne Elo dans les critères de qualification concernés, les joueuses sont départagées par le meilleur Elo lors de la dernière publication, puis la précédente et ainsi de suite jusqu'à obtenir un départage.  \nToutes les joueuses doivent être sur la liste des joueuses actives de la FIDE le 1 er avril de l'année en cours.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "qualifiées",
+        "National",
+        "Féminin",
+        "Elo"
+      ]
+    },
+    {
+      "id": "FR-Q189",
+      "question": "Quel âge minimum pour le tournoi Vétérans FFE ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "chunk_text": "## 2.5. Tournoi Vétérans et tournoi Seniors Plus  \n- Le tournoi Vétérans est ouvert aux joueurs et joueuses ayant 65 ans ou plus avant le 1 er janvier de l'année en cours.\n- Le tournoi Seniors Plus est ouvert aux joueurs et joueuses ayant de 50 ans à 64 ans avant le 1 er janvier de la saison en cours.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "Vétérans",
+        "65",
+        "ans",
+        "janvier"
+      ]
+    },
+    {
+      "id": "FR-Q19",
+      "question": "Quelles sont les cadences officielles blitz ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "chunk_text": "## Annexe B : Parties en cadence Blitz  \n- B.1 Une partie d'échecs en cadence Blitz est une partie durant laquelle soit tous les coups doivent être effectués dans un temps limité de 10 minutes ou moins pour chaque joueur ou joueuse, soit le temps alloué + 60 fois un incrément quelconque est inférieur ou égal à 10 minutes pour chaque joueur ou joueuse.  \nSelon le règlement d'un événement, le contrôle du temps est de 5 minutes pour toute la partie et de 5 secondes pour chaque coup.  \nC'est-à-dire : pour 60 coups, nous aurions 5 '+ (5'x60) = 5' + 5 '= 10'.  \nSelon l'art. B.1 nous avons une partie de Blitz.  \nB.2 Les Règles de Compétition s'appliquent si :  \n- B.2.1. un ou une arbitre supervise une partie et\n- B.2.2. c haque partie est enregistrée par l'arbitre, son assistant ou son assistante et, si possible, par des moyens électroniques.\n- B.2.3. Le joueur ou la joueuse au trait peut à tout moment demander à l'arbitre, son assistant ou son assistante de lui montrer la feuille de partie. Cette requête ne peut être réalisée que cinq fois au maximum. D'autres demandes doivent être considérées comme des distractions de l'adversaire.  \nSi les règles de compétition sont utilisées, elles doivent s'appliquer à chaque ronde. Elles ne peuvent pas être introduites, par exemple, que pour la finale.  \nEn Blitz et en Rapide, si le joueur demande à l'arbitre de voir la feuille de match, la pendule ne doit pas être arrêtée.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "blitz",
+        "cadence",
+        "coups"
+      ]
+    },
+    {
+      "id": "FR-Q190",
+      "question": "Quelle tranche d'âge pour le tournoi Seniors Plus FFE ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "chunk_text": "## 2.5. Tournoi Vétérans et tournoi Seniors Plus  \n- Le tournoi Vétérans est ouvert aux joueurs et joueuses ayant 65 ans ou plus avant le 1 er janvier de l'année en cours.\n- Le tournoi Seniors Plus est ouvert aux joueurs et joueuses ayant de 50 ans à 64 ans avant le 1 er janvier de la saison en cours.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "Seniors",
+        "Plus",
+        "50",
+        "64"
+      ]
+    },
+    {
+      "id": "FR-Q191",
+      "question": "Comment est structurée la Coupe de France échecs ?",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "chunk_text": "## 1.1. Structure  \nLa Coupe de France est organisée chaque saison. Elle est ouverte à tous les clubs affiliés à la Fédération Française des Échecs. Chaque club ne peut engager qu'une équipe.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "Coupe",
+        "France",
+        "clubs",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q192",
+      "question": "Combien d'équipes par club en Coupe de France ?",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "chunk_text": "## 1.1. Structure  \nLa Coupe de France est organisée chaque saison. Elle est ouverte à tous les clubs affiliés à la Fédération Française des Échecs. Chaque club ne peut engager qu'une équipe.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "club",
+        "engager",
+        "équipe",
+        "une"
+      ]
+    },
+    {
+      "id": "FR-Q193",
+      "question": "Quelles règles aux parties de Coupe de France ?",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent012-child00",
+      "chunk_text": "## 3.1. Règles du jeu  \nLes règles de la Fédération Internationale des Échecs et de la Fédération Française des Échecs en vigueur à la date des matchs sont applicables à toutes les parties.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "règles",
+        "parties",
+        "jeu",
+        "internationale",
+        "vigueur",
+        "date"
+      ]
+    },
+    {
+      "id": "FR-Q194",
+      "question": "Quelles parties comptent pour le classement rapide FFE ?",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "chunk_text": "## LE CLASSEMENT RAPIDE  \nLe calcul de l'Elo Rapide(ci-dessous désigné Rapide)porte sur les parties de moins de 60 min et de plus de 10 min/joueur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "Rapide",
+        "parties",
+        "60",
+        "min"
+      ]
+    },
+    {
+      "id": "FR-Q195",
+      "question": "Comment manipuler la pendule d'échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "chunk_text": "## Parfois, ce qui suit se produit :  \nUn joueur ou une joueuse renverse des pièces ; dans cette situation, l'adversaire laisse son doigt sur le balancier de la pendule pour l'empêcher d'appuyer sur la pendule. Ceci est interdit selon cet Article.  \nSi un joueur ou une joueuse joue un coup avec une main et appuie sur la pendule avec l'autre main, cela n'est pas considéré comme un coup illégal mais cela peut être sanctionné selon l'article 12.9.  \nNote de traduction : La plupart du temps c'est un acte involontaire ou lié à la méconnaissance de la règle, un simple avertissement peut suffire, dans le cas d'une action visant à gagner du temps ou à mettre la pression sur l'adversaire une sanction plus sévère est choisie.  \n6.2.4. Les joueurs et joueuses doivent manipuler la pendule d'échecs convenablement. Il est interdit de l'actionner avant de jouer son coup, de l'actionner de force, de la prendre dans ses mains ou de la renverser. Toute manipulation incorrecte est sanctionnée selon l'Article 12.9.  \nDans le cas d'un joueur appuyant sur la pendule sans jouer un coup, comme mentionné dans l'article 6.2.4, ceci est considéré comme un coup illégal et sanctionné comme tel selon l'article 7.5.3.  \n- 6.2.5. Seul le joueur ou la joueuse dont la pendule est en marche a l'autorisation d' adouber les pièces.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pendule",
+        "manipulation",
+        "joueur",
+        "appuyer"
+      ]
+    },
+    {
+      "id": "FR-Q196",
+      "question": "Que faire si la pendule est défectueuse ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "chunk_text": "- 6.2.5. Seul le joueur ou la joueuse dont la pendule est en marche a l'autorisation d' adouber les pièces.  \n6.2.6. Si un joueur ou une joueuse n'est pas en mesure d'utiliser la pendule, il/elle peut fournir un assistant ou une assistante, qui doit avoir l'agrément de l'arbitre, pour actionner sa pendule. Sa pendule est ajustée par l'arbitre de manière équitable. Cette correction de la pendule ne doit pas s'appliquer à celle d'un e personne en situation de handicap.  \nIl est clair que c'est au joueur/à la joueuse de trouver son assistant/assistante. Il/Elle doit le/la présenter à l'arbitre, à l'avance et pas juste avant le début de la partie. Il est habituel d'enlever 10mn au temps imparti au joueur ou à la joueuse ayant besoin d'assistance. Aucune déduction de temps ne doit être effectuée dans le cas d'un e personne en situation de handicap.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pendule",
+        "défectueuse",
+        "arbitre",
+        "temps"
+      ]
+    },
+    {
+      "id": "FR-Q197",
+      "question": "Qu'est-ce qu'une colonne aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "chunk_text": "- 2.3. La position initiale des pièces sur l ' échiquier est la suivante :  \n<!-- image -->  \n<!-- image -->  \n- 2.4. Les huit alignements verticaux de cases sont appelés « colonnes ». Les huit alignements horizontaux de cases sont appelés « rangées ». Une ligne droite de cases de la même couleur, allant d ' un bord de l ' échiquier à un bord adjacent, est appelée « diagonale ».  \nLes échiquiers peuvent être fabriqués dans différents matériaux mais les cases doivent être contrastées : foncées (noire s ou marron) et claires (blanches ou crèmes). Il est utile qu'elles soient mates pour éviter les reflets qui perturberaient les joueurs et joueuses . La taille de l'échiquier doit correspondre aux dimensions des pièces ( voir plus de détail dans le manuel de la FIDE C02).",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "colonne",
+        "vertical",
+        "cases",
+        "échiquier"
+      ]
+    },
+    {
+      "id": "FR-Q198",
+      "question": "Qu'est-ce qu'une rangée aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "chunk_text": "- 2.3. La position initiale des pièces sur l ' échiquier est la suivante :  \n<!-- image -->  \n<!-- image -->  \n- 2.4. Les huit alignements verticaux de cases sont appelés « colonnes ». Les huit alignements horizontaux de cases sont appelés « rangées ». Une ligne droite de cases de la même couleur, allant d ' un bord de l ' échiquier à un bord adjacent, est appelée « diagonale ».  \nLes échiquiers peuvent être fabriqués dans différents matériaux mais les cases doivent être contrastées : foncées (noire s ou marron) et claires (blanches ou crèmes). Il est utile qu'elles soient mates pour éviter les reflets qui perturberaient les joueurs et joueuses . La taille de l'échiquier doit correspondre aux dimensions des pièces ( voir plus de détail dans le manuel de la FIDE C02).",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "rangée",
+        "horizontal",
+        "cases",
+        "échiquier"
+      ]
+    },
+    {
+      "id": "FR-Q199",
+      "question": "Qu'est-ce qu'une diagonale aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "chunk_text": "- 2.3. La position initiale des pièces sur l ' échiquier est la suivante :  \n<!-- image -->  \n<!-- image -->  \n- 2.4. Les huit alignements verticaux de cases sont appelés « colonnes ». Les huit alignements horizontaux de cases sont appelés « rangées ». Une ligne droite de cases de la même couleur, allant d ' un bord de l ' échiquier à un bord adjacent, est appelée « diagonale ».  \nLes échiquiers peuvent être fabriqués dans différents matériaux mais les cases doivent être contrastées : foncées (noire s ou marron) et claires (blanches ou crèmes). Il est utile qu'elles soient mates pour éviter les reflets qui perturberaient les joueurs et joueuses . La taille de l'échiquier doit correspondre aux dimensions des pièces ( voir plus de détail dans le manuel de la FIDE C02).",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "diagonale",
+        "cases",
+        "couleur",
+        "bord"
+      ]
+    },
+    {
+      "id": "FR-Q20",
+      "question": "Quelles sont les annexes aux règles générales ?",
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+      "chunk_text": "## Principe  \nCes annexes permettent aux joueurs et joueuses, capitaines, arbitres ou organisateurs et organisatrices d'avoir une aide à la décision pour toutes les compétitions fédérales pour lesquelles un cas n'est pas précisé strictement.",
+      "corpus": "fr",
+      "expected_docs": [
+        "R02_2025_26_Regles_generales_Annexes.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "règle",
+        "général",
+        "compétition"
+      ]
+    },
+    {
+      "id": "FR-Q200",
+      "question": "Comment une pièce prend-elle une autre pièce ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "chunk_text": "## Article 3 Le déplacement des pièces  \n- 3.1. Il est interdit de déplacer une pièce sur une case occupée par une pièce de même couleur.\n- 3.1.1. Si une pièce se déplace sur une case occupée par une pièce adverse, cette dernière est immédiatement prise et retirée de l ' échiquier, dans le cadre du même coup.\n- 3.1.2. On dit d'une pièce qu'elle attaque une pièce adverse si elle peut prendre celle-ci sur la case où elle se trouve conformément aux Articles 3.2 à 3.8.\n- 3.1.3. On considère qu'une pièce attaque une case, même si cette pièce ne se trouve pas en mesure de se déplacer sur cette case parce que ce faisant elle laisserait ou mettrait en prise le roi de son propre camp.  \nLe fait d'être clouée devant son propre roi n'empêche pas une pièce d'attaquer les cases sur lesquelles elle pourrait se déplacer. Même une pièce clouée peut \"mettre en échec\" le roi de l'adversaire.  \n- 3.2. Un fou peut se déplacer sur n 'importe quelle case le long d'une des diagonales sur lesquelles il se trouve.  \n<!-- image -->  \nAu départ, chaque camp dispose de deux fous, l'un se déplace sur les cases blanches, l'autre sur les cases noires. Si un joueur ou une joueuse possède deux fous ou plus sur des cases de la même couleur, il est probable que le 2 ème fou soit le résultat d'une promotion (voir article 3.7.3.3), ou qu'un coup illégal a été joué.  \n- 3.3. Une tour peut se déplacer sur n ' importe quelle case de la colonne ou de la rangée sur lesquelles elle se trouve.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "prise",
+        "pièce",
+        "adverse",
+        "retir"
+      ]
+    },
+    {
+      "id": "FR-Q201",
+      "question": "Quand une pièce attaque-t-elle une case ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "chunk_text": "## Article 3 Le déplacement des pièces  \n- 3.1. Il est interdit de déplacer une pièce sur une case occupée par une pièce de même couleur.\n- 3.1.1. Si une pièce se déplace sur une case occupée par une pièce adverse, cette dernière est immédiatement prise et retirée de l ' échiquier, dans le cadre du même coup.\n- 3.1.2. On dit d'une pièce qu'elle attaque une pièce adverse si elle peut prendre celle-ci sur la case où elle se trouve conformément aux Articles 3.2 à 3.8.\n- 3.1.3. On considère qu'une pièce attaque une case, même si cette pièce ne se trouve pas en mesure de se déplacer sur cette case parce que ce faisant elle laisserait ou mettrait en prise le roi de son propre camp.  \nLe fait d'être clouée devant son propre roi n'empêche pas une pièce d'attaquer les cases sur lesquelles elle pourrait se déplacer. Même une pièce clouée peut \"mettre en échec\" le roi de l'adversaire.  \n- 3.2. Un fou peut se déplacer sur n 'importe quelle case le long d'une des diagonales sur lesquelles il se trouve.  \n<!-- image -->  \nAu départ, chaque camp dispose de deux fous, l'un se déplace sur les cases blanches, l'autre sur les cases noires. Si un joueur ou une joueuse possède deux fous ou plus sur des cases de la même couleur, il est probable que le 2 ème fou soit le résultat d'une promotion (voir article 3.7.3.3), ou qu'un coup illégal a été joué.  \n- 3.3. Une tour peut se déplacer sur n ' importe quelle case de la colonne ou de la rangée sur lesquelles elle se trouve.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "attaque",
+        "pièce",
+        "case",
+        "déplacer"
+      ]
+    },
+    {
+      "id": "FR-Q202",
+      "question": "Comment se déplace le fou aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "chunk_text": "## Article 3 Le déplacement des pièces  \n- 3.1. Il est interdit de déplacer une pièce sur une case occupée par une pièce de même couleur.\n- 3.1.1. Si une pièce se déplace sur une case occupée par une pièce adverse, cette dernière est immédiatement prise et retirée de l ' échiquier, dans le cadre du même coup.\n- 3.1.2. On dit d'une pièce qu'elle attaque une pièce adverse si elle peut prendre celle-ci sur la case où elle se trouve conformément aux Articles 3.2 à 3.8.\n- 3.1.3. On considère qu'une pièce attaque une case, même si cette pièce ne se trouve pas en mesure de se déplacer sur cette case parce que ce faisant elle laisserait ou mettrait en prise le roi de son propre camp.  \nLe fait d'être clouée devant son propre roi n'empêche pas une pièce d'attaquer les cases sur lesquelles elle pourrait se déplacer. Même une pièce clouée peut \"mettre en échec\" le roi de l'adversaire.  \n- 3.2. Un fou peut se déplacer sur n 'importe quelle case le long d'une des diagonales sur lesquelles il se trouve.  \n<!-- image -->  \nAu départ, chaque camp dispose de deux fous, l'un se déplace sur les cases blanches, l'autre sur les cases noires. Si un joueur ou une joueuse possède deux fous ou plus sur des cases de la même couleur, il est probable que le 2 ème fou soit le résultat d'une promotion (voir article 3.7.3.3), ou qu'un coup illégal a été joué.  \n- 3.3. Une tour peut se déplacer sur n ' importe quelle case de la colonne ou de la rangée sur lesquelles elle se trouve.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "fou",
+        "diagonale",
+        "déplace",
+        "case"
+      ]
+    },
+    {
+      "id": "FR-Q203",
+      "question": "Peut-on déplacer une pièce qui expose le roi à l'échec ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "chunk_text": "## 3.9. Mise du roi en échec :  \n- 3.9.1. Le roi est dit « en échec » s'il est attaqué par une ou plusieurs pièces adverses, même si ces pièces ne peuvent pas se déplacer sur la case occupée par ce roi parce qu ' elles laisseraient ou mettraient en échec le roi de leur propre camp.\n- 3.9.2. Aucune pièce ne peut être déplacée si elle expose le roi de son propre camp à un échec ou si elle le laisse en échec.\n- 3.10. Coup légaux et illégaux, positions illégales :\n- 3.10.1. Un coup est dit légal lorsqu ' il respecte toutes les conditions associées fixées par les articles 3.1 à 3.9.\n- 3.10.2. Un coup est dit illégal quand il ne respecte pas l ' une des conditions associées fixées par les articles 3.1 à 3.9\n- 3.10.3. Une position est illégale lorsqu'elle ne peut avoir été atteinte par aucune suite de coups légaux.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pièce",
+        "expose",
+        "roi",
+        "échec"
+      ]
+    },
+    {
+      "id": "FR-Q204",
+      "question": "Quand la partie est-elle nulle par pat ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "chunk_text": "Un joueur ou une joueuse qui quitte une partie sans abandonner ni prévenir l'arbitre fait ainsi preuve de discourtoisie. L 'Arbitre en chef peut lui infliger une sanction pour manque de sportivité.  \n- 5.2.1. La partie est nulle lorsque le joueur ou la joueuse au trait ne dispose d'aucun coup légal et que son roi n'est pas en échec. On dit alors que la partie se termine par le \"pat\". Cela met immédiatement fin à la partie, à condition que le coup amenant cette position soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.\n- 5.2.2. La partie est nulle lorsque survient une position dans laquelle aucun des deux adversaires ne peut mettre échec et mat le roi adverse par une suite de coups légaux. On dit alors que la partie se termine sur une \"position morte\". Ceci met immédiatement fin à la partie, à condition que le coup amenant cette position soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.\n- 5.2.3. La partie est nulle en cas d'accord mutuel entre les deux adversaires au cours de la partie, sous réserve que chaque joueur ou joueuse ait joué au moins un coup. Ceci met immédiatement fin à la partie.  \nCette règle n'est applicable que si l'article 9.1.1 (ne pas accepter une partie nulle par accord mutuel avant un nombre déterminé de coups) n'est pas utilisé.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "nulle",
+        "pat",
+        "joueur",
+        "coup"
+      ]
+    },
+    {
+      "id": "FR-Q205",
+      "question": "Quel matériel minimum pour faire mat ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "chunk_text": "- Si aucun des deux adversaires ne peut gagner, la partie est automatiquement un match nul. L'arbitre doit donc intervenir pour le déclarer lorsque :\n- (a) aucun des deux adversaires n'a de matériel suffisant pour mater, ou\n- (b) la position est telle qu'aucun des adversaires ne peut faire échec et mat (appelée position morte). L'exemple le plus simple de (a) est R v R.  \nCe qui suit, où les blancs viennent de jouer h5, est un exemple de position morte :  \nArticle 2 La position initiale des pièces sur l'échiquier  \n<!-- image -->  \n- 2.1. L'échiquier est constitué d'une grille carrée de 8 x 8 cases dessinant 64 cases de taille égale, alternativement claires (les cases « blanches ») et foncées (les cases « noires »).\n- L ' échiquier se trouve placé entre les deux adversaires de telle manière que la case d ' angle la plus proche et située du côté droit de chaque joueur ou joueuse soit blanche.\n- 2.2. Au début de la partie, les Blancs disposent de 16 pièces de couleur claire (les pièces « blanches »), les Noirs disposant de 16 pièces de couleur sombre (les pièces « noires »). Ces pièces sont les suivantes :\n- 2.3. La position initiale des pièces sur l ' échiquier est la suivante :  \n<!-- image -->  \n<!-- image -->",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "matériel",
+        "suffisant",
+        "mat",
+        "position"
+      ]
+    },
+    {
+      "id": "FR-Q206",
+      "question": "Qu'est-ce qu'une position morte aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "chunk_text": "- Si aucun des deux adversaires ne peut gagner, la partie est automatiquement un match nul. L'arbitre doit donc intervenir pour le déclarer lorsque :\n- (a) aucun des deux adversaires n'a de matériel suffisant pour mater, ou\n- (b) la position est telle qu'aucun des adversaires ne peut faire échec et mat (appelée position morte). L'exemple le plus simple de (a) est R v R.  \nCe qui suit, où les blancs viennent de jouer h5, est un exemple de position morte :  \nArticle 2 La position initiale des pièces sur l'échiquier  \n<!-- image -->  \n- 2.1. L'échiquier est constitué d'une grille carrée de 8 x 8 cases dessinant 64 cases de taille égale, alternativement claires (les cases « blanches ») et foncées (les cases « noires »).\n- L ' échiquier se trouve placé entre les deux adversaires de telle manière que la case d ' angle la plus proche et située du côté droit de chaque joueur ou joueuse soit blanche.\n- 2.2. Au début de la partie, les Blancs disposent de 16 pièces de couleur claire (les pièces « blanches »), les Noirs disposant de 16 pièces de couleur sombre (les pièces « noires »). Ces pièces sont les suivantes :\n- 2.3. La position initiale des pièces sur l ' échiquier est la suivante :  \n<!-- image -->  \n<!-- image -->",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "position",
+        "morte",
+        "mat",
+        "aucun"
+      ]
+    },
+    {
+      "id": "FR-Q207",
+      "question": "Quand peut-on adouber les pièces ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "chunk_text": "## Parfois, ce qui suit se produit :  \nUn joueur ou une joueuse renverse des pièces ; dans cette situation, l'adversaire laisse son doigt sur le balancier de la pendule pour l'empêcher d'appuyer sur la pendule. Ceci est interdit selon cet Article.  \nSi un joueur ou une joueuse joue un coup avec une main et appuie sur la pendule avec l'autre main, cela n'est pas considéré comme un coup illégal mais cela peut être sanctionné selon l'article 12.9.  \nNote de traduction : La plupart du temps c'est un acte involontaire ou lié à la méconnaissance de la règle, un simple avertissement peut suffire, dans le cas d'une action visant à gagner du temps ou à mettre la pression sur l'adversaire une sanction plus sévère est choisie.  \n6.2.4. Les joueurs et joueuses doivent manipuler la pendule d'échecs convenablement. Il est interdit de l'actionner avant de jouer son coup, de l'actionner de force, de la prendre dans ses mains ou de la renverser. Toute manipulation incorrecte est sanctionnée selon l'Article 12.9.  \nDans le cas d'un joueur appuyant sur la pendule sans jouer un coup, comme mentionné dans l'article 6.2.4, ceci est considéré comme un coup illégal et sanctionné comme tel selon l'article 7.5.3.  \n- 6.2.5. Seul le joueur ou la joueuse dont la pendule est en marche a l'autorisation d' adouber les pièces.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "adouber",
+        "pendule",
+        "joueur",
+        "pièces"
+      ]
+    },
+    {
+      "id": "FR-Q208",
+      "question": "Que faire si un joueur ne peut pas utiliser la pendule ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "chunk_text": "- 6.2.5. Seul le joueur ou la joueuse dont la pendule est en marche a l'autorisation d' adouber les pièces.  \n6.2.6. Si un joueur ou une joueuse n'est pas en mesure d'utiliser la pendule, il/elle peut fournir un assistant ou une assistante, qui doit avoir l'agrément de l'arbitre, pour actionner sa pendule. Sa pendule est ajustée par l'arbitre de manière équitable. Cette correction de la pendule ne doit pas s'appliquer à celle d'un e personne en situation de handicap.  \nIl est clair que c'est au joueur/à la joueuse de trouver son assistant/assistante. Il/Elle doit le/la présenter à l'arbitre, à l'avance et pas juste avant le début de la partie. Il est habituel d'enlever 10mn au temps imparti au joueur ou à la joueuse ayant besoin d'assistance. Aucune déduction de temps ne doit être effectuée dans le cas d'un e personne en situation de handicap.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "pendule",
+        "assistant",
+        "arbitre",
+        "handicap"
+      ]
+    },
+    {
+      "id": "FR-Q209",
+      "question": "Comment noter les coups aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "chunk_text": "## Annexe C : La notation algébrique  \nLa FIDE ne reconnaît qu'un seul système de notation pour ses propres tournois et pour ses matchs : le Système Algébrique. Elle préconise l'utilisation de cette notation uniforme dans la littérature et les périodiques échiquéens.  \nLes feuilles de parties, utilisant un autre système que la notation algébrique, ne peuvent pas être utilisées comme preuve dans le cas où ces feuilles sont normalement utilisées à cet effet. L' arbitre qui constate qu'un autre système de notation que le système algébrique est utilisé doit avertir de cette obligation.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "notation",
+        "algébrique",
+        "coups",
+        "feuille"
+      ]
+    },
+    {
+      "id": "FR-Q21",
+      "question": "Quelles compétitions sont homologuées par la FFE ?",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00",
+      "chunk_text": "## Définition  \nLes compétitions homologuées sont les compétitions et tournois officiels de la Fédération Française des Echecs. La Fédération Française des Échecs est le seul organisme permettant l'homologation FIDE des tournois d'échecs se déroulant en France.  \nLes résultats des compétitions homologuées sont les seuls pouvant être pris en compte pour les différents classements.",
+      "corpus": "fr",
+      "expected_docs": [
+        "R03_2025_26_Competitions_homologuees.pdf"
+      ],
+      "keywords": [
+        "homolog",
+        "compétition",
+        "FFE",
+        "classement"
+      ]
+    },
+    {
+      "id": "FR-Q210",
+      "question": "Comment annoncer les coups pour joueurs aveugles ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child00",
+      "chunk_text": "## D.2 Les règles suivantes régissent le jeu :  \n- D.2.1. Les coups doivent être annoncés clairement, répétés par l'adversaire et joués sur son échiquier. Lors d'une promotion, le joueur ou la joueuse doit annoncer la pièce choisie. Pour rendre les annonces aussi claires que possible, l'utilisation des noms suivants est suggérée pour remplacer les lettres correspondantes :  \n- A - Anna  \n- B - Bella  \n- C - Cesar  \n- D - David  \n- E - Eva  \n- F - Felix  \n- G - Gustav  \n- H - Hector  \nA moins que l'arbitre en décide autrement, les rangées d oivent être énoncées en allemand  \n- 1 -eins\n- 5 -fünf\n- 2 -zwei\n- 6 -sechs\n- 3 -drei\n- 7 -sieben\n- 4 -vier\n- 8 -acht  \nLe roque est annoncé 'Lange Rochade' (grand roque en allemand) et 'Kurze Rochade' (petit roque en allemand).  \nLes pièces portent les noms : Koenig (Roi), Dame (Dame), Turm (Tour), Laufer (Fou), Springer (Cavalier), Bauer (pion).  \n- D.2.2. Sur l'échiquier de la personne handicapée visuelle, une pièce est considérée comme « touchée » lorsque la tige de celleci est retirée de l'ouverture de fixation.\n- D.2.3. Un coup est considéré comme « effectué » lorsque :",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "annoncer",
+        "coups",
+        "aveugle",
+        "répét"
+      ]
+    },
+    {
+      "id": "FR-Q211",
+      "question": "Quels critères pour l'échiquier des joueurs aveugles ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "chunk_text": "## Annexe D : Règles pour les parties avec des personnes aveugles et handicapées visuelles  \nD.1 L'organisateur ou l'organisatrice, après consultation de l'arbitre, p eut adapter les règles suivantes en fonction des circonstances locales. Durant les compétitions d'échecs entre personnes voyantes et personnes handicapées visuelles (légalement aveugles) chaque joueur ou joueuse peut demander l'utilisation de deux échiquiers : la personne voyante utilisant un échiquier standard, la personne handicapée visuelle utilisant un échiquier spécial. L'échiquier spécial doit répondre aux critères suivants :  \n- D.1.1. Mesurer au moins 20 cm sur 20 cm\n- D.1.2. Les cases noires doivent être légèrement surélevées\n- D.1.3. Chaque case doit contenir une ouverture de fixation\n- D.1.4. Les critères pour les pièces sont :\n- D.1.4.1. Chaque pièce doit contenir une tige s'encastrant dans l'ouverture de fixation\n- D.1.4.2. Les pièces sont de modèle Staunton, les pièces noires comportant une marque spécifique.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "échiquier",
+        "critères",
+        "cases",
+        "surélevé"
+      ]
+    },
+    {
+      "id": "FR-Q212",
+      "question": "Comment noter pour les personnes handicapées visuelles ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "chunk_text": "## Annexe D : Règles pour les parties avec des personnes aveugles et handicapées visuelles  \nD.1 L'organisateur ou l'organisatrice, après consultation de l'arbitre, p eut adapter les règles suivantes en fonction des circonstances locales. Durant les compétitions d'échecs entre personnes voyantes et personnes handicapées visuelles (légalement aveugles) chaque joueur ou joueuse peut demander l'utilisation de deux échiquiers : la personne voyante utilisant un échiquier standard, la personne handicapée visuelle utilisant un échiquier spécial. L'échiquier spécial doit répondre aux critères suivants :  \n- D.1.1. Mesurer au moins 20 cm sur 20 cm\n- D.1.2. Les cases noires doivent être légèrement surélevées\n- D.1.3. Chaque case doit contenir une ouverture de fixation\n- D.1.4. Les critères pour les pièces sont :\n- D.1.4.1. Chaque pièce doit contenir une tige s'encastrant dans l'ouverture de fixation\n- D.1.4.2. Les pièces sont de modèle Staunton, les pièces noires comportant une marque spécifique.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "noter",
+        "Braille",
+        "handicap",
+        "visuel"
+      ]
+    },
+    {
+      "id": "FR-Q213",
+      "question": "Qu'est-ce que le tournoi Accession Roger Ferry ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2. Structure  \nLe championnat est constitué de dix tournois :  \n- Tournoi National\n- Tournoi National Féminin\n- Tournoi Accession \"Roger FERRY\"\n- Tournoi Vétérans\n- Tournoi Seniors Plus\n- Tournoi Open A\n- Tournoi Open B\n- Tournoi Open C\n- Tournoi Open D\n- Tournoi Open E",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "Accession",
+        "Roger",
+        "Ferry",
+        "tournoi"
+      ]
+    },
+    {
+      "id": "FR-Q214",
+      "question": "Quels clubs peuvent participer aux compétitions fédérales ?",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "chunk_text": "## Principe  \nLes compétitions fédérales sont toutes organisées une fois chaque saison. Les règles générales sont applicables à toutes les compétitions fédérales. La saison débute le 1er septembre et s'achève le 31 août. Seuls les clubs affiliés ayant respecté leurs engagements et exigences réglementaires envers la FFE, la Ligue et le CDJE, peuvent participer à une compétition fédérale officielle.  \nLes compétitions fédérales sont :  \n- Les Coupes (Coupe de France, Coupe Loubatière, Coupe de la parité)\n- Les Championnats de France par équipes (des Clubs, des clubs Féminins, des scolaires, des interclubs Jeunes)\n- Les Championnats de France (individuel, Féminin de parties rapide, des Jeunes, Universitaire, rapide, blitz)",
+      "corpus": "fr",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "clubs",
+        "affiliés",
+        "engagements",
+        "FFE"
+      ]
+    }
+  ]
+}

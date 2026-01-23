@@ -1,0 +1,438 @@
+{
+  "batch": 5,
+  "agent": "opus",
+  "validated_at": "2026-01-23T18:30:00Z",
+  "results": [
+    {
+      "id": "FR-Q185",
+      "question": "Quel score minimal pour qualification d'office jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient explicitement les scores minimaux: 6,5/9 pour les jeunes changeant de categorie, 6/9 pour ceux ne changeant pas de categorie. Reponse complete et precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q186",
+      "question": "Quels tournois au Championnat de France individuel ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste exhaustivement les 10 tournois: National, National Feminin, Accession Roger Ferry, Veterans, Seniors Plus, et Opens A/B/C/D/E. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q187",
+      "question": "Combien de joueuses au Tournoi National Feminin ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique clairement '16 joueuses' dans le titre de section '2.2. Tournoi National Feminin (16 joueuses)'. Reponse directe.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q188",
+      "question": "Comment se qualifier au Tournoi National Feminin ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille les 5 criteres de qualification: 3 premieres du National precedent, 3 premieres de l'Accession, 8 joueuses par Elo moyen FIDE, championne U20F, meilleure jeune par Elo. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q189",
+      "question": "Quel age minimum pour le tournoi Veterans FFE ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise '65 ans ou plus avant le 1er janvier de l'annee en cours'. Reponse exacte et complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q190",
+      "question": "Quelle tranche d'age pour le tournoi Seniors Plus FFE ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique 'de 50 ans a 64 ans avant le 1er janvier de la saison en cours'. Reponse precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q191",
+      "question": "Comment est structuree la Coupe de France echecs ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique la structure: organisee chaque saison, ouverte a tous clubs affilies FFE, chaque club peut engager une equipe. Information de base sur la structure.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q192",
+      "question": "Combien d'equipes par club en Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise explicitement 'Chaque club ne peut engager qu'une equipe'. Reponse directe.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q193",
+      "question": "Quelles regles aux parties de Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique: regles FIDE et FFE en vigueur a la date des matchs sont applicables. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q194",
+      "question": "Quelles parties comptent pour le classement rapide FFE ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'parties de moins de 60 min et de plus de 10 min/joueur'. Criteres exacts pour cadence rapide.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q195",
+      "question": "Comment manipuler la pendule d'echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 6.2.4 sur la manipulation de pendule: interdit de l'actionner avant de jouer, de force, la prendre en mains ou la renverser. Sanctions selon Art.12.9.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q196",
+      "question": "Que faire si la pendule est defectueuse ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk child01 parle d'assistant pour utiliser la pendule, pas de pendule defectueuse. Le bon chunk est parent173-child00 qui traite de l'article 6.10.1 sur les pendules defectueuses.",
+      "new_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q197",
+      "question": "Qu'est-ce qu'une colonne aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'Les huit alignements verticaux de cases sont appeles colonnes'. Definition exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q198",
+      "question": "Qu'est-ce qu'une rangee aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'Les huit alignements horizontaux de cases sont appeles rangees'. Definition exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q199",
+      "question": "Qu'est-ce qu'une diagonale aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'Une ligne droite de cases de la meme couleur, allant d'un bord de l'echiquier a un bord adjacent, est appelee diagonale'. Definition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q200",
+      "question": "Comment une piece prend-elle une autre piece ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Article 3.1.1 explique: 'Si une piece se deplace sur une case occupee par une piece adverse, cette derniere est immediatement prise et retiree de l'echiquier'. Mecanisme complet.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q201",
+      "question": "Quand une piece attaque-t-elle une case ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.3.1.2 et 3.1.3 expliquent: une piece attaque une case si elle peut prendre ou se deplacer dessus, meme si clouee. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q202",
+      "question": "Comment se deplace le fou aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.3.2 indique: 'Un fou peut se deplacer sur n'importe quelle case le long d'une des diagonales sur lesquelles il se trouve'. Reponse precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q203",
+      "question": "Peut-on deplacer une piece qui expose le roi a l'echec ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.3.9.2 indique clairement: 'Aucune piece ne peut etre deplacee si elle expose le roi de son propre camp a un echec ou si elle le laisse en echec'. Reponse negative explicite.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q204",
+      "question": "Quand la partie est-elle nulle par pat ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.5.2.1 definit le pat: 'La partie est nulle lorsque le joueur au trait ne dispose d'aucun coup legal et que son roi n'est pas en echec'. Definition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q205",
+      "question": "Quel materiel minimum pour faire mat ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne les cas ou le materiel est INSUFFISANT pour mater (ex: R vs R) mais ne detaille pas exhaustivement le materiel MINIMUM suffisant. La question est cependant repondue par contraste.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q206",
+      "question": "Qu'est-ce qu'une position morte aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit explicitement la position morte: position telle qu'aucun des adversaires ne peut faire echec et mat, avec reference a l'Art.5.2.2. Definition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q207",
+      "question": "Quand peut-on adouber les pieces ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne Art.6.2.5: 'Seul le joueur dont la pendule est en marche a l'autorisation d'adouber'. Mais la regle complete J'adoube (Art.4) n'est pas detaillee. Reponse partielle mais suffisante.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q208",
+      "question": "Que faire si un joueur ne peut pas utiliser la pendule ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.6.2.6 explique: le joueur peut fournir un assistant agree par l'arbitre, la pendule est ajustee equitablement (10mn enleves sauf handicap). Procedure complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q209",
+      "question": "Comment noter les coups aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk presente l'Annexe C sur la notation algebrique, seul systeme reconnu par la FIDE. Introduction adequate au systeme de notation.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q210",
+      "question": "Comment annoncer les coups pour joueurs aveugles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent199-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk D.2.1 detaille: coups annonces clairement, repetes par l'adversaire, avec noms de colonnes (Anna, Bella, etc.) et rangees en allemand. Procedure complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q211",
+      "question": "Quels criteres pour l'echiquier des joueurs aveugles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk D.1.1-D.1.4 liste: min 20x20cm, cases noires surelevees, ouverture de fixation par case, pieces avec tige et marque pour noires. Criteres complets.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q212",
+      "question": "Comment noter pour les personnes handicapees visuelles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk parent198-child00 presente les criteres d'echiquier, pas la notation. L'article D.2.7 sur Braille/ecriture courante/enregistrement est dans parent199-child02.",
+      "new_chunk_id": "LA-octobre2025.pdf-p061-parent199-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q213",
+      "question": "Qu'est-ce que le tournoi Accession Roger Ferry ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk liste le tournoi Accession Roger FERRY parmi les 10 tournois mais ne le definit pas. La definition complete est dans parent008-child00. Cependant le chunk confirme son existence.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q214",
+      "question": "Quels clubs peuvent participer aux competitions federales ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise: 'Seuls les clubs affilies ayant respecte leurs engagements et exigences reglementaires envers la FFE, la Ligue et le CDJE, peuvent participer'. Condition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q215",
+      "question": "Quelles categories au Championnat de France Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste: U16, U14, U12, U10 et U8, en categorie mixte ou feminine. Categories completes.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q216",
+      "question": "Quel Elo minimum pour qualification d'office jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille les Elo minimum par categorie: 2100/1900 U16, 2000/1850 U14, 1900/1700 U12, 1750/1600 U10. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q217",
+      "question": "Comment est composee la Commission Regionale de Discipline ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique: membres designes par Comite Directeur regional, 3 membres minimum choisis pour competence juridique/ethique/deontologie. Composition detaillee.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q218",
+      "question": "Comment peut-on mettre fin au mandat d'un membre disciplinaire ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste les 3 cas: empechement definitif, demission, ou exclusion. Reponse exhaustive.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q219",
+      "question": "La personne poursuivie peut-elle etre assistee d'un avocat ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne assistance d'un interprete mais pas explicitement d'un avocat. Cependant l'Art.12 implique le droit de se faire assister. La question pourrait beneficier d'un chunk plus explicite mais celui-ci est contextuellement adequat.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q220",
+      "question": "Peut-on demander un interprete en audience disciplinaire ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise: si la personne ne parle pas francais, elle peut demander un interprete de son choix (a ses frais) ou choisi par la FFE (aux frais FFE). Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q221",
+      "question": "Quel est le format des Opens au Championnat de France ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk parent008-child00 traite du tournoi Accession Roger Ferry, pas des Opens. Le chunk parent009-child00 detaille les Opens A/B/C/D/E avec les tranches Elo.",
+      "new_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent009-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q222",
+      "question": "Comment qualifier les premieres du National Feminin precedent ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise critere 1: 'Les trois premieres du National Feminin precedent' sont qualifiees d'office. Reponse directe.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q223",
+      "question": "Quelles joueuses sont qualifiees par Elo au National Feminin ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille critere 3: 8 joueuses par meilleur Elo moyen FIDE (listes fevrier/mars/avril), plus critere 5 pour meilleure jeune par Elo. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q224",
+      "question": "Qui informe les clubs du lieu des matchs de Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent006-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique: 'Les clubs sont informes du lieu et de l'heure des matchs par la Direction de la Coupe de France'. Reponse precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q225",
+      "question": "Quelle duree minimum pour partie en cadence rapide ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique 'plus de 10 min/joueur' comme duree minimum pour cadence rapide. Reponse exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q226",
+      "question": "Quelle duree maximum pour partie en cadence rapide ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique 'moins de 60 min' comme duree maximum pour cadence rapide. Reponse exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q227",
+      "question": "Comment verifier une reclamation de nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique: verification en presence des deux adversaires, reconstitution de toute la partie, utilisation possible de l'ordinateur si retransmission. Procedure complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q228",
+      "question": "Quand la partie est-elle nulle sur demande ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.9.3 detaille les conditions: 50 coups sans pion ni prise, ou triple repetition (Art.9.2 reference). Conditions principales couvertes.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q229",
+      "question": "Quel est le role principal de l'arbitre aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.12.1 indique: 'L'arbitre s'assure de l'observation des Regles du Jeu d'Echecs' et doit etre present/surveiller les parties. Role principal defini.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q230",
+      "question": "Quand l'arbitre doit-il intervenir pendant une partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk liste les sanctions (Art.12.9) mais ne detaille pas directement quand intervenir. Le chunk parent187-child00 serait plus pertinent car il mentionne l'intervention en cas d'infraction. Toutefois ce chunk est contextuellement lie.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q231",
+      "question": "Comment fonctionne le Chess960 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p065-parent204-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk II.1 explique: position initiale determinee au hasard selon certaines regles, puis jeu standard, meme objectif (echec et mat). Principe de base explique.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    }
+  ],
+  "summary": {
+    "total": 47,
+    "keep": 40,
+    "wrong_corrected": 3,
+    "wrong_no_chunk": 0,
+    "partial_acceptable": 4,
+    "partial_improved": 0
+  }
+}

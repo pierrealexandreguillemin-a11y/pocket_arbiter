@@ -1,0 +1,1402 @@
+{
+  "batch": 1,
+  "corpus": "fr",
+  "questions": [
+    {
+      "id": "FR-Q01",
+      "question": "Quelle est la règle du toucher-jouer ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "toucher",
+        "jouer",
+        "pièce",
+        "déplacer"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        41,
+        42
+      ],
+      "metadata": {
+        "article_num": "4.1-4.8",
+        "section": "Chapitre 2.1",
+        "audit_note": "Page 61 removed (Annexe D malvoyants)",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent163-child02"
+    },
+    {
+      "id": "FR-Q02",
+      "question": "Combien de temps un joueur a-t-il pour arriver avant forfait ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "temps",
+        "forfait",
+        "tournois",
+        "peu",
+        "assez",
+        "arbitres"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        46
+      ],
+      "metadata": {
+        "article_num": "6.7",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 54,68,124 removed (non-substantive)",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
+    },
+    {
+      "id": "FR-Q03",
+      "question": "Que faire si un joueur arrive en retard à sa partie ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "forfait",
+        "pendule",
+        "tournois",
+        "peu",
+        "assez",
+        "arbitres"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        46
+      ],
+      "metadata": {
+        "article_num": "6.7",
+        "section": "Chapitre 2.1",
+        "audit_note": "Same as Q02 - forfait/retard",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
+    },
+    {
+      "id": "FR-Q04",
+      "question": "Comment réclamer le gain au temps (drapeau) ?",
+      "category": "temps",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "temps",
+        "drapeau",
+        "chute",
+        "réclam"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        46,
+        47
+      ],
+      "metadata": {
+        "article_num": "6.9-6.10",
+        "section": "Chapitre 2.1",
+        "audit_note": "Drapeau rules Art 6.9",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01"
+    },
+    {
+      "id": "FR-Q05",
+      "question": "Quelle est la procédure en cas de coup illégal ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "illégal",
+        "irrégul",
+        "coup",
+        "pénalité"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        47,
+        48,
+        49
+      ],
+      "metadata": {
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01"
+    },
+    {
+      "id": "FR-Q06",
+      "question": "Comment effectuer correctement le roque ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "roque",
+        "roi",
+        "tour",
+        "case"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        40
+      ],
+      "metadata": {
+        "article_num": "3.8.2",
+        "section": "Chapitre 2.1",
+        "audit_note": "p42,52 removed (toucher/repetition)",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
+    },
+    {
+      "id": "FR-Q07",
+      "question": "Quand peut-on réclamer la nulle par répétition de position ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "nulle",
+        "répétition",
+        "position",
+        "triple"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        51,
+        52
+      ],
+      "metadata": {
+        "article_num": "9.2",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 70,81 removed (glossaire/materiel)",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+    },
+    {
+      "id": "FR-Q08",
+      "question": "Comment fonctionne la règle des 50 coups ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "glossaire",
+        "termes",
+        "arbitrage",
+        "organisateur",
+        "pat",
+        "pendule"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        52
+      ],
+      "metadata": {
+        "article_num": "9.3.2",
+        "section": "Glossaire",
+        "audit_note": "p52 removed (9.2.3 = repetition, pas 50 coups)",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "LEXICAL_MATCH",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_final_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00"
+    },
+    {
+      "id": "FR-Q09",
+      "question": "Comment fonctionne la prise en passant ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "passant",
+        "pion",
+        "prise",
+        "case"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        39
+      ],
+      "metadata": {
+        "article_num": "3.7.4",
+        "section": "Chapitre 2.1",
+        "audit_note": "p52,59 removed (repetition/notation)",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
+    },
+    {
+      "id": "FR-Q10",
+      "question": "Quelles sont les règles de promotion du pion ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "promotion",
+        "pion",
+        "dame",
+        "pièce"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        39,
+        40,
+        42
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
+    },
+    {
+      "id": "FR-Q11",
+      "question": "Quelle sanction pour téléphone portable en salle de jeu ?",
+      "category": "discipline",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "téléphone",
+        "portable",
+        "sanction",
+        "perdu"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        53,
+        54,
+        55
+      ],
+      "metadata": {
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00"
+    },
+    {
+      "id": "FR-Q12",
+      "question": "Comment noter une partie en notation algébrique ?",
+      "category": "notation",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "not",
+        "feuille",
+        "algébrique",
+        "case"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        59
+      ],
+      "metadata": {
+        "article_num": "Annexe C",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 49,69 removed (notation generale/glossaire)",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "LEXICAL_MATCH",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00"
+    },
+    {
+      "id": "FR-Q13",
+      "question": "Quand peut-on arrêter de noter sa partie ?",
+      "category": "notation",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "noter",
+        "temps",
+        "moins",
+        "minutes"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        50
+      ],
+      "metadata": {
+        "article_num": "8.4",
+        "section": "Chapitre 2.1",
+        "audit_note": "p56,69 removed (sanctions/glossaire)",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "LEXICAL_MATCH",
+        "cognitive_level": "APPLY"
+      },
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02"
+    },
+    {
+      "id": "FR-Q14",
+      "question": "Quelles sont les règles pour proposer la nulle ?",
+      "category": "regles_jeu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "nulle",
+        "propos",
+        "offre",
+        "pendule"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        50,
+        51
+      ],
+      "metadata": {
+        "article_num": "9.1",
+        "section": "Chapitre 2.1",
+        "audit_note": "p54 removed (telephone)",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01"
+    },
+    {
+      "id": "FR-Q15",
+      "question": "Quels sont les pouvoirs et devoirs de l'arbitre ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "décision",
+        "article",
+        "voir",
+        "assure",
+        "observation"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        55
+      ],
+      "metadata": {
+        "article_num": "12.1-12.9",
+        "section": "Chapitre 2.1",
+        "audit_note": "p10,11,28 are DNA not FIDE rules",
+        "answer_type": "LIST",
+        "reasoning_type": "LEXICAL_MATCH",
+        "cognitive_level": "ANALYZE"
+      },
+      "audit": "strict_v2_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
+    },
+    {
+      "id": "FR-Q16",
+      "question": "Quelles sont les conditions d'homologation d'un tournoi ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "tournois",
+        "homologues",
+        "arbitre",
+        "fide"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 4,
+            "source": "R01_2025_26_Regles_generales.pdf",
+            "keywords_found": [
+              "homolog",
+              "condition",
+              "ffe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 5,
+            "source": "R01_2025_26_Regles_generales.pdf",
+            "keywords_found": [
+              "tournoi",
+              "condition",
+              "ffe"
+            ],
+            "score": 3
+          },
+          {
+            "page": 1,
+            "source": "R01_2025_26_Regles_generales.pdf",
+            "keywords_found": [
+              "homolog",
+              "ffe"
+            ],
+            "score": 2
+          }
+        ]
+      },
+      "expected_pages": [
+        23,
+        72
+      ],
+      "metadata": {
+        "article_num": "Chapitre 5.2",
+        "section": "Obligations tournoi",
+        "audit_note": "Changed to LA p167 (homologation Elo)",
+        "answer_type": "LIST",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "ANALYZE",
+        "hard_type": "ANSWERABLE"
+      },
+      "audit": "strict_final_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p072-parent217-child00"
+    },
+    {
+      "id": "FR-Q17",
+      "question": "Comment traiter une réclamation pendant une partie ?",
+      "category": "arbitrage",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "keywords": [
+        "réclam",
+        "arbitre",
+        "décision",
+        "appel"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        4
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent026-child00"
+    },
+    {
+      "id": "FR-Q18",
+      "question": "Quelles sont les cadences officielles parties rapides ?",
+      "category": "cadences",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "rapide",
+        "cadence",
+        "coups"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 45,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "rapide",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
+          {
+            "page": 56,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "rapide",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
+          {
+            "page": 58,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "rapide",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        56
+      ],
+      "metadata": {
+        "article_num": "Annexe A",
+        "section": "Chapitre 2.1",
+        "audit_note": "Fixed: 57->56 (Annexe A cadences rapides)",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE",
+        "hard_type": "ANSWERABLE"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00"
+    },
+    {
+      "id": "FR-Q19",
+      "question": "Quelles sont les cadences officielles blitz ?",
+      "category": "cadences",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "blitz",
+        "cadence",
+        "coups"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "keyword_in_corpus",
+        "details": [
+          {
+            "page": 58,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "blitz",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
+          {
+            "page": 66,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "blitz",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          },
+          {
+            "page": 147,
+            "source": "LA-octobre2025.pdf",
+            "keywords_found": [
+              "blitz",
+              "cadence",
+              "temps",
+              "minute"
+            ],
+            "score": 4
+          }
+        ]
+      },
+      "expected_pages": [
+        58
+      ],
+      "metadata": {
+        "article_num": "Annexe B",
+        "section": "Chapitre 2.1",
+        "audit_note": "Pages 66,147 removed (KO/departages)",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE",
+        "hard_type": "ANSWERABLE"
+      },
+      "audit": "strict_2026-01-19",
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+    },
+    {
+      "id": "FR-Q20",
+      "question": "Quelles sont les annexes aux règles générales ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R02_2025_26_Regles_generales_Annexes.pdf"
+      ],
+      "keywords": [
+        "annexe",
+        "règle",
+        "général",
+        "compétition"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "LEXICAL_MATCH",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q21",
+      "question": "Quelles compétitions sont homologuées par la FFE ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "R03_2025_26_Competitions_homologuees.pdf"
+      ],
+      "keywords": [
+        "homolog",
+        "compétition",
+        "FFE",
+        "classement"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00"
+    },
+    {
+      "id": "FR-Q22",
+      "question": "Comment s'inscrire au Championnat de France individuel ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "championnat",
+        "france",
+        "inscription",
+        "qualif"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent011-child00"
+    },
+    {
+      "id": "FR-Q23",
+      "question": "Quelles sont les conditions de participation au Ch. France ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "championnat",
+        "france",
+        "condition",
+        "participant"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        4
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00"
+    },
+    {
+      "id": "FR-Q24",
+      "question": "Comment fonctionne le Championnat de France des Clubs ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "club",
+        "équipe",
+        "championnat",
+        "interclub"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+    },
+    {
+      "id": "FR-Q25",
+      "question": "Quelles sont les règles des interclubs ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "équipe",
+        "club",
+        "match"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+    },
+    {
+      "id": "FR-Q26",
+      "question": "Comment se déroule le Ch. France Clubs parties rapides ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+      ],
+      "keywords": [
+        "club",
+        "rapide",
+        "championnat",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q27",
+      "question": "Quelles sont les cadences du Ch. France Clubs rapide ?",
+      "category": "cadences",
+      "expected_docs": [
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+      ],
+      "keywords": [
+        "rapide",
+        "cadence",
+        "club",
+        "temps"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00"
+    },
+    {
+      "id": "FR-Q28",
+      "question": "Comment fonctionne la Coupe de France des échecs ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "coupe",
+        "france",
+        "élimination",
+        "match"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q29",
+      "question": "Quelles sont les règles de la Coupe de France ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "coupe",
+        "france",
+        "règle",
+        "club"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q30",
+      "question": "Comment participer à la Coupe Jean-Claude Loubatière ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "keywords": [
+        "loubatière",
+        "coupe",
+        "participation",
+        "inscription"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        4
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q31",
+      "question": "Quelles sont les spécificités de la Coupe Loubatière ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "keywords": [
+        "loubatière",
+        "coupe",
+        "règle",
+        "club"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q32",
+      "question": "Comment fonctionne la Coupe de la parité ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C04_2025_26_Coupe_de_la_parité.pdf"
+      ],
+      "keywords": [
+        "parité",
+        "coupe",
+        "mixte",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q33",
+      "question": "Quelles sont les conditions pour la Coupe de la parité ?",
+      "category": "tournoi",
+      "expected_docs": [
+        "C04_2025_26_Coupe_de_la_parité.pdf"
+      ],
+      "keywords": [
+        "parité",
+        "condition",
+        "structure",
+        "coupe",
+        "chaque",
+        "saison"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        1
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q34",
+      "question": "Comment fonctionne le Championnat de France Jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "jeune",
+        "championnat",
+        "catégorie",
+        "âge"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00"
+    },
+    {
+      "id": "FR-Q35",
+      "question": "Quelles sont les catégories d'âge aux échecs jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "catégorie",
+        "âge",
+        "jeune",
+        "poussin"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00"
+    },
+    {
+      "id": "FR-Q36",
+      "question": "Comment participer au Ch. France Interclubs Jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "équipe",
+        "club"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p001-parent001-child01"
+    },
+    {
+      "id": "FR-Q37",
+      "question": "Quelles sont les règles des interclubs jeunes ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "règle",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent014-child00"
+    },
+    {
+      "id": "FR-Q38",
+      "question": "Comment fonctionne le Championnat de France scolaire ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J03_2025_26_Championnat_de_France_scolaire.pdf"
+      ],
+      "keywords": [
+        "scolaire",
+        "championnat",
+        "école",
+        "établissement"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q39",
+      "question": "Quelles sont les conditions du Ch. France scolaire ?",
+      "category": "jeunes",
+      "expected_docs": [
+        "J03_2025_26_Championnat_de_France_scolaire.pdf"
+      ],
+      "keywords": [
+        "scolaire",
+        "condition",
+        "école",
+        "inscription"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00"
+    },
+    {
+      "id": "FR-Q40",
+      "question": "Comment fonctionne le Ch. France Clubs Féminin ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "club",
+        "championnat",
+        "équipe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00"
+    },
+    {
+      "id": "FR-Q41",
+      "question": "Quelles sont les règles du Ch. France Clubs Féminin ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "club",
+        "règle",
+        "joueuse"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        2,
+        3,
+        4
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p004-parent016-child00"
+    },
+    {
+      "id": "FR-Q42",
+      "question": "Comment participer au Ch. individuel Féminin rapide ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "rapide",
+        "individuel",
+        "inscription"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent000-child00"
+    },
+    {
+      "id": "FR-Q43",
+      "question": "Quelles sont les cadences du Ch. Féminin rapide ?",
+      "category": "feminin",
+      "expected_docs": [
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "rapide",
+        "elle",
+        "deux",
+        "phases",
+        "phase"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified",
+        "auto_fixed": true
+      },
+      "expected_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00"
+    }
+  ]
+}

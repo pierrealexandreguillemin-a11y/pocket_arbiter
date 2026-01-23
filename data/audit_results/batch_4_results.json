@@ -1,0 +1,211 @@
+{
+  "batch": "batch_4",
+  "total": 40,
+  "results": [
+    {
+      "id": "FR-Q215",
+      "action": "KEEP",
+      "reason": "Chunk énumère clairement les catégories U16, U14, U12, U10, U8 mentionnées dans la question"
+    },
+    {
+      "id": "FR-Q216",
+      "action": "KEEP",
+      "reason": "Chunk fournit tous les Elos minimums par catégorie pour qualification d'office"
+    },
+    {
+      "id": "FR-Q217",
+      "action": "KEEP",
+      "reason": "Chunk décrit la composition: trois membres au moins, désignés par Comité Directeur"
+    },
+    {
+      "id": "FR-Q218",
+      "action": "KEEP",
+      "reason": "Chunk liste les trois cas: empêchement définitif, démission, exclusion"
+    },
+    {
+      "id": "FR-Q219",
+      "action": "WRONG",
+      "reason": "Question porte sur assistance d'avocat, chunk ne parle que d'interprète pour langue"
+    },
+    {
+      "id": "FR-Q22",
+      "action": "PARTIAL",
+      "reason": "Chunk décrit le processus de classement FFE et transmission des Ligues, pas la procédure d'inscription directe"
+    },
+    {
+      "id": "FR-Q220",
+      "action": "KEEP",
+      "reason": "Chunk confirme possibilité de demander interprète en audience disciplinaire"
+    },
+    {
+      "id": "FR-Q221",
+      "action": "WRONG",
+      "reason": "Chunk décrit tournoi Accession, pas le format des Opens (A, B, C)"
+    },
+    {
+      "id": "FR-Q222",
+      "action": "KEEP",
+      "reason": "Chunk indique clairement que les trois premières du National Féminin précédent sont qualifiées"
+    },
+    {
+      "id": "FR-Q223",
+      "action": "KEEP",
+      "reason": "Chunk spécifie que 8 joueuses sont qualifiées par meilleur Elo moyen"
+    },
+    {
+      "id": "FR-Q224",
+      "action": "KEEP",
+      "reason": "Chunk répond que la Direction de la Coupe de France informe les clubs"
+    },
+    {
+      "id": "FR-Q225",
+      "action": "KEEP",
+      "reason": "Chunk indique durée minimum de plus de 10 min/joueur pour cadence rapide"
+    },
+    {
+      "id": "FR-Q226",
+      "action": "KEEP",
+      "reason": "Chunk indique durée maximum de moins de 60 min pour cadence rapide"
+    },
+    {
+      "id": "FR-Q227",
+      "action": "KEEP",
+      "reason": "Chunk décrit processus de vérification en présence des adversaires et constituer la partie"
+    },
+    {
+      "id": "FR-Q228",
+      "action": "KEEP",
+      "reason": "Chunk détaille conditions de nulle sur demande: 50 derniers coups sans pion ni prise"
+    },
+    {
+      "id": "FR-Q229",
+      "action": "KEEP",
+      "reason": "Chunk affirme rôle principal: s'assurer de l'observation des Règles du Jeu d'Échecs"
+    },
+    {
+      "id": "FR-Q23",
+      "action": "WRONG",
+      "reason": "Chunk ne parle que du tournoi Accession, pas des conditions générales de participation au Ch. France"
+    },
+    {
+      "id": "FR-Q230",
+      "action": "KEEP",
+      "reason": "Chunk indique arbitre doit intervenir en cas d'infraction sans attendre demande adversaire"
+    },
+    {
+      "id": "FR-Q231",
+      "action": "PARTIAL",
+      "reason": "Chunk décrit seule la position initiale aléatoire, manque détails complets du fonctionnement"
+    },
+    {
+      "id": "FR-Q24",
+      "action": "PARTIAL",
+      "reason": "Chunk parle surtout des engagements des clubs, pas du fonctionnement complet du championnat"
+    },
+    {
+      "id": "FR-Q25",
+      "action": "PARTIAL",
+      "reason": "Chunk énumère engagements des clubs, pas vraiment les règles de jeu des interclubs"
+    },
+    {
+      "id": "FR-Q26",
+      "action": "KEEP",
+      "reason": "Chunk décrit complètement déroulement: phases suisse, élimination directe, Armageddon"
+    },
+    {
+      "id": "FR-Q27",
+      "action": "WRONG",
+      "reason": "Chunk parle de composition d'équipe et Elo, pas des cadences de la compétition"
+    },
+    {
+      "id": "FR-Q28",
+      "action": "KEEP",
+      "reason": "Chunk décrit fonctionnement: matchs à éliminations directes, entrées selon niveau"
+    },
+    {
+      "id": "FR-Q29",
+      "action": "PARTIAL",
+      "reason": "Chunk décrit système de matchs mais manque d'autres règles comme calendrier, forfait, etc."
+    },
+    {
+      "id": "FR-Q30",
+      "action": "PARTIAL",
+      "reason": "Chunk décrit structure et limitation d'équipes, mais ne détaille pas le processus d'inscription/participation"
+    },
+    {
+      "id": "FR-Q31",
+      "action": "KEEP",
+      "reason": "Chunk énumère spécificités: équipes illimitées par club, jeu dans son département"
+    },
+    {
+      "id": "FR-Q32",
+      "action": "PARTIAL",
+      "reason": "Chunk très limité, ne fournit que la structure générale sans fonctionnement détaillé"
+    },
+    {
+      "id": "FR-Q33",
+      "action": "PARTIAL",
+      "reason": "Chunk très limité, énonce seule structure générale, pas les conditions précises"
+    },
+    {
+      "id": "FR-Q34",
+      "action": "KEEP",
+      "reason": "Chunk décrit organisation générale: sept tournois mixtes et féminins par catégorie d'âge"
+    },
+    {
+      "id": "FR-Q35",
+      "action": "KEEP",
+      "reason": "Chunk énumère toutes catégories: U8 à U20, mixtes et féminines (U8F à U20F)"
+    },
+    {
+      "id": "FR-Q36",
+      "action": "WRONG",
+      "reason": "Chunk parle d'accession et repêchages, pas du processus de participation aux interclubs jeunes"
+    },
+    {
+      "id": "FR-Q37",
+      "action": "PARTIAL",
+      "reason": "Chunk décrit seule les règles du capitaine, pas l'ensemble des règles des interclubs jeunes"
+    },
+    {
+      "id": "FR-Q38",
+      "action": "KEEP",
+      "reason": "Chunk décrit fonctionnement: deux catégories (écoles et collèges), structures distinctes"
+    },
+    {
+      "id": "FR-Q39",
+      "action": "PARTIAL",
+      "reason": "Chunk décrit structure/catégories, pas vraiment les conditions de participation spécifiques"
+    },
+    {
+      "id": "FR-Q40",
+      "action": "KEEP",
+      "reason": "Chunk décrit fonctionnement: trois divisions (Top 12F, N1F, N2F) organisées par FFE"
+    },
+    {
+      "id": "FR-Q41",
+      "action": "PARTIAL",
+      "reason": "Chunk énonce une règle sur statut des joueuses, pas l'ensemble des règles de la compétition"
+    },
+    {
+      "id": "FR-Q42",
+      "action": "KEEP",
+      "reason": "Chunk énumère conditions de participation: nationalité, résidence, licence FFE"
+    },
+    {
+      "id": "FR-Q43",
+      "action": "WRONG",
+      "reason": "Chunk décrit les phases (ZID et finale), pas les cadences de la compétition"
+    },
+    {
+      "id": "FR-Q44",
+      "action": "KEEP",
+      "reason": "Chunk énumère règles adaptées: lecture info, accès services, assistance, majoration prix"
+    }
+  ],
+  "summary": {
+    "keep": 23,
+    "wrong": 6,
+    "partial": 11
+  }
+}

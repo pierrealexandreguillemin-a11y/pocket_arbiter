@@ -1,0 +1,2245 @@
+{
+  "batch": 6,
+  "corpus": "intl",
+  "questions": [
+    {
+      "id": "intl_001",
+      "question": "What happens if a player touches a piece but cannot make a legal move with it?",
+      "expected_articles": [
+        "4.3",
+        "4.4"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "touch-move",
+        "illegal-move"
+      ],
+      "expected_pages": [
+        25,
+        26
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "player",
+        "touches",
+        "piece",
+        "but"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01"
+    },
+    {
+      "id": "intl_002",
+      "question": "How much time is added after each move in a rapid game?",
+      "expected_articles": [
+        "A.3"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "time-control",
+        "rapid"
+      ],
+      "expected_pages": [
+        49,
+        50
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "time",
+        "each",
+        "appendix",
+        "rapid",
+        "one",
+        "either"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00"
+    },
+    {
+      "id": "intl_003",
+      "question": "When can an arbiter declare a game drawn due to insufficient material?",
+      "expected_articles": [
+        "5.2.2",
+        "6.9"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "draw",
+        "insufficient-material"
+      ],
+      "expected_pages": [
+        28,
+        29,
+        33,
+        58
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "declare",
+        "game",
+        "drawn"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00"
+    },
+    {
+      "id": "intl_004",
+      "question": "What are the requirements for a valid claim of threefold repetition?",
+      "expected_articles": [
+        "9.2"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "draw",
+        "repetition"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "valid",
+        "claim",
+        "article",
+        "drawn",
+        "draw",
+        "offers"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child00"
+    },
+    {
+      "id": "intl_005",
+      "question": "If a player's flag falls and no one notices, what should happen when it is discovered?",
+      "expected_articles": [
+        "6.8"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "time",
+        "flag-fall"
+      ],
+      "expected_pages": [
+        33,
+        63
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "flag",
+        "one",
+        "notices"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent045-child01"
+    },
+    {
+      "id": "intl_006",
+      "question": "What is the procedure when an illegal move is discovered several moves later?",
+      "expected_articles": [
+        "7.5"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "illegal-move",
+        "correction"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "illegal",
+        "move",
+        "discovered"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent047-child02"
+    },
+    {
+      "id": "intl_007",
+      "question": "Can a player castle if the rook is attacked?",
+      "expected_articles": [
+        "3.8.2"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "castling",
+        "rules"
+      ],
+      "expected_pages": [
+        23,
+        24
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "player",
+        "castle",
+        "rook",
+        "attacked"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00"
+    },
+    {
+      "id": "intl_008",
+      "question": "What are the arbiter's duties during a rapid or blitz tournament?",
+      "expected_articles": [
+        "A.4",
+        "B.3"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "arbiter",
+        "rapid",
+        "blitz"
+      ],
+      "expected_pages": [
+        49,
+        50
+      ],
+      "metadata": {
+        "audit_note": "Page 135 removed (was pairing algorithm, not rapid/blitz rules) - ISO 29119 NC fix 2026-01-20",
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "arbiter",
+        "rapid",
+        "appendix",
+        "one",
+        "either",
+        "completed"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00"
+    },
+    {
+      "id": "intl_009",
+      "question": "How should an arbiter handle a mobile phone ringing during a game?",
+      "expected_articles": [
+        "11.3.2"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "mobile-phone",
+        "penalty"
+      ],
+      "expected_pages": [
+        44,
+        65
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "mobile",
+        "phone"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent057-child00"
+    },
+    {
+      "id": "intl_010",
+      "question": "What is the 75-move rule and when does it apply?",
+      "expected_articles": [
+        "9.6.2"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "draw",
+        "75-move"
+      ],
+      "expected_pages": [
+        29,
+        42
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "move",
+        "rule",
+        "competitive",
+        "rules",
+        "play",
+        "article"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p029-parent040-child00"
+    },
+    {
+      "id": "intl_011",
+      "question": "What is the penalty for making an illegal move in a standard game?",
+      "expected_articles": [
+        "7.5.1",
+        "7.5.2"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "illegal-move",
+        "penalty"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "making",
+        "illegal",
+        "move"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00"
+    },
+    {
+      "id": "intl_012",
+      "question": "How should a player correctly offer a draw?",
+      "expected_articles": [
+        "9.1"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "draw",
+        "procedure"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "offer",
+        "draw"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00"
+    },
+    {
+      "id": "intl_013",
+      "question": "What are the conditions for castling to be legal?",
+      "expected_articles": [
+        "3.8.2"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "castling",
+        "rules"
+      ],
+      "expected_pages": [
+        23,
+        24
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "castling",
+        "legal",
+        "two",
+        "different",
+        "ways",
+        "moving"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00"
+    },
+    {
+      "id": "intl_014",
+      "question": "When must a player record the moves during a game?",
+      "expected_articles": [
+        "8.1",
+        "8.4"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "notation",
+        "scoresheet"
+      ],
+      "expected_pages": [
+        38,
+        39
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "record",
+        "moves",
+        "during"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01"
+    },
+    {
+      "id": "intl_015",
+      "question": "What happens if both players have made an illegal move?",
+      "expected_articles": [
+        "7.5.5"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "illegal-move",
+        "correction"
+      ],
+      "expected_pages": [
+        37,
+        50
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "players",
+        "made",
+        "illegal"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent068-child02"
+    },
+    {
+      "id": "intl_016",
+      "question": "How is the pawn promotion completed correctly?",
+      "expected_articles": [
+        "3.7.5"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "promotion",
+        "rules"
+      ],
+      "expected_pages": [
+        22,
+        26
+      ],
+      "metadata": {
+        "audit_note": "Pages changed [64,66]->[22,26] (were glossary refs, now Article 3.7.5 content) - ISO 29119 NC fix 2026-01-20",
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "pawn",
+        "promotion",
+        "choice",
+        "restricted",
+        "captured",
+        "previously"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02"
+    },
+    {
+      "id": "intl_017",
+      "question": "What are the time controls for a FIDE rated rapid game?",
+      "expected_articles": [
+        "A.2"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "rapid",
+        "time-control"
+      ],
+      "expected_pages": [
+        49
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "time",
+        "rapid",
+        "appendix",
+        "one",
+        "either",
+        "completed"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00"
+    },
+    {
+      "id": "intl_018",
+      "question": "When can a player claim a draw by the 50-move rule?",
+      "expected_articles": [
+        "9.3"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "draw",
+        "50-move"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "claim",
+        "draw",
+        "move"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00"
+    },
+    {
+      "id": "intl_019",
+      "question": "What are the arbiter's options when a player disturbs the opponent?",
+      "expected_articles": [
+        "11.5",
+        "12.9"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "arbiter",
+        "conduct"
+      ],
+      "expected_pages": [
+        34,
+        35,
+        45,
+        46
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "arbiter",
+        "player",
+        "opponent"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00"
+    },
+    {
+      "id": "intl_020",
+      "question": "How is checkmate defined according to FIDE rules?",
+      "expected_articles": [
+        "5.1.1"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "checkmate",
+        "rules"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "according",
+        "rules",
+        "article",
+        "completion",
+        "won",
+        "checkmated"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00"
+    },
+    {
+      "id": "intl_021",
+      "question": "What happens when a player completes a move but the position remains impossible?",
+      "expected_articles": [
+        "7.5.3"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "illegal-move",
+        "position"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "player",
+        "move",
+        "but"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00"
+    },
+    {
+      "id": "intl_022",
+      "question": "What are the default time penalties an arbiter can give?",
+      "expected_articles": [
+        "12.9"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "arbiter",
+        "penalty"
+      ],
+      "expected_pages": [
+        34,
+        35
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "LIST",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "time",
+        "arbiter",
+        "essential",
+        "write",
+        "times",
+        "shown"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p034-parent046-child01"
+    },
+    {
+      "id": "intl_023",
+      "question": "How should an arbiter handle a quickplay finish situation?",
+      "expected_articles": [
+        "III.1",
+        "III.2"
+      ],
+      "source": "FIDE Laws of Chess - Guidelines III",
+      "difficulty": "hard",
+      "tags": [
+        "quickplay",
+        "arbiter"
+      ],
+      "expected_pages": [
+        61
+      ],
+      "metadata": {
+        "audit_note": "Pages changed [43,56]->[61] (p43=Points, p56=blind - were WRONG; p61=Guidelines III quickplay) - ISO 29119 NC fix 2026-01-20",
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "PROCEDURAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "quickplay",
+        "finish"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent088-child00"
+    },
+    {
+      "id": "intl_024",
+      "question": "What is the definition of stalemate?",
+      "expected_articles": [
+        "5.2.1"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "easy",
+      "tags": [
+        "stalemate",
+        "draw"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "stalemate",
+        "article",
+        "completion",
+        "won",
+        "checkmated",
+        "his"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00"
+    },
+    {
+      "id": "intl_025",
+      "question": "When can an arbiter intervene during a game without a claim from a player?",
+      "expected_articles": [
+        "12.6",
+        "12.7"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "arbiter",
+        "intervention"
+      ],
+      "expected_pages": [
+        47,
+        65
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Standard question - information directly available in corpus",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "intervene",
+        "during",
+        "game"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent065-child00"
+    },
+    {
+      "id": "intl_026",
+      "question": "What is the exact procedure when a player is in zeitnot and cannot record moves?",
+      "expected_articles": [
+        "8.4"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "time-trouble",
+        "notation"
+      ],
+      "expected_pages": [
+        38,
+        39
+      ],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "German term 'zeitnot' (0 mentions) vs 'time trouble' (4 mentions) in corpus",
+        "corpus_truth": "Art 8.4 p38-39 covers recording in time trouble, term 'zeitnot' not used",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01"
+    },
+    {
+      "id": "intl_032",
+      "question": "What is the exact Elo rating requirement to become a FIDE Master?",
+      "expected_articles": [
+        "1.4",
+        "B01"
+      ],
+      "source": "FIDE Handbook - Title Regulations",
+      "difficulty": "hard",
+      "tags": [
+        "rating",
+        "title",
+        "edge-case"
+      ],
+      "expected_pages": [
+        168,
+        169
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - Title requirements in separate chapter (Ch7), FM=2100 rating on p169",
+        "corpus_truth": "FIDE Title Regulations p169: FM rating floor = 2100 (not 2300 as commonly believed)",
+        "answer_type": "DEFINITIONAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "rating",
+        "requirement",
+        "become"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent355-child00"
+    },
+    {
+      "id": "intl_037",
+      "question": "What special rules apply when a visually impaired player competes against a sighted opponent?",
+      "expected_articles": [
+        "D.1",
+        "D.2",
+        "D.3"
+      ],
+      "source": "FIDE Laws of Chess - Appendix D",
+      "difficulty": "hard",
+      "tags": [
+        "blind",
+        "disabled",
+        "edge-case"
+      ],
+      "expected_pages": [
+        55,
+        56
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - Appendix D rarely queried, specific regulations for blind/visually impaired",
+        "corpus_truth": "Appendix D (p55-56) covers two boards, assistant, notation, time, etc.",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "special",
+        "rules",
+        "visually"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child00"
+    },
+    {
+      "id": "intl_038",
+      "question": "If a chess clock becomes defective during a game, what should the arbiter do?",
+      "expected_articles": [
+        "6.10",
+        "6.11"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "clock",
+        "defect",
+        "edge-case"
+      ],
+      "expected_pages": [
+        33,
+        34
+      ],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "Term 'defective clock' not used - corpus uses 'incorrect setting' (6.10.2) and 'pause/interrupt' (6.11)",
+        "corpus_truth": "No explicit 'defective clock' article. Art 6.10.2 (p34) covers incorrect settings, Art 6.11 covers interruption. Arbiter uses best judgement.",
+        "answer_type": "CONDITIONAL",
+        "reasoning_type": "MULTI_SENTENCE",
+        "cognitive_level": "APPLY"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00"
+    },
+    {
+      "id": "intl_039",
+      "question": "What are the exact conditions for a valid en passant capture?",
+      "expected_articles": [
+        "3.7.3.1"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "medium",
+      "tags": [
+        "en-passant",
+        "pawn",
+        "edge-case"
+      ],
+      "expected_pages": [
+        22
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - specific conditions (same rank, adjacent file, just advanced two squares)",
+        "corpus_truth": "Article 3.7.3.1 (p22) - pawn same rank, adjacent file, opponent pawn just advanced 2 squares",
+        "answer_type": "LIST",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "choice",
+        "restricted",
+        "captured",
+        "previously",
+        "exchange",
+        "pawn"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02"
+    },
+    {
+      "id": "intl_040",
+      "question": "What information must be recorded on the envelope when a game is adjourned?",
+      "expected_articles": [
+        "I.2"
+      ],
+      "source": "FIDE Laws of Chess - Guidelines",
+      "difficulty": "hard",
+      "tags": [
+        "adjournment",
+        "sealed-move",
+        "edge-case"
+      ],
+      "expected_pages": [
+        57,
+        58
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "Edge case - adjournment is rare in modern chess, specific envelope requirements",
+        "corpus_truth": "Guidelines I.2 (p57-58) - names, position, times, sealed move number, draw offer, date/time/venue",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "keywords": [
+        "information",
+        "recorded",
+        "envelope",
+        "game"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent082-child01"
+    },
+    {
+      "id": "intl_041",
+      "question": "What does 'Kurze Rochade' mean when announced by a visually impaired player?",
+      "expected_articles": [
+        "D.2"
+      ],
+      "source": "FIDE Laws of Chess - Appendix D",
+      "difficulty": "hard",
+      "tags": [
+        "blind",
+        "german",
+        "vocabulary-mismatch",
+        "tricky"
+      ],
+      "expected_pages": [
+        55
+      ],
+      "metadata": {
+        "hard_type": "VOCABULARY_MISMATCH",
+        "hard_reason": "TRICKY: German term 'Kurze Rochade' for blind players - retrieval must link German chess terminology to Appendix D rules",
+        "corpus_truth": "Appendix D.2 (p55): 'Kurze Rochade' = German for 'short castling' (kingside O-O). Used when blind player announces moves verbally.",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child01"
+    },
+    {
+      "id": "intl_042",
+      "question": "According to FIDE Laws, at what exact moment is an illegal move considered 'completed'?",
+      "expected_articles": [
+        "7.5.1"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "illegal-move",
+        "definition",
+        "technical",
+        "tricky"
+      ],
+      "expected_pages": [
+        36
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "TRICKY: Technical definition - 'completed' has precise legal meaning (not intuitive). Tests semantic understanding of technical terms.",
+        "corpus_truth": "Article 7.5.1 (p36): 'An illegal move is completed once the player has pressed his/her clock.' Clock press = completion trigger.",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "DOMAIN_KNOWLEDGE",
+        "cognitive_level": "REMEMBER"
+      },
+      "keywords": [
+        "according",
+        "important",
+        "irregularity",
+        "discovered",
+        "signed",
+        "scoresheets"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00"
+    },
+    {
+      "id": "intl_043",
+      "question": "Under what circumstances is pressing the chess clock before making a move permitted?",
+      "expected_articles": [
+        "6.2.4"
+      ],
+      "source": "FIDE Laws of Chess",
+      "difficulty": "hard",
+      "tags": [
+        "clock",
+        "forbidden",
+        "negation",
+        "tricky"
+      ],
+      "expected_pages": [
+        30
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "hard_reason": "TRICKY: Negation trap - question asks 'permitted' but answer is NEVER (forbidden). Tests retrieval with inverted logic.",
+        "corpus_truth": "Article 6.2.4 (p30): 'It is forbidden to press the clock before moving.' Answer: NEVER permitted - explicitly prohibited.",
+        "answer_type": "FACTUAL",
+        "reasoning_type": "SINGLE_SENTENCE",
+        "cognitive_level": "REMEMBER"
+      },
+      "keywords": [
+        "chess",
+        "clock",
+        "makes",
+        "one",
+        "hand",
+        "presses"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02"
+    },
+    {
+      "question": "What is the initial position of the pieces on the chessboard?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        18
+      ],
+      "keywords": [
+        "initial",
+        "position",
+        "pieces",
+        "chessboard"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_044",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent031-child00"
+    },
+    {
+      "question": "How does the knight move according to FIDE Laws?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        20,
+        21
+      ],
+      "keywords": [
+        "knight",
+        "move",
+        "squares",
+        "L-shape"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_045",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent033-child00"
+    },
+    {
+      "question": "What are the rules for castling in FIDE Laws?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        23,
+        24
+      ],
+      "keywords": [
+        "castling",
+        "king",
+        "rook",
+        "conditions"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_046",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00"
+    },
+    {
+      "question": "What happens when a pawn reaches the eighth rank?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        21,
+        22
+      ],
+      "keywords": [
+        "pawn",
+        "promotion",
+        "eighth",
+        "rank"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_047",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01"
+    },
+    {
+      "question": "What is the touch-move rule according to Article 4?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        25,
+        26
+      ],
+      "keywords": [
+        "touch",
+        "move",
+        "piece",
+        "Article 4"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_048",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01"
+    },
+    {
+      "question": "When is a move considered completed according to FIDE Laws?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        26
+      ],
+      "keywords": [
+        "move",
+        "completed",
+        "clock",
+        "press"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_049",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent035-child02"
+    },
+    {
+      "question": "What are the conditions for checkmate?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        28
+      ],
+      "keywords": [
+        "checkmate",
+        "king",
+        "escape",
+        "game"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_050",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00"
+    },
+    {
+      "question": "What is stalemate and when does it occur?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ],
+      "keywords": [
+        "stalemate",
+        "draw",
+        "legal",
+        "move"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_051",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00"
+    },
+    {
+      "question": "How does en passant capture work?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        21,
+        22
+      ],
+      "keywords": [
+        "en passant",
+        "pawn",
+        "capture",
+        "adjacent"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_052",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01"
+    },
+    {
+      "question": "What is the purpose of the 'j'adoube' or 'I adjust' declaration?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        25
+      ],
+      "keywords": [
+        "adjust",
+        "j'adoube",
+        "piece",
+        "touch"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "intl_053",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child00"
+    },
+    {
+      "question": "How should the chess clock be handled according to Article 6?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        29,
+        30
+      ],
+      "keywords": [
+        "clock",
+        "handle",
+        "press",
+        "hand"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_054",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02"
+    },
+    {
+      "question": "What is the default time for arriving late to a game?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        32
+      ],
+      "keywords": [
+        "default",
+        "time",
+        "determined",
+        "start",
+        "white",
+        "started"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "intl_055",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent044-child00"
+    },
+    {
+      "question": "What happens when a flag falls on the chess clock?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        31
+      ],
+      "keywords": [
+        "flag",
+        "falls",
+        "time",
+        "expire"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_056",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent042-child00"
+    },
+    {
+      "question": "What are the requirements for chess clock settings?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        33
+      ],
+      "keywords": [
+        "clock",
+        "settings",
+        "increment",
+        "time"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_057",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00"
+    },
+    {
+      "question": "What is Fischer time control?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        29,
+        30
+      ],
+      "keywords": [
+        "Fischer",
+        "increment",
+        "time",
+        "control"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_058",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00"
+    },
+    {
+      "question": "What is Bronstein time delay?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        29,
+        30
+      ],
+      "keywords": [
+        "Bronstein",
+        "delay",
+        "time",
+        "control"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_059",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00"
+    },
+    {
+      "question": "What should happen when an illegal move is discovered?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        35,
+        36
+      ],
+      "keywords": [
+        "illegal",
+        "move",
+        "penalty",
+        "discovered"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_060",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01"
+    },
+    {
+      "question": "What happens if the initial position was incorrect?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        35
+      ],
+      "keywords": [
+        "initial",
+        "position",
+        "incorrect",
+        "restart"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_061",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child00"
+    },
+    {
+      "question": "What is the penalty for making an illegal move?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        35,
+        36
+      ],
+      "keywords": [
+        "illegal",
+        "move",
+        "penalty",
+        "time"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_062",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01"
+    },
+    {
+      "question": "How does the arbiter handle displacement of pieces?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ],
+      "keywords": [
+        "arbiter",
+        "position",
+        "important",
+        "irregularity",
+        "discovered",
+        "signed"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_063",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00"
+    },
+    {
+      "question": "When is move recording required according to FIDE Laws?",
+      "category": "recording",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        38,
+        39
+      ],
+      "keywords": [
+        "recording",
+        "moves",
+        "scoresheet",
+        "required"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_064",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00"
+    },
+    {
+      "question": "What notation system is used for recording moves?",
+      "category": "recording",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        38
+      ],
+      "keywords": [
+        "notation",
+        "algebraic",
+        "recording",
+        "moves"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "intl_065",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00"
+    },
+    {
+      "question": "When can a player stop recording moves?",
+      "category": "recording",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        38,
+        39
+      ],
+      "keywords": [
+        "stop",
+        "recording",
+        "time",
+        "trouble"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_066",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent050-child02"
+    },
+    {
+      "question": "What is the 50-move rule for claiming a draw?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ],
+      "keywords": [
+        "50",
+        "moves",
+        "draw",
+        "claim"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_067",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child01"
+    },
+    {
+      "question": "How does one claim a draw by threefold repetition?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        40
+      ],
+      "keywords": [
+        "draw",
+        "claim",
+        "article",
+        "drawn",
+        "offers",
+        "event"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_068",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00"
+    },
+    {
+      "question": "What are the conditions for a draw by insufficient material?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ],
+      "keywords": [
+        "draw",
+        "checkmate",
+        "article",
+        "completion",
+        "won",
+        "checkmated"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "ANALYZE",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_069",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00"
+    },
+    {
+      "question": "When does the 75-move rule apply for automatic draw?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ],
+      "keywords": [
+        "moves",
+        "draw",
+        "article",
+        "drawn",
+        "offers",
+        "event"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_070",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00"
+    },
+    {
+      "question": "What are the main duties of the arbiter according to Article 12?",
+      "category": "arbiter",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        47
+      ],
+      "keywords": [
+        "arbiter",
+        "duties",
+        "Article 12",
+        "shall"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_071",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child00"
+    },
+    {
+      "question": "What behavior is forbidden for players according to Article 11?",
+      "category": "conduct",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        45
+      ],
+      "keywords": [
+        "forbidden",
+        "distract",
+        "annoy",
+        "opponent"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_072",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00"
+    },
+    {
+      "question": "What powers does the arbiter have for penalizing players?",
+      "category": "arbiter",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        47,
+        48
+      ],
+      "keywords": [
+        "12.9",
+        "penalty",
+        "warning",
+        "expulsion"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_073",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child01"
+    },
+    {
+      "question": "How does the arbiter handle electronic device violations?",
+      "category": "arbiter",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        45
+      ],
+      "keywords": [
+        "electronic",
+        "device",
+        "phone",
+        "violation"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_074",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "corpus_verified"
+      },
+      "audit": "auto_2026-01-23",
+      "expected_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent060-child00"
+    }
+  ]
+}

@@ -1,0 +1,652 @@
+{
+  "batch_name": "batch_4",
+  "count": 40,
+  "questions": [
+    {
+      "id": "FR-Q215",
+      "question": "Quelles catégories au Championnat de France Jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "chunk_text": "## 2.6. Qualifications d'office  \nSont qualifiés pour les Championnats de France U16, U14, U12, U10 et U8, en catégorie mixte ou féminine :  \n- Les jeunes changeant de catégorie ayant obtenu un score minimal de 6,5/9 dans le championnat précédent.\n- Les jeunes ne changeant pas de catégorie et ayant obtenu un score minimal de 6/9 dans le championnat précédent.\n- Les jeunes atteignant un Elo en cadence standard minimum en juillet ou août de la saison précédente ou en septembre de la nouvelle saison :\n- 2100 pour les U16, 1900 pour les U16F ;\n- 2000 pour les U14, 1850 pour les U14F ;\n- 1900 pour les U12, 1700 pour les U12F ;\n- 1750 pour les U10, 1600 pour les U10F ;\n- Un joueur ou une joueuse par tournoi mixte et une joueuse par tournoi féminin choisis par l'organisateur.\n- La ou le premier classé de chaque catégorie des Open A et B de la saison précédente.  \nLa qualité de qualifié ou qualifiée d'office doit impérativement être confirmée par une prise de licence A avant le 1 er décembre de la saison en cours ; à défaut, la qualification d'office est annulée.  \nSi les qualifiés et qualifiées d'office participent aux phases qualificatives départementales et/ou des zones interdépartementales, ils sont retirés lors de l'établissement de la liste des places qualificatives.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "catégories",
+        "U16",
+        "U14",
+        "U12"
+      ]
+    },
+    {
+      "id": "FR-Q216",
+      "question": "Quel Elo minimum pour qualification d'office jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "chunk_text": "## 2.6. Qualifications d'office  \nSont qualifiés pour les Championnats de France U16, U14, U12, U10 et U8, en catégorie mixte ou féminine :  \n- Les jeunes changeant de catégorie ayant obtenu un score minimal de 6,5/9 dans le championnat précédent.\n- Les jeunes ne changeant pas de catégorie et ayant obtenu un score minimal de 6/9 dans le championnat précédent.\n- Les jeunes atteignant un Elo en cadence standard minimum en juillet ou août de la saison précédente ou en septembre de la nouvelle saison :\n- 2100 pour les U16, 1900 pour les U16F ;\n- 2000 pour les U14, 1850 pour les U14F ;\n- 1900 pour les U12, 1700 pour les U12F ;\n- 1750 pour les U10, 1600 pour les U10F ;\n- Un joueur ou une joueuse par tournoi mixte et une joueuse par tournoi féminin choisis par l'organisateur.\n- La ou le premier classé de chaque catégorie des Open A et B de la saison précédente.  \nLa qualité de qualifié ou qualifiée d'office doit impérativement être confirmée par une prise de licence A avant le 1 er décembre de la saison en cours ; à défaut, la qualification d'office est annulée.  \nSi les qualifiés et qualifiées d'office participent aux phases qualificatives départementales et/ou des zones interdépartementales, ils sont retirés lors de l'établissement de la liste des places qualificatives.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "Elo",
+        "minimum",
+        "juillet",
+        "août"
+      ]
+    },
+    {
+      "id": "FR-Q217",
+      "question": "Comment est composée la Commission Régionale de Discipline ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "chunk_text": "## RÈGLEMENT DISCIPLINAIRE  \nLes membres des Commissions Régionales de Discipline sont désignés à la majorité simple par le Comité Directeur de l'organe déconcentré régional de son ressort territorial.  \nIl ne peut être mis fin aux fonctions d'un membre en cours de mandat qu'en cas :  \n-  d'empêchement définitif constaté par les instances mentionnées ci-dessus ;\n-  ou de démission ;\n-  ou d'exclusion.  \nChacun de ces organes se compose de trois membres au moins choisis, notamment, en raison de leur compétence d'ordre juridique ou en matière d'éthique et de déontologie sportive.  \nLe président de la FFE, les présidents de ses organes déconcentrés, ainsi que les membres des instances dirigeantes de FFE ne peuvent être simultanément membres d'aucun organe disciplinaire.  \nToute Commission Régionale de Discipline est composée en majorité de membres n'appartenant pas aux instances dirigeantes de son organe déconcentré.  \nLes membres des organes disciplinaires ne peuvent être liés à la fédération et à ses organes déconcentrés par un lien contractuel autre que celui résultant éventuellement de la licence.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "Commission",
+        "Régionale",
+        "Discipline",
+        "Comité"
+      ]
+    },
+    {
+      "id": "FR-Q218",
+      "question": "Comment peut-on mettre fin au mandat d'un membre disciplinaire ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "chunk_text": "## RÈGLEMENT DISCIPLINAIRE  \nLes membres des Commissions Régionales de Discipline sont désignés à la majorité simple par le Comité Directeur de l'organe déconcentré régional de son ressort territorial.  \nIl ne peut être mis fin aux fonctions d'un membre en cours de mandat qu'en cas :  \n-  d'empêchement définitif constaté par les instances mentionnées ci-dessus ;\n-  ou de démission ;\n-  ou d'exclusion.  \nChacun de ces organes se compose de trois membres au moins choisis, notamment, en raison de leur compétence d'ordre juridique ou en matière d'éthique et de déontologie sportive.  \nLe président de la FFE, les présidents de ses organes déconcentrés, ainsi que les membres des instances dirigeantes de FFE ne peuvent être simultanément membres d'aucun organe disciplinaire.  \nToute Commission Régionale de Discipline est composée en majorité de membres n'appartenant pas aux instances dirigeantes de son organe déconcentré.  \nLes membres des organes disciplinaires ne peuvent être liés à la fédération et à ses organes déconcentrés par un lien contractuel autre que celui résultant éventuellement de la licence.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "mandat",
+        "membre",
+        "démission",
+        "empêchement"
+      ]
+    },
+    {
+      "id": "FR-Q219",
+      "question": "La personne poursuivie peut-elle être assistée d'un avocat ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "chunk_text": "Si elle ne parle pas ou ne comprend pas suffisamment la langue française, elle peut demander à être assistée d'un interprète de son choix à ses frais ou d'un interprète choisi par la Fédération Française des Echecs ou ses organes déconcentrés aux frais de ceux-ci.  \nLe délai de dix jours mentionné au premier alinéa peut être réduit en cas d'urgence, de circonstances tenant au bon déroulement des compétitions sportives ou de circonstances exceptionnelles par décision du président de l'organe disciplinaire, à son initiative ou à la demande de la personne chargée de l'instruction ou de la personne poursuivie. En ce cas, la faculté de demander l'audition de personnes s'exerce sans condition de délai.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "assist",
+        "poursuivi",
+        "elle",
+        "parle",
+        "pas",
+        "comprend"
+      ]
+    },
+    {
+      "id": "FR-Q22",
+      "question": "Comment s'inscrire au Championnat de France individuel ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent011-child00",
+      "chunk_text": "## 2.6. Inscriptions et sélections  \nLa Direction Technique Fédérale établit au 15 avril la liste des joueurs et joueuses des tournois Nationaux. Les Ligues doivent adresser au plus tard le 15 juin à la Direction Technique du Championnat de France, le classement de leur championnat individuel ou à défaut des championnats des zones interdépartementales de la saison en cours.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "championnat",
+        "france",
+        "inscription",
+        "qualif"
+      ]
+    },
+    {
+      "id": "FR-Q220",
+      "question": "Peut-on demander un interprète en audience disciplinaire ?",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "chunk_text": "Si elle ne parle pas ou ne comprend pas suffisamment la langue française, elle peut demander à être assistée d'un interprète de son choix à ses frais ou d'un interprète choisi par la Fédération Française des Echecs ou ses organes déconcentrés aux frais de ceux-ci.  \nLe délai de dix jours mentionné au premier alinéa peut être réduit en cas d'urgence, de circonstances tenant au bon déroulement des compétitions sportives ou de circonstances exceptionnelles par décision du président de l'organe disciplinaire, à son initiative ou à la demande de la personne chargée de l'instruction ou de la personne poursuivie. En ce cas, la faculté de demander l'audition de personnes s'exerce sans condition de délai.",
+      "corpus": "fr",
+      "expected_docs": [
+        "2018_Reglement_Disciplinaire20180422.pdf"
+      ],
+      "keywords": [
+        "interprète",
+        "langue",
+        "française",
+        "frais"
+      ]
+    },
+    {
+      "id": "FR-Q221",
+      "question": "Quel est le format des Opens au Championnat de France ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "chunk_text": "## 2.3. Tournoi Accession \"Roger FERRY\"  \nSont qualifiés et qualifiées pour le tournoi Accession :  \n- Les joueurs ou joueuses ayant un Elo supérieur ou égal à 2200 entre le 1 er juin et le 1 er août de la saison en cours\n- Les joueuses ayant un Elo supérieur ou égal à 1950 entre le 1er juin et le 1er août de la saison en cours. Les joueuses ayant un classement entre 1950 et 2199, peuvent choisir entre l'Accession et l'Open A\n- Les joueuses et joueurs éliminés lors des huitièmes ou quarts de finale des Nationaux\n- Les joueurs ou joueuses ayant terminé dans la première moitié du dernier tournoi Accession\n- Les joueurs ou joueuses ayant terminé dans les 10 premières places du dernier Open A\n- Le joueur ou joueuse ayant terminé à la première place du dernier tournoi Open B\n- Le champion ou championne France U18 mixte\n- Un joueur ou joueuse désigné par l'AJEC\n- Sous réserve d'avoir un classement Elo Fide au minimum de 1900 au moment de sa participation au championnat de la Ligue ou à défaut de la zone interdépartementale, ou au 1er juillet de la saison en cours, le champion ou championne mixte de Ligue, ou à défaut de la zone interdépartementale",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "Open",
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "FR-Q222",
+      "question": "Comment qualifier les premières du National Féminin précédent ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "chunk_text": "## 2.2. Tournoi National Féminin (16 joueuses)  \nSont qualifiées dans l'ordre pour le tournoi National Féminin :  \n1. Les trois premières du National Féminin précédent ;\n2. Les trois premières joueuses du classement final du tournoi Accession précédent, puis à défaut de l'Open A ;\n3. Les 8 joueuses ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours ;\n4. La championne de France féminine U20F de la saison en cours ;\n5. La joueuse jeune (toutes catégories féminines jeunes confondues) ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours. En cas de qualification par l'un des 4 premiers critères, la place revient dans l'ordre aux jeunes joueuses suivantes, dans la limite des 3 premières places.  \nEn cas de désistements selon chaque critère de qualification, les remplacements sont effectués selon le critère 3 (meilleur Elo moyen).  \nEn cas d'égalité à la moyenne Elo dans les critères de qualification concernés, les joueuses sont départagées par le meilleur Elo lors de la dernière publication, puis la précédente et ainsi de suite jusqu'à obtenir un départage.  \nToutes les joueuses doivent être sur la liste des joueuses actives de la FIDE le 1 er avril de l'année en cours.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "premières",
+        "National",
+        "Féminin",
+        "précédent"
+      ]
+    },
+    {
+      "id": "FR-Q223",
+      "question": "Quelles joueuses sont qualifiées par Elo au National Féminin ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "chunk_text": "## 2.2. Tournoi National Féminin (16 joueuses)  \nSont qualifiées dans l'ordre pour le tournoi National Féminin :  \n1. Les trois premières du National Féminin précédent ;\n2. Les trois premières joueuses du classement final du tournoi Accession précédent, puis à défaut de l'Open A ;\n3. Les 8 joueuses ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours ;\n4. La championne de France féminine U20F de la saison en cours ;\n5. La joueuse jeune (toutes catégories féminines jeunes confondues) ayant le meilleur Elo moyen calculé d'après les trois listes de la FIDE prenant effet au 1er février, 1er mars et 1er avril de l'année en cours. En cas de qualification par l'un des 4 premiers critères, la place revient dans l'ordre aux jeunes joueuses suivantes, dans la limite des 3 premières places.  \nEn cas de désistements selon chaque critère de qualification, les remplacements sont effectués selon le critère 3 (meilleur Elo moyen).  \nEn cas d'égalité à la moyenne Elo dans les critères de qualification concernés, les joueuses sont départagées par le meilleur Elo lors de la dernière publication, puis la précédente et ainsi de suite jusqu'à obtenir un départage.  \nToutes les joueuses doivent être sur la liste des joueuses actives de la FIDE le 1 er avril de l'année en cours.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "Elo",
+        "moyen",
+        "FIDE",
+        "joueuses"
+      ]
+    },
+    {
+      "id": "FR-Q224",
+      "question": "Qui informe les clubs du lieu des matchs de Coupe de France ?",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent006-child00",
+      "chunk_text": "## 2.3. Lieu et heures des rencontres  \nLes clubs sont informés du lieu et de l'heure des matchs par la Direction de la Coupe de France dans les meilleurs délais.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "clubs",
+        "informés",
+        "lieu",
+        "Direction"
+      ]
+    },
+    {
+      "id": "FR-Q225",
+      "question": "Quelle durée minimum pour partie en cadence rapide ?",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "chunk_text": "## LE CLASSEMENT RAPIDE  \nLe calcul de l'Elo Rapide(ci-dessous désigné Rapide)porte sur les parties de moins de 60 min et de plus de 10 min/joueur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "Rapide",
+        "10",
+        "min",
+        "joueur"
+      ]
+    },
+    {
+      "id": "FR-Q226",
+      "question": "Quelle durée maximum pour partie en cadence rapide ?",
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "chunk_text": "## LE CLASSEMENT RAPIDE  \nLe calcul de l'Elo Rapide(ci-dessous désigné Rapide)porte sur les parties de moins de 60 min et de plus de 10 min/joueur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "keywords": [
+        "Rapide",
+        "60",
+        "min",
+        "parties"
+      ]
+    },
+    {
+      "id": "FR-Q227",
+      "question": "Comment vérifier une réclamation de nulle ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "chunk_text": "La vérification d'une réclamation de nulle se fait en présence des deux adversaires. Il vaut mieux reconstituer toute la partie sans se fier uniquement aux feuilles de parties. On peut utiliser l'ordinateur si les parties sont retransmises.  \n- 9.3. La partie est nulle, sur une demande correcte du joueur/de la joueuse ayant le trait, si :\n- 9.3.1. il/elle indique son coup, qui ne peut être changé, en l'écrivant sur sa feuille de partie en papier ou en le notant sur sa feuille de partie électronique et déclare à l'arbitre son intention de jouer ce coup ayant pour conséquence que les 50 derniers coups ont été joués par chacun des deux adversaires sans mouvement de pion ni aucune prise, ou\n- 9.3.2. les 50 derniers coups ont été achevés par chacun des deux adversaires sans mouvement de pion ni aucune prise.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "nulle",
+        "réclamation",
+        "vérification",
+        "adversaires"
+      ]
+    },
+    {
+      "id": "FR-Q228",
+      "question": "Quand la partie est-elle nulle sur demande ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "chunk_text": "La vérification d'une réclamation de nulle se fait en présence des deux adversaires. Il vaut mieux reconstituer toute la partie sans se fier uniquement aux feuilles de parties. On peut utiliser l'ordinateur si les parties sont retransmises.  \n- 9.3. La partie est nulle, sur une demande correcte du joueur/de la joueuse ayant le trait, si :\n- 9.3.1. il/elle indique son coup, qui ne peut être changé, en l'écrivant sur sa feuille de partie en papier ou en le notant sur sa feuille de partie électronique et déclare à l'arbitre son intention de jouer ce coup ayant pour conséquence que les 50 derniers coups ont été joués par chacun des deux adversaires sans mouvement de pion ni aucune prise, ou\n- 9.3.2. les 50 derniers coups ont été achevés par chacun des deux adversaires sans mouvement de pion ni aucune prise.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "nulle",
+        "demande",
+        "joueur",
+        "coup"
+      ]
+    },
+    {
+      "id": "FR-Q229",
+      "question": "Quel est le rôle principal de l'arbitre aux échecs ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "chunk_text": "## Article 12 Le rôle de l'Arbitre (voir Préambule)  \n- 12.1. L'arbitre s'assure de l'observation des Règles du Jeu d'Échecs.  \nL'arbitre doit être présent/présente et surveiller les parties. En cas d'infraction, il/elle intervient, il/elle ne doit pas attendre la demande de l'adversaire. Exemple : un joueur ou une joueuse touche volontairement une pièce et en joue une autre. L'arbitre doit l'obliger à jouer la pièce touchée, s'il existe un coup légal.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "règles",
+        "observation",
+        "surveiller"
+      ]
+    },
+    {
+      "id": "FR-Q23",
+      "question": "Quelles sont les conditions de participation au Ch. France ?",
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "chunk_text": "## 2.3. Tournoi Accession \"Roger FERRY\"  \nSont qualifiés et qualifiées pour le tournoi Accession :  \n- Les joueurs ou joueuses ayant un Elo supérieur ou égal à 2200 entre le 1 er juin et le 1 er août de la saison en cours\n- Les joueuses ayant un Elo supérieur ou égal à 1950 entre le 1er juin et le 1er août de la saison en cours. Les joueuses ayant un classement entre 1950 et 2199, peuvent choisir entre l'Accession et l'Open A\n- Les joueuses et joueurs éliminés lors des huitièmes ou quarts de finale des Nationaux\n- Les joueurs ou joueuses ayant terminé dans la première moitié du dernier tournoi Accession\n- Les joueurs ou joueuses ayant terminé dans les 10 premières places du dernier Open A\n- Le joueur ou joueuse ayant terminé à la première place du dernier tournoi Open B\n- Le champion ou championne France U18 mixte\n- Un joueur ou joueuse désigné par l'AJEC\n- Sous réserve d'avoir un classement Elo Fide au minimum de 1900 au moment de sa participation au championnat de la Ligue ou à défaut de la zone interdépartementale, ou au 1er juillet de la saison en cours, le champion ou championne mixte de Ligue, ou à défaut de la zone interdépartementale",
+      "corpus": "fr",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "keywords": [
+        "championnat",
+        "france",
+        "condition",
+        "participant"
+      ]
+    },
+    {
+      "id": "FR-Q230",
+      "question": "Quand l'arbitre doit-il intervenir pendant une partie ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
+      "chunk_text": "Si un spectateur ou une spectatrice voit un drapeau tomber ou toute autre infraction, il/elle doit en informer l'arbitre. Il ne doit pas intervenir dans la partie en l'annonçant .  \n- 12.8. A moins d'y être autorisé par l'arbitre, il est interdit à quiconque d'utiliser un téléphone mobile ou tout type d'appareil de communication sur le lieu de la compétition ainsi que dans toutes zones contiguës désignées par l'arbitre.  \nEn général, personne n'est autorisé à utiliser son téléphone portable sur le lieu de la compétition ou dans les zones adjacentes pendant les parties.  \n- 12.9. Les options à disposition de l'arbitre pour sanctionner sont :\n- 12.9.1. l 'avertissement ,\n- 12.9.2. l 'augmentation du temps restant à l'adversaire ,\n- 12.9.3. la diminution du temps restant à la personne fautive,\n- 12.9.4. l 'augmentation des points marqués par l'adversaire dans la partie jusqu'au maximum prévu pour cette partie,\n- 12.9.5. la diminution des points marqués dans la partie par la personne fautive,  \n- 12.9.6. la déclaration de la partie perdue par la personne fautive (l'arbitre décide aussi du score de l'adversaire)\n- 12.9.7. u ne amende définie à l'avance ,\n- 12.9.8. l 'exclusion pour une ou plusieurs rondes ,\n- 12.9.9. l 'ex clusion de la compétition.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "arbitre",
+        "intervenir",
+        "infraction",
+        "adversaire"
+      ]
+    },
+    {
+      "id": "FR-Q231",
+      "question": "Comment fonctionne le Chess960 ?",
+      "expected_chunk_id": "LA-octobre2025.pdf-p065-parent204-child00",
+      "chunk_text": "## Directives II : Règles du Chess960  \n- II.1 Avant une partie de Chess960, une position initiale est déterminée au hasard selon certaines règles. Ensuite, la partie se déroule de la même manière qu'au Jeu d'Échecs standard. En particulier, pièces et pions se déplacent normalement et l'objectif de cha cun des deux adversaires est de mettre échec et mat le roi adverse.",
+      "corpus": "fr",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "keywords": [
+        "Chess960",
+        "position",
+        "initiale",
+        "hasard"
+      ]
+    },
+    {
+      "id": "FR-Q24",
+      "question": "Comment fonctionne le Championnat de France des Clubs ?",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "chunk_text": "## 1.3 Engagements  \nDès la fin du championnat (hormis TOP 16), la FFE publie un calendrier de l'intersaison. Ce calendrier indique la procédure d'inscription que les clubs devront suivre pour participer à la saison suivante. Sous peine de noninscription au championnat, les droits d'inscription doivent être réglés avant la date limite fixée par la FFE.  \nLes clubs de N1, N2 et N3 doivent mettre gratuitement à disposition dans leur ville une salle permettant de bonnes conditions de jeu pour les matchs qui y seraient fixés, en désignant la personne chargée de l'organisation.  \nL'inscription en Coupe de France est obligatoire pour les clubs du Top 16 et N1.  \nLes clubs du Top 16 doivent avoir une équipe engagée en Interclubs Jeunes et une équipe féminine engagée en Championnat de France Féminin des Clubs. Ces équipes devront jouer au complet au minimum la moitié des matchs prévus dans le calendrier de la division concernée. Tout club en infraction sera interdit de jouer en Top 16 et N1 la saison suivante.  \nLes clubs de N1 doivent avoir une équipe engagée en Interclubs Jeunes ou une équipe féminine engagée en Championnat de France Féminin des Clubs. Cette équipe devra jouer au complet au minimum la moitié des matchs prévus dans le calendrier de la division concernée. Tout club en infraction sera interdit de jouer en Top 16 et N1 la saison suivante.  \nCette équipe ne doit pas être issue d'une entente telle que définie à l'article 11 des Règles Générales.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "club",
+        "équipe",
+        "championnat",
+        "interclub"
+      ]
+    },
+    {
+      "id": "FR-Q25",
+      "question": "Quelles sont les règles des interclubs ?",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "chunk_text": "## 1.3 Engagements  \nDès la fin du championnat (hormis TOP 16), la FFE publie un calendrier de l'intersaison. Ce calendrier indique la procédure d'inscription que les clubs devront suivre pour participer à la saison suivante. Sous peine de noninscription au championnat, les droits d'inscription doivent être réglés avant la date limite fixée par la FFE.  \nLes clubs de N1, N2 et N3 doivent mettre gratuitement à disposition dans leur ville une salle permettant de bonnes conditions de jeu pour les matchs qui y seraient fixés, en désignant la personne chargée de l'organisation.  \nL'inscription en Coupe de France est obligatoire pour les clubs du Top 16 et N1.  \nLes clubs du Top 16 doivent avoir une équipe engagée en Interclubs Jeunes et une équipe féminine engagée en Championnat de France Féminin des Clubs. Ces équipes devront jouer au complet au minimum la moitié des matchs prévus dans le calendrier de la division concernée. Tout club en infraction sera interdit de jouer en Top 16 et N1 la saison suivante.  \nLes clubs de N1 doivent avoir une équipe engagée en Interclubs Jeunes ou une équipe féminine engagée en Championnat de France Féminin des Clubs. Cette équipe devra jouer au complet au minimum la moitié des matchs prévus dans le calendrier de la division concernée. Tout club en infraction sera interdit de jouer en Top 16 et N1 la saison suivante.  \nCette équipe ne doit pas être issue d'une entente telle que définie à l'article 11 des Règles Générales.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "équipe",
+        "club",
+        "match"
+      ]
+    },
+    {
+      "id": "FR-Q26",
+      "question": "Comment se déroule le Ch. France Clubs parties rapides ?",
+      "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2 Déroulement de la compétition  \nLe championnat se joue par équipes de clubs. Un club ne peut engager plus de 2 équipes. S'il reste de s places à pourvoir à la fin de la procédure d'inscription, une nouvelle étape d'inscription sera ouverte sans limitation d'équipes par club.  \nLa compétition est organisée en deux phases :  \n- Première phase : en système suisse en 15 rondes,\n- Phase finale : Après la dernière ronde en système suisse, les 4 premières équipes des trois catégories (A, B, C), disputent une phase à élimination directe en demi-finales et finale pour déterminer les 4 premières places de leur catégorie. Un seul match est disputé dans chacune des rencontres, la première équipe rencontrant la quatrième tandis que la deuxième est appariée à la troisième. Les équipes gagnantes jouent la finale pour le titre tandis que les perdants disputent un match de classement pour la troisième place.\n- En cas de match nul lors de la phase finale, un des échiquiers du match est tiré au sort afin de disputer une partie unique en Armageddon. Les deux joueurs ayant joué sur l'échiquier concerné procèdent à un tirage au sort. Le vainqueur du tirage choisit sa couleur.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+      ],
+      "keywords": [
+        "club",
+        "rapide",
+        "championnat",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q27",
+      "question": "Quelles sont les cadences du Ch. France Clubs rapide ?",
+      "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00",
+      "chunk_text": "## 3.6 Feuille de composition d'équipe  \n3.6.a) Liste des membres de l'équipe : Au moment de l'inscription, les clubs doivent, selon les modalités mises en place par la FFE ou l'organisateur, déposer la liste ordonnée des 4 membres composant leur équipe. L'ordre dans lequel sont alignés les membres de l'équipe est du ressort du ou de la capitaine. Cette liste pourra être modifiée jusqu'à l'heure limite du pointage indiqué par l'organisateur. Une fois la compétition commencée, aucune modification ne sera acceptée et tout forfait individuel éventuel, ne pourra pas être remplacé.  \n3.6.b) Echiquiers : L'ordre des échiquiers doit suivre la liste ordonnée (1, 2, 3, 4) déposée par les équipes selon l'article 3.6.a. T oute personne ne jouant pas à l'échiquier qui lui est attribué sur la feuille de composition d'équipe est sanctionnée d'un forfait adminis tratif avec la marque de 0 points et victoire pour l'adversaire.  \n3.6.c) Validité de la licence : l'heure limite de prise de licence pour un joueur ou joueuse participant au championnat est l'heure prévue du début de la ronde 1.  \n3.6.d) Elo : le classement Elo à prendre en compte est le dernier Elo publié. Dans l'ordre, le classement Elo en vigueur pour cette compétition est le classement rapide FIDE, le classement standard FIDE, puis le classement rapide FFE.",
+      "corpus": "fr",
+      "expected_docs": [
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+      ],
+      "keywords": [
+        "rapide",
+        "cadence",
+        "club",
+        "temps"
+      ]
+    },
+    {
+      "id": "FR-Q28",
+      "question": "Comment fonctionne la Coupe de France des échecs ?",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2. Déroulement de la compétition  \nElle se déroule suivant un système de matchs à éliminations directes et successives.  \nLes clubs vainqueurs d'un match sont qualifiés pour le tour suivant ; les clubs perdants sont éliminés.  \nLe club tenant de la Coupe de France, ainsi que les clubs engagés en Top 16 entrent directement dans la compétition au niveau des 32 e de finale. Les clubs engagés en Nationale 1 entrent en 64 e de finale.  \nLe nombre d'équipes engagées détermine le nombre de tours.  \nCertaines équipes peuvent être exemptées du premier tour. Sont exemptées en premier lieu, sauf contrainte géographique, les clubs participant à la Nationale 2 de la saison en cours, puis les clubs de Nationale 3.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "coupe",
+        "france",
+        "élimination",
+        "match"
+      ]
+    },
+    {
+      "id": "FR-Q29",
+      "question": "Quelles sont les règles de la Coupe de France ?",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2. Déroulement de la compétition  \nElle se déroule suivant un système de matchs à éliminations directes et successives.  \nLes clubs vainqueurs d'un match sont qualifiés pour le tour suivant ; les clubs perdants sont éliminés.  \nLe club tenant de la Coupe de France, ainsi que les clubs engagés en Top 16 entrent directement dans la compétition au niveau des 32 e de finale. Les clubs engagés en Nationale 1 entrent en 64 e de finale.  \nLe nombre d'équipes engagées détermine le nombre de tours.  \nCertaines équipes peuvent être exemptées du premier tour. Sont exemptées en premier lieu, sauf contrainte géographique, les clubs participant à la Nationale 2 de la saison en cours, puis les clubs de Nationale 3.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "keywords": [
+        "coupe",
+        "france",
+        "règle",
+        "club"
+      ]
+    },
+    {
+      "id": "FR-Q30",
+      "question": "Comment participer à la Coupe Jean-Claude Loubatière ?",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "chunk_text": "## 1.1. Structure  \nLa Coupe Jean-Claude Loubatière est organisée chaque saison.  \nLe nombre d'équipes engagées par club n'est pas limité.  \nUne équipe ne peut jouer lors de la première phase que dans son département.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "keywords": [
+        "loubatière",
+        "coupe",
+        "participation",
+        "inscription"
+      ]
+    },
+    {
+      "id": "FR-Q31",
+      "question": "Quelles sont les spécificités de la Coupe Loubatière ?",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "chunk_text": "## 1.1. Structure  \nLa Coupe Jean-Claude Loubatière est organisée chaque saison.  \nLe nombre d'équipes engagées par club n'est pas limité.  \nUne équipe ne peut jouer lors de la première phase que dans son département.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "keywords": [
+        "loubatière",
+        "coupe",
+        "règle",
+        "club"
+      ]
+    },
+    {
+      "id": "FR-Q32",
+      "question": "Comment fonctionne la Coupe de la parité ?",
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "chunk_text": "## 1.1. Structure  \nLa Coupe de la parité est organisée chaque saison.  \nLe nombre d'équipes engagées par club n'est pas limité.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C04_2025_26_Coupe_de_la_parité.pdf"
+      ],
+      "keywords": [
+        "parité",
+        "coupe",
+        "mixte",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q33",
+      "question": "Quelles sont les conditions pour la Coupe de la parité ?",
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "chunk_text": "## 1.1. Structure  \nLa Coupe de la parité est organisée chaque saison.  \nLe nombre d'équipes engagées par club n'est pas limité.",
+      "corpus": "fr",
+      "expected_docs": [
+        "C04_2025_26_Coupe_de_la_parité.pdf"
+      ],
+      "keywords": [
+        "parité",
+        "condition",
+        "structure",
+        "coupe",
+        "chaque",
+        "saison"
+      ]
+    },
+    {
+      "id": "FR-Q34",
+      "question": "Comment fonctionne le Championnat de France Jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "chunk_text": "## 2. Organisation générale  \nLe Championnat de France Jeunes se joue en sept tournois mixtes ouverts aux joueurs et joueuses pour chaque catégorie d'âge de U8 à U20, et sept tournois féminins uniquement ouverts aux joueuses de U8F à U20F. Deux Opens mixtes sont organisés pour les joueuses et joueurs non-qualifiés pour les tournois cités.  \nLes phases qualificatives ne concernent pas :  \n- Les jeunes ayant acquis leur qualification directe pour les Championnats de France de la saison en cours en fonction de leur classement Elo ou de leurs résultats dans les championnats de la saison précédente (voir § Qualifiés d'office),\n- Les jeunes des catégories U18 (cadets) et U18F (cadettes) ; U20 (juniors) et U20F (juniors Filles).",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "jeune",
+        "championnat",
+        "catégorie",
+        "âge"
+      ]
+    },
+    {
+      "id": "FR-Q35",
+      "question": "Quelles sont les catégories d'âge aux échecs jeunes ?",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "chunk_text": "## 2. Organisation générale  \nLe Championnat de France Jeunes se joue en sept tournois mixtes ouverts aux joueurs et joueuses pour chaque catégorie d'âge de U8 à U20, et sept tournois féminins uniquement ouverts aux joueuses de U8F à U20F. Deux Opens mixtes sont organisés pour les joueuses et joueurs non-qualifiés pour les tournois cités.  \nLes phases qualificatives ne concernent pas :  \n- Les jeunes ayant acquis leur qualification directe pour les Championnats de France de la saison en cours en fonction de leur classement Elo ou de leurs résultats dans les championnats de la saison précédente (voir § Qualifiés d'office),\n- Les jeunes des catégories U18 (cadets) et U18F (cadettes) ; U20 (juniors) et U20F (juniors Filles).",
+      "corpus": "fr",
+      "expected_docs": [
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
+      ],
+      "keywords": [
+        "catégorie",
+        "âge",
+        "jeune",
+        "poussin"
+      ]
+    },
+    {
+      "id": "FR-Q36",
+      "question": "Comment participer au Ch. France Interclubs Jeunes ?",
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p001-parent001-child01",
+      "chunk_text": "- Les premières des Nationales 3 accèdent à la Nationale 2. S'il reste des places disponibles, les Ligues ayant le plus de licenciés A minimes et plus jeunes ont droit à une 2e place.  \nSi une équipe classée 1 ère refuse son accession avant la publication des groupes ou si le règlement ne lui permet pas de monter, sa place revient à l'équipe deuxième de son groupe.  \nDans le cas de places disponibles, de désistements et tous les cas non prévus ci-dessus, sur proposition de la direction de la compétition, la Commission Technique Fédérale procède à des repêchages.  \nLe club vainqueur est déclaré Champion de France et le second vice-Champion de France.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "équipe",
+        "club"
+      ]
+    },
+    {
+      "id": "FR-Q37",
+      "question": "Quelles sont les règles des interclubs jeunes ?",
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent014-child00",
+      "chunk_text": "## 3.5. Capitaine d'équipe  \nLe rôle des capitanes est défini à l'article 8 des Règles générales.  \nDans le cadre des Nationales Jeunes, il est utile de préciser que les seules paroles que les capitaines peuvent adresser à un joueur, en présence de l'arbitre, sont \"accepte la proposition de nullité\", \"refuse la proposition de nullité\", \"propose nulle\".  \nDe même, les capitanes doivent s'abstenir de faire les moindres gestes ou mimiques à l'adresse des joueurs.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+      ],
+      "keywords": [
+        "interclub",
+        "jeune",
+        "règle",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q38",
+      "question": "Comment fonctionne le Championnat de France scolaire ?",
+      "expected_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2. Structure  \n- 1.2.1. Le championnat de France scolaire est organisé chaque saison, il se sépare en deux catégories :\n- a) Le championnat des écoles réservé aux écoliers scolarisés en France, c'est-à-dire les élèves de la maternelle petite section jusqu'au CM2, ULIS inclus, ou dans un établissement relevant de l'AEFE (Agence pour l'Enseignement Français à l'Étranger).\n- b) Le championnat des collèges réservé aux collégiennes et collégiens scolarisés en France, c'est-à-dire les élèves de la classe de 6 e jusqu'à la classe de 3 e, ULIS et SEGPA inclus, ou dans un établissement relevant de l'AEFE (Agence pour l'Enseignement Français à l'Étranger).\n- 1.2.2. Les lycéennes et lycéens peuvent participer aux championnats UNSS des lycées sous certaines conditions. Les étudiants (classes post-bac) peuvent participer au championnat universitaire de la FFSU.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J03_2025_26_Championnat_de_France_scolaire.pdf"
+      ],
+      "keywords": [
+        "scolaire",
+        "championnat",
+        "école",
+        "établissement"
+      ]
+    },
+    {
+      "id": "FR-Q39",
+      "question": "Quelles sont les conditions du Ch. France scolaire ?",
+      "expected_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2. Structure  \n- 1.2.1. Le championnat de France scolaire est organisé chaque saison, il se sépare en deux catégories :\n- a) Le championnat des écoles réservé aux écoliers scolarisés en France, c'est-à-dire les élèves de la maternelle petite section jusqu'au CM2, ULIS inclus, ou dans un établissement relevant de l'AEFE (Agence pour l'Enseignement Français à l'Étranger).\n- b) Le championnat des collèges réservé aux collégiennes et collégiens scolarisés en France, c'est-à-dire les élèves de la classe de 6 e jusqu'à la classe de 3 e, ULIS et SEGPA inclus, ou dans un établissement relevant de l'AEFE (Agence pour l'Enseignement Français à l'Étranger).\n- 1.2.2. Les lycéennes et lycéens peuvent participer aux championnats UNSS des lycées sous certaines conditions. Les étudiants (classes post-bac) peuvent participer au championnat universitaire de la FFSU.",
+      "corpus": "fr",
+      "expected_docs": [
+        "J03_2025_26_Championnat_de_France_scolaire.pdf"
+      ],
+      "keywords": [
+        "scolaire",
+        "condition",
+        "école",
+        "inscription"
+      ]
+    },
+    {
+      "id": "FR-Q40",
+      "question": "Comment fonctionne le Ch. France Clubs Féminin ?",
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
+      "chunk_text": "## 1.1. Structure  \nLe championnat de France Féminin des Clubs est organisé chaque saison. Il comporte 3 divisions :  \n- Top 12F, comprenant 12 équipes (Top 12F) ;\n- Nationale 1 féminine, composée de 4 groupes de 8 équipes (N1F) ;\n- Nationale 2 féminine, composée de 1 ou plusieurs groupes dans une même zone interdépartementale pour la première phase et de 8 groupes au maximum pour la deuxième phase (N2F).  \nLes clubs des principautés de Monaco et d'Andorre sont autorisés à participer au championnat de France féminin des clubs. Ils peuvent accéder au Top 12 féminin sous réserve de ne pas participer à la plus haute division d'un autre championnat fédéral.  \nTous les groupes (Top 12F, N1F et N2F) sont organisés sous la responsabilité de la Commission Technique Fédérale.",
+      "corpus": "fr",
+      "expected_docs": [
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "club",
+        "championnat",
+        "équipe"
+      ]
+    },
+    {
+      "id": "FR-Q41",
+      "question": "Quelles sont les règles du Ch. France Clubs Féminin ?",
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p004-parent016-child00",
+      "chunk_text": "## 3.4. Statut des joueuses - homologation  \nLa Commission Technique se prononce sur le statut et la qualification des joueuses :  \n- avant le début de la saison, à la demande du club où est ou sera licenciée la joueuse ;\n- à tout moment, mais au plus tard dans les trente jours suivant l'éventuelle rencontre concernée, à la demande du club où est ou sera licenciée la joueuse, d'un autre club, du Direction du groupe ou de la compétition, de la Commission Technique Fédérale, du Comité Directeur de la FFE.  \nLes clubs sont responsables de la qualification de leurs joueuses. Ceux n'ayant pas obtenu l'accord de la Commission Technique et se trouvant en situation illégale, peuvent être pénalisés rétroactivement.  \nUne vérification systématique des dispositions prévues aux articles 1.1. et 1.3. des Règles Générales, des articles 3.6. et 3.7. du présent règlement est effectuée par la Direction de groupe.",
+      "corpus": "fr",
+      "expected_docs": [
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "club",
+        "règle",
+        "joueuse"
+      ]
+    },
+    {
+      "id": "FR-Q42",
+      "question": "Comment participer au Ch. individuel Féminin rapide ?",
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent000-child00",
+      "chunk_text": "## 1.1. Conditions de participation  \nLe championnat de France Individuel féminin de parties rapides est ouvert :  \n- À toutes les joueuses françaises ou ressortissantes de l'Union Européenne résidant en France ;\n- Aux joueuses de nationalité monégasque ou andorrane et licenciées à la Fédération Française des Échecs ;\n- Aux joueuses étrangères jouant sous le code FRA ;\n- Les jeunes joueuses jouant avec un code FIDE étranger mais scolarisées en France depuis le début de saison.  \nToute Ligue contrevenant à cet article s'expose à des sanctions pouvant aller jusqu'à l'invalidation des qualifications concernées.",
+      "corpus": "fr",
+      "expected_docs": [
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "rapide",
+        "individuel",
+        "inscription"
+      ]
+    },
+    {
+      "id": "FR-Q43",
+      "question": "Quelles sont les cadences du Ch. Féminin rapide ?",
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
+      "chunk_text": "## 1.2. Déroulement de la compétition  \nElle se déroule en deux phases : une phase zone interdépartementale (ZID) et une finale.  \nLa première phase est organisée sous le contrôle de la Ligue. Elle est ouverte aux joueuses licenciées dans chacune des zones interdépartementales de cette Ligue.  \nSe qualifient pour la phase finale :  \n- 1 joueuse pour 1 à 10 participantes ;\n- 2 joueuses pour 11 à 20 participantes\n- 3 joueuses pour 21 à 30 participantes ;\n- 4 joueuses pour 31 à 40 participantes ;\n- 5 joueuses pour 41 à 60 participantes ;\n- 6 joueuses pour 61 à 100 participantes ;\n- 7 joueuses pour plus de 100 participantes.  \nDes repêchages parmi les participantes de la phase ZID pourront être éventuellement opérés pour la phase finale.  \nSont qualifiées directement pour la phase finale :  \n- La championne et la vice-championne de l'année précédente ;\n- Les premières de chacune des catégories de U8F à U20F de l'édition précédente ;\n- Une joueuse sélectionnée par le club organisateur ;\n- Les joueuses françaises titrées GM, MI, GMF ou MIF ;\n- Les deux premières classées dans chacune des catégories féminines du championnat de France Jeunes de la saison en cours. Si elles sont déjà qualifiées, les places reviennent aux suivantes ;\n- Une joueuse par ZID choisie par la Ligue, sans obligation d'avoir participé aux phases de qualification.",
+      "corpus": "fr",
+      "expected_docs": [
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+      ],
+      "keywords": [
+        "féminin",
+        "rapide",
+        "elle",
+        "deux",
+        "phases",
+        "phase"
+      ]
+    },
+    {
+      "id": "FR-Q44",
+      "question": "Quelles sont les règles pour les joueurs handicapés ?",
+      "expected_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01",
+      "chunk_text": "Si un joueur ou joueuse est aveugle, ou incapable de lire les gros caractères, alors ces informations doivent lui être lues avant le début de la partie, à sa demande et sans déranger les autres joueurs et joueuses.  \n9. Si une personne ne peut pas accéder à certains services, des dispositions doivent être prises pour lui permettre d'y accéder et de pouvoir satisfaire l'ensemble de ses besoins.\n10. Si un joueur ou joueuse ne peut pas appuyer sur sa propre pendule ou déplacer ses propres pièces, une personne désignée par le joueur ou la joueuse et validée par l'arbitre pourra actionner la pendule ou déplacer les pièces.\n11. La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une « carte mobilité inclusion » de personne en situation de handicap. (art. 2.3 du Règlement des Compétitions Homologuées)\n12. En cas de problèmes, veuillez contacter la Direction Technique Fédérale.",
+      "corpus": "fr",
+      "expected_docs": [
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf"
+      ],
+      "keywords": [
+        "handicap",
+        "joueur",
+        "adaptation",
+        "règle"
+      ]
+    }
+  ]
+}

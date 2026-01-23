@@ -1,0 +1,600 @@
+{
+  "batch": 6,
+  "agent": "opus",
+  "validated_at": "2026-01-23T17:19:25.052172",
+  "results": [
+    {
+      "id": "intl_001",
+      "question": "What happens if a player touches a piece but cannot make a legal move with it?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.5: If none of the touched pieces can be moved/captured, player may make any legal move. Direct answer.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_002",
+      "question": "How much time is added after each move in a rapid game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.1 with rapid time definitions and increment examples (e.g., 30 sec/move).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_003",
+      "question": "When can an arbiter declare a game drawn due to insufficient material?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.2 on dead position/insufficient material for declaring draw.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_004",
+      "question": "What are the requirements for a valid claim of threefold repetition?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.2 claim procedure context. Explains threefold repetition claim requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent032-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_005",
+      "question": "If a player's flag falls and no one notices, what should happen when it is discovered?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent045-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.8 on flag fall observation - flag considered fallen when noticed/claimed.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent025-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_006",
+      "question": "What is the procedure when an illegal move is discovered several moves later?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent047-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 - irregularity must be discovered during game. Procedure for later discovery.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_007",
+      "question": "Can a player castle if the rook is attacked?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 castling rules. Rook being attacked is NOT a prohibition - only king in/through check matters.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_008",
+      "question": "What are the arbiter's duties during a rapid or blitz tournament?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.2-A.3 on arbiter duties in rapid chess.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_009",
+      "question": "How should an arbiter handle a mobile phone ringing during a game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent057-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 11.3.2 on electronic devices/phones during games.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent035-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_010",
+      "question": "What is the 75-move rule and when does it apply?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p029-parent040-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk references 9.6.1 and 9.6.2 (75-move rule) - arbiter must intervene and declare draw. Partial definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_011",
+      "question": "What is the penalty for making an illegal move in a standard game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 illegal move penalties with time addition procedure.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_012",
+      "question": "How should a player correctly offer a draw?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.1 on draw offers and correct procedure.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_013",
+      "question": "What are the conditions for castling to be legal?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 with complete castling conditions list.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_014",
+      "question": "When must a player record the moves during a game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 on move recording requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_015",
+      "question": "What happens if both players have made an illegal move?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent068-child02",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk discusses Article 7.5 illegal move context. Both players making illegal moves scenario.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p037-parent028-child02",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_016",
+      "question": "How is the pawn promotion completed correctly?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3-3.7.5 on pawn promotion procedure and completion.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_017",
+      "question": "What are the time controls for a FIDE rated rapid game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.1 defining FIDE rated rapid time requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_018",
+      "question": "When can a player claim a draw by the 50-move rule?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.3 context on 50-move rule draw claims.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_019",
+      "question": "What are the arbiter's options when a player disturbs the opponent?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11.5 on forbidden behavior (disturbance).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_020",
+      "question": "How is checkmate defined according to FIDE rules?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.1.1 with checkmate definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_021",
+      "question": "What happens when a player completes a move but the position remains impossible?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 irregularity handling - impossible position scenario.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_022",
+      "question": "What are the default time penalties an arbiter can give?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p034-parent046-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.9 on arbiter time penalties.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_023",
+      "question": "How should an arbiter handle a quickplay finish situation?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent088-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Guidelines III on quickplay finish handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent051-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_024",
+      "question": "What is the definition of stalemate?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.1 stalemate definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_025",
+      "question": "When can an arbiter intervene during a game without a claim from a player?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent065-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.6/12.7 on arbiter intervention without player claims.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_026",
+      "question": "What is the exact procedure when a player is in zeitnot and cannot record moves?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.4 on time trouble (zeitnot) recording exemption.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent030-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_032",
+      "question": "What is the exact Elo rating requirement to become a FIDE Master?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent355-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk contains FIDE title regulations. FM rating requirement info may be partial.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent148-child02",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_037",
+      "question": "What special rules apply when a visually impaired player competes against a sighted opponent?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix D on visually impaired players - two boards, assistant, etc.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_038",
+      "question": "If a chess clock becomes defective during a game, what should the arbiter do?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.10/6.11 on clock settings and defects.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent026-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_039",
+      "question": "What are the exact conditions for a valid en passant capture?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3.1 on en passant conditions.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_040",
+      "question": "What information must be recorded on the envelope when a game is adjourned?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent082-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Guidelines I.2 on adjournment envelope requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent048-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_041",
+      "question": "What does 'Kurze Rochade' mean when announced by a visually impaired player?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix D.2 - Kurze Rochade = short castling (kingside O-O).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_042",
+      "question": "According to FIDE Laws, at what exact moment is an illegal move considered 'completed'?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5.1 - illegal move completed when clock pressed.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_043",
+      "question": "Under what circumstances is pressing the chess clock before making a move permitted?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.2.4 - forbidden to press clock before moving.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_044",
+      "question": "What is the initial position of the pieces on the chessboard?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent031-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 2 on initial position setup.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent016-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_045",
+      "question": "How does the knight move according to FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent033-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.6 on knight movement.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent017-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_046",
+      "question": "What are the rules for castling in FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 castling rules.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_047",
+      "question": "What happens when a pawn reaches the eighth rank?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.5 on pawn reaching eighth rank (promotion).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_048",
+      "question": "What is the touch-move rule according to Article 4?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.3 touch-move rule explanation.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_049",
+      "question": "When is a move considered completed according to FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent035-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.4.4 - move completed when piece touches destination.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_050",
+      "question": "What are the conditions for checkmate?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.1.1 checkmate conditions.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_051",
+      "question": "What is stalemate and when does it occur?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.1 stalemate definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_052",
+      "question": "How does en passant capture work?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3 en passant capture.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_053",
+      "question": "What is the purpose of the 'j'adoube' or 'I adjust' declaration?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.2.1 on jadoube/I adjust declaration.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_054",
+      "question": "How should the chess clock be handled according to Article 6?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.2 on chess clock handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_055",
+      "question": "What is the default time for arriving late to a game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent044-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.7 default time for late arrival.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent024-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_056",
+      "question": "What happens when a flag falls on the chess clock?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent042-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.1 flag fall definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent023-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_057",
+      "question": "What are the requirements for chess clock settings?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.10 clock settings requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent026-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_058",
+      "question": "What is Fischer time control?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.3 Fischer/increment time control.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_059",
+      "question": "What is Bronstein time delay?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.3 Bronstein delay time control.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_060",
+      "question": "What should happen when an illegal move is discovered?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5 illegal move discovery procedure.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_061",
+      "question": "What happens if the initial position was incorrect?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.2 incorrect initial position handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_062",
+      "question": "What is the penalty for making an illegal move?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5 illegal move penalty.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_063",
+      "question": "How does the arbiter handle displacement of pieces?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.4 on displacement of pieces handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_064",
+      "question": "When is move recording required according to FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 move recording requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_065",
+      "question": "What notation system is used for recording moves?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 algebraic notation requirement.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_066",
+      "question": "When can a player stop recording moves?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent050-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.4 on stopping recording (time trouble).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent030-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_067",
+      "question": "What is the 50-move rule for claiming a draw?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.3 50-move rule for draw claim.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_068",
+      "question": "How does one claim a draw by threefold repetition?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.2 threefold repetition draw claim.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_069",
+      "question": "What are the conditions for a draw by insufficient material?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.2 insufficient material draw conditions.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_070",
+      "question": "When does the 75-move rule apply for automatic draw?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.6 on 75-move automatic draw.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_071",
+      "question": "What are the main duties of the arbiter according to Article 12?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.2 arbiter main duties.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_072",
+      "question": "What behavior is forbidden for players according to Article 11?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11 forbidden player behavior.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_073",
+      "question": "What powers does the arbiter have for penalizing players?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.9 arbiter penalty powers.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_074",
+      "question": "How does the arbiter handle electronic device violations?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent060-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11.3 electronic device violations.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "confidence": "HIGH"
+    }
+  ],
+  "summary": {
+    "total": 65,
+    "keep": 0,
+    "wrong_corrected": 62,
+    "wrong_no_chunk": 0,
+    "partial_acceptable": 3,
+    "partial_improved": 0
+  }
+}

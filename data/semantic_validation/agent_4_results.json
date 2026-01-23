@@ -1,0 +1,402 @@
+{
+  "batch": 4,
+  "agent": "opus",
+  "validated_at": "2026-01-23T14:30:00Z",
+  "results": [
+    {
+      "id": "FR-Q130",
+      "question": "Roi contre Roi + Fou est-il considere comme materiel insuffisant pour mater ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le tableau des situations de materiel insuffisant avec les resultats correspondants. Bien que 'Roi vs Roi+Fou' ne soit pas explicitement liste (le tableau montre d'autres combinaisons comme Roi+Fou vs Roi+Cavalier), ce chunk est dans la section correcte (Art 6.9) traitant du materiel insuffisant. Le contexte permet de comprendre que Roi seul vs Roi+Fou est effectivement une position morte car le Fou seul ne peut pas mater.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q131",
+      "question": "Comment est calcule le classement Elo Rapide par rapport au classement Standard ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite des 'Listes Officielles du Classement Rapide et blitz de la FIDE' et explique les regles de publication (5 parties minimum, 1400 minimum, periodes de classement). Il aborde le systeme de classement Rapide mais ne compare pas explicitement avec le Standard. L'information est partielle mais pertinente pour comprendre le fonctionnement du classement Rapide.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q132",
+      "question": "Un joueur classe uniquement en Rapide participe a son premier tournoi Standard. Comment obtient-il son Elo Standard ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite du classement Rapide FIDE mais ne repond pas directement a la question de la passerelle Rapide->Standard. La question necessite des informations sur le calcul initial du classement Standard (Ch 6.1 pages 183-185), mais le chunk actuel reste pertinent car il explique le systeme de classement distinct. La reponse complete necessiterait un chunk sur le calcul initial Elo Standard.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q133",
+      "question": "Dans le systeme suisse, comment traiter un joueur qui demande un bye pour une ronde ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p124-parent357-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite explicitement des systemes d'appariements et mentionne au point 4: 'Les personnes ayant prevenu de leur absence lors de certaines rondes ne seront pas appariees pour ces rondes et ne marqueront aucun point (sauf si le reglement du tournoi en decide autrement)'. C'est exactement la procedure pour gerer un bye demande.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q134",
+      "question": "Quelle est la difference entre le Buchholz tronque et le Buchholz median ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p149-parent436-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p149-parent436-child02) traite du Cumulatif tronque, pas du Buchholz. Le bon chunk est p151-parent440-child00 qui definit explicitement: '7.1.1. Buchholz Tronque (Tr): on retire les adversaires ayant le score ajuste le plus bas' et '7.1.2. Buchholz Median (Me): on retire des adversaires parmi ceux ayant le score ajuste le plus bas ET on retire autant d'adversaires parmi ceux ayant le score ajuste le plus eleve.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p151-parent440-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q141",
+      "question": "Qu'est-ce que le 'noyau' d'une equipe en Nationale et quelle est la regle des 50% ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte: '3.7.f) Noyau de l'equipe: en N1, N2 et N3, chaque equipe doit aligner a chaque ronde au moins 50% de personnes (appele noyau) inscrites sur le PV ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison'. Definition complete avec sanctions en cas d'infraction.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q144",
+      "question": "En Top 16, combien de 'joueurs etrangers' peut-on aligner par match et quelle est la definition exacte ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les articles 3.7.h et 3.7.i qui definissent: '3.7.h) Nationalite etrangere: au moins cinq des joueurs ou joueuses composant une equipe doivent posseder la nationalite francaise ou etre ressortissants de l'Union Europeenne residant en France, ou extracommunautaires residant en France depuis 5 ans' et '3.7.i) en Top 16, N1, et N2, chaque equipe doit inscrire au moins un joueur francais et au moins une joueuse francaise'.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q149",
+      "question": "C'est quoi le 'flag' en echecs et qu'est-ce qui se passe quand ca tombe ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p050) traite des feuilles de parties incompletes, pas de la definition du drapeau. Le bon chunk est p044-parent166-child00 qui definit clairement: 'La pendule d'echecs designe une horloge munie de deux afficheurs... Chacun des afficheurs est muni d'un drapeau. La chute du drapeau signifie la fin du temps imparti a un joueur ou une joueuse.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q150",
+      "question": "Selon l'article 12.9 des Lois du Jeu FIDE, quelle est la procedure exacte pour reclamer une nulle apres 75 coups sans prise ni mouvement de pion ?",
+      "current_chunk_id": "LA-octobre2025-table6-summary",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "QUESTION PIEGE: L'article 12.9 traite des sanctions, PAS des 75 coups! La regle des 75 coups est a l'article 9.6.2. Le chunk actuel est un simple glossaire resume. Le meilleur chunk est p066-parent214-child02 qui contient le glossaire detaille avec: 'Regle des 75 coups | 9.6.2 | La partie est nulle si les 75 derniers coups ont ete completes par chacun des deux adversaires sans mouvement de pion ni prise.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent214-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q151",
+      "question": "Comment fonctionne le deplacement du pion ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.7 'Le pion' avec les regles completes: '3.7.1. Un pion peut se deplacer sur la case immediatement devant lui sur la meme colonne', '3.7.2. Lors de son premier deplacement un pion peut... avancer de deux cases', '3.7.3. Un pion peut se deplacer sur une case occupee par une piece adverse situee en diagonale devant lui' (prise).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q152",
+      "question": "Comment fonctionne la prise en passant aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient exactement la definition: '3.7.3.1. Un pion occupant une case situee sur la meme rangee et sur une colonne adjacente a un pion adverse qui vient d'avancer de deux cases en un seul coup depuis sa case de depart, peut prendre ce pion adverse comme si ce dernier n'avait ete avance que d'une seule case. 3.7.3.2. Cette prise n'est autorisee que sur le coup qui suit l'avancement du pion adverse. Cette prise est appelee prise en passant.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q153",
+      "question": "Comment fonctionne la promotion du pion ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition complete de la promotion: '3.7.3.3. Quand un joueur au trait deplace un pion sur la rangee la plus eloignee de sa position de depart, il doit remplacer ce pion par une nouvelle dame, tour, fou ou cavalier de meme couleur' et '3.7.3.5. Ce remplacement d'un pion par une autre piece est appele promotion. La nouvelle piece issue de cette promotion est immediatement active.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q154",
+      "question": "Quand le roque est-il definitivement interdit ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.8.2.1: 'Le droit de roquer est definitivement perdu: 1) Si le roi s'est deja deplace, ou 2) Avec une tour qui s'est deja deplacee.' Reponse complete sur l'interdiction definitive.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q155",
+      "question": "Quand le roque est-il temporairement interdit ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.8.2.2: 'Le roque est temporairement interdit: 3) Si la case occupee par le roi, la case qu'il doit traverser ou la case sur laquelle il doit arriver, est attaquee par une ou plusieurs pieces adverses, ou 4) Si une piece quelconque se situe entre le roi et la tour avec laquelle le roque est envisage.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q156",
+      "question": "Que signifie la chute du drapeau aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte Article 6.1: 'Chacun des afficheurs est muni d'un drapeau. La chute du drapeau signifie la fin du temps imparti a un joueur ou une joueuse.' Definition claire et complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q157",
+      "question": "Comment fonctionne la pendule aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 6: 'La pendule d'echecs designe une horloge munie de deux afficheurs, relies entre eux de telle maniere qu'un seul puisse fonctionner a la fois' et l'article 6.2.1: 'chaque joueur, apres avoir joue son coup sur l'echiquier, arrete sa pendule et demarre celle de son adversaire'. Explication complete du fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q158",
+      "question": "Comment se deplace la tour aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.3: 'Une tour peut se deplacer sur n'importe quelle case de la colonne ou de la rangee sur lesquelles elle se trouve.' Definition complete et exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q159",
+      "question": "Comment se deplace la dame aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.4: 'Une dame peut se deplacer sur n'importe quelle case de la colonne, la rangee ou d'une des diagonales sur lesquelles elle se trouve.' Definition complete et exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q160",
+      "question": "Quelle est la position initiale des pieces aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 2 avec les definitions: '2.1. L'echiquier est constitue d'une grille carree de 8x8 cases', '2.2. Au debut de la partie, les Blancs disposent de 16 pieces... les Noirs disposent de 16 pieces', '2.3. La position initiale des pieces sur l'echiquier est la suivante' (avec image).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q161",
+      "question": "Quand considere-t-on que le roi est en echec ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte article 3.9.1: 'Le roi est dit en echec s'il est attaque par une ou plusieurs pieces adverses, meme si ces pieces ne peuvent pas se deplacer sur la case occupee par ce roi parce qu'elles laisseraient ou mettraient en echec le roi de leur propre camp.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q162",
+      "question": "Comment gagne-t-on une partie aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 5.1.1: 'La partie est gagnee par le joueur ou la joueuse qui a mis echec et mat le roi adverse. Ceci met immediatement fin a la partie'. Definition complete de la victoire par echec et mat.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q163",
+      "question": "Comment abandonner une partie aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 5.1.2 et les methodes d'abandon: 'La partie est perdue par le joueur qui declare abandonner' avec la liste: 'en arretant la pendule, en annoncant son abandon, en couchant son roi, en tendant la main a son adversaire, en signant sa feuille de partie'.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q164",
+      "question": "Comment fonctionne la cadence Fischer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte: 'CADENCE FISCHER: Un temps fixe supplementaire (increment) est ajoute au temps principal de reflexion des joueurs a chaque coup acheve. L'increment pour le premier coup est ajoute avant le debut de la partie. Si un joueur joue rapidement alors son temps restant peut augmenter.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q165",
+      "question": "Comment fonctionne le temps differe Bronstein ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition: 'CADENCE BRONSTEIN DELAY: Dans ce mode, le bonus est ajoute au temps principal et la pendule commence immediatement le compte a rebours.' Egalement l'explication que 'Avec le delai, un joueur ne peut jamais augmenter son temps au-dela de celui qu'il avait au debut d'un coup.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q166",
+      "question": "Quels sont les engagements de l'arbitre FFE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p008-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la liste complete des engagements: 'L'Arbitre s'engage a: Connaitre avec precision et faire appliquer les regles; Se tenir informe des evolutions reglementaires; Etre bien prepare pour chaque competition; Etre et demeurer exemplaire; Communiquer avec l'ensemble des acteurs; S'abstenir de toute critique publique...'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q167",
+      "question": "Quels frais sont inclus dans le defraiement des arbitres ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 5 'Defraiement des arbitres' avec la liste: 'Ces frais incluent: Indemnites des arbitres suivant les tarifs officiels du bareme d'indemnisation des arbitres; Frais de deplacements; Hebergement et restauration.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q168",
+      "question": "Quel systeme de notation est reconnu par la FIDE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe C avec la reponse exacte: 'La FIDE ne reconnait qu'un seul systeme de notation pour ses propres tournois et pour ses matchs: le Systeme Algebrique. Elle preconise l'utilisation de cette notation uniforme dans la litterature et les periodiques echiquiens.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q169",
+      "question": "Quelles adaptations pour les joueurs handicapes visuels ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent199-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk D.2.3-D.2.6 traite des regles de jeu pour handicapes visuels (comment un coup est effectue, pendules speciales) mais pas les adaptations materielles. Le chunk p061-parent198-child00 serait plus complet car il liste les criteres de l'echiquier special (20x20cm, cases noires surelevees, ouvertures de fixation, pieces avec tige).",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q170",
+      "question": "Comment fonctionne l'echiquier pour personnes aveugles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe D avec les criteres de l'echiquier special: 'D.1.1. Mesurer au moins 20cm sur 20cm; D.1.2. Les cases noires doivent etre legerement surelevees; D.1.3. Chaque case doit contenir une ouverture de fixation; D.1.4. Les pieces doivent contenir une tige s'encastrant dans l'ouverture de fixation.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q171",
+      "question": "Les debats disciplinaires de la FFE sont-ils publics ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p003-parent006-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 6 'PUBLICITE DES DEBATS' avec la reponse exacte: 'Les debats devant les organes disciplinaires sont publics. Toutefois, le president de seance peut, d'office ou a la demande d'une des parties... interdire au public l'acces de la salle pendant tout ou partie de l'audience dans l'interet de l'ordre public ou de la serenite des debats.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q172",
+      "question": "Quel delai pour la convocation a l'audience disciplinaire ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 12 'CONVOCATION A L'AUDIENCE': 'La personne poursuivie et, le cas echeant, son representant legal sont convoques devant l'organe disciplinaire dans les conditions prevues a l'article 8, dix jours au moins avant l'audience.' Reponse exacte: 10 jours minimum.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q173",
+      "question": "Quelles obligations de confidentialite en discipline FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'obligation exacte: 'Elles sont astreintes a une obligation de confidentialite pour tous les faits, actes et informations dont elles ont connaissance en raison de leurs fonctions. Toute meconnaissance de ces obligations constitue une faute.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q174",
+      "question": "Comment se deroule l'instruction disciplinaire FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 10 'INSTRUCTION' complet: 'l'instructeur etablit un rapport qu'il adresse a l'organe disciplinaire et a la personne poursuivie au vu des elements du dossier... Il n'a pas competence pour clore de lui-meme une affaire. Les personnes chargees de l'instruction peuvent: Entendre toute personne dont l'audition parait utile; Demander a toute personne des informations necessaires.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q175",
+      "question": "Qu'est-ce qu'une mesure conservatoire en discipline FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent011-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 11 'MESURE CONSERVATOIRE' complet: 'Lorsque les circonstances le justifient, notamment au regard de la gravite des faits, le Bureau Federal peut prononcer a l'encontre de la personne poursuivie, a tout moment de la procedure disciplinaire de premiere instance et par decision motivee, une mesure conservatoire dans l'attente de la notification de la decision.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q176",
+      "question": "Quand debute et se termine la saison FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la reponse exacte dans le 'Principe': 'La saison debute le 1er septembre et s'acheve le 31 aout.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q177",
+      "question": "Quelles sont les competitions federales FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste les competitions federales: 'Les Coupes (Coupe de France, Coupe Loubatiere, Coupe de la parite); Les Championnats de France par equipes (des Clubs, des clubs Feminins, des scolaires, des interclubs Jeunes); Les Championnats de France (individuel, Feminin de parties rapide, des Jeunes, Universitaire, rapide, blitz).'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q178",
+      "question": "Qu'est-ce qu'un joueur mute a la FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition complete article 2.2 'La Mutation': 'Est mute: Tout joueur licencie tout ou partie de la saison precedente dans un club francais autre que son club pour la saison en cours, et pour le compte duquel il a participe a une competition par equipe. Tout joueur de nationalite etrangere non licencie dans le meme club la saison precedente...'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q179",
+      "question": "Qu'est-ce qu'un forfait administratif a la FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte article 3.1.3: 'Forfait administratif: il s'agit d'un forfait non sportif, decoulant d'une sanction. Les consequences du forfait administratif peuvent impliquer une sanction sportive et/ou financiere prononcee par l'autorite competente.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q180",
+      "question": "Qui peut prononcer un forfait administratif FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la reponse exacte: 'Uniquement la direction de groupe ou la direction de la competition peuvent sanctionner un forfait administratif.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q181",
+      "question": "Qui peut participer aux Championnats de France Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les conditions de participation article 1.1-1.2: 'Les Championnats de France Jeunes sont ouverts aux jeunes joueuses et joueurs francais licencies ainsi que les jeunes joueuses et joueurs etrangers licencies et scolarises en France. Dans ce deuxieme cas, les licences doivent etre prises aupres de la FFE au plus tard le 30 novembre.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q182",
+      "question": "Quelles conditions de licence pour jeunes etrangers aux championnats ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les conditions: '1.1. les jeunes etrangers licencies et scolarises en France. Dans ce deuxieme cas, les licences doivent etre prises aupres de la FFE au plus tard le 30 novembre de la saison en cours. 1.2. Les joueurs etrangers des categories U18, U20 non scolarises doivent resider en France depuis au moins deux ans et etre licencies aupres de la FFE depuis au moins deux ans.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q183",
+      "question": "Comment fonctionne la phase zone interdepartementale jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2.4 'Phase(s) zone interdepartementale' complet: 'Chaque Ligue doit obligatoirement rediger un reglement et adresser un exemplaire a la CTF a chaque saison, au plus tard 1 mois avant le debut de la phase departementale. Une ligue composee de plusieurs ZID peut faire le choix de championnats par ZID ou d'un championnat unique.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q184",
+      "question": "Quelles qualifications d'office aux Championnats Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2.6 'Qualifications d'office' complet: 'Sont qualifies pour les Championnats de France: Les jeunes changeant de categorie ayant obtenu un score minimal de 6,5/9; Les jeunes ne changeant pas de categorie avec score de 6/9; Les jeunes atteignant un Elo minimum (2100 U16, 2000 U14, 1900 U12, 1750 U10); Un joueur par tournoi choisi par l'organisateur; La premiere classee de chaque categorie des Open A et B.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    }
+  ],
+  "summary": {
+    "total": 43,
+    "keep": 36,
+    "wrong_corrected": 3,
+    "wrong_no_chunk": 0,
+    "partial_acceptable": 4,
+    "partial_improved": 0
+  }
+}

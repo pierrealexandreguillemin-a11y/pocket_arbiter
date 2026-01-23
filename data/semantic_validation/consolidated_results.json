@@ -1,0 +1,3422 @@
+{
+  "validated_at": "2026-01-23T17:21:38.829374",
+  "agent_summaries": [
+    {
+      "agent": 1,
+      "batch": 1,
+      "summary": {
+        "total": 43,
+        "keep": 30,
+        "wrong_corrected": 4,
+        "wrong_no_chunk": 0,
+        "partial_acceptable": 6,
+        "partial_improved": 3
+      }
+    },
+    {
+      "agent": 2,
+      "batch": 2,
+      "summary": {
+        "total": 43,
+        "keep": 30,
+        "wrong_corrected": 6,
+        "wrong_no_chunk": 0,
+        "partial_acceptable": 5,
+        "partial_improved": 2
+      }
+    },
+    {
+      "agent": 3,
+      "batch": 3,
+      "summary": {
+        "total": 43,
+        "keep": 25,
+        "wrong_corrected": 5,
+        "wrong_no_chunk": 1,
+        "partial_acceptable": 6,
+        "partial_improved": 6
+      }
+    },
+    {
+      "agent": 4,
+      "batch": 4,
+      "summary": {
+        "total": 43,
+        "keep": 36,
+        "wrong_corrected": 3,
+        "wrong_no_chunk": 0,
+        "partial_acceptable": 4,
+        "partial_improved": 0
+      }
+    },
+    {
+      "agent": 5,
+      "batch": 5,
+      "summary": {
+        "total": 47,
+        "keep": 40,
+        "wrong_corrected": 3,
+        "wrong_no_chunk": 0,
+        "partial_acceptable": 4,
+        "partial_improved": 0
+      }
+    },
+    {
+      "agent": 6,
+      "batch": 6,
+      "summary": {
+        "total": 65,
+        "keep": 0,
+        "wrong_corrected": 62,
+        "wrong_no_chunk": 0,
+        "partial_acceptable": 3,
+        "partial_improved": 0
+      }
+    }
+  ],
+  "total_summary": {
+    "total": 284,
+    "keep": 159,
+    "wrong_corrected": 82,
+    "wrong_no_chunk": 1,
+    "partial_acceptable": 30,
+    "partial_improved": 12
+  },
+  "corrections_count": 97,
+  "corrections": [
+    {
+      "id": "FR-Q01",
+      "old_chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
+      "new_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p042-parent163-child02) parle de l'article 4.7.3 sur la promotion et 4.8 sur la perte du droit de protester. La regle du toucher-jouer est definie a l'article 4.3 dans le chunk p041-parent162-child01 qui explique que si le joueur touche une piece avec l'intention de la deplacer/prendre, il doit deplacer/prendre la premiere piece touchee.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q05",
+      "old_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p047-parent173-child01) parle de l'article 6.11 sur l'interruption de partie, pas des coups illegaux. L'article 7.5 sur les coups illegaux se trouve dans le chunk p048-parent175-child00 qui explique la procedure complete: retablir la position precedente, appliquer la regle de la piece touchee, et les sanctions.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q07",
+      "old_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk p051-parent179-child00 parle de l'article 9.1 sur les propositions de nulle. L'article 9.2 specifique sur la repetition de position est plus detaille dans le chunk p051-parent180-child00 qui explique les conditions exactes (meme position pour la 3eme fois, meme joueur au trait, memes coups possibles).",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q08",
+      "old_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk actuel contient l'article 9.4-9.5 mais pas la regle des 50 coups specifiquement. L'article 9.3 sur les 50 coups se trouve dans le chunk p052-parent180-child02 qui explique que la partie est nulle si les 50 derniers coups ont ete joues sans mouvement de pion ni prise.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q12",
+      "old_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p059-parent194-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk actuel presente l'Annexe C de maniere generale. La description detaillee du systeme algebrique (colonnes a-h, rangees 1-8, abreviations des pieces) est dans le chunk p059-parent194-child00.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q27",
+      "old_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00",
+      "new_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent007-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p002-parent009-child00) parle de la feuille de composition d'equipe, pas des cadences. Les cadences sont dans le chunk p002-parent007-child00: 15 minutes + 3 secondes par coup, et Armageddon 5/4 minutes.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q44",
+      "old_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01",
+      "new_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child01 contient les points 9-12 des regles handicapes. Le chunk child00 contient les points 1-8 plus complets pour une question generale sur 'les regles'. child00 est plus adapte car il couvre le cadre general (acces, non-discrimination, accessibilite, pendule).",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q47",
+      "old_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "new_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child00 est une introduction generale. Les chunks parent001 (Phase I) et parent002 (Phase II) contiennent les procedures concretes d'organisation: bulletin d'engagement, calendrier, appariements, locaux accessibles.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q51",
+      "old_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "new_chunk_id": "2024_Statuts20240420.pdf-p005-parent009-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel parle de l'objet et duree de la FFE, pas de l'adhesion. L'adhesion est couverte dans les articles sur les licences et membres. Il faudrait un chunk sur les conditions d'adhesion.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q52",
+      "old_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p005-parent016-child00",
+      "new_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel traite de la fusion-absorption entre clubs (article 4.2.1), pas des regles generales du reglement interieur. Pour une question generale, il faudrait le sommaire ou l'introduction.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q56",
+      "old_chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent009-child00",
+      "new_chunk_id": "2022_Reglement_medical_19082022.pdf-p001-parent000-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel traite uniquement des 'Licencies mineurs' (article 3.1.1). Pour une question generale sur les regles medicales, le sommaire (p001-parent000-child00) ou le preambule serait plus adapte.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q60",
+      "old_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child01",
+      "new_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child01 parle de la strategie FFE et de l'olympiade. Le chunk child00 contient le Preambule qui definit la delegation: reconnaissance superieure, prerogatives de puissance publique, mission de service public, monopole legal. Meilleur pour une definition.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q73",
+      "old_chunk_id": "LA-octobre2025.pdf-p063-parent151-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p063-parent201-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel est juste un sommaire des Directives (I, II, III). Le chunk LA-octobre2025.pdf-p063-parent201-child00 contient la procedure complete d'ajournement: I.1 'Procedure d'ajournement' avec la definition du coup sous enveloppe.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q85",
+      "old_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent487-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel est un SOMMAIRE (table des matieres du Livre de l'Arbitre). Le chunk sur la gestion du match (parent487 ou parent488) serait plus pertinent, mais ne contient pas de delai specifique pour la DNA. Le chunk parent493 mentionne 'transmettre a la DNA les formulaires de plaintes' mais pas de delai.",
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q86",
+      "old_chunk_id": "LA-octobre2025.pdf-p169-parent503-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel parle de la 'part fixe' des droits d'homologation (15 ou 50 euros). Pour l'absence d'un joueur en premiere ronde, le chunk sur le delai de forfait (p046-parent171) ou la gestion du tournoi (p172-parent512) serait plus adapte.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q89",
+      "old_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "new_chunk_id": "LA-octobre2025-table73-summary",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne (p185-parent545) parle du calcul du changement de classement mais ne mentionne pas la difference maximale d'Elo pour les tournois equilibres. L'article 8.3.1 mentionne 400 points comme difference maximale comptabilisee, mais ce n'est pas specifique aux 9 rondes. La table 73 (LA-octobre2025-table73-summary) est un meilleur choix car elle traite des conversions Elo et probabilites.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q92",
+      "old_chunk_id": "LA-octobre2025.pdf-p179-parent525-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne parle de l'hebergement, pas des frais de deplacement. Le chunk correct est p178-parent523-child00 qui traite specifiquement des frais de deplacement avec les formules de calcul et les conditions.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q94",
+      "old_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p183-parent539-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Ce chunk parle du classement initial mais pas de l'inactivite. Le chunk p183-parent539-child01 est plus pertinent car il traite specifiquement de l'article 7.2.2 sur les personnes inactives: 'Un joueur ou une joueuse est considere comme s'il/si elle ne joue aucune partie prise en compte pour le classement dans une periode d'un an.' Le chunk mentionne 'un an' (12 mois), pas 18 mois - donc la reponse serait que 12 mois suffisent pour etre marque inactif.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q103",
+      "old_chunk_id": "LA-octobre2025.pdf-p168-parent499-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite des contraintes FIDE (duree tournoi, codes FIDE) mais pas de la gestion des absences. Pour la gestion des joueurs absents/forfaits, le chunk sur les obligations de l'arbitre (p166-parent492 ou p169) serait plus pertinent car il mentionne les enquetes pour forfaits non justifies.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q107",
+      "old_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
+      "new_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent018-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk mentionne les categories U8 (poussins) mais ne donne pas directement la cadence. Le chunk p004-parent018-child00 donne les cadences: 'Minimum 15 min + 5 sec./coup pour les categories U8, U8F, U10, U10F' pour les qualifications departementales.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q118",
+      "old_chunk_id": "LA-octobre2025.pdf-p151-parent450-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p151-parent447-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite du Koya qui compte les points contre adversaires a 50%+. Le departage qui utilise les resultats des adversaires contre leurs propres adversaires est le Sonneborn-Berger (Sb) decrit dans le chunk LA-octobre2025.pdf-p151-parent447-child00: 'Il est obtenu en ajoutant, pour chaque ronde, le score ajuste de l'adversaire multiplie par le nombre de points marques contre lui.'",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q119",
+      "old_chunk_id": "LA-octobre2025.pdf-p102-parent299-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p102-parent300-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk parle du systeme Rutsch mais pas du nombre de rondes. Pour 7 participants en toutes-rondes, c'est 7-1=6 rondes si pair, ou 7 rondes avec exemption si impair. Le chunk p102-parent300-child00 est plus pertinent car il explique: 'Dans ces tournois, a chaque ronde, une personne est exempte' et donne l'exemple de 7 participants.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q122",
+      "old_chunk_id": "LA-octobre2025.pdf-p185-parent544-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk assigne traite du classement initial Ru, pas du calcul de variation pour joueurs deja classes. Le chunk p185-parent545-child00 est plus pertinent car il decrit l'article 8.3 avec la formule: 'deltaR x K = la variation de Classement.' Avec D=400 (difference plafonnee), PD environ 0.09, gain = (1-0.09) x 20 = environ 18 points.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q123",
+      "old_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite de l'article 11.7 sur le refus de se conformer aux regles. Pour une reclamation de nulle avec materiel insuffisant (Roi seul), c'est l'article 5.2.2 sur la position morte et l'article 9 sur les reclamations de nulle qui s'appliquent. Roi+Dame contre Roi seul n'est PAS une position morte - le mat est possible. La partie continue.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q125",
+      "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk traite du rapide mais l'article A.5.5 complet est dans le chunk suivant p057-parent191-child02: 'L'arbitre doit aussi annoncer la chute du drapeau, s'il/si elle la constate.' C'est pour le rapide et le blitz (via B.3). En cadence longue, l'arbitre n'annonce pas necessairement.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q128",
+      "old_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk traite de la regle des 50 coups (reclamation) a l'article 9.3. La regle des 75 coups (automatique) est dans le chunk p052-parent181-child01 article 9.6.2: 'Une suite d'au moins 75 coups a ete jouee par chacun des deux adversaires, sans aucun mouvement de pion ni prise. Si le dernier coup produit un mat, celui-ci est prioritaire.' Oui, c'est automatique a 75 coups.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q134",
+      "old_chunk_id": "LA-octobre2025.pdf-p149-parent436-child02",
+      "new_chunk_id": "LA-octobre2025.pdf-p151-parent440-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p149-parent436-child02) traite du Cumulatif tronque, pas du Buchholz. Le bon chunk est p151-parent440-child00 qui definit explicitement: '7.1.1. Buchholz Tronque (Tr): on retire les adversaires ayant le score ajuste le plus bas' et '7.1.2. Buchholz Median (Me): on retire des adversaires parmi ceux ayant le score ajuste le plus bas ET on retire autant d'adversaires parmi ceux ayant le score ajuste le plus eleve.'",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q149",
+      "old_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p050) traite des feuilles de parties incompletes, pas de la definition du drapeau. Le bon chunk est p044-parent166-child00 qui definit clairement: 'La pendule d'echecs designe une horloge munie de deux afficheurs... Chacun des afficheurs est muni d'un drapeau. La chute du drapeau signifie la fin du temps imparti a un joueur ou une joueuse.'",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q150",
+      "old_chunk_id": "LA-octobre2025-table6-summary",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent214-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "QUESTION PIEGE: L'article 12.9 traite des sanctions, PAS des 75 coups! La regle des 75 coups est a l'article 9.6.2. Le chunk actuel est un simple glossaire resume. Le meilleur chunk est p066-parent214-child02 qui contient le glossaire detaille avec: 'Regle des 75 coups | 9.6.2 | La partie est nulle si les 75 derniers coups ont ete completes par chacun des deux adversaires sans mouvement de pion ni prise.'",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q196",
+      "old_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk child01 parle d'assistant pour utiliser la pendule, pas de pendule defectueuse. Le bon chunk est parent173-child00 qui traite de l'article 6.10.1 sur les pendules defectueuses.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q212",
+      "old_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p061-parent199-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk parent198-child00 presente les criteres d'echiquier, pas la notation. L'article D.2.7 sur Braille/ecriture courante/enregistrement est dans parent199-child02.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q221",
+      "old_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "new_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent009-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk parent008-child00 traite du tournoi Accession Roger Ferry, pas des Opens. Le chunk parent009-child00 detaille les Opens A/B/C/D/E avec les tranches Elo.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_001",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.5: If none of the touched pieces can be moved/captured, player may make any legal move. Direct answer.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_002",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.1 with rapid time definitions and increment examples (e.g., 30 sec/move).",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_003",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.2 on dead position/insufficient material for declaring draw.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_004",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent032-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.2 claim procedure context. Explains threefold repetition claim requirements.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_005",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent045-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent025-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.8 on flag fall observation - flag considered fallen when noticed/claimed.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_006",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent047-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 - irregularity must be discovered during game. Procedure for later discovery.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_007",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 castling rules. Rook being attacked is NOT a prohibition - only king in/through check matters.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_008",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.2-A.3 on arbiter duties in rapid chess.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_009",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent057-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent035-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 11.3.2 on electronic devices/phones during games.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_010",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p029-parent040-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk references 9.6.1 and 9.6.2 (75-move rule) - arbiter must intervene and declare draw. Partial definition.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_011",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 illegal move penalties with time addition procedure.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_012",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.1 on draw offers and correct procedure.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_013",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 with complete castling conditions list.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_014",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 on move recording requirements.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_015",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent068-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p037-parent028-child02",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk discusses Article 7.5 illegal move context. Both players making illegal moves scenario.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_016",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3-3.7.5 on pawn promotion procedure and completion.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_017",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.1 defining FIDE rated rapid time requirements.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_018",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.3 context on 50-move rule draw claims.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_019",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11.5 on forbidden behavior (disturbance).",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_020",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.1.1 with checkmate definition.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_021",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 irregularity handling - impossible position scenario.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_022",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p034-parent046-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.9 on arbiter time penalties.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_023",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent088-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent051-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Guidelines III on quickplay finish handling.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_024",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.1 stalemate definition.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_025",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent065-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.6/12.7 on arbiter intervention without player claims.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_026",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent030-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.4 on time trouble (zeitnot) recording exemption.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_032",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent355-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent148-child02",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk contains FIDE title regulations. FM rating requirement info may be partial.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_037",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix D on visually impaired players - two boards, assistant, etc.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_038",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent026-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.10/6.11 on clock settings and defects.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_039",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3.1 on en passant conditions.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_040",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent082-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent048-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Guidelines I.2 on adjournment envelope requirements.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_041",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix D.2 - Kurze Rochade = short castling (kingside O-O).",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_042",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5.1 - illegal move completed when clock pressed.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_043",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.2.4 - forbidden to press clock before moving.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_044",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent031-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent016-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 2 on initial position setup.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_045",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent033-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent017-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.6 on knight movement.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_046",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 castling rules.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_047",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.5 on pawn reaching eighth rank (promotion).",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_048",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.3 touch-move rule explanation.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_049",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent035-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.4.4 - move completed when piece touches destination.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_050",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.1.1 checkmate conditions.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_051",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.1 stalemate definition.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_052",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3 en passant capture.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_053",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.2.1 on jadoube/I adjust declaration.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_054",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.2 on chess clock handling.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_055",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent044-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent024-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.7 default time for late arrival.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_056",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent042-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent023-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.1 flag fall definition.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_057",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent026-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.10 clock settings requirements.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_058",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.3 Fischer/increment time control.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_059",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.3 Bronstein delay time control.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_060",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5 illegal move discovery procedure.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_061",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.2 incorrect initial position handling.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_062",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5 illegal move penalty.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_063",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.4 on displacement of pieces handling.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_064",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 move recording requirements.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_065",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 algebraic notation requirement.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_066",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent050-child02",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent030-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.4 on stopping recording (time trouble).",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_067",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.3 50-move rule for draw claim.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_068",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.2 threefold repetition draw claim.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_069",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.2 insufficient material draw conditions.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_070",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.6 on 75-move automatic draw.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_071",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.2 arbiter main duties.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_072",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11 forbidden player behavior.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_073",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child01",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.9 arbiter penalty powers.",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_074",
+      "old_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent060-child00",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11.3 electronic device violations.",
+      "confidence": "HIGH"
+    }
+  ],
+  "all_results": [
+    {
+      "id": "FR-Q01",
+      "question": "Quelle est la regle du toucher-jouer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p042-parent163-child02) parle de l'article 4.7.3 sur la promotion et 4.8 sur la perte du droit de protester. La regle du toucher-jouer est definie a l'article 4.3 dans le chunk p041-parent162-child01 qui explique que si le joueur touche une piece avec l'intention de la deplacer/prendre, il doit deplacer/prendre la premiere piece touchee.",
+      "new_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q02",
+      "question": "Combien de temps un joueur a-t-il pour arriver avant forfait ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 6.7.1 qui explique que le delai de forfait doit etre specifie par le reglement, et que si aucun delai n'est indique, celui-ci est egal a zero. Le joueur qui arrive apres le delai perd la partie. Information complete et pertinente.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q03",
+      "question": "Que faire si un joueur arrive en retard a sa partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q02, contient les regles sur le delai de forfait (6.7.1, 6.7.2). Explique que le joueur blanc perd le temps ecoule jusqu'a son arrivee et les conditions de forfait. Pertinent pour cette question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q04",
+      "question": "Comment reclamer le gain au temps (drapeau) ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 6.8 sur la chute du drapeau et 6.9 sur les consequences. Explique qu'un drapeau est considere comme tombe quand l'arbitre le constate ou qu'une reclamation valide est faite. Contenu pertinent et complet.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q05",
+      "question": "Quelle est la procedure en cas de coup illegal ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p047-parent173-child01) parle de l'article 6.11 sur l'interruption de partie, pas des coups illegaux. L'article 7.5 sur les coups illegaux se trouve dans le chunk p048-parent175-child00 qui explique la procedure complete: retablir la position precedente, appliquer la regle de la piece touchee, et les sanctions.",
+      "new_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q06",
+      "question": "Comment effectuer correctement le roque ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.8.2 qui decrit le roque: mouvement combine du roi et de la tour, le roi deplace de deux cases depuis sa case initiale vers la tour. Explique aussi les conditions de perte definitive du droit de roquer.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q07",
+      "question": "Quand peut-on reclamer la nulle par repetition de position ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk p051-parent179-child00 parle de l'article 9.1 sur les propositions de nulle. L'article 9.2 specifique sur la repetition de position est plus detaille dans le chunk p051-parent180-child00 qui explique les conditions exactes (meme position pour la 3eme fois, meme joueur au trait, memes coups possibles).",
+      "new_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q08",
+      "question": "Comment fonctionne la regle des 50 coups ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk actuel contient l'article 9.4-9.5 mais pas la regle des 50 coups specifiquement. L'article 9.3 sur les 50 coups se trouve dans le chunk p052-parent180-child02 qui explique que la partie est nulle si les 50 derniers coups ont ete joues sans mouvement de pion ni prise.",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q09",
+      "question": "Comment fonctionne la prise en passant ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les articles 3.7.3.1 et 3.7.3.2 qui definissent la prise en passant: un pion peut prendre un pion adverse qui vient d'avancer de deux cases comme s'il n'avait avance que d'une case. Cette prise n'est autorisee que sur le coup suivant.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q10",
+      "question": "Quelles sont les regles de promotion du pion ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.7.3.3 et 3.7.3.4 sur la promotion: quand un pion atteint la rangee la plus eloignee, il doit etre remplace par une dame, tour, fou ou cavalier de meme couleur. Le choix n'est pas restreint aux pieces capturees.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q11",
+      "question": "Quelle sanction pour telephone portable en salle de jeu ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 11.3.2.2: si un appareil est decouvert sur un joueur, il perd la partie et l'adversaire gagne. La note precise qu'aucun telephone n'est autorise meme eteint. Contenu tres pertinent et complet.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q12",
+      "question": "Comment noter une partie en notation algebrique ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk actuel presente l'Annexe C de maniere generale. La description detaillee du systeme algebrique (colonnes a-h, rangees 1-8, abreviations des pieces) est dans le chunk p059-parent194-child00.",
+      "new_chunk_id": "LA-octobre2025.pdf-p059-parent194-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q13",
+      "question": "Quand peut-on arreter de noter sa partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 8.4: si un joueur dispose de moins de 5 minutes et ne beneficie pas d'un increment de 30 secondes ou plus, il n'est pas dans l'obligation de noter. Reponse precise a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q14",
+      "question": "Quelles sont les regles pour proposer la nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 9.1.2.1: le joueur propose la nulle apres avoir joue son coup et avant d'appuyer sur sa pendule. L'offre ne peut etre retiree et reste valable jusqu'a acceptation/refus. Contenu complet et pertinent.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q15",
+      "question": "Quels sont les pouvoirs et devoirs de l'arbitre ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient l'article 12.1 qui est un debut de reponse (l'arbitre s'assure de l'observation des regles). Le role complet est detaille dans les chunks suivants mais celui-ci est acceptable comme point d'entree.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q16",
+      "question": "Quelles sont les conditions d'homologation d'un tournoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p072-parent217-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle du preambule des regles de competition FIDE et mentionne les competitions homologuees, mais ne detaille pas les conditions specifiques d'homologation. Le contenu est pertinent mais partiel.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q17",
+      "question": "Comment traiter une reclamation pendant une partie ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent026-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle de la Commission d'Appels Sportifs pour les reclamations apres decision, mais pas du traitement immediat pendant la partie. Le contenu est partiellement pertinent car il couvre les appels.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q18",
+      "question": "Quelles sont les cadences officielles parties rapides ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe A qui definit une partie rapide: tous les coups en plus de 10 minutes mais moins de 60 minutes, ou temps + 60x increment entre 10 et 60 minutes. Exemples detailles fournis.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q19",
+      "question": "Quelles sont les cadences officielles blitz ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe B qui definit une partie blitz: tous les coups en 10 minutes ou moins, ou temps + 60x increment inferieur ou egal a 10 minutes. Exemple concret avec calcul fourni.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q20",
+      "question": "Quelles sont les annexes aux regles generales ?",
+      "current_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk explique le principe des annexes (aide a la decision pour les competitions federales) mais ne liste pas toutes les annexes. Contenu introductif pertinent mais incomplet.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q21",
+      "question": "Quelles competitions sont homologuees par la FFE ?",
+      "current_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit les competitions homologuees: competitions et tournois officiels de la FFE. La FFE est le seul organisme permettant l'homologation FIDE des tournois en France. Les resultats sont pris en compte pour les classements.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q22",
+      "question": "Comment s'inscrire au Championnat de France individuel ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent011-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2.6 sur les inscriptions et selections: la DTF etablit la liste au 15 avril, les Ligues doivent envoyer les classements au 15 juin. Information procedurale pertinente.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q23",
+      "question": "Quelles sont les conditions de participation au Ch. France ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille les conditions de qualification pour le tournoi Accession: Elo superieur a 2200 (ou 1950 pour les joueuses), elimines des nationaux, premiers de l'Accession/Open precedent, etc. Contenu detaille.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q24",
+      "question": "Comment fonctionne le Championnat de France des Clubs ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.3 sur les engagements: calendrier d'inscription, droits, obligations des clubs (salle, Coupe de France, equipes jeunes/feminines). Vue d'ensemble du fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q25",
+      "question": "Quelles sont les regles des interclubs ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q24. Contient les regles sur les engagements, obligations des clubs N1/N2/N3, Coupe de France obligatoire, equipes jeunes/feminines pour Top16/N1. Pertinent pour les regles interclubs.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q26",
+      "question": "Comment se deroule le Ch. France Clubs parties rapides ?",
+      "current_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.2 sur le deroulement: equipes de 4, max 2 equipes par club, deux phases (suisse 15 rondes puis phase finale pour les 4 premiers), systeme Armageddon en cas d'egalite.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q27",
+      "question": "Quelles sont les cadences du Ch. France Clubs rapide ?",
+      "current_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p002-parent009-child00) parle de la feuille de composition d'equipe, pas des cadences. Les cadences sont dans le chunk p002-parent007-child00: 15 minutes + 3 secondes par coup, et Armageddon 5/4 minutes.",
+      "new_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent007-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q28",
+      "question": "Comment fonctionne la Coupe de France des echecs ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.2 sur le deroulement: matchs a eliminations directes, vainqueurs qualifies pour le tour suivant. Entree en 32e pour Top16 et tenant du titre, en 64e pour N1. Contenu pertinent.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q29",
+      "question": "Quelles sont les regles de la Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q28. Contient les regles de base: eliminations directes, qualifications par niveau, exemptions possibles pour N2/N3. Point d'entree valide pour les regles.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q30",
+      "question": "Comment participer a la Coupe Jean-Claude Loubatiere ?",
+      "current_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.1 sur la structure: competition annuelle, nombre d'equipes illimite par club, premiere phase dans le departement. Information de base pour participer.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q31",
+      "question": "Quelles sont les specificites de la Coupe Loubatiere ?",
+      "current_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q30. Les specificites sont: equipes illimitees, competition departementale en premiere phase. Pertinent comme introduction aux specificites.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q32",
+      "question": "Comment fonctionne la Coupe de la parite ?",
+      "current_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient l'article 1.1 sur la structure de base: competition annuelle, equipes illimitees. Mais ne detaille pas le fonctionnement specifique (equipes mixtes, etc.).",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q33",
+      "question": "Quelles sont les conditions pour la Coupe de la parite ?",
+      "current_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Meme chunk que Q32. Contient la structure de base mais pas les conditions specifiques de participation (composition mixte requise, etc.). Contenu partiel.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q34",
+      "question": "Comment fonctionne le Championnat de France Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2 sur l'organisation generale: 7 tournois mixtes U8 a U20, 7 tournois feminins, phases qualificatives, qualifies d'office. Vue d'ensemble complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q35",
+      "question": "Quelles sont les categories d'age aux echecs jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk mentionne les categories U8 a U20 et U8F a U20F. Repond a la question sur les categories d'age.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q36",
+      "question": "Comment participer au Ch. France Interclubs Jeunes ?",
+      "current_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p001-parent001-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle des accessions/relegations et repechages, pas vraiment de comment participer initialement. Contenu lie mais pas optimal pour la question.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q37",
+      "question": "Quelles sont les regles des interclubs jeunes ?",
+      "current_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent014-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient l'article 3.5 sur le role des capitaines specifique aux jeunes (paroles autorisees), mais ne couvre pas l'ensemble des regles. Contenu partiel.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q38",
+      "question": "Comment fonctionne le Championnat de France scolaire ?",
+      "current_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.2 sur la structure: deux categories (ecoles et colleges), conditions de scolarisation en France ou AEFE. Contenu pertinent.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q39",
+      "question": "Quelles sont les conditions du Ch. France scolaire ?",
+      "current_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Meme chunk que Q38. Conditions: eleves scolarises en France (maternelle a CM2 pour ecoles, 6e a 3e pour colleges), ULIS/SEGPA inclus, AEFE accepte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q40",
+      "question": "Comment fonctionne le Ch. France Clubs Feminin ?",
+      "current_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.1 sur la structure: 3 divisions (Top 12F, N1F, N2F), organisation par la CTF. Vue d'ensemble du fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q41",
+      "question": "Quelles sont les regles du Ch. France Clubs Feminin ?",
+      "current_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p004-parent016-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.4 sur le statut et qualification des joueuses, homologation, responsabilite des clubs. Regles importantes pour la competition.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q42",
+      "question": "Comment participer au Ch. individuel Feminin rapide ?",
+      "current_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 1.1 sur les conditions de participation: joueuses francaises, UE residant en France, monegasques/andorranes licenciees FFE, etrangeres code FRA, jeunes scolarisees en France.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q43",
+      "question": "Quelles sont les cadences du Ch. Feminin rapide ?",
+      "current_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk parle du deroulement en deux phases et des qualifications, mais ne precise pas explicitement les cadences en minutes. Le document ne semble pas contenir de chunk specifique sur les cadences.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q44",
+      "question": "Quelles sont les regles pour les joueurs handicapes ?",
+      "current_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child01 contient les points 9-12 des regles handicapes. Le chunk child00 contient les points 1-8 plus complets pour une question generale sur 'les regles'. child00 est plus adapte car il couvre le cadre general (acces, non-discrimination, accessibilite, pendule).",
+      "new_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q45",
+      "question": "Quelle conduite tenir pour joueurs en situation de handicap ?",
+      "current_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les lignes directrices 1-8 sur la conduite a tenir: acces aux salles, non-discrimination, adaptation des conditions de jeu, assistance. Repond completement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q46",
+      "question": "Quelles regles pour joueurs a mobilite reduite ?",
+      "current_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk introduit le cadre general et mentionne le protocole pour competitions etalees dans le temps. C'est une introduction aux regles specifiques qui renvoie au reglement H01. Acceptable car c'est le point d'entree du document H02.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q47",
+      "question": "Comment organiser un tournoi pour joueurs a mobilite reduite ?",
+      "current_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child00 est une introduction generale. Les chunks parent001 (Phase I) et parent002 (Phase II) contiennent les procedures concretes d'organisation: bulletin d'engagement, calendrier, appariements, locaux accessibles.",
+      "new_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q48",
+      "question": "Comment fonctionne le classement rapide FFE ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit le classement rapide: parties de moins de 60 min et plus de 10 min/joueur. C'est la definition de base du fonctionnement. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q49",
+      "question": "Comment sont calcules les points Elo rapide ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les regles de compatibilite (+/- 320 points), seuil d'entree (7 parties), plancher (800) et publication mensuelle. Repond partiellement au calcul des points Elo rapide.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q50",
+      "question": "Quels sont les objectifs de la FFE selon les statuts ?",
+      "current_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 1.1 'Objet et duree' qui liste explicitement les objectifs: organiser/diriger/controler/promouvoir les echecs, etablir regles techniques, delivrer licences, titres de champions, creer liens entre membres. Parfait.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q51",
+      "question": "Comment adherer a la FFE ?",
+      "current_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel parle de l'objet et duree de la FFE, pas de l'adhesion. L'adhesion est couverte dans les articles sur les licences et membres. Il faudrait un chunk sur les conditions d'adhesion.",
+      "new_chunk_id": "2024_Statuts20240420.pdf-p005-parent009-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q52",
+      "question": "Quelles sont les regles du reglement interieur FFE ?",
+      "current_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p005-parent016-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel traite de la fusion-absorption entre clubs (article 4.2.1), pas des regles generales du reglement interieur. Pour une question generale, il faudrait le sommaire ou l'introduction.",
+      "new_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q53",
+      "question": "Comment fonctionne l'organisation de la FFE ?",
+      "current_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p008-parent022-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite des ligues regionales (section 5.2): competences, relations avec collectivites, discipline, arbitrage, formation elite, competitions. C'est une partie de l'organisation de la FFE. Acceptable.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q54",
+      "question": "Quelles sont les regles financieres de la FFE ?",
+      "current_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 5 'Modalites d'engagement et reglement des depenses': delegation signature, ordonnancement, justificatifs. C'est une regle financiere importante.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q55",
+      "question": "Comment fonctionne le reglement financier FFE ?",
+      "current_chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique le fonctionnement des depenses: President ordonnance, Tresorier met en oeuvre, justificatifs obligatoires. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q56",
+      "question": "Quelles sont les regles medicales aux echecs ?",
+      "current_chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent009-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel traite uniquement des 'Licencies mineurs' (article 3.1.1). Pour une question generale sur les regles medicales, le sommaire (p001-parent000-child00) ou le preambule serait plus adapte.",
+      "new_chunk_id": "2022_Reglement_medical_19082022.pdf-p001-parent000-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q57",
+      "question": "Comment fonctionne le controle antidopage aux echecs ?",
+      "current_chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent013-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 4.2 'Substances interdites' avec la liste des molecules surveillees (Amphetamines, Modafinil, Ephedrine, Cafeine, Codeine). Repond bien a la question sur l'antidopage.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q58",
+      "question": "Quelles sanctions disciplinaires existent a la FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent020-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 20 'SANCTIONS DISCIPLINAIRES' avec la liste complete des 16 sanctions: avertissement, blame, amende, perte de rencontres, penalite points, declassement, interdiction, radiation, etc. Parfait.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q59",
+      "question": "Comment fonctionne la procedure disciplinaire FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 2 'DEFINITION - COMPOSITION' qui decrit les organes disciplinaires (CFD, CRD, Commission d'Appel), leurs competences et les faits sanctionnables. Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q60",
+      "question": "Qu'est-ce que le contrat de delegation FFE ?",
+      "current_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk child01 parle de la strategie FFE et de l'olympiade. Le chunk child00 contient le Preambule qui definit la delegation: reconnaissance superieure, prerogatives de puissance publique, mission de service public, monopole legal. Meilleur pour une definition.",
+      "new_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q61",
+      "question": "Quelles sont les obligations de la FFE en delegation ?",
+      "current_chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le Preambule explique le cadre general des obligations mais ne liste pas les obligations specifiques. Il faudrait les articles detailles du contrat. Acceptable comme point d'entree.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q62",
+      "question": "Comment fonctionne le championnat de Nationale 4 ?",
+      "current_chunk_id": "reglement_n4_2024_2025__1_.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 1.1 'Structure' du N4: organisation par la Ligue PACA, 5 accessions en N3, 5 groupes de 8 equipes. Repond a la question sur le fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q63",
+      "question": "Quelles sont les regles de la Nationale 4 ?",
+      "current_chunk_id": "reglement_n4_2024_2025__1_.pdf-p002-parent004-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 2.1 'Direction de la competition': direction nommee par la Presidence, repartition geographique des groupes, validation calendrier, collecte resultats. Ce sont des regles organisationnelles.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q64",
+      "question": "Comment fonctionne le championnat regional ?",
+      "current_chunk_id": "reglement_regionale_2024_2025.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 1.1 'Structure' du championnat regional: organisation par Ligue PACA, nombre de groupes, groupes de 8 equipes max, repechages. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q65",
+      "question": "Quelles sont les regles des interclubs departementaux ?",
+      "current_chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 1.1 'Structure' de la Nationale VI (Departementale): organisation par CDJE13, equipes de 4 joueurs, droit d'accession en Nationale V. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q66",
+      "question": "Comment fonctionnent les interclubs jeunes regionaux ?",
+      "current_chunk_id": "InterclubsJeunes_PACABdr.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 2 'Structure des groupes d'interclubs Jeunes des Bouches-du-Rhone': Nationale 3 Jeunes, nombre d'equipes selon inscriptions, groupe Reserve. Repond bien.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q67",
+      "question": "Quelles sont les mesures anti-triche aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p142-parent417-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les 'Mesures de prevention accrues': equipements anti-triche, controle regulier, zone de stockage appareils, examens parties, controles aleatoires. Repond completement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q68",
+      "question": "Comment detecter la triche en tournoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p141-parent412-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le Chapitre 4.1 'Directives contre la tricherie': niveaux de protection (standard, eleve, maximal), signalement a la Fair-Play Commission, utilisation de la FFE comme intermediaire. Repond a la detection.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q69",
+      "question": "Qu'est-ce que la chute du drapeau dans une partie d'echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 6 'La pendule d'echecs' qui definit explicitement: 'La chute du drapeau signifie la fin du temps imparti a un joueur ou une joueuse.' Definition parfaite.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q70",
+      "question": "Que signifie j'adoube et quand peut-on l'utiliser ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 4.2.1 qui explique: 'Seul le joueur au trait peut recentrer une piece sur sa case, a condition d'en exprimer l'intention au prealable (par exemple en disant j'adoube ou I adjust)'. Definition et usage parfaits.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q71",
+      "question": "Quelles sont les exigences pour les stages pratiques des arbitres candidats ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p018-parent073-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 8.1 'Cursus d'arbitrage': delai de 24 mois pour valider les conditions, prise en compte des examens et stages pratiques, perte du benefice si delai depasse. Repond aux exigences.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q72",
+      "question": "Quelles sont les regles concernant le retard et le forfait en debut de partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 6.7 'Delai de forfait': delai specifie dans reglement, forfait si arrivee apres delai, blancs perdent temps si absents, annonces avant debut ronde. Repond completement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q73",
+      "question": "Qu'est-ce qu'un coup sous enveloppe dans une partie ajournee ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p063-parent151-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel est juste un sommaire des Directives (I, II, III). Le chunk LA-octobre2025.pdf-p063-parent201-child00 contient la procedure complete d'ajournement: I.1 'Procedure d'ajournement' avec la definition du coup sous enveloppe.",
+      "new_chunk_id": "LA-octobre2025.pdf-p063-parent201-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q74",
+      "question": "Quelles sanctions pour l'utilisation d'un appareil electronique pendant la partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite de l'Article 11.3 sur la conduite des joueurs et appareils electroniques: partie perdue si telephone sonne, possibilite de sanction moins severe (amende), conditions de rangement. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q75",
+      "question": "Quelles adaptations pour les joueurs avec deficience visuelle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe D 'Regles pour les parties avec des personnes aveugles et handicapees visuelles': deux echiquiers, echiquier special avec cases surelevees, ouvertures de fixation, pieces Staunton marquees. Parfait.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q76",
+      "question": "Quelle est la frequence minimale des mises a jour du classement Elo Standard FIDE depuis 2025 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 7.1: 'Le premier jour de chaque mois, la FIDE prepare une liste des classements'. La frequence est donc mensuelle. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q77",
+      "question": "Un joueur qui n'a joue aucune partie pendant 18 mois voit-il son classement Elo Standard supprime ? Dans quelles conditions exactement ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "HARD_CASE - Question mentionne 18 mois mais le corpus dit 'un an' (12 mois). Le chunk child01 (7.2.2) precise: 'Un joueur est considere comme inactif s'il ne joue aucune partie dans une periode d'un an'. Le classement n'est pas supprime, juste marque inactif. Test de robustesse vocabulaire.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q78",
+      "question": "Comment est calcule le coefficient K pour un joueur ayant plus de 30 parties et un Elo superieur a 2400 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent546-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 8.3.3 'K est le coefficient de developpement': K=10 quand classement publie atteint 2400, K reste a 10 meme si redescend sous 2400. Repond exactement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q79",
+      "question": "Quelles sont les conditions exactes pour obtenir le titre de Grand Maitre (GM) en 2025-2026, y compris le nombre de normes et le niveau minimal requis ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p193-parent573-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient la section 1.1 'Administration' avec des regles sur les tournois permettant l'obtention de normes mais pas directement les conditions GM. Les conditions specifiques (2500 Elo, normes) sont dans d'autres chunks du chapitre 6.3.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q80",
+      "question": "Un joueur peut-il obtenir le titre de Maitre FIDE (FM) sans passer par le titre de Candidat Maitre (CM), et quelles sont les voies possibles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p192-parent572-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la section 0.6 'L'Octroi des Titres' avec les classements minimums: GM=2300, MI=2200, MF=2100, CM=2000. Cela montre que les titres sont independants (pas de prerequis CM pour FM). Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q81",
+      "question": "Quelle est la duree de validite d'une norme de titre FIDE si elle n'est pas utilisee pour une demande de titre ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p197-parent584-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk contient la section 1.5 'Conditions pour l'obtention du titre' avec les regles sur les normes (27 parties minimum, classements requis). La duree de validite specifique n'est pas explicitement mentionnee dans ce chunk mais le child01 mentionne les normes avant 1/7/2005 devant etre enregistrees avant 1/7/2013.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q82",
+      "question": "Quelles sont les obligations administratives minimales qu'un arbitre doit respecter avant le debut d'un tournoi homologue FFE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient 'Dans l'ordre l'arbitre principal d'un tournoi doit': s'assurer homologation, rediger reglement interieur, verifier licences joueurs, interdire joueurs suspendus. Liste complete des obligations avant tournoi.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q83",
+      "question": "Comment un arbitre doit-il gerer la redaction et la transmission du Rapport Technique de fin de tournoi ? Quels elements doivent y figurer obligatoirement ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le Chapitre 5.4 'Rapport Technique et fin de tournoi': redaction et envoi, envoi par voie informatisee, garantie du serieux de l'arbitre. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q84",
+      "question": "Quel est le bareme d'indemnisation minimal pour un arbitre principal lors d'un tournoi national avec plus de 100 joueurs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les 'PRINCIPES GENERAUX' du bareme: minimum 1 arbitre titre par tranche de 100 joueurs, indemnite journaliere 50-100 euros, paiement avant derniere ronde. Repond a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q85",
+      "question": "Dans quel delai un arbitre doit-il transmettre le rapport d'un match individuel (ex : match par equipes) a la DNA ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel est un SOMMAIRE (table des matieres du Livre de l'Arbitre). Le chunk sur la gestion du match (parent487 ou parent488) serait plus pertinent, mais ne contient pas de delai specifique pour la DNA. Le chunk parent493 mentionne 'transmettre a la DNA les formulaires de plaintes' mais pas de delai.",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent487-child00",
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q86",
+      "question": "Quelles sont les etapes que l'arbitre doit suivre pour la gestion administrative d'un tournoi en cas d'absence d'un joueur a la premiere ronde ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p169-parent503-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel parle de la 'part fixe' des droits d'homologation (15 ou 50 euros). Pour l'absence d'un joueur en premiere ronde, le chunk sur le delai de forfait (p046-parent171) ou la gestion du tournoi (p172-parent512) serait plus adapte.",
+      "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q87",
+      "question": "Pour obtenir un premier classement Elo Standard FIDE, quelles sont les conditions minimales a remplir ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.1.4 qui precise: 'Un classement pour un joueur ou une joueuse entrant dans la liste sera publie lorsqu'il sera base sur au moins 5 parties jouees contre des adversaires classes. Il n'est pas necessaire que ces parties proviennent d'un seul tournoi. Les resultats d'autres tournois joues lors de periodes de classement consecutives, d'au plus 26 mois, sont regroupees pour obtenir le classement initial. Celui-ci doit etre d'au moins 1400.' Ce chunk repond completement a la question sur les conditions minimales.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q88",
+      "question": "Quelle est la difference de points Elo gagnes ou perdus pour une seule partie gagnee contre un adversaire avec exactement le meme classement Elo ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk decrit la formule de calcul du changement de classement (8.3) mais ne donne pas directement la valeur numerique. Pour deux joueurs de meme Elo (D=0), PD=0.5, donc pour une victoire (score=1), deltaR = 1-0.5 = 0.5, et avec K variable le gain depend du coefficient K. Le chunk explique le processus mais la reponse exacte necessite aussi le coefficient K (chunk p185-parent546). La reponse partielle est acceptable car elle guide vers le calcul.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q89",
+      "question": "Pour un tournoi de 9 rondes, quelle est la difference maximale d'Elo entre deux joueurs qui permet encore de considerer le tournoi comme equilibre pour le calcul du rating FIDE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne (p185-parent545) parle du calcul du changement de classement mais ne mentionne pas la difference maximale d'Elo pour les tournois equilibres. L'article 8.3.1 mentionne 400 points comme difference maximale comptabilisee, mais ce n'est pas specifique aux 9 rondes. La table 73 (LA-octobre2025-table73-summary) est un meilleur choix car elle traite des conversions Elo et probabilites.",
+      "new_chunk_id": "LA-octobre2025-table73-summary",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q90",
+      "question": "Quel est le montant minimal d'indemnisation journaliere pour un arbitre principal lors d'un tournoi national de plus de 100 joueurs en 2025 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les principes generaux d'indemnisation: 'L'indemnite d'arbitrage est calculee de maniere journaliere, elle est comprise entre 50 euros (plancher) et 100 euros (plafond) par jour.' Ce chunk repond directement a la question sur le montant minimal (50 euros plancher).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q91",
+      "question": "Un arbitre adjoint dans un tournoi regional de 50 a 99 joueurs peut-il pretendre a une indemnisation forfaitaire ou horaire ? Quel est le bareme applique ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk decrit le calcul des indemnites pour les evenements homologues FFE et mentionne les indemnites pour arbitres adjoints. Il indique que l'indemnite est journaliere et soumise a negociation, avec un tableau donnant les fourchettes (50 a 80 euros pour adjoint en cadence classique). Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q92",
+      "question": "Quelles sont les conditions pour qu'un arbitre beneficie du remboursement des frais de deplacement en plus de son indemnisation de base ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p179-parent525-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne parle de l'hebergement, pas des frais de deplacement. Le chunk correct est p178-parent523-child00 qui traite specifiquement des frais de deplacement avec les formules de calcul et les conditions.",
+      "new_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q93",
+      "question": "Quel est le bareme d'indemnisation specifique pour un arbitre lors d'un match par equipes (ex : interclubs) avec moins de 20 joueurs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p180-parent528-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les tarifs adoptes pour les competitions federales, incluant: 'Pour les competitions par equipes (Matchs des interclubs, phase qualificative des competitions federales). Le montant de l'indemnite est de 50 euros pour une demi-journee et de 85 euros pour une journee complete.' Repond parfaitement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q94",
+      "question": "Si un joueur joue pas du tout pendant 18 mois, son Elo finit par disparaitre ou pas ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Ce chunk parle du classement initial mais pas de l'inactivite. Le chunk p183-parent539-child01 est plus pertinent car il traite specifiquement de l'article 7.2.2 sur les personnes inactives: 'Un joueur ou une joueuse est considere comme s'il/si elle ne joue aucune partie prise en compte pour le classement dans une periode d'un an.' Le chunk mentionne 'un an' (12 mois), pas 18 mois - donc la reponse serait que 12 mois suffisent pour etre marque inactif.",
+      "new_chunk_id": "LA-octobre2025.pdf-p183-parent539-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q95",
+      "question": "C'est pas possible d'avoir un Elo sans faire au moins 5 parties, si ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.1.4 qui confirme: 'Un classement pour un joueur ou une joueuse entrant dans la liste sera publie lorsqu'il sera base sur au moins 5 parties jouees contre des adversaires classes.' Le chunk repond exactement a la question (il faut bien 5 parties minimum).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q96",
+      "question": "Quelle difference d'Elo max pour que mon tournoi de 9 rondes soit quand meme valable pour le rating FIDE ?",
+      "current_chunk_id": "LA-octobre2025-table73-summary",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk est un resume de table sur la conversion Elo. Pour la difference maximale d'Elo dans un tournoi, l'article 8.3.1 (p185) mentionne 400 points. Ce chunk table est pertinent mais partial car il ne donne pas directement la reponse. La reponse complete necessite aussi le chunk p185-parent545-child00.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q97",
+      "question": "Pour devenir GM, il faut combien de normes et quel Elo mini en 2025-2026 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p192-parent571-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les definitions des titres avec les conditions: 'Une performance de GM est >=2600 contre des adversaires avec un classement moyen >=2380.' Il mentionne aussi que 3 normes sont requises et le classement minimum. Le chunk p192-parent572-child00 complete avec le tableau des Elo minimums (GM: 2300 minimum publie). Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q98",
+      "question": "Est-ce qu'on peut sauter le CM pour passer directement FM, ou c'est oblige ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p196-parent579-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite des titres des adversaires requis pour les normes mais ne repond pas directement a la question de la progression CM vers FM. La progression des titres n'est pas obligatoirement sequentielle - on peut obtenir directement FM si on remplit les conditions. Ce chunk est partiellement pertinent mais ne repond pas directement.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q99",
+      "question": "Une norme de titre, elle reste valide combien de temps si j'attends pour demander ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p200-parent595-child00",
+      "verdict": "WRONG_NO_CHUNK",
+      "reason": "Le chunk assigne traite des championnats continentaux/mondiaux par equipes et des grilles de normes, mais ne mentionne pas la duree de validite d'une norme. La validite des normes est generalement illimitee selon les regles FIDE actuelles, mais aucun chunk du corpus ne semble traiter explicitement cette question de validite temporelle des normes.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q100",
+      "question": "Qu'est-ce que l'arbitre doit absolument faire avant de lancer un tournoi homologue FFE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste exactement ce que l'arbitre principal doit faire: 'S'assurer que le tournoi est homologue, Rediger un reglement interieur, S'assurer que tous les joueurs participants sont en regle envers la FFE, Interdire aux joueurs suspendus la participation.' Ce chunk repond parfaitement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q101",
+      "question": "Si je suis arbitre adjoint dans un petit tournoi regional, j'ai droit a combien d'euros par jour ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le tableau des indemnites avec les fourchettes pour arbitres adjoints: 50 a 75 euros pour rapide/blitz, 50 a 65 euros pour journee a 1 ronde en classique, 50 a 80 euros pour journee a plus d'une ronde. Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q102",
+      "question": "Faut-il envoyer le rapport technique le soir meme ou le lendemain apres un tournoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p172-parent512-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk mentionne: 'La sauvegarde (boule) PAPI du tournoi doit etre envoyee le jour meme sur le site federal.' Repond directement a la question - c'est le jour meme.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q103",
+      "question": "Mon joueur arrive pas a la premiere ronde, je fais quoi comme arbitre ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p168-parent499-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite des contraintes FIDE (duree tournoi, codes FIDE) mais pas de la gestion des absences. Pour la gestion des joueurs absents/forfaits, le chunk sur les obligations de l'arbitre (p166-parent492 ou p169) serait plus pertinent car il mentionne les enquetes pour forfaits non justifies.",
+      "new_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q104",
+      "question": "Mon roi peut plus bouger mais il est pas en echec, c'est quoi ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient exactement la definition: '5.2.1. La partie est nulle lorsque le joueur ou la joueuse au trait ne dispose d'aucun coup legal et que son roi n'est pas en echec. On dit alors que la partie se termine par le \"pat\".' Repond parfaitement a la question - c'est le pat.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q105",
+      "question": "Mon adversaire a son telephone dans sa poche mais il est eteint, c'est grave ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite de l'article 11.3 sur les telephones et mentionne la possibilite d'inclure dans le reglement 'la possibilite d'apporter un tel appareil au tournoi, pourvu que certaines conditions soient remplies: que l'appareil soit completement eteint et range dans un sac a part.' Il mentionne aussi la sanction par defaut (partie perdue) si le telephone sonne. La regle de base est stricte - telephone interdit meme eteint, sauf si le reglement l'autorise explicitement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q106",
+      "question": "On a joue 12 coups avec les mauvaises couleurs, on recommence la partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.3: 'Si une partie a debute avec des couleurs inversees et que les deux adversaires ont joue moins de dix coups, alors la partie est interrompue et une nouvelle partie est jouee avec les couleurs correctes. Apres dix coups ou plus, la partie continue.' Avec 12 coups (>10), la partie continue - pas de recommencement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q107",
+      "question": "C'est quoi la cadence pour les poussins au championnat de France ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk mentionne les categories U8 (poussins) mais ne donne pas directement la cadence. Le chunk p004-parent018-child00 donne les cadences: 'Minimum 15 min + 5 sec./coup pour les categories U8, U8F, U10, U10F' pour les qualifications departementales.",
+      "new_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q108",
+      "question": "Si un joueur en fauteuil roulant ne peut pas acceder a la salle, qui perd la partie ?",
+      "current_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne que le reglement H01 fixe le cas general et que H02 s'applique pour la mobilite reduite, mais ne donne pas directement la reponse sur qui perd si l'accessibilite n'est pas assuree. En principe, si l'organisateur n'assure pas l'accessibilite, c'est la responsabilite de l'organisateur, pas du joueur. Le chunk est pertinent mais la reponse n'est pas explicite.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q109",
+      "question": "Une equipe finit 9eme en Nationale 2, elle descend ou pas ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite des engagements et inscriptions mais pas directement des relegations en N2. Il mentionne les divisions (N1, N2, N3) mais pas le systeme de montee/descente specifique. Pour connaitre si le 9eme descend, il faudrait le reglement specifique des relegations N2.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q110",
+      "question": "Si je touche ma tour AVANT mon roi, j'ai pas le droit de roquer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite exactement de ce cas dans l'article 4.4.2: si on touche la tour avant le roi pour roquer, on doit deplacer la tour si possible, sinon deplacer le roi. L'article 4.4.3 precise aussi le cas ou le roque serait illegal. Le chunk repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q111",
+      "question": "C'est quoi la difference entre le pat et la nulle par repetition ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk definit bien le pat (5.2.1: roi pas en echec mais aucun coup legal), mais la nulle par repetition est dans un autre article (9.2 sur p51-52). C'est une question composee qui necessite 2 chunks. Ce chunk couvre une partie de la reponse.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q112",
+      "question": "Qu'est-ce qui se passe quand un joueur est en zeitnot ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite de l'article 8.5 sur les feuilles de parties incompletes et mentionne le cas du joueur en manque de temps. Il indique que l'arbitre ne doit pas donner d'information sur le nombre de coups restants. L'article 8.4 (chunk precedent p050-parent177-child02) precise qu'un joueur avec moins de 5 minutes n'est pas oblige de noter si l'increment est inferieur a 30 secondes.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q113",
+      "question": "Lors d'un tournoi, les deux joueurs se sont trompes de couleurs et ont joue 13 coups chacun. Un joueur a une dame d'avance. Quelle decision prendre en partie longue (1h+30s/coup) ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.3: 'Apres dix coups ou plus, la partie continue.' Avec 13 coups et en partie longue, la partie continue avec les couleurs inversees. La dame d'avance n'a pas d'impact sur cette regle. Repond parfaitement a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q114",
+      "question": "En partie rapide (20min+10s/coup), les joueurs se sont trompes de couleurs apres 8 coups. Un joueur a une dame d'avance. Que faire ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.3: avec moins de 10 coups (8 coups ici), la partie devrait normalement etre recommencee. Cependant, le chunk p048-parent174-child01 ajoute: 'Dans le cas ou une partie avec couleurs inversees finirait par des moyens normaux [...] avant que dix (10) coups ne soient acheves, le resultat de la partie est maintenu.' En rapide, la regle est la meme. Repond bien a la question.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q115",
+      "question": "Un joueur annonce echec et mat a tort, son adversaire le croit et arrete la pendule. Le capitaine reclame car ce n'etait pas mat. Quelle decision ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 5.1.2: 'La partie est perdue par le joueur ou la joueuse qui declare abandonner (cela met immediatement fin a la partie).' Si l'adversaire accepte le mat (en arretant la pendule), cela equivaut a un abandon. Le resultat est maintenu meme si l'annonce etait fausse. 'A la fin d'une partie, l'arbitre doit s'assurer que les deux feuilles affichent le meme resultat.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q116",
+      "question": "A la cadence 5min+3s/coup, les noirs jouent un coup illegal et appuient sur la pendule. Quelle sanction appliquer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe B sur les parties blitz. 5min+3s = 5+(3x60) = 8 minutes donc c'est du blitz. L'article B.3 renvoie aux regles du rapide (Annexe A) pour les sanctions: 'les sanctions pour coups irreguliers et reclamations de nulle incorrectes sont d'une minute.' La sanction est donc d'ajouter 1 minute au temps de l'adversaire.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q117",
+      "question": "En partie longue 50min+10s/coup, vous avez deja sanctionne une fois les noirs pour coup illegal. Ils en commettent un second. Quelle sanction ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.5.5: 'pour le premier coup illegal acheve par un joueur ou une joueuse, l'arbitre donne deux minutes supplementaires a son adversaire ; pour le second coup illegal acheve par la meme personne, l'arbitre declare la partie perdue par celle-ci.' La partie est donc perdue pour les noirs.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q118",
+      "question": "Quel departage utilise dans son calcul les resultats des adversaires contre leurs propres adversaires ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p151-parent450-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite du Koya qui compte les points contre adversaires a 50%+. Le departage qui utilise les resultats des adversaires contre leurs propres adversaires est le Sonneborn-Berger (Sb) decrit dans le chunk LA-octobre2025.pdf-p151-parent447-child00: 'Il est obtenu en ajoutant, pour chaque ronde, le score ajuste de l'adversaire multiplie par le nombre de points marques contre lui.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p151-parent447-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q119",
+      "question": "Pour un tournoi toutes rondes avec 7 equipes, combien de rondes faut-il programmer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p102-parent299-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk parle du systeme Rutsch mais pas du nombre de rondes. Pour 7 participants en toutes-rondes, c'est 7-1=6 rondes si pair, ou 7 rondes avec exemption si impair. Le chunk p102-parent300-child00 est plus pertinent car il explique: 'Dans ces tournois, a chaque ronde, une personne est exempte' et donne l'exemple de 7 participants.",
+      "new_chunk_id": "LA-octobre2025.pdf-p102-parent300-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q120",
+      "question": "Dans l'appariement suisse, qu'est-ce qu'un flotteur descendant ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p126-parent367-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit clairement le flotteur descendant dans le contexte de l'appariement suisse: 'L'appariement d'un niveau est compose de paires de joueurs/joueuses apparies ensemble et de flotteurs descendants. [...] Pour chaque flotteur descendant, la D-S est definie comme la difference entre le score du flotteur descendant et une valeur artificielle...' Un flotteur descendant est un joueur apparie dans un niveau inferieur a son score.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q121",
+      "question": "Vous arbitrez un tournoi FIDE. Un joueur non classe gagne 5 parties contre des joueurs classes. Comment obtient-il son premier classement Elo ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.1.4 sur les conditions du premier classement (5 parties minimum). Pour le calcul, le chunk p185-parent544-child00 (article 8.2) explique la formule: 'Ru = Ra + dp' ou Ra est le classement moyen des adversaires avec 2 adversaires virtuels a 1800. Ce chunk est le point de depart correct.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q122",
+      "question": "Un joueur Elo 1800 gagne contre un joueur Elo 2200. Avec K=20, quel gain approximatif de points ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p185-parent544-child00",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk assigne traite du classement initial Ru, pas du calcul de variation pour joueurs deja classes. Le chunk p185-parent545-child00 est plus pertinent car il decrit l'article 8.3 avec la formule: 'deltaR x K = la variation de Classement.' Avec D=400 (difference plafonnee), PD environ 0.09, gain = (1-0.09) x 20 = environ 18 points.",
+      "new_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q123",
+      "question": "Dans une finale Roi+Dame contre Roi seul, un joueur annonce mat en 2 mais se trompe. L'adversaire reclame la nulle. Quelle decision ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk assigne traite de l'article 11.7 sur le refus de se conformer aux regles. Pour une reclamation de nulle avec materiel insuffisant (Roi seul), c'est l'article 5.2.2 sur la position morte et l'article 9 sur les reclamations de nulle qui s'appliquent. Roi+Dame contre Roi seul n'est PAS une position morte - le mat est possible. La partie continue.",
+      "new_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q124",
+      "question": "Quels sont les frais de deplacement rembourses pour un arbitre regional se deplacant a 150 km ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les regles de frais de deplacement: 'Cas General: 0,32 euro/km pour une distance aller 0-110 km. Cas Long deplacement: Au dela d'une distance de 110 km aller, utiliser le tableau et la formule: R= C + (DxK). Le remboursement total correspond au remboursement de la distance aller multiplie par 2 + 20 euros forfaitaires.' Pour 150 km, c'est le cas long deplacement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q125",
+      "question": "A quelle cadence la chute du drapeau doit-elle etre signalee par l'arbitre s'il l'observe ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk traite du rapide mais l'article A.5.5 complet est dans le chunk suivant p057-parent191-child02: 'L'arbitre doit aussi annoncer la chute du drapeau, s'il/si elle la constate.' C'est pour le rapide et le blitz (via B.3). En cadence longue, l'arbitre n'annonce pas necessairement.",
+      "new_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q126",
+      "question": "L'arbitre observe une position illegale sans avoir vu le dernier coup joue. Comment doit-il intervenir ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 7.5.1 et mentionne: 'Si l'arbitre observe un coup illegal acheve, il doit toujours intervenir immediatement. Il ne doit pas attendre qu'une reclamation soit faite par l'adversaire.' Pour une position illegale sans avoir vu le coup, le chunk p049-parent176-child00 mentionne la restauration de position (art. 7.6).",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q127",
+      "question": "En cadence 1h30+30s, un joueur a moins de 5 minutes. Doit-il continuer a noter sa partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 8.4: 'Si un joueur ou une joueuse dispose de moins de cinq minutes a sa pendule au cours d'une periode de jeu donnee et ne beneficie pas d'un temps additionnel de 30 secondes ou plus a chaque coup, alors pour le reste de la periode il/elle n'est pas dans l'obligation de respecter les exigences de l'Article 8.1.1.' Avec +30s d'increment (>=30s), le joueur DOIT continuer a noter.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q128",
+      "question": "La regle des 75 coups sans prise ni mouvement de pion entraine-t-elle automatiquement la nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "verdict": "PARTIAL_IMPROVED",
+      "reason": "Le chunk traite de la regle des 50 coups (reclamation) a l'article 9.3. La regle des 75 coups (automatique) est dans le chunk p052-parent181-child01 article 9.6.2: 'Une suite d'au moins 75 coups a ete jouee par chacun des deux adversaires, sans aucun mouvement de pion ni prise. Si le dernier coup produit un mat, celui-ci est prioritaire.' Oui, c'est automatique a 75 coups.",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q129",
+      "question": "Apres combien de repetitions de position identique la partie est-elle automatiquement nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 9.6.1: 'La meme position est apparue, comme en 9.2.2 au moins cinq fois' alors la partie est nulle automatiquement. Il precise aussi: 'les 5 occurrences de la meme position n'ont pas a etre consecutives.' La reponse est 5 repetitions (vs 3 pour la reclamation).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q130",
+      "question": "Roi contre Roi + Fou est-il considere comme materiel insuffisant pour mater ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient le tableau des situations de materiel insuffisant avec les resultats correspondants. Bien que 'Roi vs Roi+Fou' ne soit pas explicitement liste (le tableau montre d'autres combinaisons comme Roi+Fou vs Roi+Cavalier), ce chunk est dans la section correcte (Art 6.9) traitant du materiel insuffisant. Le contexte permet de comprendre que Roi seul vs Roi+Fou est effectivement une position morte car le Fou seul ne peut pas mater.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q131",
+      "question": "Comment est calcule le classement Elo Rapide par rapport au classement Standard ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite des 'Listes Officielles du Classement Rapide et blitz de la FIDE' et explique les regles de publication (5 parties minimum, 1400 minimum, periodes de classement). Il aborde le systeme de classement Rapide mais ne compare pas explicitement avec le Standard. L'information est partielle mais pertinente pour comprendre le fonctionnement du classement Rapide.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q132",
+      "question": "Un joueur classe uniquement en Rapide participe a son premier tournoi Standard. Comment obtient-il son Elo Standard ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk traite du classement Rapide FIDE mais ne repond pas directement a la question de la passerelle Rapide->Standard. La question necessite des informations sur le calcul initial du classement Standard (Ch 6.1 pages 183-185), mais le chunk actuel reste pertinent car il explique le systeme de classement distinct. La reponse complete necessiterait un chunk sur le calcul initial Elo Standard.",
+      "new_chunk_id": null,
+      "confidence": "LOW"
+    },
+    {
+      "id": "FR-Q133",
+      "question": "Dans le systeme suisse, comment traiter un joueur qui demande un bye pour une ronde ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p124-parent357-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk traite explicitement des systemes d'appariements et mentionne au point 4: 'Les personnes ayant prevenu de leur absence lors de certaines rondes ne seront pas appariees pour ces rondes et ne marqueront aucun point (sauf si le reglement du tournoi en decide autrement)'. C'est exactement la procedure pour gerer un bye demande.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q134",
+      "question": "Quelle est la difference entre le Buchholz tronque et le Buchholz median ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p149-parent436-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p149-parent436-child02) traite du Cumulatif tronque, pas du Buchholz. Le bon chunk est p151-parent440-child00 qui definit explicitement: '7.1.1. Buchholz Tronque (Tr): on retire les adversaires ayant le score ajuste le plus bas' et '7.1.2. Buchholz Median (Me): on retire des adversaires parmi ceux ayant le score ajuste le plus bas ET on retire autant d'adversaires parmi ceux ayant le score ajuste le plus eleve.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p151-parent440-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q141",
+      "question": "Qu'est-ce que le 'noyau' d'une equipe en Nationale et quelle est la regle des 50% ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte: '3.7.f) Noyau de l'equipe: en N1, N2 et N3, chaque equipe doit aligner a chaque ronde au moins 50% de personnes (appele noyau) inscrites sur le PV ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison'. Definition complete avec sanctions en cas d'infraction.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q144",
+      "question": "En Top 16, combien de 'joueurs etrangers' peut-on aligner par match et quelle est la definition exacte ?",
+      "current_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les articles 3.7.h et 3.7.i qui definissent: '3.7.h) Nationalite etrangere: au moins cinq des joueurs ou joueuses composant une equipe doivent posseder la nationalite francaise ou etre ressortissants de l'Union Europeenne residant en France, ou extracommunautaires residant en France depuis 5 ans' et '3.7.i) en Top 16, N1, et N2, chaque equipe doit inscrire au moins un joueur francais et au moins une joueuse francaise'.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q149",
+      "question": "C'est quoi le 'flag' en echecs et qu'est-ce qui se passe quand ca tombe ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk actuel (p050) traite des feuilles de parties incompletes, pas de la definition du drapeau. Le bon chunk est p044-parent166-child00 qui definit clairement: 'La pendule d'echecs designe une horloge munie de deux afficheurs... Chacun des afficheurs est muni d'un drapeau. La chute du drapeau signifie la fin du temps imparti a un joueur ou une joueuse.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q150",
+      "question": "Selon l'article 12.9 des Lois du Jeu FIDE, quelle est la procedure exacte pour reclamer une nulle apres 75 coups sans prise ni mouvement de pion ?",
+      "current_chunk_id": "LA-octobre2025-table6-summary",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "QUESTION PIEGE: L'article 12.9 traite des sanctions, PAS des 75 coups! La regle des 75 coups est a l'article 9.6.2. Le chunk actuel est un simple glossaire resume. Le meilleur chunk est p066-parent214-child02 qui contient le glossaire detaille avec: 'Regle des 75 coups | 9.6.2 | La partie est nulle si les 75 derniers coups ont ete completes par chacun des deux adversaires sans mouvement de pion ni prise.'",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent214-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q151",
+      "question": "Comment fonctionne le deplacement du pion ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.7 'Le pion' avec les regles completes: '3.7.1. Un pion peut se deplacer sur la case immediatement devant lui sur la meme colonne', '3.7.2. Lors de son premier deplacement un pion peut... avancer de deux cases', '3.7.3. Un pion peut se deplacer sur une case occupee par une piece adverse situee en diagonale devant lui' (prise).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q152",
+      "question": "Comment fonctionne la prise en passant aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient exactement la definition: '3.7.3.1. Un pion occupant une case situee sur la meme rangee et sur une colonne adjacente a un pion adverse qui vient d'avancer de deux cases en un seul coup depuis sa case de depart, peut prendre ce pion adverse comme si ce dernier n'avait ete avance que d'une seule case. 3.7.3.2. Cette prise n'est autorisee que sur le coup qui suit l'avancement du pion adverse. Cette prise est appelee prise en passant.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q153",
+      "question": "Comment fonctionne la promotion du pion ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition complete de la promotion: '3.7.3.3. Quand un joueur au trait deplace un pion sur la rangee la plus eloignee de sa position de depart, il doit remplacer ce pion par une nouvelle dame, tour, fou ou cavalier de meme couleur' et '3.7.3.5. Ce remplacement d'un pion par une autre piece est appele promotion. La nouvelle piece issue de cette promotion est immediatement active.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q154",
+      "question": "Quand le roque est-il definitivement interdit ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.8.2.1: 'Le droit de roquer est definitivement perdu: 1) Si le roi s'est deja deplace, ou 2) Avec une tour qui s'est deja deplacee.' Reponse complete sur l'interdiction definitive.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q155",
+      "question": "Quand le roque est-il temporairement interdit ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p040-parent159-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.8.2.2: 'Le roque est temporairement interdit: 3) Si la case occupee par le roi, la case qu'il doit traverser ou la case sur laquelle il doit arriver, est attaquee par une ou plusieurs pieces adverses, ou 4) Si une piece quelconque se situe entre le roi et la tour avec laquelle le roque est envisage.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q156",
+      "question": "Que signifie la chute du drapeau aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte Article 6.1: 'Chacun des afficheurs est muni d'un drapeau. La chute du drapeau signifie la fin du temps imparti a un joueur ou une joueuse.' Definition claire et complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q157",
+      "question": "Comment fonctionne la pendule aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 6: 'La pendule d'echecs designe une horloge munie de deux afficheurs, relies entre eux de telle maniere qu'un seul puisse fonctionner a la fois' et l'article 6.2.1: 'chaque joueur, apres avoir joue son coup sur l'echiquier, arrete sa pendule et demarre celle de son adversaire'. Explication complete du fonctionnement.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q158",
+      "question": "Comment se deplace la tour aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.3: 'Une tour peut se deplacer sur n'importe quelle case de la colonne ou de la rangee sur lesquelles elle se trouve.' Definition complete et exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q159",
+      "question": "Comment se deplace la dame aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 3.4: 'Une dame peut se deplacer sur n'importe quelle case de la colonne, la rangee ou d'une des diagonales sur lesquelles elle se trouve.' Definition complete et exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q160",
+      "question": "Quelle est la position initiale des pieces aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 2 avec les definitions: '2.1. L'echiquier est constitue d'une grille carree de 8x8 cases', '2.2. Au debut de la partie, les Blancs disposent de 16 pieces... les Noirs disposent de 16 pieces', '2.3. La position initiale des pieces sur l'echiquier est la suivante' (avec image).",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q161",
+      "question": "Quand considere-t-on que le roi est en echec ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte article 3.9.1: 'Le roi est dit en echec s'il est attaque par une ou plusieurs pieces adverses, meme si ces pieces ne peuvent pas se deplacer sur la case occupee par ce roi parce qu'elles laisseraient ou mettraient en echec le roi de leur propre camp.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q162",
+      "question": "Comment gagne-t-on une partie aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 5.1.1: 'La partie est gagnee par le joueur ou la joueuse qui a mis echec et mat le roi adverse. Ceci met immediatement fin a la partie'. Definition complete de la victoire par echec et mat.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q163",
+      "question": "Comment abandonner une partie aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 5.1.2 et les methodes d'abandon: 'La partie est perdue par le joueur qui declare abandonner' avec la liste: 'en arretant la pendule, en annoncant son abandon, en couchant son roi, en tendant la main a son adversaire, en signant sa feuille de partie'.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q164",
+      "question": "Comment fonctionne la cadence Fischer ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte: 'CADENCE FISCHER: Un temps fixe supplementaire (increment) est ajoute au temps principal de reflexion des joueurs a chaque coup acheve. L'increment pour le premier coup est ajoute avant le debut de la partie. Si un joueur joue rapidement alors son temps restant peut augmenter.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q165",
+      "question": "Comment fonctionne le temps differe Bronstein ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition: 'CADENCE BRONSTEIN DELAY: Dans ce mode, le bonus est ajoute au temps principal et la pendule commence immediatement le compte a rebours.' Egalement l'explication que 'Avec le delai, un joueur ne peut jamais augmenter son temps au-dela de celui qu'il avait au debut d'un coup.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q166",
+      "question": "Quels sont les engagements de l'arbitre FFE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p008-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la liste complete des engagements: 'L'Arbitre s'engage a: Connaitre avec precision et faire appliquer les regles; Se tenir informe des evolutions reglementaires; Etre bien prepare pour chaque competition; Etre et demeurer exemplaire; Communiquer avec l'ensemble des acteurs; S'abstenir de toute critique publique...'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q167",
+      "question": "Quels frais sont inclus dans le defraiement des arbitres ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 5 'Defraiement des arbitres' avec la liste: 'Ces frais incluent: Indemnites des arbitres suivant les tarifs officiels du bareme d'indemnisation des arbitres; Frais de deplacements; Hebergement et restauration.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q168",
+      "question": "Quel systeme de notation est reconnu par la FIDE ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe C avec la reponse exacte: 'La FIDE ne reconnait qu'un seul systeme de notation pour ses propres tournois et pour ses matchs: le Systeme Algebrique. Elle preconise l'utilisation de cette notation uniforme dans la litterature et les periodiques echiquiens.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q169",
+      "question": "Quelles adaptations pour les joueurs handicapes visuels ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent199-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk D.2.3-D.2.6 traite des regles de jeu pour handicapes visuels (comment un coup est effectue, pendules speciales) mais pas les adaptations materielles. Le chunk p061-parent198-child00 serait plus complet car il liste les criteres de l'echiquier special (20x20cm, cases noires surelevees, ouvertures de fixation, pieces avec tige).",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q170",
+      "question": "Comment fonctionne l'echiquier pour personnes aveugles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Annexe D avec les criteres de l'echiquier special: 'D.1.1. Mesurer au moins 20cm sur 20cm; D.1.2. Les cases noires doivent etre legerement surelevees; D.1.3. Chaque case doit contenir une ouverture de fixation; D.1.4. Les pieces doivent contenir une tige s'encastrant dans l'ouverture de fixation.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q171",
+      "question": "Les debats disciplinaires de la FFE sont-ils publics ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p003-parent006-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 6 'PUBLICITE DES DEBATS' avec la reponse exacte: 'Les debats devant les organes disciplinaires sont publics. Toutefois, le president de seance peut, d'office ou a la demande d'une des parties... interdire au public l'acces de la salle pendant tout ou partie de l'audience dans l'interet de l'ordre public ou de la serenite des debats.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q172",
+      "question": "Quel delai pour la convocation a l'audience disciplinaire ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 12 'CONVOCATION A L'AUDIENCE': 'La personne poursuivie et, le cas echeant, son representant legal sont convoques devant l'organe disciplinaire dans les conditions prevues a l'article 8, dix jours au moins avant l'audience.' Reponse exacte: 10 jours minimum.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q173",
+      "question": "Quelles obligations de confidentialite en discipline FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'obligation exacte: 'Elles sont astreintes a une obligation de confidentialite pour tous les faits, actes et informations dont elles ont connaissance en raison de leurs fonctions. Toute meconnaissance de ces obligations constitue une faute.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q174",
+      "question": "Comment se deroule l'instruction disciplinaire FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 10 'INSTRUCTION' complet: 'l'instructeur etablit un rapport qu'il adresse a l'organe disciplinaire et a la personne poursuivie au vu des elements du dossier... Il n'a pas competence pour clore de lui-meme une affaire. Les personnes chargees de l'instruction peuvent: Entendre toute personne dont l'audition parait utile; Demander a toute personne des informations necessaires.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q175",
+      "question": "Qu'est-ce qu'une mesure conservatoire en discipline FFE ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent011-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'Article 11 'MESURE CONSERVATOIRE' complet: 'Lorsque les circonstances le justifient, notamment au regard de la gravite des faits, le Bureau Federal peut prononcer a l'encontre de la personne poursuivie, a tout moment de la procedure disciplinaire de premiere instance et par decision motivee, une mesure conservatoire dans l'attente de la notification de la decision.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q176",
+      "question": "Quand debute et se termine la saison FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la reponse exacte dans le 'Principe': 'La saison debute le 1er septembre et s'acheve le 31 aout.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q177",
+      "question": "Quelles sont les competitions federales FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste les competitions federales: 'Les Coupes (Coupe de France, Coupe Loubatiere, Coupe de la parite); Les Championnats de France par equipes (des Clubs, des clubs Feminins, des scolaires, des interclubs Jeunes); Les Championnats de France (individuel, Feminin de parties rapide, des Jeunes, Universitaire, rapide, blitz).'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q178",
+      "question": "Qu'est-ce qu'un joueur mute a la FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition complete article 2.2 'La Mutation': 'Est mute: Tout joueur licencie tout ou partie de la saison precedente dans un club francais autre que son club pour la saison en cours, et pour le compte duquel il a participe a une competition par equipe. Tout joueur de nationalite etrangere non licencie dans le meme club la saison precedente...'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q179",
+      "question": "Qu'est-ce qu'un forfait administratif a la FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la definition exacte article 3.1.3: 'Forfait administratif: il s'agit d'un forfait non sportif, decoulant d'une sanction. Les consequences du forfait administratif peuvent impliquer une sanction sportive et/ou financiere prononcee par l'autorite competente.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q180",
+      "question": "Qui peut prononcer un forfait administratif FFE ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient la reponse exacte: 'Uniquement la direction de groupe ou la direction de la competition peuvent sanctionner un forfait administratif.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q181",
+      "question": "Qui peut participer aux Championnats de France Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les conditions de participation article 1.1-1.2: 'Les Championnats de France Jeunes sont ouverts aux jeunes joueuses et joueurs francais licencies ainsi que les jeunes joueuses et joueurs etrangers licencies et scolarises en France. Dans ce deuxieme cas, les licences doivent etre prises aupres de la FFE au plus tard le 30 novembre.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q182",
+      "question": "Quelles conditions de licence pour jeunes etrangers aux championnats ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient les conditions: '1.1. les jeunes etrangers licencies et scolarises en France. Dans ce deuxieme cas, les licences doivent etre prises aupres de la FFE au plus tard le 30 novembre de la saison en cours. 1.2. Les joueurs etrangers des categories U18, U20 non scolarises doivent resider en France depuis au moins deux ans et etre licencies aupres de la FFE depuis au moins deux ans.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q183",
+      "question": "Comment fonctionne la phase zone interdepartementale jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2.4 'Phase(s) zone interdepartementale' complet: 'Chaque Ligue doit obligatoirement rediger un reglement et adresser un exemplaire a la CTF a chaque saison, au plus tard 1 mois avant le debut de la phase departementale. Une ligue composee de plusieurs ZID peut faire le choix de championnats par ZID ou d'un championnat unique.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q184",
+      "question": "Quelles qualifications d'office aux Championnats Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 2.6 'Qualifications d'office' complet: 'Sont qualifies pour les Championnats de France: Les jeunes changeant de categorie ayant obtenu un score minimal de 6,5/9; Les jeunes ne changeant pas de categorie avec score de 6/9; Les jeunes atteignant un Elo minimum (2100 U16, 2000 U14, 1900 U12, 1750 U10); Un joueur par tournoi choisi par l'organisateur; La premiere classee de chaque categorie des Open A et B.'",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q185",
+      "question": "Quel score minimal pour qualification d'office jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient explicitement les scores minimaux: 6,5/9 pour les jeunes changeant de categorie, 6/9 pour ceux ne changeant pas de categorie. Reponse complete et precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q186",
+      "question": "Quels tournois au Championnat de France individuel ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste exhaustivement les 10 tournois: National, National Feminin, Accession Roger Ferry, Veterans, Seniors Plus, et Opens A/B/C/D/E. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q187",
+      "question": "Combien de joueuses au Tournoi National Feminin ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique clairement '16 joueuses' dans le titre de section '2.2. Tournoi National Feminin (16 joueuses)'. Reponse directe.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q188",
+      "question": "Comment se qualifier au Tournoi National Feminin ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille les 5 criteres de qualification: 3 premieres du National precedent, 3 premieres de l'Accession, 8 joueuses par Elo moyen FIDE, championne U20F, meilleure jeune par Elo. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q189",
+      "question": "Quel age minimum pour le tournoi Veterans FFE ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise '65 ans ou plus avant le 1er janvier de l'annee en cours'. Reponse exacte et complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q190",
+      "question": "Quelle tranche d'age pour le tournoi Seniors Plus FFE ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique 'de 50 ans a 64 ans avant le 1er janvier de la saison en cours'. Reponse precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q191",
+      "question": "Comment est structuree la Coupe de France echecs ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique la structure: organisee chaque saison, ouverte a tous clubs affilies FFE, chaque club peut engager une equipe. Information de base sur la structure.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q192",
+      "question": "Combien d'equipes par club en Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise explicitement 'Chaque club ne peut engager qu'une equipe'. Reponse directe.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q193",
+      "question": "Quelles regles aux parties de Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique: regles FIDE et FFE en vigueur a la date des matchs sont applicables. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q194",
+      "question": "Quelles parties comptent pour le classement rapide FFE ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'parties de moins de 60 min et de plus de 10 min/joueur'. Criteres exacts pour cadence rapide.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q195",
+      "question": "Comment manipuler la pendule d'echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk contient l'article 6.2.4 sur la manipulation de pendule: interdit de l'actionner avant de jouer, de force, la prendre en mains ou la renverser. Sanctions selon Art.12.9.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q196",
+      "question": "Que faire si la pendule est defectueuse ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk child01 parle d'assistant pour utiliser la pendule, pas de pendule defectueuse. Le bon chunk est parent173-child00 qui traite de l'article 6.10.1 sur les pendules defectueuses.",
+      "new_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q197",
+      "question": "Qu'est-ce qu'une colonne aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'Les huit alignements verticaux de cases sont appeles colonnes'. Definition exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q198",
+      "question": "Qu'est-ce qu'une rangee aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'Les huit alignements horizontaux de cases sont appeles rangees'. Definition exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q199",
+      "question": "Qu'est-ce qu'une diagonale aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit: 'Une ligne droite de cases de la meme couleur, allant d'un bord de l'echiquier a un bord adjacent, est appelee diagonale'. Definition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q200",
+      "question": "Comment une piece prend-elle une autre piece ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Article 3.1.1 explique: 'Si une piece se deplace sur une case occupee par une piece adverse, cette derniere est immediatement prise et retiree de l'echiquier'. Mecanisme complet.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q201",
+      "question": "Quand une piece attaque-t-elle une case ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.3.1.2 et 3.1.3 expliquent: une piece attaque une case si elle peut prendre ou se deplacer dessus, meme si clouee. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q202",
+      "question": "Comment se deplace le fou aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.3.2 indique: 'Un fou peut se deplacer sur n'importe quelle case le long d'une des diagonales sur lesquelles il se trouve'. Reponse precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q203",
+      "question": "Peut-on deplacer une piece qui expose le roi a l'echec ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.3.9.2 indique clairement: 'Aucune piece ne peut etre deplacee si elle expose le roi de son propre camp a un echec ou si elle le laisse en echec'. Reponse negative explicite.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q204",
+      "question": "Quand la partie est-elle nulle par pat ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.5.2.1 definit le pat: 'La partie est nulle lorsque le joueur au trait ne dispose d'aucun coup legal et que son roi n'est pas en echec'. Definition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q205",
+      "question": "Quel materiel minimum pour faire mat ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne les cas ou le materiel est INSUFFISANT pour mater (ex: R vs R) mais ne detaille pas exhaustivement le materiel MINIMUM suffisant. La question est cependant repondue par contraste.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q206",
+      "question": "Qu'est-ce qu'une position morte aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk definit explicitement la position morte: position telle qu'aucun des adversaires ne peut faire echec et mat, avec reference a l'Art.5.2.2. Definition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q207",
+      "question": "Quand peut-on adouber les pieces ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne Art.6.2.5: 'Seul le joueur dont la pendule est en marche a l'autorisation d'adouber'. Mais la regle complete J'adoube (Art.4) n'est pas detaillee. Reponse partielle mais suffisante.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q208",
+      "question": "Que faire si un joueur ne peut pas utiliser la pendule ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.6.2.6 explique: le joueur peut fournir un assistant agree par l'arbitre, la pendule est ajustee equitablement (10mn enleves sauf handicap). Procedure complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q209",
+      "question": "Comment noter les coups aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk presente l'Annexe C sur la notation algebrique, seul systeme reconnu par la FIDE. Introduction adequate au systeme de notation.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q210",
+      "question": "Comment annoncer les coups pour joueurs aveugles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent199-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk D.2.1 detaille: coups annonces clairement, repetes par l'adversaire, avec noms de colonnes (Anna, Bella, etc.) et rangees en allemand. Procedure complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q211",
+      "question": "Quels criteres pour l'echiquier des joueurs aveugles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk D.1.1-D.1.4 liste: min 20x20cm, cases noires surelevees, ouverture de fixation par case, pieces avec tige et marque pour noires. Criteres complets.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q212",
+      "question": "Comment noter pour les personnes handicapees visuelles ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk parent198-child00 presente les criteres d'echiquier, pas la notation. L'article D.2.7 sur Braille/ecriture courante/enregistrement est dans parent199-child02.",
+      "new_chunk_id": "LA-octobre2025.pdf-p061-parent199-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q213",
+      "question": "Qu'est-ce que le tournoi Accession Roger Ferry ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk liste le tournoi Accession Roger FERRY parmi les 10 tournois mais ne le definit pas. La definition complete est dans parent008-child00. Cependant le chunk confirme son existence.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q214",
+      "question": "Quels clubs peuvent participer aux competitions federales ?",
+      "current_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise: 'Seuls les clubs affilies ayant respecte leurs engagements et exigences reglementaires envers la FFE, la Ligue et le CDJE, peuvent participer'. Condition complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q215",
+      "question": "Quelles categories au Championnat de France Jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste: U16, U14, U12, U10 et U8, en categorie mixte ou feminine. Categories completes.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q216",
+      "question": "Quel Elo minimum pour qualification d'office jeunes ?",
+      "current_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille les Elo minimum par categorie: 2100/1900 U16, 2000/1850 U14, 1900/1700 U12, 1750/1600 U10. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q217",
+      "question": "Comment est composee la Commission Regionale de Discipline ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique: membres designes par Comite Directeur regional, 3 membres minimum choisis pour competence juridique/ethique/deontologie. Composition detaillee.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q218",
+      "question": "Comment peut-on mettre fin au mandat d'un membre disciplinaire ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk liste les 3 cas: empechement definitif, demission, ou exclusion. Reponse exhaustive.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q219",
+      "question": "La personne poursuivie peut-elle etre assistee d'un avocat ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk mentionne assistance d'un interprete mais pas explicitement d'un avocat. Cependant l'Art.12 implique le droit de se faire assister. La question pourrait beneficier d'un chunk plus explicite mais celui-ci est contextuellement adequat.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q220",
+      "question": "Peut-on demander un interprete en audience disciplinaire ?",
+      "current_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise: si la personne ne parle pas francais, elle peut demander un interprete de son choix (a ses frais) ou choisi par la FFE (aux frais FFE). Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q221",
+      "question": "Quel est le format des Opens au Championnat de France ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Le chunk parent008-child00 traite du tournoi Accession Roger Ferry, pas des Opens. Le chunk parent009-child00 detaille les Opens A/B/C/D/E avec les tranches Elo.",
+      "new_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent009-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q222",
+      "question": "Comment qualifier les premieres du National Feminin precedent ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk precise critere 1: 'Les trois premieres du National Feminin precedent' sont qualifiees d'office. Reponse directe.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q223",
+      "question": "Quelles joueuses sont qualifiees par Elo au National Feminin ?",
+      "current_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk detaille critere 3: 8 joueuses par meilleur Elo moyen FIDE (listes fevrier/mars/avril), plus critere 5 pour meilleure jeune par Elo. Reponse complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q224",
+      "question": "Qui informe les clubs du lieu des matchs de Coupe de France ?",
+      "current_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent006-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique: 'Les clubs sont informes du lieu et de l'heure des matchs par la Direction de la Coupe de France'. Reponse precise.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q225",
+      "question": "Quelle duree minimum pour partie en cadence rapide ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique 'plus de 10 min/joueur' comme duree minimum pour cadence rapide. Reponse exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q226",
+      "question": "Quelle duree maximum pour partie en cadence rapide ?",
+      "current_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk indique 'moins de 60 min' comme duree maximum pour cadence rapide. Reponse exacte.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q227",
+      "question": "Comment verifier une reclamation de nulle ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk explique: verification en presence des deux adversaires, reconstitution de toute la partie, utilisation possible de l'ordinateur si retransmission. Procedure complete.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q228",
+      "question": "Quand la partie est-elle nulle sur demande ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.9.3 detaille les conditions: 50 coups sans pion ni prise, ou triple repetition (Art.9.2 reference). Conditions principales couvertes.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q229",
+      "question": "Quel est le role principal de l'arbitre aux echecs ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk Art.12.1 indique: 'L'arbitre s'assure de l'observation des Regles du Jeu d'Echecs' et doit etre present/surveiller les parties. Role principal defini.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "FR-Q230",
+      "question": "Quand l'arbitre doit-il intervenir pendant une partie ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Le chunk liste les sanctions (Art.12.9) mais ne detaille pas directement quand intervenir. Le chunk parent187-child00 serait plus pertinent car il mentionne l'intervention en cas d'infraction. Toutefois ce chunk est contextuellement lie.",
+      "new_chunk_id": null,
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "FR-Q231",
+      "question": "Comment fonctionne le Chess960 ?",
+      "current_chunk_id": "LA-octobre2025.pdf-p065-parent204-child00",
+      "verdict": "KEEP",
+      "reason": "Le chunk II.1 explique: position initiale determinee au hasard selon certaines regles, puis jeu standard, meme objectif (echec et mat). Principe de base explique.",
+      "new_chunk_id": null,
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_001",
+      "question": "What happens if a player touches a piece but cannot make a legal move with it?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.5: If none of the touched pieces can be moved/captured, player may make any legal move. Direct answer.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_002",
+      "question": "How much time is added after each move in a rapid game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.1 with rapid time definitions and increment examples (e.g., 30 sec/move).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_003",
+      "question": "When can an arbiter declare a game drawn due to insufficient material?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.2 on dead position/insufficient material for declaring draw.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_004",
+      "question": "What are the requirements for a valid claim of threefold repetition?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.2 claim procedure context. Explains threefold repetition claim requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent032-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_005",
+      "question": "If a player's flag falls and no one notices, what should happen when it is discovered?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent045-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.8 on flag fall observation - flag considered fallen when noticed/claimed.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent025-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_006",
+      "question": "What is the procedure when an illegal move is discovered several moves later?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent047-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 - irregularity must be discovered during game. Procedure for later discovery.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_007",
+      "question": "Can a player castle if the rook is attacked?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 castling rules. Rook being attacked is NOT a prohibition - only king in/through check matters.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_008",
+      "question": "What are the arbiter's duties during a rapid or blitz tournament?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.2-A.3 on arbiter duties in rapid chess.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_009",
+      "question": "How should an arbiter handle a mobile phone ringing during a game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent057-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 11.3.2 on electronic devices/phones during games.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent035-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_010",
+      "question": "What is the 75-move rule and when does it apply?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p029-parent040-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk references 9.6.1 and 9.6.2 (75-move rule) - arbiter must intervene and declare draw. Partial definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_011",
+      "question": "What is the penalty for making an illegal move in a standard game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 illegal move penalties with time addition procedure.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_012",
+      "question": "How should a player correctly offer a draw?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.1 on draw offers and correct procedure.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_013",
+      "question": "What are the conditions for castling to be legal?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 with complete castling conditions list.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_014",
+      "question": "When must a player record the moves during a game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 on move recording requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_015",
+      "question": "What happens if both players have made an illegal move?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent068-child02",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk discusses Article 7.5 illegal move context. Both players making illegal moves scenario.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p037-parent028-child02",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_016",
+      "question": "How is the pawn promotion completed correctly?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3-3.7.5 on pawn promotion procedure and completion.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_017",
+      "question": "What are the time controls for a FIDE rated rapid game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix A.1 defining FIDE rated rapid time requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent039-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_018",
+      "question": "When can a player claim a draw by the 50-move rule?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.3 context on 50-move rule draw claims.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_019",
+      "question": "What are the arbiter's options when a player disturbs the opponent?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11.5 on forbidden behavior (disturbance).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_020",
+      "question": "How is checkmate defined according to FIDE rules?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.1.1 with checkmate definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_021",
+      "question": "What happens when a player completes a move but the position remains impossible?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk discusses Article 7.5 irregularity handling - impossible position scenario.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_022",
+      "question": "What are the default time penalties an arbiter can give?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p034-parent046-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.9 on arbiter time penalties.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_023",
+      "question": "How should an arbiter handle a quickplay finish situation?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent088-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Guidelines III on quickplay finish handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent051-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_024",
+      "question": "What is the definition of stalemate?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.1 stalemate definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_025",
+      "question": "When can an arbiter intervene during a game without a claim from a player?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent065-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.6/12.7 on arbiter intervention without player claims.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_026",
+      "question": "What is the exact procedure when a player is in zeitnot and cannot record moves?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.4 on time trouble (zeitnot) recording exemption.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent030-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_032",
+      "question": "What is the exact Elo rating requirement to become a FIDE Master?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent355-child00",
+      "verdict": "PARTIAL_ACCEPTABLE",
+      "reason": "Chunk contains FIDE title regulations. FM rating requirement info may be partial.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent148-child02",
+      "confidence": "MEDIUM"
+    },
+    {
+      "id": "intl_037",
+      "question": "What special rules apply when a visually impaired player competes against a sighted opponent?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix D on visually impaired players - two boards, assistant, etc.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_038",
+      "question": "If a chess clock becomes defective during a game, what should the arbiter do?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.10/6.11 on clock settings and defects.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent026-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_039",
+      "question": "What are the exact conditions for a valid en passant capture?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3.1 on en passant conditions.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent017-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_040",
+      "question": "What information must be recorded on the envelope when a game is adjourned?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent082-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Guidelines I.2 on adjournment envelope requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent048-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_041",
+      "question": "What does 'Kurze Rochade' mean when announced by a visually impaired player?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Appendix D.2 - Kurze Rochade = short castling (kingside O-O).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent045-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_042",
+      "question": "According to FIDE Laws, at what exact moment is an illegal move considered 'completed'?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5.1 - illegal move completed when clock pressed.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_043",
+      "question": "Under what circumstances is pressing the chess clock before making a move permitted?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.2.4 - forbidden to press clock before moving.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_044",
+      "question": "What is the initial position of the pieces on the chessboard?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent031-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 2 on initial position setup.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent016-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_045",
+      "question": "How does the knight move according to FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent033-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.6 on knight movement.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent017-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_046",
+      "question": "What are the rules for castling in FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.8.2 castling rules.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent018-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_047",
+      "question": "What happens when a pawn reaches the eighth rank?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.5 on pawn reaching eighth rank (promotion).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_048",
+      "question": "What is the touch-move rule according to Article 4?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.3 touch-move rule explanation.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_049",
+      "question": "When is a move considered completed according to FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent035-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.4.4 - move completed when piece touches destination.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent020-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_050",
+      "question": "What are the conditions for checkmate?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.1.1 checkmate conditions.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_051",
+      "question": "What is stalemate and when does it occur?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.1 stalemate definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_052",
+      "question": "How does en passant capture work?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 3.7.3 en passant capture.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent017-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_053",
+      "question": "What is the purpose of the 'j'adoube' or 'I adjust' declaration?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 4.2.1 on jadoube/I adjust declaration.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent019-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_054",
+      "question": "How should the chess clock be handled according to Article 6?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.2 on chess clock handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent022-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_055",
+      "question": "What is the default time for arriving late to a game?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent044-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.7 default time for late arrival.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent024-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_056",
+      "question": "What happens when a flag falls on the chess clock?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent042-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.1 flag fall definition.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent023-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_057",
+      "question": "What are the requirements for chess clock settings?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.10 clock settings requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent026-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_058",
+      "question": "What is Fischer time control?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.3 Fischer/increment time control.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_059",
+      "question": "What is Bronstein time delay?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 6.3 Bronstein delay time control.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent023-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_060",
+      "question": "What should happen when an illegal move is discovered?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5 illegal move discovery procedure.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_061",
+      "question": "What happens if the initial position was incorrect?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.2 incorrect initial position handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_062",
+      "question": "What is the penalty for making an illegal move?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.5 illegal move penalty.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent027-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_063",
+      "question": "How does the arbiter handle displacement of pieces?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 7.4 on displacement of pieces handling.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent028-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_064",
+      "question": "When is move recording required according to FIDE Laws?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 move recording requirements.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_065",
+      "question": "What notation system is used for recording moves?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.1 algebraic notation requirement.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent030-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_066",
+      "question": "When can a player stop recording moves?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent050-child02",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 8.4 on stopping recording (time trouble).",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent030-child02",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_067",
+      "question": "What is the 50-move rule for claiming a draw?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.3 50-move rule for draw claim.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent033-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_068",
+      "question": "How does one claim a draw by threefold repetition?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.2 threefold repetition draw claim.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent032-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_069",
+      "question": "What are the conditions for a draw by insufficient material?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 5.2.2 insufficient material draw conditions.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent021-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_070",
+      "question": "When does the 75-move rule apply for automatic draw?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 9.6 on 75-move automatic draw.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p042-parent034-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_071",
+      "question": "What are the main duties of the arbiter according to Article 12?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.2 arbiter main duties.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_072",
+      "question": "What behavior is forbidden for players according to Article 11?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11 forbidden player behavior.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child00",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_073",
+      "question": "What powers does the arbiter have for penalizing players?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child01",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 12.9 arbiter penalty powers.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent038-child01",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "intl_074",
+      "question": "How does the arbiter handle electronic device violations?",
+      "current_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent060-child00",
+      "verdict": "WRONG_CORRECTED",
+      "reason": "Chunk contains Article 11.3 electronic device violations.",
+      "new_chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent036-child01",
+      "confidence": "HIGH"
+    }
+  ]
+}

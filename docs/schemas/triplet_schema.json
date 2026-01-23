@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pocket-arbiter/schemas/triplet.json",
+  "title": "Training Triplet Schema v1.0",
+  "description": "Schema ISO 42001 conforme pour triplets fine-tuning EmbeddingGemma",
+  "type": "object",
+  "required": ["anchor", "positive", "negative", "metadata"],
+  "properties": {
+    "anchor": {
+      "type": "string",
+      "minLength": 10,
+      "pattern": "\\?$",
+      "description": "Question utilisateur (doit finir par ?)"
+    },
+    "positive": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Chunk contenant la reponse"
+    },
+    "negative": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Hard negative (similaire mais incorrect)"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["source", "chunk_id"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["gold_standard", "synthetic"],
+          "description": "Origine du triplet"
+        },
+        "chunk_id": {
+          "type": "string",
+          "description": "ID du chunk positive"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["easy", "medium", "hard"],
+          "description": "Difficulte estimee"
+        },
+        "question_type": {
+          "type": "string",
+          "enum": ["factual", "procedural", "definition"],
+          "description": "Type de question"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["arbitre_terrain", "arbitre_organisateur", "question_joueur"],
+          "description": "Categorie metier FFE"
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "human_reviewed": {
+              "type": "boolean",
+              "description": "Revu par humain"
+            },
+            "llm_judge_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Score LLM-as-judge (0-1)"
+            },
+            "reviewer_id": {
+              "type": "string",
+              "description": "ID du reviewer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "if": {
+    "properties": {
+      "metadata": {
+        "properties": {
+          "source": { "const": "synthetic" }
+        }
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "metadata": {
+        "properties": {
+          "validation": {
+            "required": ["llm_judge_score"],
+            "properties": {
+              "llm_judge_score": {
+                "minimum": 0.7
+              }
+            }
+          }
+        },
+        "required": ["source", "chunk_id", "validation"]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "corpus": "fr",
+    "report_version": "1.0",
+    "generated_at": "2026-01-23T17:54:24.835913+00:00",
+    "status": "pending"
+  },
+  "message": "No ARES evaluation found. Run evaluation first.",
+  "instructions": [
+    "1. python -m scripts.evaluation.ares.convert_to_ares --corpus fr",
+    "2. python -m scripts.evaluation.ares.generate_few_shot --corpus fr",
+    "3. python -m scripts.evaluation.ares.run_evaluation --corpus fr",
+    "4. python -m scripts.evaluation.ares.report --corpus fr"
+  ]
+}

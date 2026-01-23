@@ -41,6 +41,17 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "player",
+        "touches",
+        "piece",
+        "but"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -57,7 +68,7 @@
       ],
       "expected_pages": [
         49,
-        51
+        50
       ],
       "metadata": {
         "hard_type": "ANSWERABLE",
@@ -65,6 +76,19 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "time",
+        "each",
+        "appendix",
+        "rapid",
+        "one",
+        "either"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -92,6 +116,17 @@
         "answer_type": "CONDITIONAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "declare",
+        "game",
+        "drawn"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -116,6 +151,19 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "valid",
+        "claim",
+        "article",
+        "drawn",
+        "draw",
+        "offers"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -140,6 +188,17 @@
         "answer_type": "CONDITIONAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "flag",
+        "one",
+        "notices"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -164,6 +223,16 @@
         "answer_type": "DEFINITIONAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "illegal",
+        "move",
+        "discovered"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -188,6 +257,17 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "player",
+        "castle",
+        "rook",
+        "attacked"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -206,8 +286,7 @@
       ],
       "expected_pages": [
         49,
-        50,
-        51
+        50
       ],
       "metadata": {
         "audit_note": "Page 135 removed (was pairing algorithm, not rapid/blitz rules) - ISO 29119 NC fix 2026-01-20",
@@ -216,6 +295,19 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "arbiter",
+        "rapid",
+        "appendix",
+        "one",
+        "either",
+        "completed"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -240,6 +332,16 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "mobile",
+        "phone"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -264,6 +366,19 @@
         "answer_type": "DEFINITIONAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "move",
+        "rule",
+        "competitive",
+        "rules",
+        "play",
+        "article"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -289,6 +404,16 @@
         "answer_type": "DEFINITIONAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "making",
+        "illegal",
+        "move"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -313,6 +438,16 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "offer",
+        "draw"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -337,6 +472,19 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "castling",
+        "legal",
+        "two",
+        "different",
+        "ways",
+        "moving"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -362,6 +510,17 @@
         "answer_type": "CONDITIONAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "record",
+        "moves",
+        "during"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -386,6 +545,16 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "players",
+        "made",
+        "illegal"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -411,6 +580,19 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "pawn",
+        "promotion",
+        "choice",
+        "restricted",
+        "captured",
+        "previously"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -426,8 +608,7 @@
         "time-control"
       ],
       "expected_pages": [
-        49,
-        51
+        49
       ],
       "metadata": {
         "hard_type": "ANSWERABLE",
@@ -435,6 +616,19 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "time",
+        "rapid",
+        "appendix",
+        "one",
+        "either",
+        "completed"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -459,6 +653,17 @@
         "answer_type": "CONDITIONAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "player",
+        "claim",
+        "draw",
+        "move"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -486,6 +691,16 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "arbiter",
+        "player",
+        "opponent"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -510,6 +725,19 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "according",
+        "rules",
+        "article",
+        "completion",
+        "won",
+        "checkmated"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -534,6 +762,16 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "player",
+        "move",
+        "but"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -558,6 +796,19 @@
         "answer_type": "LIST",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "time",
+        "arbiter",
+        "essential",
+        "write",
+        "times",
+        "shown"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -583,6 +834,16 @@
         "answer_type": "PROCEDURAL",
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "quickplay",
+        "finish"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -607,6 +868,19 @@
         "answer_type": "DEFINITIONAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "stalemate",
+        "article",
+        "completion",
+        "won",
+        "checkmated",
+        "his"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -632,6 +906,17 @@
         "answer_type": "CONDITIONAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "APPLY"
+      },
+      "keywords": [
+        "arbiter",
+        "intervene",
+        "during",
+        "game"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -779,6 +1064,16 @@
         "answer_type": "DEFINITIONAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "UNDERSTAND"
+      },
+      "keywords": [
+        "rating",
+        "requirement",
+        "become"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -883,6 +1178,16 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "MULTI_SENTENCE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "special",
+        "rules",
+        "visually"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -935,6 +1240,19 @@
         "answer_type": "LIST",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "ANALYZE"
+      },
+      "keywords": [
+        "choice",
+        "restricted",
+        "captured",
+        "previously",
+        "exchange",
+        "pawn"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -961,6 +1279,17 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "REMEMBER"
+      },
+      "keywords": [
+        "information",
+        "recorded",
+        "envelope",
+        "game"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -1013,6 +1342,19 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "DOMAIN_KNOWLEDGE",
         "cognitive_level": "REMEMBER"
+      },
+      "keywords": [
+        "according",
+        "important",
+        "irregularity",
+        "discovered",
+        "signed",
+        "scoresheets"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -1039,6 +1381,19 @@
         "answer_type": "FACTUAL",
         "reasoning_type": "SINGLE_SENTENCE",
         "cognitive_level": "REMEMBER"
+      },
+      "keywords": [
+        "chess",
+        "clock",
+        "makes",
+        "one",
+        "hand",
+        "presses"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
       }
     },
     {
@@ -1412,6 +1767,933 @@
         "expected_behavior": "REJECT_CONTRADICTION"
       },
       "difficulty": "hard"
+    },
+    {
+      "question": "What is the initial position of the pieces on the chessboard?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        18
+      ],
+      "keywords": [
+        "initial",
+        "position",
+        "pieces",
+        "chessboard"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_044",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "How does the knight move according to FIDE Laws?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        20,
+        21
+      ],
+      "keywords": [
+        "knight",
+        "move",
+        "squares",
+        "L-shape"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_045",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What are the rules for castling in FIDE Laws?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        23,
+        24
+      ],
+      "keywords": [
+        "castling",
+        "king",
+        "rook",
+        "conditions"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_046",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What happens when a pawn reaches the eighth rank?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        21,
+        22
+      ],
+      "keywords": [
+        "pawn",
+        "promotion",
+        "eighth",
+        "rank"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_047",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is the touch-move rule according to Article 4?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        25,
+        26
+      ],
+      "keywords": [
+        "touch",
+        "move",
+        "piece",
+        "Article 4"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_048",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "When is a move considered completed according to FIDE Laws?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        26
+      ],
+      "keywords": [
+        "move",
+        "completed",
+        "clock",
+        "press"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_049",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What are the conditions for checkmate?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        28
+      ],
+      "keywords": [
+        "checkmate",
+        "king",
+        "escape",
+        "game"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_050",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is stalemate and when does it occur?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ],
+      "keywords": [
+        "stalemate",
+        "draw",
+        "legal",
+        "move"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_051",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "How does en passant capture work?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        21,
+        22
+      ],
+      "keywords": [
+        "en passant",
+        "pawn",
+        "capture",
+        "adjacent"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_052",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is the purpose of the 'j'adoube' or 'I adjust' declaration?",
+      "category": "laws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        25
+      ],
+      "keywords": [
+        "adjust",
+        "j'adoube",
+        "piece",
+        "touch"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "intl_053",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "How should the chess clock be handled according to Article 6?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        29,
+        30
+      ],
+      "keywords": [
+        "clock",
+        "handle",
+        "press",
+        "hand"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_054",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is the default time for arriving late to a game?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        32
+      ],
+      "keywords": [
+        "default",
+        "time",
+        "determined",
+        "start",
+        "white",
+        "started"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "intl_055",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What happens when a flag falls on the chess clock?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        31
+      ],
+      "keywords": [
+        "flag",
+        "falls",
+        "time",
+        "expire"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_056",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What are the requirements for chess clock settings?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        33
+      ],
+      "keywords": [
+        "clock",
+        "settings",
+        "increment",
+        "time"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_057",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is Fischer time control?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        29,
+        30
+      ],
+      "keywords": [
+        "Fischer",
+        "increment",
+        "time",
+        "control"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_058",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is Bronstein time delay?",
+      "category": "time",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        29,
+        30
+      ],
+      "keywords": [
+        "Bronstein",
+        "delay",
+        "time",
+        "control"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_059",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What should happen when an illegal move is discovered?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        35,
+        36
+      ],
+      "keywords": [
+        "illegal",
+        "move",
+        "penalty",
+        "discovered"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_060",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What happens if the initial position was incorrect?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        35
+      ],
+      "keywords": [
+        "initial",
+        "position",
+        "incorrect",
+        "restart"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_061",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is the penalty for making an illegal move?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        35,
+        36
+      ],
+      "keywords": [
+        "illegal",
+        "move",
+        "penalty",
+        "time"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_062",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "How does the arbiter handle displacement of pieces?",
+      "category": "irregularities",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        36,
+        37
+      ],
+      "keywords": [
+        "arbiter",
+        "position",
+        "important",
+        "irregularity",
+        "discovered",
+        "signed"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_063",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "When is move recording required according to FIDE Laws?",
+      "category": "recording",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        38,
+        39
+      ],
+      "keywords": [
+        "recording",
+        "moves",
+        "scoresheet",
+        "required"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_064",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What notation system is used for recording moves?",
+      "category": "recording",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        38
+      ],
+      "keywords": [
+        "notation",
+        "algebraic",
+        "recording",
+        "moves"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "FACTUAL",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "LEXICAL_MATCH"
+      },
+      "id": "intl_065",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "When can a player stop recording moves?",
+      "category": "recording",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        38,
+        39
+      ],
+      "keywords": [
+        "stop",
+        "recording",
+        "time",
+        "trouble"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_066",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What is the 50-move rule for claiming a draw?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ],
+      "keywords": [
+        "50",
+        "moves",
+        "draw",
+        "claim"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "DEFINITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_067",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "How does one claim a draw by threefold repetition?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        40
+      ],
+      "keywords": [
+        "draw",
+        "claim",
+        "article",
+        "drawn",
+        "offers",
+        "event"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_068",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What are the conditions for a draw by insufficient material?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        28,
+        29
+      ],
+      "keywords": [
+        "draw",
+        "checkmate",
+        "article",
+        "completion",
+        "won",
+        "checkmated"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "ANALYZE",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_069",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "When does the 75-move rule apply for automatic draw?",
+      "category": "draws",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        40,
+        41
+      ],
+      "keywords": [
+        "moves",
+        "draw",
+        "article",
+        "drawn",
+        "offers",
+        "event"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "CONDITIONAL",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "SINGLE_SENTENCE"
+      },
+      "id": "intl_070",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What are the main duties of the arbiter according to Article 12?",
+      "category": "arbiter",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        47
+      ],
+      "keywords": [
+        "arbiter",
+        "duties",
+        "Article 12",
+        "shall"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_071",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What behavior is forbidden for players according to Article 11?",
+      "category": "conduct",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        45
+      ],
+      "keywords": [
+        "forbidden",
+        "distract",
+        "annoy",
+        "opponent"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "REMEMBER",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_072",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "What powers does the arbiter have for penalizing players?",
+      "category": "arbiter",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        47,
+        48
+      ],
+      "keywords": [
+        "12.9",
+        "penalty",
+        "warning",
+        "expulsion"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "LIST",
+        "cognitive_level": "UNDERSTAND",
+        "reasoning_type": "MULTI_SENTENCE"
+      },
+      "id": "intl_073",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
+    },
+    {
+      "question": "How does the arbiter handle electronic device violations?",
+      "category": "arbiter",
+      "expected_docs": [
+        "FIDE_Arbiters_Manual_2025.pdf"
+      ],
+      "expected_pages": [
+        45
+      ],
+      "keywords": [
+        "electronic",
+        "device",
+        "phone",
+        "violation"
+      ],
+      "metadata": {
+        "hard_type": "ANSWERABLE",
+        "answer_type": "PROCEDURAL",
+        "cognitive_level": "APPLY",
+        "reasoning_type": "DOMAIN_KNOWLEDGE"
+      },
+      "id": "intl_074",
+      "validation": {
+        "status": "VALIDATED",
+        "method": "semantic_verification",
+        "verified_date": "2026-01-23"
+      },
+      "audit": "auto_2026-01-23"
     }
   ],
   "coverage": {
@@ -1424,5 +2706,11 @@
     "hard_cases": 11,
     "tricky_cases": 3
   },
-  "version": "2.3"
+  "version": "2.4",
+  "description": "Gold standard v2.4 - 93 questions (added 31 answerable)",
+  "statistics": {
+    "total_questions": 93,
+    "adversarial_questions": 31,
+    "adversarial_ratio": "33.3%"
+  }
 }

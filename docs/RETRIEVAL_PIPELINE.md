@@ -2,23 +2,25 @@
 
 > **Document ID**: DOC-RETR-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 2.3
+> **Version**: 4.0
 > **Date**: 2026-01-22
-> **Statut**: COMPLETE - Recall 91.17% atteint
+> **Statut**: DUAL-MODE - Recall comparison en cours, 100% page provenance
 
 ---
 
-## Vue d'ensemble (v4.0)
+## Vue d'ensemble (v6.0 - Dual Mode)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  INDEXATION (offline) - Pipeline v4.0                                       │
+│  INDEXATION (offline) - Pipeline v6.0 (ISO 42001 + EmbeddingGemma 308M)     │
 │  ─────────────────────                                                      │
 │                                                                             │
-│  PDFs FFE ──→ Extraction ──→ Chunking ──→ Embedding ──→ Storage            │
-│    29 docs    Docling ML    Parent-Child  768D vectors  SQLite + FTS5      │
-│                             1827 FR chunks (children + tables)              │
-│                             974 INTL chunks (children + tables)             │
+│  PDFs FFE ──→ Extraction ──→ Chunking (DUAL) ──→ Embedding ──→ Storage     │
+│    29 docs    Docling ML    MODE A: HybridChunker    768D vectors  SQLite   │
+│               DoclingDocument  2540 FR / 1412 INTL   EmbeddingGemma + FTS5  │
+│               (provenance)  MODE B: LangChain        308M params            │
+│                               1331 FR / 866 INTL                            │
+│                             100% page provenance (both modes)               │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -52,27 +54,48 @@
 from docling.document_converter import DocumentConverter
 converter = DocumentConverter()
 result = converter.convert(pdf_path)
+doc = result.document
+doc_dict = doc.export_to_dict()  # Preserve provenance (ISO 42001)
 ```
 
 **Avantages vs PyMuPDF:**
 - Extraction ML (meilleure qualite)
 - Structure preservee (tableaux, listes)
 - Multi-format (PDF, DOCX, images)
+- **DoclingDocument JSON** preserve page provenance (Discussion #1012)
 
-### 2. Chunking Parent-Child (NVIDIA 2025)
+**Page Provenance (ISO 42001 A.6.2.2):**
+- `export_to_markdown()` = LOSSY (perd page_no)
+- `export_to_dict()` = LOSSLESS (preserve prov[].page_no)
+- Source: [Docling Discussion #1012](https://github.com/docling-project/docling/discussions/1012)
 
-**Fichier:** `scripts/pipeline/chunker.py`
+### 2. Chunking Dual-Mode (Parent-Child, ISO 42001)
+
+**Tokenizer unifié:** `google/embeddinggemma-300m` (308M params)
+- Cohérence chunking/embedding (ISO 42001 A.6.2.2)
+- Remplace tiktoken cl100k_base
 
 | Parametre | Valeur | Justification |
 |-----------|--------|---------------|
-| Parent size | 1024 tokens | Contexte large pour retrieval |
-| Child size | 450 tokens | Unite semantique coherente |
-| Overlap | 15% (~68 tokens) | NVIDIA research optimal |
+| Parent size | 1024 tokens | arXiv 2025: contexte large |
+| Child size | 450 tokens | Chroma 2025: sweet spot |
+| Overlap | 15% (154/68) | NVIDIA 2025: optimal |
+| Page provenance | 100% | prov[].page_no obligatoire |
 
-**Strategie:**
-- RecursiveCharacterTextSplitter (LangChain)
-- Preserve structure: `\n\n` > `\n` > `. ` > ` `
-- Metadata heritage parent-child
+**Mode A (HybridChunker):** `scripts/pipeline/chunker_hybrid.py`
+- HybridChunker (Docling native) + RecursiveCharacterTextSplitter
+- Préserve frontières document (paragraphes, sections)
+- 2540 FR / 1412 INTL chunks
+
+**Mode B (LangChain):** `scripts/pipeline/chunker_langchain.py`
+- MarkdownHeaderTextSplitter + section fusion + RecursiveCharacterTextSplitter
+- Fusionne petites sections (<1024 tokens) avant parent split
+- 1331 FR / 866 INTL chunks (plus denses)
+
+**Page Provenance (v6.0 - ISO 42001 A.6.2.2):**
+- Mode A: `chunk.meta.doc_items[].prov[].page_no` (natif Docling)
+- Mode B: Mapping depuis `docling_document.texts[].prov[].page_no`
+- 100% coverage pour les deux modes (pas de fallback dégradé)
 
 ### 3. Table Summaries (ISO 42001)
 
@@ -275,6 +298,7 @@ scripts/pipeline/
 | 2.1 | 2026-01-19 | **Fallback + logging**: Fallback intelligent, logging structure `logs/retrieval_log.txt` |
 | 2.2 | 2026-01-20 | **Research docs**: Lien analyse echecs + optimisations zero-runtime, gold standard v5.22 |
 | 2.3 | 2026-01-22 | **COMPLETE**: Recall 91.17% atteint, Phase 1B triplets synthetiques 5434 questions |
+| 4.1 | 2026-01-23 | **Benchmark Chunking Optimizations**: Dual-size 81.72%, Semantic 82.89% vs Baseline 86.94% - RÉGRESSION. Recommandation: conserver baseline 450t single-size. |
 
 ---
 

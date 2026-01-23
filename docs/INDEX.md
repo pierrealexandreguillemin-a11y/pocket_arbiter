@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 1.1
-> **Date**: 2026-01-18
+> **Version**: 1.3
+> **Date**: 2026-01-22
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -65,7 +65,9 @@ pocket_arbiter/
 | SPEC-VIS-001 | [VISION.md](VISION.md) | Vision et objectifs du projet | Draft |
 | SPEC-ARCH-001 | [ARCHITECTURE.md](ARCHITECTURE.md) | Architecture technique | Draft |
 | SPEC-REQ-001 | [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) | Exigences qualite ISO 25010 | En cours |
-| SPEC-CHUNK-001 | [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) | Strategie chunking RAG | En cours |
+| SPEC-CHUNK-001 | [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) | Strategie chunking Parent-Child v6.0 | Approuve |
+| SPEC-RETR-001 | [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) | Pipeline retrieval v4.0 dual-mode | Approuve |
+| SPEC-SCH-001 | [CHUNK_SCHEMA.md](CHUNK_SCHEMA.md) | Schema JSON chunks v2.1 | Approuve |
 
 ### 2.3 Intelligence artificielle
 
@@ -73,6 +75,8 @@ pocket_arbiter/
 |----|----------|-------------|--------|
 | DOC-POL-001 | [AI_POLICY.md](AI_POLICY.md) | Politique IA responsable ISO 42001 | Draft |
 | DOC-MODEL-001 | [ISO_MODEL_DEPLOYMENT_ANALYSIS.md](ISO_MODEL_DEPLOYMENT_ANALYSIS.md) | Analyse deploiement modele | Approuve |
+| RES-LORA-001 | [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md) | Guide fine-tuning MRL+LoRA | Draft |
+| RES-VECTOR-001 | [ISO_VECTOR_SOLUTIONS.md](ISO_VECTOR_SOLUTIONS.md) | Solutions vector-based RAG | En cours |
 | PROM-LOG-001 | [prompts/CHANGELOG.md](../prompts/CHANGELOG.md) | Historique des versions de prompts | Actif |
 
 ### 2.4 Tests et qualite
@@ -115,17 +119,21 @@ pocket_arbiter/
 
 ### D
 - **Disclaimer** : [AI_POLICY.md](AI_POLICY.md) Section 7.1
+- **Docling** : [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) Section 1, [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md)
 - **Documentation** : [DOC_CONTROL.md](DOC_CONTROL.md)
+- **Dual-mode chunking** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 3, [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md)
 - **DVC** : [DVC_GUIDE.md](DVC_GUIDE.md)
 
 ### E
-- **Embeddings** : [AI_POLICY.md](AI_POLICY.md) Section 5.1
+- **Embeddings** : [AI_POLICY.md](AI_POLICY.md) Section 5.1, [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md)
+- **EmbeddingGemma** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md), [ISO_VECTOR_SOLUTIONS.md](ISO_VECTOR_SOLUTIONS.md)
 - **Exigences qualite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md)
 
 ### F
 - **FFE (Federation Francaise des Echecs)** : [VISION.md](VISION.md) Section 2.1
 - **FIDE** : [VISION.md](VISION.md) Section 2.1
 - **Fiabilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.5
+- **Fine-tuning** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md), [ISO_VECTOR_SOLUTIONS.md](ISO_VECTOR_SOLUTIONS.md)
 
 ### G
 - **Gates (phase gates)** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
@@ -133,6 +141,7 @@ pocket_arbiter/
 
 ### H
 - **Hallucination** : [AI_POLICY.md](AI_POLICY.md) Section 3.2, [TEST_PLAN.md](TEST_PLAN.md) Section 3.3
+- **HybridChunker** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 3.1, [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) Section 2
 
 ### I
 - **ISO 25010** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md), [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.1
@@ -143,10 +152,13 @@ pocket_arbiter/
 
 ### L
 - **LLM** : [AI_POLICY.md](AI_POLICY.md) Section 5.2
+- **LoRA (Low-Rank Adaptation)** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md)
 
 ### M
 - **Maintenabilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.7
+- **Matryoshka (MRL)** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md), [ISO_VECTOR_SOLUTIONS.md](ISO_VECTOR_SOLUTIONS.md)
 - **Metadonnees** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 3
+- **MRL (Matryoshka Representation Learning)** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md)
 
 ### N
 - **Numerotation documents** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 2
@@ -155,7 +167,8 @@ pocket_arbiter/
 - **Offline** : [VISION.md](VISION.md) Section 5.1
 
 ### P
-- **Parent-Document Retrieval** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 3.2
+- **Page provenance** : [CHUNK_SCHEMA.md](CHUNK_SCHEMA.md) Section 2, [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) (ISO 42001 A.6.2.2)
+- **Parent-Child chunking** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 3, [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) Section 2
 - **Performance** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.2
 - **Phase gates** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
 - **Pipeline** : [ARCHITECTURE.md](ARCHITECTURE.md) Section 5.1
@@ -247,6 +260,9 @@ pocket_arbiter/
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-11 | Claude Opus 4.5 | Creation initiale |
 | 1.1 | 2026-01-18 | Claude Opus 4.5 | Ajout CHUNKING_STRATEGY.md, ISO_MODEL_DEPLOYMENT_ANALYSIS.md |
+| 1.2 | 2026-01-21 | Claude Opus 4.5 | Ajout LORA_FINETUNING_GUIDE.md, ISO_VECTOR_SOLUTIONS.md, index LoRA/MRL |
+| 1.3 | 2026-01-22 | Claude Opus 4.5 | Ajout RETRIEVAL_PIPELINE.md, CHUNK_SCHEMA.md, index Docling/HybridChunker/Parent-Child/Page provenance |
+| 1.4 | 2026-01-23 | Claude Opus 4.5 | Benchmark chunking optimizations (dual-size -5.22%, semantic -4.05% vs baseline 86.94%) |
 
 ---
 

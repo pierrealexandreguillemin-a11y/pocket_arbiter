@@ -19,15 +19,15 @@ Ce document definit le schema JSON pour les chunks de texte utilises dans le pip
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://pocket-arbiter/schemas/chunk.json",
-  "title": "RAG Chunk Schema v2.0",
-  "description": "Schema hierarchique Parent-Child pour RAG (NVIDIA 2025)",
+  "title": "RAG Chunk Schema v3.0",
+  "description": "Schema hierarchique Parent-Child pour RAG (NVIDIA 2025 + EmbeddingGemma)",
   "type": "object",
   "required": ["id", "text", "source", "tokens", "corpus", "chunk_type", "page"],
   "properties": {
     "id": {
       "type": "string",
-      "description": "Identifiant unique du chunk",
-      "examples": ["LA-octobre2025.pdf-p001-c00", "doc-table0-summary"]
+      "description": "Identifiant unique du chunk (format: source-pXXX-parent/childYYY-ZZ)",
+      "examples": ["LA-octobre2025.pdf-p015-parent001", "LA-octobre2025.pdf-p015-child001-00"]
     },
     "text": {
       "type": "string",
@@ -76,8 +76,14 @@ Ce document definit le schema JSON pour les chunks de texte utilises dans le pip
     },
     "page": {
       "type": "integer",
-      "description": "Numero de page (OBLIGATOIRE - ISO 42001 A.6.2.2)",
+      "description": "Numero de page principal (OBLIGATOIRE - ISO 42001 A.6.2.2)",
       "minimum": 1
+    },
+    "pages": {
+      "type": "array",
+      "description": "Liste des pages couvertes (multi-page chunks)",
+      "items": { "type": "integer", "minimum": 1 },
+      "examples": [[15], [15, 16], [42, 43, 44]]
     }
   }
 }

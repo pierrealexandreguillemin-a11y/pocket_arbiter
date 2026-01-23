@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 6.3
+> **Version**: 6.4
 > **Date**: 2026-01-22
 > **Statut**: Approuve
 > **Classification**: Technique
@@ -267,6 +267,36 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 
 **Cible**: 91.17% → 95-98% recall sans impact production.
 
+### 4.6 Techniques Avancées Index-Time (voir ISO_VECTOR_SOLUTIONS.md v1.2)
+
+> **CONTRAINTE VISION.md §5.1**: 100% offline, RAM < 500MB, latence < 5s
+> Seules les techniques **INDEX-TIME** sont applicables (traitement développeur, pas device)
+
+**Techniques compatibles offline (2026-01-22)**:
+
+| Technique | Gain | Mode A | Mode B | Priorité | Effort | Phase |
+|-----------|------|--------|--------|----------|--------|-------|
+| **Fine-tuning MRL+LoRA** | +5-15% hard cases | ✅ | ✅ | **P0** | 1-2j | Index |
+| **Contextual Retrieval** (Anthropic) | -35% à -49% failures | ✅ | ✅ | **P1** | 4h + $4 | Index |
+| **Semantic Chunking** | +9% recall | ⚠️ | ✅ | P2 | 4h | Index |
+| **Proposition-level** | +15-25% recall | ✅ | ✅ | P2 | 2j | Index |
+**Applicabilité Mode A (HybridChunker)**:
+- ✅ Contextual Retrieval: Post-processing chunks avec LLM (index-time, développeur)
+- ⚠️ Semantic Chunking: Déjà headings-aware, potentiellement redondant
+- ✅ Fine-tuning: Modèle fine-tuné déployé offline
+
+**Applicabilité Mode B (LangChain)**:
+- ✅ Contextual Retrieval: Post-processing chunks avec LLM (index-time, développeur)
+- ✅ Semantic Chunking: Peut remplacer RecursiveCharacterTextSplitter
+- ✅ Fine-tuning: Modèle fine-tuné déployé offline
+
+**Priorité recommandée (offline-compatible)**:
+1. **P0**: Fine-tuning EmbeddingGemma (gold standard disponible, +5-15%)
+2. **P1**: Contextual Retrieval ($4 one-time index cost, -49% failures)
+3. **P2**: Semantic Chunking / Proposition-level (si recall encore insuffisant)
+
+> Détails complets: `docs/ISO_VECTOR_SOLUTIONS.md` sections 2.5-2.9
+
 ---
 
 ## 5. Conformite ISO
@@ -357,6 +387,81 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | 6.1 | 2026-01-22 | **Mode B sans fusion (LangChain standard)**: Comparaison MarkdownHeaderTextSplitter + RecursiveCharacter standard. Résultat: fusion AMÉLIORE recall (+1.61%). |
 | 6.2 | 2026-01-22 | **Comparaison finale FR**: Mode A 85.33%, Mode B std 86.00%, Mode B fusion 87.61%. FTS5 escape chars ajoutés (`/`, `=`, `%`, etc.). |
 | 6.3 | 2026-01-22 | **Benchmark hybrid weights**: Mode A + V=0.5/B=0.5 = **87.33%** (meilleur). Poids optimisés de 0.3/0.7 → 0.5/0.5 (+2.66% recall). Dataset répond BIEN aux vecteurs. |
+| 6.4 | 2026-01-23 | **Optimization 87%→90%+**: Mode A dual-size children (256+450), Mode B SemanticChunker. Baseline 87.33%. |
+
+---
+
+## 9. Optimisation Recall 87% → 90%+ (2026-01-23)
+
+### 9.1 Mode A: Dual-Size Children
+
+**Objectif**: Améliorer recall via chunks adaptés aux types de queries.
+
+| Paramètre | Avant | Après |
+|-----------|-------|-------|
+| Child size | 450 tokens | **256 + 450 tokens** |
+| Child overlap | 68 (15%) | 38/68 (15%) |
+| Chunks estimés FR | ~2500 | **~4500** |
+
+**Constantes** (`chunker_hybrid.py`):
+```python
+CHILD_CHUNK_SIZE_SMALL = 256   # Factoid queries
+CHILD_CHUNK_SIZE_LARGE = 450   # Procedural queries
+```
+
+**Nouveau champ**: `child_size` = "small" | "large"
+
+### 9.2 Mode B: SemanticChunker
+
+**Objectif**: Chunks aux frontières sémantiques (vs taille fixe).
+
+| Paramètre | Valeur |
+|-----------|--------|
+| Embeddings | google/embeddinggemma-300m |
+| Breakpoint | 90th percentile |
+| Post-processing | Re-split si > 450 tokens |
+
+**Constantes** (`chunker_langchain.py`):
+```python
+SEMANTIC_BREAKPOINT_THRESHOLD = 90
+SEMANTIC_MODEL_NAME = "google/embeddinggemma-300m"
+```
+
+### 9.3 Benchmark Results (2026-01-23)
+
+| Step | Mode | Configuration | Chunks FR | Recall@5 | Delta |
+|------|------|---------------|-----------|----------|-------|
+| 0 | Baseline | 450 tokens (single-size) | ~2500 | **86.94%** | - |
+| 1 | A | Dual-size 256+450 tokens | 6161 | 81.72% | **-5.22%** |
+| 2 | B | SemanticChunker (percentile 90) | 2558 | 82.89% | **-4.05%** |
+
+### 9.4 Analyse des Résultats
+
+**CONCLUSION: Les deux optimisations ont RÉGRESSÉ le recall.**
+
+| Observation | Mode A (Dual-Size) | Mode B (Semantic) |
+|-------------|-------------------|-------------------|
+| **Chunks** | 6161 (+147%) | 2558 (+2%) |
+| **Recall** | -5.61% | -4.44% |
+| **Cause probable** | Dilution: trop de petits chunks (256t) noient les bons résultats | Frontières sémantiques pas alignées avec les questions gold |
+
+**Facteurs explicatifs**:
+
+1. **Mode A (Dual-Size)**: La multiplication par 2.5 des chunks a dilué la pertinence. Les petits chunks 256t créent plus de "bruit" dans les résultats.
+
+2. **Mode B (Semantic)**: Le SemanticChunker coupe aux ruptures sémantiques, mais les questions du gold standard sont souvent formulées différemment du texte source.
+
+### 9.5 Recommandation
+
+**Conserver la configuration baseline (v6.3)**:
+- Child size: **450 tokens** (single-size)
+- Recall@5: **86.94%** (baseline restauré)
+- Hybrid weights: V=0.5 / B=0.5
+
+**Prochaines pistes** (hors chunking):
+1. **Contextual Retrieval** (Anthropic): Ajouter contexte document à chaque chunk (~$1 one-time)
+2. **Query expansion**: Reformuler les queries avant recherche
+3. **Reranker**: Cross-encoder post-retrieval
 
 ---
 

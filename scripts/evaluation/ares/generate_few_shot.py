@@ -20,8 +20,8 @@ CORPUS_DIR = BASE_DIR / "corpus" / "processed"
 DATA_TRAINING_DIR = BASE_DIR / "data" / "training"
 OUTPUT_DIR = BASE_DIR / "data" / "evaluation" / "ares"
 
-# Curated few-shot examples with reasoning
-FEW_SHOT_POSITIVE_TEMPLATES = [
+# Curated few-shot examples with reasoning (French)
+FEW_SHOT_POSITIVE_TEMPLATES_FR = [
     {
         "reasoning": "Le document explique directement la règle demandée dans la question. "
         "Les mots-clés de la question apparaissent dans le contexte et "
@@ -50,7 +50,7 @@ FEW_SHOT_POSITIVE_TEMPLATES = [
     },
 ]
 
-FEW_SHOT_NEGATIVE_TEMPLATES = [
+FEW_SHOT_NEGATIVE_TEMPLATES_FR = [
     {
         "reasoning": "Le document traite d'un sujet complètement différent de la question. "
         "Aucun des mots-clés pertinents n'apparaît dans le contexte.",
@@ -77,6 +77,78 @@ FEW_SHOT_NEGATIVE_TEMPLATES = [
         "pattern": "category_mismatch",
     },
 ]
+
+# Curated few-shot examples with reasoning (English for INTL)
+FEW_SHOT_POSITIVE_TEMPLATES_EN = [
+    {
+        "reasoning": "The document directly explains the rule asked in the question. "
+        "Keywords from the question appear in the context and "
+        "the answer can be extracted unambiguously.",
+        "pattern": "direct_match",
+    },
+    {
+        "reasoning": "The context contains the relevant regulation article that answers "
+        "the question. The information is factual and verifiable.",
+        "pattern": "article_reference",
+    },
+    {
+        "reasoning": "The question is about a specific procedure and the document "
+        "describes exactly that procedure with the steps to follow.",
+        "pattern": "procedure",
+    },
+    {
+        "reasoning": "The document covers the same topic as the question and provides "
+        "the necessary information to answer it completely.",
+        "pattern": "topic_match",
+    },
+    {
+        "reasoning": "The context contains a definition or explanation that directly "
+        "answers the comprehension question asked.",
+        "pattern": "definition",
+    },
+]
+
+FEW_SHOT_NEGATIVE_TEMPLATES_EN = [
+    {
+        "reasoning": "The document covers a completely different topic from the question. "
+        "None of the relevant keywords appear in the context.",
+        "pattern": "topic_mismatch",
+    },
+    {
+        "reasoning": "Although the document is from the same domain (chess), it concerns "
+        "a different regulatory aspect that does not answer the question.",
+        "pattern": "domain_adjacent",
+    },
+    {
+        "reasoning": "The context mentions similar terms but in a different context "
+        "that does not allow answering the question asked.",
+        "pattern": "false_positive",
+    },
+    {
+        "reasoning": "The document is a data table or technical appendix "
+        "that does not contain an explanation for the question.",
+        "pattern": "data_table",
+    },
+    {
+        "reasoning": "The context deals with a different category of players or competition "
+        "than the one mentioned in the question.",
+        "pattern": "category_mismatch",
+    },
+]
+
+
+def _get_templates(corpus: str) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    """Get language-appropriate templates for corpus.
+
+    Args:
+        corpus: Either 'fr' or 'intl'
+
+    Returns:
+        Tuple of (positive_templates, negative_templates)
+    """
+    if corpus == "intl":
+        return FEW_SHOT_POSITIVE_TEMPLATES_EN, FEW_SHOT_NEGATIVE_TEMPLATES_EN
+    return FEW_SHOT_POSITIVE_TEMPLATES_FR, FEW_SHOT_NEGATIVE_TEMPLATES_FR
 
 
 def load_gold_standard(corpus: str) -> dict[str, Any]:
@@ -180,6 +252,9 @@ def generate_few_shot_examples(
     # Select diverse positive examples
     selected_positive = _select_diverse_examples(answerable, n_positive)
 
+    # Get language-appropriate templates
+    positive_templates, negative_templates = _get_templates(corpus)
+
     few_shot_samples = []
 
     # Create positive examples
@@ -189,15 +264,13 @@ def generate_few_shot_examples(
         if not chunk:
             continue
 
-        # Find matching triplet for answer
+        # Find matching triplet for answer (FR only, INTL uses chunk text)
         triplet = next(
             (t for t in triplets if t.get("anchor") == q["question"]), None
         )
         answer = triplet["positive"] if triplet else chunk["text"][:500]
 
-        reasoning_template = FEW_SHOT_POSITIVE_TEMPLATES[
-            i % len(FEW_SHOT_POSITIVE_TEMPLATES)
-        ]
+        reasoning_template = positive_templates[i % len(positive_templates)]
 
         few_shot_samples.append(
             {
@@ -221,9 +294,7 @@ def generate_few_shot_examples(
         if not neg_chunk:
             continue
 
-        reasoning_template = FEW_SHOT_NEGATIVE_TEMPLATES[
-            i % len(FEW_SHOT_NEGATIVE_TEMPLATES)
-        ]
+        reasoning_template = negative_templates[i % len(negative_templates)]
 
         few_shot_samples.append(
             {

@@ -225,8 +225,10 @@ def convert_gold_standard_to_ares(
 
     print(f"Created {len(positive_samples)} positive samples")
 
-    # Add negative samples (30% of total)
+    # Add negative samples (30% of total, minimum 1 if we have positives)
     n_negatives = int(len(positive_samples) * negative_ratio / (1 - negative_ratio))
+    if len(positive_samples) > 0 and n_negatives == 0:
+        n_negatives = 1  # Ensure at least 1 negative for small datasets
     negative_samples = []
 
     # Select random questions and pair with random unrelated chunks

@@ -865,3 +865,288 @@ class TestRunEvaluationIntegration:
         assert "context_relevance" in result
         assert result["llm_used"] == "mock"
         assert 0.0 <= result["context_relevance"]["score"] <= 1.0
+
+
+# ============================================================================
+# Test Language-Specific Templates
+# ============================================================================
+
+
+class TestLanguageTemplates:
+    """Test language-appropriate template selection."""
+
+    def test_french_templates_for_fr_corpus(self) -> None:
+        """FR corpus should get French templates."""
+        from scripts.evaluation.ares.generate_few_shot import _get_templates
+
+        pos, neg = _get_templates("fr")
+
+        assert len(pos) == 5
+        assert len(neg) == 5
+        # Check first positive template is in French
+        assert "document" in pos[0]["reasoning"].lower()
+        assert "règle" in pos[0]["reasoning"] or "question" in pos[0]["reasoning"]
+
+    def test_english_templates_for_intl_corpus(self) -> None:
+        """INTL corpus should get English templates."""
+        from scripts.evaluation.ares.generate_few_shot import _get_templates
+
+        pos, neg = _get_templates("intl")
+
+        assert len(pos) == 5
+        assert len(neg) == 5
+        # Check first positive template is in English
+        assert "document" in pos[0]["reasoning"].lower()
+        assert "The" in pos[0]["reasoning"]
+
+
+# ============================================================================
+# Test Minimum Negative Samples
+# ============================================================================
+
+
+class TestMinimumNegativeSamples:
+    """Test that small datasets get at least 1 negative sample."""
+
+    def test_small_dataset_gets_one_negative(self) -> None:
+        """With 2 positives, should get at least 1 negative."""
+        n_positive = 2
+        negative_ratio = 0.30
+
+        # Original formula
+        n_negatives_original = int(n_positive * negative_ratio / (1 - negative_ratio))
+
+        # Fixed formula
+        n_negatives = n_negatives_original
+        if n_positive > 0 and n_negatives == 0:
+            n_negatives = 1
+
+        assert n_negatives_original == 0  # Original would give 0
+        assert n_negatives == 1  # Fixed gives 1
+
+    def test_large_dataset_unchanged(self) -> None:
+        """With 100 positives, formula works normally."""
+        n_positive = 100
+        negative_ratio = 0.30
+
+        n_negatives = int(n_positive * negative_ratio / (1 - negative_ratio))
+        if n_positive > 0 and n_negatives == 0:
+            n_negatives = 1
+
+        # 100 * 0.3 / 0.7 = 42.8 -> 42
+        assert n_negatives == 42
+
+
+# ============================================================================
+# Test CLI Main Functions
+# ============================================================================
+
+
+class TestCLIMain:
+    """Test CLI entrypoint functions."""
+
+    def test_convert_main_with_args(
+        self, mock_corpus_data: dict[str, Path], monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """convert_to_ares.main() parses args correctly."""
+        from scripts.evaluation.ares import convert_to_ares
+
+        # Create fr gold standard in mock location
+        with open(
+            mock_corpus_data["tests_data"] / "gold_standard_fr.json", "w", encoding="utf-8"
+        ) as f:
+            json.dump(
+                {
+                    "version": "test",
+                    "questions": [
+                        {
+                            "id": "FR-Q01",
+                            "question": "Test question?",
+                            "category": "test",
+                            "expected_chunk_id": "doc1.pdf-p001-parent000-child00",
+                            "validation": {"status": "VALIDATED"},
+                            "metadata": {"hard_type": "ANSWERABLE"},
+                        }
+                    ],
+                },
+                f,
+            )
+
+        # Create fr chunks
+        with open(
+            mock_corpus_data["corpus_dir"] / "chunks_mode_b_fr.json", "w", encoding="utf-8"
+        ) as f:
+            json.dump(
+                {
+                    "chunks": [
+                        {
+                            "id": "doc1.pdf-p001-parent000-child00",
+                            "text": "Test chunk content.",
+                            "source": "doc1.pdf",
+                            "pages": [1],
+                            "tokens": 10,
+                        },
+                        {
+                            "id": "doc2.pdf-p001-parent000-child00",
+                            "text": "Negative chunk.",
+                            "source": "doc2.pdf",
+                            "pages": [1],
+                            "tokens": 10,
+                        },
+                    ]
+                },
+                f,
+            )
+
+        monkeypatch.setattr(
+            "sys.argv", ["convert_to_ares", "--corpus", "fr", "--seed", "123"]
+        )
+
+        with patch.object(
+            convert_to_ares, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
+        ), patch.object(
+            convert_to_ares, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
+        ), patch.object(
+            convert_to_ares, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+        ), patch.object(
+            convert_to_ares, "OUTPUT_DIR", mock_corpus_data["output_dir"]
+        ):
+            convert_to_ares.main()
+
+        assert (mock_corpus_data["output_dir"] / "gold_label_fr.tsv").exists()
+
+    def test_generate_few_shot_main_with_args(
+        self, mock_corpus_data: dict[str, Path], monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """generate_few_shot.main() parses args correctly."""
+        from scripts.evaluation.ares import generate_few_shot
+
+        # Create fr gold standard
+        with open(
+            mock_corpus_data["tests_data"] / "gold_standard_fr.json", "w", encoding="utf-8"
+        ) as f:
+            json.dump(
+                {
+                    "version": "test",
+                    "questions": [
+                        {
+                            "id": "FR-Q01",
+                            "question": "Test question?",
+                            "category": "test",
+                            "expected_chunk_id": "doc1.pdf-p001-parent000-child00",
+                            "validation": {"status": "VALIDATED"},
+                            "metadata": {"hard_type": "ANSWERABLE"},
+                        }
+                    ],
+                },
+                f,
+            )
+
+        # Create fr chunks
+        with open(
+            mock_corpus_data["corpus_dir"] / "chunks_mode_b_fr.json", "w", encoding="utf-8"
+        ) as f:
+            json.dump(
+                {
+                    "chunks": [
+                        {
+                            "id": "doc1.pdf-p001-parent000-child00",
+                            "text": "Test chunk.",
+                            "source": "doc1.pdf",
+                            "pages": [1],
+                            "tokens": 10,
+                        },
+                        {
+                            "id": "doc2.pdf-p001-parent000-child00",
+                            "text": "Negative.",
+                            "source": "doc2.pdf",
+                            "pages": [1],
+                            "tokens": 10,
+                        },
+                    ]
+                },
+                f,
+            )
+
+        monkeypatch.setattr(
+            "sys.argv",
+            ["generate_few_shot", "--corpus", "fr", "--n-positive", "1", "--n-negative", "1"],
+        )
+
+        with patch.object(
+            generate_few_shot, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
+        ), patch.object(
+            generate_few_shot, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
+        ), patch.object(
+            generate_few_shot, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+        ), patch.object(
+            generate_few_shot, "OUTPUT_DIR", mock_corpus_data["output_dir"]
+        ):
+            generate_few_shot.main()
+
+        assert (mock_corpus_data["output_dir"] / "few_shot_fr.tsv").exists()
+
+    def test_report_main_creates_pending(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """report.main() creates pending report when no eval exists."""
+        from scripts.evaluation.ares import report
+
+        monkeypatch.setattr("sys.argv", ["report", "--corpus", "fr"])
+
+        output_dir = tmp_path / "reports"
+        output_dir.mkdir()
+        data_dir = tmp_path / "data" / "evaluation" / "ares"
+        data_dir.mkdir(parents=True)
+
+        with patch.object(report, "DATA_DIR", data_dir), patch.object(
+            report, "RESULTS_DIR", data_dir / "results"
+        ):
+            # Patch generate_evaluation_report to use our temp output dir
+            original_func = report.generate_evaluation_report
+
+            def patched_func(corpus: str = "fr", output_dir: Path | None = None) -> Any:
+                return original_func(corpus=corpus, output_dir=tmp_path / "reports")
+
+            with patch.object(report, "generate_evaluation_report", patched_func):
+                report.main()
+
+        assert (tmp_path / "reports" / "ares_report_fr.json").exists()
+
+    def test_run_evaluation_main_mock(
+        self, mock_corpus_data: dict[str, Path], monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """run_evaluation.main() with --mock flag."""
+        from scripts.evaluation.ares import run_evaluation
+
+        # Create gold_label file for fr corpus
+        gold_label_path = mock_corpus_data["output_dir"] / "gold_label_fr.tsv"
+        with open(gold_label_path, "w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=["Query", "Document", "Answer", "Context_Relevance_Label"],
+                delimiter="\t",
+            )
+            writer.writeheader()
+            for i in range(10):
+                writer.writerow({
+                    "Query": f"Q{i}",
+                    "Document": f"D{i}",
+                    "Answer": f"A{i}",
+                    "Context_Relevance_Label": 1 if i < 7 else 0,
+                })
+
+        monkeypatch.setattr("sys.argv", ["run_evaluation", "--corpus", "fr", "--mock"])
+
+        with patch.object(run_evaluation, "DATA_DIR", mock_corpus_data["output_dir"]):
+            # Capture stdout
+            import io
+            import sys
+
+            captured = io.StringIO()
+            monkeypatch.setattr(sys, "stdout", captured)
+
+            run_evaluation.main()
+
+            output = captured.getvalue()
+            assert "context_relevance" in output

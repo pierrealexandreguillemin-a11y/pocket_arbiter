@@ -1,0 +1,1968 @@
+{
+  "fr": {
+    "corpus": "fr",
+    "total_questions": 318,
+    "chunk_id_found": 227,
+    "no_chunks_found": 1,
+    "failed_matching": 90,
+    "already_has_chunk_id": 0,
+    "modifications": [
+      {
+        "id": "FR-Q01",
+        "chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q02",
+        "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q03",
+        "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q04",
+        "chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q05",
+        "chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q06",
+        "chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q07",
+        "chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q08",
+        "chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q09",
+        "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q10",
+        "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q11",
+        "chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+        "num_candidates": 13
+      },
+      {
+        "id": "FR-Q12",
+        "chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q13",
+        "chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q14",
+        "chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q15",
+        "chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q16",
+        "chunk_id": "LA-octobre2025.pdf-p072-parent217-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q17",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent026-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q18",
+        "chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q19",
+        "chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q20",
+        "chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q21",
+        "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent004-child00",
+        "num_candidates": 17
+      },
+      {
+        "id": "FR-Q22",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent011-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q23",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q24",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+        "num_candidates": 8
+      },
+      {
+        "id": "FR-Q25",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+        "num_candidates": 8
+      },
+      {
+        "id": "FR-Q26",
+        "chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p001-parent001-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q27",
+        "chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q28",
+        "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+        "num_candidates": 17
+      },
+      {
+        "id": "FR-Q29",
+        "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+        "num_candidates": 17
+      },
+      {
+        "id": "FR-Q30",
+        "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+        "num_candidates": 21
+      },
+      {
+        "id": "FR-Q31",
+        "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+        "num_candidates": 19
+      },
+      {
+        "id": "FR-Q32",
+        "chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+        "num_candidates": 19
+      },
+      {
+        "id": "FR-Q33",
+        "chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q34",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+        "num_candidates": 16
+      },
+      {
+        "id": "FR-Q35",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
+        "num_candidates": 16
+      },
+      {
+        "id": "FR-Q36",
+        "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p001-parent001-child01",
+        "num_candidates": 15
+      },
+      {
+        "id": "FR-Q37",
+        "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent014-child00",
+        "num_candidates": 15
+      },
+      {
+        "id": "FR-Q38",
+        "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+        "num_candidates": 15
+      },
+      {
+        "id": "FR-Q39",
+        "chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p001-parent001-child00",
+        "num_candidates": 15
+      },
+      {
+        "id": "FR-Q40",
+        "chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
+        "num_candidates": 15
+      },
+      {
+        "id": "FR-Q41",
+        "chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p004-parent016-child00",
+        "num_candidates": 18
+      },
+      {
+        "id": "FR-Q42",
+        "chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p002-parent000-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q43",
+        "chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q44",
+        "chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q45",
+        "chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q46",
+        "chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q47",
+        "chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q48",
+        "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q49",
+        "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q50",
+        "chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q51",
+        "chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q52",
+        "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p005-parent016-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q53",
+        "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p008-parent022-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q54",
+        "chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q55",
+        "chunk_id": "2023_Reglement_Financier20230610.pdf-p002-parent004-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q56",
+        "chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent009-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q57",
+        "chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent013-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q58",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent020-child00",
+        "num_candidates": 11
+      },
+      {
+        "id": "FR-Q59",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q60",
+        "chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q61",
+        "chunk_id": "Contrat_de_delegation_15032022.pdf-p003-parent004-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q62",
+        "chunk_id": "règlement_n4_2024_2025__1_.pdf-p001-parent001-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q63",
+        "chunk_id": "règlement_n4_2024_2025__1_.pdf-p002-parent004-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q64",
+        "chunk_id": "règlement_régionale_2024_2025.pdf-p001-parent001-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q65",
+        "chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent002-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q66",
+        "chunk_id": "InterclubsJeunes_PACABdr.pdf-p001-parent000-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q67",
+        "chunk_id": "LA-octobre2025.pdf-p142-parent417-child00",
+        "num_candidates": 11
+      },
+      {
+        "id": "FR-Q68",
+        "chunk_id": "LA-octobre2025.pdf-p141-parent412-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q69",
+        "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+        "num_candidates": 8
+      },
+      {
+        "id": "FR-Q70",
+        "chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q71",
+        "chunk_id": "LA-octobre2025.pdf-p018-parent073-child00",
+        "num_candidates": 25
+      },
+      {
+        "id": "FR-Q72",
+        "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q73",
+        "chunk_id": "LA-octobre2025.pdf-p063-parent151-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q74",
+        "chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q75",
+        "chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q76",
+        "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+        "num_candidates": 16
+      },
+      {
+        "id": "FR-Q77",
+        "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+        "num_candidates": 30
+      },
+      {
+        "id": "FR-Q78",
+        "chunk_id": "LA-octobre2025.pdf-p185-parent546-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q79",
+        "chunk_id": "LA-octobre2025.pdf-p193-parent573-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q80",
+        "chunk_id": "LA-octobre2025.pdf-p192-parent572-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q81",
+        "chunk_id": "LA-octobre2025.pdf-p197-parent584-child00",
+        "num_candidates": 8
+      },
+      {
+        "id": "FR-Q82",
+        "chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+        "num_candidates": 13
+      },
+      {
+        "id": "FR-Q83",
+        "chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q84",
+        "chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q85",
+        "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q86",
+        "chunk_id": "LA-octobre2025.pdf-p169-parent503-child00",
+        "num_candidates": 11
+      },
+      {
+        "id": "FR-Q87",
+        "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+        "num_candidates": 19
+      },
+      {
+        "id": "FR-Q88",
+        "chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+        "num_candidates": 12
+      },
+      {
+        "id": "FR-Q89",
+        "chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q90",
+        "chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q91",
+        "chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q92",
+        "chunk_id": "LA-octobre2025.pdf-p179-parent525-child00",
+        "num_candidates": 11
+      },
+      {
+        "id": "FR-Q93",
+        "chunk_id": "LA-octobre2025.pdf-p180-parent528-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q94",
+        "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+        "num_candidates": 16
+      },
+      {
+        "id": "FR-Q95",
+        "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+        "num_candidates": 19
+      },
+      {
+        "id": "FR-Q96",
+        "chunk_id": "LA-octobre2025-table73-summary",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q97",
+        "chunk_id": "LA-octobre2025.pdf-p192-parent571-child00",
+        "num_candidates": 18
+      },
+      {
+        "id": "FR-Q98",
+        "chunk_id": "LA-octobre2025.pdf-p196-parent579-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q99",
+        "chunk_id": "LA-octobre2025.pdf-p200-parent595-child00",
+        "num_candidates": 61
+      },
+      {
+        "id": "FR-Q100",
+        "chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+        "num_candidates": 13
+      },
+      {
+        "id": "FR-Q101",
+        "chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q102",
+        "chunk_id": "LA-octobre2025.pdf-p172-parent512-child00",
+        "num_candidates": 14
+      },
+      {
+        "id": "FR-Q103",
+        "chunk_id": "LA-octobre2025.pdf-p168-parent499-child00",
+        "num_candidates": 11
+      },
+      {
+        "id": "FR-Q104",
+        "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q105",
+        "chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q106",
+        "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q107",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q108",
+        "chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent000-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q109",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q110",
+        "chunk_id": "LA-octobre2025.pdf-p042-parent162-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q111",
+        "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q112",
+        "chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q113",
+        "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q114",
+        "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q115",
+        "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q116",
+        "chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q117",
+        "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q118",
+        "chunk_id": "LA-octobre2025.pdf-p151-parent450-child00",
+        "num_candidates": 27
+      },
+      {
+        "id": "FR-Q119",
+        "chunk_id": "LA-octobre2025.pdf-p102-parent299-child00",
+        "num_candidates": 19
+      },
+      {
+        "id": "FR-Q120",
+        "chunk_id": "LA-octobre2025.pdf-p126-parent367-child00",
+        "num_candidates": 15
+      },
+      {
+        "id": "FR-Q121",
+        "chunk_id": "LA-octobre2025.pdf-p183-parent539-child00",
+        "num_candidates": 19
+      },
+      {
+        "id": "FR-Q122",
+        "chunk_id": "LA-octobre2025.pdf-p185-parent544-child00",
+        "num_candidates": 21
+      },
+      {
+        "id": "FR-Q123",
+        "chunk_id": "LA-octobre2025.pdf-p054-parent185-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q124",
+        "chunk_id": "LA-octobre2025.pdf-p178-parent523-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q125",
+        "chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q126",
+        "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q127",
+        "chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q128",
+        "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q129",
+        "chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+        "num_candidates": 8
+      },
+      {
+        "id": "FR-Q130",
+        "chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q131",
+        "chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+        "num_candidates": 22
+      },
+      {
+        "id": "FR-Q132",
+        "chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
+        "num_candidates": 39
+      },
+      {
+        "id": "FR-Q133",
+        "chunk_id": "LA-octobre2025.pdf-p124-parent357-child01",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q134",
+        "chunk_id": "LA-octobre2025.pdf-p149-parent436-child02",
+        "num_candidates": 17
+      },
+      {
+        "id": "FR-Q135",
+        "chunk_id": "LA-octobre2025.pdf-p175-parent518-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q136",
+        "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent001-child00",
+        "num_candidates": 17
+      },
+      {
+        "id": "FR-Q139",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q140",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+        "num_candidates": 16
+      },
+      {
+        "id": "FR-Q141",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q142",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
+        "num_candidates": 33
+      },
+      {
+        "id": "FR-Q143",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent020-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q144",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q147",
+        "chunk_id": "LA-octobre2025.pdf-p053-parent183-child02",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q148",
+        "chunk_id": "LA-octobre2025.pdf-p048-parent174-child02",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q149",
+        "chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q150",
+        "chunk_id": "LA-octobre2025-table6-summary",
+        "num_candidates": 1
+      },
+      {
+        "id": "FR-Q151",
+        "chunk_id": "LA-octobre2025.pdf-p039-parent158-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q152",
+        "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q153",
+        "chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q154",
+        "chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q155",
+        "chunk_id": "LA-octobre2025.pdf-p040-parent159-child02",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q156",
+        "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q157",
+        "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q158",
+        "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q159",
+        "chunk_id": "LA-octobre2025.pdf-p038-parent157-child01",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q160",
+        "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q161",
+        "chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q162",
+        "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q163",
+        "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q164",
+        "chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q165",
+        "chunk_id": "LA-octobre2025.pdf-p045-parent169-child01",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q166",
+        "chunk_id": "LA-octobre2025.pdf-p008-parent010-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q167",
+        "chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "FR-Q168",
+        "chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q169",
+        "chunk_id": "LA-octobre2025.pdf-p061-parent199-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q170",
+        "chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q171",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p003-parent006-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q172",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent012-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q173",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q174",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent010-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q175",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent011-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q176",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q177",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q178",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+        "num_candidates": 8
+      },
+      {
+        "id": "FR-Q179",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q180",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q181",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q182",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q183",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p002-parent007-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q184",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q185",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q186",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q187",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q188",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q189",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q190",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent010-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "FR-Q191",
+        "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q192",
+        "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent000-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q193",
+        "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent012-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q194",
+        "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q195",
+        "chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q196",
+        "chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q197",
+        "chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q198",
+        "chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q199",
+        "chunk_id": "LA-octobre2025.pdf-p037-parent155-child02",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q200",
+        "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q201",
+        "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q202",
+        "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q203",
+        "chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q204",
+        "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q205",
+        "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q206",
+        "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q207",
+        "chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q208",
+        "chunk_id": "LA-octobre2025.pdf-p044-parent168-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q209",
+        "chunk_id": "LA-octobre2025.pdf-p059-parent193-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q210",
+        "chunk_id": "LA-octobre2025.pdf-p061-parent199-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q211",
+        "chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q212",
+        "chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q213",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q214",
+        "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q215",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q216",
+        "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q217",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q218",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q219",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q220",
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+        "num_candidates": 3
+      },
+      {
+        "id": "FR-Q221",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent008-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "FR-Q222",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q223",
+        "chunk_id": "A01_2025_26_Championnat_de_France.pdf-p002-parent007-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "FR-Q224",
+        "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent006-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "FR-Q225",
+        "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q226",
+        "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+        "num_candidates": 9
+      },
+      {
+        "id": "FR-Q227",
+        "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q228",
+        "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q229",
+        "chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q230",
+        "chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "FR-Q231",
+        "chunk_id": "LA-octobre2025.pdf-p065-parent204-child00",
+        "num_candidates": 5
+      }
+    ],
+    "failed_questions": [
+      {
+        "id": "FR-Q137",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-Q138",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-Q145",
+        "reason": "No chunks found for pages",
+        "pages": [
+          2
+        ],
+        "source": "LA-octobre2025.pdf"
+      },
+      {
+        "id": "FR-Q146",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-001",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-002",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-003",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-004",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-005",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-006",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-007",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-008",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-009",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-010",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-011",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-012",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-013",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-014",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-015",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-016",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-017",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-018",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-019",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-020",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-021",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-022",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-023",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-024",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-025",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-026",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-027",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-028",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-029",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-030",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-031",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-032",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-033",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-034",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-035",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-036",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-037",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-038",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-039",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-040",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-041",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-042",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-043",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-044",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-045",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-046",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-047",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-048",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-049",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-050",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-051",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-052",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-053",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-054",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-055",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-056",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-057",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-058",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-059",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-060",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-061",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-062",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-063",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-064",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-065",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-066",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-067",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-068",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-069",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-070",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-071",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-072",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-073",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-074",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-075",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-076",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-077",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-078",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-079",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-080",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-081",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-082",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-083",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-084",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-085",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-086",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "FR-ADV-087",
+        "reason": "No expected_pages"
+      }
+    ]
+  },
+  "intl": {
+    "corpus": "intl",
+    "total_questions": 93,
+    "chunk_id_found": 67,
+    "no_chunks_found": 0,
+    "failed_matching": 26,
+    "already_has_chunk_id": 0,
+    "modifications": [
+      {
+        "id": "intl_001",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "intl_002",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_003",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "intl_004",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_005",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent045-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_006",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent047-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_007",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_008",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_009",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p044-parent057-child00",
+        "num_candidates": 16
+      },
+      {
+        "id": "intl_010",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p029-parent040-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "intl_011",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_012",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_013",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_014",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_015",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p050-parent068-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_016",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+        "num_candidates": 3
+      },
+      {
+        "id": "intl_017",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p049-parent068-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_018",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_019",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+        "num_candidates": 10
+      },
+      {
+        "id": "intl_020",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_021",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_022",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p034-parent046-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "intl_023",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p061-parent088-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_024",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_025",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent065-child00",
+        "num_candidates": 7
+      },
+      {
+        "id": "intl_026",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_029",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent045-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "intl_032",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p168-parent355-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_034",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent060-child00",
+        "num_candidates": 6
+      },
+      {
+        "id": "intl_037",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_038",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+        "num_candidates": 4
+      },
+      {
+        "id": "intl_039",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p022-parent033-child02",
+        "num_candidates": 1
+      },
+      {
+        "id": "intl_040",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p057-parent082-child01",
+        "num_candidates": 6
+      },
+      {
+        "id": "intl_041",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p055-parent077-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_042",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "intl_043",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_044",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p018-parent031-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_045",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p020-parent033-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_046",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p023-parent034-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_047",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_048",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "intl_049",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p026-parent035-child02",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_050",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_051",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_052",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p021-parent033-child01",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_053",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p025-parent035-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_054",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent040-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_055",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p032-parent044-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "intl_056",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p031-parent042-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_057",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p033-parent046-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_058",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_059",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p030-parent041-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_060",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_061",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_062",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p035-parent047-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_063",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p036-parent048-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_064",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_065",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p038-parent050-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_066",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p039-parent050-child02",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_067",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p041-parent054-child01",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_068",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+        "num_candidates": 2
+      },
+      {
+        "id": "intl_069",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p028-parent037-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_070",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p040-parent052-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_071",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child00",
+        "num_candidates": 3
+      },
+      {
+        "id": "intl_072",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent063-child00",
+        "num_candidates": 5
+      },
+      {
+        "id": "intl_073",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p047-parent066-child01",
+        "num_candidates": 4
+      },
+      {
+        "id": "intl_074",
+        "chunk_id": "FIDE_Arbiters_Manual_2025.pdf-p045-parent060-child00",
+        "num_candidates": 5
+      }
+    ],
+    "failed_questions": [
+      {
+        "id": "intl_027",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "intl_028",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "intl_030",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "intl_031",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "intl_033",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "intl_035",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "intl_036",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-001",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-002",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-003",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-004",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-005",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-006",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-007",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-008",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-009",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-010",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-011",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-012",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-013",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-014",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-015",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-016",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-017",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-018",
+        "reason": "No expected_pages"
+      },
+      {
+        "id": "INTL-ADV-019",
+        "reason": "No expected_pages"
+      }
+    ]
+  }
+}

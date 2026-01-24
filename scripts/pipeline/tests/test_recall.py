@@ -12,7 +12,7 @@ Structure ISO:
     - NO fixtures de modeles ML (overhead inacceptable)
 
 Usage CLI:
-    python -m scripts.pipeline.tests.test_recall --db corpus/processed/corpus_fr.db
+    python -m scripts.pipeline.tests.test_recall --db corpus/processed/corpus_mode_b_fr.db
 """
 
 from pathlib import Path
@@ -262,9 +262,10 @@ def main():
     # Define corpora
     corpora = []
     if args.corpus in ["fr", "both"]:
-        corpora.append(("FR", CORPUS_DIR / "corpus_fr.db", DATA_DIR / "gold_standard_fr.json"))
+        corpora.append(("FR", CORPUS_DIR / "corpus_mode_b_fr.db", DATA_DIR / "gold_standard_fr.json"))
     if args.corpus in ["intl", "both"]:
-        corpora.append(("INTL", CORPUS_DIR / "corpus_intl.db", DATA_DIR / "gold_standard_intl.json"))
+        # INTL: corpus_mode_a_intl.db (mode_b INTL obsolete, a reconstruire)
+        corpora.append(("INTL", CORPUS_DIR / "corpus_mode_a_intl.db", DATA_DIR / "gold_standard_intl.json"))
 
     # Run benchmarks
     print("\n" + "=" * 60)

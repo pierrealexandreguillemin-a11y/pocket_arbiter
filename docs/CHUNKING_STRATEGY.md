@@ -381,12 +381,11 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | `scripts/pipeline/token_utils.py` | Tokenization cl100k_base |
 | `scripts/pipeline/embeddings.py` | Generation embeddings |
 | `scripts/pipeline/export_sdk.py` | Export DB SQLite |
-| `corpus/processed/chunks_parent_child_fr.json` | Parents + children FR |
-| `corpus/processed/chunks_parent_child_intl.json` | Parents + children INTL |
+| `corpus/processed/chunks_mode_b_fr.json` | Chunks FR Mode B (actif) |
 | `corpus/processed/tables_multivector_fr.json` | Tables FR (111 summaries) |
-| `corpus/processed/tables_multivector_intl.json` | Tables INTL (74 summaries) |
-| `corpus/processed/corpus_fr.db` | SQLite DB FR (1454 chunks) |
-| `corpus/processed/corpus_intl.db` | SQLite DB INTL (764 chunks) |
+| `corpus/processed/corpus_mode_b_fr.db` | SQLite DB FR (1331 chunks) - ACTIF |
+| `corpus/processed/corpus_mode_a_fr.db` | SQLite DB FR Mode A (fallback) |
+| `corpus/processed/corpus_mode_a_intl.db` | SQLite DB INTL (OBSOLETE - a reconstruire) |
 
 ---
 

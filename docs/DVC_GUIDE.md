@@ -35,8 +35,8 @@ dvc add corpus/processed/embeddings_fr.npy
 dvc add corpus/processed/embeddings_intl.npy
 
 # Quand tu crées les bases vectorielles (SqliteVectorStore)
-dvc add corpus/processed/corpus_fr.db
-dvc add corpus/processed/corpus_intl.db
+dvc add corpus/processed/corpus_mode_b_fr.db
+# Note: INTL a reconstruire (voir VISION.md Dual-RAG)
 
 # Commiter les fichiers .dvc dans Git
 git add corpus/processed/*.dvc corpus/processed/.gitignore

@@ -26,6 +26,7 @@ import re
 from pathlib import Path
 from typing import Any
 
+from scripts.evaluation.annales.session_utils import detect_session_from_filename
 from scripts.pipeline.utils import get_timestamp, normalize_text, save_json
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -106,6 +107,101 @@ CHOICE_PATTERN_PERMISSIVE = re.compile(
 )
 
 
+def _classify_question_type(text_lower: str, uv: str, text_len: int) -> str:
+    """
+    Classify question type: factual, procedural, scenario, or comparative.
+
+    Args:
+        text_lower: Lowercase question text.
+        uv: UV type (UVR, UVC, UVO, UVT).
+        text_len: Length of original text.
+
+    Returns:
+        Question type string.
+    """
+    if any(kw in text_lower for kw in SCENARIO_KEYWORDS):
+        return "scenario"
+    if any(kw in text_lower for kw in PROCEDURAL_KEYWORDS):
+        return "procedural"
+    if any(kw in text_lower for kw in COMPARATIVE_KEYWORDS):
+        return "comparative"
+
+    # UVT questions are typically scenario-based (practical exam)
+    if uv == "UVT" and text_len > 100:
+        return "scenario"
+
+    return "factual"
+
+
+def _classify_cognitive_level(question_type: str) -> str:
+    """
+    Classify cognitive level based on Bloom's Taxonomy.
+
+    Args:
+        question_type: Type of question.
+
+    Returns:
+        Cognitive level: RECALL, UNDERSTAND, APPLY, or ANALYZE.
+    """
+    level_map = {
+        "scenario": "APPLY",      # Application of rules to situation
+        "procedural": "UNDERSTAND",  # Understanding process
+        "comparative": "ANALYZE",    # Analysis and comparison
+        "factual": "RECALL",         # Factual recall
+    }
+    return level_map.get(question_type, "RECALL")
+
+
+def _classify_reasoning_type(
+    text_lower: str,
+    question_type: str,
+    has_multiple_refs: bool,
+) -> str:
+    """
+    Classify reasoning type: single-hop, multi-hop, or temporal.
+
+    Args:
+        text_lower: Lowercase question text.
+        question_type: Type of question.
+        has_multiple_refs: Whether question references multiple articles.
+
+    Returns:
+        Reasoning type string.
+    """
+    if has_multiple_refs or question_type == "scenario":
+        return "multi-hop"  # Context → Rule → Answer
+    if any(kw in text_lower for kw in ["quand", "depuis", "délai"]):
+        return "temporal"
+    return "single-hop"
+
+
+def _classify_answer_type(
+    text_lower: str,
+    question_type: str,
+    has_choices: bool,
+) -> str:
+    """
+    Classify answer type: multiple_choice, yes_no, list, extractive, abstractive.
+
+    Args:
+        text_lower: Lowercase question text.
+        question_type: Type of question.
+        has_choices: Whether question has multiple choice options.
+
+    Returns:
+        Answer type string.
+    """
+    if has_choices:
+        return "multiple_choice"
+    if "vrai" in text_lower and "faux" in text_lower:
+        return "yes_no"
+    if any(kw in text_lower for kw in ["listez", "énumérez", "quels sont"]):
+        return "list"
+    if question_type == "scenario":
+        return "abstractive"  # Scenario needs synthesis
+    return "extractive"  # Direct fact from text
+
+
 def classify_question_taxonomy(
     text: str,
     uv: str,
@@ -130,51 +226,10 @@ def classify_question_taxonomy(
     """
     text_lower = text.lower()
 
-    # Determine question_type
-    question_type = "factual"  # default
-
-    if any(kw in text_lower for kw in SCENARIO_KEYWORDS):
-        question_type = "scenario"
-    elif any(kw in text_lower for kw in PROCEDURAL_KEYWORDS):
-        question_type = "procedural"
-    elif any(kw in text_lower for kw in COMPARATIVE_KEYWORDS):
-        question_type = "comparative"
-
-    # UVT questions are typically scenario-based (practical exam)
-    if uv == "UVT" and question_type == "factual":
-        # Check if it's really factual or just not detected as scenario
-        if len(text) > 100:  # Longer questions tend to be scenarios
-            question_type = "scenario"
-
-    # Determine cognitive_level (Bloom's Taxonomy)
-    if question_type == "scenario":
-        cognitive_level = "APPLY"  # Application of rules to situation
-    elif question_type == "procedural":
-        cognitive_level = "UNDERSTAND"  # Understanding process
-    elif question_type == "comparative":
-        cognitive_level = "ANALYZE"  # Analysis and comparison
-    else:
-        cognitive_level = "RECALL"  # Factual recall
-
-    # Determine reasoning_type
-    if has_multiple_refs or question_type == "scenario":
-        reasoning_type = "multi-hop"  # Context → Rule → Answer
-    elif "quand" in text_lower or "depuis" in text_lower or "délai" in text_lower:
-        reasoning_type = "temporal"
-    else:
-        reasoning_type = "single-hop"
-
-    # Determine answer_type
-    if has_choices:
-        answer_type = "multiple_choice"  # QCM from annales
-    elif "vrai" in text_lower and "faux" in text_lower:
-        answer_type = "yes_no"
-    elif "listez" in text_lower or "énumérez" in text_lower or "quels sont" in text_lower:
-        answer_type = "list"
-    elif question_type == "scenario":
-        answer_type = "abstractive"  # Scenario needs synthesis
-    else:
-        answer_type = "extractive"  # Direct fact from text
+    question_type = _classify_question_type(text_lower, uv, len(text))
+    cognitive_level = _classify_cognitive_level(question_type)
+    reasoning_type = _classify_reasoning_type(text_lower, question_type, has_multiple_refs)
+    answer_type = _classify_answer_type(text_lower, question_type, has_choices)
 
     return {
         "question_type": question_type,
@@ -465,34 +520,131 @@ def _merge_questions_corrections(
     return merged
 
 
-def _detect_session_from_filename(filename: str) -> str:
-    """Detect session (e.g., 'dec2024', 'juin2025') from filename."""
-    filename_lower = filename.lower()
+def _infer_uv_from_question_count(
+    n_questions: int,
+    existing_uvs: set[str],
+) -> str | None:
+    """
+    Infer UV type from number of questions (heuristic).
 
-    # Month patterns
-    month_map = {
-        "decembre": "dec",
-        "décembre": "dec",
-        "dec": "dec",
-        "juin": "jun",
-        "june": "jun",
-        "jun": "jun",
+    Args:
+        n_questions: Number of questions in the correction table.
+        existing_uvs: Set of UVs already assigned.
+
+    Returns:
+        Inferred UV type or None if cannot determine.
+    """
+    if n_questions >= 25 and n_questions <= 35:
+        # Could be UVR, UVC, or UVT (typically ~30 questions each)
+        for uv in ["UVR", "UVC", "UVT"]:
+            if uv not in existing_uvs:
+                return uv
+    elif n_questions >= 15 and n_questions <= 25:
+        # Could be UVO (~20 questions) or smaller UVR/UVC
+        for uv in ["UVO", "UVR", "UVC"]:
+            if uv not in existing_uvs:
+                return uv
+    elif n_questions >= 5 and n_questions <= 15:
+        # Smaller correction set - assign to first available UV
+        for uv in ["UVR", "UVC", "UVO", "UVT"]:
+            if uv not in existing_uvs:
+                return uv
+    return None
+
+
+def _extract_corrections_from_tables(
+    tables: list[dict[str, Any]],
+) -> dict[str, list[dict[str, Any]]]:
+    """
+    Extract corrections from all tables and organize by UV.
+
+    Args:
+        tables: List of table dicts from Docling extraction.
+
+    Returns:
+        Dict mapping UV type to list of corrections.
+    """
+    uv_corrections: dict[str, list[dict[str, Any]]] = {}
+
+    for table in tables:
+        if not _is_correction_table(table):
+            continue
+
+        uv = _identify_uv_from_table(table)
+        corrections = _parse_correction_table(table)
+
+        if corrections:
+            # Try to determine UV from context if not in table
+            if uv is None:
+                uv = _infer_uv_from_question_count(len(corrections), set(uv_corrections.keys()))
+
+            if uv:
+                if uv in uv_corrections:
+                    logger.warning(f"Multiple correction tables for {uv}, using first")
+                else:
+                    uv_corrections[uv] = corrections
+                    logger.info(f"Found {len(corrections)} corrections for {uv}")
+
+    return uv_corrections
+
+
+def _match_question_group_to_uv(
+    q_group: list[dict[str, Any]],
+    uv_order: list[str],
+    uv_corrections: dict[str, list[dict[str, Any]]],
+    used_uvs: set[str],
+) -> tuple[str | None, list[dict[str, Any]]]:
+    """
+    Match a question group to the appropriate UV based on correction count.
+
+    Args:
+        q_group: List of questions to match.
+        uv_order: Preferred order of UVs.
+        uv_corrections: Dict of UV to corrections.
+        used_uvs: Set of already-used UVs (modified in place).
+
+    Returns:
+        Tuple of (matched_uv, matched_corrections) or (None, []) if no match.
+    """
+    n_questions = len(q_group)
+
+    # Try to match with corrections by count (with tolerance of ±2)
+    for uv in uv_order:
+        if uv in used_uvs:
+            continue
+        corr = uv_corrections.get(uv, [])
+        # Match by similar count (tolerance for missing questions in extraction)
+        if corr and abs(len(corr) - n_questions) <= 2:
+            used_uvs.add(uv)
+            return uv, corr
+
+    # Fallback: assign by position to remaining UV
+    remaining_uvs = [uv for uv in uv_order if uv not in used_uvs]
+    if remaining_uvs:
+        matched_uv = remaining_uvs[0]
+        matched_corrections = uv_corrections.get(matched_uv, [])
+        used_uvs.add(matched_uv)
+        return matched_uv, matched_corrections
+
+    return None, []
+
+
+def _calculate_unit_statistics(questions: list[dict[str, Any]]) -> dict[str, int]:
+    """
+    Calculate statistics for a unit's questions.
+
+    Args:
+        questions: List of question dicts.
+
+    Returns:
+        Dict with total_questions, with_text, with_choices, with_corrections.
+    """
+    return {
+        "total_questions": len(questions),
+        "with_text": sum(1 for q in questions if q.get("text") and "[Question" not in q["text"]),
+        "with_choices": sum(1 for q in questions if q.get("choices")),
+        "with_corrections": sum(1 for q in questions if q.get("correct_answer")),
     }
-
-    # Find month
-    month = None
-    for pattern, short in month_map.items():
-        if pattern in filename_lower:
-            month = short
-            break
-
-    # Find year
-    year_match = re.search(r"20(\d{2})", filename)
-    year = year_match.group(0) if year_match else "unknown"
-
-    if month:
-        return f"{month}{year}"
-    return f"session_{year}"
 
 
 def parse_annales_file(json_path: Path) -> dict[str, Any]:
@@ -521,120 +673,47 @@ def parse_annales_file(json_path: Path) -> dict[str, Any]:
     markdown = data["markdown"]
     tables = data["tables"]
     filename = data.get("filename", json_path.stem)
-    session = _detect_session_from_filename(filename)
+    session = detect_session_from_filename(filename)
 
     logger.info(f"Parsing {filename} (session: {session})")
 
-    # Find all correction tables and identify their UV
-    uv_corrections: dict[str, list[dict[str, Any]]] = {}
+    # Extract corrections organized by UV
+    uv_corrections = _extract_corrections_from_tables(tables)
 
-    for table in tables:
-        if not _is_correction_table(table):
-            continue
-
-        uv = _identify_uv_from_table(table)
-        corrections = _parse_correction_table(table)
-
-        if corrections:
-            # Try to determine UV from context if not in table
-            if uv is None:
-                # Use number of questions as heuristic (expanded ranges)
-                n_questions = len(corrections)
-                if n_questions >= 25 and n_questions <= 35:
-                    # Could be UVR, UVC, or UVT (typically ~30 questions each)
-                    if "UVR" not in uv_corrections:
-                        uv = "UVR"
-                    elif "UVC" not in uv_corrections:
-                        uv = "UVC"
-                    elif "UVT" not in uv_corrections:
-                        uv = "UVT"
-                elif n_questions >= 15 and n_questions <= 25:
-                    # Could be UVO (~20 questions) or smaller UVR/UVC
-                    if "UVO" not in uv_corrections:
-                        uv = "UVO"
-                    elif "UVR" not in uv_corrections:
-                        uv = "UVR"
-                    elif "UVC" not in uv_corrections:
-                        uv = "UVC"
-                elif n_questions >= 5 and n_questions <= 15:
-                    # Smaller correction set - assign to first available UV
-                    for candidate in ["UVR", "UVC", "UVO", "UVT"]:
-                        if candidate not in uv_corrections:
-                            uv = candidate
-                            break
-
-            if uv:
-                if uv in uv_corrections:
-                    logger.warning(f"Multiple correction tables for {uv}, using first")
-                else:
-                    uv_corrections[uv] = corrections
-                    logger.info(f"Found {len(corrections)} corrections for {uv}")
-
-    # Extract ALL questions from markdown
+    # Extract and group questions from markdown
     all_questions = _extract_all_questions_from_markdown(markdown)
-
-    # Group questions by sequence (each Q1 starts a new UV)
     question_groups = _group_questions_by_sequence(all_questions)
     logger.info(f"Found {len(question_groups)} question sequences")
 
     # Match question groups with correction groups
-    # Order is typically: UVR (30), UVC (30), UVO (20), UVT (varies)
-    # The markdown contains both "Sujet" (exam) and "Corrigé" (answers) sections
-    # We only want the first occurrence of each UV (the Sujet section)
     uv_order = ["UVR", "UVC", "UVO", "UVT"]
-
     units = []
     total_questions = 0
     used_uvs: set[str] = set()
 
-    # Only process first 4 sequences (the exam questions, not the corrigés)
-    max_sequences = len(uv_corrections)  # Number of UVs with corrections
-    question_groups_to_process = question_groups[:max_sequences]
+    # Only process sequences that have corrections
+    question_groups_to_process = question_groups[:len(uv_corrections)]
 
-    for i, q_group in enumerate(question_groups_to_process):
-        n_questions = len(q_group)
+    for q_group in question_groups_to_process:
+        matched_uv, matched_corrections = _match_question_group_to_uv(
+            q_group, uv_order, uv_corrections, used_uvs
+        )
 
-        # Try to match with corrections by count (with tolerance of ±2)
-        matched_uv = None
-        matched_corrections: list[dict[str, Any]] = []
-
-        for uv in uv_order:
-            if uv in used_uvs:
-                continue
-            corr = uv_corrections.get(uv, [])
-            # Match by similar count (tolerance for missing questions in extraction)
-            if corr and abs(len(corr) - n_questions) <= 2:
-                matched_uv = uv
-                matched_corrections = corr
-                used_uvs.add(uv)
-                break
-
-        # Fallback: assign by position to remaining UV
         if matched_uv is None:
-            remaining_uvs = [uv for uv in uv_order if uv not in used_uvs]
-            if remaining_uvs:
-                matched_uv = remaining_uvs[0]
-                matched_corrections = uv_corrections.get(matched_uv, [])
-                used_uvs.add(matched_uv)
-            else:
-                continue  # Skip extra sequences (corrigé duplicates)
+            continue  # Skip extra sequences (corrigé duplicates)
 
-        # Merge questions with corrections (pass UV for taxonomy classification)
+        # Merge questions with corrections
         merged = _merge_questions_corrections(q_group, matched_corrections, uv=matched_uv)
 
         if merged:
+            stats = _calculate_unit_statistics(merged)
             units.append({
                 "uv": matched_uv,
                 "questions": merged,
-                "statistics": {
-                    "total_questions": len(merged),
-                    "with_text": sum(1 for q in merged if q.get("text") and "[Question" not in q["text"]),
-                    "with_choices": sum(1 for q in merged if q.get("choices")),
-                    "with_corrections": sum(1 for q in merged if q.get("correct_answer")),
-                },
+                "statistics": stats,
             })
             total_questions += len(merged)
-            logger.info(f"{matched_uv}: {len(merged)} questions ({units[-1]['statistics']})")
+            logger.info(f"{matched_uv}: {len(merged)} questions ({stats})")
 
     return {
         "session": session,

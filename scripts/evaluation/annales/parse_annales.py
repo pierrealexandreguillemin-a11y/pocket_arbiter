@@ -65,15 +65,37 @@ COMPARATIVE_KEYWORDS = [
 ]
 
 # Full question block pattern (## Question N : text + choices until next question)
+# Stop at: next Question N, or UV section headers, but NOT at ## Réponses or ## Cadence
 QUESTION_BLOCK_PATTERN = re.compile(
-    r"(?:^|\n)(?:##\s*)?Question\s+(\d+)\s*:\s*(.+?)(?=(?:\n(?:##\s*)?Question\s+\d+\s*:)|(?:\n##\s+[A-Z])|$)",
+    r"(?:^|\n)(?:##\s*)?Question\s+(\d+)\s*:\s*(.+?)(?=(?:\n(?:##\s*)?Question\s+\d+\s*:)|(?:\n##\s+UV)|(?:\n##\s+Partie\s+[A-Z])|$)",
     re.DOTALL | re.IGNORECASE,
 )
 
-# Choice extraction pattern (- a) or -a) format)
-CHOICE_PATTERN = re.compile(
-    r"(?:^|\n)\s*-\s*([a-d])\)\s*(.+?)(?=(?:\n\s*-\s*[a-d]\))|$)",
+# Choice extraction patterns - multiple formats in annales
+# Format 1: "- a)" or "-a)" (standard)
+CHOICE_PATTERN_DASH_LETTER_PAREN = re.compile(
+    r"(?:^|\n)\s*-\s*([a-fA-F])\)\s*(.+?)(?=(?:\n\s*-\s*[a-fA-F]\))|$)",
     re.DOTALL | re.IGNORECASE,
+)
+# Format 2: "A - " or "A-" (starts with letter)
+CHOICE_PATTERN_LETTER_DASH = re.compile(
+    r"(?:^|\n)(?:##\s*)?([A-F])\s*[-–—]\s*(.+?)(?=(?:\n(?:##\s*)?[A-F]\s*[-–—])|$)",
+    re.DOTALL,
+)
+# Format 3: "- A - " (jun2021 style - dash letter dash)
+CHOICE_PATTERN_DASH_LETTER_DASH = re.compile(
+    r"(?:^|\n)\s*-\s*([A-F])\s*[-–—]\s*(.+?)(?=(?:\n\s*-\s*[A-F]\s*[-–—])|$)",
+    re.DOTALL,
+)
+# Format 4: "- A :" or "A :" (dec2019 style - letter colon)
+CHOICE_PATTERN_LETTER_COLON = re.compile(
+    r"(?:^|\n)\s*(?:-\s*)?([A-F])\s*:\s*(.+?)(?=(?:\n\s*(?:-\s*)?[A-F]\s*:)|$)",
+    re.DOTALL,
+)
+# Format 5: "a." or "A." (numbered list style)
+CHOICE_PATTERN_LETTER_DOT = re.compile(
+    r"(?:^|\n)\s*([a-fA-F])\.\s*(.+?)(?=(?:\n\s*[a-fA-F]\.)|$)",
+    re.DOTALL,
 )
 
 
@@ -166,14 +188,25 @@ def _clean_text(text: str) -> str:
 
 
 def _extract_choices_from_block(block: str) -> dict[str, str]:
-    """Extract A/B/C/D choices from a question block."""
+    """Extract A/B/C/D/E/F choices from a question block using multiple patterns."""
     choices: dict[str, str] = {}
 
-    # Find all choice patterns
-    for match in CHOICE_PATTERN.finditer(block):
-        letter = match.group(1).upper()
-        choice_text = _clean_text(match.group(2))
-        choices[letter] = choice_text
+    # Try all choice patterns in order of specificity
+    patterns = [
+        CHOICE_PATTERN_DASH_LETTER_PAREN,  # "- a)" format
+        CHOICE_PATTERN_DASH_LETTER_DASH,   # "- A - " format (jun2021)
+        CHOICE_PATTERN_LETTER_COLON,       # "- A :" or "A :" format (dec2019)
+        CHOICE_PATTERN_LETTER_DASH,        # "A - " format
+        CHOICE_PATTERN_LETTER_DOT,         # "a." format
+    ]
+
+    for pattern in patterns:
+        for match in pattern.finditer(block):
+            letter = match.group(1).upper()
+            choice_text = _clean_text(match.group(2))
+            # Only add if not already found (avoid duplicates)
+            if letter not in choices and choice_text:
+                choices[letter] = choice_text
 
     return choices
 

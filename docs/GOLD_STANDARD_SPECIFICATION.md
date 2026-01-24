@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.2
-> **Date**: 2026-01-23
-> **Statut**: En cours (validation semantique requise)
+> **Version**: 1.3
+> **Date**: 2026-01-24
+> **Statut**: Approuve
 > **Classification**: Qualite
 > **Auteur**: Claude Opus 4.5
 
@@ -17,7 +17,20 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 **Perimetre:**
 - Gold Standard FR v5.30: 318 questions (213 answerable + 105 adversarial)
 - Gold Standard INTL v2.1: 93 questions (67 answerable + 26 adversarial)
-- **Total**: 411 questions (33% unanswerable - conforme SQuAD 2.0)
+- **Gold Standard FR Annales v6.2**: 518 questions (examens officiels DNA) **NOUVEAU**
+- **Total**: 929 questions
+
+### 1.1 Gold Standard v6 "Annales" (Nouveau)
+
+| Metrique | Valeur |
+|----------|--------|
+| Questions totales | 518 |
+| answer_text derive | 80.9% |
+| expected_pages | 90.3% |
+| corpus_verified | 91.3% |
+| Schema | v5.30-compatible |
+
+> Voir: `docs/specs/GOLD_STANDARD_V6_ANNALES.md` pour specifications detaillees
 
 ---
 

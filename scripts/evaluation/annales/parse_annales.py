@@ -97,6 +97,12 @@ CHOICE_PATTERN_LETTER_DOT = re.compile(
     r"(?:^|\n)\s*([a-fA-F])\.\s*(.+?)(?=(?:\n\s*[a-fA-F]\.)|$)",
     re.DOTALL,
 )
+# Format 6: "- A" bare (2018 style - dash letter then text without separator)
+# Matches: "- AIntervenir", "- BVous", etc.
+CHOICE_PATTERN_DASH_LETTER_BARE = re.compile(
+    r"(?:^|\n)\s*-\s*([A-F])([A-Z][a-zéèêëàâäùûüîïôöç].*?)(?=(?:\n\s*-\s*[A-F][A-Z])|(?:\n##)|$)",
+    re.DOTALL,
+)
 
 
 def classify_question_taxonomy(
@@ -198,6 +204,7 @@ def _extract_choices_from_block(block: str) -> dict[str, str]:
         CHOICE_PATTERN_LETTER_COLON,       # "- A :" or "A :" format (dec2019)
         CHOICE_PATTERN_LETTER_DASH,        # "A - " format
         CHOICE_PATTERN_LETTER_DOT,         # "a." format
+        CHOICE_PATTERN_DASH_LETTER_BARE,   # "- ATexte" format (2018 bare)
     ]
 
     for pattern in patterns:

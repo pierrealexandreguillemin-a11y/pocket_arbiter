@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.3
+> **Version**: 1.4
 > **Date**: 2026-01-24
 > **Statut**: Approuve
 > **Classification**: Qualite
@@ -20,15 +20,21 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 - **Gold Standard FR Annales v6.2**: 518 questions (examens officiels DNA) **NOUVEAU**
 - **Total**: 929 questions
 
-### 1.1 Gold Standard v6 "Annales" (Nouveau)
+### 1.1 Gold Standard v6.3 "Annales" (2026-01-24)
 
-| Metrique | Valeur |
-|----------|--------|
-| Questions totales | 518 |
-| answer_text derive | 80.9% |
-| expected_pages | 90.3% |
-| corpus_verified | 91.3% |
-| Schema | v5.30-compatible |
+| Metrique | Valeur | Status |
+|----------|--------|--------|
+| Questions totales | 518 | ✅ |
+| answer_text complet | 391/518 (75.5%) | ❌ BLOQUANT |
+| expected_pages | 90.3% | ✅ |
+| corpus_verified | 91.3% | ✅ |
+| Schema | v5.30-compatible | ✅ |
+
+**Ecarts answer_text:**
+- QCM avec choix: 409 ✅
+- Questions ouvertes: 39 (besoin extraction corrige)
+- Questions images: 4 (non extractible)
+- Parsing manque: ~65
 
 > Voir: `docs/specs/GOLD_STANDARD_V6_ANNALES.md` pour specifications detaillees
 

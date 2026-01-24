@@ -2,8 +2,8 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.8
-> **Date**: 2026-01-22
+> **Version**: 1.9
+> **Date**: 2026-01-24
 > **Effort total estime**: 215h (~14-16 semaines)
 
 ---
@@ -278,6 +278,18 @@ Interface utilisateur complete avec navigation.
 ### Objectif
 Integrer LLM pour synthese avec grounding strict anti-hallucination.
 
+### Metriques RAGAs (a implementer)
+
+| Metrique | Description | Cible |
+|----------|-------------|-------|
+| **Faithfulness** | Reponse fidele aux chunks recuperes | >= 90% |
+| **Answer Relevancy** | Reponse pertinente a la question | >= 85% |
+| **Context Precision** | Chunks recuperes pertinents | >= 80% |
+
+> **Note**: RAGAs necessite `expected_answer` dans le gold standard.
+> A ajouter lors de l'implementation Phase 3.
+> Ref: [RAGAs Framework](https://github.com/explodinggradients/ragas)
+
 ### Stack LLM
 
 | Composant | Choix | Specs |
@@ -433,6 +445,75 @@ Validation utilisateur et release production.
 | **Total** | **193** | **58** | **29** | - |
 
 > Voir: `docs/research/AUDIT_GS_v5.25_2026-01-20.md`
+
+### Gold Standard v6.0 - Annales-Based (✅ COMPLETE)
+
+Pipeline d'extraction des annales DNA (examens officiels arbitres FFE):
+
+| Statut | Description | Delivrable |
+|--------|-------------|------------|
+| ✅ | Extraction Docling (13 sessions 2018-2025) | `corpus/processed/annales_all/` |
+| ✅ | Parser avec taxonomie standard | `scripts/evaluation/annales/parse_annales.py` |
+| ✅ | Mapping articles → corpus | `scripts/evaluation/annales/map_articles_to_corpus.py` |
+| ✅ | Génération Gold Standard v6 | `tests/data/gold_standard_annales_fr.json` |
+| ✅ | Reformulation langage courant | `scripts/evaluation/annales/reformulate_questions.py` |
+| ✅ | Validation réponses + pages | `scripts/evaluation/annales/validate_answers.py` |
+
+**Statistiques actuelles** (13 sessions):
+
+| Métrique | Valeur | Notes |
+|----------|--------|-------|
+| Questions extraites | 692 | Sessions 2018-2025 |
+| **Questions Gold Standard v6** | **518** | Avec corrections + mapping |
+| Mapping rate | 74.9% | 518/692 |
+| Sessions | 11 | dec2018 à jun2025 |
+| UV couvertes | UVR, UVC, UVO, UVT | 100% couverture |
+| Documents corpus liés | 9 | LA, R01-R03, A02, C01, C03, J01 |
+| **Page references** | **81%** | 420/518 questions avec pages |
+| **Reformulation** | **24.5%** | Réduction longueur moyenne |
+| Query variants | 1-3/question | Pour tests retrieval robustesse |
+
+**Distribution par difficulté** (450 questions avec taux réussite):
+- Easy (<30%): 273 questions
+- Medium (30-60%): 129 questions
+- Hard (>60%): 48 questions
+
+**Taxonomie standard** (industry best practices):
+
+| Field | Distribution |
+|-------|--------------|
+| `question_type` | factual (55.7%), scenario (40.9%), procedural (2.2%), comparative (1.2%) |
+| `cognitive_level` | RECALL (55.7%), APPLY (40.9%), UNDERSTAND (2.2%), ANALYZE (1.2%) |
+| `reasoning_type` | multi-hop (50.6%), single-hop (46.7%), temporal (2.6%) |
+| `answer_type` | multiple_choice (66.7%), extractive (21.5%), abstractive (11.8%) |
+
+**Reformulation par type** (question detection):
+
+| Type | Count | % |
+|------|-------|---|
+| scenario | 283 | 54.6% |
+| unknown | 151 | 29.2% |
+| direct | 42 | 8.1% |
+| instruction | 23 | 4.4% |
+| selection | 10 | 1.9% |
+| statement | 5 | 1.0% |
+| conditional | 3 | 0.6% |
+| reference | 1 | 0.2% |
+
+**Couverture corpus FR**:
+
+| Catégorie | Documents | Questions | % |
+|-----------|-----------|-----------|---|
+| Core Rules (LA) | 1/1 | 403 | 78.3% |
+| Règlements FFE (R01-R03) | 3/3 | 53 | 10.3% |
+| Championnats (A02) | 1/3 | 32 | 6.2% |
+| Coupes (C01, C03) | 2/3 | 19 | 3.7% |
+| Jeunes (J01) | 1/3 | 2 | 0.4% |
+| **Total** | **8/28** | **515** | **100%** |
+
+> Note: Documents non couverts (Admin/Legal, Regional, Féminin, Handicap) = hors scope examens nationaux
+
+> Voir: `docs/specs/GOLD_STANDARD_V6_ANNALES.md`
 
 ### Benchmark Search Modes (150 Q FR)
 

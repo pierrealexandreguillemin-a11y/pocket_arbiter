@@ -23,6 +23,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from scripts.evaluation.annales.session_utils import detect_session_from_filename
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
@@ -194,13 +196,44 @@ def extract_all_corrige_answers(docling_json_path: Path) -> dict[str, dict[int, 
     return results
 
 
+def _derive_choice_text(question: dict[str, Any]) -> str | None:
+    """
+    Derive answer text from MCQ choices and correct answer letter.
+
+    Args:
+        question: Question dict with choices and mcq_answer.
+
+    Returns:
+        Choice text if found, None otherwise.
+    """
+    choices = question.get("choices", {})
+    mcq_answer = question.get("mcq_answer", "")
+
+    if not choices or not mcq_answer:
+        return None
+
+    texts = []
+    for letter in mcq_answer:
+        if letter in choices:
+            texts.append(choices[letter])
+
+    if texts:
+        return " | ".join(texts)
+    return None
+
+
 def update_gold_standard_with_explanations(
     gs_path: Path,
     docling_dirs: list[Path],
     output_path: Path | None = None
 ) -> dict[str, Any]:
     """
-    Update Gold Standard with answer_text from corrigé détaillé.
+    Update Gold Standard with answer_text and answer_explanation.
+
+    Implements merged source approach (Option C):
+    - answer_text: Derived from MCQ choices (for RAG retrieval)
+    - answer_explanation: Official corrector's explanation (detailed)
+    - answer_source: 'merged', 'corrige_detaille', or 'choice_only'
     """
     with open(gs_path, encoding='utf-8') as f:
         gs = json.load(f)
@@ -214,7 +247,7 @@ def update_gold_standard_with_explanations(
                 continue
 
             # Determine session from filename
-            session = _session_from_filename(json_file.name)
+            session = detect_session_from_filename(json_file.name)
 
             explanations = extract_all_corrige_answers(json_file)
             if explanations:
@@ -224,38 +257,51 @@ def update_gold_standard_with_explanations(
     # Update Gold Standard questions
     stats = {
         'total': len(gs['questions']),
-        'updated': 0,
-        'already_had': 0,
-        'not_found': 0
+        'merged': 0,           # Both choice text and explanation
+        'explanation_only': 0,  # Only explanation (no choice derivation)
+        'choice_only': 0,       # Only choice text (no explanation)
+        'not_found': 0          # Neither found
     }
 
     for q in gs['questions']:
-        # Skip if already has good answer_text
-        current = q.get('answer_text', '')
-        if current and len(current) > 50 and 'Article' not in current[:30]:
-            stats['already_had'] += 1
-            continue
-
         source = q.get('annales_source', {})
         session = source.get('session', '')
         uv = source.get('uv', '')
         q_num = source.get('question_num', 0)
 
-        # Look up explanation
+        # Derive choice text from MCQ answer
+        choice_text = _derive_choice_text(q)
+
+        # Look up explanation from corrigé détaillé
         explanation = all_explanations.get(session, {}).get(uv, {}).get(q_num)
 
-        if explanation:
+        # Apply merged source logic
+        if choice_text and explanation:
+            # Both available: use choice for answer_text, explanation for detail
+            q['answer_text'] = choice_text
+            q['answer_explanation'] = explanation
+            q['answer_source'] = 'merged'
+            stats['merged'] += 1
+        elif explanation:
+            # Only explanation: use for both (old behavior)
             q['answer_text'] = explanation
+            q['answer_explanation'] = explanation
             q['answer_source'] = 'corrige_detaille'
-            stats['updated'] += 1
+            stats['explanation_only'] += 1
+        elif choice_text:
+            # Only choice: use for answer_text
+            q['answer_text'] = choice_text
+            q['answer_source'] = 'choice_only'
+            stats['choice_only'] += 1
         else:
+            # Neither found
             stats['not_found'] += 1
 
     # Update version
     if isinstance(gs.get('version'), dict):
-        gs['version']['number'] = '6.5.0'
+        gs['version']['number'] = '6.7.0'
     else:
-        gs['version'] = '6.5.0'
+        gs['version'] = {'number': '6.7.0'}
 
     # Save
     output = output_path or gs_path
@@ -263,36 +309,6 @@ def update_gold_standard_with_explanations(
         json.dump(gs, f, ensure_ascii=False, indent=2)
 
     return stats
-
-
-def _session_from_filename(filename: str) -> str:
-    """Extract session identifier from filename."""
-    name = filename.lower()
-
-    if 'juin-2025' in name or 'jun-2025' in name:
-        return 'jun2025'
-    elif 'decembre-2024' in name or 'dec-2024' in name:
-        return 'dec2024'
-    elif 'juin-2024' in name:
-        return 'jun2024'
-    elif 'decembre-2023' in name or 'decembre2023' in name:
-        return 'dec2023'
-    elif 'juin-2023' in name:
-        return 'jun2023'
-    elif 'decembre-2022' in name:
-        return 'dec2022'
-    elif 'juin-2022' in name:
-        return 'jun2022'
-    elif 'decembre-2021' in name:
-        return 'dec2021'
-    elif 'juin-2021' in name:
-        return 'jun2021'
-    elif 'decembre-2019' in name:
-        return 'dec2019'
-    elif '201812' in name:
-        return 'session_2018'
-
-    return filename.replace('.json', '')
 
 
 def main():

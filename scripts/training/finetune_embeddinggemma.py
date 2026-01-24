@@ -1,14 +1,24 @@
 """
-Fine-tuning EmbeddingGemma pour Pocket Arbiter
+Fine-tuning EmbeddingGemma avec LoRA/PEFT pour Pocket Arbiter
 
 Fine-tune le modele d'embeddings sur le domaine echecs/arbitrage FR.
+Utilise PEFT (Parameter-Efficient Fine-Tuning) pour reduire la memoire
+et accelerer l'entrainement.
 
 ISO Reference: ISO/IEC 42001 A.6.2.2, ISO/IEC 25010 S4.2
+Source: https://sbert.net/examples/sentence_transformer/training/peft/
 
 Usage:
     python -m scripts.training.finetune_embeddinggemma \
-        --triplets data/training/triplets_training.jsonl \
-        --output models/embeddinggemma-chess-fr
+        --triplets data/training/unified/triplets_train.jsonl \
+        --output models/embeddinggemma-chess-fr \
+        --use-lora  # Recommande
+
+    # Full fine-tuning (legacy, plus lent)
+    python -m scripts.training.finetune_embeddinggemma \
+        --triplets data/training/unified/triplets_train.jsonl \
+        --output models/embeddinggemma-chess-fr-full \
+        --no-lora
 """
 
 import argparse
@@ -28,14 +38,19 @@ if TYPE_CHECKING:
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-# Default hyperparameters (CPU-safe)
+# Default hyperparameters
 DEFAULT_MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
 DEFAULT_EPOCHS = 3
-DEFAULT_BATCH_SIZE = 4
-DEFAULT_LEARNING_RATE = 2e-5
+DEFAULT_BATCH_SIZE = 8  # LoRA permet batch plus grand
+DEFAULT_LEARNING_RATE = 2e-4  # LoRA utilise LR plus eleve
 DEFAULT_WARMUP_RATIO = 0.1
 MAX_RAM_PERCENT = 85
 RAM_CHECK_INTERVAL = 10  # Check RAM every N steps
+
+# LoRA hyperparameters (sentence-transformers defaults)
+LORA_R = 64  # Rank of LoRA matrices
+LORA_ALPHA = 128  # Scaling factor
+LORA_DROPOUT = 0.1
 
 
 class RAMMonitorCallback(TrainerCallback):
@@ -110,6 +125,9 @@ def finetune_embeddinggemma(
     batch_size: int = DEFAULT_BATCH_SIZE,
     learning_rate: float = DEFAULT_LEARNING_RATE,
     use_cpu: bool = True,
+    use_lora: bool = True,
+    lora_r: int = LORA_R,
+    lora_alpha: int = LORA_ALPHA,
     monitor_resources: bool = True,
 ) -> "SentenceTransformer":
     """
@@ -123,6 +141,9 @@ def finetune_embeddinggemma(
         batch_size: Taille de batch.
         learning_rate: Learning rate.
         use_cpu: Forcer CPU.
+        use_lora: Utiliser LoRA/PEFT (recommande).
+        lora_r: Rank des matrices LoRA.
+        lora_alpha: Facteur de scaling LoRA.
         monitor_resources: Surveiller RAM.
 
     Returns:
@@ -143,6 +164,27 @@ def finetune_embeddinggemma(
     logger.info(f"Loading model: {model_id}")
     device = "cpu" if use_cpu else None
     model = SentenceTransformer(model_id, device=device)
+
+    # Ajouter LoRA adapter si demande
+    if use_lora:
+        from peft import LoraConfig, TaskType
+
+        logger.info(f"Adding LoRA adapter (r={lora_r}, alpha={lora_alpha})")
+        peft_config = LoraConfig(
+            task_type=TaskType.FEATURE_EXTRACTION,
+            inference_mode=False,
+            r=lora_r,
+            lora_alpha=lora_alpha,
+            lora_dropout=LORA_DROPOUT,
+        )
+        model.add_adapter(peft_config)
+
+        # Compter les parametres entrainables
+        trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        total = sum(p.numel() for p in model.parameters())
+        logger.info(f"Trainable params: {trainable:,} / {total:,} ({100*trainable/total:.2f}%)")
+    else:
+        logger.info("Full fine-tuning (no LoRA)")
 
     # Preparer le dataset
     logger.info(f"Preparing dataset with {len(triplets)} triplets")
@@ -185,19 +227,56 @@ def finetune_embeddinggemma(
 
 def main() -> None:
     """Point d'entree CLI."""
-    parser = argparse.ArgumentParser(description="Fine-tune EmbeddingGemma")
-    parser.add_argument("--triplets", "-t", type=Path, required=True)
-    parser.add_argument("--output", "-o", type=Path, required=True)
-    parser.add_argument("--model", "-m", type=str, default=DEFAULT_MODEL_ID)
-    parser.add_argument("--epochs", "-e", type=int, default=DEFAULT_EPOCHS)
-    parser.add_argument("--batch-size", "-b", type=int, default=DEFAULT_BATCH_SIZE)
-    parser.add_argument("--learning-rate", type=float, default=DEFAULT_LEARNING_RATE)
-    parser.add_argument("--use-gpu", action="store_true", help="Use GPU if available")
+    parser = argparse.ArgumentParser(
+        description="Fine-tune EmbeddingGemma avec LoRA/PEFT",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # LoRA fine-tuning (recommande)
+  python -m scripts.training.finetune_embeddinggemma \\
+      --triplets data/training/unified/triplets_train.jsonl \\
+      --output models/embeddinggemma-chess-fr
+
+  # Full fine-tuning (legacy)
+  python -m scripts.training.finetune_embeddinggemma \\
+      --triplets data/training/unified/triplets_train.jsonl \\
+      --output models/embeddinggemma-chess-fr-full \\
+      --no-lora
+        """,
+    )
+    parser.add_argument("--triplets", "-t", type=Path, required=True,
+                        help="Fichier JSONL des triplets")
+    parser.add_argument("--output", "-o", type=Path, required=True,
+                        help="Repertoire de sortie du modele")
+    parser.add_argument("--model", "-m", type=str, default=DEFAULT_MODEL_ID,
+                        help=f"Model ID (default: {DEFAULT_MODEL_ID})")
+    parser.add_argument("--epochs", "-e", type=int, default=DEFAULT_EPOCHS,
+                        help=f"Nombre d'epochs (default: {DEFAULT_EPOCHS})")
+    parser.add_argument("--batch-size", "-b", type=int, default=DEFAULT_BATCH_SIZE,
+                        help=f"Batch size (default: {DEFAULT_BATCH_SIZE})")
+    parser.add_argument("--learning-rate", type=float, default=DEFAULT_LEARNING_RATE,
+                        help=f"Learning rate (default: {DEFAULT_LEARNING_RATE})")
+
+    # LoRA options
+    lora_group = parser.add_mutually_exclusive_group()
+    lora_group.add_argument("--use-lora", action="store_true", default=True,
+                            help="Utiliser LoRA/PEFT (default)")
+    lora_group.add_argument("--no-lora", action="store_true",
+                            help="Full fine-tuning sans LoRA")
+    parser.add_argument("--lora-r", type=int, default=LORA_R,
+                        help=f"LoRA rank (default: {LORA_R})")
+    parser.add_argument("--lora-alpha", type=int, default=LORA_ALPHA,
+                        help=f"LoRA alpha (default: {LORA_ALPHA})")
+
+    parser.add_argument("--use-gpu", action="store_true", help="Utiliser GPU si disponible")
     parser.add_argument("--verbose", "-v", action="store_true")
     args = parser.parse_args()
 
     if args.verbose:
         logging.getLogger().setLevel(logging.DEBUG)
+
+    # Determiner si LoRA
+    use_lora = not args.no_lora
 
     triplets = load_triplets_jsonl(args.triplets)
     logger.info(f"Loaded {len(triplets)} triplets")
@@ -210,6 +289,9 @@ def main() -> None:
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         use_cpu=not args.use_gpu,
+        use_lora=use_lora,
+        lora_r=args.lora_r,
+        lora_alpha=args.lora_alpha,
     )
 
     # Rapport
@@ -220,6 +302,9 @@ def main() -> None:
         "epochs": args.epochs,
         "batch_size": args.batch_size,
         "learning_rate": args.learning_rate,
+        "use_lora": use_lora,
+        "lora_r": args.lora_r if use_lora else None,
+        "lora_alpha": args.lora_alpha if use_lora else None,
         "embedding_dim": model.get_sentence_embedding_dimension(),
         "timestamp": get_timestamp(),
     }
@@ -228,6 +313,8 @@ def main() -> None:
     logger.info("=" * 50)
     logger.info("Training complete!")
     logger.info(f"Model saved to: {args.output}")
+    if use_lora:
+        logger.info(f"LoRA adapter: r={args.lora_r}, alpha={args.lora_alpha}")
 
 
 if __name__ == "__main__":

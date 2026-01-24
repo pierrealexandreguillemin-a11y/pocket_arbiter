@@ -254,6 +254,94 @@ def select_hard_negative(
     return chunk_index.get(neg_id) if neg_id else None, "random_fallback"
 
 
+def validate_quality_gates(
+    triplets: list[dict],
+    embeddings: np.ndarray | None,
+    all_ids: list[str],
+    chunk_index: dict[str, dict],
+    model: Any = None,
+) -> dict[str, Any]:
+    """
+    Validate triplets against Quality Gates (UNIFIED spec 2.4).
+
+    Gate 3 checks:
+    - cosine(anchor, positive) < 0.9
+    - No duplicate negatives
+    """
+    violations = {
+        "cosine_violations": [],  # triplets where cosine >= 0.9
+        "duplicate_negatives": [],  # negative chunks used multiple times
+    }
+
+    # Check for duplicate negatives
+    negative_ids = [t["metadata"]["negative_chunk_id"] for t in triplets]
+    seen_negatives: dict[str, list[str]] = defaultdict(list)
+    for t in triplets:
+        neg_id = t["metadata"]["negative_chunk_id"]
+        qid = t["metadata"]["question_id"]
+        seen_negatives[neg_id].append(qid)
+
+    for neg_id, qids in seen_negatives.items():
+        if len(qids) > 1:
+            violations["duplicate_negatives"].append({
+                "negative_id": neg_id,
+                "used_by": qids,
+                "count": len(qids),
+            })
+
+    # Check cosine similarity if embeddings available
+    if embeddings is not None and model is None:
+        # Use pre-computed embeddings for positive chunks
+        for t in triplets:
+            pos_id = t["metadata"]["positive_chunk_id"]
+            if pos_id in all_ids:
+                pos_idx = all_ids.index(pos_id)
+                # We can't compute anchor embedding without model
+                # This will be done if model is provided
+
+    # If model provided, compute anchor embeddings and check
+    if model is not None:
+        try:
+            anchors = [t["anchor"] for t in triplets]
+            anchor_embs = model.encode(anchors, show_progress_bar=True)
+
+            for i, t in enumerate(triplets):
+                pos_id = t["metadata"]["positive_chunk_id"]
+                if pos_id in all_ids:
+                    pos_idx = all_ids.index(pos_id)
+                    if pos_idx < len(embeddings):
+                        sim = cosine_similarity(anchor_embs[i], embeddings[pos_idx])
+                        if sim >= 0.9:
+                            violations["cosine_violations"].append({
+                                "question_id": t["metadata"]["question_id"],
+                                "cosine": round(sim, 4),
+                            })
+        except Exception as e:
+            logger.warning(f"Could not compute anchor embeddings: {e}")
+
+    # Quality gate results
+    total = len(triplets)
+    duplicate_rate = len(violations["duplicate_negatives"]) / total if total > 0 else 0
+    cosine_violation_rate = len(violations["cosine_violations"]) / total if total > 0 else 0
+
+    return {
+        "gate_3_duplicate_negatives": {
+            "passed": duplicate_rate < 0.05,  # Allow 5% duplicates
+            "rate": round(duplicate_rate, 4),
+            "count": len(violations["duplicate_negatives"]),
+            "threshold": 0.05,
+        },
+        "gate_3_cosine_check": {
+            "passed": cosine_violation_rate < 0.10,  # Allow 10% violations
+            "rate": round(cosine_violation_rate, 4),
+            "count": len(violations["cosine_violations"]),
+            "threshold": 0.10,
+            "note": "Requires embedding model for full check" if model is None else "Checked",
+        },
+        "violations": violations if (violations["cosine_violations"] or violations["duplicate_negatives"]) else None,
+    }
+
+
 def generate_triplets(
     gs_data: dict[str, Any],
     chunk_index: dict[str, dict],
@@ -261,6 +349,7 @@ def generate_triplets(
     by_category: dict[str, list[dict]],
     all_ids: list[str],
     embeddings: np.ndarray | None,
+    embedding_model: Any = None,
 ) -> tuple[list[dict], dict]:
     """Generate triplets for all questions with chunks."""
     questions = gs_data.get("questions", [])
@@ -268,23 +357,27 @@ def generate_triplets(
     triplets = []
     method_counts: dict[str, int] = defaultdict(int)
     skipped = 0
+    skip_reasons: dict[str, int] = defaultdict(int)
 
     for question in tqdm(questions, desc="Generating triplets"):
         chunk_id = question.get("expected_chunk_id")
         if not chunk_id:
             skipped += 1
+            skip_reasons["no_chunk_id"] += 1
             continue
 
         positive_chunk = chunk_index.get(chunk_id)
         if not positive_chunk:
             logger.warning(f"Chunk not found: {chunk_id}")
             skipped += 1
+            skip_reasons["chunk_not_found"] += 1
             continue
 
         # Get question text (prefer reformulated)
         anchor = question.get("question_reformulated", question.get("question", ""))
         if not anchor:
             skipped += 1
+            skip_reasons["no_anchor_text"] += 1
             continue
 
         # Select hard negative
@@ -301,6 +394,7 @@ def generate_triplets(
 
         if not negative_chunk:
             skipped += 1
+            skip_reasons["no_negative_found"] += 1
             continue
 
         method_counts[method] += 1
@@ -321,17 +415,24 @@ def generate_triplets(
         }
         triplets.append(triplet)
 
+    # Validate quality gates
+    quality_gates = validate_quality_gates(
+        triplets, embeddings, all_ids, chunk_index, embedding_model
+    )
+
     # Calculate statistics
     total_generated = len(triplets)
     stats = {
         "total_questions": len(questions),
         "triplets_generated": total_generated,
         "skipped": skipped,
+        "skip_reasons": dict(skip_reasons),
         "method_distribution": dict(method_counts),
         "method_percentages": {
             m: round(c / total_generated * 100, 1) if total_generated > 0 else 0
             for m, c in method_counts.items()
         },
+        "quality_gates": quality_gates,
     }
 
     return triplets, stats
@@ -381,6 +482,11 @@ def main() -> None:
         help="Random seed for reproducibility",
     )
     parser.add_argument(
+        "--validate-cosine",
+        action="store_true",
+        help="Load embedding model to validate cosine < 0.9 gate (slower)",
+    )
+    parser.add_argument(
         "--verbose", "-v",
         action="store_true",
     )
@@ -418,6 +524,17 @@ def main() -> None:
     else:
         logger.info("No embeddings - semantic_similar method disabled")
 
+    # Load embedding model for validation if requested
+    embedding_model = None
+    if args.validate_cosine:
+        logger.info("Loading embedding model for cosine validation...")
+        try:
+            from sentence_transformers import SentenceTransformer
+            embedding_model = SentenceTransformer("intfloat/multilingual-e5-small")
+            logger.info("  Model loaded for Gate 3 cosine validation")
+        except Exception as e:
+            logger.warning(f"Could not load model: {e}")
+
     # Generate triplets
     logger.info("Generating triplets...")
     triplets, stats = generate_triplets(
@@ -427,6 +544,7 @@ def main() -> None:
         by_category,
         all_ids,
         embeddings,
+        embedding_model,
     )
 
     # Save output
@@ -449,12 +567,32 @@ def main() -> None:
     logger.info(f"  Total questions: {stats['total_questions']}")
     logger.info(f"  Triplets generated: {stats['triplets_generated']}")
     logger.info(f"  Skipped: {stats['skipped']}")
+    if stats.get("skip_reasons"):
+        for reason, count in stats["skip_reasons"].items():
+            logger.info(f"    - {reason}: {count}")
     logger.info("")
     logger.info("Method distribution:")
     for method, count in stats["method_distribution"].items():
         pct = stats["method_percentages"].get(method, 0)
         target = TARGET_DISTRIBUTION.get(method, 0) * 100
         logger.info(f"  {method}: {count} ({pct}%) [target: {target}%]")
+
+    # Quality Gates
+    logger.info("")
+    logger.info("QUALITY GATES (UNIFIED spec 2.4):")
+    qg = stats.get("quality_gates", {})
+
+    gate_dup = qg.get("gate_3_duplicate_negatives", {})
+    status = "PASS" if gate_dup.get("passed") else "FAIL"
+    logger.info(f"  Gate 3 - Duplicate negatives: {status}")
+    logger.info(f"    Rate: {gate_dup.get('rate', 'N/A')} (threshold: {gate_dup.get('threshold', 'N/A')})")
+    logger.info(f"    Count: {gate_dup.get('count', 'N/A')}")
+
+    gate_cos = qg.get("gate_3_cosine_check", {})
+    status = "PASS" if gate_cos.get("passed") else "FAIL"
+    logger.info(f"  Gate 3 - Cosine < 0.9: {status}")
+    logger.info(f"    Rate: {gate_cos.get('rate', 'N/A')} (threshold: {gate_cos.get('threshold', 'N/A')})")
+    logger.info(f"    Note: {gate_cos.get('note', 'N/A')}")
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 
 > **Document ID**: RES-FT-RESOURCES-001
 > **ISO Reference**: ISO 42001, ISO 25010
-> **Version**: 1.1
+> **Version**: 1.2
 > **Date**: 2026-01-24
 > **Statut**: Reference
 > **Classification**: Interne
@@ -126,26 +126,34 @@ PROMPTS = {
 
 ### 3.4 Modeles EmbeddingGemma - Fine-tuning vs Deploiement
 
-> **IMPORTANT**: Il existe plusieurs variantes EmbeddingGemma avec des usages differents.
+> **RECOMMANDATION**: Utiliser **QLoRA** avec le modele QAT pour le fine-tuning Pocket Arbiter.
 
-| Usage | Model ID | Source | Taille | Format |
-|-------|----------|--------|--------|--------|
-| **Fine-tuning (full/LoRA)** | `google/embeddinggemma-300m` | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m) | ~1.2 GB | safetensors F32 |
-| **Fine-tuning (QLoRA)** | `google/embeddinggemma-300m-qat-q4_0-unquantized` | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized) | ~600 MB | Q4 checkpoints |
-| **Deploiement Android** | `litert-community/embeddinggemma-300m` | [HuggingFace](https://huggingface.co/litert-community/embeddinggemma-300m) | 179-196 MB | .tflite |
+| Usage | Model ID | Source | Taille | Recommandation |
+|-------|----------|--------|--------|----------------|
+| **Fine-tuning QLoRA** | `google/embeddinggemma-300m-qat-q4_0-unquantized` | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized) | ~600 MB | **RECOMMANDE** |
+| **Fine-tuning full** | `google/embeddinggemma-300m` | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m) | ~1.2 GB | Fallback si QLoRA echoue |
+| **Deploiement Android** | `litert-community/embeddinggemma-300m` | [HuggingFace](https://huggingface.co/litert-community/embeddinggemma-300m) | 179-196 MB | Production |
 
-#### 3.4.1 Modele Fine-tuning: `google/embeddinggemma-300m`
+#### 3.4.1 Modele RECOMMANDE: `google/embeddinggemma-300m-qat-q4_0-unquantized`
 
-- **Framework**: sentence-transformers >= 3.0
-- **Loss**: `MultipleNegativesRankingLoss` ou `CachedMultipleNegativesRankingLoss`
-- **Output**: Modele HuggingFace (safetensors)
-- **Note**: Ne supporte PAS float16, utiliser float32 ou bfloat16
+> **Pourquoi QLoRA > Full Fine-tuning:**
+> - **VRAM**: 8-12 GB vs 24+ GB (T4 suffisant vs A100 requis)
+> - **Vitesse**: 2-3x plus rapide (gradient checkpointing)
+> - **Stabilite**: Pas de catastrophic forgetting
+> - **Qualite post-quant**: QAT preserve la qualite apres quantization TFLite
 
-#### 3.4.2 Modele QAT: `google/embeddinggemma-300m-qat-q4_0-unquantized`
-
-- **Usage**: Fine-tuning avec quantization-aware training
-- **Avantage**: Meilleure qualite apres quantization finale
+- **Framework**: sentence-transformers >= 3.0 + peft
+- **Loss**: `CachedMultipleNegativesRankingLoss` (memory-efficient)
+- **LoRA config**: rank=8, alpha=16, dropout=0.1
+- **Target modules**: `["q_proj", "v_proj", "k_proj", "o_proj"]`
 - **Reference**: [Google QAT Blog](https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/)
+
+#### 3.4.2 Modele Fallback: `google/embeddinggemma-300m`
+
+- **Usage**: Full fine-tuning si QLoRA incompatible
+- **Prerequis**: GPU A100 40GB+ ou multi-GPU
+- **Note**: Ne supporte PAS float16, utiliser float32 ou bfloat16
+- **Quand utiliser**: Seulement si QLoRA donne des resultats inferieurs
 
 #### 3.4.3 Modele Deploiement: `litert-community/embeddinggemma-300m`
 
@@ -160,15 +168,21 @@ Variantes TFLite disponibles:
 
 **Recommandation Pocket Arbiter**: 256 tokens (chunks < 450 tokens tronques)
 
-### 3.5 Workflow Fine-tuning → Deploiement Android
+### 3.5 Workflow QLoRA Fine-tuning → Deploiement Android
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  PHASE 1: FINE-TUNING (Kaggle/Colab)                                │
-│  ├── Model: google/embeddinggemma-300m                              │
-│  ├── Framework: sentence-transformers + MultipleNegativesRankingLoss│
-│  ├── Data: triplets GS v6.7.0 (see UNIFIED_TRAINING_DATA_SPEC.md)   │
-│  └── Output: embeddinggemma-chess-fr/ (HuggingFace Hub)             │
+│  PHASE 1: FINE-TUNING QLoRA (Kaggle T4 / Colab)                     │
+│  ├── Model: google/embeddinggemma-300m-qat-q4_0-unquantized         │
+│  ├── Framework: sentence-transformers + peft (QLoRA)                │
+│  ├── Loss: CachedMultipleNegativesRankingLoss                       │
+│  ├── Data: triplets GS v6.7.0 (UNIFIED_TRAINING_DATA_SPEC.md)       │
+│  ├── VRAM: ~10 GB (T4 16GB OK)                                      │
+│  └── Output: embeddinggemma-chess-fr/ (adapters LoRA)               │
+│                         ↓                                           │
+│  PHASE 1.5: MERGE ADAPTERS                                          │
+│  ├── Merge LoRA adapters into base model                            │
+│  └── Output: embeddinggemma-chess-fr-merged/ (full weights)         │
 │                         ↓                                           │
 │  PHASE 2: CONVERSION TFLite                                         │
 │  ├── Tool: ai-edge-torch (https://github.com/google-ai-edge/ai-edge-torch)
@@ -288,7 +302,8 @@ trainer = SentenceTransformerTrainer(
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-24 | Extraction depuis LORA_FINETUNING_GUIDE.md (sections 1-5) |
-| 1.1 | 2026-01-24 | **Ajout sections 3.4-3.6**: Modeles confirmes (fine-tuning vs deploiement), workflow TFLite, compatibilite RAG SDK |
+| 1.1 | 2026-01-24 | Ajout sections 3.4-3.6: Modeles, workflow TFLite, compatibilite RAG SDK |
+| 1.2 | 2026-01-24 | **CORRECTION CRITIQUE**: QLoRA = methode RECOMMANDEE (pas optionnelle), modele QAT prioritaire, workflow mis a jour |
 
 ---
 

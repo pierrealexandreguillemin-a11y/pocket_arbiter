@@ -329,45 +329,69 @@ GOLD STANDARD v6 ─────────────────────
 
 ## 6. Statut d'Implémentation (2026-01-24)
 
-### 6.1 Métriques Gold Standard v6.1.0
+### 6.1 Métriques Gold Standard v6.3.0
 
-| Métrique | Valeur | Cible |
-|----------|--------|-------|
-| Questions totales | 518 | 500+ |
-| Avec answer_text complet | 80.9% | 80% |
-| Avec expected_pages | 90.3% | 90% |
-| Avec choices | 85.7% | 80% |
-| Articles vérifiés corpus | 91.3% | 90% |
+| Métrique | Valeur | Cible | Status |
+|----------|--------|-------|--------|
+| Questions totales | 518 | 500+ | ✅ |
+| Avec answer_text complet | 391/518 (75.5%) | 100% | ❌ BLOQUANT |
+| Questions QCM avec choix | 637/692 (92.1%) | 95% | ⚠️ |
+| Avec expected_pages | 90.3% | 90% | ✅ |
+| Articles vérifiés corpus | 91.3% | 90% | ✅ |
 
-### 6.2 Fichiers créés
+### 6.2 Analyse des écarts answer_text
+
+| Catégorie | Count | Action requise |
+|-----------|-------|----------------|
+| QCM avec choix extraits | 409 | ✅ answer_text derivé |
+| QCM choix partiels | 10 | ⚠️ Améliorer parser |
+| Questions ouvertes | 39 | 📋 Extraire du corrigé détaillé |
+| Questions images | 4 | ℹ️ Non extractible |
+| Mauvais parsing corrigé | 16 | 🔧 Exclure sections corrigé |
+| Parsing manqué | ~50 | 🔧 Nouveaux patterns regex |
+
+### 6.3 Fichiers créés
 
 ```
 scripts/evaluation/annales/
-├── parse_annales.py              # Extraction questions (5 formats choix)
+├── parse_annales.py              # Extraction questions (6 formats choix)
 ├── map_articles_to_corpus.py     # Mapping article → document
 ├── generate_gold_standard.py     # Génération GS
 ├── validate_answers.py           # Validation pages + articles
 ├── reformulate_questions.py      # Reformulation langage courant
 ├── cleanup_gold_standard.py      # Dérivation answer_text
-└── tests/
-    ├── test_parse_annales.py     # 23 tests
-    ├── test_validate.py          # 22 tests
-    └── test_reformulate.py       # 19 tests
+└── upgrade_schema.py             # Upgrade vers schema v5.30
+
+data/evaluation/annales/
+├── README.md                     # Documentation structure annales
+├── parsed/                       # Questions parsées par session
+└── mapped/                       # Questions avec mapping corpus
 
 tests/data/
-└── gold_standard_annales_fr.json # GS v6.1.0 (518 questions)
+└── gold_standard_annales_fr.json # GS v6.3.0 (518 questions)
 ```
 
-### 6.3 Versioning
+### 6.4 Versioning
 
-| Version | Date | Checksum | Changements |
-|---------|------|----------|-------------|
-| 6.0.0 | 2026-01-23 | a7f2e3... | Initial GS avec 518 questions |
-| 6.1.0 | 2026-01-24 | 758b9a... | +5 formats choix, answer_text, corpus_verified |
+| Version | Date | Questions | answer_text% | Changements |
+|---------|------|-----------|--------------|-------------|
+| 6.0.0 | 2026-01-23 | 518 | 64% | Initial GS |
+| 6.1.0 | 2026-01-24 | 518 | 75% | +5 formats choix |
+| 6.2.0 | 2026-01-24 | 518 | 80.9% | +format bare (2018) |
+| 6.3.0 | 2026-01-24 | 518 | 75.5% | Cleanup, validation |
 
-### 6.4 Conformité ISO
+### 6.5 Conformité ISO
 
-- **ISO 42001 A.7.3** : Traçabilité complète question → article → document
-- **ISO 29119** : 64 tests, couverture fonctionnelle 100%
-- **ISO 27001** : Aucune donnée sensible (examens publics)
-- **ISO 25010** : Complexité B (maintenue)
+| Norme | Exigence | Status |
+|-------|----------|--------|
+| ISO 42001 A.7.3 | Traçabilité question → article → document | ✅ 91.3% |
+| ISO 29119-3 | Documentation des données de test | ✅ |
+| ISO 27001 | Protection données sensibles | ✅ N/A (public) |
+| ISO 25010 | Complexité maintainable | ✅ Grade B |
+
+### 6.6 Prochaines actions (priorité)
+
+1. **[P0]** Extraire answer_text du corrigé détaillé pour questions ouvertes (39 Q)
+2. **[P0]** Exclure parsing des sections "corrigé" comme questions (16 Q)
+3. **[P1]** Ajouter patterns pour formats manquants (~50 Q)
+4. **[P2]** Valider expected_chunk_id contre corpus Mode B

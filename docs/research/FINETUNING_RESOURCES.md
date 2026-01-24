@@ -2,7 +2,7 @@
 
 > **Document ID**: RES-FT-RESOURCES-001
 > **ISO Reference**: ISO 42001, ISO 25010
-> **Version**: 1.0
+> **Version**: 1.1
 > **Date**: 2026-01-24
 > **Statut**: Reference
 > **Classification**: Interne
@@ -124,6 +124,77 @@ PROMPTS = {
 }
 ```
 
+### 3.4 Modeles EmbeddingGemma - Fine-tuning vs Deploiement
+
+> **IMPORTANT**: Il existe plusieurs variantes EmbeddingGemma avec des usages differents.
+
+| Usage | Model ID | Source | Taille | Format |
+|-------|----------|--------|--------|--------|
+| **Fine-tuning (full/LoRA)** | `google/embeddinggemma-300m` | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m) | ~1.2 GB | safetensors F32 |
+| **Fine-tuning (QLoRA)** | `google/embeddinggemma-300m-qat-q4_0-unquantized` | [HuggingFace](https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized) | ~600 MB | Q4 checkpoints |
+| **Deploiement Android** | `litert-community/embeddinggemma-300m` | [HuggingFace](https://huggingface.co/litert-community/embeddinggemma-300m) | 179-196 MB | .tflite |
+
+#### 3.4.1 Modele Fine-tuning: `google/embeddinggemma-300m`
+
+- **Framework**: sentence-transformers >= 3.0
+- **Loss**: `MultipleNegativesRankingLoss` ou `CachedMultipleNegativesRankingLoss`
+- **Output**: Modele HuggingFace (safetensors)
+- **Note**: Ne supporte PAS float16, utiliser float32 ou bfloat16
+
+#### 3.4.2 Modele QAT: `google/embeddinggemma-300m-qat-q4_0-unquantized`
+
+- **Usage**: Fine-tuning avec quantization-aware training
+- **Avantage**: Meilleure qualite apres quantization finale
+- **Reference**: [Google QAT Blog](https://developers.googleblog.com/en/gemma-3-quantized-aware-trained-state-of-the-art-ai-to-consumer-gpus/)
+
+#### 3.4.3 Modele Deploiement: `litert-community/embeddinggemma-300m`
+
+Variantes TFLite disponibles:
+
+| Sequence Length | Taille | Inference CPU | Inference GPU | RAM (CPU) |
+|-----------------|--------|---------------|---------------|-----------|
+| 256 tokens | 179 MB | 66 ms | 64 ms | 110 MB |
+| 512 tokens | 179 MB | 169 ms | 119 ms | 123 MB |
+| 1024 tokens | 183 MB | 549 ms | 241 ms | 169 MB |
+| 2048 tokens | 196 MB | 2455 ms | 683 ms | 333 MB |
+
+**Recommandation Pocket Arbiter**: 256 tokens (chunks < 450 tokens tronques)
+
+### 3.5 Workflow Fine-tuning → Deploiement Android
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  PHASE 1: FINE-TUNING (Kaggle/Colab)                                │
+│  ├── Model: google/embeddinggemma-300m                              │
+│  ├── Framework: sentence-transformers + MultipleNegativesRankingLoss│
+│  ├── Data: triplets GS v6.7.0 (see UNIFIED_TRAINING_DATA_SPEC.md)   │
+│  └── Output: embeddinggemma-chess-fr/ (HuggingFace Hub)             │
+│                         ↓                                           │
+│  PHASE 2: CONVERSION TFLite                                         │
+│  ├── Tool: ai-edge-torch (https://github.com/google-ai-edge/ai-edge-torch)
+│  ├── Quantization: Mixed precision e4_a8_f4_p4 (int4 + int8)        │
+│  └── Output: embeddinggemma-chess-fr.tflite (~180 MB)               │
+│                         ↓                                           │
+│  PHASE 3: DEPLOIEMENT ANDROID                                       │
+│  ├── Runtime: LiteRT (XNNPACK CPU ou GPU)                           │
+│  ├── RAG SDK: com.google.ai.edge.localagents:localagents-rag:0.1.0  │
+│  ├── Embedder: Custom via Embedder<String> interface                │
+│  └── Tokenizer: SentencePiece (separe du modele)                    │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 3.6 Compatibilite Google AI Edge RAG SDK
+
+| Aspect | Officiel (Gecko) | Custom (EmbeddingGemma) |
+|--------|------------------|-------------------------|
+| Embedder | `Gecko_256_f32.tflite` | `embeddinggemma.tflite` |
+| Interface | Built-in GeckoEmbedder | Custom `Embedder<String>` |
+| Dimensions | 768 | 768 (ou MRL: 512/256/128) |
+| Tokenizer | Integre | SentencePiece separe |
+| Integration | Directe | Via LiteRT API |
+
+**Reference**: [AI Edge RAG Android Guide](https://ai.google.dev/edge/mediapipe/solutions/genai/rag/android)
+
 ---
 
 ## 4. Hyperparametres Recommandes
@@ -217,6 +288,7 @@ trainer = SentenceTransformerTrainer(
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-24 | Extraction depuis LORA_FINETUNING_GUIDE.md (sections 1-5) |
+| 1.1 | 2026-01-24 | **Ajout sections 3.4-3.6**: Modeles confirmes (fine-tuning vs deploiement), workflow TFLite, compatibilite RAG SDK |
 
 ---
 

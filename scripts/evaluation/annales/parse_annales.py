@@ -277,7 +277,7 @@ def _parse_correction_table(table: dict[str, Any]) -> list[dict[str, Any]]:
 
     Expected columns: Question | Réponse | Articles de référence | Taux Réussite
     """
-    corrections = []
+    corrections: list[dict[str, Any]] = []
     headers = table.get("headers", [])
     rows = table.get("rows", [])
 

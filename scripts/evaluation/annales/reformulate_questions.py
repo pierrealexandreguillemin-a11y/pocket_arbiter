@@ -272,18 +272,15 @@ def reformulate_gold_standard(
 
     logger.info(f"Reformulating {len(questions)} questions")
 
-    stats = {
-        "total": 0,
-        "reformulated": 0,
-        "by_type": {},
-        "avg_length_reduction": 0.0,
-    }
+    stats_total = 0
+    stats_reformulated = 0
+    by_type: dict[str, int] = {}
 
     total_original_len = 0
     total_reformulated_len = 0
 
     for q in questions:
-        stats["total"] += 1
+        stats_total += 1
         original_len = len(q.get("question", ""))
         total_original_len += original_len
 
@@ -293,28 +290,29 @@ def reformulate_gold_standard(
         total_reformulated_len += reformulated_len
 
         q_type = reformulated.get("reformulation", {}).get("original_type", "unknown")
-        stats["by_type"][q_type] = stats["by_type"].get(q_type, 0) + 1
+        by_type[q_type] = by_type.get(q_type, 0) + 1
 
         if reformulated_len < original_len:
-            stats["reformulated"] += 1
+            stats_reformulated += 1
 
     # Calculate average length reduction
+    avg_length_reduction = 0.0
     if total_original_len > 0:
-        stats["avg_length_reduction"] = (
+        avg_length_reduction = (
             (total_original_len - total_reformulated_len) / total_original_len
         ) * 100
 
     # Update methodology
     gs_data["methodology"]["reformulation"] = (
-        f"Reformulated {stats['reformulated']}/{stats['total']} questions "
-        f"({stats['avg_length_reduction']:.1f}% avg length reduction)"
+        f"Reformulated {stats_reformulated}/{stats_total} questions "
+        f"({avg_length_reduction:.1f}% avg length reduction)"
     )
 
     gs_data["reformulation_stats"] = {
-        "total_questions": stats["total"],
-        "questions_shortened": stats["reformulated"],
-        "avg_length_reduction_pct": round(stats["avg_length_reduction"], 1),
-        "by_type": stats["by_type"],
+        "total_questions": stats_total,
+        "questions_shortened": stats_reformulated,
+        "avg_length_reduction_pct": round(avg_length_reduction, 1),
+        "by_type": by_type,
         "reformulation_date": get_timestamp(),
     }
 
@@ -322,7 +320,12 @@ def reformulate_gold_standard(
     save_json(gs_data, output_path)
     logger.info(f"Saved reformulated Gold Standard: {output_path}")
 
-    return stats
+    return {
+        "total": stats_total,
+        "reformulated": stats_reformulated,
+        "by_type": by_type,
+        "avg_length_reduction": avg_length_reduction,
+    }
 
 
 def main() -> None:

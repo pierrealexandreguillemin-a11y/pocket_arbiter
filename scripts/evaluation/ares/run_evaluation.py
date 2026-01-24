@@ -60,6 +60,38 @@ LLM_CONFIGS = {
         "host": "ollama",
         "estimated_cost_per_eval": 0.0,
     },
+    # Groq (free tier: 14,400 req/day)
+    "groq:llama-3.3-70b": {
+        "model": "llama-3.3-70b-versatile",
+        "host": "groq",
+        "estimated_cost_per_eval": 0.0,
+    },
+    "groq:llama-3.1-8b": {
+        "model": "llama-3.1-8b-instant",
+        "host": "groq",
+        "estimated_cost_per_eval": 0.0,
+    },
+    "groq:mixtral-8x7b": {
+        "model": "mixtral-8x7b-32768",
+        "host": "groq",
+        "estimated_cost_per_eval": 0.0,
+    },
+    # HuggingFace Inference API (free tier: ~30k req/month)
+    "hf:mistral-7b": {
+        "model": "mistralai/Mistral-7B-Instruct-v0.3",
+        "host": "huggingface",
+        "estimated_cost_per_eval": 0.0,
+    },
+    "hf:llama-3.2-3b": {
+        "model": "meta-llama/Llama-3.2-3B-Instruct",
+        "host": "huggingface",
+        "estimated_cost_per_eval": 0.0,
+    },
+    "hf:qwen2.5-72b": {
+        "model": "Qwen/Qwen2.5-72B-Instruct",
+        "host": "huggingface",
+        "estimated_cost_per_eval": 0.0,
+    },
 }
 
 
@@ -320,8 +352,11 @@ def run_ollama_evaluation(
     corpus: str = "fr",
     model: str = "mistral:latest",
     output_dir: Path | None = None,
+    max_samples: int = 0,
 ) -> dict[str, Any]:
     """ARES-VERBATIM LLM-as-judge evaluation using Ollama.
+
+    PERFORMANCE: Full evaluation = ~6h. Use max_samples for quick tests.
 
     Implements EXACTLY:
     - ARES context_relevance_system_prompt
@@ -396,10 +431,20 @@ def run_ollama_evaluation(
                 "document": str(row["Document"]),
             })
 
+    # Limit samples for quick testing
+    if max_samples > 0:
+        gold_samples = gold_samples[:max_samples]
+        unlabeled_samples = unlabeled_samples[:max_samples]
+
+    total_calls = len(gold_samples) + len(unlabeled_samples)
+    est_minutes = total_calls * 5 / 60  # ~5s per call
+
     print(f"ARES-verbatim evaluation with Ollama ({model})")
     print(f"  Few-shot examples: {len(few_shot_examples)}")
     print(f"  Gold labeled: {len(gold_samples)}")
     print(f"  Unlabeled: {len(unlabeled_samples)}")
+    print(f"  Total LLM calls: {total_calls}")
+    print(f"  Estimated time: {est_minutes:.0f} min")
 
     # ARES-verbatim system prompt
     system_prompt = (
@@ -510,7 +555,437 @@ Label: """
     print(f"\nContext Relevance (PPI): {estimate:.2%}")
     print(f"95% CI: [{ci_lower:.2%}, {ci_upper:.2%}]")
     print(f"Judge accuracy on gold: {accuracy:.2%}")
-    print(f"Pass (≥80%): {'✓' if estimate >= 0.80 else '✗'}")
+    print(f"Pass (>=80%): {'PASS' if estimate >= 0.80 else 'FAIL'}")
+
+    return result
+
+
+def run_groq_evaluation(
+    corpus: str = "fr",
+    model: str = "llama-3.3-70b-versatile",
+    output_dir: Path | None = None,
+    max_samples: int = 0,
+) -> dict[str, Any]:
+    """ARES-VERBATIM LLM-as-judge evaluation using Groq API.
+
+    Groq free tier: 14,400 requests/day, ~0.5s/call.
+    Full evaluation (3727 samples) in ~30 min.
+
+    Args:
+        corpus: Either 'fr' or 'intl'
+        model: Groq model (llama-3.3-70b-versatile, llama-3.1-8b-instant, mixtral-8x7b-32768)
+        output_dir: Directory for results
+        max_samples: Limit samples (0=all)
+
+    Returns:
+        Evaluation results dict (ARES-compatible format)
+    """
+    import csv
+    import re
+
+    from openai import OpenAI
+
+    api_key = os.environ.get("GROQ_API_KEY")
+    if not api_key:
+        raise EnvironmentError(
+            "GROQ_API_KEY not set. Get free key at https://console.groq.com"
+        )
+
+    client = OpenAI(
+        api_key=api_key,
+        base_url="https://api.groq.com/openai/v1",
+    )
+
+    if output_dir is None:
+        output_dir = OUTPUT_DIR
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Load data files (ARES format)
+    gold_label_path = DATA_DIR / f"gold_label_{corpus}.tsv"
+    few_shot_path = DATA_DIR / f"few_shot_{corpus}.tsv"
+    unlabeled_path = DATA_DIR / f"unlabeled_{corpus}.tsv"
+
+    for path in [gold_label_path, few_shot_path, unlabeled_path]:
+        if not path.exists():
+            raise FileNotFoundError(f"Missing: {path}")
+
+    # Load few-shot examples
+    few_shot_examples = []
+    with open(few_shot_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            label = row.get("Context_Relevance_Label", "")
+            if label in ("0", "1"):
+                few_shot_examples.append({
+                    "query": row["Query"],
+                    "document": row["Document"],
+                    "label": "[[Yes]]" if label == "1" else "[[No]]",
+                })
+
+    # Load gold labeled samples
+    gold_samples: list[dict[str, str | int]] = []
+    with open(gold_label_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            gold_samples.append({
+                "query": str(row["Query"]),
+                "document": str(row["Document"]),
+                "gold_label": int(row["Context_Relevance_Label"]),
+            })
+
+    # Load unlabeled samples
+    unlabeled_samples: list[dict[str, str]] = []
+    with open(unlabeled_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            unlabeled_samples.append({
+                "query": str(row["Query"]),
+                "document": str(row["Document"]),
+            })
+
+    # Limit samples
+    if max_samples > 0:
+        gold_samples = gold_samples[:max_samples]
+        unlabeled_samples = unlabeled_samples[:max_samples]
+
+    total_calls = len(gold_samples) + len(unlabeled_samples)
+    est_minutes = total_calls * 0.5 / 60  # ~0.5s per call with Groq
+
+    print(f"ARES-verbatim evaluation with Groq ({model})")
+    print(f"  Few-shot examples: {len(few_shot_examples)}")
+    print(f"  Gold labeled: {len(gold_samples)}")
+    print(f"  Unlabeled: {len(unlabeled_samples)}")
+    print(f"  Total LLM calls: {total_calls}")
+    print(f"  Estimated time: {est_minutes:.0f} min")
+
+    # ARES-verbatim system prompt
+    system_prompt = (
+        'You are an expert dialogue agent. Your task is to analyze the provided '
+        'document and determine whether it is relevant for responding to the dialogue. '
+        'In your evaluation, you should consider the content of the document and how '
+        'it relates to the provided dialogue. Output your final verdict by strictly '
+        'following this format: "[[Yes]]" if the document is relevant and "[[No]]" '
+        'if the document provided is not relevant. Do not provide any additional '
+        'explanation for your decision.'
+    )
+
+    # Build few-shot messages
+    few_shot_messages: list[dict[str, str]] = []
+    for ex in few_shot_examples[:5]:
+        few_shot_messages.append({
+            "role": "user",
+            "content": f"Question: {ex['query']}\nDocument: {ex['document'][:500]}",
+        })
+        few_shot_messages.append({
+            "role": "assistant",
+            "content": ex["label"],
+        })
+
+    def evaluate_sample(query: str, document: str) -> int:
+        """Evaluate a single sample, returns 1 (relevant) or 0 (not relevant)."""
+        messages = [
+            {"role": "system", "content": system_prompt},
+            *few_shot_messages,
+            {"role": "user", "content": f"Question: {query}\nDocument: {document[:2000]}"},
+        ]
+
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,  # type: ignore[arg-type]
+                max_tokens=10,
+                temperature=0,
+            )
+            response_text = response.choices[0].message.content or ""
+
+            # ARES-verbatim parsing
+            yes_match = re.search(r"\[\[Yes\]\]", response_text, re.IGNORECASE)
+            no_match = re.search(r"\[\[No\]\]", response_text, re.IGNORECASE)
+
+            if yes_match and not no_match:
+                return 1
+            elif no_match:
+                return 0
+            else:
+                return 1 if "yes" in response_text.lower()[:10] else 0
+        except Exception as e:
+            print(f"  Error: {e}")
+            return 0
+
+    # Evaluate gold labeled samples
+    print("\nPhase 1: Evaluating gold labeled samples...")
+    Y_labeled: list[int] = []
+    Yhat_labeled: list[int] = []
+    for i, sample in enumerate(gold_samples):
+        pred = evaluate_sample(str(sample["query"]), str(sample["document"]))
+        Y_labeled.append(int(sample["gold_label"]))
+        Yhat_labeled.append(pred)
+        if (i + 1) % 50 == 0:
+            print(f"  Gold: {i + 1}/{len(gold_samples)}")
+
+    # Evaluate unlabeled samples
+    print("\nPhase 2: Evaluating unlabeled samples...")
+    Yhat_unlabeled: list[int] = []
+    for j, unlabeled in enumerate(unlabeled_samples):
+        pred = evaluate_sample(unlabeled["query"], unlabeled["document"])
+        Yhat_unlabeled.append(pred)
+        if (j + 1) % 50 == 0:
+            print(f"  Unlabeled: {j + 1}/{len(unlabeled_samples)}")
+
+    # ARES-verbatim PPI confidence interval
+    estimate, ci_lower, ci_upper = _ppi_mean_ci(
+        Y_labeled, Yhat_labeled, Yhat_unlabeled
+    )
+
+    # Calculate accuracy on gold set
+    n_correct = sum(p == y for p, y in zip(Yhat_labeled, Y_labeled))
+    accuracy = n_correct / len(Y_labeled) if Y_labeled else 0.0
+
+    result = {
+        "corpus": corpus,
+        "llm_used": f"groq:{model}",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "Context_Relevance_Label": {
+            "estimate": estimate,
+            "ci_lower": ci_lower,
+            "ci_upper": ci_upper,
+            "n_labeled": len(Y_labeled),
+            "n_unlabeled": len(Yhat_unlabeled),
+        },
+        "context_relevance": {
+            "score": estimate,
+            "ci_95_lower": ci_lower,
+            "ci_95_upper": ci_upper,
+            "n_samples": len(Y_labeled) + len(Yhat_unlabeled),
+            "pass": estimate >= 0.80,
+        },
+        "judge_accuracy_on_gold": accuracy,
+        "method": "ARES-verbatim PPI",
+    }
+
+    # Save results
+    result_path = output_dir / f"ares_groq_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with open(result_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+
+    print(f"\nResults saved to: {result_path}")
+    print(f"\nContext Relevance (PPI): {estimate:.2%}")
+    print(f"95% CI: [{ci_lower:.2%}, {ci_upper:.2%}]")
+    print(f"Judge accuracy on gold: {accuracy:.2%}")
+    print(f"Pass (>=80%): {'PASS' if estimate >= 0.80 else 'FAIL'}")
+
+    return result
+
+
+def run_huggingface_evaluation(
+    corpus: str = "fr",
+    model: str = "mistralai/Mistral-7B-Instruct-v0.3",
+    output_dir: Path | None = None,
+    max_samples: int = 0,
+) -> dict[str, Any]:
+    """ARES-VERBATIM LLM-as-judge evaluation using HuggingFace Inference API.
+
+    HuggingFace free tier: ~30k requests/month.
+
+    Args:
+        corpus: Either 'fr' or 'intl'
+        model: HuggingFace model ID
+        output_dir: Directory for results
+        max_samples: Limit samples (0=all)
+
+    Returns:
+        Evaluation results dict (ARES-compatible format)
+    """
+    import csv
+    import re
+
+    import requests
+
+    api_key = os.environ.get("HF_TOKEN") or os.environ.get("HUGGINGFACE_TOKEN")
+    if not api_key:
+        raise EnvironmentError(
+            "HF_TOKEN not set. Get free token at https://huggingface.co/settings/tokens"
+        )
+
+    api_url = f"https://api-inference.huggingface.co/models/{model}"
+    headers = {"Authorization": f"Bearer {api_key}"}
+
+    if output_dir is None:
+        output_dir = OUTPUT_DIR
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Load data files
+    gold_label_path = DATA_DIR / f"gold_label_{corpus}.tsv"
+    few_shot_path = DATA_DIR / f"few_shot_{corpus}.tsv"
+    unlabeled_path = DATA_DIR / f"unlabeled_{corpus}.tsv"
+
+    for path in [gold_label_path, few_shot_path, unlabeled_path]:
+        if not path.exists():
+            raise FileNotFoundError(f"Missing: {path}")
+
+    # Load few-shot examples
+    few_shot_examples = []
+    with open(few_shot_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            label = row.get("Context_Relevance_Label", "")
+            if label in ("0", "1"):
+                few_shot_examples.append({
+                    "query": row["Query"],
+                    "document": row["Document"],
+                    "label": "[[Yes]]" if label == "1" else "[[No]]",
+                })
+
+    # Load gold labeled samples
+    gold_samples: list[dict[str, str | int]] = []
+    with open(gold_label_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            gold_samples.append({
+                "query": str(row["Query"]),
+                "document": str(row["Document"]),
+                "gold_label": int(row["Context_Relevance_Label"]),
+            })
+
+    # Load unlabeled samples
+    unlabeled_samples: list[dict[str, str]] = []
+    with open(unlabeled_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            unlabeled_samples.append({
+                "query": str(row["Query"]),
+                "document": str(row["Document"]),
+            })
+
+    # Limit samples
+    if max_samples > 0:
+        gold_samples = gold_samples[:max_samples]
+        unlabeled_samples = unlabeled_samples[:max_samples]
+
+    total_calls = len(gold_samples) + len(unlabeled_samples)
+    est_minutes = total_calls * 1.5 / 60  # ~1.5s per call with HF
+
+    print(f"ARES-verbatim evaluation with HuggingFace ({model})")
+    print(f"  Few-shot examples: {len(few_shot_examples)}")
+    print(f"  Gold labeled: {len(gold_samples)}")
+    print(f"  Unlabeled: {len(unlabeled_samples)}")
+    print(f"  Total LLM calls: {total_calls}")
+    print(f"  Estimated time: {est_minutes:.0f} min")
+
+    # Build few-shot prompt
+    few_shot_text = ""
+    for ex in few_shot_examples[:5]:
+        few_shot_text += f"\nQuestion: {ex['query']}\nDocument: {ex['document'][:300]}\nRelevant: {ex['label']}\n"
+
+    system_prompt = (
+        'Determine if the document is relevant to answer the question. '
+        'Reply ONLY with "[[Yes]]" or "[[No]]".'
+    )
+
+    def evaluate_sample(query: str, document: str) -> int:
+        """Evaluate a single sample."""
+        prompt = f"""<s>[INST] {system_prompt}
+
+{few_shot_text}
+
+Question: {query}
+Document: {document[:1500]}
+Relevant: [/INST]"""
+
+        try:
+            resp = requests.post(
+                api_url,
+                headers=headers,
+                json={"inputs": prompt, "parameters": {"max_new_tokens": 10, "temperature": 0.01}},
+                timeout=60,
+            )
+            if resp.status_code == 503:
+                # Model loading, wait and retry
+                import time
+                time.sleep(20)
+                resp = requests.post(
+                    api_url,
+                    headers=headers,
+                    json={"inputs": prompt, "parameters": {"max_new_tokens": 10}},
+                    timeout=60,
+                )
+            resp.raise_for_status()
+            result = resp.json()
+            response_text = result[0].get("generated_text", "") if isinstance(result, list) else ""
+
+            # Parse response
+            yes_match = re.search(r"\[\[Yes\]\]", response_text, re.IGNORECASE)
+            no_match = re.search(r"\[\[No\]\]", response_text, re.IGNORECASE)
+
+            if yes_match and not no_match:
+                return 1
+            elif no_match:
+                return 0
+            else:
+                return 1 if "yes" in response_text.lower()[-50:] else 0
+        except Exception as e:
+            print(f"  Error: {e}")
+            return 0
+
+    # Evaluate gold labeled samples
+    print("\nPhase 1: Evaluating gold labeled samples...")
+    Y_labeled: list[int] = []
+    Yhat_labeled: list[int] = []
+    for i, sample in enumerate(gold_samples):
+        pred = evaluate_sample(str(sample["query"]), str(sample["document"]))
+        Y_labeled.append(int(sample["gold_label"]))
+        Yhat_labeled.append(pred)
+        if (i + 1) % 10 == 0:
+            print(f"  Gold: {i + 1}/{len(gold_samples)}")
+
+    # Evaluate unlabeled samples
+    print("\nPhase 2: Evaluating unlabeled samples...")
+    Yhat_unlabeled: list[int] = []
+    for j, unlabeled in enumerate(unlabeled_samples):
+        pred = evaluate_sample(unlabeled["query"], unlabeled["document"])
+        Yhat_unlabeled.append(pred)
+        if (j + 1) % 10 == 0:
+            print(f"  Unlabeled: {j + 1}/{len(unlabeled_samples)}")
+
+    # PPI confidence interval
+    estimate, ci_lower, ci_upper = _ppi_mean_ci(
+        Y_labeled, Yhat_labeled, Yhat_unlabeled
+    )
+
+    n_correct = sum(p == y for p, y in zip(Yhat_labeled, Y_labeled))
+    accuracy = n_correct / len(Y_labeled) if Y_labeled else 0.0
+
+    result = {
+        "corpus": corpus,
+        "llm_used": f"hf:{model}",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "Context_Relevance_Label": {
+            "estimate": estimate,
+            "ci_lower": ci_lower,
+            "ci_upper": ci_upper,
+            "n_labeled": len(Y_labeled),
+            "n_unlabeled": len(Yhat_unlabeled),
+        },
+        "context_relevance": {
+            "score": estimate,
+            "ci_95_lower": ci_lower,
+            "ci_95_upper": ci_upper,
+            "n_samples": len(Y_labeled) + len(Yhat_unlabeled),
+            "pass": estimate >= 0.80,
+        },
+        "judge_accuracy_on_gold": accuracy,
+        "method": "ARES-verbatim PPI",
+    }
+
+    result_path = output_dir / f"ares_hf_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with open(result_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+
+    print(f"\nResults saved to: {result_path}")
+    print(f"\nContext Relevance (PPI): {estimate:.2%}")
+    print(f"95% CI: [{ci_lower:.2%}, {ci_upper:.2%}]")
+    print(f"Judge accuracy on gold: {accuracy:.2%}")
+    print(f"Pass (>=80%): {'PASS' if estimate >= 0.80 else 'FAIL'}")
 
     return result
 
@@ -597,10 +1072,44 @@ def main() -> None:
         metavar="MODEL",
         help="Run evaluation with Ollama model (e.g., mistral:latest)",
     )
+    parser.add_argument(
+        "--max-samples",
+        type=int,
+        default=0,
+        help="Limit samples for quick testing (0=all, 50=~8min)",
+    )
+    parser.add_argument(
+        "--groq",
+        type=str,
+        metavar="MODEL",
+        help="Run with Groq API (e.g., llama-3.3-70b-versatile). Free: 14,400 req/day",
+    )
+    parser.add_argument(
+        "--hf",
+        type=str,
+        metavar="MODEL",
+        help="Run with HuggingFace API (e.g., mistralai/Mistral-7B-Instruct-v0.3). Free tier.",
+    )
     args = parser.parse_args()
 
-    if args.ollama:
-        results = run_ollama_evaluation(corpus=args.corpus, model=args.ollama)
+    if args.hf:
+        results = run_huggingface_evaluation(
+            corpus=args.corpus,
+            model=args.hf,
+            max_samples=args.max_samples,
+        )
+    elif args.groq:
+        results = run_groq_evaluation(
+            corpus=args.corpus,
+            model=args.groq,
+            max_samples=args.max_samples,
+        )
+    elif args.ollama:
+        results = run_ollama_evaluation(
+            corpus=args.corpus,
+            model=args.ollama,
+            max_samples=args.max_samples,
+        )
     elif args.mock:
         results = run_mock_evaluation(corpus=args.corpus)
     else:

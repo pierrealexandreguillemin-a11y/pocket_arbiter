@@ -70,6 +70,44 @@ class TestClassifyQuestionTaxonomy:
         result = classify_question_taxonomy("Question", "UVR", has_multiple_refs=True)
         assert result["reasoning_type"] == "multi-hop"
 
+    def test_yes_no_answer_type(self) -> None:
+        """Should detect yes/no answer type with vrai/faux keywords."""
+        result = classify_question_taxonomy("Cette affirmation est vrai ou faux?", "UVR", has_choices=False)
+        assert result["answer_type"] == "yes_no"
+
+    def test_list_answer_type(self) -> None:
+        """Should detect list answer type with list keywords."""
+        result = classify_question_taxonomy("Listez les conditions requises", "UVR", has_choices=False)
+        assert result["answer_type"] == "list"
+
+    def test_abstractive_for_scenario(self) -> None:
+        """Should return abstractive answer type for scenarios without choices."""
+        text = "Vous êtes l'arbitre. Que faites-vous dans cette situation?"
+        result = classify_question_taxonomy(text, "UVR", has_choices=False)
+        assert result["answer_type"] == "abstractive"
+
+    def test_extractive_default(self) -> None:
+        """Should default to extractive for simple questions without choices."""
+        result = classify_question_taxonomy("Question simple", "UVR", has_choices=False)
+        assert result["answer_type"] == "extractive"
+
+    def test_comparative_question_type(self) -> None:
+        """Should detect comparative questions."""
+        text = "Quelle différence entre une partie rapide et une partie éclair?"
+        result = classify_question_taxonomy(text, "UVR")
+        assert result["question_type"] == "comparative"
+        assert result["cognitive_level"] == "ANALYZE"
+
+    def test_enumeration_keyword_list(self) -> None:
+        """Should detect list answer type with énumérez keyword."""
+        result = classify_question_taxonomy("Énumérez les règles applicables", "UVR", has_choices=False)
+        assert result["answer_type"] == "list"
+
+    def test_quels_sont_keyword_list(self) -> None:
+        """Should detect list answer type with 'quels sont' keyword."""
+        result = classify_question_taxonomy("Quels sont les critères requis?", "UVR", has_choices=False)
+        assert result["answer_type"] == "list"
+
 
 class TestCleanText:
     """Tests for text cleaning function."""

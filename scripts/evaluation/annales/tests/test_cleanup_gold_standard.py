@@ -107,6 +107,24 @@ class TestAssessAnswerQuality:
         assert result.score == 0.3
         assert result.warning == "reference_only"
 
+    def test_reference_only_se_referer(self) -> None:
+        """'Se référer' prefix should be reference_only."""
+        result = assess_answer_quality("Se référer au chapitre 5")
+        assert result.score == 0.3
+        assert result.warning == "reference_only"
+
+    def test_borderline_length_30_chars(self) -> None:
+        """Answer with exactly 30 chars should be good."""
+        result = assess_answer_quality("A" * 30)  # Exactly 30 chars
+        assert result.score == 1.0
+        assert result.warning is None
+
+    def test_short_answer_29_chars(self) -> None:
+        """Answer with 29 chars should be short."""
+        result = assess_answer_quality("A" * 29)  # 29 chars
+        assert result.score == 0.5
+        assert result.warning == "short_answer"
+
 
 class TestCleanupGoldStandard:
     """Tests for cleanup_gold_standard function."""
@@ -189,3 +207,100 @@ class TestCleanupGoldStandard:
         result = cleanup_gold_standard(gs_data)
         assert result["questions"][0]["answer_text"] == "Article 1.3 des règles du jeu"
         assert result["questions"][0]["answer_source"] == "article_reference"
+
+    def test_handles_partial_derivation(self) -> None:
+        """Should mark incomplete derivation."""
+        gs_data = {
+            "questions": [
+                {
+                    "choices": {"A": "Only A present"},
+                    "expected_answer": "AB",  # B is missing
+                }
+            ]
+        }
+        result = cleanup_gold_standard(gs_data)
+        assert result["questions"][0].get("answer_incomplete") is True
+        assert "B" in result["questions"][0].get("answer_missing_letters", [])
+
+    def test_mcq_letter_only_fallback(self) -> None:
+        """Should fallback to expected_answer when no derivation possible."""
+        gs_data = {
+            "questions": [
+                {
+                    "choices": {},
+                    "expected_answer": "C",
+                }
+            ]
+        }
+        result = cleanup_gold_standard(gs_data)
+        assert result["questions"][0].get("answer_type_mcq_letter") is True
+
+    def test_quality_stats_aggregation(self) -> None:
+        """Should aggregate quality warnings by type."""
+        gs_data = {
+            "questions": [
+                {"choices": {"A": "Voir article 1"}, "expected_answer": "A"},
+                {"choices": {"A": "Voir article 2"}, "expected_answer": "A"},
+                # Long enough answer to be considered good quality (>30 chars)
+                {"choices": {"A": "Une réponse normale et suffisamment longue"}, "expected_answer": "A"},
+            ]
+        }
+        result = cleanup_gold_standard(gs_data)
+        stats = result["cleanup_stats"]
+        assert stats["quality_warnings"]["reference_only"] == 2
+        assert stats["quality_good"] >= 1
+
+    def test_empty_questions_list(self) -> None:
+        """Should handle empty questions list."""
+        gs_data = {"questions": []}
+        result = cleanup_gold_standard(gs_data)
+        assert result["cleanup_stats"]["total"] == 0
+
+    def test_comprehensive_cleanup(self) -> None:
+        """Comprehensive test covering multiple scenarios."""
+        gs_data = {
+            "questions": [
+                # Good answer (derived complete)
+                {"choices": {"A": "Une réponse complète et détaillée"}, "expected_answer": "A"},
+                # Multiple choice answer
+                {"choices": {"A": "Premier choix", "B": "Deuxième choix"}, "expected_answer": "AB"},
+                # Short answer (warning)
+                {"choices": {"A": "Oui"}, "expected_answer": "A"},
+                # Reference only (warning)
+                {"choices": {"A": "Voir article 5.3"}, "expected_answer": "A"},
+                # Missing letter (partial)
+                {"choices": {"A": "Only A"}, "expected_answer": "AC"},
+                # Uses mcq_answer instead of expected_answer
+                {"choices": {"B": "From mcq field"}, "mcq_answer": "B"},
+            ]
+        }
+        result = cleanup_gold_standard(gs_data)
+
+        # Check all questions processed
+        assert result["cleanup_stats"]["total"] == 6
+
+        # Check stats are recorded
+        assert result["cleanup_stats"]["mcq_letters_removed"] >= 5  # All expected_answer moved
+
+        # Check quality assessment ran
+        assert result["cleanup_stats"]["quality_good"] >= 1
+        assert "short_answer" in result["cleanup_stats"]["quality_warnings"]
+
+    def test_preserves_existing_fields(self) -> None:
+        """Should preserve existing fields while adding new ones."""
+        gs_data = {
+            "questions": [
+                {
+                    "id": "FR-ANN-001",
+                    "choices": {"A": "Une réponse"},
+                    "expected_answer": "A",
+                    "custom_field": "should_persist",
+                }
+            ]
+        }
+        result = cleanup_gold_standard(gs_data)
+        q = result["questions"][0]
+        assert q["id"] == "FR-ANN-001"
+        assert q["custom_field"] == "should_persist"
+        assert "answer_text" in q
+        assert "quality_score" in q

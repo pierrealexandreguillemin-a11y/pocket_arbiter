@@ -362,11 +362,13 @@ def main():
 
     print("\n=== Extraction Results ===")
     print(f"Total questions: {stats['total']}")
-    print(f"Updated with corrigé: {stats['updated']}")
-    print(f"Already had answer_text: {stats['already_had']}")
-    print(f"Not found in corrigé: {stats['not_found']}")
+    print(f"Merged (choice + explanation): {stats['merged']}")
+    print(f"Explanation only: {stats['explanation_only']}")
+    print(f"Choice only: {stats['choice_only']}")
+    print(f"Not found: {stats['not_found']}")
 
-    pct = (stats['updated'] + stats['already_had']) / stats['total'] * 100
+    covered = stats['merged'] + stats['explanation_only'] + stats['choice_only']
+    pct = covered / stats['total'] * 100
     print(f"\nCoverage: {pct:.1f}%")
 
 

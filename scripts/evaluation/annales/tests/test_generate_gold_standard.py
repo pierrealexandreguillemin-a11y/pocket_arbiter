@@ -5,10 +5,15 @@ ISO Reference:
     - ISO/IEC 29119 - Software testing
 """
 
+import json
+import tempfile
+from pathlib import Path
+
 from scripts.evaluation.annales.generate_gold_standard import (
     _extract_keywords,
     _generate_question_id,
     _normalize_category,
+    generate_gold_standard,
 )
 
 
@@ -126,3 +131,157 @@ class TestExtractKeywords:
         """Should match keywords case-insensitively."""
         keywords = _extract_keywords("LE ROQUE EST VALIDE")
         assert "roque" in keywords
+
+
+class TestGenerateGoldStandard:
+    """Tests for generate_gold_standard function."""
+
+    def test_generates_from_mapped_files(self) -> None:
+        """Should generate Gold Standard from mapped JSON files."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_dir = Path(tmpdir) / "input"
+            input_dir.mkdir()
+
+            # Create a sample mapped file (must be named mapped_*.json)
+            mapped_data = {
+                "session": "dec2024",
+                "source_file": "test.json",
+                "units": [
+                    {
+                        "uv": "UVR",
+                        "questions": [
+                            {
+                                "num": 1,
+                                "text": "Question about roque?",
+                                "choices": {"A": "Vrai", "B": "Faux"},
+                                "correct_answer": "A",
+                                "article_reference": "Article 3.8",
+                                "document_mapping": {
+                                    "document": "regles_jeu.pdf",
+                                    "confidence": 0.95,
+                                    "pages": [10],
+                                },
+                            }
+                        ],
+                    }
+                ],
+            }
+            (input_dir / "mapped_dec2024.json").write_text(
+                json.dumps(mapped_data), encoding="utf-8"
+            )
+
+            output_file = Path(tmpdir) / "gold_standard.json"
+            stats = generate_gold_standard(input_dir, output_file)
+
+            assert stats["included"] == 1
+            # Check output file was created
+            assert output_file.exists()
+            gs = json.loads(output_file.read_text(encoding="utf-8"))
+            assert gs["questions"][0]["id"].startswith("FR-ANN-UVR")
+
+    def test_filters_by_confidence(self) -> None:
+        """Should filter questions by minimum confidence."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_dir = Path(tmpdir) / "input"
+            input_dir.mkdir()
+
+            # Create mapped data with low confidence
+            mapped_data = {
+                "session": "dec2024",
+                "source_file": "test.json",
+                "units": [
+                    {
+                        "uv": "UVR",
+                        "questions": [
+                            {
+                                "num": 1,
+                                "text": "Low confidence question",
+                                "choices": {"A": "Yes"},
+                                "correct_answer": "A",
+                                "article_reference": "Article 1.1",
+                                "document_mapping": {
+                                    "document": "regles.pdf",
+                                    "confidence": 0.1,  # Below threshold
+                                },
+                            }
+                        ],
+                    }
+                ],
+            }
+            (input_dir / "mapped_dec2024.json").write_text(
+                json.dumps(mapped_data), encoding="utf-8"
+            )
+
+            output_file = Path(tmpdir) / "gold_standard.json"
+            stats = generate_gold_standard(input_dir, output_file, min_confidence=0.5)
+
+            # Low confidence question should be filtered out
+            assert stats["skipped_low_confidence"] == 1
+            assert stats["included"] == 0
+
+    def test_raises_for_empty_directory(self) -> None:
+        """Should raise ValueError for empty input directory."""
+        import pytest
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_dir = Path(tmpdir) / "input"
+            input_dir.mkdir()
+
+            output_file = Path(tmpdir) / "gold_standard.json"
+            with pytest.raises(ValueError, match="No mapped files found"):
+                generate_gold_standard(input_dir, output_file)
+
+    def test_handles_multiple_uvs(self) -> None:
+        """Should generate IDs for multiple UVs."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_dir = Path(tmpdir) / "input"
+            input_dir.mkdir()
+
+            mapped_data = {
+                "session": "dec2024",
+                "source_file": "test.json",
+                "units": [
+                    {
+                        "uv": "UVR",
+                        "questions": [
+                            {
+                                "num": 1,
+                                "text": "UVR Question",
+                                "choices": {"A": "Yes"},
+                                "correct_answer": "A",
+                                "article_reference": "Article 1.1",
+                                "document_mapping": {
+                                    "document": "regles.pdf",
+                                    "confidence": 0.9,
+                                },
+                            }
+                        ],
+                    },
+                    {
+                        "uv": "UVC",
+                        "questions": [
+                            {
+                                "num": 1,
+                                "text": "UVC Question",
+                                "choices": {"A": "Yes"},
+                                "correct_answer": "A",
+                                "article_reference": "R01 - 5.3",
+                                "document_mapping": {
+                                    "document": "r01.pdf",
+                                    "confidence": 0.85,
+                                },
+                            }
+                        ],
+                    },
+                ],
+            }
+            (input_dir / "mapped_dec2024.json").write_text(
+                json.dumps(mapped_data), encoding="utf-8"
+            )
+
+            output_file = Path(tmpdir) / "gold_standard.json"
+            stats = generate_gold_standard(input_dir, output_file)
+
+            assert stats["included"] == 2
+            assert stats["by_uv"]["UVR"] == 1
+            assert stats["by_uv"]["UVC"] == 1

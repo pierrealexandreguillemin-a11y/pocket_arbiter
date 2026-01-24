@@ -227,3 +227,65 @@ class TestFindAnswerInChunks:
         """Should handle empty chunks list."""
         result = find_answer_in_chunks("test", [])
         assert result["found"] is False
+
+    def test_handles_two_letter_mcq(self) -> None:
+        """Should handle two-letter MCQ answers as letter_only."""
+        chunks = [{"text": "Some text"}]
+        # Only 1-2 char answers are treated as letter-only
+        for combo in ["A", "B", "AB"]:
+            result = find_answer_in_chunks(combo, chunks)
+            assert result["found"] is None
+            assert result["reason"] == "letter_only_answer"
+
+    def test_partial_match_returns_not_found(self) -> None:
+        """Should return not found for partial match."""
+        chunks = [{"text": "Only the beginning is here."}]
+        result = find_answer_in_chunks("the beginning is here and more", chunks)
+        assert result["found"] is False
+
+
+class TestR01PatternMatching:
+    """Tests for R01/R02/A02 pattern detection."""
+
+    def test_r01_section_indexed(self) -> None:
+        """Should index R01 section pattern."""
+        chunks = [
+            {"source": "reglements.pdf", "text": "R01 - 3. Licences", "pages": [30]}
+        ]
+        index = build_article_page_index(chunks)
+        assert "reglements.pdf|R01.Sec.3" in index
+
+    def test_r01_article_indexed(self) -> None:
+        """Should index R01 article pattern."""
+        chunks = [
+            {"source": "reglements.pdf", "text": "R01 article 2.5 stipule", "pages": [25]}
+        ]
+        index = build_article_page_index(chunks)
+        assert "reglements.pdf|R01.2.5" in index
+
+    def test_r02_pattern_indexed(self) -> None:
+        """Should index R02 pattern."""
+        chunks = [
+            {"source": "reglements.pdf", "text": "R02 - 4.1 conditions", "pages": [40]}
+        ]
+        index = build_article_page_index(chunks)
+        assert "reglements.pdf|R02.4.1" in index
+
+    def test_a02_pattern_indexed(self) -> None:
+        """Should index A02 (annexe) pattern."""
+        chunks = [
+            {"source": "reglements.pdf", "text": "A02 - 1.3 annexe", "pages": [50]}
+        ]
+        index = build_article_page_index(chunks)
+        assert "reglements.pdf|A02.1.3" in index
+
+    def test_r01_with_dot_notation(self) -> None:
+        """Should handle R.01 dot notation."""
+        keys = extract_article_from_reference("R.01 - art. 5.2")
+        assert "R01.5.2" in keys
+
+    def test_extract_multiple_regulation_refs(self) -> None:
+        """Should extract multiple regulation references."""
+        keys = extract_article_from_reference("R01 article 2.1 et R02 - 3.4")
+        assert "R01.2.1" in keys
+        assert "R02.3.4" in keys

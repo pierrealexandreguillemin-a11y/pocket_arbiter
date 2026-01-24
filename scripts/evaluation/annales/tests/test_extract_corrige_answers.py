@@ -258,3 +258,165 @@ class TestDeriveChoiceText:
         }
         result = _derive_choice_text(question)
         assert result == "Test A"
+
+
+class TestEdgeCases:
+    """Edge case tests for extraction functions."""
+
+    def test_find_corrige_with_accented_month(self) -> None:
+        """Should handle accented month names."""
+        markdown = """
+## UVR session de décembre 2024 - Corrigé détaillé
+
+Content here
+
+## Fin
+"""
+        sections = find_corrige_sections(markdown)
+        assert len(sections) == 1
+        assert sections[0][0] == "UVR"
+
+    def test_extract_explanations_case_insensitive(self) -> None:
+        """Should be case insensitive for question headers."""
+        corrige_text = """
+## question 1 :
+
+Question text
+- a) A
+- b) B
+
+Article 1.3
+
+This is the explanation text that is longer than twenty characters.
+"""
+        explanations = extract_question_explanations(corrige_text)
+        assert 1 in explanations
+
+    def test_derive_choice_text_with_all_letters(self) -> None:
+        """Should join all choice texts for ABCD answer."""
+        question = {
+            "choices": {"A": "A1", "B": "B2", "C": "C3", "D": "D4"},
+            "mcq_answer": "ABCD",
+        }
+        result = _derive_choice_text(question)
+        assert result == "A1 | B2 | C3 | D4"
+
+    def test_extract_explanation_with_chapitre_reference(self) -> None:
+        """Should detect Chapitre references."""
+        block = """
+Question text
+
+- a) A
+
+Chapitre 8 - Temps de réflexion
+
+La pendule doit être arrêtée conformément aux règles établies.
+"""
+        explanation = _extract_explanation_from_block(block)
+        assert "pendule" in explanation.lower()
+
+    def test_extract_explanation_with_la_reference(self) -> None:
+        """Should detect LA references (e.g., LA – 5.3)."""
+        block = """
+Question
+
+- a) Choice
+
+LA – 5.3 référence
+
+Une explication détaillée du correcteur concernant la question posée.
+"""
+        explanation = _extract_explanation_from_block(block)
+        assert "explication" in explanation.lower()
+
+    def test_find_corrige_with_uvo(self) -> None:
+        """Should find UVO (Open) corrigé sections."""
+        markdown = """
+## UVO - juin 2025 - Corrigé Détaillé
+
+Open questions content
+
+## UVT
+"""
+        sections = find_corrige_sections(markdown)
+        uvs = [s[0] for s in sections]
+        assert "UVO" in uvs
+
+    def test_find_corrige_with_uvt(self) -> None:
+        """Should find UVT (Tournoi) corrigé sections."""
+        markdown = """
+## UVT session de décembre 2024 - Corrigé détaillé
+
+Tournament questions content
+
+## Fin
+"""
+        sections = find_corrige_sections(markdown)
+        uvs = [s[0] for s in sections]
+        assert "UVT" in uvs
+
+    def test_extract_explanation_stops_at_next_question(self) -> None:
+        """Should stop extracting at next question marker."""
+        block = """
+Question text
+
+- a) A
+
+Article 1.3
+
+L'explication qui doit être capturée ici.
+
+## Question 2 :
+
+Ce texte ne doit pas être inclus.
+"""
+        explanation = _extract_explanation_from_block(block)
+        assert "explication" in explanation.lower()
+        assert "question 2" not in explanation.lower()
+
+    def test_extract_explanation_skips_images(self) -> None:
+        """Should skip image markers."""
+        block = """
+Question
+
+- a) A
+
+Article 1.3
+
+Première partie de l'explication.
+<!-- image -->
+Suite de l'explication après le marqueur.
+"""
+        explanation = _extract_explanation_from_block(block)
+        assert "première partie" in explanation.lower()
+        assert "suite" in explanation.lower()
+        # The image line itself should be skipped
+        assert "<!--" not in explanation
+
+    def test_extract_explanation_with_annexe_reference(self) -> None:
+        """Should detect Annexe references."""
+        block = """
+Question text
+
+- a) A
+
+Annexe 2 - Tableaux de répartition
+
+L'explication concernant les tableaux et leur utilisation.
+"""
+        explanation = _extract_explanation_from_block(block)
+        assert "explication" in explanation.lower()
+
+    def test_extract_explanation_numeric_only_rejected(self) -> None:
+        """Should reject explanations that are only numbers."""
+        block = """
+Question
+
+- a) A
+
+Article 1.1
+
+1 2 3 4 5 6 7 8 9 0
+"""
+        explanation = _extract_explanation_from_block(block)
+        assert explanation == ""

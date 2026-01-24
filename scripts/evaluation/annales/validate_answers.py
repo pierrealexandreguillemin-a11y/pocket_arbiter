@@ -37,6 +37,22 @@ CHAPTER_PATTERN = re.compile(r"(?:Chapitre|Chap\.?)\s*(\d+)", re.IGNORECASE)
 SECTION_PATTERN = re.compile(r"^(\d+)\.", re.MULTILINE)  # "2. Statut" -> "2"
 PREAMBULE_PATTERN = re.compile(r"Pr[eé]ambule", re.IGNORECASE)
 
+# R01/R02/A02 patterns (FFE internal regulations)
+# Examples: "R01 - 2. Statut", "R01 article 5.3", "R.01 - art. 3"
+R01_SECTION_PATTERN = re.compile(
+    r"R\.?01\s*[-–—:]\s*(\d+)\.\s*\w+",
+    re.IGNORECASE,
+)
+R01_ARTICLE_PATTERN = re.compile(
+    r"R\.?01\s*[-–—]?\s*(?:article|art\.?)\s*(\d+(?:\.\d+)?)",
+    re.IGNORECASE,
+)
+# Generic regulation pattern: R01, R02, R03, A01, A02, etc.
+REGULATION_PATTERN = re.compile(
+    r"([RA])\.?(\d{2})\s*[-–—:]\s*(\d+(?:\.\d+)?)",
+    re.IGNORECASE,
+)
+
 
 def build_article_page_index(chunks: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     """
@@ -72,6 +88,23 @@ def build_article_page_index(chunks: list[dict[str, Any]]) -> dict[str, dict[str
         if PREAMBULE_PATTERN.search(text):
             articles.add("Préambule")
 
+        # Find R01 section patterns (e.g., "R01 - 2. Statut")
+        r01_sections = R01_SECTION_PATTERN.findall(text)
+        for sec in r01_sections:
+            articles.add(f"R01.Sec.{sec}")
+
+        # Find R01 article patterns (e.g., "R01 article 5.3")
+        r01_articles = R01_ARTICLE_PATTERN.findall(text)
+        for art in r01_articles:
+            articles.add(f"R01.{art}")
+
+        # Find generic regulation patterns (R01, R02, A02, etc.)
+        for match in REGULATION_PATTERN.finditer(text):
+            reg_type = match.group(1).upper()  # R or A
+            reg_num = match.group(2)            # 01, 02, etc.
+            section = match.group(3)            # 5.3, 2, etc.
+            articles.add(f"{reg_type}{reg_num}.{section}")
+
         for article in articles:
             key = f"{source}|{article}"
             if key not in index:
@@ -99,6 +132,24 @@ def extract_article_from_reference(reference: str) -> list[str]:
         return []
 
     keys = []
+
+    # Check for R01/R02/A02 patterns first (more specific)
+    # R01 section pattern (e.g., "R01 - 2. Statut")
+    r01_section_match = R01_SECTION_PATTERN.search(reference)
+    if r01_section_match:
+        keys.append(f"R01.Sec.{r01_section_match.group(1)}")
+
+    # R01 article pattern (e.g., "R01 article 5.3")
+    r01_article_match = R01_ARTICLE_PATTERN.search(reference)
+    if r01_article_match:
+        keys.append(f"R01.{r01_article_match.group(1)}")
+
+    # Generic regulation pattern (R01, R02, A02, etc.)
+    for match in REGULATION_PATTERN.finditer(reference):
+        reg_type = match.group(1).upper()
+        reg_num = match.group(2)
+        section = match.group(3)
+        keys.append(f"{reg_type}{reg_num}.{section}")
 
     # Check for article number (e.g., "1.3", "4.2.1")
     article_match = ARTICLE_PATTERN.search(reference)

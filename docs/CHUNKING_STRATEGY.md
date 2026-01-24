@@ -2,12 +2,34 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 6.4
-> **Date**: 2026-01-22
+> **Version**: 6.5
+> **Date**: 2026-01-24
 > **Statut**: Approuve
 > **Classification**: Technique
 > **Auteur**: Claude Opus 4.5
 > **Mots-cles**: chunking, RAG, embeddings, retrieval, performance
+> **Scope**: **RAG FRANCE UNIQUEMENT** (voir VISION.md v2.0)
+
+---
+
+## 0. Avertissement Dual-RAG (VISION v2.0)
+
+> **SEPARATION STRICTE FR / INTL**
+> Cause: Pollution mutuelle des corpus due a specificite metier et scopes differents.
+
+| Corpus | Chunking | Status |
+|--------|----------|--------|
+| **FR** (29 docs FFE) | LangChain Mode B | **ACTIF** - Ce document |
+| INTL (FIDE) | - | **OBSOLETE** - A refaire apres completion corpus |
+
+**Fichiers FR valides**:
+- `corpus/processed/chunks_mode_b_fr.json`
+- `corpus/processed/embeddings_mode_b_fr.npy`
+- `corpus/processed/corpus_mode_b_fr.db`
+
+**Fichiers INTL OBSOLETES** (ne pas utiliser):
+- ~~`chunks_mode_b_intl.json`~~ → A SUPPRIMER/REFAIRE
+- ~~`embeddings_mode_b_intl.npy`~~ → A SUPPRIMER/REFAIRE
 
 ---
 

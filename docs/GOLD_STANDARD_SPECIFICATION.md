@@ -14,13 +14,42 @@
 
 Ce document definit les principes, exigences et normes appliquees au Gold Standard du projet Pocket Arbiter pour l'evaluation du systeme RAG.
 
-**Perimetre:**
-- Gold Standard FR v5.30: 318 questions (213 answerable + 105 adversarial)
-- Gold Standard INTL v2.1: 93 questions (67 answerable + 26 adversarial)
-- **Gold Standard FR Annales v6.5**: 477 questions (examens officiels DNA)
-- **Total**: 888 questions
+### 1.1 Architecture Dual-RAG (VISION v2.0)
 
-### 1.1 Gold Standard v6.6.0 "Annales" (2026-01-24)
+> **IMPORTANT**: Suite a VISION.md v2.0, les RAG FR et INTL sont **SEPARES**.
+> Cause: Pollution mutuelle des corpus due a specificite metier et scopes differents.
+
+```
+┌─────────────────────────────────┐    ┌─────────────────────────────────┐
+│     GOLD STANDARD FR            │    │     GOLD STANDARD INTL          │
+│     (CE DOCUMENT)               │    │     (DOCUMENT SEPARE A CREER)   │
+├─────────────────────────────────┤    ├─────────────────────────────────┤
+│ Status: ACTIF                   │    │ Status: OBSOLETE                │
+│ GS FR v5.30: 318 questions      │    │ GS INTL v2.1: 93 questions      │
+│ GS FR Annales v6.7.0: 477 Q     │    │ --> A REFAIRE from scratch      │
+│ Corpus: 29 docs FFE             │    │ Corpus: INCOMPLET               │
+│ Chunking: LangChain ✓           │    │ Chunking: OBSOLETE              │
+│ Embeddings: EmbeddingGemma ✓    │    │ Embeddings: OBSOLETE            │
+└─────────────────────────────────┘    └─────────────────────────────────┘
+```
+
+### 1.2 Perimetre de ce Document
+
+**FOCUS: RAG FRANCE uniquement**
+
+| Gold Standard | Questions | Status | Database |
+|---------------|-----------|--------|----------|
+| GS FR v5.30 | 318 (213 answerable + 105 adversarial) | Actif | corpus_mode_b_fr.db |
+| GS FR Annales v6.7.0 | 477 (examens officiels DNA) | Actif | corpus_mode_b_fr.db |
+| **Total FR** | **795** | **ACTIF** | **SEPARE** |
+
+**HORS PERIMETRE** (document separe a creer):
+
+| Gold Standard | Questions | Status | Action |
+|---------------|-----------|--------|--------|
+| ~~GS INTL v2.1~~ | ~~93~~ | OBSOLETE | A refaire apres completion corpus FIDE |
+
+### 1.3 Gold Standard FR Annales v6.7.0 (2026-01-24)
 
 | Metrique | Valeur | Status |
 |----------|--------|--------|
@@ -319,14 +348,90 @@ python -m scripts.pipeline.tests.test_recall --coverage
 
 ---
 
-## 10. References
+## 10. Minima Standards Industrie (OBLIGATOIRE)
 
-- [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Framework
-- [arXiv:2510.11956](https://arxiv.org/abs/2510.11956) - CRUMQs Evaluation
-- [ISO 29119-3](https://www.iso.org/standard/79428.html) - Test Documentation
-- [ISO 25010](https://www.iso.org/standard/35733.html) - Software Quality
+> **Ref**: QUALITY_REQUIREMENTS.md Section 4
+
+### 10.1 Taille et Distribution
+
+| Metrique | Minimum | Standard Industrie | Actuel | Status |
+|----------|---------|-------------------|--------|--------|
+| Taille GS total | >= 200 | BEIR (300-50k) | 888 | ✅ |
+| Questions adversariales | 25-30% | SQuAD 2.0 (33%) | 32% | ✅ |
+| Couverture categories | >= 80% | BEIR diversity | 100% | ✅ |
+| Deduplication | < 5% sim | SoftDedup | TBD | ⚠️ A VERIFIER |
+
+### 10.2 Qualite Semantique
+
+| Metrique | Minimum | Standard Industrie | Actuel | Status |
+|----------|---------|-------------------|--------|--------|
+| Context-grounded | 100% | RAGen, Source2Synth | 0% | ❌ REQUIS |
+| Validation humaine | 100% GS | Industrie | 100% | ✅ |
+| expected_chunk_id | 100% answerable | ISO 42001 A.6.2.2 | 87% | ⚠️ |
+
+### 10.3 Actions Requises
+
+| Action | Priorite | Standard | Status |
+|--------|----------|----------|--------|
+| Reformulation BY DESIGN | P0 | RAGen | ❌ Non fait |
+| Deduplication SemHash | P1 | SoftDedup | ❌ Non fait |
+| Mapping chunk_id 100% | P1 | ISO 42001 | ⚠️ 87% |
+| MMTEB evaluation INTL | P2 | MMTEB | ❌ Non fait |
+
+### 10.4 Benchmarks Cibles
+
+| Benchmark | Corpus | Cible | Standard |
+|-----------|--------|-------|----------|
+| MTEB Retrieval | FR | >= 0.70 NDCG@10 | MTEB leaderboard |
+| MMTEB Retrieval | INTL | >= 0.65 NDCG@10 | MMTEB multilingual |
+| BEIR custom | FR+INTL | >= 0.75 Recall@5 | BEIR zero-shot |
+| ARES Context Relevance | FR+INTL | >= 0.80 | ARES PPI |
+
+---
+
+## 11. References
+
+### 11.1 Standards Adversariaux
+
+| Reference | Titre | Application |
+|-----------|-------|-------------|
+| [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) | UAEval4RAG Framework | 6 categories unanswerable |
+| [arXiv:1806.03822](https://arxiv.org/abs/1806.03822) | SQuAD 2.0 | 33% unanswerable ratio |
+| [arXiv:2510.11956](https://arxiv.org/abs/2510.11956) | CRUMQs Evaluation | Question quality |
+
+### 11.2 Standards Context-Grounded Generation
+
+| Reference | Titre | Application |
+|-----------|-------|-------------|
+| [RAGen](https://arxiv.org/abs/2411.14831) | Semantically grounded QAC datasets | Validation BY DESIGN |
+| [Source2Synth](https://arxiv.org/abs/2409.08239) | Grounded in real-world sources | Generation ancree |
+| [FACTS Grounding](https://huggingface.co/datasets/google/facts-grounding) | Google benchmark | Grounded responses |
+
+### 11.3 Standards Data Quality
+
+| Reference | Titre | Application |
+|-----------|-------|-------------|
+| [SoftDedup](https://arxiv.org/abs/2407.06564) | Soft Deduplication | Deduplication fuzzy |
+| [SemHash](https://github.com/MinishLab/semhash) | Semantic hashing | Fast dedup embeddings |
+| [Lin et al.](https://arxiv.org/abs/2406.15126) | Synthetic Data Survey | Best practices |
+
+### 11.4 Standards Benchmarks
+
+| Reference | Titre | Application |
+|-----------|-------|-------------|
+| [MTEB](https://huggingface.co/spaces/mteb/leaderboard) | Massive Text Embedding Benchmark | FR evaluation |
+| [MMTEB](https://arxiv.org/abs/2502.13595) | Massive Multicultural TEB | INTL evaluation |
+| [BEIR](https://github.com/beir-cellar/beir) | Benchmarking IR | Retrieval standard |
+
+### 11.5 Standards ISO
+
+| Standard | Titre | Application |
+|----------|-------|-------------|
+| [ISO 29119-3](https://www.iso.org/standard/79428.html) | Test Documentation | Structure donnees test |
+| [ISO 25010](https://www.iso.org/standard/35733.html) | Software Quality | Metriques qualite |
+| [ISO 42001](https://www.iso.org/standard/81230.html) | AI Management | Provenance, lineage |
 
 ---
 
 *Ce document remplace gold_standard_status_v1.md et les audits 2026-01-19/20.*
-*Derniere mise a jour: 2026-01-23 - Ajout expected_chunk_id*
+*Derniere mise a jour: 2026-01-24 - Ajout minima standards industrie (MTEB, MMTEB, SoftDedup, RAGen)*

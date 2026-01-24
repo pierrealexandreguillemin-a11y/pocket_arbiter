@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 1.5
+> **Version**: 1.8
 > **Date**: 2026-01-24
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -86,6 +86,7 @@ pocket_arbiter/
 | TEST-PLAN-001 | [TEST_PLAN.md](TEST_PLAN.md) | Plan de tests ISO 29119 | Draft |
 | SPEC-GS-001 | [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) | Specification Gold Standard | Approuve |
 | SPEC-GS-V6 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v6.5 Annales | Approuve |
+| SPEC-UTD-001 | [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) | Generation Donnees Unifiees | Draft |
 
 ### 2.5 Guides techniques
 
@@ -108,20 +109,28 @@ pocket_arbiter/
 - **AI (Intelligence Artificielle)** : [AI_POLICY.md](AI_POLICY.md)
 - **Android** : [VISION.md](VISION.md) Section 5.1, [ARCHITECTURE.md](ARCHITECTURE.md) Section 5.2
 - **Annales DNA** : [ANNALES_STRUCTURE.md](ANNALES_STRUCTURE.md), [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md)
+- **ARES (Evaluation RAG)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 5
 - **Architecture** : [ARCHITECTURE.md](ARCHITECTURE.md)
 - **Approbations** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.2
 - **Archivage** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.4
+
+### B
+- **BEIR (Benchmark)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 3.4.3, [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.3
+- **BY DESIGN (Validation)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 1.3-1.4, [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 4.5
 
 ### C
 - **Chunking** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md)
 - **Citation** : [AI_POLICY.md](AI_POLICY.md) Section 7.2
 - **Compatibilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.3
+- **Context-Grounded Generation** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 1.4, [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 4.5
 - **Controle documentaire** : [DOC_CONTROL.md](DOC_CONTROL.md)
 - **Corpus** : [corpus/INVENTORY.md](../corpus/INVENTORY.md)
 - **Couverture tests** : [TEST_PLAN.md](TEST_PLAN.md) Section 3
 
 ### D
+- **Deduplication (SoftDedup, SemHash)** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.1, [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 2.3
 - **Disclaimer** : [AI_POLICY.md](AI_POLICY.md) Section 7.1
+- **Dual-RAG Architecture** : [VISION.md](VISION.md) Section 1.1-1.2, [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) Section 1.1, [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 0, [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) Section 0
 - **Docling** : [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) Section 1, [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md)
 - **Documentation** : [DOC_CONTROL.md](DOC_CONTROL.md)
 - **Dual-mode chunking** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 3, [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md)
@@ -145,6 +154,7 @@ pocket_arbiter/
 
 ### H
 - **Hallucination** : [AI_POLICY.md](AI_POLICY.md) Section 3.2, [TEST_PLAN.md](TEST_PLAN.md) Section 3.3
+- **Hard Negatives (NV-Embed-v2)** : [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 11.3, [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 3.3, [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.2
 - **HybridChunker** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) Section 3.1, [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) Section 2
 
 ### I
@@ -162,10 +172,14 @@ pocket_arbiter/
 - **Maintenabilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.7
 - **Matryoshka (MRL)** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md), [ISO_VECTOR_SOLUTIONS.md](ISO_VECTOR_SOLUTIONS.md)
 - **Metadonnees** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 3
+- **MMTEB (Multilingual)** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.3 (INTL), [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 2.5
+- **Model Collapse (Prevention)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 2.3, [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 11.4
 - **MRL (Matryoshka Representation Learning)** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md)
+- **MTEB (Benchmark)** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.3, [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 2.5, [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) Section 10.4
 
 ### N
 - **Numerotation documents** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 2
+- **NV-Embed-v2** : [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 11.3, [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.2
 
 ### O
 - **Offline** : [VISION.md](VISION.md) Section 5.1
@@ -180,20 +194,28 @@ pocket_arbiter/
 
 ### Q
 - **Qualite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md), [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md)
+- **Quality Gates (Training Data)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 2.4
 
 ### R
 - **RAG** : [VISION.md](VISION.md) Section 3.1
+- **RAGen (Context-Grounded)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 1.4, [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) Section 11.2
+- **RAGAS (Evaluation)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 3.4.4, [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.3
 - **Recall** : [TEST_PLAN.md](TEST_PLAN.md) Section 3.2
+- **Reformulation (Questions)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 3.2
 - **Retrieval** : [AI_POLICY.md](AI_POLICY.md) Section 3.2
 - **Risques** : [VISION.md](VISION.md) Section 7, [AI_POLICY.md](AI_POLICY.md) Section 3
 
 ### S
 - **Securite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.6
+- **SemHash (Deduplication)** : [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 11.7, [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 11.5
+- **SoftDedup (Deduplication)** : [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 11.4, [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4.1
+- **Standards Industrie (Training Data)** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 4, [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) Section 10, [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 2.3
 - **Structure projet** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
 
 ### T
 - **Tests** : [TEST_PLAN.md](TEST_PLAN.md)
 - **Tracabilite** : [DOC_CONTROL.md](DOC_CONTROL.md), [corpus/INVENTORY.md](../corpus/INVENTORY.md)
+- **Triplets (Training)** : [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md), [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md)
 
 ### U
 - **Utilisabilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.4
@@ -268,6 +290,9 @@ pocket_arbiter/
 | 1.3 | 2026-01-22 | Claude Opus 4.5 | Ajout RETRIEVAL_PIPELINE.md, CHUNK_SCHEMA.md, index Docling/HybridChunker/Parent-Child/Page provenance |
 | 1.4 | 2026-01-23 | Claude Opus 4.5 | Benchmark chunking optimizations (dual-size -5.22%, semantic -4.05% vs baseline 86.94%) |
 | 1.5 | 2026-01-24 | Claude Opus 4.5 | Ajout Gold Standard v6.5, ANNALES_STRUCTURE.md, index Annales DNA |
+| 1.6 | 2026-01-24 | Claude Opus 4.5 | Ajout SPEC-UTD-001 (Unified Training Data), index ARES/BEIR/RAGAS/Triplets |
+| 1.7 | 2026-01-24 | Claude Opus 4.5 | **Ajout index standards industrie**: BY DESIGN, Context-Grounded, Deduplication, Hard Negatives, MTEB, MMTEB (INTL), Model Collapse, NV-Embed-v2, Quality Gates, RAGen, SemHash, SoftDedup, Standards Industrie |
+| 1.8 | 2026-01-24 | Claude Opus 4.5 | **Ajout Dual-RAG Architecture** (VISION v2.0): index separation FR/INTL, references croisees tous docs concernes |
 
 ---
 

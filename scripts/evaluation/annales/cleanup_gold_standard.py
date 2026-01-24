@@ -15,20 +15,27 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def derive_answer_text(question: dict[str, Any]) -> dict[str, Any]:
+class DeriveResult:
+    """Result of deriving answer text from choices."""
+
+    __slots__ = ("answer_text", "answer_complete", "answer_missing_letters")
+
+    def __init__(self) -> None:
+        self.answer_text: str | None = None
+        self.answer_complete: bool = False
+        self.answer_missing_letters: list[str] = []
+
+
+def derive_answer_text(question: dict[str, Any]) -> DeriveResult:
     """
     Derive answer_text from choices and expected_answer.
 
-    Returns dict with:
+    Returns DeriveResult with:
     - answer_text: derived text (if possible)
     - answer_complete: bool indicating if all letters were found
     - answer_missing_letters: list of letters not found in choices
     """
-    result = {
-        "answer_text": None,
-        "answer_complete": False,
-        "answer_missing_letters": [],
-    }
+    result = DeriveResult()
 
     # Try both field names (mcq_answer in GS, expected_answer in parsed)
     expected = question.get("mcq_answer") or question.get("expected_answer", "")
@@ -47,9 +54,9 @@ def derive_answer_text(question: dict[str, Any]) -> dict[str, Any]:
             missing.append(letter)
 
     if texts:
-        result["answer_text"] = " | ".join(texts)
-        result["answer_complete"] = len(missing) == 0
-        result["answer_missing_letters"] = missing
+        result.answer_text = " | ".join(texts)
+        result.answer_complete = len(missing) == 0
+        result.answer_missing_letters = missing
 
     return result
 
@@ -75,15 +82,15 @@ def cleanup_gold_standard(gs_data: dict[str, Any]) -> dict[str, Any]:
         # Derive answer text
         derived = derive_answer_text(q)
 
-        if derived["answer_text"]:
-            q["answer_text"] = derived["answer_text"]
-            if derived["answer_complete"]:
+        if derived.answer_text:
+            q["answer_text"] = derived.answer_text
+            if derived.answer_complete:
                 stats["answer_derived_complete"] += 1
             else:
                 stats["answer_derived_partial"] += 1
                 q["answer_incomplete"] = True
-                if derived["answer_missing_letters"]:
-                    q["answer_missing_letters"] = derived["answer_missing_letters"]
+                if derived.answer_missing_letters:
+                    q["answer_missing_letters"] = derived.answer_missing_letters
         else:
             # Fallback: use article_reference as answer_text (from correction table)
             article_ref = q.get("article_reference", "")

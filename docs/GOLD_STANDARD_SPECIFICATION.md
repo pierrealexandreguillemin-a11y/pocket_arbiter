@@ -20,20 +20,20 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 - **Gold Standard FR Annales v6.5**: 477 questions (examens officiels DNA)
 - **Total**: 888 questions
 
-### 1.1 Gold Standard v6.5.0 "Annales" (2026-01-24)
+### 1.1 Gold Standard v6.6.0 "Annales" (2026-01-24)
 
 | Metrique | Valeur | Status |
 |----------|--------|--------|
 | Questions totales | 477 | ✅ |
-| answer_text complet | 431/477 (90.4%) | ✅ ATTEINT |
-| expected_pages | 90.3% | ✅ |
-| corpus_verified | 91.3% | ✅ |
+| answer_text complet | 477/477 (100%) | ✅ ATTEINT |
+| expected_pages | 390/477 (81.8%) | ✅ |
+| article_reference | 477/477 (100%) | ✅ |
 | Schema | v5.30-compatible | ✅ |
 
 **Sources answer_text:**
-- Choix QCM derives: 322 questions
-- Corrige detaille extrait: 109 questions
-- Manquants: 46 questions (9.6%)
+- Choix QCM derives: 322 questions (67.5%)
+- Corrige detaille extrait: 109 questions (22.9%)
+- Article reference fallback: 46 questions (9.6%)
 
 > Voir: `docs/specs/GOLD_STANDARD_V6_ANNALES.md` pour specifications detaillees
 > Voir: `scripts/evaluation/annales/README.md` pour pipeline extraction

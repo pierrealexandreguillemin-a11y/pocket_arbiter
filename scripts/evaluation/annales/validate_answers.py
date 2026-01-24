@@ -186,16 +186,16 @@ def validate_gold_standard(
     article_index = build_article_page_index(chunks)
     logger.info(f"Indexed {len(article_index)} article-source combinations")
 
-    # Stats
-    stats = {
+    # Stats with proper typing
+    stats: dict[str, int] = {
         "total": 0,
         "pages_added": 0,
         "pages_not_found": 0,
         "letter_only": 0,
         "answer_validated": 0,
         "answer_not_found": 0,
-        "by_document": {},
     }
+    by_document: dict[str, dict[str, int]] = {}
 
     questions = gs_data.get("questions", [])
 
@@ -208,14 +208,14 @@ def validate_gold_standard(
         article_keys = extract_article_from_reference(article_ref)
 
         # Try to find pages for this article (try all possible keys)
-        pages_found = []
+        pages_found: list[int] = []
         found_for_doc = False
 
         for doc in expected_docs:
             # Track by document
-            if doc not in stats["by_document"]:
-                stats["by_document"][doc] = {"total": 0, "with_pages": 0}
-            stats["by_document"][doc]["total"] += 1
+            if doc not in by_document:
+                by_document[doc] = {"total": 0, "with_pages": 0}
+            by_document[doc]["total"] += 1
 
             # Try each possible key from the reference
             for article_key in article_keys:
@@ -234,7 +234,7 @@ def validate_gold_standard(
                                 found_for_doc = True
 
             if found_for_doc:
-                stats["by_document"][doc]["with_pages"] += 1
+                by_document[doc]["with_pages"] += 1
 
         # Update expected_pages
         if pages_found:
@@ -272,7 +272,8 @@ def validate_gold_standard(
     save_json(gs_data, output_path)
     logger.info(f"Saved validated Gold Standard: {output_path}")
 
-    return stats
+    # Return combined stats
+    return {**stats, "by_document": by_document}
 
 
 def main() -> None:

@@ -286,28 +286,26 @@ def map_parsed_annales(parsed_file: Path, corpus_dir: Path) -> dict[str, Any]:
     if corpus_dir.exists():
         available_docs = {f.stem + ".pdf" for f in corpus_dir.glob("*.json")}
 
-    stats = {
-        "total_questions": 0,
-        "mapped": 0,
-        "unmapped": 0,
-        "high_confidence": 0,
-        "documents_used": set(),
-    }
+    stats_total = 0
+    stats_mapped = 0
+    stats_unmapped = 0
+    stats_high_confidence = 0
+    documents_used: set[str] = set()
 
     for unit in data.get("units", []):
         for question in unit.get("questions", []):
-            stats["total_questions"] += 1
+            stats_total += 1
             ref = question.get("article_reference", "")
 
             mapping = map_article_to_document(ref)
             question["document_mapping"] = mapping
 
             if mapping.get("document"):
-                stats["mapped"] += 1
-                stats["documents_used"].add(mapping["document"])
+                stats_mapped += 1
+                documents_used.add(mapping["document"])
 
                 if mapping.get("confidence", 0) >= 0.7:
-                    stats["high_confidence"] += 1
+                    stats_high_confidence += 1
 
                 # Validate document exists
                 doc_stem = mapping["document"].replace(".pdf", "")
@@ -316,9 +314,15 @@ def map_parsed_annales(parsed_file: Path, corpus_dir: Path) -> dict[str, Any]:
                 else:
                     mapping["validation"] = "ok"
             else:
-                stats["unmapped"] += 1
+                stats_unmapped += 1
 
-    stats["documents_used"] = list(stats["documents_used"])
+    stats: dict[str, Any] = {
+        "total_questions": stats_total,
+        "mapped": stats_mapped,
+        "unmapped": stats_unmapped,
+        "high_confidence": stats_high_confidence,
+        "documents_used": list(documents_used),
+    }
 
     return {
         "source_file": parsed_file.name,
@@ -353,12 +357,10 @@ def map_all_parsed_annales(
 
     logger.info(f"Found {len(parsed_files)} parsed files to map")
 
-    all_stats = {
-        "total_questions": 0,
-        "total_mapped": 0,
-        "total_unmapped": 0,
-        "all_documents": set(),
-    }
+    all_total = 0
+    all_mapped = 0
+    all_unmapped = 0
+    all_documents: set[str] = set()
 
     results = []
 
@@ -369,30 +371,31 @@ def map_all_parsed_annales(
         results.append(result)
 
         # Aggregate stats
-        stats = result["statistics"]
-        all_stats["total_questions"] += stats["total_questions"]
-        all_stats["total_mapped"] += stats["mapped"]
-        all_stats["total_unmapped"] += stats["unmapped"]
-        all_stats["all_documents"].update(stats["documents_used"])
+        result_stats = result["statistics"]
+        all_total += result_stats["total_questions"]
+        all_mapped += result_stats["mapped"]
+        all_unmapped += result_stats["unmapped"]
+        all_documents.update(result_stats["documents_used"])
 
         # Save mapped file
         output_file = output_dir / f"mapped_{parsed_file.stem.replace('parsed_', '')}.json"
         save_json(result["data"], output_file)
         logger.info(f"Saved: {output_file}")
 
-    all_stats["all_documents"] = sorted(all_stats["all_documents"])
+    all_stats: dict[str, Any] = {
+        "total_questions": all_total,
+        "total_mapped": all_mapped,
+        "total_unmapped": all_unmapped,
+        "all_documents": sorted(all_documents),
+    }
 
-    report = {
+    report: dict[str, Any] = {
         "input_dir": str(input_dir),
         "corpus_dir": str(corpus_dir),
         "output_dir": str(output_dir),
         "files_processed": len(results),
         "statistics": all_stats,
-        "mapping_rate": (
-            all_stats["total_mapped"] / all_stats["total_questions"]
-            if all_stats["total_questions"] > 0
-            else 0
-        ),
+        "mapping_rate": all_mapped / all_total if all_total > 0 else 0,
         "timestamp": get_timestamp(),
     }
 

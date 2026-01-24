@@ -106,17 +106,15 @@ def generate_gold_standard(
     if not mapped_files:
         raise ValueError(f"No mapped files found in {input_dir}")
 
-    questions = []
+    questions: list[dict[str, Any]] = []
     id_counter: dict[str, int] = {}
-    stats = {
-        "total_processed": 0,
-        "included": 0,
-        "skipped_no_mapping": 0,
-        "skipped_low_confidence": 0,
-        "skipped_no_correction": 0,
-        "by_uv": {},
-        "by_category": {},
-    }
+    stats_total_processed = 0
+    stats_included = 0
+    stats_skipped_no_mapping = 0
+    stats_skipped_low_confidence = 0
+    stats_skipped_no_correction = 0
+    by_uv: dict[str, int] = {}
+    by_category: dict[str, int] = {}
 
     for mapped_file in mapped_files:
         logger.info(f"Processing: {mapped_file.name}")
@@ -129,7 +127,7 @@ def generate_gold_standard(
             uv = unit.get("uv", "UNKNOWN")
 
             for q in unit.get("questions", []):
-                stats["total_processed"] += 1
+                stats_total_processed += 1
 
                 # Get mapping info (key is document_mapping)
                 mapping = q.get("document_mapping", {})
@@ -138,18 +136,18 @@ def generate_gold_standard(
 
                 # Skip unmapped questions
                 if not document:
-                    stats["skipped_no_mapping"] += 1
+                    stats_skipped_no_mapping += 1
                     continue
 
                 # Skip low confidence mappings
                 if confidence < min_confidence:
-                    stats["skipped_low_confidence"] += 1
+                    stats_skipped_low_confidence += 1
                     continue
 
                 # Check for correction data
                 has_correction = q.get("correct_answer") is not None
                 if require_correction and not has_correction:
-                    stats["skipped_no_correction"] += 1
+                    stats_skipped_no_correction += 1
                     continue
 
                 # Generate question entry
@@ -193,11 +191,11 @@ def generate_gold_standard(
                     question_entry["choices"] = choices
 
                 questions.append(question_entry)
-                stats["included"] += 1
+                stats_included += 1
 
                 # Update stats
-                stats["by_uv"][uv] = stats["by_uv"].get(uv, 0) + 1
-                stats["by_category"][category] = stats["by_category"].get(category, 0) + 1
+                by_uv[uv] = by_uv.get(uv, 0) + 1
+                by_category[category] = by_category.get(category, 0) + 1
 
     # Build final Gold Standard
     gold_standard = {
@@ -224,8 +222,8 @@ def generate_gold_standard(
         },
         "statistics": {
             "total_questions": len(questions),
-            "by_uv": stats["by_uv"],
-            "by_category": stats["by_category"],
+            "by_uv": by_uv,
+            "by_category": by_category,
             "generation_date": get_timestamp(),
         },
         "questions": questions,
@@ -236,7 +234,15 @@ def generate_gold_standard(
     save_json(gold_standard, output_file)
     logger.info(f"Saved Gold Standard v6: {output_file}")
 
-    return stats
+    return {
+        "total_processed": stats_total_processed,
+        "included": stats_included,
+        "skipped_no_mapping": stats_skipped_no_mapping,
+        "skipped_low_confidence": stats_skipped_low_confidence,
+        "skipped_no_correction": stats_skipped_no_correction,
+        "by_uv": by_uv,
+        "by_category": by_category,
+    }
 
 
 def main() -> None:

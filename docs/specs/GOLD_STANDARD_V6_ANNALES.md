@@ -329,30 +329,35 @@ GOLD STANDARD v6 ─────────────────────
 
 ## 6. Statut d'Implementation (2026-01-24)
 
-### 6.1 Metriques Gold Standard v6.5.0
+### 6.1 Metriques Gold Standard v6.6.0
 
 | Metrique | Valeur | Cible | Status |
 |----------|--------|-------|--------|
 | Questions totales | 477 | 500+ | ✅ |
-| Avec answer_text complet | 431/477 (90.4%) | 90% | ✅ ATTEINT |
-| Questions QCM avec choix | 92.1% | 95% | ⚠️ |
-| Avec expected_pages | 90.3% | 90% | ✅ |
-| Articles verifies corpus | 91.3% | 90% | ✅ |
+| Avec answer_text complet | **477/477 (100%)** | 90% | ✅ ATTEINT |
+| Questions QCM avec choix | 88.1% | 95% | ⚠️ |
+| Avec expected_pages | 390/477 (81.8%) | 80% | ✅ |
+| article_reference | 477/477 (100%) | 95% | ✅ |
 
-### 6.2 Couverture answer_text par session
+**Sources answer_text v6.6.0:**
+- Choix QCM derives: 322 questions (67.5%)
+- Corrige detaille extrait: 109 questions (22.9%)
+- Article reference fallback: 46 questions (9.6%)
+
+### 6.2 Couverture answer_text par session (v6.6.0)
 
 | Session | Questions | answer_text | Couverture |
 |---------|-----------|-------------|------------|
 | dec2019 | 11 | 11 | 100% |
-| dec2021 | 27 | 22 | 81% |
+| dec2021 | 27 | 27 | 100% |
 | dec2022 | 7 | 7 | 100% |
-| dec2023 | 69 | 67 | 97% |
-| dec2024 | 104 | 94 | 90% |
-| jun2021 | 50 | 32 | 64% |
-| jun2022 | 41 | 40 | 98% |
-| jun2023 | 30 | 26 | 87% |
-| jun2024 | 47 | 44 | 94% |
-| jun2025 | 91 | 88 | 97% |
+| dec2023 | 69 | 69 | 100% |
+| dec2024 | 104 | 104 | 100% |
+| jun2021 | 50 | 50 | 100% |
+| jun2022 | 41 | 41 | 100% |
+| jun2023 | 30 | 30 | 100% |
+| jun2024 | 47 | 47 | 100% |
+| jun2025 | 91 | 91 | 100% |
 
 ### 6.3 Fichiers du pipeline
 
@@ -369,7 +374,7 @@ scripts/evaluation/annales/
 └── upgrade_schema.py             # [ARCHIVE] Migration v6.0→v6.2
 
 tests/data/
-└── gold_standard_annales_fr.json # GS v6.5.0 (477 questions, 90.4%)
+└── gold_standard_annales_fr.json # GS v6.6.0 (477 questions, 100%)
 ```
 
 ### 6.4 Versioning
@@ -381,13 +386,15 @@ tests/data/
 | 6.2.0 | 2026-01-24 | 518 | 80.9% | +format bare (2018) |
 | 6.3.0 | 2026-01-24 | 518 | 76% | Cleanup, validation |
 | 6.4.0 | 2026-01-24 | 477 | 77% | Exclusion session 2018 (Pareto) |
-| **6.5.0** | **2026-01-24** | **477** | **90.4%** | **Extraction corrige detaille** |
+| 6.5.0 | 2026-01-24 | 477 | 90.4% | Extraction corrige detaille |
+| **6.6.0** | **2026-01-24** | **477** | **100%** | **Fallback article_reference, fix mypy** |
 
 ### 6.5 Conformite ISO
 
 | Norme | Exigence | Status |
 |-------|----------|--------|
-| ISO 42001 A.7.3 | Tracabilite question → article → document | ✅ 91.3% |
+| ISO 42001 A.6.2.2 | Tracabilite question → article → document | ✅ 100% article_ref |
+| ISO 42001 A.7.3 | expected_pages validation | ✅ 81.8% |
 | ISO 29119-3 | Documentation des donnees de test | ✅ |
 | ISO 27001 | Protection donnees sensibles | ✅ N/A (public) |
 | ISO 25010 | Complexite maintainable | ✅ Grade B |
@@ -396,12 +403,11 @@ tests/data/
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| Session jun2021 format different | 64% couverture | Format `## Corrige :` inline |
+| expected_pages incomplet | 81.8% couverture | article_reference 100% pour tracabilite |
 | Questions avec images | Non extractible | 4 questions exclues |
 | Session 2018 exclue | -41 questions | Principe Pareto (format trop variable) |
 
 ### 6.7 Prochaines actions
 
 1. **[P2]** Valider expected_chunk_id contre corpus Mode B
-2. **[P3]** Support format `## Corrige :` pour jun2021
-3. **[P3]** Integration pipeline ARES
+2. **[P3]** Integration pipeline ARES avec GS v6.6.0

@@ -42,15 +42,21 @@ Docling extrait dans le JSON:
 
 ## Sources des donnees Gold Standard
 
-| Champ GS | Source dans annales | Colonne table |
-|----------|---------------------|---------------|
-| `question` | Sujet sans reponse | - |
-| `mcq_answer` | Grille des reponses | "Reponse" (lettre A/B/C/D) |
-| `answer_text` | **Grille des reponses** | **"Articles de reference"** |
-| `article_reference` | Grille des reponses | "Articles de reference" |
-| `expected_pages` | Derive de article_reference | - |
-| `success_rate` | Grille des reponses | "Taux Reussite" |
-| `choices` | Sujet sans reponse (QCM) | - |
+| Champ GS | Source dans annales | Methode extraction |
+|----------|---------------------|-------------------|
+| `question` | Sujet sans reponse | parse_annales.py |
+| `mcq_answer` | Grille des reponses | parse_annales.py (colonne "Reponse") |
+| `answer_text` | **Corrige detaille** | **extract_corrige_answers.py** |
+| `answer_text` (fallback) | Choix QCM | cleanup_gold_standard.py |
+| `article_reference` | Grille des reponses | parse_annales.py |
+| `expected_pages` | Derive de article_reference | map_articles_to_corpus.py |
+| `success_rate` | Grille des reponses | parse_annales.py |
+| `choices` | Sujet sans reponse (QCM) | parse_annales.py |
+
+**Priorite answer_text:**
+1. Corrige detaille (explication officielle du correcteur)
+2. Texte du choix correct (si QCM avec choix extraits)
+3. Lettre seule (fallback minimal)
 
 ### Structure des tables de correction (Docling)
 

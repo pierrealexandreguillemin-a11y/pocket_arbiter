@@ -123,7 +123,7 @@ def generate_gold_standard(
 
         data = json.loads(mapped_file.read_text(encoding="utf-8"))
         session = data.get("session", "unknown")
-        source_file = data.get("source_file", "")
+        _ = data.get("source_file", "")  # Reserved for future use
 
         for unit in data.get("units", []):
             uv = unit.get("uv", "UNKNOWN")

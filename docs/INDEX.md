@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 1.3
-> **Date**: 2026-01-22
+> **Version**: 1.5
+> **Date**: 2026-01-24
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -84,6 +84,8 @@ pocket_arbiter/
 | ID | Document | Description | Statut |
 |----|----------|-------------|--------|
 | TEST-PLAN-001 | [TEST_PLAN.md](TEST_PLAN.md) | Plan de tests ISO 29119 | Draft |
+| SPEC-GS-001 | [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) | Specification Gold Standard | Approuve |
+| SPEC-GS-V6 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v6.5 Annales | Approuve |
 
 ### 2.5 Guides techniques
 
@@ -105,6 +107,7 @@ pocket_arbiter/
 - **Accessibilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.4.4
 - **AI (Intelligence Artificielle)** : [AI_POLICY.md](AI_POLICY.md)
 - **Android** : [VISION.md](VISION.md) Section 5.1, [ARCHITECTURE.md](ARCHITECTURE.md) Section 5.2
+- **Annales DNA** : [ANNALES_STRUCTURE.md](ANNALES_STRUCTURE.md), [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md)
 - **Architecture** : [ARCHITECTURE.md](ARCHITECTURE.md)
 - **Approbations** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.2
 - **Archivage** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.4
@@ -137,6 +140,7 @@ pocket_arbiter/
 
 ### G
 - **Gates (phase gates)** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
+- **Gold Standard** : [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md), [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md)
 - **Grounding** : [AI_POLICY.md](AI_POLICY.md) Section 3.2
 
 ### H
@@ -263,6 +267,7 @@ pocket_arbiter/
 | 1.2 | 2026-01-21 | Claude Opus 4.5 | Ajout LORA_FINETUNING_GUIDE.md, ISO_VECTOR_SOLUTIONS.md, index LoRA/MRL |
 | 1.3 | 2026-01-22 | Claude Opus 4.5 | Ajout RETRIEVAL_PIPELINE.md, CHUNK_SCHEMA.md, index Docling/HybridChunker/Parent-Child/Page provenance |
 | 1.4 | 2026-01-23 | Claude Opus 4.5 | Benchmark chunking optimizations (dual-size -5.22%, semantic -4.05% vs baseline 86.94%) |
+| 1.5 | 2026-01-24 | Claude Opus 4.5 | Ajout Gold Standard v6.5, ANNALES_STRUCTURE.md, index Annales DNA |
 
 ---
 

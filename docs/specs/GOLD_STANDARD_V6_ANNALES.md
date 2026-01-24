@@ -327,48 +327,49 @@ GOLD STANDARD v6 ─────────────────────
 - [ ] Intégration pipeline ARES
 - [x] Documentation finale
 
-## 6. Statut d'Implémentation (2026-01-24)
+## 6. Statut d'Implementation (2026-01-24)
 
-### 6.1 Métriques Gold Standard v6.3.0
+### 6.1 Metriques Gold Standard v6.5.0
 
-| Métrique | Valeur | Cible | Status |
+| Metrique | Valeur | Cible | Status |
 |----------|--------|-------|--------|
-| Questions totales | 518 | 500+ | ✅ |
-| Avec answer_text complet | 391/518 (75.5%) | 100% | ❌ BLOQUANT |
-| Questions QCM avec choix | 637/692 (92.1%) | 95% | ⚠️ |
+| Questions totales | 477 | 500+ | ✅ |
+| Avec answer_text complet | 431/477 (90.4%) | 90% | ✅ ATTEINT |
+| Questions QCM avec choix | 92.1% | 95% | ⚠️ |
 | Avec expected_pages | 90.3% | 90% | ✅ |
-| Articles vérifiés corpus | 91.3% | 90% | ✅ |
+| Articles verifies corpus | 91.3% | 90% | ✅ |
 
-### 6.2 Analyse des écarts answer_text
+### 6.2 Couverture answer_text par session
 
-| Catégorie | Count | Action requise |
-|-----------|-------|----------------|
-| QCM avec choix extraits | 409 | ✅ answer_text derivé |
-| QCM choix partiels | 10 | ⚠️ Améliorer parser |
-| Questions ouvertes | 39 | 📋 Extraire du corrigé détaillé |
-| Questions images | 4 | ℹ️ Non extractible |
-| Mauvais parsing corrigé | 16 | 🔧 Exclure sections corrigé |
-| Parsing manqué | ~50 | 🔧 Nouveaux patterns regex |
+| Session | Questions | answer_text | Couverture |
+|---------|-----------|-------------|------------|
+| dec2019 | 11 | 11 | 100% |
+| dec2021 | 27 | 22 | 81% |
+| dec2022 | 7 | 7 | 100% |
+| dec2023 | 69 | 67 | 97% |
+| dec2024 | 104 | 94 | 90% |
+| jun2021 | 50 | 32 | 64% |
+| jun2022 | 41 | 40 | 98% |
+| jun2023 | 30 | 26 | 87% |
+| jun2024 | 47 | 44 | 94% |
+| jun2025 | 91 | 88 | 97% |
 
-### 6.3 Fichiers créés
+### 6.3 Fichiers du pipeline
 
 ```
 scripts/evaluation/annales/
+├── README.md                     # Documentation pipeline (NOUVEAU)
 ├── parse_annales.py              # Extraction questions (6 formats choix)
+├── cleanup_gold_standard.py      # Derivation answer_text depuis choix
+├── extract_corrige_answers.py    # Extraction depuis corrige detaille (NOUVEAU)
 ├── map_articles_to_corpus.py     # Mapping article → document
-├── generate_gold_standard.py     # Génération GS
+├── generate_gold_standard.py     # Generation GS
 ├── validate_answers.py           # Validation pages + articles
 ├── reformulate_questions.py      # Reformulation langage courant
-├── cleanup_gold_standard.py      # Dérivation answer_text
-└── upgrade_schema.py             # Upgrade vers schema v5.30
-
-data/evaluation/annales/
-├── README.md                     # Documentation structure annales
-├── parsed/                       # Questions parsées par session
-└── mapped/                       # Questions avec mapping corpus
+└── upgrade_schema.py             # [ARCHIVE] Migration v6.0→v6.2
 
 tests/data/
-└── gold_standard_annales_fr.json # GS v6.3.0 (518 questions)
+└── gold_standard_annales_fr.json # GS v6.5.0 (477 questions, 90.4%)
 ```
 
 ### 6.4 Versioning
@@ -378,20 +379,29 @@ tests/data/
 | 6.0.0 | 2026-01-23 | 518 | 64% | Initial GS |
 | 6.1.0 | 2026-01-24 | 518 | 75% | +5 formats choix |
 | 6.2.0 | 2026-01-24 | 518 | 80.9% | +format bare (2018) |
-| 6.3.0 | 2026-01-24 | 518 | 75.5% | Cleanup, validation |
+| 6.3.0 | 2026-01-24 | 518 | 76% | Cleanup, validation |
+| 6.4.0 | 2026-01-24 | 477 | 77% | Exclusion session 2018 (Pareto) |
+| **6.5.0** | **2026-01-24** | **477** | **90.4%** | **Extraction corrige detaille** |
 
-### 6.5 Conformité ISO
+### 6.5 Conformite ISO
 
 | Norme | Exigence | Status |
 |-------|----------|--------|
-| ISO 42001 A.7.3 | Traçabilité question → article → document | ✅ 91.3% |
-| ISO 29119-3 | Documentation des données de test | ✅ |
-| ISO 27001 | Protection données sensibles | ✅ N/A (public) |
-| ISO 25010 | Complexité maintainable | ✅ Grade B |
+| ISO 42001 A.7.3 | Tracabilite question → article → document | ✅ 91.3% |
+| ISO 29119-3 | Documentation des donnees de test | ✅ |
+| ISO 27001 | Protection donnees sensibles | ✅ N/A (public) |
+| ISO 25010 | Complexite maintainable | ✅ Grade B |
 
-### 6.6 Prochaines actions (priorité)
+### 6.6 Limitations connues
 
-1. **[P0]** Extraire answer_text du corrigé détaillé pour questions ouvertes (39 Q)
-2. **[P0]** Exclure parsing des sections "corrigé" comme questions (16 Q)
-3. **[P1]** Ajouter patterns pour formats manquants (~50 Q)
-4. **[P2]** Valider expected_chunk_id contre corpus Mode B
+| Limitation | Impact | Mitigation |
+|------------|--------|------------|
+| Session jun2021 format different | 64% couverture | Format `## Corrige :` inline |
+| Questions avec images | Non extractible | 4 questions exclues |
+| Session 2018 exclue | -41 questions | Principe Pareto (format trop variable) |
+
+### 6.7 Prochaines actions
+
+1. **[P2]** Valider expected_chunk_id contre corpus Mode B
+2. **[P3]** Support format `## Corrige :` pour jun2021
+3. **[P3]** Integration pipeline ARES

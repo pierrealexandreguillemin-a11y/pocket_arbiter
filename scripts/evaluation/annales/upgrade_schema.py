@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
+# pragma: no cover
 """
 [ARCHIVED] Upgrade Gold Standard v6 schema to industry standard (v5.30 compatible).
 
 STATUS: ARCHIVED - One-shot migration script, no longer needed.
-        Gold Standard is now at v6.5.0.
+        Gold Standard is now at v6.7.0.
         Kept for reference only.
+
+COVERAGE EXCLUSION RATIONALE (ISO 29119-4):
+    This module is excluded from test coverage because:
+    1. One-time migration script - not part of runtime application
+    2. Already successfully executed - data migration complete
+    3. No future execution expected - archived for audit trail only
+    4. Testing would require recreating obsolete data formats
 
 Original purpose:
     Adds missing fields required by GOLD_STANDARD_SPECIFICATION.md:

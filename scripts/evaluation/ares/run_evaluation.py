@@ -40,6 +40,26 @@ LLM_CONFIGS = {
         "host": "vllm",
         "estimated_cost_per_eval": 0.0,
     },
+    "ollama:mistral": {
+        "model": "mistral:latest",
+        "host": "ollama",
+        "estimated_cost_per_eval": 0.0,
+    },
+    "ollama:qwen2.5": {
+        "model": "qwen2.5:latest",
+        "host": "ollama",
+        "estimated_cost_per_eval": 0.0,
+    },
+    "ollama:gemma2": {
+        "model": "gemma2:latest",
+        "host": "ollama",
+        "estimated_cost_per_eval": 0.0,
+    },
+    "ollama:llama3.2": {
+        "model": "llama3.2:latest",
+        "host": "ollama",
+        "estimated_cost_per_eval": 0.0,
+    },
 }
 
 
@@ -228,6 +248,273 @@ def _estimate_cost(unlabeled_path: Path, llm_config: dict[str, Any]) -> dict[str
     }
 
 
+def _ppi_mean_ci(
+    Y_labeled: list[int],
+    Yhat_labeled: list[int],
+    Yhat_unlabeled: list[int],
+    alpha: float = 0.05,
+) -> tuple[float, float, float]:
+    """ARES-verbatim PPI mean estimation with confidence interval.
+
+    Formula: θ̂_PP = θ̃_f - r̂
+    Where:
+        θ̃_f = mean of predictions on unlabeled set
+        r̂ = mean prediction error on labeled set (Yhat - Y)
+
+    CI: θ̂_PP ± z_(1-α/2) × √(σ²_f/N + σ²_r/n)
+
+    Args:
+        Y_labeled: Ground truth labels (0/1)
+        Yhat_labeled: Predictions on labeled set (0/1)
+        Yhat_unlabeled: Predictions on unlabeled set (0/1)
+        alpha: Significance level (default 0.05 for 95% CI)
+
+    Returns:
+        (point_estimate, ci_lower, ci_upper)
+    """
+    import math
+    import statistics
+
+    n = len(Y_labeled)
+    N = len(Yhat_unlabeled)
+
+    if n == 0 or N == 0:
+        return 0.0, 0.0, 0.0
+
+    # θ̃_f = mean of predictions on unlabeled set
+    theta_f = sum(Yhat_unlabeled) / N
+
+    # r̂ = mean prediction error on labeled set
+    residuals = [yhat - y for y, yhat in zip(Y_labeled, Yhat_labeled)]
+    r_hat = sum(residuals) / n
+
+    # Point estimate
+    theta_pp = theta_f - r_hat
+
+    # Variance of predictions on unlabeled set
+    if N > 1:
+        var_f = statistics.variance(Yhat_unlabeled)
+    else:
+        var_f = 0.0
+
+    # Variance of residuals on labeled set
+    if n > 1:
+        var_r = statistics.variance(residuals)
+    else:
+        var_r = 0.0
+
+    # Standard error
+    se = math.sqrt(var_f / N + var_r / n)
+
+    # z critical value for (1 - alpha/2)
+    # For alpha=0.05, z=1.96
+    z = 1.96 if alpha == 0.05 else 2.576 if alpha == 0.01 else 1.645
+
+    ci_lower = max(0.0, theta_pp - z * se)
+    ci_upper = min(1.0, theta_pp + z * se)
+
+    return theta_pp, ci_lower, ci_upper
+
+
+def run_ollama_evaluation(
+    corpus: str = "fr",
+    model: str = "mistral:latest",
+    output_dir: Path | None = None,
+) -> dict[str, Any]:
+    """ARES-VERBATIM LLM-as-judge evaluation using Ollama.
+
+    Implements EXACTLY:
+    - ARES context_relevance_system_prompt
+    - ARES few-shot examples format
+    - ARES [[Yes]]/[[No]] response parsing
+    - ARES PPI confidence intervals
+
+    Args:
+        corpus: Either 'fr' or 'intl'
+        model: Ollama model to use
+        output_dir: Directory for results
+
+    Returns:
+        Evaluation results dict (ARES-compatible format)
+    """
+    import csv
+    import re
+    import requests
+
+    if output_dir is None:
+        output_dir = OUTPUT_DIR
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Check Ollama is running
+    ollama_url = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+    try:
+        resp = requests.get(f"{ollama_url}/api/tags", timeout=5)
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        raise ConnectionError(f"Ollama not available at {ollama_url}: {e}")
+
+    # Load data files (ARES format)
+    gold_label_path = DATA_DIR / f"gold_label_{corpus}.tsv"
+    few_shot_path = DATA_DIR / f"few_shot_{corpus}.tsv"
+    unlabeled_path = DATA_DIR / f"unlabeled_{corpus}.tsv"
+
+    for path in [gold_label_path, few_shot_path, unlabeled_path]:
+        if not path.exists():
+            raise FileNotFoundError(f"Missing: {path}")
+
+    # Load few-shot examples (ARES format)
+    few_shot_examples = []
+    with open(few_shot_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            label = row.get("Context_Relevance_Label", "")
+            if label in ("0", "1"):
+                few_shot_examples.append({
+                    "query": row["Query"],
+                    "document": row["Document"],
+                    "label": "[[Yes]]" if label == "1" else "[[No]]",
+                })
+
+    # Load gold labeled samples (for PPI)
+    gold_samples: list[dict[str, str | int]] = []
+    with open(gold_label_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            gold_samples.append({
+                "query": str(row["Query"]),
+                "document": str(row["Document"]),
+                "gold_label": int(row["Context_Relevance_Label"]),
+            })
+
+    # Load unlabeled samples
+    unlabeled_samples: list[dict[str, str]] = []
+    with open(unlabeled_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            unlabeled_samples.append({
+                "query": str(row["Query"]),
+                "document": str(row["Document"]),
+            })
+
+    print(f"ARES-verbatim evaluation with Ollama ({model})")
+    print(f"  Few-shot examples: {len(few_shot_examples)}")
+    print(f"  Gold labeled: {len(gold_samples)}")
+    print(f"  Unlabeled: {len(unlabeled_samples)}")
+
+    # ARES-verbatim system prompt
+    system_prompt = (
+        'You are an expert dialogue agent. Your task is to analyze the provided '
+        'document and determine whether it is relevant for responding to the dialogue. '
+        'In your evaluation, you should consider the content of the document and how '
+        'it relates to the provided dialogue. Output your final verdict by strictly '
+        'following this format: "[[Yes]]" if the document is relevant and "[[No]]" '
+        'if the document provided is not relevant. Do not provide any additional '
+        'explanation for your decision.'
+    )
+
+    # Build few-shot prompt (ARES format)
+    few_shot_text = ""
+    for ex in few_shot_examples[:5]:  # ARES uses ~5 examples
+        few_shot_text += f"\nQuestion: {ex['query']}\nDocument: {ex['document'][:500]}\nLabel: {ex['label']}\n"
+
+    def evaluate_sample(query: str, document: str) -> int:
+        """Evaluate a single sample, returns 1 (relevant) or 0 (not relevant)."""
+        prompt = f"""{system_prompt}
+
+{few_shot_text}
+
+Question: {query}
+Document: {document[:2000]}
+Label: """
+
+        try:
+            resp = requests.post(
+                f"{ollama_url}/api/generate",
+                json={"model": model, "prompt": prompt, "stream": False},
+                timeout=120,
+            )
+            resp.raise_for_status()
+            response_text = resp.json().get("response", "").strip()
+
+            # ARES-verbatim parsing: [[Yes]] or [[No]]
+            yes_match = re.search(r"\[\[Yes\]\]", response_text, re.IGNORECASE)
+            no_match = re.search(r"\[\[No\]\]", response_text, re.IGNORECASE)
+
+            if yes_match and not no_match:
+                return 1
+            elif no_match:
+                return 0
+            else:
+                # Fallback
+                return 1 if "yes" in response_text.lower()[:10] else 0
+        except requests.RequestException:
+            return 0
+
+    # Evaluate gold labeled samples (for PPI rectification)
+    print("\nPhase 1: Evaluating gold labeled samples...")
+    Y_labeled: list[int] = []
+    Yhat_labeled: list[int] = []
+    for i, sample in enumerate(gold_samples):
+        pred = evaluate_sample(str(sample["query"]), str(sample["document"]))
+        Y_labeled.append(int(sample["gold_label"]))
+        Yhat_labeled.append(pred)
+        if (i + 1) % 10 == 0:
+            print(f"  Gold: {i + 1}/{len(gold_samples)}")
+
+    # Evaluate unlabeled samples
+    print("\nPhase 2: Evaluating unlabeled samples...")
+    Yhat_unlabeled: list[int] = []
+    for j, unlabeled in enumerate(unlabeled_samples):
+        pred = evaluate_sample(unlabeled["query"], unlabeled["document"])
+        Yhat_unlabeled.append(pred)
+        if (j + 1) % 10 == 0:
+            print(f"  Unlabeled: {j + 1}/{len(unlabeled_samples)}")
+
+    # ARES-verbatim PPI confidence interval
+    estimate, ci_lower, ci_upper = _ppi_mean_ci(
+        Y_labeled, Yhat_labeled, Yhat_unlabeled
+    )
+
+    # Calculate accuracy on gold set
+    n_correct = sum(p == y for p, y in zip(Yhat_labeled, Y_labeled))
+    accuracy = n_correct / len(Y_labeled) if Y_labeled else 0.0
+
+    result = {
+        "corpus": corpus,
+        "llm_used": f"ollama:{model}",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "Context_Relevance_Label": {
+            "estimate": estimate,
+            "ci_lower": ci_lower,
+            "ci_upper": ci_upper,
+            "n_labeled": len(Y_labeled),
+            "n_unlabeled": len(Yhat_unlabeled),
+        },
+        "context_relevance": {
+            "score": estimate,
+            "ci_95_lower": ci_lower,
+            "ci_95_upper": ci_upper,
+            "n_samples": len(Y_labeled) + len(Yhat_unlabeled),
+            "pass": estimate >= 0.80,
+        },
+        "judge_accuracy_on_gold": accuracy,
+        "method": "ARES-verbatim PPI",
+    }
+
+    # Save results
+    result_path = output_dir / f"ares_ollama_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with open(result_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+
+    print(f"\nResults saved to: {result_path}")
+    print(f"\nContext Relevance (PPI): {estimate:.2%}")
+    print(f"95% CI: [{ci_lower:.2%}, {ci_upper:.2%}]")
+    print(f"Judge accuracy on gold: {accuracy:.2%}")
+    print(f"Pass (≥80%): {'✓' if estimate >= 0.80 else '✗'}")
+
+    return result
+
+
 def run_mock_evaluation(corpus: str = "fr") -> dict[str, Any]:
     """Run mock evaluation for testing without LLM calls.
 
@@ -304,9 +591,17 @@ def main() -> None:
         action="store_true",
         help="Run mock evaluation without LLM calls",
     )
+    parser.add_argument(
+        "--ollama",
+        type=str,
+        metavar="MODEL",
+        help="Run evaluation with Ollama model (e.g., mistral:latest)",
+    )
     args = parser.parse_args()
 
-    if args.mock:
+    if args.ollama:
+        results = run_ollama_evaluation(corpus=args.corpus, model=args.ollama)
+    elif args.mock:
         results = run_mock_evaluation(corpus=args.corpus)
     else:
         results = run_context_relevance_evaluation(

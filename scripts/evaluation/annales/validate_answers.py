@@ -30,8 +30,12 @@ from scripts.pipeline.utils import get_timestamp, save_json
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-# Article number pattern
+# Article number patterns - multiple formats
 ARTICLE_PATTERN = re.compile(r"(\d+\.\d+(?:\.\d+)?)", re.IGNORECASE)
+# Also match single numbers (chapters, sections)
+CHAPTER_PATTERN = re.compile(r"(?:Chapitre|Chap\.?)\s*(\d+)", re.IGNORECASE)
+SECTION_PATTERN = re.compile(r"^(\d+)\.", re.MULTILINE)  # "2. Statut" -> "2"
+PREAMBULE_PATTERN = re.compile(r"Pr[eé]ambule", re.IGNORECASE)
 
 
 def build_article_page_index(chunks: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
@@ -51,8 +55,22 @@ def build_article_page_index(chunks: list[dict[str, Any]]) -> dict[str, dict[str
         text = chunk.get("text", "")
         pages = chunk.get("pages", [])
 
-        # Find all article mentions in text
-        articles = ARTICLE_PATTERN.findall(text)
+        # Find all article mentions in text (multiple patterns)
+        articles = set(ARTICLE_PATTERN.findall(text))
+
+        # Also find chapter numbers
+        chapters = CHAPTER_PATTERN.findall(text)
+        for ch in chapters:
+            articles.add(f"Ch.{ch}")
+
+        # Find section numbers (e.g., "2. Statut")
+        sections = SECTION_PATTERN.findall(text)
+        for sec in sections:
+            articles.add(f"Sec.{sec}")
+
+        # Check for Préambule
+        if PREAMBULE_PATTERN.search(text):
+            articles.add("Préambule")
 
         for article in articles:
             key = f"{source}|{article}"
@@ -71,16 +89,38 @@ def build_article_page_index(chunks: list[dict[str, Any]]) -> dict[str, dict[str
     return index
 
 
-def extract_article_from_reference(reference: str) -> str | None:
-    """Extract article number from reference string."""
+def extract_article_from_reference(reference: str) -> list[str]:
+    """
+    Extract article/chapter/section numbers from reference string.
+
+    Returns multiple possible keys to search in the index.
+    """
     if not reference:
-        return None
+        return []
 
-    match = ARTICLE_PATTERN.search(reference)
-    if match:
-        return match.group(1)
+    keys = []
 
-    return None
+    # Check for article number (e.g., "1.3", "4.2.1")
+    article_match = ARTICLE_PATTERN.search(reference)
+    if article_match:
+        keys.append(article_match.group(1))
+
+    # Check for chapter reference (e.g., "Chapitre 8")
+    chapter_match = CHAPTER_PATTERN.search(reference)
+    if chapter_match:
+        keys.append(f"Ch.{chapter_match.group(1)}")
+
+    # Check for section pattern (e.g., "R01 - 2. Statut")
+    # Match "- X." or "- X.Y" patterns
+    section_match = re.search(r"-\s*(\d+)\.(?:\s|$|\d)", reference)
+    if section_match:
+        keys.append(f"Sec.{section_match.group(1)}")
+
+    # Check for Préambule
+    if PREAMBULE_PATTERN.search(reference):
+        keys.append("Préambule")
+
+    return keys
 
 
 def find_answer_in_chunks(
@@ -165,10 +205,11 @@ def validate_gold_standard(
         # Get expected document and article
         expected_docs = q.get("expected_docs", [])
         article_ref = q.get("article_reference", "")
-        article_num = extract_article_from_reference(article_ref)
+        article_keys = extract_article_from_reference(article_ref)
 
-        # Try to find pages for this article
+        # Try to find pages for this article (try all possible keys)
         pages_found = []
+        found_for_doc = False
 
         for doc in expected_docs:
             # Track by document
@@ -176,11 +217,24 @@ def validate_gold_standard(
                 stats["by_document"][doc] = {"total": 0, "with_pages": 0}
             stats["by_document"][doc]["total"] += 1
 
-            if article_num:
-                key = f"{doc}|{article_num}"
+            # Try each possible key from the reference
+            for article_key in article_keys:
+                key = f"{doc}|{article_key}"
                 if key in article_index:
                     pages_found.extend(article_index[key]["pages"])
-                    stats["by_document"][doc]["with_pages"] += 1
+                    found_for_doc = True
+                else:
+                    # Fallback: try prefix match (e.g., "2.4" matches "2.4.1")
+                    # Only for numeric article keys
+                    if re.match(r"^\d+\.\d+$", article_key):
+                        prefix = f"{doc}|{article_key}."
+                        for idx_key in article_index:
+                            if idx_key.startswith(prefix):
+                                pages_found.extend(article_index[idx_key]["pages"])
+                                found_for_doc = True
+
+            if found_for_doc:
+                stats["by_document"][doc]["with_pages"] += 1
 
         # Update expected_pages
         if pages_found:

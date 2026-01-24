@@ -254,7 +254,7 @@ def main():
 
     elif args.mode == "retrieval":
         print("Mode retrieval seul (sans LLM synthesis)")
-        print("Utilise EmbeddingGemma + corpus_fr.db")
+        print("Utilise EmbeddingGemma + corpus_mode_b_fr.db")
 
         # Import retrieval components
         try:
@@ -272,7 +272,7 @@ def main():
             # Load model and DB
             print("Chargement modele EmbeddingGemma...")
             model = load_embedding_model()
-            db_path = P("corpus/processed/corpus_fr.db")
+            db_path = P("corpus/processed/corpus_mode_b_fr.db")
 
             if not db_path.exists():
                 print(f"ERREUR: Base non trouvee: {db_path}")

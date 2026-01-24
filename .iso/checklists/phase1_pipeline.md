@@ -142,6 +142,10 @@
 | `corpus/processed/corpus_fr.db` | 8.0 MB | Vector DB FR |
 | `corpus/processed/corpus_intl.db` | 4.25 MB | Vector DB INTL |
 
+> **Note v2.0 (2026-01-24)**: Fichiers ci-dessus remplaces par architecture Dual-RAG:
+> - FR actif: `corpus_mode_b_fr.db` (9.8 MB)
+> - INTL obsolete: a reconstruire (voir VISION.md)
+
 ---
 
 ## Historique

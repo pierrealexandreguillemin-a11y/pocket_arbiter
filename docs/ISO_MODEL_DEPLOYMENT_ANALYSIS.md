@@ -383,8 +383,8 @@ Conditions pour retenter le fine-tuning:
 |---------|--------|--------|--------|
 | `models/embeddinggemma.tflite` | ~180 MB | litert-community (base) | À TÉLÉCHARGER |
 | `models/gemma3_270m.tflite` | ~200 MB | Google AI Edge | À TÉLÉCHARGER |
-| `assets/corpus_fr.db` | ~15 MB | Pipeline indexation | ✅ EXISTE (82.84% recall) |
-| `assets/corpus_intl.db` | ~5 MB | Pipeline indexation | À CRÉER |
+| `assets/corpus_mode_b_fr.db` | ~10 MB | Pipeline indexation | ✅ ACTIF (91%+ recall) |
+| `assets/corpus_intl.db` | ~5 MB | Pipeline indexation | ⏸️ A RECONSTRUIRE |
 | **TOTAL** | **~400 MB** | - | ✅ < 500 MB |
 
 **Note** : Le modèle fine-tuné (`Pierrax/embeddinggemma-chess-arbiter-fr`) n'est **PAS** utilisé car recall insuffisant (65.69% < 80%).

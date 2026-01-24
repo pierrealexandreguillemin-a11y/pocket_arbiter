@@ -54,8 +54,8 @@ Application mobile Android 100% offline pour l'aide aux arbitres d'echecs via RA
 |  |   DOMAIN LAYER      |    |   ASSETS            |               |
 |  |   (Android/Kotlin)  |    |   (Generated)       |               |
 |  +---------------------+    +---------------------+               |
-|  | - QueryUseCase      |    | - corpus_fr.db      |               |
-|  | - RetrievalUseCase  |    | - corpus_intl.db    |               |
+|  | - QueryUseCase      |    | - corpus_mode_b_fr.db    |          |
+|  | - RetrievalUseCase  |    | - (INTL: A CONSTRUIRE)   |          |
 |  | - SynthesisUseCase  |    | - chunks_fr.json    |               |
 |  +----------+----------+    | - chunks_intl.json  |               |
 |             |               | - embeddinggemma.   |               |

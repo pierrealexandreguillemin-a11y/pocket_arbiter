@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """
-Upgrade Gold Standard v6 schema to industry standard (v5.30 compatible).
+[ARCHIVED] Upgrade Gold Standard v6 schema to industry standard (v5.30 compatible).
 
-Adds missing fields required by GOLD_STANDARD_SPECIFICATION.md:
-- audit: date d'ajout
-- expected_chunk_id: provenance exacte (to be filled later)
-- metadata: hard_case, hard_type, corpus_truth, test_purpose
+STATUS: ARCHIVED - One-shot migration script, no longer needed.
+        Gold Standard is now at v6.5.0.
+        Kept for reference only.
+
+Original purpose:
+    Adds missing fields required by GOLD_STANDARD_SPECIFICATION.md:
+    - audit: date d'ajout
+    - expected_chunk_id: provenance exacte (to be filled later)
+    - metadata: hard_case, hard_type, corpus_truth, test_purpose
 
 ISO 42001 A.6.2.2: Complete traceability required.
 """

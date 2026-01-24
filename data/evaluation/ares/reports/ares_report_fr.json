@@ -2,14 +2,68 @@
   "metadata": {
     "corpus": "fr",
     "report_version": "1.0",
-    "generated_at": "2026-01-23T17:54:24.835913+00:00",
-    "status": "pending"
+    "generated_at": "2026-01-24T00:05:26.941484+00:00",
+    "iso_references": [
+      "ISO 42001 A.7.3",
+      "ISO 25010 S4.2",
+      "ISO 29119"
+    ]
   },
-  "message": "No ARES evaluation found. Run evaluation first.",
-  "instructions": [
-    "1. python -m scripts.evaluation.ares.convert_to_ares --corpus fr",
-    "2. python -m scripts.evaluation.ares.generate_few_shot --corpus fr",
-    "3. python -m scripts.evaluation.ares.run_evaluation --corpus fr",
-    "4. python -m scripts.evaluation.ares.report --corpus fr"
+  "context_relevance": {
+    "score": 1.0,
+    "ci_95_lower": 0.95,
+    "ci_95_upper": 1.0,
+    "n_samples": 60,
+    "pass": true,
+    "llm_judge": "claude-opus-4.5",
+    "evaluation_timestamp": "2026-01-24T00:05:19.546686+00:00"
+  },
+  "comparison": {
+    "ares_context_relevance": 1.0,
+    "recall_at_5": 0.9156,
+    "correlation": "moderate",
+    "delta": 0.08440000000000003,
+    "interpretation": "ARES score higher than Recall@5 suggests retrieved documents are contextually relevant even when not exact expected chunks."
+  },
+  "iso_compliance": {
+    "overall_pass": true,
+    "checks": {
+      "context_relevance_threshold": {
+        "requirement": "Context relevance >= 80%",
+        "value": 1.0,
+        "pass": true,
+        "reference": "ISO 25010 S4.2"
+      },
+      "confidence_interval_valid": {
+        "requirement": "95% CI bounds valid",
+        "value": "[95.00%, 100.00%]",
+        "pass": true,
+        "reference": "ISO 42001 A.7.3"
+      },
+      "sample_size_adequate": {
+        "requirement": "n >= 50 samples",
+        "value": 60,
+        "pass": true,
+        "reference": "ISO 29119"
+      },
+      "traceability_complete": {
+        "requirement": "All samples have gs_id traceability",
+        "value": "mapping file present",
+        "pass": true,
+        "reference": "ISO 42001 A.7.3"
+      }
+    },
+    "citation_rate": 1.0,
+    "hallucination_rate": 0.0
+  },
+  "traceability": {
+    "total_samples": 297,
+    "positive_count": 209,
+    "negative_count": 88,
+    "negative_ratio": 0.2962962962962963,
+    "mapping_file": "mapping_fr.json"
+  },
+  "recommendations": [
+    "Increase evaluation sample size (currently 60) to improve statistical confidence."
   ]
 }

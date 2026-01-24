@@ -1,0 +1,14 @@
+# Coverage configuration for annales module
+# ISO 29119-4: Test coverage configuration
+
+[run]
+omit =
+    # Archived one-time migration script (see upgrade_schema.py docstring)
+    */upgrade_schema.py
+
+[report]
+exclude_lines =
+    # Standard exclusions
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise NotImplementedError

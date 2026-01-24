@@ -5,11 +5,17 @@ ISO Reference:
     - ISO/IEC 29119 - Software testing
 """
 
+import json
+import tempfile
+from pathlib import Path
+
 from scripts.evaluation.annales.extract_corrige_answers import (
     _derive_choice_text,
     _extract_explanation_from_block,
+    extract_all_corrige_answers,
     extract_question_explanations,
     find_corrige_sections,
+    update_gold_standard_with_explanations,
 )
 
 
@@ -420,3 +426,274 @@ Article 1.1
 """
         explanation = _extract_explanation_from_block(block)
         assert explanation == ""
+
+
+class TestExtractAllCorrigeAnswers:
+    """Integration tests for extract_all_corrige_answers function."""
+
+    def test_extracts_from_docling_json(self) -> None:
+        """Should extract explanations from Docling JSON file."""
+        docling_data = {
+            "markdown": """
+## UVR session de décembre 2024 - Corrigé détaillé
+
+## QUESTION 1 :
+
+Question about rules
+
+- a) Oui
+- b) Non
+
+Article 3.1 des règles du jeu
+
+Explication détaillée pour la première question du corrigé.
+
+## QUESTION 2 :
+
+Another question
+
+- a) Vrai
+- b) Faux
+
+Article 4.2
+
+Deuxième explication avec suffisamment de contenu.
+
+## Fin du corrigé
+"""
+        }
+
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump(docling_data, f)
+            f.flush()
+            result = extract_all_corrige_answers(Path(f.name))
+
+        assert "UVR" in result
+        assert 1 in result["UVR"]
+        assert 2 in result["UVR"]
+
+    def test_returns_empty_for_non_dict(self) -> None:
+        """Should return empty for non-dict JSON."""
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump(["list", "data"], f)
+            f.flush()
+            result = extract_all_corrige_answers(Path(f.name))
+
+        assert result == {}
+
+    def test_returns_empty_for_no_markdown(self) -> None:
+        """Should return empty if no markdown field."""
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump({"other": "data"}, f)
+            f.flush()
+            result = extract_all_corrige_answers(Path(f.name))
+
+        assert result == {}
+
+    def test_handles_multiple_uvs(self) -> None:
+        """Should extract from multiple UV sections."""
+        docling_data = {
+            "markdown": """
+## UVR - juin 2025 - Corrige Detaille
+
+## QUESTION 1 :
+
+UVR question
+
+Article 1.1
+
+Explication UVR question un avec details complets.
+
+## UVC - juin 2025 - Corrige Detaille
+
+## QUESTION 1 :
+
+UVC question
+
+R01 - 2.3
+
+Explication UVC question un avec details complets.
+
+## Fin
+"""
+        }
+
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump(docling_data, f)
+            f.flush()
+            result = extract_all_corrige_answers(Path(f.name))
+
+        # At least UVR should be found
+        assert "UVR" in result
+        assert 1 in result["UVR"]
+
+
+class TestUpdateGoldStandardWithExplanations:
+    """Integration tests for update_gold_standard_with_explanations."""
+
+    def test_merges_choice_and_explanation(self) -> None:
+        """Should merge choice text with explanation."""
+        gs_data = {
+            "version": {"number": "6.6.0"},
+            "questions": [
+                {
+                    "id": "FR-ANN-UVR-001",
+                    "choices": {"A": "Vrai", "B": "Faux"},
+                    "mcq_answer": "A",
+                    "annales_source": {
+                        "session": "dec2024",
+                        "uv": "UVR",
+                        "question_num": 1,
+                    },
+                }
+            ],
+        }
+
+        docling_data = {
+            "markdown": """
+## UVR session de décembre 2024 - Corrigé détaillé
+
+## QUESTION 1 :
+
+Question
+
+Article 1.1
+
+Explication officielle du correcteur pour cette question.
+"""
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            gs_path = Path(tmpdir) / "gold_standard.json"
+            gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+            docling_dir = Path(tmpdir) / "docling"
+            docling_dir.mkdir()
+            (docling_dir / "annales_dec2024.json").write_text(
+                json.dumps(docling_data), encoding="utf-8"
+            )
+
+            output_path = Path(tmpdir) / "output.json"
+            stats = update_gold_standard_with_explanations(
+                gs_path, [docling_dir], output_path
+            )
+
+            assert stats["merged"] == 1
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+            q = result["questions"][0]
+            assert q["answer_text"] == "Vrai"
+            assert "explication" in q["answer_explanation"].lower()
+            assert q["answer_source"] == "merged"
+
+    def test_choice_only_when_no_explanation(self) -> None:
+        """Should use choice only when no explanation found."""
+        gs_data = {
+            "version": {"number": "6.6.0"},
+            "questions": [
+                {
+                    "id": "FR-ANN-UVR-001",
+                    "choices": {"A": "Oui"},
+                    "mcq_answer": "A",
+                    "annales_source": {
+                        "session": "dec2024",
+                        "uv": "UVR",
+                        "question_num": 99,  # Not in corrigé
+                    },
+                }
+            ],
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            gs_path = Path(tmpdir) / "gold_standard.json"
+            gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+            # Empty docling dir
+            docling_dir = Path(tmpdir) / "docling"
+            docling_dir.mkdir()
+
+            output_path = Path(tmpdir) / "output.json"
+            stats = update_gold_standard_with_explanations(
+                gs_path, [docling_dir], output_path
+            )
+
+            assert stats["choice_only"] == 1
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+            assert result["questions"][0]["answer_source"] == "choice_only"
+
+    def test_updates_version_number(self) -> None:
+        """Should update version to 6.7.0."""
+        gs_data = {
+            "version": {"number": "6.6.0"},
+            "questions": [],
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            gs_path = Path(tmpdir) / "gold_standard.json"
+            gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+            docling_dir = Path(tmpdir) / "docling"
+            docling_dir.mkdir()
+
+            output_path = Path(tmpdir) / "output.json"
+            update_gold_standard_with_explanations(
+                gs_path, [docling_dir], output_path
+            )
+
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+            assert result["version"]["number"] == "6.7.0"
+
+    def test_skips_report_files(self) -> None:
+        """Should skip files with 'report' in name."""
+        gs_data = {
+            "version": "6.6.0",
+            "questions": [],
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            gs_path = Path(tmpdir) / "gold_standard.json"
+            gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+            docling_dir = Path(tmpdir) / "docling"
+            docling_dir.mkdir()
+            # Create a report file that should be skipped
+            (docling_dir / "extraction_report.json").write_text(
+                json.dumps({"markdown": "# Report"}), encoding="utf-8"
+            )
+
+            output_path = Path(tmpdir) / "output.json"
+            stats = update_gold_standard_with_explanations(
+                gs_path, [docling_dir], output_path
+            )
+
+            # Should complete without errors
+            assert stats["total"] == 0
+
+    def test_handles_string_version(self) -> None:
+        """Should handle string version format."""
+        gs_data = {
+            "version": "6.6.0",  # String instead of dict
+            "questions": [],
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            gs_path = Path(tmpdir) / "gold_standard.json"
+            gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+            docling_dir = Path(tmpdir) / "docling"
+            docling_dir.mkdir()
+
+            output_path = Path(tmpdir) / "output.json"
+            update_gold_standard_with_explanations(
+                gs_path, [docling_dir], output_path
+            )
+
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+            assert result["version"]["number"] == "6.7.0"

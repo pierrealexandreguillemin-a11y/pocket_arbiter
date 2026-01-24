@@ -29,23 +29,21 @@ Ce dossier contient la configuration et les outils d'enforcement des normes ISO 
 └── templates/
     └── spec_template.md     # Template de spécification
 
-.githooks/
-├── pre-commit               # Validation avant commit
-└── commit-msg               # Validation message de commit
+.pre-commit-config.yaml      # Hooks pre-commit (remplace .githooks/)
 ```
 
 ---
 
-## Installation des hooks Git
+## Installation des hooks
 
-Pour activer l'enforcement ISO local :
+Les hooks sont gérés via `pre-commit` (plus moderne que `.githooks/`) :
 
 ```bash
-# Configurer Git pour utiliser nos hooks
-git config core.hooksPath .githooks
+# Installer pre-commit
+pip install pre-commit
 
-# Rendre les hooks exécutables (Linux/Mac)
-chmod +x .githooks/*
+# Activer les hooks
+pre-commit install
 ```
 
 ---
@@ -80,13 +78,13 @@ Le hook commit-msg vérifie :
 
 ```bash
 # Valider le projet complet
-python scripts/iso/validate_project.py
+python -m scripts.iso.validate_project
 
 # Valider une phase spécifique
-python scripts/iso/validate_project.py --phase 1
+python -m scripts.iso.validate_project --phase 1
 
 # Mode verbose
-python scripts/iso/validate_project.py --verbose
+python -m scripts.iso.validate_project --verbose
 ```
 
 ---
@@ -149,10 +147,10 @@ git commit --no-verify -m "[type] Message"
 
 ```bash
 # Diagnostic détaillé
-python scripts/iso/validate_project.py --verbose
+python -m scripts.iso.validate_project --verbose
 
 # Voir les erreurs spécifiques
-python scripts/iso/validate_project.py 2>&1 | grep "❌"
+python -m scripts.iso.validate_project 2>&1 | grep "FAIL"
 ```
 
 ---
@@ -163,3 +161,4 @@ python scripts/iso/validate_project.py 2>&1 | grep "❌"
 |---------|------|-------------|
 | 1.0 | 2026-01-11 | Creation systeme ISO enforcement |
 | 1.1 | 2026-01-14 | Ajout checklist Phase 2 Android RAG Mid-Range |
+| 1.2 | 2026-01-24 | Fix doc: pre-commit remplace .githooks, syntax module |

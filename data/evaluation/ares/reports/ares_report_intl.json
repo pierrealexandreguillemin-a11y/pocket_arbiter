@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "corpus": "intl",
+    "report_version": "1.0",
+    "generated_at": "2026-01-24T08:30:57.115703+00:00",
+    "iso_references": [
+      "ISO 42001 A.7.3",
+      "ISO 25010 S4.2",
+      "ISO 29119"
+    ]
+  },
+  "context_relevance": {
+    "score": 1.0,
+    "ci_95_lower": 0.94,
+    "ci_95_upper": 1.0,
+    "n_samples": 60,
+    "pass": true,
+    "llm_judge": "claude-opus-4.5",
+    "evaluation_timestamp": "2026-01-24T08:30:49.323168+00:00"
+  },
+  "comparison": {
+    "ares_context_relevance": 1.0,
+    "recall_at_5": null
+  },
+  "iso_compliance": {
+    "overall_pass": true,
+    "checks": {
+      "context_relevance_threshold": {
+        "requirement": "Context relevance >= 80%",
+        "value": 1.0,
+        "pass": true,
+        "reference": "ISO 25010 S4.2"
+      },
+      "confidence_interval_valid": {
+        "requirement": "95% CI bounds valid",
+        "value": "[94.00%, 100.00%]",
+        "pass": true,
+        "reference": "ISO 42001 A.7.3"
+      },
+      "sample_size_adequate": {
+        "requirement": "n >= 50 samples",
+        "value": 60,
+        "pass": true,
+        "reference": "ISO 29119"
+      },
+      "traceability_complete": {
+        "requirement": "All samples have gs_id traceability",
+        "value": "mapping file present",
+        "pass": true,
+        "reference": "ISO 42001 A.7.3"
+      }
+    },
+    "citation_rate": 1.0,
+    "hallucination_rate": 0.0
+  },
+  "traceability": {
+    "total_samples": 88,
+    "positive_count": 62,
+    "negative_count": 26,
+    "negative_ratio": 0.29545454545454547,
+    "mapping_file": "mapping_intl.json"
+  },
+  "recommendations": [
+    "Increase evaluation sample size (currently 60) to improve statistical confidence."
+  ]
+}

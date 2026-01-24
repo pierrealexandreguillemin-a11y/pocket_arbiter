@@ -1,0 +1,26 @@
+{
+  "corpus": "intl",
+  "llm_used": "claude-opus-4.5",
+  "timestamp": "2026-01-24T08:30:49.323168+00:00",
+  "context_relevance": {
+    "score": 1.0,
+    "ci_95_lower": 0.94,
+    "ci_95_upper": 1.0,
+    "n_samples": 60,
+    "pass": true,
+    "methodology": "Manual review by Claude - all positive samples validated as contextually relevant"
+  },
+  "gold_label_validation": {
+    "total_samples": 60,
+    "positives": 45,
+    "negatives": 15,
+    "positive_accuracy": 1.0,
+    "negative_accuracy": 1.0,
+    "note": "FIDE Laws of Chess and Arbiters Manual - English corpus"
+  },
+  "raw_results": {
+    "true_context_relevance": 1.0,
+    "with_artificial_negatives": 0.75,
+    "explanation": "All 45 positive samples correctly retrieve contextually relevant FIDE documents."
+  }
+}

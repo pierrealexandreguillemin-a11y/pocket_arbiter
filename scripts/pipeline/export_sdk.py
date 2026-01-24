@@ -121,6 +121,7 @@ def create_vector_db(
     chunks: list[dict],
     embeddings: np.ndarray,
     embedding_dim: int | None = None,
+    model_id: str | None = None,
 ) -> dict:
     """
     Cree une base SQLite avec chunks et embeddings.
@@ -130,6 +131,7 @@ def create_vector_db(
         chunks: Liste de chunks conformes au CHUNK_SCHEMA.md.
         embeddings: Array numpy (N, dim) des embeddings.
         embedding_dim: Dimension des embeddings (auto-detectee si None).
+        model_id: Identifiant du modele d'embedding (ISO 42001 tracabilite).
 
     Returns:
         Rapport de creation avec total_chunks, db_size_mb, etc.
@@ -170,6 +172,12 @@ def create_vector_db(
             "INSERT INTO metadata (key, value) VALUES (?, ?)",
             ("total_chunks", str(len(chunks))),
         )
+        # ISO 42001 A.6.2.2 - Model traceability for fallback strategy
+        if model_id:
+            cursor.execute(
+                "INSERT INTO metadata (key, value) VALUES (?, ?)",
+                ("model_id", model_id),
+            )
 
         for chunk, embedding in zip(chunks, embeddings):
             _validate_chunk(chunk)
@@ -208,7 +216,7 @@ def create_vector_db(
     db_size_bytes = db_path.stat().st_size
     db_size_mb = db_size_bytes / (1024 * 1024)
 
-    return {
+    report = {
         "db_path": str(db_path),
         "total_chunks": len(chunks),
         "embedding_dim": embedding_dim,
@@ -216,6 +224,9 @@ def create_vector_db(
         "db_size_mb": round(db_size_mb, 2),
         "schema_version": SCHEMA_VERSION,
     }
+    if model_id:
+        report["model_id"] = model_id
+    return report
 
 
 def rebuild_fts_index(db_path: Path) -> int:
@@ -296,6 +307,7 @@ def export_corpus(
     chunks_file: Path,
     embeddings_file: Path,
     output_db: Path,
+    model_id: str | None = None,
 ) -> dict:
     """
     Pipeline complet: charge chunks et embeddings, exporte DB.
@@ -304,6 +316,7 @@ def export_corpus(
         chunks_file: Fichier JSON des chunks.
         embeddings_file: Fichier numpy des embeddings (.npy).
         output_db: Fichier SQLite de sortie.
+        model_id: Identifiant du modele d'embedding (ISO 42001 tracabilite).
 
     Returns:
         Rapport d'export avec metriques.
@@ -330,7 +343,7 @@ def export_corpus(
     if len(chunks) != len(embeddings):
         raise ValueError(f"Chunks ({len(chunks)}) != embeddings ({len(embeddings)})")
 
-    report = create_vector_db(output_db, chunks, embeddings)
+    report = create_vector_db(output_db, chunks, embeddings, model_id=model_id)
 
     errors = validate_export(output_db, expected_chunks=len(chunks))
     if errors:
@@ -369,6 +382,12 @@ def main() -> None:
     parser.add_argument(
         "--output", "-o", type=Path, required=True, help="Fichier SQLite de sortie"
     )
+    parser.add_argument(
+        "--model-id", "-m",
+        type=str,
+        default="google/embeddinggemma-300m",
+        help="Model ID for traceability (default: google/embeddinggemma-300m)",
+    )
     parser.add_argument("--verbose", "-v", action="store_true", help="Logs detailles")
 
     args = parser.parse_args()
@@ -376,11 +395,12 @@ def main() -> None:
     if args.verbose:
         logging.getLogger().setLevel(logging.DEBUG)
 
-    report = export_corpus(args.chunks, args.embeddings, args.output)
+    report = export_corpus(args.chunks, args.embeddings, args.output, model_id=args.model_id)
 
     logger.info("=" * 50)
     logger.info(f"Total chunks: {report['total_chunks']}")
     logger.info(f"Embedding dim: {report['embedding_dim']}")
+    logger.info(f"Model ID: {report.get('model_id', 'not specified')}")
     logger.info(f"DB size: {report['db_size_mb']} MB")
 
     if report.get("validation_errors"):

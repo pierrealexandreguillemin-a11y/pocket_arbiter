@@ -26,6 +26,58 @@ class DeriveResult:
         self.answer_missing_letters: list[str] = []
 
 
+class QualityResult:
+    """Result of quality assessment for an answer."""
+
+    __slots__ = ("warning", "score")
+
+    def __init__(self, warning: str | None = None, score: float = 1.0) -> None:
+        self.warning = warning
+        self.score = score
+
+
+# Patterns indicating reference-only answers (not self-contained)
+REFERENCE_PATTERNS = [
+    "Voir ",
+    "Réf:",
+    "Ref:",
+    "cf. ",
+    "Cf. ",
+    "Se référer",
+]
+
+
+def assess_answer_quality(answer_text: str) -> QualityResult:
+    """
+    Assess the quality of an answer_text.
+
+    Args:
+        answer_text: The answer text to assess.
+
+    Returns:
+        QualityResult with warning type and quality score.
+
+    Quality scores:
+        - 1.0: Good answer (self-contained, sufficient length)
+        - 0.5: Short answer (< 30 chars, may lack context)
+        - 0.3: Reference only (points to document, not self-contained)
+    """
+    if not answer_text:
+        return QualityResult(warning="empty_answer", score=0.0)
+
+    # Check for reference-only patterns
+    for pattern in REFERENCE_PATTERNS:
+        if answer_text.startswith(pattern):
+            return QualityResult(warning="reference_only", score=0.3)
+
+    # Check for very short answers
+    if len(answer_text) < 30:
+        return QualityResult(warning="short_answer", score=0.5)
+
+    # Good answer
+    return QualityResult(warning=None, score=1.0)
+
+
 def derive_answer_text(question: dict[str, Any]) -> DeriveResult:
     """
     Derive answer_text from choices and expected_answer.
@@ -67,15 +119,22 @@ def cleanup_gold_standard(gs_data: dict[str, Any]) -> dict[str, Any]:
     1. Derive answer_text from choices
     2. Remove expected_answer (MCQ letters) - useless without context
     3. Add answer_verification metadata
+    4. Assess answer quality and add warnings
     """
     questions = gs_data.get("questions", [])
 
-    stats = {
+    stats: dict[str, Any] = {
         "total": len(questions),
         "answer_derived_complete": 0,
         "answer_derived_partial": 0,
         "answer_not_derivable": 0,
         "mcq_letters_removed": 0,
+        "quality_good": 0,
+        "quality_warnings": {
+            "reference_only": 0,
+            "short_answer": 0,
+            "empty_answer": 0,
+        },
     }
 
     for q in questions:
@@ -107,6 +166,19 @@ def cleanup_gold_standard(gs_data: dict[str, Any]) -> dict[str, Any]:
         if "expected_answer" in q:
             q["mcq_answer"] = q.pop("expected_answer")
             stats["mcq_letters_removed"] += 1
+
+        # Assess answer quality
+        answer_text = q.get("answer_text", "")
+        quality = assess_answer_quality(answer_text)
+
+        q["quality_score"] = quality.score
+        if quality.warning:
+            q["quality_warning"] = quality.warning
+            stats["quality_warnings"][quality.warning] = (
+                stats["quality_warnings"].get(quality.warning, 0) + 1
+            )
+        else:
+            stats["quality_good"] += 1
 
     # Update metadata
     gs_data["cleanup_stats"] = stats

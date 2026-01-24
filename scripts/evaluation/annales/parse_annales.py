@@ -97,10 +97,11 @@ CHOICE_PATTERN_LETTER_DOT = re.compile(
     r"(?:^|\n)\s*([a-fA-F])\.\s*(.+?)(?=(?:\n\s*[a-fA-F]\.)|$)",
     re.DOTALL,
 )
-# Format 6: "- A" bare (2018 style - dash letter then text without separator)
-# Matches: "- AIntervenir", "- BVous", etc.
-CHOICE_PATTERN_DASH_LETTER_BARE = re.compile(
-    r"(?:^|\n)\s*-\s*([A-F])([A-Z][a-zéèêëàâäùûüîïôöç].*?)(?=(?:\n\s*-\s*[A-F][A-Z])|(?:\n##)|$)",
+# Format 6: Permissive pattern for inconsistent 2018 formats
+# Matches: "- A - text", "- BText", "- CText", "AText", etc.
+# Handles: dash optional, space optional after letter, separator optional
+CHOICE_PATTERN_PERMISSIVE = re.compile(
+    r"(?:^|\n)\s*-?\s*([A-F])[-–—\s]*([A-Za-zéèêëàâäùûüîïôöçÀÂÄÉÈÊËÎÏÔÖÙÛÜ][^-–—\n]*?)(?=(?:\n\s*-?\s*[A-F][-–—\s]*[A-Za-z])|(?:\n##)|$)",
     re.DOTALL,
 )
 
@@ -204,7 +205,7 @@ def _extract_choices_from_block(block: str) -> dict[str, str]:
         CHOICE_PATTERN_LETTER_COLON,       # "- A :" or "A :" format (dec2019)
         CHOICE_PATTERN_LETTER_DASH,        # "A - " format
         CHOICE_PATTERN_LETTER_DOT,         # "a." format
-        CHOICE_PATTERN_DASH_LETTER_BARE,   # "- ATexte" format (2018 bare)
+        CHOICE_PATTERN_PERMISSIVE,         # Permissive (2018 inconsistent formats)
     ]
 
     for pattern in patterns:

@@ -30,7 +30,8 @@ def derive_answer_text(question: dict[str, Any]) -> dict[str, Any]:
         "answer_missing_letters": [],
     }
 
-    expected = question.get("expected_answer", "")
+    # Try both field names (mcq_answer in GS, expected_answer in parsed)
+    expected = question.get("mcq_answer") or question.get("expected_answer", "")
     choices = question.get("choices", {})
 
     if not choices or not expected:
@@ -84,10 +85,16 @@ def cleanup_gold_standard(gs_data: dict[str, Any]) -> dict[str, Any]:
                 if derived["answer_missing_letters"]:
                     q["answer_missing_letters"] = derived["answer_missing_letters"]
         else:
-            stats["answer_not_derivable"] += 1
-            # Keep original expected_answer as fallback
-            q["answer_text"] = q.get("expected_answer", "")
-            q["answer_type_mcq_letter"] = True
+            # Fallback: use article_reference as answer_text (from correction table)
+            article_ref = q.get("article_reference", "")
+            if article_ref and len(article_ref) > 5:
+                q["answer_text"] = article_ref
+                q["answer_source"] = "article_reference"
+                stats["answer_derived_complete"] += 1  # Count as derived
+            else:
+                stats["answer_not_derivable"] += 1
+                q["answer_text"] = q.get("expected_answer", "")
+                q["answer_type_mcq_letter"] = True
 
         # Remove MCQ letter (keep in mcq_answer for traceability)
         if "expected_answer" in q:

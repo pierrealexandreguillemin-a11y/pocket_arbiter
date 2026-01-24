@@ -42,14 +42,56 @@ Docling extrait dans le JSON:
 
 ## Sources des donnees Gold Standard
 
-| Champ GS | Source dans annales |
-|----------|---------------------|
-| `question` | Sujet sans reponse |
-| `answer_text` | Corrige detaille OU choices[lettre] |
-| `article_reference` | Grille des reponses / Corrige |
-| `expected_pages` | Derive de article_reference |
-| `success_rate` | Grille des reponses |
-| `choices` | Sujet sans reponse (QCM) |
+| Champ GS | Source dans annales | Colonne table |
+|----------|---------------------|---------------|
+| `question` | Sujet sans reponse | - |
+| `mcq_answer` | Grille des reponses | "Reponse" (lettre A/B/C/D) |
+| `answer_text` | **Grille des reponses** | **"Articles de reference"** |
+| `article_reference` | Grille des reponses | "Articles de reference" |
+| `expected_pages` | Derive de article_reference | - |
+| `success_rate` | Grille des reponses | "Taux Reussite" |
+| `choices` | Sujet sans reponse (QCM) | - |
+
+### Structure des tables de correction (Docling)
+
+```
+Table: "UVR session de juin 2025 - Grille des reponses"
+Headers: [Question, Reponse, Articles de reference, Taux Reussite]
+Row ex:  [1,        D,       "Regles du jeu - Article 9.1.2.2", 82%]
+```
+
+**IMPORTANT**: La colonne "Articles de reference" contient:
+- La reference a l'article du reglement
+- C'est la SOURCE PRIMAIRE pour `article_reference`
+
+### Structure du Corrige Detaille (Docling markdown)
+
+```
+## Question N :
+[Texte question]
+- a) choix a
+- b) choix b
+- c) choix c
+- d) choix d
+[Article de reference]              <- article_reference
+[Explication du correcteur]         <- answer_text (TEXTE VERT dans PDF)
+
+## Question N+1 :
+...
+```
+
+**Le texte vert du PDF** (explication officielle) est extrait par Docling
+comme texte normal apres la ligne d'article. C'est la SOURCE PRIMAIRE
+pour `answer_text`.
+
+Exemple extrait (Q2 juin 2025):
+```
+Regles du jeu - Article 9.6.2
+
+L'article 9.2 ne peut pas s'appliquer si ce n'est pas la joueuse
+qui reclame. L'article 6.9 ne peut pas s'appliquer car nous ne
+sommes pas dans le cas d'un joueur qui n'a plus de temps...
+```
 
 ## Sessions disponibles
 

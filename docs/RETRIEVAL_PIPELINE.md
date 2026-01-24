@@ -2,13 +2,28 @@
 
 > **Document ID**: DOC-RETR-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 4.0
-> **Date**: 2026-01-22
-> **Statut**: DUAL-MODE - Recall comparison en cours, 100% page provenance
+> **Version**: 5.0
+> **Date**: 2026-01-24
+> **Statut**: DUAL-RAG Architecture (FR actif, INTL obsolete)
+> **Scope**: **RAG FRANCE UNIQUEMENT** (voir VISION.md v2.0)
 
 ---
 
-## Vue d'ensemble (v6.0 - Dual Mode)
+## 0. Avertissement Dual-RAG (VISION v2.0)
+
+> **ARCHITECTURE DUAL-RAG: DEUX PIPELINES SEPARES**
+> Cause: Pollution mutuelle des corpus due a specificite metier et scopes differents.
+
+| Pipeline | Corpus | Database | Status |
+|----------|--------|----------|--------|
+| **RAG FR** | 29 docs FFE | corpus_mode_b_**fr**.db | **ACTIF** |
+| RAG INTL | FIDE (incomplet) | corpus_mode_b_intl.db | **OBSOLETE** |
+
+**IMPORTANT**: Ne jamais mixer les databases FR et INTL dans une meme requete.
+
+---
+
+## Vue d'ensemble (v6.0 - RAG FR)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐

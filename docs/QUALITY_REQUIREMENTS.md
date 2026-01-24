@@ -370,7 +370,71 @@ Ce document définit les exigences qualité du projet selon les 9 caractéristiq
 
 ---
 
-## 4. Matrice de traçabilité
+## 4. Qualite Donnees d'Entrainement (Training Data Quality)
+
+> **ISO 42001 A.7.3**: Documentation des donnees d'entrainement
+> **Standards industrie**: MTEB, BEIR, NV-Embed-v2, SoftDedup
+> **Scope**: RAG FRANCE uniquement (VISION v2.0 Dual-RAG)
+
+### 4.0 Avertissement Dual-RAG (VISION v2.0)
+
+> **SEPARATION STRICTE FR / INTL**
+> - Sections 4.1-4.5 concernent **RAG FRANCE uniquement**
+> - RAG INTL: document separe a creer apres completion corpus FIDE
+> - Cause: Pollution mutuelle des corpus (specificite metier, scopes differents)
+
+### 4.1 Gold Standard - Minima Obligatoires
+
+| ID | Exigence | Cible | Standard Industrie | Methode verification |
+|----|----------|-------|-------------------|---------------------|
+| TD-01 | Taille Gold Standard | >= 200 questions | BEIR datasets (300-50k) | Comptage |
+| TD-02 | Couverture categories | >= 80% categories corpus | BEIR diversity | Analyse distribution |
+| TD-03 | Questions adversariales | 25-30% du total | SQuAD 2.0 (33%) | Comptage type=unanswerable |
+| TD-04 | Validation humaine | 100% GS | Industrie standard | Audit trail |
+| TD-05 | Deduplication | < 5% similarite | SoftDedup threshold | SemHash cosine < 0.95 |
+
+### 4.2 Triplets - Minima Obligatoires
+
+| ID | Exigence | Cible | Standard Industrie | Methode verification |
+|----|----------|-------|-------------------|---------------------|
+| TT-01 | Hard negative quality | same_doc >= 40% | NV-Embed-v2 | Distribution check |
+| TT-02 | Anchor independence | cosine(anchor,positive) < 0.9 | E5 training | Embedding check |
+| TT-03 | Diversity prompting | >= 3 categories | Magpie conditional | Distribution check |
+| TT-04 | Context-grounded generation | 100% BY DESIGN | RAGen, Source2Synth | Workflow audit |
+| TT-05 | Model collapse prevention | 0 recursive generation | Liu et al. 2024 | Lineage audit |
+
+### 4.3 Benchmarks - Cibles Evaluation
+
+| ID | Benchmark | Corpus | Cible | Standard Reference |
+|----|-----------|--------|-------|-------------------|
+| TB-01 | MTEB Retrieval | FR | >= 0.70 NDCG@10 | MTEB leaderboard median |
+| TB-02 | MMTEB Retrieval | INTL | >= 0.65 NDCG@10 | MMTEB multilingual |
+| TB-03 | BEIR custom | FR+INTL | >= 0.75 Recall@5 | BEIR zero-shot |
+| TB-04 | RAGAS Faithfulness | FR+INTL | >= 0.85 | RAGAS defaults |
+| TB-05 | ARES Context Relevance | FR+INTL | >= 0.80 | ARES PPI |
+
+### 4.4 Synthetic Data Quality (si applicable)
+
+| ID | Exigence | Cible | Standard Industrie | Methode verification |
+|----|----------|-------|-------------------|---------------------|
+| TS-01 | Ratio synth/GS max | 3:1 | GTE multi-stage | Comptage |
+| TS-02 | LLM-as-judge score | >= 0.7 | Industrie | Evaluation auto |
+| TS-03 | Human review sample | >= 10% | Best practices | Audit trail |
+| TS-04 | Deduplication fuzzy | unique apres SemHash | SoftDedup | Hash check |
+| TS-05 | Diversity score | entropy >= 0.8 | Magpie | Distribution analysis |
+
+### 4.5 DVC Tracking - Minima Obligatoires
+
+| ID | Exigence | Cible | Standard | Methode verification |
+|----|----------|-------|----------|---------------------|
+| TV-01 | Version control | 100% artifacts | DVC best practices | dvc status |
+| TV-02 | Reproducibility | seed fixe | ML reproducibility | Config audit |
+| TV-03 | Lineage documentation | 100% etapes | ISO 42001 A.6.2.3 | dataset_composition.json |
+| TV-04 | Schema validation | JSON Schema Draft-07 | Industry standard | Validation auto |
+
+---
+
+## 5. Matrice de traçabilité
 
 | Caractéristique ISO 25010 | Phase test | Priorité |
 |---------------------------|------------|----------|
@@ -392,3 +456,4 @@ Ce document définit les exigences qualité du projet selon les 9 caractéristiq
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Creation initiale |
 | 1.1 | 2026-01-18 | Claude Opus 4.5 | FA-01 cible recall 90%, chunking v3 strategy |
+| 1.2 | 2026-01-24 | Claude Opus 4.5 | **Ajout Section 4**: Training Data Quality - minima Gold Standard (TD-01 a TD-05), Triplets (TT-01 a TT-05), Benchmarks (TB-01 a TB-05 avec MMTEB pour INTL), Synthetic (TS-01 a TS-05), DVC (TV-01 a TV-04). Standards: MTEB, MMTEB, BEIR, NV-Embed-v2, SoftDedup, RAGen |

@@ -2,15 +2,31 @@
 
 > **Document ID**: SPEC-TRIP-001
 > **ISO Reference**: ISO 42001, ISO 25010, ISO 29119
-> **Version**: 2.0
-> **Date**: 2026-01-23
+> **Version**: 2.1
+> **Date**: 2026-01-24
 > **Statut**: OBLIGATOIRE
 > **Classification**: Critique
 > **Auteur**: Claude Opus 4.5
+> **Scope**: **RAG FRANCE UNIQUEMENT** (voir VISION.md v2.0 - Architecture Dual-RAG)
 
 ---
 
-## 0. AVERTISSEMENT CRITIQUE
+## 0. AVERTISSEMENTS CRITIQUES
+
+### 0.1 Dual-RAG (VISION v2.0)
+
+> **SEPARATION STRICTE FR / INTL**
+> - Ce document concerne **exclusivement le RAG FRANCE**
+> - RAG INTL = document separe a creer apres completion corpus FIDE
+> - **NE PAS MELANGER** les databases FR et INTL (pollution mutuelle)
+
+| Element | Fichier FR | Fichier INTL (OBSOLETE) |
+|---------|-----------|------------------------|
+| Gold Standard | gold_standard_**fr**.json | ~~gold_standard_intl.json~~ |
+| Triplets | triplets_**fr**.jsonl | NE PAS CREER |
+| Database | corpus_mode_b_**fr**.db | ~~corpus_mode_b_intl.db~~ |
+
+### 0.2 Echec Generation Precedente
 
 **Ce document existe car une generation precedente a echoue.**
 
@@ -339,6 +355,55 @@ CRITERES (score moyen):
 
 Reponds JSON: {{"score": 0.X, "scores_detail": {...}, "reason": "..."}}
 """
+```
+
+### 4.5 Validation Semantique BY DESIGN (Context-Grounded Generation)
+
+> **Standard industrie**: RAGen, Source2Synth, LlamaIndex - voir Section 11.2
+
+**Principe**: La validation semantique est garantie PAR CONSTRUCTION, pas par verification post-hoc.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│           CONTEXT-GROUNDED GENERATION (Standard Industrie)          │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  APPROCHE TRADITIONNELLE (A EVITER)                                 │
+│  Question generee ──► Validation post-hoc ──► Chunk trouve?         │
+│       │                      │                    │                 │
+│       └──────── Risque: Question hors contexte detectee trop tard   │
+│                                                                      │
+│  APPROCHE BY DESIGN (OBLIGATOIRE)                                   │
+│  Chunk source ──► Question generee AVEC chunk visible ──► Alignee   │
+│       │                      │                              │       │
+│       └──────────────────────┴──────────────────────────────┘       │
+│                    VALIDATION IMPLICITE PAR CONSTRUCTION            │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+| Aspect | Validation Post-hoc | BY DESIGN |
+|--------|---------------------|-----------|
+| Moment validation | Apres generation | Pendant generation |
+| Risque desalignement | Eleve | Nul (par construction) |
+| Cout | Generation + Validation | Generation seule |
+| Tracabilite | chunk_id ajoute apres | chunk_id = input |
+
+**Implementation obligatoire**:
+```python
+# CORRECT: BY DESIGN
+def generate_question_by_design(chunk: dict, model: str) -> str:
+    prompt = f"""Contexte (chunk source):
+    {chunk['text']}
+
+    Genere une question dont la reponse est DANS ce contexte."""
+    return llm_call(prompt, model)
+
+# INCORRECT: Post-hoc (A EVITER)
+def generate_question_posthoc(topic: str, model: str) -> str:
+    question = llm_call(f"Genere question sur {topic}")
+    chunk = find_relevant_chunk(question)  # Risque: pas de chunk
+    return question
 ```
 
 ---
@@ -777,7 +842,7 @@ Questions sur comportements interdits:
 
 ## 11. Sources et References
 
-### 11.1 Papers Academiques
+### 11.1 Papers Academiques - Adversariaux & Evaluation
 
 | Reference | Titre | Annee | Contribution |
 |-----------|-------|-------|--------------|
@@ -786,7 +851,33 @@ Questions sur comportements interdits:
 | [Lee et al.](https://aclanthology.org/2020.lrec-1.667/) | SQuAD2-CR: Cause and Rationales | 2020 | 6 classes unanswerability |
 | [Wu et al.](https://aclanthology.org/2024.acl-long.585/) | RAGTruth: Hallucination Corpus | 2024 | Hallucination detection |
 
-### 11.2 Standards ISO
+### 11.2 Papers Academiques - Context-Grounded Generation
+
+| Reference | Titre | Annee | Contribution |
+|-----------|-------|-------|--------------|
+| [RAGen](https://arxiv.org/abs/2411.14831) | Semantically grounded QAC datasets | 2024 | Contexte concatene a la question |
+| [Source2Synth](https://arxiv.org/abs/2409.08239) | Grounded in real-world sources | 2024 | Generation ancree dans sources reelles |
+| [E5 Embeddings](https://aclanthology.org/2024.acl-long.642.pdf) | Text Embeddings by Weakly-Supervised Contrastive Pre-training | 2024 | Triplets LLM avec hard negatives |
+
+### 11.3 Papers Academiques - Hard Negatives & Contrastive Learning
+
+| Reference | Titre | Annee | Contribution |
+|-----------|-------|-------|--------------|
+| [NV-Embed-v2](https://arxiv.org/abs/2405.17428) | Improved Techniques for Training LLM Embeddings | 2024 | Positive-aware hard negative mining, MTEB #1 |
+| [SimCSE](https://arxiv.org/abs/2104.08821) | Contrastive Learning of Sentence Embeddings | 2021 | Dropout augmentation, baseline |
+| [SciNCL](https://arxiv.org/abs/2202.06671) | Neighborhood Contrastive Learning | 2022 | Citation-based triplet sampling |
+| [GTE](https://arxiv.org/abs/2308.03281) | General Text Embeddings | 2023 | Multi-stage training: pretrain + finetune |
+
+### 11.4 Papers Academiques - Synthetic Data Quality
+
+| Reference | Titre | Annee | Contribution |
+|-----------|-------|-------|--------------|
+| [Lin et al.](https://arxiv.org/abs/2406.15126) | LLMs-Driven Synthetic Data Generation Survey | 2024 | Curation, filtering, deduplication |
+| [SoftDedup](https://arxiv.org/abs/2407.06564) | Soft Deduplication for Training Data | 2024 | Reweighting vs deletion, 26% efficiency gain |
+| [Liu et al.](https://arxiv.org/abs/2404.07503) | Best Practices Synthetic Data for LLMs | 2024 | Diversity, model collapse prevention |
+| [Magpie](https://openreview.net/forum?id=LqvGRxUWD0) | Alignment Data Synthesis from Scratch | 2025 | Conditional prompting for diversity |
+
+### 11.5 Standards ISO
 
 | Standard | Titre | Application |
 |----------|-------|-------------|
@@ -795,13 +886,34 @@ Questions sur comportements interdits:
 | ISO/IEC 25010:2011 | Software Quality | Robustesse, fiabilite |
 | ISO/IEC TR 29119-11 | Testing AI-based Systems | Guidelines ML testing |
 
-### 11.3 Ressources Techniques
+### 11.6 Benchmarks & Evaluation Standards
+
+| Benchmark | Reference | Application |
+|-----------|-----------|-------------|
+| [MTEB](https://huggingface.co/spaces/mteb/leaderboard) | Massive Text Embedding Benchmark | 58 datasets, 8 taches, standard evaluation embeddings |
+| [MMTEB](https://arxiv.org/abs/2502.13595) | Massive Multicultural TEB | 500+ taches, 250+ langues |
+| [BEIR](https://github.com/beir-cellar/beir) | Benchmarking IR | 18 datasets, 9 types retrieval, zero-shot |
+| [RAGAS](https://docs.ragas.io/) | RAG Assessment | Faithfulness, relevance, end-to-end |
+
+### 11.7 Ressources Techniques
 
 | Ressource | URL | Usage |
 |-----------|-----|-------|
 | SQuAD2-CR Dataset | https://antest1.github.io/SQuAD2-CR/ | Categories unanswerable |
 | UAEval4RAG Code | https://github.com/SalesforceAIResearch/Unanswerability_RAGE | Pipeline generation |
 | Promptfoo ISO 42001 | https://www.promptfoo.dev/docs/red-team/iso-42001/ | Red-team testing |
+| SemHash | https://github.com/MinishLab/semhash | Fuzzy deduplication embeddings |
+| Sentence-Transformers | https://sbert.net/docs/training/overview.html | Training triplets, hard negatives |
+| LlamaIndex Synthetic | https://docs.llamaindex.ai/en/stable/examples/evaluation/generate_question_context_pairs/ | Question generation from context |
+
+### 11.8 Datasets de Reference
+
+| Dataset | Source | Usage |
+|---------|--------|-------|
+| MS MARCO | microsoft/ms_marco | Paires query-passage standard |
+| NQ (Natural Questions) | google-research/natural-questions | QA factuel |
+| FACTS Grounding | google/facts-grounding | Benchmark grounded generation |
+| all-nli | sentence-transformers/all-nli | Triplets NLI entailment |
 
 ---
 
@@ -811,9 +923,10 @@ Questions sur comportements interdits:
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-23 | Claude Opus 4.5 | Creation suite echec generation precedente |
 | 2.0 | 2026-01-23 | Claude Opus 4.5 | **Ajout Section 10-11**: Standards adversariaux (SQuAD 2.0, UAEval4RAG, SQuAD2-CR), taxonomie 7 categories chess-specific, distribution cible 25-30%, sources academiques |
+| 2.1 | 2026-01-24 | Claude Opus 4.5 | **Ajout Section 4.5**: Validation BY DESIGN (context-grounded generation). **Extension Section 11**: References academiques (RAGen, Source2Synth, E5, NV-Embed, SimCSE, GTE, SoftDedup, Magpie), benchmarks (MTEB, MMTEB, BEIR, RAGAS), ressources (SemHash, LlamaIndex) |
 
 ---
 
 *Document ISO 42001/25010/29119 - Pocket Arbiter Project*
 *Ce document est OBLIGATOIRE pour toute generation de triplets.*
-*Conforme aux standards industrie: SQuAD 2.0, UAEval4RAG, RAGTruth*
+*Conforme aux standards industrie: SQuAD 2.0, UAEval4RAG, RAGTruth, RAGen, NV-Embed-v2, MTEB, BEIR*

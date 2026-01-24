@@ -2,9 +2,9 @@
 
 > **Document ID**: SPEC-VIS-001
 > **ISO Reference**: ISO/IEC 12207:2017 - Processus du cycle de vie logiciel
-> **Version**: 1.0
-> **Date**: 2026-01-11
-> **Statut**: Draft
+> **Version**: 2.0
+> **Date**: 2026-01-24
+> **Statut**: En cours
 > **Classification**: Interne
 > **Auteur**: Equipe projet
 > **Mots-cles**: vision, objectifs, RAG, echecs, arbitre, mobile, offline
@@ -14,6 +14,63 @@
 ## 1. Résumé exécutif
 
 Application mobile Android 100% offline permettant aux arbitres d'échecs d'interroger les règlements fédéraux via recherche sémantique et d'obtenir des réponses synthétisées avec citations verbatim des sources officielles.
+
+### 1.1 Architecture Dual-RAG (v2.0)
+
+**Evolution majeure**: Deux systemes RAG distincts et independants.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         ARCHITECTURE DUAL-RAG v2.0                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌─────────────────────────────┐    ┌─────────────────────────────┐        │
+│  │      RAG FRANCE (FR)        │    │   RAG INTERNATIONAL (INTL)  │        │
+│  ├─────────────────────────────┤    ├─────────────────────────────┤        │
+│  │ Corpus:                     │    │ Corpus:                     │        │
+│  │ ├── Lois des Echecs FFE     │    │ ├── Laws of Chess FIDE      │        │
+│  │ ├── Reglements championnats │    │ ├── FIDE Handbook           │        │
+│  │ ├── Reglements jeunes       │    │ └── Regles arbitrage FIDE   │        │
+│  │ ├── Annales DNA (477 Q)     │    │                             │        │
+│  │ └── 29 documents FFE        │    │ A COMPLETER                 │        │
+│  ├─────────────────────────────┤    ├─────────────────────────────┤        │
+│  │ Focus: Specifications FR    │    │ Focus: Regles generalistes  │        │
+│  │ - Championnats nationaux    │    │ - Tournois internationaux   │        │
+│  │ - Homologation FFE          │    │ - Standards FIDE            │        │
+│  │ - Cadences FR specifiques   │    │ - Regles universelles       │        │
+│  ├─────────────────────────────┤    ├─────────────────────────────┤        │
+│  │ Status: OPERATIONNEL        │    │ Status: A CONSTRUIRE        │        │
+│  │ ├── GS FR v6.7.0 ✓          │    │ ├── GS INTL v2.1 obsolete   │        │
+│  │ ├── Chunking LangChain ✓    │    │ ├── Corpus incomplet        │        │
+│  │ ├── EmbeddingGemma 330M ✓   │    │ ├── Chunking a refaire      │        │
+│  │ └── chunk_id mapping TODO   │    │ └── Embeddings a refaire    │        │
+│  └─────────────────────────────┘    └─────────────────────────────┘        │
+│                                                                              │
+│  RELATION: Les reglements FR derivent des reglements FIDE.                  │
+│            Coherents mais FR = specifications championnats francais.        │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 1.2 Justification Dual-RAG
+
+**Cause principale**: Pollution mutuelle des corpus due a leur specificite metier et scopes differents.
+
+| Probleme RAG Unique | Consequence |
+|---------------------|-------------|
+| Corpus FR tres specifique (championnats FFE) | Chunks FR "noient" les regles FIDE generales |
+| Corpus INTL generaliste (Laws of Chess) | Chunks INTL interferent avec specs FR |
+| Vocabulaire metier different (FR vs EN) | Embeddings compromis, recall degrade |
+| Scopes non alignes | Retrieval ramene chunks hors contexte |
+
+| Aspect | RAG Unique | Dual-RAG |
+|--------|-----------|----------|
+| Pertinence | Melange FR/INTL polluant | Resultats cibles par contexte |
+| Embeddings | Compromis FR/EN degrade | Optimises par langue/corpus |
+| Gold Standard | Mixte, evaluation biaisee | GS FR separe de GS INTL |
+| Maintenance | Mise a jour complexe | Independance des corpus |
+| Benchmarks | MTEB seul (compromis) | MTEB (FR) + MMTEB (INTL) |
+| Recall | Dilue par chunks hors scope | Maximise par specialisation |
 
 ---
 
@@ -169,6 +226,7 @@ Le projet est "Done" quand :
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Création initiale |
+| 2.0 | 2026-01-24 | Claude Opus 4.5 | **EVOLUTION MAJEURE**: Architecture Dual-RAG (FR + INTL separes). Cause: pollution mutuelle des corpus due a specificite metier et scopes differents. Status: RAG FR operationnel (GS v6.7.0, chunking LangChain, EmbeddingGemma 330M), RAG INTL a construire (corpus incomplet, GS/chunking/embeddings obsoletes) |
 
 ---
 

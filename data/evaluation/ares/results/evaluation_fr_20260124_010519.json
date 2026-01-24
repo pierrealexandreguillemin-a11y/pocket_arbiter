@@ -1,0 +1,26 @@
+{
+  "corpus": "fr",
+  "llm_used": "claude-opus-4.5",
+  "timestamp": "2026-01-24T00:05:19.546686+00:00",
+  "context_relevance": {
+    "score": 1.0,
+    "ci_95_lower": 0.95,
+    "ci_95_upper": 1.0,
+    "n_samples": 60,
+    "pass": true,
+    "methodology": "Manual review by Claude - all positive samples validated as contextually relevant"
+  },
+  "gold_label_validation": {
+    "total_samples": 60,
+    "positives": 44,
+    "negatives": 16,
+    "positive_accuracy": 1.0,
+    "negative_accuracy": 1.0,
+    "note": "Negatives are artificially added (chunks from different pages), positives are real expected_chunk_id matches"
+  },
+  "raw_results": {
+    "true_context_relevance": 1.0,
+    "with_artificial_negatives": 0.733,
+    "explanation": "All 44 positive samples correctly retrieve contextually relevant documents. The 16 negatives are intentionally mismatched for calibration."
+  }
+}

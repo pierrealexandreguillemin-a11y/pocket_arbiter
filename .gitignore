@@ -66,6 +66,11 @@ corpus/processed/chunks_*.json
 corpus/processed/tables_*.json
 corpus/processed/docling_*/
 
+# Annales data (regenerable - see docs/specs/GOLD_STANDARD_V6_ANNALES.md)
+corpus/processed/annales_all/
+corpus/raw/annales/
+data/evaluation/annales/
+
 # Models (binaires à télécharger séparément)
 models/*.gguf
 models/*.tflite

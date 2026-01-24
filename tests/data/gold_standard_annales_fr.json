@@ -1,5 +1,5 @@
 {
-  "version": "6.4.0",
+  "version": "6.5.0",
   "description": "Gold Standard v6 - Annales-based with official DNA questions",
   "methodology": {
     "source": "Annales examens arbitres FFE (DNA)",
@@ -172,9 +172,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Si l'arbitre voit un coup illégal, il doit intervenir immédiatement dans toutes les cadences. En revanche, s'il observe une position illégale, il n'interviendra toujours qu'en cadence lente.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "A"
+      "mcq_answer": "A",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-026",
@@ -208,9 +209,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "4.2.1 - Seul le joueur ou la joueuse ayant le trait peut recentrer une ou plusieurs pièces sur leurs cases respectives, à la condition d'en exprimer l'intention au préalable (par exemple en disant « j'adoube » ou « I adjust »). - 4.3.1 - Une ou plusieurs de ses propres pièces, il/elle doit déplacer la première pièce touchée pouvant être déplacée.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "B"
+      "mcq_answer": "B",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-027",
@@ -241,9 +243,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "4.3.3 Une ou plusieurs pièces de chaque couleur, il/elle doit prendre la première pièce adverse touchée avec sa première pièce touchée ou, si c'est illégal, déplacer ou prendre la première pièce touchée pouvant être déplacée ou prise. Si on ne peut pas déterminer si c'est une de ses pièces ou une des pièces adverses qui a été touchée en premier, alors on considère que c'est sa propre pièce qui a été touchée en premier, avant celle de son adversaire.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-028",
@@ -317,9 +320,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "La partie est perdue par le joueur ou la joueuse qui déclare abandonner (cela met immédiatement fin à la partie), excepté si la position est telle que son roi ne peut pas être mis échec et mat par aucune suite de coups légaux de son adversaire. Dans ce cas, le résultat de la partie est un match nul. Dans la position du diagramme, si la partie pouvait continuer, on peut par exemple aisément imaginer la suite Dxc3 Dxc3 et Fxc3 mat.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-030",
@@ -354,9 +358,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Les raisons valables pour mettre la pendule en pause incluent : Une irrégularité, telle qu'une position ou un coup illégal ; Une personne est dérangée par son adversaire et/ou par des spectateurs/spectatrices ; fait un malaise. Une pause toilette n'est généralement pas une raison valable sauf dans le cas d'une personne handicapée ou malade.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-031",
@@ -393,9 +398,10 @@
         "B": "Faux.",
         "C": "C'est laissé à l'appréciation de l'arbitre. <!-- image -->"
       },
-      "answer_text": "Vrai.",
+      "answer_text": "Les raisons valables pour mettre la pendule en pause incluent : Une irrégularité, telle qu'une position ou un coup illégal ; Une personne est dérangée par son adversaire et/ou par des spectateurs/spectatrices ; fait un malaise. Une pause toilette n'est généralement pas une raison valable sauf dans le cas d'une personne handicapée ou malade.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-032",
@@ -513,9 +519,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Aucun changement ne doit être fait au réglage de la pendule, à moins que la programmation horaire de la compétition n'en soit affectée.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "A"
+      "mcq_answer": "A",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-035",
@@ -547,9 +554,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "4.3.3 Une ou plusieurs pièces de chaque couleur, il/elle doit prendre la première pièce adverse touchée avec sa première pièce touchée ou, si c'est illégal, déplacer ou prendre la première pièce touchée pouvant être déplacée ou prise. Si on ne peut pas déterminer si c'est une de ses pièces ou une des pièces adverses qui a été touchée en premier, alors on considère que c'est sa propre pièce qui a été touchée en premier, avant celle de son adversaire.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-036",
@@ -624,9 +632,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "La partie est perdue par le joueur ou la joueuse qui déclare abandonner (cela met immédiatement fin à la partie), excepté si la position est telle que son roi ne peut pas être mis échec et mat par aucune suite de coups légaux de son adversaire. Dans ce cas, le résultat de la partie est un match nul. Dans la position du diagramme, si la partie pouvait continuer, on peut par exemple aisément imaginer la suite Dxc3 Dxc3 et Fxc3 mat.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-038",
@@ -829,9 +838,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Une réclamation de nulle au titre de 9.2 ou 9.3 est assimilée à une proposition de nulle. Si une personne réclame la nulle en application de l'Article 9.2 ou 9.3, elle ou l'arbitre met la pendule en pause. Elle n'a pas le droit de retirer sa réclamation. La personne peut changer d'avis mais la réclamation demeure : la reconstitution continue...",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-043",
@@ -904,9 +914,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Si la réclamation est jugée incorrecte, l'arbitre ajoute deux minutes au temps de réflexion restant de l'adversaire. La partie doit continuer. Si la réclamation était basée sur un coup prévu, ce coup doit être joué en respectant les Articles 3 et 4.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-045",
@@ -941,9 +952,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Les Règles de Compétition s'appliquent si : - Un ou une arbitre ne supervise pas plus de trois parties et - Chaque partie est enregistrée par l'arbitre, son assistant ou son assistante et, si possible, par des moyens électroniques.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-046",
@@ -983,9 +995,10 @@
         "C": "Vous devez ajouter 80 secondes aux deux joueurs et corriger l'incrément.",
         "D": "Vous corrigez les pendules avec discernement."
       },
-      "answer_text": "Absolument rien.",
+      "answer_text": "Si l'arbitre observe l'une des situations décrites dans l' Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, il/elle agit en respectant l' Article 7.5.5, à condition que l'adversaire n'ait pas joué son coup suivant. Si l'arbitre n'intervient pas, l'adversaire a l'autorisation de réclamer, à condition qu'il/elle n'ait pas joué son coup suivant. Si l'adversaire ne réclame pas et que l'arbitre n'intervient pas, le coup illégal subsiste et la partie continue. Une fois que l'adversaire a joué son coup suivant, un coup illégal ne peut plus être corrigé, sauf par accord mutuel entre les deux adversaires sans intervention de l'arbitre.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-047",
@@ -1020,9 +1033,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Si l'arbitre observe l'une des situations décrites dans l' Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, il/elle agit en respectant l' Article 7.5.5, à condition que l'adversaire n'ait pas joué son coup suivant. Si l'arbitre n'intervient pas, l'adversaire a l'autorisation de réclamer, à condition qu'il/elle n'ait pas joué son coup suivant. Si l'adversaire ne réclame pas et que l'arbitre n'intervient pas, le coup illégal subsiste et la partie continue. Une fois que l'adversaire a joué son coup suivant, un coup illégal ne peut plus être corrigé, sauf par accord mutuel entre les deux adversaires sans intervention de l'arbitre. Le coup joué est illégal car laisse le roi en échec. Comme le joueur n'a pas appuyé sur la pendule, l'arbitre n'est pas autorisé à intervenir. Il faut laisser faire.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "A"
+      "mcq_answer": "A",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-048",
@@ -1055,9 +1069,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Si l'arbitre est d'accord que l'adversaire ne peut pas gagner par des moyens normaux ou que l'adversaire ne fait aucun effort pour gagner la partie par des moyens normaux, l'arbitre déclare la partie nulle. Dans le cas contraire, l'arbitre reporte sa décision ou rejette la demande.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "B"
+      "mcq_answer": "B",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-001",
@@ -1288,9 +1303,10 @@
         "C": "Il doit obligatoirement suivre un stage d'arbitre fédéral de club dans sa totalité.",
         "D": "Il doit repasser l'UVR - Règles du jeu."
       },
-      "answer_text": "Il doit suivre une formation SC et repasser l'UVR.",
+      "answer_text": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 6 Administration 6.2. Arbitres inactifs : un arbitre inactif n'ayant fait aucune formation durant une période de dix ans sera en plus [de suivre un stage SC] dans l'obligation de valider à nouveau l'UVR.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-007",
@@ -2302,9 +2318,10 @@
         "C": "Les Championnats de France des clubs féminins.",
         "D": "Les Interclubs Jeunes. R01 - Chapitre 11. Entente de Clubs. 11.1. Généralités"
       },
-      "answer_text": "Les Championnats de France des clubs féminins.",
+      "answer_text": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte de mobilisation inclusion de personne en situation de handicap. Cette question a eu un faible taux de réussite, cette règle est encore récente mais marquée très clairement dans les règlements.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-005",
@@ -2341,9 +2358,10 @@
         "C": "Être l'instance de contrôle de l'utilisation du budget de la commission arbitrage de la Ligue.",
         "D": "Travailler en collaboration avec les différents membres de la D.N.A. LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 5 Les structures régionales et départementales - 5.1. La Direction Régionale d'Arbitrage : un budget lui est alloué par la Ligue. Le montant est déterminé par le comité directeur de la Ligue, qui contrôle l'utilisation de ces fonds."
       },
-      "answer_text": "Demander la supervision d'un arbitre de la Ligue.",
+      "answer_text": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi. Les maîtres FIDE ne sont pas dans cette liste.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-006",
@@ -2448,9 +2466,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "L'historique du joueur est BNNBB (on ne prend pas en compte la ronde non jouée : C.04.2 D.5) - il vient d'avoir deux fois de suite les blancs, il est donc en préférence noire absolue. Cette question présente un très faible taux de réussite, beaucoup de candidats ont fait l'erreur de penser que l'exemption de la ronde 5 « cassait » le fait que le joueur ait eu deux fois les blancs à la suite.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-009",
@@ -3030,9 +3049,10 @@
         "C": "5 équipes.",
         "D": "6 équipes. C03 - 1.2. Déroulement de la Coupe"
       },
-      "answer_text": "4 équipes.",
+      "answer_text": "Au système Hort, il faut calculer la moyenne entre les deux : (230+150)÷2=190 €",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-024",
@@ -3232,9 +3252,10 @@
         "C": "1742-1987-2272.",
         "D": "1952-2010-2032. C04 - 3.7. Composition des équipes : Le cumul des classements Elo, estimés ou réels de l'équipe, doit être inférieur ou égal à 8000. S'il n'y a que 3 membres dans l'équipe, il doit être inférieur à 6000."
       },
-      "answer_text": "1742-1987-2272.",
+      "answer_text": "Pour un arbitre principal en cadence lente : les journées à une ronde sont indemnisées entre 60 et 85 € Les journées à deux rondes sont indemnisées entre 70 et 100 € Le minimum est donc 1×60 +3×70=270 € Le maximum est 1×85+3×100=385 €",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-029",
@@ -3342,9 +3363,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "En classement ELO standard, un minime(U160) est estimé à 1299 alors qu'un vétéran est estimé à 1399",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-022",
@@ -3410,9 +3432,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte de mobilisation inclusion de personne en situation de handicap. Cette question a eu un faible taux de réussite, cette règle est encore récente mais marquée très clairement dans les règlements.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-024",
@@ -3522,9 +3545,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Ra = (1804 +1682 + 1483 + 1608 + 1565 + 1800 + 1800 ) / 7 = 1677,42 Le score total est 3,5/7 c'est-à-dire un taux de réussite de 50% 8.2.3. Ru = Ra + dp. Ru = 1677, 42 + 0 = 1677, 42 Ru est arrondi à l'entier le plus proche. → Ru = 1677",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-027",
@@ -3559,9 +3583,10 @@
         "C": "Quinze jours.",
         "D": "Quarante jours."
       },
-      "answer_text": "Quinze jours.",
+      "answer_text": "L'historique du joueur est BNNBB (on ne prend pas en compte la ronde non jouée : C.04.2 D.5) - il vient d'avoir deux fois de suite les blancs, il est donc en préférence noire absolue. Cette question présente un très faible taux de réussite, beaucoup de candidats ont fait l'erreur de penser que l'exemption de la ronde 5 « cassait » le fait que le joueur ait eu deux fois les blancs à la suite.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-028",
@@ -3632,9 +3657,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Eviter d'être flotteur montant deux fois de suite est classée comme le critère N°13 Eviter d'être flotteur descendant deux fois de suite est classée comme le critère N°12 Ne pas affronter deux fois le même adversaire est le critère N°1 Avoir sa couleur préférentielle est le critère N°11",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-030",
@@ -3669,9 +3695,10 @@
       "choices": {
         "A": "Une phase zone interdépartementale de la Coupe de la Parité."
       },
-      "answer_text": "",
+      "answer_text": "F01 Championnat de France Féminin des clubs - Article 1.2 Déroulement de la compétition Selon l'article 1.2.b) N1F, les équipes sont appariées selon le même procédé que pour la Coupe Loubatière sans",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-031",
@@ -3702,9 +3729,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Selon le 3.7.b), chaque joueur ou joueuse doit avoir un Elo estimé ou réel inférieur ou égal à 1800. L'Elo à prendre en compte est le dernier Elo publié. Uniquement pour la phase départementale, le classement Elo du mois précédent ne dépassant pas les 1800 points pour un joueur ou une joueuse, sera autorisé .",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-032",
@@ -3735,9 +3763,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "La liste des prix doit être affichée avant que la moitié des rondes ne soient jouées.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "A"
+      "mcq_answer": "A",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-033",
@@ -3778,9 +3807,10 @@
         "C": "Quarante minutes.",
         "D": "Soixante minutes."
       },
-      "answer_text": "Trente minutes.",
+      "answer_text": "Selon l'article 3.1.2, le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Dans le règlement de la Coupe de la Parité, il n'y a aucune indication de délai de forfait, le retard autorisé est donc de 30 minutes.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-034",
@@ -3818,9 +3848,10 @@
         "C": "A la Commission Fair-play.",
         "D": "A la Direction Juridique de la DNA."
       },
-      "answer_text": "A la Direction Juridique de la DNA.",
+      "answer_text": "Selon l'article 17.2, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridique.",
       "mcq_answer": "D",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-035",
@@ -3965,9 +3996,10 @@
         "C": "11,5",
         "D": "10,5"
       },
-      "answer_text": "11,5",
+      "answer_text": "Pauline P. a une préférence noire absolue tandis Francis D. a une préférence noire faible et Nicolas N. a une préférence blanche faible. Pauline POPE vient du niveau à 5 pts, dans le niveau inférieur (4,5 points) elle a deux adversaires possibles : DELBOE Francis et NIDAM Nicolas. Elle ne les a pas affrontés précédemment. Il est vérifié que Nicolas N. n'a pas été flotteur montant aux deux rondes précédentes. En raison du classement Elo, on a d'abord tenté l'appariement de Pauline P. contre Francis D. Pauline P. et Nicolas N. sont compatibles au niveau des préférences couleurs et il n'y a pas de blocage flotteur. Au final l'appariement contre Francis D. a été refusé dans un 1 er temps par un blocage couleur (les deux veulent les noirs). On pourrait indiquer que Francis D. a déjà été flotteur descendant à la ronde N°5 mais le critère des couleurs préférentielles est prioritaire.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-039",
@@ -4159,9 +4191,10 @@
         "C": "30 € - 5 €.",
         "D": "Toutes les propositions sont valables. R03 Compétitions homologuées - Article 2.3 Droits d'inscriptions : Les droits d'inscriptions des joueurs et joueuses de U8 à U20 sont définis par l'organisateur."
       },
-      "answer_text": "30 € tarif unique.",
+      "answer_text": "Le pat met fin à la partie et oblige au match nul, même si les blancs tombent au temps après ou abandonnent car ils n'ont pas compris la situation.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-053",
@@ -4317,9 +4350,10 @@
         "C": "12 h.",
         "D": "14 h. LA 5.2 Préparation d'un tournoi - Homologation des tournois : ... la FIDE n'autorise pas plus de 12 heures de jeu par jour. (Sur la base de parties de 60 coups)"
       },
-      "answer_text": "10 h.",
+      "answer_text": "Le drapeau est considéré comme tombé que lorsque le fait est constaté. L'échec et mat s'est produit avant le signalement.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-057",
@@ -4436,9 +4470,10 @@
         "C": "L'arbitre.",
         "D": "Le capitaine de l'équipe adverse en cas de désaccord. LA - Règles de compétition - Chapitre 5.1 : Gestion d'un match - après le match : Les capitaines puis l'arbitre signent le procèsverbal du match. En cas de réclamation en cours de match, les témoignages des capitaines de chaque équipe et de l'arbitre sont consignés avec ce procès-verbal."
       },
-      "answer_text": "Le capitaine de l'équipe plaignante.",
+      "answer_text": "Le joueur dont le drapeau est tombé a perdu la partie sauf si son adversaire n'a aucun échec et mat atteignable par une suite de coups légaux - Ce n'est pas le cas ici car il est envisageable que les blancs placent leur Roi en h8, leur Fou en h7, que les noirs placent leur Roi en f8 et matent à l'aide de leur fou sur cases noires.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-060",
@@ -4473,9 +4508,10 @@
         "C": "1",
         "D": "1,5 LA 4.2 Les départages - Article 7.1 Systèmes de départage utilisant les résultats des adversaires : Pour le calcul du départage, un joueur qui n'a pas d'adversaire sera considéré comme ayant joué contre un adversaire virtuel. Le score ajusté de l'adversaire virtuel est donné par la formule suivante : Score ajusté de l'adversaire fictif = Score du joueur avant la ronde + (1 - résultat du joueur à cette ronde) + 0.5 × (Nombre de rondes restantes) Score du joueur avant la ronde = 0 car avant la ronde 2, le joueur a 0 point. Résultat du joueur à cette ronde = 1 car le joueur a marqué 1 point d'exempt. Le tournoi compte 5 rondes donc il en reste 3. Score ajusté de l'adversaire fictif = 0 + (1 -1) + 0,5 × 3 = 1,5. Donc la valeur du score ajusté de l'adversaire virtuel est de 1,5."
       },
-      "answer_text": "1",
+      "answer_text": "Le coup illégal a été achevé par l'appui sur la pendule. Pour le 1er coup illégal achevé, l'arbitre donne deux minutes à l'adversaire.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-061",
@@ -4514,9 +4550,10 @@
         "C": "1207",
         "D": "1317 ## LA Chapitre 6.1 Le classement de la FIDE - Article 8.2.3 Son score est de plus de 50 %, alors Ru = Ra + 20 pour chaque demi-point marqué au-dessus de 50 %. Ru est arrondi à l'entier le plus proche. Ra (moyenne des adversaires classés Fide) : Ra = (1029+1424+1389+1316+1461+1167+1016) /7 = 1257,4. Il réalise 5 points sur 7, soit 1,5 point = 3 demi-points au-dessus de la moitié (3,5). Il faut donc rajouter 3×20 = 60 points à la moyenne ELO. ## 1257,4 + 60 = 1317,4 arrondis à 1317. Son premier classement Fide sera donc de 1317."
       },
-      "answer_text": "1197",
+      "answer_text": "La sanction pour le 1er coup illégal achevé en blitz ou en rapide est d'une minute.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-062",
@@ -4591,9 +4628,10 @@
         "C": "100 €.",
         "D": "150 €. LA Chapitre 4.3 Le système Hort : Le système Hort consiste à attribuer à chaque joueur primé d'un tournoi, et ex aequo avec d'autres joueurs, la moitié du prix qu'il aurait obtenu en tenant compte de sa place et la moitié du prix qu'il aurait obtenu en cas de partage. Le joueur cité est à la troisième place. Donc P = 100/2 + ((300+200+100) /3)/2 = 50 + 100 = 150 €. ## Il touchera 150 €."
       },
-      "answer_text": "200 €.",
+      "answer_text": "On devrait attendre un coup de roi sauf que celui-ci n'a pas de coup légal. La tour a été touchée mais uniquement dans le cadre d'une intention claire de faire le roque. Elle n'a pas été touchée avec « l'intention de faire un coup de tour », dans ce cas particulier on dispense de l'obligation de jouer la tour. Les blancs ont donc le droit de jouer la pièce de leur choix.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-064",
@@ -4630,9 +4668,10 @@
         "C": "Indemniser un arbitre stagiaire.",
         "D": "Faire bénéficier un arbitre stagiaire des frais d'hébergement. LA Barème d'indemnisation de l'arbitre - 1 Principes Généraux : Le calcul de l'indemnité est valable pour l'arbitre principal. L'arbitre adjoint, dès lors qu'il est titulaire d'un titre, perçoit une demi-indemnité (sauf cas particuliers), est hébergé, et reçoit des frais de déplacements. Les arbitres stagiaires n'ayant pas de titre ne perçoivent aucune indemnité, mais ont le droit aux frais d'hébergement."
       },
-      "answer_text": "Indemniser un arbitre titré adjoint.",
+      "answer_text": "Si un joueur ou une joueuse renverse une ou plusieurs pièces, il/elle rétablit la position correcte sur son propre temps.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-065",
@@ -4704,9 +4743,10 @@
         "C": "A la commission de discipline.",
         "D": "A la commission Fair-Play. LA 5.1 Gestion administrative des tournois - Rapport Technique : Toute procédure disciplinaire (Exclusion de tournoi, formulaire de signalement, demande de sanction, problème de triche...) doit être transmise au directeur juridique. Il est demandé d'utiliser pour cela les formulaires T6 et T7. ------------------------------------------ ## Fin du corrigé de l'UVO"
       },
-      "answer_text": "A la commission de discipline.",
+      "answer_text": "La demande est faite par la personne avec le trait, la position après le coup N°10 des blancs est la même que celle après leur coup N°2 et celle après leur coup N°6. On pardonne la légère imprécision des noirs, l'important est que la position s'était bien produite au moins deux fois auparavant.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-030",
@@ -4895,9 +4935,10 @@
         "C": "9 et 12.",
         "D": "8 et 11. La première ronde est lancée."
       },
-      "answer_text": "9 et 12.",
+      "answer_text": "La Coupe « Jean-Claude Loubatière » est une compétition fédérale. Le règlement de cette compétition n'indique aucune information concernant le délai de forfait. D'après l'article sur les retards autorisés du R01 - Règles générales, le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-035",
@@ -5167,9 +5208,10 @@
         "C": "Blancs : 6 min et 48 s - Noirs : 5 min et 37 s.",
         "D": "Blancs : 6 min et 58 s - Noirs : 6 min et 27 s ## Saisissez les résultats de la ronde 3. | Ronde 3 | Ronde 3 | |----------------|-----------| | Echiquier N°1 | X - X | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 1 - 0 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | 1 - 0 | | Echiquier N°7 | 0 - 1 | | Echiquier N°8 | X - X | | Echiquier N°9 | 1 - 0 | | Echiquier N°10 | 0 - 1 |"
       },
-      "answer_text": "Blancs : 6 min et 48 s - Noirs : 5 min et 37 s.",
+      "answer_text": "L'arbitre transcrit sur la feuille de match les feuilles de composition remises par les capitaines des équipes, contrôle les licences à l'aide du site fédéral et le cas échéant, indique sur le PV l'absence de licence A. Après la rencontre, la personne en charge de la direction du groupe contrôle la situation des joueuses et des joueurs (Article 2.1.b)",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-042",
@@ -5206,9 +5248,10 @@
         "C": "Vous intervertissez les joueurs dans le logiciel avant l'appariement de la ronde suivante.",
         "D": "Trop tard ils n'avaient qu'à s'en rendre avant et donc vous ne changerez la couleur de chacun qu'après la dernière ronde. <!-- image --> ## Faites l'appariement de la ronde 4."
       },
-      "answer_text": "Vous mettez un zéro forfait aux 2 joueurs.",
+      "answer_text": "L'équipe ayant les blancs sur les échiquiers impairs (l'équipe la première nommée dans le calendrier) contacte le club organisateur afin que ce dernier confirme qu'il pourra assumer les 3 missions.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-043",
@@ -5397,9 +5440,10 @@
         "C": "8.",
         "D": "9."
       },
-      "answer_text": "9.",
+      "answer_text": "Sauf événement exceptionnel dûment justifié reconnu par la direction de groupe, tout forfait d'une équipe sera sanctionné par l'amende suivante : 1 500 € en Top 16, 750 € en N1, 400 € en N2, 300 € en N3. Cette amende sera doublée si le forfait a lieu à la dernière ronde.",
       "mcq_answer": "D",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-048",
@@ -5642,9 +5686,10 @@
         "C": "Les 70 € du prix de la catégorie 1000 - 1699.",
         "D": "Les 90 € du prix de la catégorie 1700 - 2000."
       },
-      "answer_text": "Les 70 € du prix de la catégorie 1000 - 1699.",
+      "answer_text": "Avec 17 équipes, il y a déjà 5 équipes qualifiées (4x4&lt; 17 &lt;4x5). La présence des sept joueuses est supérieure à 10% de l'effectif total qui est de 68 (17x4). Il y a donc une équipe qualifiée supplémentaire.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-054",
@@ -5905,9 +5950,10 @@
         "C": "Le type de pendules utilisées.",
         "D": "Noms et qualités des arbitres. LA : Chap. 5.2 : Préparation d'un tournoi - Règlement intérieur Un modèle de règlement intérieur est disponible sur le site de la DNA https://dna.ffechecs.fr/documents/"
       },
-      "answer_text": "Le type de pendules utilisées.",
+      "answer_text": "Un modèle de règlement intérieur est disponible sur le site de la DNA https://dna.ffechecs.fr/documents/",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-034",
@@ -6022,9 +6068,10 @@
         "C": "Gain noir.",
         "D": "Partie nulle. ## LA : Article 7.5.5 des règles du jeu Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. Le roi blanc est en échec. Le seul moyen de parer cet échec est Cxf4 qui mate immédiatement le roi noir. Les noirs ne pouvant gagner, la nulle est déclarée. ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription."
       },
-      "answer_text": "Partie nulle. ## LA : Article 7.5.5 des règles du jeu Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. Le roi blanc est en échec. Le seul moyen de parer cet échec est Cxf4 qui mate immédiatement le roi noir. Les noirs ne pouvant gagner, la nulle est déclarée. ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
+      "answer_text": "Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. Le roi blanc est en échec. Le seul moyen de parer cet échec est Cxf4 qui mate immédiatement le roi noir. Les noirs ne pouvant gagner, la nulle est déclarée. ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
       "mcq_answer": "D",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-037",
@@ -6485,9 +6532,10 @@
         "C": "2,5.",
         "D": "3. LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté Application de la formule : Score ajusté de l'adversaire fictif = Score du joueur avant la ronde + (1 - résultat du joueur à cette ronde) + (0.5 × Nombre de rondes restantes). Ce qui nous donne : 1 + (1 - 0) + (0,5 x 0) = 2"
       },
-      "answer_text": "2.",
+      "answer_text": "Ce qui nous donne : 1 + (1 - 0) + (0,5 x 0) = 2",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-049",
@@ -7059,9 +7107,10 @@
         "C": "Au plus tard 5 jours après la fin du tournoi.",
         "D": "Au plus tard 7 jours après la fin du tournoi. R03 Compétitions homologuées - Article 2.5. Conditions de participation des joueurs et joueuses Les joueuses et joueurs non licenciés A en début de tournoi devront prendre une licence A dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence au plus tard 7 jours après la fin du tournoi."
       },
-      "answer_text": "Au plus tard 3 jours après la fin du tournoi.",
+      "answer_text": "Avec un roi et un fou, le conducteur des noirs ne peut faire échecs et mat par une suite de coups légaux : 1⁄2-1⁄2",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-077",
@@ -7633,9 +7682,10 @@
         "C": "7",
         "D": "8 LA C.04.2.B Ordre initial : Avant la première ronde, les joueurs sont rangés selon l'ordre suivant : a. Leur force (classement Elo) ; b. Leur titre FIDE. (G.M., M.I., G.M.F., M.F., M.I.F., C.M. (candidat maître), M.F.F., C.M.F. (candidat maître féminin) puis les nontitrés. c. Alphabétiquement (à moins que ce critère n'ait été au préalable remplacé par un autre). ## Ronde 1 Avant de lancer la ronde 1, vous effectuez le tirage au sort de la couleur de l'échiquier n°1. Le tirage au sort indique que le joueur 1 a les noirs. ## Faites l'appariement de la ronde 1. ## Entrez les résultats de la ronde 1 : | R1 | R1 | |-------|-------| | Table | Score | | 1 | 0-1 | | 2 | 1/2 | | 3 | 1-0 | | 4 | 0-1 | | 5 | 0-1 | | 6 | 1/2 | | 7 | 1/2 | | 8 | 0-1 | | 9 | 1-0 | | 10 | 1/2 |"
       },
-      "answer_text": "5",
+      "answer_text": "Commentaire de correction : Beaucoup de candidats ont choisi la réponse C), ce choix est raisonnable cependant le confort des joueurs reste une des obligations de l'arbitre alors qu'en aucun cas l'organisateur ne peut imposer la mise en place du matériel aux arbitres.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-063",
@@ -7903,9 +7953,10 @@
         "C": "Cécile et Gauthier.",
         "D": "Olivier et Quentin. 3.5 Règles du système suisse - A.4 Flotteurs b) : b. Une fois que deux joueurs aux scores différents ont joué l'un contre l'autre lors d'une ronde, le joueur au score le plus élevé reçoit une flèche « qui descend » (↓), celui au score le plus faible reçoit une flèche « qui monte » [Dans cette traduction, on appellera ce joueur « flotteur montant »] (↑). ## Faites l'appariement de la ronde 3."
       },
-      "answer_text": "Cécile et Gauthier.",
+      "answer_text": "Commentaire de correction : Le faible taux de réussite à cette question peut s'expliquer par le fait que cette règle est récente. Nous invitons les candidats à s'assurer qu'ils possèdent bien la dernière mise à jour des règlements fédéraux.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-070",
@@ -8674,9 +8725,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "N'ayant pas appuyé sur leur pendule, le coup n'est pas achevé et le joueur est autorisé à se corriger. Le cavalier touché ne dispose d'aucun coup légal donc il n'est pas obligatoire de le déplacer. Par contre le pion d4 qui a été touché peut être pris (uniquement avec le pion e5) par conséquent les noirs ont l'obligation de joueur exd4",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-091",
@@ -8715,9 +8767,10 @@
         "C": "Vous êtes dans la 1 re période d'une partie à la cadence 2 heures - 40 coups + 1 heure KO",
         "D": "Cadence 30 minutes + 30 secondes par coup."
       },
-      "answer_text": "Cadence 30 minutes + 30 secondes par coup.",
+      "answer_text": "La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n'a pas d'incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences. La cadence b) est une cadence de jeu rapide où la notation n'est jamais obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu'au bout.",
       "mcq_answer": "D",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-092",
@@ -8925,9 +8978,10 @@
         "C": "Les noirs peuvent bouger un fou.",
         "D": "Les noirs ne peuvent pas prendre le cavalier."
       },
-      "answer_text": "Les noirs ne peuvent pas prendre le cavalier.",
+      "answer_text": "Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2.",
       "mcq_answer": "D",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-097",
@@ -9044,9 +9098,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-100",
@@ -9127,9 +9182,10 @@
         "C": "Les blancs ont joué malgré le coup illégal des noirs, ce sont eux qui sont sanctionnés.",
         "D": "Vous n'intervenez pas."
       },
-      "answer_text": "Les noirs ont perdu la partie.",
+      "answer_text": "Le 2 e coup illégal achevé met fin à la partie. Nous sommes en cadence standard donc, même si l'adversaire a déjà joué, l'arbitre peut sanctionner le coup illégal précédent. Les blancs ont forcément la possibilité de faire mat car ils possèdent encore une tour. Les noirs ont donc perdu la partie.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-102",
@@ -9294,9 +9350,10 @@
         "C": "Cadence Blitz",
         "D": "Cette cadence n'est pas reconnue par les règles du jeu."
       },
-      "answer_text": "Cadence Blitz",
+      "answer_text": "Règles du jeu - Annexe B.1 Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-106",
@@ -9335,9 +9392,10 @@
         "C": "Vous n'intervenez pas tant qu'il n'y pas de réclamation.",
         "D": "Vous accordez la victoire aux blancs car vous avez bien vu qu'ils vont faire mat en jouant leur coup."
       },
-      "answer_text": "Vous déclarez la partie nulle.",
+      "answer_text": "Les blancs n'ont pas posé l'échec et mat sur l'échiquier avant l'intervention de l'arbitre, c'est trop tard. Par contre on peut s'apercevoir que les noirs ne peuvent pas non plus mater avec le matériel présent sur l'échiquier. On déclare donc le match nul.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-107",
@@ -9585,9 +9643,10 @@
         "B": "Victoire pour les noirs",
         "C": "Match nul"
       },
-      "answer_text": "Match nul",
+      "answer_text": "Il est considéré que le pat met immédiatement fin à la partie, il s'est produit avant l'abandon du joueur par conséquent l'arbitre doit déclarer le match nul.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-113",
@@ -9621,9 +9680,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Le délai de forfait est un délai qui est calculé entre le moment du lancement de la ronde et l'arrivée du joueur. La pendule peut être un indice mais l'arbitre n'a pas l'obligation d'en tenir compte (6.12.2).",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "A"
+      "mcq_answer": "A",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-114",
@@ -9657,9 +9717,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "On doit ajouter 2 min à l'adversaire en tant que sanction pour le coup illégal. On prend aussi en compte que le joueur fautif a gagné 30 secondes en appuyant sur la pendule, comme on revient au coup précédent alors il faut lui enlever ces 30 secondes auxquelles il n'avait pas le droit.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-085",
@@ -10119,9 +10180,10 @@
         "C": "Les noirs peuvent bouger un fou.",
         "D": "Les noirs ne peuvent pas prendre le cavalier. Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque. Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2."
       },
-      "answer_text": "Les noirs peuvent bouger un fou.",
+      "answer_text": "``` Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Ce délai commence à l'heure stipulée du début de la rencontre à savoir 14h15.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-096",
@@ -10492,9 +10554,10 @@
         "C": "Cadence Blitz",
         "D": "Cette cadence n'est pas reconnue par les règles du jeu. Règles du jeu - Annexe B.1 Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min."
       },
-      "answer_text": "Cadence Blitz",
+      "answer_text": "``` En N1, N2 et N3, chaque équipe doit aligner à chaque ronde au moins 50% de personnes (appelé noyau) inscrites sur le PV ayant déjà participé au moins une fois pour le compte de cette équipe depuis le début de la saison (sauf pour la ronde 1). Il y a 6 personnes inscrites sur le PV. 50% de ces 6 personnes doivent déjà faire partie du noyau soit 3 personnes et donc 3 sont autorisées à ne pas en faire partie.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-105",
@@ -10533,9 +10596,10 @@
         "C": "Vous n'intervenez pas tant qu'il n'y pas de réclamation.",
         "D": "Vous accordez la victoire aux blancs car vous avez bien vu qu'ils vont faire mat en jouant leur coup. Règles du jeu - article 6.9 Les blancs n'ont pas posé l'échec et mat sur l'échiquier avant l'intervention de l'arbitre, c'est trop tard. Par contre on peut s'apercevoir que les noirs ne peuvent pas non plus mater avec le matériel présent sur l'échiquier. On déclare donc le match nul."
       },
-      "answer_text": "Vous déclarez la partie nulle.",
+      "answer_text": "``` Le club responsable de la rencontre doit saisir le procès-verbal (PV) de la rencontre sur le site fédéral avant 22h.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-106",
@@ -10658,9 +10722,10 @@
         "C": "Vous intervenez toujours.",
         "D": "Vous n'intervenez jamais. Règles du jeu - Annexe A.5.1.2 En cadence rapide, l'irrégularité initiale doit être signalé avant que 10 coups soient achevés."
       },
-      "answer_text": "Vous intervenez toujours.",
+      "answer_text": "Tous ces documents sont transmis avec le procès-verbal du match à la direction du groupe par l'arbitre, qui devra garder une trace numérique ou une copie.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-109",
@@ -10783,9 +10848,10 @@
         "B": "Victoire pour les noirs",
         "C": "Match nul Règles du jeu - article 5.2.1 Il est considéré que le pat met immédiatement fin à la partie, il s'est produit avant l'abandon du joueur par conséquent l'arbitre doit déclarer le match nul."
       },
-      "answer_text": "Victoire pour les noirs",
+      "answer_text": "``` La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l'effectif. Au cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant 1 équipe pour 1 à 4 équipes participant, 2 équipes pour 5 à 8 équipes participantes, etc. ainsi qu'1 équipe supplémentaire si le quota de 10 % de joueuses est atteint dans la phase concernée. Cela fait donc 4 équipes qualifiées.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-112",
@@ -10819,9 +10885,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "À partir des 32ème de finale, l'arbitre ne peut pas jouer et arbitrer.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-113",
@@ -10855,9 +10922,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Lors de la phase zone interdépartementale et de la phase 2, l'organisation de la phase concernée désigne l'arbitre.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "A"
+      "mcq_answer": "A",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-054",
@@ -10966,9 +11034,10 @@
         "C": "Elle est U14 F.",
         "D": "Elle est U16 F."
       },
-      "answer_text": "Elle est U14 F.",
+      "answer_text": "On pouvait regarder l'aide aux appariements donnée par PAPI : On voit donc que 2 joueurs ont été flotteur montant : AROUSSTAMIAN et TRAVAILLOUX (tous les deux à la ronde 2). Et 5 joueurs ont été flotteur descendant : POP (exempt à la ronde 1), DAKSH JAIN et MIGNOT (les adversaires de AROUSSTAMIAN et TRAVAILLOUX à la ronde 2), BARDET (exempt à la ronde 2) et ZIENKIEWICZ (gain par forfait à la ronde 2). Note : HORN, perdant par forfait à la ronde 2 serait aussi considéré comme flotteur descendant, mais comme il ne participe pas à la ronde 3, on ne le compte pas. De toutes façons, pour ne pas induire les candidats en erreur, la réponse avec 6 flotteurs descendants n'était pas proposée.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-057",
@@ -10999,9 +11068,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Le commentaire indique : « Dans le cas où une partie avec couleurs inversées finirait par des moyens normaux (par mat, pat, abandon, nulle par accord mutuel - si autorisée), avant que dix (10) coups ne soient achevés, le résultat de la partie est maintenu. » Le point 8 du C.04.2 du chapitre 3.5 (règles du Système Suisse) indique que l'information des couleurs inversées doit être prise en compte pour les prochains appariements.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-058",
@@ -11039,9 +11109,10 @@
         "C": "3.",
         "D": "4."
       },
-      "answer_text": "3.",
+      "answer_text": "Ici, beaucoup de candidats ont indiqué la réponse B : ils ont oublié de compter l'incrément de 30 secondes par coup pour les 16 premiers coups : 8 minutes de plus par joueur donc.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-059",
@@ -11080,9 +11151,10 @@
         "C": "L'exclusion de la rencontre.",
         "D": "Une sanction financière."
       },
-      "answer_text": "L'avertissement.",
+      "answer_text": "5. « Si le délai de forfait n'est pas 0(zéro), il est conseillé que l'arbitre annonce publiquement l'heure du début de la ronde et qu'il/elle note l'heure de départ. Si le délai de forfait est par exemple de 30 minutes et que la ronde devait commencer à 15h00, mais a effectivement commencé à 15h15, les joueurs et joueuses ne perdent par forfait qu'à 15h45. »",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-060",
@@ -11121,9 +11193,10 @@
         "C": "15h15.",
         "D": "15h25."
       },
-      "answer_text": "15h15.",
+      "answer_text": "- 7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. » - 7.5.2. → « Si un joueur ou une joueuse a déplacé un pion sur la rangée la plus éloignée, a appuyé sur la pendule, mais n'a pas remplacé le pion par une nouvelle pièce, le coup est illégal » Les noirs ont encore un cavalier. Il existe une suite de coups légaux emmenant au mat pour les noirs (en le faisant exprès, mais c'est possible), donc gain noir.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-061",
@@ -11197,9 +11270,10 @@
         "C": "Un arbitre fédéral Club.",
         "D": "Un arbitre fédéral Open."
       },
-      "answer_text": "Un arbitre fédéral Club.",
+      "answer_text": "Ici, l'absence était prévisible (la question indique « prévu depuis longtemps »). Cette absence aurait donc du être signalée avant l'appariement de la ronde 5. Ce comportement très gênant doit être sanctionné. Ce joueur est donc exclu du tournoi.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-063",
@@ -11276,9 +11350,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Ce joueur est en situation de handicap (même handicap temporaire). On ne doit donc pas ajuster sa pendule. « Si un joueur ou une joueuse est dans l'incapacité de noter les coups, il/elle peut fournir un assistant ou une assistante, ayant l'agrément de l'arbitre, pour enregistrer les coups. Sa pendule est ajustée par l'arbitre d'une manière équitable. Cet ajustement de la pendule ne doit pas s'appliquer à une personne en situation de handicap. » Cette question a eu un taux de réussite très faible (les réponses A et B ont été données). Attention : le texte parle bien de situation de handicap , pas de handicap permanent. Nous sommes bien dans ce cas là et dans ce cas le texte indique clairement que l' « ajustement de la pendule ne doit pas s'appliquer ».",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-065",
@@ -11315,9 +11390,10 @@
         "C": "L'heure prévue de la rencontre.",
         "D": "Avant 22 heures le jour de la rencontre."
       },
-      "answer_text": "Lors de la remise de la composition de l'équipe.",
+      "answer_text": "Selon l'article 17.2, a l'occasion des tournois homologues, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satisfaisante a la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridique.",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-066",
@@ -11352,9 +11428,10 @@
         "C": "La personne doit être Arbitre Fédéral Club.",
         "D": "La personne doit être Arbitre Fédéral Open."
       },
-      "answer_text": "La personne doit être Arbitre Fédéral Open.",
+      "answer_text": "``` - Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique. - Les joueurs A et B ont exactement le même historique donc la même préférence couleur (noir faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4). Les 2 joueurs ont le même nombre de points donc le plus fort est celui qui a le plus fort ELO. Le joueur A aura donc sa couleur préférentielle : les noirs. Le joueur B aura donc les blancs. On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. ```",
       "mcq_answer": "D",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-067",
@@ -11392,9 +11469,10 @@
         "C": "Oui si le nombre d'équipes n'excède pas 6.",
         "D": "Oui si le nombre d'équipes n'excède pas 7."
       },
-      "answer_text": "Oui si le nombre d'équipes n'excède pas 4.",
+      "answer_text": "- Le joueur E a une préférence couleur « blanc fort » (différence de 1). Le joueur F a une préférence couleur « blanc faible » (même nombre de fois les blancs et les noirs, on alterne si possible). Dans ce cas, on applique la règle E2 donc le joueur E aura les blancs (préférence couleur plus forte) - Les joueurs F et H ont exactement le même historique donc la même préférence couleur (blanc faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4), mais attention le plus fort au sens de A2. Comme les 2 joueurs n'ont pas le même score, le plus fort ici est le G. C'est donc ce joueur G qui aura les blancs. .",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVT-068",
@@ -11503,9 +11581,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Coupes Fédérales et Coupe de France jusqu'en finale.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-041",
@@ -11579,9 +11658,10 @@
         "C": "Le Directeur ou la Directrice de l'Éducation.",
         "D": "Le Directeur ou la Directrice des Règlements. Le formulaire de demande de Titre est à adresser à Stéphane GOBERT, Directeur des Titres."
       },
-      "answer_text": "Le Directeur ou la Directrice de l'Éducation.",
+      "answer_text": "Article 2.6 : Les demandes d'homologation doivent se faire dans les délais selon la nature du tournoi : Pour les tournois FIDE 15 jours avant le début du tournoi.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-043",
@@ -11685,9 +11765,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Ru = Ra + dp Ru est le classement du joueur sans classement Fide. Ra (moyenne des adversaires classés Fide) : Ra = (1424+1489+1600+1882+1778+1902+1800+1800) /8 = 1709,375 arrondis à 1709. Il réalise 4 points sur 8. Son score étant de 50% il n'a aucun malus ni bonus, son premier classement Ru sera donc 1709.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-046",
@@ -11826,9 +11907,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Sur la base d'une partie durant 60 coups : 40 minutes + 60 x 20 secondes = 40 minutes + 20 minutes = 60 minutes.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-050",
@@ -11859,9 +11941,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "L'échiquier 8 peut être placé devant l'échiquier 7, quels que soient les Elo.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-051",
@@ -11890,9 +11973,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'équipe de France Jeunes, les champions de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve qu'ils aient prévenu l'organisateur au moins 48 heures avant le début du tournoi. La gratuité s'applique donc en cadence lente/standard (tournois A), non aux tournois rapides/blitz (tournois B).",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-052",
@@ -11926,9 +12010,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-053",
@@ -12577,9 +12662,10 @@
         "B": "Les blancs ont du temps, la partie continue sans ajustement des pendules.",
         "C": "Les blancs ont du temps, la partie continue en ajoutant 2 minutes aux blancs suite à la demande injustifiée des noirs."
       },
-      "answer_text": "Gain noir au temps.",
+      "answer_text": "Il est évident que la pendule a basculé en 2 ème période et que les joueurs ont bénéficié des 30 mn supplémentaires. Elle indique moins de 30mn pour les blancs. Les 40 coups n'ayant pas été joués dans le temps imparti les noirs gagnent au temps. ## 62% de bonnes réponses",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-116",
@@ -12741,9 +12827,10 @@
         "C": "Cela ne peut pas être autorisé.",
         "D": "Si l'adversaire est d'accord, vous l'autorisez."
       },
-      "answer_text": "Cela ne peut pas être autorisé.",
+      "answer_text": "83% de bonnes réponses",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-120",
@@ -12825,7 +12912,7 @@
         "C": "14h30",
         "D": "Le délai par défaut prévu dans nos règlements fédéraux étant de 30 mn les joueurs ont jusqu'à 14h 40 pour arriver."
       },
-      "answer_text": "14h30 | 14h10 | 14h10",
+      "answer_text": "Art 6.7.2 des règles du jeu Le règlement de la compétition prévoyant 20mn pour arriver devant l'échiquier et la ronde ayant réellement commencé à 14h10 les joueurs ont jusqu'à 14h30 (14h10 + 20) pour arriver. 78% de bonnes réponses | | Blancs | Noirs | |----|----------|---------| | 40 | T a8 | T a1 | | 41 | T d8 | T d1 | | 42 | T a8 | T h1 | | 43 | T d8 | T d1 |",
       "answer_incomplete": true,
       "answer_missing_letters": [
         "L",
@@ -12833,7 +12920,8 @@
         "T"
       ],
       "mcq_answer": "C LA. ART",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-122",
@@ -12964,9 +13052,10 @@
         "B": "Nulle.",
         "C": "Gain noir."
       },
-      "answer_text": "Nulle.",
+      "answer_text": "Etant donné que c'est le 2ème coup illégal le gain de la partie ne peut pas être donné. On ne peut pas non plus donner le gain au noir car en remplaçant le pion par une dame comme c'est la règle ils seraient « mat ». Donc nulle. ## 60% de bonnes réponses",
       "mcq_answer": "B",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-114",
@@ -13169,9 +13258,10 @@
         "C": "Cela ne peut pas être autorisé.",
         "D": "Si l'adversaire est d'accord, vous l'autorisez. Art 11.3.2.1 des règles du jeu 83% de bonnes réponses"
       },
-      "answer_text": "",
+      "answer_text": "Quel sera le score final du match une fois que les forfaits administratifs et sanctions auront été appliqués ? ## A. 8-0 - B. 7-1 - C. 6-1 - D. 6-2 ## E. 5-2 - F. 5-3",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "E"
+      "mcq_answer": "E",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-119",
@@ -13373,9 +13463,10 @@
         "A": "Vrai.",
         "B": "Faux. Art 6.11.4 des règles du jeu 86% de bonnes réponses"
       },
-      "answer_text": "Vrai.",
+      "answer_text": "- A. Elle est conforme au règlement, pas de soucis. - B. Elle comporte une seule anomalie : Les joueurs aux échiquiers 1 et 2 doivent être inversés. - C. Elle comporte une seule anomalie : Il n'y a pas au moins une fille - D. Elle comporte 2 anomalies : Les 2 anomalies évoquées en B et C.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-124",
@@ -13416,9 +13507,10 @@
         "C": "14h30",
         "D": "Le délai par défaut prévu dans nos règlements fédéraux étant de 30mn les joueurs ont jusqu'à 14h40 pour arriver. Art 6.7.2 des règles du jeu Le règlement de la compétition prévoyant 20mn pour arriver devant l'échiquier et la ronde ayant réellement commencé à 14h10 les joueurs ont jusqu'à 14h30 (14h10 + 20) pour arriver. 78% de bonnes réponses | | Blancs | Noirs | |----|----------|---------| | 40 | T a8 | T a1 | | 41 | T d8 | T d1 | | 42 | T a8 | T h1 | | 43 | T d8 | T d1 | <!-- image -->"
       },
-      "answer_text": "14h30",
+      "answer_text": "- A. Elle est conforme au règlement, pas de soucis. - B. Elle comporte une seule anomalie : Elodie est pupille, elle ne peut pas jouer à l'échiquier 3. - C. Elle comporte une seule anomalie : Les échiquiers 5 et 6 doivent être inversés. - D. Elle comporte 2 anomalies : Les 2 anomalies évoquées en B et C.",
       "mcq_answer": "C",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-125",
@@ -13459,9 +13551,10 @@
         "C": "Un joueur au trait doit noter le coup de son adversaire qui d'après lui fait apparaitre une position identique pour la troisième fois avant d'appeler l'arbitre.",
         "D": "A cette cadence il est inutile de noter son coup pour réclamer la nulle. Art 9.3.1 des règles du jeu 84% de bonnes réponses"
       },
-      "answer_text": "On peut toujours noter son coup avant de le jouer.",
+      "answer_text": "- A. Elle est conforme au règlement, pas de soucis. - B. Elle comporte une seule anomalie : Les joueurs aux échiquiers 1 et 2 doivent être inversés. - C. Elle comporte une seule anomalie : Les joueurs aux échiquiers 7 et 8 doivent être inversés. - D. Elle comporte 2 anomalies : Les 2 anomalies évoquées en B et C.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-126",
@@ -13913,9 +14006,10 @@
         "C": "Oui dans toutes les cadences. ## Question 7 Vous récupérez sur une table les deux feuilles de parties. Toutes deux sont signées et indiquent gain noir. Un peu plus tard il s'avère que les joueurs vous disent s'être trompés en notant le résultat et qu'en réalité ils ont fait une belle nulle. Après vérification de la partie avec les joueurs, aucun gain évident n'apparait. Quelle est votre décision ?",
         "D": "Dès que le balancier de la pendule est levé de son côté. ## Question 9 Comment sont positionnés les cavaliers au début de la partie ?"
       },
-      "answer_text": "Oui en cadence lente.",
+      "answer_text": "Sinon, l'arbitre intervient conformément à l'article A.4.4 de l'annexe A, ou lorsqu'un des joueurs le réclame.",
       "mcq_answer": "A",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-131",
@@ -14534,9 +14628,10 @@
       "choices": {
         "A": "Vous faites changer le dernier coup des blancs et ajoutez 2 minutes aux noirs. B - Vous faites changer le dernier coup des blancs sans ajouter de temps aux noirs qui n'auraient pas dû jouer. C - Vous faites changer le dernier coup des blancs en joutant 2 minutes aux blancs car l'attitude des noirs n'est pas correcte. D - Vous laissez la partie se poursuivre sans revenir en arrière. Les blancs doivent parer l'échec."
       },
-      "answer_text": "",
+      "answer_text": "Cf. R.I.D.N.A - Commentaire Article 11.3.3 du LA.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C"
+      "mcq_answer": "C",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-082",
@@ -14574,9 +14669,10 @@
       "choices": {
         "E": "Ce n'est pas interdit. Vous laissez continuer la partie avec le roque."
       },
-      "answer_text": "",
+      "answer_text": "Il réalise 4 points sur 6, soit deux demi-points au-dessus de la moitié. Son classement sera de 1660 Ru = 1620 + 20 + 20 = 1660 Cf. Chapitre 6.1 Le classement de la FIDE - article 8.23 du LA.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "D"
+      "mcq_answer": "D",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVO-083",
@@ -14734,9 +14830,10 @@
       "choices": {
         "E": "Lors d'une promotion, la première pièce de sa couleur touchée après le pion devra être la pièce qui remplacera le pion."
       },
-      "answer_text": "",
+      "answer_text": "------------------------------------------ FIN du corrigé de l'UVO ## DIRECTION NATIONALE DE L'ARBITRAGE",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "B"
+      "mcq_answer": "B",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-131",
@@ -16569,9 +16666,10 @@
         "C": "Uniquement en cadence blitz.",
         "D": "Dans toutes les cadences."
       },
-      "answer_text": "Dans toutes les cadences.",
+      "answer_text": ": Championnat de France des clubs ## C'est le jour J. Le match aura lieu à 14h15.",
       "mcq_answer": "D 57.5",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-147",
@@ -16610,9 +16708,10 @@
         "C": "Il demande au joueur s'il a achevé son coup.",
         "D": "Il appuie sur la pendule pour démarrer le temps de l'adversaire. <!-- image -->"
       },
-      "answer_text": "Il dit au joueur d'appuyer.",
+      "answer_text": ": Championnat de France des clubs",
       "mcq_answer": "A 86.3",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-148",
@@ -16783,9 +16882,10 @@
         "E": "Quand l'adversaire a achevé son coup.",
         "F": "Quand l'adversaire a noté son coup. ## Article 1.3 Règles du jeu On dit d'un joueur qu'il \"a le trait\" lorsque son adversaire a \"joué\" son coup."
       },
-      "answer_text": "Quand l'adversaire a joué son coup.",
+      "answer_text": "On dit d'un joueur qu'il \"a le trait\" lorsque son adversaire a \"joué\" son coup.",
       "mcq_answer": "D 80",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-163",
@@ -16824,9 +16924,10 @@
         "D": "Les Noirs peuvent déplacer un pion.",
         "E": "Aucune des propositions précédentes. ## Article 3.9.2 Règles du jeu On ne peut déplacer une pièce si ce déplacement a pour effet d'exposer à un échec le roi de la même couleur, ou de le laisser en échec. Le roi noir est en échec. Les Noirs peuvent prendre la tour blanche soit déplacer leur roi."
       },
-      "answer_text": "Les Noirs peuvent déplacer une tour.",
+      "answer_text": "On ne peut déplacer une pièce si ce déplacement a pour effet d'exposer à un échec le roi de la même couleur, ou de le laisser en échec. Le roi noir est en échec. Les Noirs peuvent prendre la tour blanche soit déplacer leur roi.",
       "mcq_answer": "B 55",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-164",
@@ -16866,9 +16967,10 @@
         "B": "Les Blancs ont gagné la partie.",
         "C": "Les Noirs peuvent jouer un coup légal, prendre ou interposer avec la pièce touchée. ## Article 5.1.2 Règles du jeu La partie est gagnée par le joueur dont l'adversaire déclare abandonner. Ceci met immédiatement fin à la partie. <!-- image -->"
       },
-      "answer_text": "Les Blancs ont gagné la partie.",
+      "answer_text": "La partie est gagnée par le joueur dont l'adversaire déclare abandonner. Ceci met immédiatement fin à la partie.",
       "mcq_answer": "B 90",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-165",
@@ -16946,9 +17048,10 @@
         "answer_current": true,
         "verified_date": "2026-01-24"
       },
-      "answer_text": "",
+      "answer_text": "Un joueur souhaitant proposer la nulle le fera après avoir joué un coup sur l'échiquier et avant d'appuyer sur sa pendule.",
       "answer_type_mcq_letter": true,
-      "mcq_answer": "C 93"
+      "mcq_answer": "C 93",
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-167",
@@ -17277,9 +17380,10 @@
         "C": "Vous attendez pour appliquer l'article 9.6.2.",
         "D": "Vous patientez car ce sont les joueurs qui doivent réclamer le match nul. ## Article 9.6.2 Règles du jeu Si l'un ou les deux cas suivants se produisent, alors la partie est nulle : toute suite d'au moins 75 coups joués par chacun des deux joueurs, sans mouvement d'aucun pion ni prise."
       },
-      "answer_text": "Vous déclarez la partie nulle.",
+      "answer_text": "Si l'un ou les deux cas suivants se produisent, alors la partie est nulle : toute suite d'au moins 75 coups joués par chacun des deux joueurs, sans mouvement d'aucun pion ni prise.",
       "mcq_answer": "B 92",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-175",
@@ -17315,9 +17419,10 @@
         "B": "Case « b6 ».",
         "C": "Case « a6 ». ## Article 5.1.1 Règles du jeu <!-- image --> La partie est gagnée par le joueur qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7."
       },
-      "answer_text": "Case « a6 ». ## Article 5.1.1 Règles du jeu <!-- image --> La partie est gagnée par le joueur qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.",
+      "answer_text": "La partie est gagnée par le joueur qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7.",
       "mcq_answer": "C 91",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-176",
@@ -17519,9 +17624,10 @@
         "C": "Il demande au joueur s'il a achevé son coup.",
         "D": "Il appuie sur la pendule pour démarrer le temps de l'adversaire. ## Article 12.6 Règles du jeu L'arbitre ne doit pas intervenir dans une partie, excepté dans les cas décrits dans les Règles du Jeu d'Échecs.... Il s'abstiendra d'informer un joueur, que son adversaire a achevé un coup ou que le joueur n'a pas appuyé sur sa pendule."
       },
-      "answer_text": "Il ne fait rien.",
+      "answer_text": "L'arbitre ne doit pas intervenir dans une partie, excepté dans les cas décrits dans les Règles du Jeu d'Échecs.... Il s'abstiendra d'informer un joueur, que son adversaire a achevé un coup ou que le joueur n'a pas appuyé sur sa pendule.",
       "mcq_answer": "B 98",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-181",
@@ -17558,9 +17664,10 @@
         "B": "1⁄2 - 1⁄2.",
         "C": "0-1. ## Article 5.2.1 Règles du jeu La partie est nulle lorsque le joueur au trait n'a aucun coup légal à sa disposition alors même que son roi n'est pas en échec. On dit alors que la partie se termine par le \"pat\". Ceci met immédiatement fin à la partie."
       },
-      "answer_text": "1⁄2 - 1⁄2.",
+      "answer_text": "La partie est nulle lorsque le joueur au trait n'a aucun coup légal à sa disposition alors même que son roi n'est pas en échec. On dit alors que la partie se termine par le \"pat\". Ceci met immédiatement fin à la partie.",
       "mcq_answer": "B 70",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-182",
@@ -17600,9 +17707,10 @@
         "B": "1⁄2 - 1⁄2.",
         "C": "1-0. ## Article 6.9 Règles du jeu En dehors de l'application de l'un des articles 5.1.1 (mat), 5.1.2 (abandon), 5.2.1 (pat), 5.2.2 (position morte) ou 5.2.3 (match nul accord mutuel), si un joueur n'a pas achevé le nombre de coups prescrits dans le temps imparti, la partie est perdue par ce joueur. Cependant, la partie est nulle, si la position est telle que l'adversaire ne peut mater le roi du joueur par aucune suite de coups légaux. Avec roi et fou, les Noirs ne pourront jamais faire échec et mat par une suite de coups légaux car la tour des Blancs pourra s'interposer : <!-- image --> <!-- image --> <!-- image -->"
       },
-      "answer_text": "1⁄2 - 1⁄2.",
+      "answer_text": "En dehors de l'application de l'un des articles 5.1.1 (mat), 5.1.2 (abandon), 5.2.1 (pat), 5.2.2 (position morte) ou 5.2.3 (match nul accord mutuel), si un joueur n'a pas achevé le nombre de coups prescrits dans le temps imparti, la partie est perdue par ce joueur. Cependant, la partie est nulle, si la position est telle que l'adversaire ne peut mater le roi du joueur par aucune suite de coups légaux. Avec roi et fou, les Noirs ne pourront jamais faire échec et mat par une suite de coups légaux car la tour des Blancs pourra s'interposer :",
       "mcq_answer": "B 85",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVR-183",
@@ -17642,9 +17750,10 @@
         "C": "Les deux drapeaux étant tombés, la partie est déclarée nulle. ## Commentaire Article 6.4 Règles du jeu Dans le cas où les deux cadrans d'une pendule électronique affichent 0.00, l'Arbitre peut établir quel drapeau est tombé le premier, avec l'aide du « - » ou toute autre forme de drapeau. ## QUESTION 25C : Cadence 50 minutes plus 10 secondes par coup. Un des deux joueurs passe sous la barre des 5 minutes. Il arrête donc de noter. Ensuite, après une série de coups rapides, il repasse au-dessus des 5 minutes. Son adversaire lui demande de reprendre la notation. Quelle est la règle ?",
         "D": "Une fois qu'un joueur a arrêté de noter, il n'est pas obligé de reprendre la notation, même si son temps repasse audessus de 5 minutes. ## Article 8.4 Règles du jeu Si un joueur dispose de moins de cinq minutes à sa pendule à un moment d'une période de jeu et ne bénéficie pas d'un temps additionnel de 30 secondes ou plus à chaque coup, alors pour le reste de la période il n'est pas obligé de respecter les conditions requises à l'Article 8.1.1. ## Les questions 23J, 24J et 25J sont pour les candidats au titre d'Arbitre Jeune. ## QUESTION 23J : Une partie se joue à la cadence de 50 minutes par joueur avec un incrément de 10 secondes par coup. Quelles règles vont s'appliquer ?"
       },
-      "answer_text": "Vous refusez. ## Article 9.4 Règles du jeu Si le joueur touche une pièce comme dans l'Article 4.3, il perd le droit de réclamer la nulle selon l'Article 9.2 ou 9.3 lors de ce coup. <!-- image --> ## Les questions 23C, 24C et 25C sont pour les candidats au titre d'Arbitre de Club. ## QUESTION 23C : Cadence 1h 30 minutes pour 40 coups puis 30 minutes plus 30 secondes par coup dès le premier coup. Dix minutes après le lancement de la ronde, les Blancs viennent vous voir et vous expliquent que dès qu'ils jouent un coup et avant d'appuyer sur la pendule, les Noirs sans le noter répondent immédiatement en jouant un coup. Ils vous demandent que vous interveniez. Quelle va être votre action ?",
+      "answer_text": "La partie est gagnée par le joueur qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit légal et en accord avec l'Article 3 et les Articles 4.2 à 4.7. Le mat est survenu avant que le drapeau tombe.",
       "mcq_answer": "B 80",
-      "answer_type_mcq_letter": true
+      "answer_type_mcq_letter": true,
+      "answer_source": "corrige_detaille"
     },
     {
       "id": "FR-ANN-UVC-151",

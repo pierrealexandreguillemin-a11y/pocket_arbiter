@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-01-25T15:58:04.049867",
+  "input_version": {
+    "number": "6.32.0",
+    "date": "2026-01-25",
+    "answer_text_coverage": "477/477 (100%)",
+    "answer_explanation_coverage": "220/477 (46.1%)",
+    "expected_pages_coverage": "477/477 (100%)",
+    "quality_assessed": true,
+    "method": "manual_docling_verification_audit",
+    "audit_note": "102 corrections totales: pages + documents",
+    "expected_chunk_coverage": "477/477 (100%)",
+    "chunk_source": "chunks_mode_b_fr.json (LangChain Parent-Child)",
+    "chunk_mapping": "article:136 kw:242 page:99",
+    "chunk_mapping_method": "page + article + keywords",
+    "chunk_confidence": "high:222 med:49 low:206",
+    "chunk_matching": "high:400 med:77 low:0",
+    "page_corrections": 6,
+    "manual_page_corrections": 13
+  },
+  "output_version": "7.0.0",
+  "total_questions": 477,
+  "migrated": 477,
+  "errors": [],
+  "warnings": [],
+  "missing_ids": 0,
+  "fields_added": {
+    "expected_answer": 0,
+    "is_impossible": 477,
+    "validation.reviewer": 477
+  },
+  "fields_mapped": {
+    "answer_text->expected_answer": 477
+  },
+  "normalized": {
+    "reasoning_type": 0
+  },
+  "field_order_changes": true
+}

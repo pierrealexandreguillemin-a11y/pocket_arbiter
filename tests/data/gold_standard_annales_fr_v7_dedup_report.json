@@ -1,0 +1,1378 @@
+{
+  "timestamp": "2026-01-25T16:01:16.932402",
+  "input_count": 477,
+  "duplicate_groups": 91,
+  "removed_count": 91,
+  "output_count": 386,
+  "removed_ids": [
+    "FR-ANN-UVR-031",
+    "FR-ANN-UVR-039",
+    "FR-ANN-UVR-041",
+    "FR-ANN-UVT-001",
+    "FR-ANN-UVT-002",
+    "FR-ANN-UVT-006",
+    "FR-ANN-UVT-008",
+    "FR-ANN-UVT-009",
+    "FR-ANN-UVT-012",
+    "FR-ANN-UVT-017",
+    "FR-ANN-UVC-023",
+    "FR-ANN-UVT-029",
+    "FR-ANN-UVT-030",
+    "FR-ANN-UVT-031",
+    "FR-ANN-UVC-032",
+    "FR-ANN-UVC-033",
+    "FR-ANN-UVT-035",
+    "FR-ANN-UVT-037",
+    "FR-ANN-UVT-038",
+    "FR-ANN-UVT-040",
+    "FR-ANN-UVC-042",
+    "FR-ANN-UVC-043",
+    "FR-ANN-UVT-043",
+    "FR-ANN-UVC-048",
+    "FR-ANN-UVC-051",
+    "FR-ANN-UVC-052",
+    "FR-ANN-UVT-049",
+    "FR-ANN-UVT-051",
+    "FR-ANN-UVT-052",
+    "FR-ANN-UVR-089",
+    "FR-ANN-UVR-091",
+    "FR-ANN-UVR-092",
+    "FR-ANN-UVR-093",
+    "FR-ANN-UVR-094",
+    "FR-ANN-UVR-095",
+    "FR-ANN-UVC-095",
+    "FR-ANN-UVR-097",
+    "FR-ANN-UVC-099",
+    "FR-ANN-UVR-101",
+    "FR-ANN-UVR-102",
+    "FR-ANN-UVR-103",
+    "FR-ANN-UVR-104",
+    "FR-ANN-UVR-105",
+    "FR-ANN-UVR-106",
+    "FR-ANN-UVR-107",
+    "FR-ANN-UVR-108",
+    "FR-ANN-UVR-109",
+    "FR-ANN-UVR-110",
+    "FR-ANN-UVR-112",
+    "FR-ANN-UVR-113",
+    "FR-ANN-UVC-113",
+    "FR-ANN-UVO-042",
+    "FR-ANN-UVT-057",
+    "FR-ANN-UVT-058",
+    "FR-ANN-UVT-064",
+    "FR-ANN-UVT-065",
+    "FR-ANN-UVR-115",
+    "FR-ANN-UVR-116",
+    "FR-ANN-UVR-117",
+    "FR-ANN-UVR-118",
+    "FR-ANN-UVR-119",
+    "FR-ANN-UVR-120",
+    "FR-ANN-UVR-121",
+    "FR-ANN-UVR-123",
+    "FR-ANN-UVR-124",
+    "FR-ANN-UVR-125",
+    "FR-ANN-UVR-131",
+    "FR-ANN-UVR-132",
+    "FR-ANN-UVO-070",
+    "FR-ANN-UVO-072",
+    "FR-ANN-UVR-141",
+    "FR-ANN-UVR-142",
+    "FR-ANN-UVR-143",
+    "FR-ANN-UVR-144",
+    "FR-ANN-UVR-162",
+    "FR-ANN-UVR-163",
+    "FR-ANN-UVR-165",
+    "FR-ANN-UVR-167",
+    "FR-ANN-UVR-168",
+    "FR-ANN-UVR-169",
+    "FR-ANN-UVR-170",
+    "FR-ANN-UVR-171",
+    "FR-ANN-UVR-172",
+    "FR-ANN-UVR-173",
+    "FR-ANN-UVR-174",
+    "FR-ANN-UVR-178",
+    "FR-ANN-UVR-179",
+    "FR-ANN-UVR-180",
+    "FR-ANN-UVR-181",
+    "FR-ANN-UVR-182",
+    "FR-ANN-UVR-183"
+  ],
+  "kept_ids": [
+    "FR-ANN-UVC-123",
+    "FR-ANN-UVR-032",
+    "FR-ANN-UVR-033",
+    "FR-ANN-UVC-001",
+    "FR-ANN-UVC-002",
+    "FR-ANN-UVC-006",
+    "FR-ANN-UVC-008",
+    "FR-ANN-UVC-009",
+    "FR-ANN-UVC-012",
+    "FR-ANN-UVC-017",
+    "FR-ANN-UVT-023",
+    "FR-ANN-UVC-029",
+    "FR-ANN-UVC-030",
+    "FR-ANN-UVC-031",
+    "FR-ANN-UVT-033",
+    "FR-ANN-UVT-034",
+    "FR-ANN-UVC-034",
+    "FR-ANN-UVC-036",
+    "FR-ANN-UVC-039",
+    "FR-ANN-UVC-041",
+    "FR-ANN-UVT-041",
+    "FR-ANN-UVT-042",
+    "FR-ANN-UVC-044",
+    "FR-ANN-UVT-045",
+    "FR-ANN-UVT-047",
+    "FR-ANN-UVT-048",
+    "FR-ANN-UVC-054",
+    "FR-ANN-UVC-055",
+    "FR-ANN-UVC-056",
+    "FR-ANN-UVC-087",
+    "FR-ANN-UVC-089",
+    "FR-ANN-UVC-091",
+    "FR-ANN-UVC-092",
+    "FR-ANN-UVC-093",
+    "FR-ANN-UVC-094",
+    "FR-ANN-UVR-096",
+    "FR-ANN-UVC-096",
+    "FR-ANN-UVR-100",
+    "FR-ANN-UVC-100",
+    "FR-ANN-UVC-101",
+    "FR-ANN-UVC-102",
+    "FR-ANN-UVC-103",
+    "FR-ANN-UVC-104",
+    "FR-ANN-UVC-105",
+    "FR-ANN-UVC-106",
+    "FR-ANN-UVC-107",
+    "FR-ANN-UVC-108",
+    "FR-ANN-UVC-109",
+    "FR-ANN-UVC-111",
+    "FR-ANN-UVC-112",
+    "FR-ANN-UVR-114",
+    "FR-ANN-UVT-054",
+    "FR-ANN-UVO-045",
+    "FR-ANN-UVO-046",
+    "FR-ANN-UVO-052",
+    "FR-ANN-UVO-053",
+    "FR-ANN-UVC-114",
+    "FR-ANN-UVC-115",
+    "FR-ANN-UVC-116",
+    "FR-ANN-UVC-117",
+    "FR-ANN-UVC-118",
+    "FR-ANN-UVC-120",
+    "FR-ANN-UVC-124",
+    "FR-ANN-UVC-126",
+    "FR-ANN-UVC-129",
+    "FR-ANN-UVC-131",
+    "FR-ANN-UVO-068",
+    "FR-ANN-UVO-069",
+    "FR-ANN-UVR-133",
+    "FR-ANN-UVR-136",
+    "FR-ANN-UVO-078",
+    "FR-ANN-UVO-079",
+    "FR-ANN-UVO-080",
+    "FR-ANN-UVO-081",
+    "FR-ANN-UVC-132",
+    "FR-ANN-UVC-133",
+    "FR-ANN-UVC-135",
+    "FR-ANN-UVC-137",
+    "FR-ANN-UVC-138",
+    "FR-ANN-UVC-139",
+    "FR-ANN-UVC-140",
+    "FR-ANN-UVC-141",
+    "FR-ANN-UVC-142",
+    "FR-ANN-UVC-143",
+    "FR-ANN-UVC-144",
+    "FR-ANN-UVC-145",
+    "FR-ANN-UVC-146",
+    "FR-ANN-UVC-147",
+    "FR-ANN-UVC-148",
+    "FR-ANN-UVC-149",
+    "FR-ANN-UVC-150"
+  ],
+  "duplicates_detail": [
+    {
+      "question": "une pause pour aller aux toilettes n'est généralement pas une raison valable d'arrêt de la pendule m",
+      "keep": {
+        "id": "FR-ANN-UVC-123",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-031",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "partie à la cadence de 1h30 pour les 40 premiers coups plus 30 min pour terminer la partie avec 30 s",
+      "keep": {
+        "id": "FR-ANN-UVR-032",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-039",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence 1h30 + 30s par coup. parmi les 4 affirmations suivantes, une seule est vraie. laquelle ?",
+      "keep": {
+        "id": "FR-ANN-UVR-033",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-041",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quelle proposition parmi les suivantes ne correspond pas à une des missions de l'arbitre ?",
+      "keep": {
+        "id": "FR-ANN-UVC-001",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-001",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "pour la formation d'un jury d'appel lors d'une compétition, quelle personne parmi les suivantes ne p",
+      "keep": {
+        "id": "FR-ANN-UVC-002",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-002",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "que doit faire un arbitre inactif n'ayant plus suivi de formation depuis plus de 10 ans pour redeven",
+      "keep": {
+        "id": "FR-ANN-UVC-006",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-006",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "un arbitre international allemand sous code deu (allemagne) souhaite venir arbitrer en arbitre princ",
+      "keep": {
+        "id": "FR-ANN-UVC-008",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-008",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "pour la saison 2024-2025, quelle instance fédérale donne son accord pour qualifier ou non un joueur ",
+      "keep": {
+        "id": "FR-ANN-UVC-009",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-009",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "une rencontre entre deux équipes de championnat a lieu un dimanche. le directeur de groupe indique q",
+      "keep": {
+        "id": "FR-ANN-UVC-012",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-012",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "quelle instance fédérale est chargée de nommer les directions de groupe en n3 ?",
+      "keep": {
+        "id": "FR-ANN-UVC-017",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-017",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "en coupe loubatière, combien d'équipes se qualifient pour la phase 3 en cas de présence de 13 équipe",
+      "keep": {
+        "id": "FR-ANN-UVT-023",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-023",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "en coupe de la parité, quelle proposition parmi les suivantes n'est pas réglementaire ?",
+      "keep": {
+        "id": "FR-ANN-UVC-029",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-029",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "pour arbitrer un rapide fide l'arbitre doit être au :",
+      "keep": {
+        "id": "FR-ANN-UVC-030",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-030",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "la demande d'agrément fide pour un arbitre afo1 se présente en 2 étapes. quelles sont-elles ?",
+      "keep": {
+        "id": "FR-ANN-UVC-031",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-031",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "le règlement intérieur d'un tournoi doit contenir au minimum quelques éléments obligatoires. parmi l",
+      "keep": {
+        "id": "FR-ANN-UVT-033",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-032",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "tous les joueurs devraient être licenciés avant le début d'un tournoi. quelle situation de joueur pa",
+      "keep": {
+        "id": "FR-ANN-UVT-034",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-033",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quels sont respectivement les numéros d'appariements de daniela et d'albert ?",
+      "keep": {
+        "id": "FR-ANN-UVC-034",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-035",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quelle sera la couleur préférentielle de pauline ?",
+      "keep": {
+        "id": "FR-ANN-UVC-036",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-037",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "parmi les critères suivants lequel n'est pas absolu ?",
+      "keep": {
+        "id": "FR-ANN-UVC-039",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-038",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous êtes appelé à une table par les blancs car leur adversaire vient de jouer 0-0-0 puis valider le",
+      "keep": {
+        "id": "FR-ANN-UVC-041",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-040",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "après la saisie des résultats et leur affichage les joueurs de la table 10 vous signalent qu'ils se ",
+      "keep": {
+        "id": "FR-ANN-UVT-041",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-042",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "pour cette ronde 4, quelles sont les couleurs demandées respectivement par pauline et ignace ?",
+      "keep": {
+        "id": "FR-ANN-UVT-042",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-043",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "qu'est-ce qu'un joueur « flotteur descendant » ?",
+      "keep": {
+        "id": "FR-ANN-UVC-044",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-043",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "quelle affirmation parmi les suivantes correspond à un échange ?",
+      "keep": {
+        "id": "FR-ANN-UVT-045",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-048",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quel est le score ajusté respectivement de pauline et françois ?",
+      "keep": {
+        "id": "FR-ANN-UVT-047",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-051",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quel est le score ajusté du joueur fictif à la ronde 5 de françois ?",
+      "keep": {
+        "id": "FR-ANN-UVT-048",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-052",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quel sera le elo rapide fide de quentin à l'issue de ce tournoi ?",
+      "keep": {
+        "id": "FR-ANN-UVC-054",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-049",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quel est le montant total des indemnités que devrait verser l'organisateur à l'arbitre ?",
+      "keep": {
+        "id": "FR-ANN-UVC-055",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-051",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "a qui doit-on envoyer le formulaire de plainte ou de suspicion de triche ?",
+      "keep": {
+        "id": "FR-ANN-UVC-056",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-052",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 20min+10s/coup, l",
+      "keep": {
+        "id": "FR-ANN-UVC-087",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-089",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "un joueur est en train de noter sa partie, il lui reste moins de 5 minutes à la pendule. dans quel c",
+      "keep": {
+        "id": "FR-ANN-UVC-089",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-091",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans le cadre d'un tournoi, un enfant malvoyant utilise un échiquier secondaire avec des pièces à ti",
+      "keep": {
+        "id": "FR-ANN-UVC-091",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-092",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'une partie, un joueur a touché un cavalier avec l'intention de le déplacer. il change finalem",
+      "keep": {
+        "id": "FR-ANN-UVC-092",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-093",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "une partie vient de se terminer. les blancs ont fait échec et mat. juste avant de serrer la main de ",
+      "keep": {
+        "id": "FR-ANN-UVC-093",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-094",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'un tournoi, vous observez que la montre d'un joueur s'allume. il s'agit d'une montre connecté",
+      "keep": {
+        "id": "FR-ANN-UVC-094",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-095",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans la position suivante, le trait est aux noirs, quelle proposition est vraie ?",
+      "keep": {
+        "id": "FR-ANN-UVR-096",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-095",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans cette position, quel est le seul mouvement qui pourrait amener à un coup légal ?",
+      "keep": {
+        "id": "FR-ANN-UVC-096",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-097",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "a la cadence 5 min +3s/coup, les noirs jouent un coup illégal et appuient sur leur pendule. c'est le",
+      "keep": {
+        "id": "FR-ANN-UVR-100",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-099",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "a la cadence 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour avoir achevé un coup ",
+      "keep": {
+        "id": "FR-ANN-UVC-100",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-101",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "une joueuse demande des informations concernant la réclamation de nulle selon « la règle des 50 coup",
+      "keep": {
+        "id": "FR-ANN-UVC-101",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-102",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "voici des exemples de rappels à l'ordre à des joueurs. lequel s'appuie sur l'article 4.2.1 des règle",
+      "keep": {
+        "id": "FR-ANN-UVC-102",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-103",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'une partie, un joueur vous appelle pour réclamer la nulle suite à une répétition de position.",
+      "keep": {
+        "id": "FR-ANN-UVC-103",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-104",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous arbitrez un tournoi en cadence 7 min + 3 secondes par coup. de quel type de cadence s'agit-t-il",
+      "keep": {
+        "id": "FR-ANN-UVC-104",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-105",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous observez la finale suivante. vous constatez que les blancs au trait viennent d'épuiser tout leu",
+      "keep": {
+        "id": "FR-ANN-UVC-105",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-106",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'un championnat jeune à la cadence 50min+10s/coup, un joueur avait terminé sa partie par un ma",
+      "keep": {
+        "id": "FR-ANN-UVC-106",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-107",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'un tournoi en cadence 2h00, on vous appelle pour vous signaler une partie où les fous et cava",
+      "keep": {
+        "id": "FR-ANN-UVC-107",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-108",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'un tournoi en cadence 20 min, on vous appelle pour vous signaler une partie où les fous et ca",
+      "keep": {
+        "id": "FR-ANN-UVC-108",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-109",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'une partie en cadence standard que vous observez, une joueuse - qui n'a encore commis aucune ",
+      "keep": {
+        "id": "FR-ANN-UVC-109",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-110",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous observez une partie avec une finale roi+dame pour les blancs contre roi pour les noirs. les bla",
+      "keep": {
+        "id": "FR-ANN-UVC-111",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-112",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans le règlement d'un tournoi, le délai de forfait est de 30 minutes. lors d'une ronde prévue à 14 ",
+      "keep": {
+        "id": "FR-ANN-UVC-112",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-113",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "une partie se joue à la cadence 1h+30s/coup, les blancs viennent d'achever leur 1 er coup illégal. v",
+      "keep": {
+        "id": "FR-ANN-UVR-114",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVC-113",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "une fois toutes les conditions remplies pour l'obtention d'un titre d'arbitre fédéral, à quelle pers",
+      "keep": {
+        "id": "FR-ANN-UVT-054",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVO-042",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous êtes arbitre-adjoint lors de la phase départementale de la coupe jean-claude loubatière.",
+      "keep": {
+        "id": "FR-ANN-UVO-045",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-057",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous êtes arbitre-adjoint de la catégorie u10 des qualifications départementales du championnat de f",
+      "keep": {
+        "id": "FR-ANN-UVO-046",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-058",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors d'une rencontre du championnat de france des clubs, les feuilles de composition des équipes son",
+      "keep": {
+        "id": "FR-ANN-UVO-052",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-064",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "en championnat de france des clubs, les joueurs doivent être licenciés a pour la saison en cours. qu",
+      "keep": {
+        "id": "FR-ANN-UVO-053",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVT-065",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence : 1h30 / 40 coups + 30 min + 30 sec. par coups (cadence des interclubs). la ronde a débuté à",
+      "keep": {
+        "id": "FR-ANN-UVC-114",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-115",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans un tournoi scolaire à 15 minutes par joueur, après le cinquième coup joué, vous constatez que l",
+      "keep": {
+        "id": "FR-ANN-UVC-115",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-116",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous voyez un joueur effectuer le grand-roque en prenant son roi avec sa main droite puis avec la ga",
+      "keep": {
+        "id": "FR-ANN-UVC-116",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-117",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans un tournoi blitz, un joueur vous annonce qu'il vient de mater son adversaire. a l'arrivée à sa ",
+      "keep": {
+        "id": "FR-ANN-UVC-117",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-118",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "un joueur vous demande la permission d'écouter de la musique tout en jouant sa partie :",
+      "keep": {
+        "id": "FR-ANN-UVC-118",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-119",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans une finale roi + dame contre roi en cadence lente avec incrément de 30 secondes, un jeune joueu",
+      "keep": {
+        "id": "FR-ANN-UVC-120",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-120",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "le règlement d'une compétition, prévoit à 20mn le délai pour arriver devant l'échiquier. sachant qu'",
+      "keep": {
+        "id": "FR-ANN-UVC-124",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-121",
+          "reasoning_type": "temporal"
+        }
+      ]
+    },
+    {
+      "question": "un joueur est au trait en l'absence de son adversaire vient vous voir car il a l'intention de positi",
+      "keep": {
+        "id": "FR-ANN-UVC-126",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-123",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors du championnat de france petit-poussins, le conducteur des blancs joue son pion sur la 8ème ran",
+      "keep": {
+        "id": "FR-ANN-UVC-129",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-124",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous êtes appelé à une table où les blancs au trait vous montrent que les noirs sont tombés. sur l'é",
+      "keep": {
+        "id": "FR-ANN-UVC-131",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-125",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "## cadence : 15 min + 3''/coup. c'est la dernière partie d'une ronde d'un tournoi rapide. vous (arbi",
+      "keep": {
+        "id": "FR-ANN-UVO-068",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-131",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "## cadence : 90 min + 30''/coup. le conducteur des blancs joue tc1+, le note, puis arrête la pendule",
+      "keep": {
+        "id": "FR-ANN-UVO-069",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-132",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "lors du championnat de france petit-poussins, le conducteur des blancs joue son pion sur la 8ème ran",
+      "keep": {
+        "id": "FR-ANN-UVR-133",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVO-070",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence : 50 minutes + 10 secondes par coup. utilisation de pendules électroniques. les deux drapeau",
+      "keep": {
+        "id": "FR-ANN-UVR-136",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVO-072",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "en cadence 50 minutes + 10 secondes par coup, lesquels des affirmations suivantes sont exactes ? - -",
+      "keep": {
+        "id": "FR-ANN-UVO-078",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-141",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "## cadence : 20 min ko. les blancs viennent de jouer une de leur pièce en h4 puis tombe au temps. la",
+      "keep": {
+        "id": "FR-ANN-UVO-079",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-142",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "## cadence : 1h30 + 30''/coup au 66ème coup, un joueur vous demande la nulle pour 3 fois la même pos",
+      "keep": {
+        "id": "FR-ANN-UVO-080",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-143",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "## cadence : 20 min ko. le conducteur des blancs laisse son roi en échec et appui sur la pendule. le",
+      "keep": {
+        "id": "FR-ANN-UVO-081",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-144",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "quand un joueur a-t-il le trait ?",
+      "keep": {
+        "id": "FR-ANN-UVC-132",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-162",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans la position suivante, les noirs touchent le fb5 : quelle proposition correspond à un coup légal",
+      "keep": {
+        "id": "FR-ANN-UVC-133",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-163",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence 1h30 plus 30 secondes par coup. au 50 ème coup, un joueur vous réclame le match nul pour tro",
+      "keep": {
+        "id": "FR-ANN-UVC-135",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-165",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence blitz sans incrément avec une supervision appropriée. les noirs réclament votre intervention",
+      "keep": {
+        "id": "FR-ANN-UVC-137",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-167",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence 50 min + 10 secondes par coup. quelles sont les obligations de notation ?",
+      "keep": {
+        "id": "FR-ANN-UVC-138",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-168",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence 1h30 pour 40 coups puis 30 min plus 30 secondes par coup dès le premier coup. les noirs vien",
+      "keep": {
+        "id": "FR-ANN-UVC-139",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-169",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence 15 minutes ko. l'article a.4 s'applique. dans la position suivante, les noirs au trait vous ",
+      "keep": {
+        "id": "FR-ANN-UVC-140",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-170",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "vous arrivez dans la salle de jeu d'un tournoi homologué fide. l'article b.4 s'applique. les pendule",
+      "keep": {
+        "id": "FR-ANN-UVC-141",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-171",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "en cours de partie, un joueur vous pose une question concernant les règles du jeu. comment réagissez",
+      "keep": {
+        "id": "FR-ANN-UVC-142",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-172",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence 1h 30 minutes pour 40 coups puis 30 minutes plus 30 secondes par coup dès le premier coup. v",
+      "keep": {
+        "id": "FR-ANN-UVC-143",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-173",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence 1h30mn + 30s par coup vous suivez comme arbitre une partie où se joue une finale roi + fou +",
+      "keep": {
+        "id": "FR-ANN-UVC-144",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-174",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "cadence blitz. l'article b4 s'applique. les blancs viennent de jouer txb7 et ont appuyé sur la pendu",
+      "keep": {
+        "id": "FR-ANN-UVC-145",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-178",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "a quelle cadence l'arbitre indique-t-il la chute du drapeau ?",
+      "keep": {
+        "id": "FR-ANN-UVC-146",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-179",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "l'arbitre remarque qu'un joueur a oublié d'appuyer sur la pendule après avoir joué son coup. que fai",
+      "keep": {
+        "id": "FR-ANN-UVC-147",
+        "reasoning_type": "multi-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-180",
+          "reasoning_type": "multi-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans la position suivante, les blancs jouent th7 et leur drapeau tombe. les noirs réclament le gain ",
+      "keep": {
+        "id": "FR-ANN-UVC-148",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-181",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "dans une partie en cadence 90 minutes pour 40 coups, puis 30 minutes pour le reste de la partie, ave",
+      "keep": {
+        "id": "FR-ANN-UVC-149",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-182",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    },
+    {
+      "question": "position après le 42 e coup des blancs : les blancs au trait, touchent la tour en e3 sans la jouer, ",
+      "keep": {
+        "id": "FR-ANN-UVC-150",
+        "reasoning_type": "single-hop"
+      },
+      "remove": [
+        {
+          "id": "FR-ANN-UVR-183",
+          "reasoning_type": "single-hop"
+        }
+      ]
+    }
+  ]
+}

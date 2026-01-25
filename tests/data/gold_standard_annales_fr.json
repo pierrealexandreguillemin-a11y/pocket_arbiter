@@ -1,6 +1,6 @@
 {
   "version": {
-    "number": "6.31.0",
+    "number": "6.32.0",
     "date": "2026-01-25",
     "answer_text_coverage": "477/477 (100%)",
     "answer_explanation_coverage": "220/477 (46.1%)",
@@ -15,9 +15,7 @@
     "chunk_confidence": "high:222 med:49 low:206",
     "chunk_matching": "high:400 med:77 low:0",
     "page_corrections": 6,
-    "manual_page_corrections": 13,
-    "difficulty_taxonomy": "human + retrieval (dual)",
-    "page_verification": "manual content check"
+    "manual_page_corrections": 13
   },
   "description": "Gold Standard v6 - Annales-based with official DNA questions",
   "methodology": {
@@ -125,9 +123,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-024",
@@ -179,9 +175,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-025",
@@ -225,9 +219,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-026",
@@ -273,9 +265,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 130,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-027",
@@ -318,9 +308,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-028",
@@ -370,9 +358,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-029",
@@ -417,9 +403,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-030",
@@ -465,9 +449,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-031",
@@ -517,9 +499,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-032",
@@ -571,9 +551,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-033",
@@ -624,9 +602,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-034",
@@ -672,9 +648,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-035",
@@ -718,9 +692,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-036",
@@ -771,9 +743,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-037",
@@ -818,9 +788,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-038",
@@ -872,9 +840,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-039",
@@ -926,9 +892,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-040",
@@ -979,9 +943,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
       "chunk_match_score": 130,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-041",
@@ -1032,9 +994,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-042",
@@ -1081,9 +1041,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-043",
@@ -1132,9 +1090,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-044",
@@ -1180,9 +1136,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-045",
@@ -1229,9 +1183,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-046",
@@ -1284,9 +1236,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-047",
@@ -1333,9 +1283,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-048",
@@ -1380,9 +1328,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 70,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-001",
@@ -1430,9 +1376,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-002",
@@ -1481,9 +1425,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-003",
@@ -1532,9 +1474,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-004",
@@ -1581,9 +1521,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent030-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-005",
@@ -1631,9 +1569,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-006",
@@ -1682,9 +1618,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-007",
@@ -1730,9 +1664,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-008",
@@ -1779,9 +1711,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-009",
@@ -1829,9 +1759,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-010",
@@ -1879,9 +1807,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-011",
@@ -1929,9 +1855,7 @@
       "quality_score": 1.0,
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-012",
@@ -1984,9 +1908,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-013",
@@ -2027,9 +1949,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-014",
@@ -2077,9 +1997,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-015",
@@ -2126,9 +2044,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-016",
@@ -2178,9 +2094,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-017",
@@ -2226,9 +2140,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-018",
@@ -2275,9 +2187,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-019",
@@ -2326,9 +2236,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-020",
@@ -2378,9 +2286,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-021",
@@ -2427,9 +2333,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-022",
@@ -2472,9 +2376,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-023",
@@ -2523,9 +2425,7 @@
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-024",
@@ -2568,9 +2468,7 @@
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent009-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-025",
@@ -2616,9 +2514,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-026",
@@ -2668,9 +2564,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent019-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-027",
@@ -2718,9 +2612,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-028",
@@ -2770,9 +2662,7 @@
       "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité-table0-summary",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 30,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 30
     },
     {
       "id": "FR-ANN-UVC-029",
@@ -2821,9 +2711,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-001",
@@ -2871,9 +2759,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-002",
@@ -2922,9 +2808,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVT-003",
@@ -2973,9 +2857,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-004",
@@ -3022,9 +2904,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-005",
@@ -3073,9 +2953,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-006",
@@ -3123,9 +3001,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-007",
@@ -3171,9 +3047,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-008",
@@ -3214,9 +3088,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-009",
@@ -3264,9 +3136,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-010",
@@ -3315,9 +3185,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-011",
@@ -3365,9 +3233,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-012",
@@ -3419,9 +3285,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 110,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 110
     },
     {
       "id": "FR-ANN-UVT-013",
@@ -3474,9 +3338,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 90,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 90
     },
     {
       "id": "FR-ANN-UVT-014",
@@ -3526,9 +3388,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-015",
@@ -3577,9 +3437,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-016",
@@ -3629,9 +3487,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p061-parent200-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-017",
@@ -3677,9 +3533,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-018",
@@ -3725,9 +3579,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-019",
@@ -3777,9 +3629,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-020",
@@ -3829,9 +3679,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-021",
@@ -3878,9 +3726,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-022",
@@ -3928,9 +3774,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-023",
@@ -3980,9 +3824,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-024",
@@ -4032,9 +3874,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVT-025",
@@ -4085,9 +3925,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVT-026",
@@ -4136,9 +3974,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-027",
@@ -4187,9 +4023,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-028",
@@ -4240,9 +4074,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVT-029",
@@ -4292,9 +4124,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p011-parent029-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVO-020",
@@ -4343,9 +4173,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-021",
@@ -4386,9 +4214,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-022",
@@ -4435,9 +4261,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-023",
@@ -4478,9 +4302,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-024",
@@ -4530,9 +4352,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-025",
@@ -4580,9 +4400,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-026",
@@ -4625,9 +4443,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-027",
@@ -4675,9 +4491,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-028",
@@ -4727,9 +4541,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-029",
@@ -4772,9 +4584,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-030",
@@ -4821,9 +4631,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-031",
@@ -4866,9 +4674,7 @@
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent005-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 30,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 30
     },
     {
       "id": "FR-ANN-UVO-032",
@@ -4911,9 +4717,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent507-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-033",
@@ -4967,9 +4771,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent010-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVO-034",
@@ -5019,9 +4821,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVO-035",
@@ -5070,9 +4870,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-036",
@@ -5116,9 +4914,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-037",
@@ -5161,9 +4957,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-038",
@@ -5215,9 +5009,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-039",
@@ -5269,9 +5061,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-049",
@@ -5323,9 +5113,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-050",
@@ -5371,9 +5159,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-051",
@@ -5422,9 +5208,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-052",
@@ -5474,9 +5258,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-053",
@@ -5527,9 +5309,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-054",
@@ -5579,9 +5359,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-055",
@@ -5628,9 +5406,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p053-parent183-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-056",
@@ -5681,9 +5457,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-057",
@@ -5733,9 +5507,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-058",
@@ -5785,9 +5557,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-059",
@@ -5836,9 +5606,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-060",
@@ -5886,9 +5654,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-061",
@@ -5940,9 +5706,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
       "chunk_match_score": 60,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-062",
@@ -5992,9 +5756,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-063",
@@ -6042,9 +5804,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-064",
@@ -6093,9 +5853,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child01",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-065",
@@ -6142,9 +5900,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-066",
@@ -6191,9 +5947,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-030",
@@ -6239,9 +5993,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-031",
@@ -6287,9 +6039,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-032",
@@ -6339,9 +6089,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent003-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-033",
@@ -6389,9 +6137,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-034",
@@ -6439,9 +6185,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-035",
@@ -6492,9 +6236,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 60,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-036",
@@ -6539,9 +6281,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p216-parent661-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-037",
@@ -6590,9 +6330,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p078-parent238-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-038",
@@ -6639,9 +6377,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-039",
@@ -6688,9 +6424,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-040",
@@ -6740,9 +6474,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-041",
@@ -6793,9 +6525,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-042",
@@ -6844,9 +6574,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent005-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-043",
@@ -6893,9 +6621,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-044",
@@ -6943,9 +6669,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-045",
@@ -6994,9 +6718,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-046",
@@ -7044,9 +6766,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-047",
@@ -7094,9 +6814,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-048",
@@ -7145,9 +6863,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent024-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-049",
@@ -7196,9 +6912,7 @@
       "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 60,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-050",
@@ -7246,9 +6960,7 @@
       "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-051",
@@ -7295,9 +7007,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-052",
@@ -7360,9 +7070,7 @@
       "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p002-parent008-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-053",
@@ -7409,9 +7117,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-054",
@@ -7457,9 +7163,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p078-parent238-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-055",
@@ -7506,9 +7210,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-056",
@@ -7554,9 +7256,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-030",
@@ -7602,9 +7302,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-031",
@@ -7651,9 +7349,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-032",
@@ -7699,9 +7395,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-033",
@@ -7752,9 +7446,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-034",
@@ -7802,9 +7494,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-035",
@@ -7851,9 +7541,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-036",
@@ -7904,9 +7592,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVT-037",
@@ -7952,9 +7638,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-038",
@@ -8001,9 +7685,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-039",
@@ -8054,9 +7736,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVT-040",
@@ -8107,9 +7787,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVT-041",
@@ -8158,9 +7836,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-042",
@@ -8207,9 +7883,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-043",
@@ -8258,9 +7932,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-044",
@@ -8308,9 +7980,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-045",
@@ -8359,9 +8029,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-046",
@@ -8410,9 +8078,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p092-parent274-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-047",
@@ -8459,9 +8125,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p016-parent057-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-048",
@@ -8511,9 +8175,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p016-parent057-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-049",
@@ -8560,9 +8222,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p074-parent225-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-050",
@@ -8609,9 +8269,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-051",
@@ -8658,9 +8316,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-052",
@@ -8706,9 +8362,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-053",
@@ -8754,9 +8408,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-067",
@@ -8802,9 +8454,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-068",
@@ -8856,9 +8506,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-069",
@@ -8905,9 +8553,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-070",
@@ -8955,9 +8601,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-071",
@@ -9008,9 +8652,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-072",
@@ -9060,9 +8702,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-073",
@@ -9111,9 +8751,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-074",
@@ -9162,9 +8800,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-075",
@@ -9212,9 +8848,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-076",
@@ -9263,9 +8897,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-077",
@@ -9311,9 +8943,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-078",
@@ -9354,9 +8984,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-079",
@@ -9406,9 +9034,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-080",
@@ -9457,9 +9083,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-081",
@@ -9507,9 +9131,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-082",
@@ -9559,9 +9181,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-083",
@@ -9610,9 +9230,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-084",
@@ -9663,9 +9281,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-085",
@@ -9715,9 +9331,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-057",
@@ -9764,9 +9378,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p011-parent026-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-058",
@@ -9819,9 +9431,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-059",
@@ -9868,9 +9478,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-060",
@@ -9918,9 +9526,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-061",
@@ -9967,9 +9573,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-062",
@@ -10019,9 +9623,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p008-parent010-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-063",
@@ -10073,9 +9675,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-064",
@@ -10122,9 +9722,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-065",
@@ -10171,9 +9769,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-066",
@@ -10222,9 +9818,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-067",
@@ -10270,9 +9864,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent009-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 5
     },
     {
       "id": "FR-ANN-UVC-068",
@@ -10319,9 +9911,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-069",
@@ -10372,9 +9962,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-070",
@@ -10423,9 +10011,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-071",
@@ -10472,9 +10058,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-072",
@@ -10521,9 +10105,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-073",
@@ -10571,9 +10153,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent005-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 20,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 20
     },
     {
       "id": "FR-ANN-UVC-074",
@@ -10621,9 +10201,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-075",
@@ -10673,9 +10251,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-076",
@@ -10721,9 +10297,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-077",
@@ -10776,9 +10350,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p129-parent379-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-078",
@@ -10826,9 +10398,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-079",
@@ -10876,9 +10446,7 @@
       "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 60,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-080",
@@ -10925,9 +10493,7 @@
       "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent019-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-081",
@@ -10974,9 +10540,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent002-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-082",
@@ -11029,9 +10593,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 70,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 70
     },
     {
       "id": "FR-ANN-UVC-083",
@@ -11077,9 +10639,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent020-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 10,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 10
     },
     {
       "id": "FR-ANN-UVC-084",
@@ -11128,9 +10688,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-086",
@@ -11179,9 +10737,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-087",
@@ -11234,9 +10790,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "article_direct",
-      "chunk_score": 105,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVR-088",
@@ -11288,9 +10842,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-089",
@@ -11343,9 +10895,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-090",
@@ -11386,9 +10936,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-091",
@@ -11439,9 +10987,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-092",
@@ -11494,9 +11040,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child00",
       "chunk_match_score": 60,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 105,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVR-093",
@@ -11549,9 +11093,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-094",
@@ -11604,9 +11146,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
       "chunk_match_score": 60,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-095",
@@ -11657,9 +11197,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p053-parent183-child02",
       "chunk_match_score": 40,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-096",
@@ -11709,9 +11247,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-097",
@@ -11761,9 +11297,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-098",
@@ -11816,9 +11350,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p056-parent191-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-099",
@@ -11864,9 +11396,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-100",
@@ -11917,9 +11447,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-101",
@@ -11971,9 +11499,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-102",
@@ -12026,9 +11552,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-103",
@@ -12079,9 +11603,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 140,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-104",
@@ -12134,9 +11656,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent180-child01",
       "chunk_match_score": 130,
       "chunk_match_method": "article_direct",
-      "chunk_score": 105,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVR-105",
@@ -12187,9 +11707,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-106",
@@ -12240,9 +11758,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-107",
@@ -12295,9 +11811,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 150,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-108",
@@ -12348,9 +11862,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-109",
@@ -12401,9 +11913,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p056-parent191-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-110",
@@ -12456,9 +11966,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-111",
@@ -12508,9 +12016,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-112",
@@ -12563,9 +12069,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-113",
@@ -12612,9 +12116,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-114",
@@ -12660,9 +12162,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVC-085",
@@ -12712,9 +12212,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-086",
@@ -12767,9 +12265,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
       "chunk_match_score": 130,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-087",
@@ -12822,9 +12318,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVC-088",
@@ -12877,9 +12371,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-089",
@@ -12930,9 +12422,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-090",
@@ -12984,9 +12474,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-091",
@@ -13038,9 +12526,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-092",
@@ -13092,9 +12578,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-093",
@@ -13147,9 +12631,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-094",
@@ -13200,9 +12682,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-095",
@@ -13252,9 +12732,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-096",
@@ -13304,9 +12782,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-097",
@@ -13356,9 +12832,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-098",
@@ -13410,9 +12884,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-099",
@@ -13463,9 +12935,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-100",
@@ -13517,9 +12987,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-101",
@@ -13572,9 +13040,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 40,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 40
     },
     {
       "id": "FR-ANN-UVC-102",
@@ -13625,9 +13091,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-103",
@@ -13680,9 +13144,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "chunk_match_score": 130,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-104",
@@ -13733,9 +13195,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-105",
@@ -13786,9 +13246,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-106",
@@ -13841,9 +13299,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
       "chunk_match_score": 130,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-107",
@@ -13894,9 +13350,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-108",
@@ -13948,9 +13402,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-109",
@@ -14003,9 +13455,7 @@
       "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-110",
@@ -14055,9 +13505,7 @@
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-111",
@@ -14110,9 +13558,7 @@
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-112",
@@ -14158,9 +13604,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-113",
@@ -14206,9 +13650,7 @@
       "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p002-parent008-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-054",
@@ -14255,9 +13697,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-055",
@@ -14304,9 +13744,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-056",
@@ -14354,9 +13792,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-057",
@@ -14399,9 +13835,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-058",
@@ -14452,9 +13886,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVT-059",
@@ -14506,9 +13938,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p045-parent215-child02",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-060",
@@ -14560,9 +13990,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVT-061",
@@ -14611,9 +14039,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-062",
@@ -14661,9 +14087,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-063",
@@ -14716,9 +14140,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-064",
@@ -14764,9 +14186,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVT-065",
@@ -14815,9 +14235,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVT-066",
@@ -14864,9 +14282,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-067",
@@ -14916,9 +14332,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVT-068",
@@ -14968,9 +14382,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVT-069",
@@ -15020,9 +14432,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-040",
@@ -15064,9 +14474,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-041",
@@ -15115,9 +14523,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p019-parent078-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVO-042",
@@ -15164,9 +14570,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p078-parent238-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-043",
@@ -15213,9 +14617,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent121-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-044",
@@ -15261,9 +14663,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-045",
@@ -15306,9 +14706,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-046",
@@ -15358,9 +14756,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-047",
@@ -15401,9 +14797,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-048",
@@ -15449,9 +14843,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-049",
@@ -15495,9 +14887,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVO-050",
@@ -15540,9 +14930,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p086-parent256-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-051",
@@ -15583,9 +14971,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-052",
@@ -15631,9 +15017,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-053",
@@ -15682,9 +15066,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-054",
@@ -15732,9 +15114,7 @@
       "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent001-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-055",
@@ -15775,9 +15155,7 @@
       "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p004-parent024-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-056",
@@ -15825,9 +15203,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-057",
@@ -15878,9 +15254,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-058",
@@ -15929,9 +15303,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVO-059",
@@ -15985,9 +15357,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-060",
@@ -16038,9 +15408,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVO-061",
@@ -16091,9 +15459,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVO-062",
@@ -16143,9 +15509,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVO-063",
@@ -16197,9 +15561,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVO-064",
@@ -16253,9 +15615,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
       "chunk_match_score": 60,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 105,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVO-065",
@@ -16304,9 +15664,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-066",
@@ -16356,9 +15714,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p053-parent183-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-067",
@@ -16409,9 +15765,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-115",
@@ -16464,9 +15818,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent169-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-116",
@@ -16517,9 +15869,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVR-117",
@@ -16570,9 +15920,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-118",
@@ -16624,9 +15972,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-119",
@@ -16676,9 +16022,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-120",
@@ -16729,9 +16073,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-121",
@@ -16791,9 +16133,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p045-parent215-child02",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-122",
@@ -16846,9 +16186,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-123",
@@ -16906,9 +16244,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
       "chunk_match_score": 60,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 105,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVR-124",
@@ -16961,9 +16297,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 60,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 105,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVC-114",
@@ -17015,9 +16349,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-115",
@@ -17068,9 +16400,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-116",
@@ -17120,9 +16450,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-117",
@@ -17173,9 +16501,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-118",
@@ -17225,9 +16551,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-119",
@@ -17280,9 +16604,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-120",
@@ -17332,9 +16654,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-121",
@@ -17384,9 +16704,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-122",
@@ -17437,9 +16755,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-123",
@@ -17488,9 +16804,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-124",
@@ -17544,9 +16858,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVC-125",
@@ -17599,9 +16911,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent017-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-126",
@@ -17654,9 +16964,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p093-parent276-child00",
       "chunk_match_score": 130,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-127",
@@ -17703,9 +17011,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-128",
@@ -17758,9 +17064,7 @@
       "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-129",
@@ -17812,9 +17116,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p093-parent276-child01",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-130",
@@ -17867,9 +17169,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p056-parent150-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-125",
@@ -17921,9 +17221,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-126",
@@ -17972,9 +17270,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-127",
@@ -18025,9 +17321,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p042-parent163-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-128",
@@ -18077,9 +17371,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-129",
@@ -18131,9 +17423,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 130,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-130",
@@ -18183,9 +17473,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-131",
@@ -18237,9 +17525,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent007-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-068",
@@ -18289,9 +17575,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-069",
@@ -18342,9 +17626,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-070",
@@ -18393,9 +17675,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-071",
@@ -18447,9 +17727,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-072",
@@ -18498,9 +17776,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVO-073",
@@ -18551,9 +17827,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVO-074",
@@ -18605,9 +17879,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent001-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVO-075",
@@ -18657,9 +17929,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVO-076",
@@ -18710,9 +17980,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVO-077",
@@ -18763,9 +18031,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-078",
@@ -18819,9 +18085,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-079",
@@ -18875,9 +18139,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-080",
@@ -18930,9 +18192,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-081",
@@ -18981,9 +18241,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-082",
@@ -19034,9 +18292,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVO-083",
@@ -19087,9 +18343,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-084",
@@ -19138,9 +18392,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent507-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVO-085",
@@ -19191,9 +18443,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 60,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 105,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVO-086",
@@ -19242,9 +18492,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-131",
@@ -19293,9 +18541,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-132",
@@ -19344,9 +18590,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-133",
@@ -19394,9 +18638,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-134",
@@ -19448,9 +18690,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-135",
@@ -19498,9 +18738,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p025-parent115-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-136",
@@ -19549,9 +18787,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-137",
@@ -19601,9 +18837,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-138",
@@ -19652,9 +18886,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-139",
@@ -19705,9 +18937,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-140",
@@ -19758,9 +18988,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-141",
@@ -19814,9 +19042,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p011-parent027-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-142",
@@ -19870,9 +19096,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-143",
@@ -19925,9 +19149,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-144",
@@ -19977,9 +19199,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-145",
@@ -20032,9 +19252,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-146",
@@ -20083,9 +19301,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-147",
@@ -20138,9 +19354,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-148",
@@ -20190,9 +19404,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-149",
@@ -20244,9 +19456,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-150",
@@ -20293,9 +19503,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-151",
@@ -20341,9 +19549,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVR-152",
@@ -20385,9 +19591,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-153",
@@ -20434,9 +19638,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 85,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-154",
@@ -20483,9 +19685,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVR-155",
@@ -20533,9 +19733,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-156",
@@ -20579,9 +19777,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-157",
@@ -20626,9 +19822,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-158",
@@ -20672,9 +19866,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-159",
@@ -20719,9 +19911,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-160",
@@ -20765,9 +19955,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p158-parent473-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-161",
@@ -20811,9 +19999,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-132",
@@ -20864,9 +20050,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-133",
@@ -20916,9 +20100,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-134",
@@ -20970,9 +20152,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-135",
@@ -21024,9 +20204,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-136",
@@ -21077,9 +20255,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-137",
@@ -21128,9 +20304,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent000-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 60,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-138",
@@ -21180,9 +20354,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-139",
@@ -21234,9 +20406,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent019-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-140",
@@ -21287,9 +20457,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent011-child00",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-141",
@@ -21339,9 +20507,7 @@
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-142",
@@ -21398,9 +20564,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-143",
@@ -21449,9 +20613,7 @@
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-144",
@@ -21502,9 +20664,7 @@
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent019-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-145",
@@ -21563,9 +20723,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 90,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 90
     },
     {
       "id": "FR-ANN-UVC-146",
@@ -21615,9 +20773,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 50,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 50
     },
     {
       "id": "FR-ANN-UVC-147",
@@ -21669,9 +20825,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-148",
@@ -21720,9 +20874,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-149",
@@ -21774,9 +20926,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-150",
@@ -21835,9 +20985,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-162",
@@ -21889,9 +21037,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-163",
@@ -21942,9 +21088,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-164",
@@ -21996,9 +21140,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-165",
@@ -22051,9 +21193,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 150,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-166",
@@ -22100,9 +21240,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
       "chunk_match_score": 130,
       "chunk_match_method": "article_direct",
-      "chunk_score": 105,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 105
     },
     {
       "id": "FR-ANN-UVR-167",
@@ -22151,9 +21289,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-168",
@@ -22204,9 +21340,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-169",
@@ -22259,9 +21393,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-170",
@@ -22312,9 +21444,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
       "chunk_match_score": 50,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 45,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-171",
@@ -22365,9 +21495,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-172",
@@ -22420,9 +21548,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-173",
@@ -22472,9 +21598,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-174",
@@ -22526,9 +21650,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
       "chunk_match_score": 30,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-175",
@@ -22576,9 +21698,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVR-176",
@@ -22629,9 +21749,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-177",
@@ -22683,9 +21801,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent185-child02",
       "chunk_match_score": 120,
       "chunk_match_method": "article_direct",
-      "chunk_score": 95,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 95
     },
     {
       "id": "FR-ANN-UVR-178",
@@ -22736,9 +21852,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVR-179",
@@ -22787,9 +21901,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVR-180",
@@ -22841,9 +21953,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVR-181",
@@ -22893,9 +22003,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVR-182",
@@ -22948,9 +22056,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
       "chunk_match_score": 40,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 35,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVR-183",
@@ -23002,9 +22108,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 85,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 85
     },
     {
       "id": "FR-ANN-UVC-151",
@@ -23053,9 +22157,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-152",
@@ -23101,9 +22203,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-153",
@@ -23150,9 +22250,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
       "chunk_match_score": 110,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-154",
@@ -23204,9 +22302,7 @@
       "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 60,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-155",
@@ -23255,9 +22351,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-156",
@@ -23306,9 +22400,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-157",
@@ -23359,9 +22451,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent021-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-158",
@@ -23410,9 +22500,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 25,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-159",
@@ -23461,9 +22549,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p216-parent661-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-160",
@@ -23513,9 +22599,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "hard",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-161",
@@ -23567,9 +22651,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-162",
@@ -23618,9 +22700,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-163",
@@ -23669,9 +22749,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-164",
@@ -23718,9 +22796,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-165",
@@ -23769,9 +22845,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 25,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-166",
@@ -23822,9 +22896,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent005-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-167",
@@ -23873,9 +22945,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-168",
@@ -23922,9 +22992,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-169",
@@ -23973,9 +23041,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p086-parent256-child01",
       "chunk_match_score": 90,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-170",
@@ -24025,9 +23091,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
       "chunk_match_score": 100,
       "chunk_match_method": "article_direct",
-      "chunk_score": 75,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 75
     },
     {
       "id": "FR-ANN-UVC-171",
@@ -24075,9 +23139,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-172",
@@ -24127,9 +23189,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-173",
@@ -24177,9 +23237,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "article_direct",
-      "chunk_score": 65,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "hard"
+      "chunk_score": 65
     },
     {
       "id": "FR-ANN-UVC-174",
@@ -24246,9 +23304,7 @@
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent008-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 15,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-175",
@@ -24295,9 +23351,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "article_direct",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-176",
@@ -24358,9 +23412,7 @@
       "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent004-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 15,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-177",
@@ -24421,9 +23473,7 @@
       "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p002-parent007-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 60,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "easy"
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-178",
@@ -24470,9 +23520,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-179",
@@ -24519,9 +23567,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 55,
-      "human_difficulty": "easy",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 55
     },
     {
       "id": "FR-ANN-UVC-180",
@@ -24569,9 +23615,7 @@
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65,
-      "human_difficulty": "medium",
-      "retrieval_difficulty": "medium"
+      "chunk_score": 65
     }
   ],
   "cleanup_stats": {

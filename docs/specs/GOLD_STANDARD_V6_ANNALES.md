@@ -188,7 +188,9 @@ ANNALES DNA (https://dna.ffechecs.fr/devenir-arbitre/examens/)
       "Bloom's Taxonomy for cognitive levels",
       "RAGAS/BEIR standards for question types",
       "Google Cloud RAG Best Practices",
-      "Evidently AI RAG Evaluation Guide"
+      "Evidently AI RAG Evaluation Guide",
+      "Know Your RAG: Dataset Taxonomy (COLING 2025) - arXiv:2411.19710",
+      "RAGEval: Scenario Specific RAG Evaluation - arXiv:2408.01262"
     ]
   },
   "questions": [

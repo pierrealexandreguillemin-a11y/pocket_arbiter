@@ -1,0 +1,222 @@
+{
+  "description": "Tier 1 HARD-BUT-ANSWERABLE questions for GS v7 regular import",
+  "source": "tests/data/adversarial_review.json",
+  "preparation_date": "2026-01-25",
+  "status": "READY_FOR_IMPORT",
+  "is_impossible": false,
+  "note": "Ces questions testent la robustesse vocabulaire mais SONT answerable",
+  "total_questions": 6,
+  "questions": [
+    {
+      "id": "ffe:human:rating:001:9c91be08",
+      "question": "Un joueur qui n'a joué aucune partie pendant 18 mois voit-il son classement Elo Standard supprimé ? Dans quelles conditions exactement ?",
+      "expected_answer": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+      "is_impossible": false,
+      "expected_chunk_id": "",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        183
+      ],
+      "category": "classement",
+      "keywords": [
+        "inactivité",
+        "18 mois",
+        "Elo",
+        "supprimé",
+        "classement"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "adversarial_adapted",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "hard-vocabulary",
+        "cognitive_level": "Remember",
+        "difficulty": 0.8,
+        "original_hard_type": "VOCABULARY_MISMATCH",
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2"
+      },
+      "legacy_id": "FR-Q77"
+    },
+    {
+      "id": "ffe:human:rating:002:d463c1d1",
+      "question": "Si un joueur joue pas du tout pendant 18 mois, son Elo finit par disparaître ou pas ?",
+      "expected_answer": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+      "is_impossible": false,
+      "expected_chunk_id": "",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        183
+      ],
+      "category": "classement",
+      "keywords": [
+        "inactivité",
+        "18 mois",
+        "Elo",
+        "disparaître"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "adversarial_adapted",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "hard-vocabulary",
+        "cognitive_level": "Apply",
+        "difficulty": 0.8,
+        "original_hard_type": "VOCABULARY_MISMATCH",
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2"
+      },
+      "legacy_id": "FR-Q94"
+    },
+    {
+      "id": "ffe:human:clubs:001:f4edbba1",
+      "question": "Qu'est-ce que le 'noyau' d'une equipe en Nationale et quelle est la regle des 50% ?",
+      "expected_answer": "A02 p6 art 3.7.f - noyau = 50% joueurs ayant deja joue pour equipe",
+      "is_impossible": false,
+      "expected_chunk_id": "",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "category": "tournoi",
+      "keywords": [
+        "noyau",
+        "50%",
+        "equipe",
+        "nationale"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "adversarial_adapted",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "hard-vocabulary",
+        "cognitive_level": "Understand",
+        "difficulty": 0.8,
+        "original_hard_type": "VOCABULARY_MISMATCH",
+        "corpus_truth": "A02 p6 art 3.7.f - noyau = 50% joueurs ayant deja joue pour equipe"
+      },
+      "legacy_id": "FR-Q141"
+    },
+    {
+      "id": "ffe:human:clubs:002:8456e318",
+      "question": "En Top 16, combien de 'joueurs etrangers' peut-on aligner par match et quelle est la definition exacte ?",
+      "expected_answer": "A02 p6 art 3.7.h = min 5 FR, 3.7.i = 1 joueur FR + 1 joueuse FR obligatoires",
+      "is_impossible": false,
+      "expected_chunk_id": "",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "category": "tournoi",
+      "keywords": [
+        "Top 16",
+        "joueurs etrangers",
+        "nationalite",
+        "quota"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "adversarial_adapted",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "hard-vocabulary",
+        "cognitive_level": "Understand",
+        "difficulty": 0.8,
+        "original_hard_type": "VOCABULARY_MISMATCH",
+        "corpus_truth": "A02 p6 art 3.7.h = min 5 FR, 3.7.i = 1 joueur FR + 1 joueuse FR obligatoires"
+      },
+      "legacy_id": "FR-Q144"
+    },
+    {
+      "id": "ffe:human:rules:001:f3c28955",
+      "question": "C'est quoi le 'flag' en echecs et qu'est-ce qui se passe quand ca tombe ?",
+      "expected_answer": "LA p50 art 6.1 = 'chute du drapeau' = temps ecoule, partie perdue sauf exceptions",
+      "is_impossible": false,
+      "expected_chunk_id": "",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        50
+      ],
+      "category": "temps",
+      "keywords": [
+        "flag",
+        "drapeau",
+        "temps",
+        "tombe"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "adversarial_adapted",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "hard-vocabulary",
+        "cognitive_level": "Remember",
+        "difficulty": 0.8,
+        "original_hard_type": "VOCABULARY_MISMATCH",
+        "corpus_truth": "LA p50 art 6.1 = 'chute du drapeau' = temps ecoule, partie perdue sauf exceptions"
+      },
+      "legacy_id": "FR-Q149"
+    },
+    {
+      "id": "ffe:human:rules:002:6fd2f969",
+      "question": "Selon l'article 12.9 des Lois du Jeu FIDE, quelle est la procedure exacte pour reclamer une nulle apres 75 coups sans prise ni mouvement de pion ?",
+      "expected_answer": "Art 12.9 = sanctions comportement incorrect (16 mentions). Art 9.6.2 p70 = regle 75 coups nulle automatique. Question melange deux articles distincts.",
+      "is_impossible": false,
+      "expected_chunk_id": "",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        70
+      ],
+      "category": "regles_jeu",
+      "keywords": [
+        "article 12.9",
+        "75 coups",
+        "nulle",
+        "FIDE"
+      ],
+      "validation": {
+        "status": "VALIDATED",
+        "method": "adversarial_adapted",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "hard-vocabulary",
+        "cognitive_level": "Remember",
+        "difficulty": 0.8,
+        "original_hard_type": "VOCABULARY_MISMATCH",
+        "corpus_truth": "Art 12.9 = sanctions comportement incorrect (16 mentions). Art 9.6.2 p70 = regle 75 coups nulle automatique. Question melange deux articles distincts."
+      },
+      "legacy_id": "FR-Q150"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "version": {
-    "number": "6.19.0",
+    "number": "6.20.0",
     "date": "2026-01-25",
     "answer_text_coverage": "477/477 (100%)",
     "answer_explanation_coverage": "220/477 (46.1%)",
@@ -9,7 +9,8 @@
     "method": "manual_docling_verification_audit",
     "audit_note": "102 corrections totales: pages + documents",
     "expected_chunk_coverage": "477/477 (100%)",
-    "chunk_source": "chunks_mode_b_fr.json (LangChain Parent-Child)"
+    "chunk_source": "chunks_mode_b_fr.json (LangChain Parent-Child)",
+    "chunk_mapping": "intelligent article-based (75 high-confidence)"
   },
   "description": "Gold Standard v6 - Annales-based with official DNA questions",
   "methodology": {
@@ -247,7 +248,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "4.2.1 - Seul le joueur ou la joueuse ayant le trait peut recentrer une ou plusieurs pièces sur leurs cases respectives, à la condition d'en exprimer l'intention au préalable (par exemple en disant « j'adoube » ou « I adjust »). - 4.3.1 - Une ou plusieurs de ses propres pièces, il/elle doit déplacer la première pièce touchée pouvant être déplacée.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00"
     },
     {
       "id": "FR-ANN-UVR-027",
@@ -287,7 +288,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "4.3.3 Une ou plusieurs pièces de chaque couleur, il/elle doit prendre la première pièce adverse touchée avec sa première pièce touchée ou, si c'est illégal, déplacer ou prendre la première pièce touchée pouvant être déplacée ou prise. Si on ne peut pas déterminer si c'est une de ses pièces ou une des pièces adverses qui a été touchée en premier, alors on considère que c'est sa propre pièce qui a été touchée en premier, avant celle de son adversaire.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02"
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent164-child00"
     },
     {
       "id": "FR-ANN-UVR-028",
@@ -466,7 +467,7 @@
       "answer_explanation": "Les raisons valables pour mettre la pendule en pause incluent : Une irrégularité, telle qu'une position ou un coup illégal ; Une personne est dérangée par son adversaire et/ou par des spectateurs/spectatrices ; fait un malaise. Une pause toilette n'est généralement pas une raison valable sauf dans le cas d'une personne handicapée ou malade.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01"
     },
     {
       "id": "FR-ANN-UVR-032",
@@ -563,7 +564,7 @@
       "answer_explanation": "Un joueur ou une joueuse, s'il/elle le souhaite, peut répondre au coup de son adversaire avant de le noter, il/elle doit enregistrer son coup précédent avant d'en jouer un autre.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child02"
     },
     {
       "id": "FR-ANN-UVR-034",
@@ -606,7 +607,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Aucun changement ne doit être fait au réglage de la pendule, à moins que la programmation horaire de la compétition n'en soit affectée.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-035",
@@ -647,7 +648,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "4.3.3 Une ou plusieurs pièces de chaque couleur, il/elle doit prendre la première pièce adverse touchée avec sa première pièce touchée ou, si c'est illégal, déplacer ou prendre la première pièce touchée pouvant être déplacée ou prise. Si on ne peut pas déterminer si c'est une de ses pièces ou une des pièces adverses qui a été touchée en premier, alors on considère que c'est sa propre pièce qui a été touchée en premier, avant celle de son adversaire.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02"
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent164-child00"
     },
     {
       "id": "FR-ANN-UVR-036",
@@ -883,7 +884,7 @@
       "answer_explanation": "Pendant la partie, chaque joueur et joueuse doit enregistrer ses propres coups et ceux de son adversaire de manière correcte, coup après coup, aussi clairement et lisiblement que possible.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02"
     },
     {
       "id": "FR-ANN-UVR-041",
@@ -931,7 +932,7 @@
       "answer_explanation": "Un joueur ou une joueuse, s'il/elle le souhaite, peut répondre au coup de son adversaire avant de le noter, il/elle doit enregistrer son coup précédent avant d'en jouer un autre.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child02"
     },
     {
       "id": "FR-ANN-UVR-042",
@@ -975,7 +976,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Une réclamation de nulle au titre de 9.2 ou 9.3 est assimilée à une proposition de nulle. Si une personne réclame la nulle en application de l'Article 9.2 ou 9.3, elle ou l'arbitre met la pendule en pause. Elle n'a pas le droit de retirer sa réclamation. La personne peut changer d'avis mais la réclamation demeure : la reconstitution continue...",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01"
     },
     {
       "id": "FR-ANN-UVR-043",
@@ -1021,7 +1022,7 @@
       "answer_explanation": "La partie est nulle, sur une demande correcte du joueur/de la joueuse ayant le trait, lorsque la même position, pour la troisième fois au moins (pas nécessairement par une répétition de coups) est sur le point d'apparaître, si il/elle indique d'abord son coup, qui ne peut plus être changé, en l'écrivant sur sa feuille de partie en papier ou en le notant sur sa feuille de partie électronique et déclare à l'arbitre son intention de jouer ce coup, ou...",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00"
     },
     {
       "id": "FR-ANN-UVR-044",
@@ -1064,7 +1065,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Si la réclamation est jugée incorrecte, l'arbitre ajoute deux minutes au temps de réflexion restant de l'adversaire. La partie doit continuer. Si la réclamation était basée sur un coup prévu, ce coup doit être joué en respectant les Articles 3 et 4.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02"
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00"
     },
     {
       "id": "FR-ANN-UVR-045",
@@ -1158,7 +1159,7 @@
       "answer_explanation": "16 coups ayant été joués, aucun changement ne peut être fait au réglage de la pendule. L'incrément de 5 s n'affectera pas les horaires de la compétition, donc la partie continuera avec ce mauvais réglage. Aucun changement ne doit être fait au réglage de la pendule, à moins que la programmation horaire de la compétition n'en soit affectée.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-047",
@@ -1202,7 +1203,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Si l'arbitre observe l'une des situations décrites dans l' Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, il/elle agit en respectant l' Article 7.5.5, à condition que l'adversaire n'ait pas joué son coup suivant. Si l'arbitre n'intervient pas, l'adversaire a l'autorisation de réclamer, à condition qu'il/elle n'ait pas joué son coup suivant. Si l'adversaire ne réclame pas et que l'arbitre n'intervient pas, le coup illégal subsiste et la partie continue. Une fois que l'adversaire a joué son coup suivant, un coup illégal ne peut plus être corrigé, sauf par accord mutuel entre les deux adversaires sans intervention de l'arbitre. Le coup joué est illégal car laisse le roi en échec. Comme le joueur n'a pas appuyé sur la pendule, l'arbitre n'est pas autorisé à intervenir. Il faut laisser faire.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-048",
@@ -1244,7 +1245,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Pour réclamer un gain au temps, le demandeur ou la demandeuse peut mettre la pendule en pause et avertir l'arbitre. Cependant, la partie est nulle si la position est telle qu'il/elle ne peut pas mater le roi adverse par une suite de coups légaux. Si les deux pendules indiquent 0.00, aucune réclamation pour gagner au temps ne peut être soumise par les deux adversaires, mais l'arbitre décide du résultat du match en fonction du drapeau qui apparaît sur l'une des pendules. Le joueur/la joueuse dont la pendule affiche cette indication perd la partie sauf si son adversaire ne peut mater par aucune suite de coups légaux.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVC-001",
@@ -1289,7 +1290,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent156-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p038-parent157-child01"
     },
     {
       "id": "FR-ANN-UVC-002",
@@ -1381,7 +1382,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child01"
     },
     {
       "id": "FR-ANN-UVC-004",
@@ -1470,7 +1471,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent058-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent060-child00"
     },
     {
       "id": "FR-ANN-UVC-006",
@@ -1516,7 +1517,7 @@
       "answer_source": "merged",
       "answer_explanation": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 6 Administration 6.2. Arbitres inactifs : un arbitre inactif n'ayant fait aucune formation durant une période de dix ans sera en plus [de suivre un stage SC] dans l'obligation de valider à nouveau l'UVR.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p013-parent032-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00"
     },
     {
       "id": "FR-ANN-UVC-007",
@@ -1559,7 +1560,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00"
     },
     {
       "id": "FR-ANN-UVC-008",
@@ -1597,7 +1598,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00"
     },
     {
       "id": "FR-ANN-UVC-009",
@@ -1993,7 +1994,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-018",
@@ -2037,7 +2038,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent000-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent006-child00"
     },
     {
       "id": "FR-ANN-UVC-019",
@@ -2130,7 +2131,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent012-child00"
     },
     {
       "id": "FR-ANN-UVC-021",
@@ -2174,7 +2175,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent020-child01"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent022-child00"
     },
     {
       "id": "FR-ANN-UVC-022",
@@ -2482,7 +2483,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p003-parent013-child00"
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p003-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-029",
@@ -2573,7 +2574,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00"
     },
     {
       "id": "FR-ANN-UVT-002",
@@ -2619,7 +2620,7 @@
       "answer_explanation": "En classement ELO standard, un minime(U160) est estimé à 1299 alors qu'un vétéran est estimé à 1399",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent021-child00"
     },
     {
       "id": "FR-ANN-UVT-003",
@@ -2709,7 +2710,7 @@
       "answer_source": "merged",
       "answer_explanation": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte de mobilisation inclusion de personne en situation de handicap. Cette question a eu un faible taux de réussite, cette règle est encore récente mais marquée très clairement dans les règlements.",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00"
     },
     {
       "id": "FR-ANN-UVT-005",
@@ -2755,7 +2756,7 @@
       "answer_source": "merged",
       "answer_explanation": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi. Les maîtres FIDE ne sont pas dans cette liste.",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00"
     },
     {
       "id": "FR-ANN-UVT-006",
@@ -2800,7 +2801,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00"
     },
     {
       "id": "FR-ANN-UVT-007",
@@ -2843,7 +2844,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVT-008",
@@ -3060,7 +3061,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01"
     },
     {
       "id": "FR-ANN-UVT-013",
@@ -3197,7 +3198,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent170-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
     },
     {
       "id": "FR-ANN-UVT-016",
@@ -3244,7 +3245,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child02"
     },
     {
       "id": "FR-ANN-UVT-017",
@@ -3424,7 +3425,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child02"
     },
     {
       "id": "FR-ANN-UVT-021",
@@ -3560,7 +3561,7 @@
       "answer_explanation": "Au système Hort, il faut calculer la moyenne entre les deux : (230+150)÷2=190 €",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVT-024",
@@ -3701,7 +3702,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVT-027",
@@ -3747,7 +3748,7 @@
       "answer_explanation": "FFÉ checs D irection N ationale de l' A rbitrage - Session d'examen de décembre 2024 - Annales - Page 59 sur 62",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVT-028",
@@ -3795,7 +3796,7 @@
       "answer_explanation": "Pour un arbitre principal en cadence lente : les journées à une ronde sont indemnisées entre 60 et 85 € Les journées à deux rondes sont indemnisées entre 70 et 100 € Le minimum est donc 1×60 +3×70=270 € Le maximum est 1×85+3×100=385 €",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVT-029",
@@ -3842,7 +3843,7 @@
       "answer_explanation": "Les poursuites disciplinaires sont engagées par le Bureau Fédéral sur dépôt de plainte motivée à l'initiative d'un licencié ou d'une association. L'arbitre ne peut donc pas contacter directement la commission de discipline sauf s'il est en position de plaignant. Ci-dessous les appariements que les candidats devaient obtenir.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent026-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent028-child00"
     },
     {
       "id": "FR-ANN-UVO-020",
@@ -3926,7 +3927,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "En classement ELO standard, un minime(U160) est estimé à 1299 alors qu'un vétéran est estimé à 1399",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent026-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent027-child00"
     },
     {
       "id": "FR-ANN-UVO-022",
@@ -4008,7 +4009,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte de mobilisation inclusion de personne en situation de handicap. Cette question a eu un faible taux de réussite, cette règle est encore récente mais marquée très clairement dans les règlements.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00"
     },
     {
       "id": "FR-ANN-UVO-024",
@@ -4055,7 +4056,7 @@
       "answer_explanation": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi. Les maîtres FIDE ne sont pas dans cette liste.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00"
     },
     {
       "id": "FR-ANN-UVO-025",
@@ -4232,7 +4233,7 @@
       "answer_explanation": "Dans les tournois A (cadence lente), l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi .",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00"
     },
     {
       "id": "FR-ANN-UVO-029",
@@ -4272,7 +4273,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Eviter d'être flotteur montant deux fois de suite est classée comme le critère N°13 Eviter d'être flotteur descendant deux fois de suite est classée comme le critère N°12 Ne pas affronter deux fois le même adversaire est le critère N°1 Avoir sa couleur préférentielle est le critère N°11",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00"
     },
     {
       "id": "FR-ANN-UVO-030",
@@ -4356,7 +4357,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Selon le 3.7.b), chaque joueur ou joueuse doit avoir un Elo estimé ou réel inférieur ou égal à 1800. L'Elo à prendre en compte est le dernier Elo publié. Uniquement pour la phase départementale, le classement Elo du mois précédent ne dépassant pas les 1800 points pour un joueur ou une joueuse, sera autorisé .",
       "quality_score": 1.0,
-      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p003-parent002-child00"
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p003-parent012-child01"
     },
     {
       "id": "FR-ANN-UVO-032",
@@ -4447,7 +4448,7 @@
       "answer_explanation": "Selon l'article 3.1.2, le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Dans le règlement de la Coupe de la Parité, il n'y a aucune indication de délai de forfait, le retard autorisé est donc de 30 minutes.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent007-child00"
     },
     {
       "id": "FR-ANN-UVO-034",
@@ -4540,7 +4541,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVO-036",
@@ -4621,7 +4622,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVO-038",
@@ -4719,7 +4720,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVR-049",
@@ -4762,7 +4763,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-050",
@@ -4805,7 +4806,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVR-051",
@@ -4898,7 +4899,7 @@
       "answer_explanation": "Le pat met fin à la partie et oblige au match nul, même si les blancs tombent au temps après ou abandonnent car ils n'ont pas compris la situation.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-ANN-UVR-053",
@@ -4946,7 +4947,7 @@
       "answer_explanation": "## Article 5.2.2 Dans cette position avec les fous sur cases de même couleur, il n'y a pas de mat possible. C'est une position morte.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-ANN-UVR-054",
@@ -4993,7 +4994,7 @@
       "answer_explanation": "La d) est clairement indiquée dans les règles du jeu. La b) correspond à un dérangement de l'adversaire. Pour la c), un assistant ne peut dire le temps restant que sur demande du joueur.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child00"
     },
     {
       "id": "FR-ANN-UVR-055",
@@ -5179,7 +5180,7 @@
       "answer_explanation": "Même si ce type de demande est possible, la demande est faite de manière à déranger l'adversaire dans sa réflexion. Il est de plus assez probable que plusieurs prises et avancées de pions sont à prévoir dans les prochains coups. La demande n'est donc pas justifiée.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01"
     },
     {
       "id": "FR-ANN-UVR-059",
@@ -5270,7 +5271,7 @@
       "answer_explanation": "Le coup illégal a été achevé par l'appui sur la pendule. Pour le 1er coup illégal achevé, l'arbitre donne deux minutes à l'adversaire.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-061",
@@ -5366,7 +5367,7 @@
       "answer_explanation": "Lors d'une partie en cadence rapide, l'arbitre n'intervient que si l'adversaire n'a pas joué son coup suivant.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-063",
@@ -5457,7 +5458,7 @@
       "answer_source": "merged",
       "answer_explanation": "Si un joueur ou une joueuse renverse une ou plusieurs pièces, il/elle rétablit la position correcte sur son propre temps.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-065",
@@ -5588,7 +5589,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
     },
     {
       "id": "FR-ANN-UVC-031",
@@ -5723,7 +5724,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00"
     },
     {
       "id": "FR-ANN-UVC-034",
@@ -5768,7 +5769,7 @@
       "answer_explanation": "La Coupe « Jean-Claude Loubatière » est une compétition fédérale. Le règlement de cette compétition n'indique aucune information concernant le délai de forfait. D'après l'article sur les retards autorisés du R01 - Règles générales, le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00"
     },
     {
       "id": "FR-ANN-UVC-035",
@@ -5816,7 +5817,7 @@
       "answer_explanation": "Des équipes issues d'une entente entre clubs peuvent être autorisées à participer à certaines compétitions de la Fédération Française des Echecs (Article 11.1). L'entente n'est valable que pour une saison. Elle peut être renouvelée sur décision de la Ligue. (Article 11.2.2) Chaque club est limité à une seule entente par compétition et par saison. (Article 11.3.4)",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent000-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent030-child00"
     },
     {
       "id": "FR-ANN-UVC-036",
@@ -5858,7 +5859,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01"
     },
     {
       "id": "FR-ANN-UVC-037",
@@ -5948,7 +5949,7 @@
       "answer_explanation": "L'heure limite de prise de licence pour un joueur participant à une rencontre est l'heure prévue du début de la rencontre.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-039",
@@ -5992,7 +5993,7 @@
       "answer_explanation": "Lorsque la liste est remise plus tard, les pendules de tous les échiquiers de l'équipe concernée sont avancées d'un temps égal au retard. Si, de plus, un joueur ou une joueuse arrive dans un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-040",
@@ -6039,7 +6040,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-041",
@@ -6087,7 +6088,7 @@
       "answer_source": "merged",
       "answer_explanation": "L'arbitre transcrit sur la feuille de match les feuilles de composition remises par les capitaines des équipes, contrôle les licences à l'aide du site fédéral et le cas échéant, indique sur le PV l'absence de licence A. Après la rencontre, la personne en charge de la direction du groupe contrôle la situation des joueuses et des joueurs (Article 2.1.b)",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-042",
@@ -6133,7 +6134,7 @@
       "answer_source": "merged",
       "answer_explanation": "L'équipe ayant les blancs sur les échiquiers impairs (l'équipe la première nommée dans le calendrier) contacte le club organisateur afin que ce dernier confirme qu'il pourra assumer les 3 missions.",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-043",
@@ -6177,7 +6178,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-044",
@@ -6222,7 +6223,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-045",
@@ -6268,7 +6269,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent012-child00"
     },
     {
       "id": "FR-ANN-UVC-046",
@@ -6313,7 +6314,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent012-child00"
     },
     {
       "id": "FR-ANN-UVC-047",
@@ -6358,7 +6359,7 @@
       "answer_explanation": "Sauf événement exceptionnel dûment justifié reconnu par la direction de groupe, tout forfait d'une équipe sera sanctionné par l'amende suivante : 1 500 € en Top 16, 750 € en N1, 400 € en N2, 300 € en N3. Cette amende sera doublée si le forfait a lieu à la dernière ronde.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00"
     },
     {
       "id": "FR-ANN-UVC-048",
@@ -6450,7 +6451,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00"
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-ANN-UVC-050",
@@ -6495,7 +6496,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00"
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-051",
@@ -6539,7 +6540,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
     },
     {
       "id": "FR-ANN-UVC-052",
@@ -6816,7 +6817,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00"
     },
     {
       "id": "FR-ANN-UVT-031",
@@ -7088,7 +7089,7 @@
       "answer_source": "merged",
       "answer_explanation": "Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. Le roi blanc est en échec. Le seul moyen de parer cet échec est Cxf4 qui mate immédiatement le roi noir. Les noirs ne pouvant gagner, la nulle est déclarée. ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVT-037",
@@ -7223,7 +7224,7 @@
       "answer_explanation": "Si l'arbitre observe l'une des situations décrites dans l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, il/elle agit en respectant l'Article 7.5.5, à condition que l'adversaire n'ait pas joué son coup suivant. Si l'arbitre n'intervient pas, l'adversaire a l'autorisation de réclamer, à condition qu'il/elle n'ait pas joué son coup suivant. Si l'adversaire ne réclame pas et que l'arbitre n'intervient pas, le coup illégal subsiste et la partie continue. Une fois que l'adversaire a joué son coup suivant, un coup illégal ne peut plus être corrigé, sauf par accord mutuel entre les deux adversaires sans intervention de l'arbitre.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVT-040",
@@ -7544,7 +7545,7 @@
       "answer_explanation": "En particulier, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridique.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p025-parent113-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p025-parent114-child00"
     },
     {
       "id": "FR-ANN-UVT-047",
@@ -7588,7 +7589,7 @@
       "answer_explanation": "Pauline : 0,5 + 0,5 + 1 + 0,5 = 2,5 François : 1 + 0,5 + 0,5 + 0,5 + 0,5 = 3",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent055-child00"
     },
     {
       "id": "FR-ANN-UVT-048",
@@ -7635,7 +7636,7 @@
       "answer_explanation": "Ce qui nous donne : 1 + (1 - 0) + (0,5 x 0) = 2",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent055-child00"
     },
     {
       "id": "FR-ANN-UVT-049",
@@ -7767,7 +7768,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVT-052",
@@ -7810,7 +7811,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVT-053",
@@ -7853,7 +7854,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVR-067",
@@ -7896,7 +7897,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p025-parent113-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p025-parent115-child00"
     },
     {
       "id": "FR-ANN-UVR-068",
@@ -7939,7 +7940,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-069",
@@ -8028,7 +8029,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01"
     },
     {
       "id": "FR-ANN-UVR-071",
@@ -8076,7 +8077,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-072",
@@ -8123,7 +8124,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-ANN-UVR-073",
@@ -8169,7 +8170,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-ANN-UVR-074",
@@ -8387,7 +8388,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00"
     },
     {
       "id": "FR-ANN-UVR-079",
@@ -8572,7 +8573,7 @@
       "answer_explanation": "Article 7.5.1 - Règles du jeu en compétition.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-083",
@@ -8845,7 +8846,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent055-child00"
     },
     {
       "id": "FR-ANN-UVC-060",
@@ -8981,7 +8982,7 @@
       "answer_explanation": "Commentaire de correction : Beaucoup de candidats ont choisi la réponse C), ce choix est raisonnable cependant le confort des joueurs reste une des obligations de l'arbitre alors qu'en aucun cas l'organisateur ne peut imposer la mise en place du matériel aux arbitres.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p008-parent010-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p008-parent010-child01"
     },
     {
       "id": "FR-ANN-UVC-063",
@@ -9478,7 +9479,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent007-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent008-child00"
     },
     {
       "id": "FR-ANN-UVC-074",
@@ -9523,7 +9524,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02"
     },
     {
       "id": "FR-ANN-UVC-075",
@@ -9613,7 +9614,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent012-child00"
     },
     {
       "id": "FR-ANN-UVC-077",
@@ -9657,7 +9658,7 @@
       "answer_explanation": "Commentaire de correction : De nombreux candidats ont choisi la réponse D et n'ont donc pris en compte que la règle des 100 pts Elo. Les questions sur les compositions d'équipes aux interclubs sont très courantes et il est vivement conseillé de travaill er les règles de composition du championnat de France des clubs avant de se présenter à l'examen.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p129-parent379-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p129-parent380-child00"
     },
     {
       "id": "FR-ANN-UVC-078",
@@ -9747,7 +9748,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00"
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00"
     },
     {
       "id": "FR-ANN-UVC-080",
@@ -10014,7 +10015,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01"
     },
     {
       "id": "FR-ANN-UVR-087",
@@ -10201,7 +10202,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "N'ayant pas appuyé sur leur pendule, le coup n'est pas achevé et le joueur est autorisé à se corriger. Le cavalier touché ne dispose d'aucun coup légal donc il n'est pas obligatoire de le déplacer. Par contre le pion d4 qui a été touché peut être pris (uniquement avec le pion e5) par conséquent les noirs ont l'obligation de joueur exd4",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-091",
@@ -10249,7 +10250,7 @@
       "answer_source": "merged",
       "answer_explanation": "La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n'a pas d'incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences. La cadence b) est une cadence de jeu rapide où la notation n'est jamais obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu'au bout.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent026-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent027-child00"
     },
     {
       "id": "FR-ANN-UVR-092",
@@ -10299,7 +10300,7 @@
       "answer_explanation": "Règles du jeu - Annexe D.2.2",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent199-child02"
     },
     {
       "id": "FR-ANN-UVR-093",
@@ -10447,7 +10448,7 @@
       "answer_explanation": "Les appareils électroniques sont interdits, une montre connectée est de plus un appareil de communication pour lequel la sanction est immédiate.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child02"
     },
     {
       "id": "FR-ANN-UVR-096",
@@ -10494,7 +10495,7 @@
       "answer_source": "merged",
       "answer_explanation": "Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child02"
     },
     {
       "id": "FR-ANN-UVR-097",
@@ -10682,7 +10683,7 @@
       "answer_explanation": "Les parties Blitz et rapides s'arbitrent de la même manière. La sanction pour un coup illégal achevé n'est que d'une minute.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01"
     },
     {
       "id": "FR-ANN-UVR-101",
@@ -10731,7 +10732,7 @@
       "answer_source": "merged",
       "answer_explanation": "Le 2 e coup illégal achevé met fin à la partie. Nous sommes en cadence standard donc, même si l'adversaire a déjà joué, l'arbitre peut sanctionner le coup illégal précédent. Les blancs ont forcément la possibilité de faire mat car ils possèdent encore une tour. Les noirs ont donc perdu la partie.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-102",
@@ -10829,7 +10830,7 @@
       "answer_explanation": "Seul le joueur au trait a le droit d'adouber.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00"
     },
     {
       "id": "FR-ANN-UVR-104",
@@ -10879,7 +10880,7 @@
       "answer_explanation": "Si une prise en passant était possible alors on ne peut pas considérer que les positions sont identiques.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent180-child01"
     },
     {
       "id": "FR-ANN-UVR-105",
@@ -10927,7 +10928,7 @@
       "answer_explanation": "Règles du jeu - Annexe B.1 Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01"
     },
     {
       "id": "FR-ANN-UVR-106",
@@ -11025,7 +11026,7 @@
       "answer_explanation": "5. L'article 7.5.5 définissant les sanctions pour les coups illégaux renvoie à l'article 7.5.1. Celui-ci indique « au cours d'une partie » pour la constatation des coups illégaux. On ne revient donc pas sur le résultat d'une partie pour un coup illégal constaté bien plus tard. Le taux de réussite à cette question est bien trop faible. Une fois confirmé par les deux joueurs, le résultat d'une partie ne sera modifié par l'arbitre que dans des cas exceptionnels. (La répétition de 5 positions identiques,la règle des 75 coups, un cas de tricherie avéré...)",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-108",
@@ -11073,7 +11074,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p025-parent113-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p025-parent115-child00"
     },
     {
       "id": "FR-ANN-UVR-109",
@@ -11218,7 +11219,7 @@
       "answer_explanation": "Les règles du jeu définissent les trois autres propositions comme des coups illégaux. L'appui sur la pendule par l'autre main que celle qui a joué le coup n'est pas un coup illégal mais une infraction aux règles du jeu sur laquelle c'est l'arbitre qui choisit la sanction à prendre.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVR-112",
@@ -11268,7 +11269,7 @@
       "answer_explanation": "Il est considéré que le pat met immédiatement fin à la partie, il s'est produit avant l'abandon du joueur par conséquent l'arbitre doit déclarer le match nul.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-ANN-UVR-113",
@@ -11312,7 +11313,7 @@
       "answer_explanation": "Le délai de forfait est un délai qui est calculé entre le moment du lancement de la ronde et l'arrivée du joueur. La pendule peut être un indice mais l'arbitre n'a pas l'obligation d'en tenir compte (6.12.2).",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent170-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00"
     },
     {
       "id": "FR-ANN-UVR-114",
@@ -11452,7 +11453,7 @@
       "answer_explanation": "Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage Club (SC). A l'issue de celui-ci, son titre d'arbitre est réactivé.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00"
     },
     {
       "id": "FR-ANN-UVC-087",
@@ -11502,7 +11503,7 @@
       "answer_explanation": "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00"
     },
     {
       "id": "FR-ANN-UVC-088",
@@ -11552,7 +11553,7 @@
       "answer_explanation": "Une prise de licence dans un autre club entre le 1er et le 30 septembre équivaut à une demande de transfert qui exonère de la faire.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00"
     },
     {
       "id": "FR-ANN-UVC-089",
@@ -11600,7 +11601,7 @@
       "answer_explanation": "``` Les joueurs et joueuses sont classés dans des catégories en fonction de leur âge avant le 1er janvier de la saison. Cette joueuse étant née le 26 janvier 2011, il faut donc connaître son âge en 2024 à savoir 13 ans (24-11=13). Elle est donc en catégorie U14F.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00"
     },
     {
       "id": "FR-ANN-UVC-090",
@@ -11649,7 +11650,7 @@
       "answer_explanation": "``` Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00"
     },
     {
       "id": "FR-ANN-UVC-091",
@@ -11747,7 +11748,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-093",
@@ -11797,7 +11798,7 @@
       "answer_explanation": "Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent003-child00"
     },
     {
       "id": "FR-ANN-UVC-094",
@@ -11892,7 +11893,7 @@
       "answer_source": "merged",
       "answer_explanation": "``` Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Ce délai commence à l'heure stipulée du début de la rencontre à savoir 14h15.",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00"
     },
     {
       "id": "FR-ANN-UVC-096",
@@ -11939,7 +11940,7 @@
       "answer_explanation": "Les joueuses et joueurs non licenciés A/B en début de tournoi devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence au plus tard 7 jours après la fin du tournoi.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00"
     },
     {
       "id": "FR-ANN-UVC-097",
@@ -11986,7 +11987,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent000-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00"
     },
     {
       "id": "FR-ANN-UVC-098",
@@ -12035,7 +12036,7 @@
       "answer_explanation": "Lorsque la liste est remise plus tard, les pendules de tous les échiquiers de l'équipe concernée sont avancées d'un temps égal au retard. Si, de plus, un joueur ou une joueuse arrive dans un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02"
     },
     {
       "id": "FR-ANN-UVC-099",
@@ -12083,7 +12084,7 @@
       "answer_explanation": "La personne chargée de la direction de groupe a pour mission entre autres de vérifier les feuilles de match, de contrôler la situation des joueuses et des joueurs et procéder aux redressements nécessaires.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-100",
@@ -12132,7 +12133,7 @@
       "answer_explanation": "L'heure limite de prise de licence pour un joueur participant à une rencontre est l'heure prévue du début de la rencontre.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02"
     },
     {
       "id": "FR-ANN-UVC-101",
@@ -12182,7 +12183,7 @@
       "answer_explanation": "En N4, l'arbitre peut jouer son match de N4 et officier dans un maximum de 2 matchs de N4 et de division inférieure.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent007-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00"
     },
     {
       "id": "FR-ANN-UVC-102",
@@ -12376,7 +12377,7 @@
       "answer_source": "merged",
       "answer_explanation": "``` Le club responsable de la rencontre doit saisir le procès-verbal (PV) de la rencontre sur le site fédéral avant 22h.",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent020-child01"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00"
     },
     {
       "id": "FR-ANN-UVC-106",
@@ -12426,7 +12427,7 @@
       "answer_explanation": "Le non-respect de l'article 3.11.a) ou 3.11.b) entraîne 50 € d'amende pour la deuxième infraction.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent020-child01"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00"
     },
     {
       "id": "FR-ANN-UVC-107",
@@ -12523,7 +12524,7 @@
       "answer_explanation": "Tous ces documents sont transmis avec le procès-verbal du match à la direction du groupe par l'arbitre, qui devra garder une trace numérique ou une copie.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent020-child01"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00"
     },
     {
       "id": "FR-ANN-UVC-109",
@@ -12573,7 +12574,7 @@
       "answer_explanation": "En Nationale 3, la personne faisant fonction d'arbitre doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage (DRA) de sa Ligue.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent003-child00"
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00"
     },
     {
       "id": "FR-ANN-UVC-110",
@@ -12670,7 +12671,7 @@
       "answer_explanation": "``` La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l'effectif. Au cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant 1 équipe pour 1 à 4 équipes participant, 2 équipes pour 5 à 8 équipes participantes, etc. ainsi qu'1 équipe supplémentaire si le quota de 10 % de joueuses est atteint dans la phase concernée. Cela fait donc 4 équipes qualifiées.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00"
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-ANN-UVC-112",
@@ -12713,7 +12714,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "À partir des 32ème de finale, l'arbitre ne peut pas jouer et arbitrer.",
       "quality_score": 1.0,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent006-child00"
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00"
     },
     {
       "id": "FR-ANN-UVC-113",
@@ -12800,7 +12801,7 @@
       "answer_explanation": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte de mobilisation inclusion de personne en situation de handicap.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00"
     },
     {
       "id": "FR-ANN-UVT-055",
@@ -12977,7 +12978,7 @@
       "answer_explanation": "Ici, beaucoup de candidats ont indiqué la réponse B : ils ont oublié de compter l'incrément de 30 secondes par coup pour les 16 premiers coups : 8 minutes de plus par joueur donc.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00"
     },
     {
       "id": "FR-ANN-UVT-059",
@@ -13075,7 +13076,7 @@
       "answer_explanation": "- 7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. » - 7.5.2. → « Si un joueur ou une joueuse a déplacé un pion sur la rangée la plus éloignée, a appuyé sur la pendule, mais n'a pas remplacé le pion par une nouvelle pièce, le coup est illégal » Les noirs ont encore un cavalier. Il existe une suite de coups légaux emmenant au mat pour les noirs (en le faisant exprès, mais c'est possible), donc gain noir.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVT-061",
@@ -13121,7 +13122,7 @@
       "answer_explanation": "7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par Table 7 : Dans cette positon, le conducteur des blancs joue Rf5et il achève son coup en appuyant sur la pendule. Le conducteur des noirs vous appelle pour signaler un 2ème coup illégal des blancs (vous aviez effectivement constaté un coup illégal des blancs quelques minutes plus tôt). Quel est le résultat de la partie ? celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. » Ici, il n'existe aucune suite de coup légaux qui permet au noirs de gagner. Les blancs sont au trait et les 2 seuls coups légaux dans blancs emmènent un mat pour les blancs. → Partie nulle, c'est la dernière phrase du 7.5.5.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVT-062",
@@ -13259,7 +13260,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Ce joueur est en situation de handicap (même handicap temporaire). On ne doit donc pas ajuster sa pendule. « Si un joueur ou une joueuse est dans l'incapacité de noter les coups, il/elle peut fournir un assistant ou une assistante, ayant l'agrément de l'arbitre, pour enregistrer les coups. Sa pendule est ajustée par l'arbitre d'une manière équitable. Cet ajustement de la pendule ne doit pas s'appliquer à une personne en situation de handicap. » Cette question a eu un taux de réussite très faible (les réponses A et B ont été données). Attention : le texte parle bien de situation de handicap , pas de handicap permanent. Nous sommes bien dans ce cas là et dans ce cas le texte indique clairement que l' « ajustement de la pendule ne doit pas s'appliquer ».",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child02"
     },
     {
       "id": "FR-ANN-UVT-065",
@@ -13529,7 +13530,7 @@
       "answer_explanation": "Coupes Fédérales et Coupe de France jusqu'en finale.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00"
     },
     {
       "id": "FR-ANN-UVO-041",
@@ -13663,7 +13664,7 @@
       "answer_explanation": "Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage SC. Un arbitre inactif n'ayant fait aucune formation durant une période de dix ans sera en plus dans l'obligation de valider à nouveau l'UVR. A l'issue de satisfaire ces deux conditions, son titre d'arbitre est réactivé.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00"
     },
     {
       "id": "FR-ANN-UVO-044",
@@ -13706,7 +13707,7 @@
       "answer_explanation": "- 3.1. Le nombre maximum de rondes par jour est : - 3.1.1. Pour les parties rapides : 15 rondes par jour - 3.1.2. Pour les parties blitz : 30 rondes par jour.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p013-parent032-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00"
     },
     {
       "id": "FR-ANN-UVO-045",
@@ -13831,7 +13832,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVO-048",
@@ -13993,7 +13994,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'équipe de France Jeunes, les champions de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve qu'ils aient prévenu l'organisateur au moins 48 heures avant le début du tournoi. La gratuité s'applique donc en cadence lente/standard (tournois A), non aux tournois rapides/blitz (tournois B).",
       "quality_score": 1.0,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00"
     },
     {
       "id": "FR-ANN-UVO-052",
@@ -14036,7 +14037,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00"
     },
     {
       "id": "FR-ANN-UVO-053",
@@ -14082,7 +14083,7 @@
       "answer_explanation": "Le jeu doit se dérouler en accord avec les Règles du Jeu d'Échecs de la FIDE, toute « adaptation » vous expose à un recours et peut provoquer le refus d'homologuer les résultats du tournoi. Par contre les règles du jeu vous autorisent à limiter les nulles par accord mutuel et définir par vous-même le délai de forfait. La condition de présence à la remise des prix doit être précisée dans le règlement du tournoi si vous souhaitez la faire appliquer.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p015-parent048-child00"
     },
     {
       "id": "FR-ANN-UVO-054",
@@ -14258,7 +14259,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child02"
     },
     {
       "id": "FR-ANN-UVO-058",
@@ -14304,7 +14305,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVO-059",
@@ -14403,7 +14404,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVO-061",
@@ -14451,7 +14452,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVO-062",
@@ -14547,7 +14548,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child02"
     },
     {
       "id": "FR-ANN-UVO-064",
@@ -14598,7 +14599,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child02"
     },
     {
       "id": "FR-ANN-UVO-065",
@@ -14739,7 +14740,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-115",
@@ -14837,7 +14838,7 @@
       "answer_explanation": "- A. Pas de problème, l'équipe présentée à la ronde 2 est conforme. - B. L'équipe présentée à la ronde 2 sera forfait administratif au 8ème échiquier. - C. L'équipe présentée à la ronde 2 sera forfait administratif aux 7ème et 8ème échiquiers.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-117",
@@ -14885,7 +14886,7 @@
       "answer_explanation": "C'est bien un coup illégal. La 1ère pièce touchée doit être jouée. Comme c'est le Roi il peut donc roquer si c'est possible. ## 67% de bonnes réponses",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-118",
@@ -14934,7 +14935,7 @@
       "answer_explanation": "L'adversaire n'ayant pas arrêté la pendule pour vous faire constater la chute du drapeau et que rien ne nous dit que le mat a eu lieu après sa chute, ce dernier est validé et met fin à la partie. ## 53% de bonnes réponses",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVR-119",
@@ -14981,7 +14982,7 @@
       "answer_source": "merged",
       "answer_explanation": "83% de bonnes réponses",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child02"
     },
     {
       "id": "FR-ANN-UVR-120",
@@ -15191,7 +15192,7 @@
       "answer_explanation": "En l'absence de l'adversaire il est normal de s'adresser à l'arbitre. Le terme « j'adoube » n'est pas obligatoirement à utiliser. On doit prévenir de n'importe quelle façon avant de toucher une ou plusieurs pièces. 80% de bonnes réponses",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00"
     },
     {
       "id": "FR-ANN-UVR-124",
@@ -15241,7 +15242,7 @@
       "answer_explanation": "Etant donné que c'est le 2ème coup illégal le gain de la partie ne peut pas être donné. On ne peut pas non plus donner le gain au noir car en remplaçant le pion par une dame comme c'est la règle ils seraient « mat ». Donc nulle. ## 60% de bonnes réponses",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVC-114",
@@ -15290,7 +15291,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-115",
@@ -15338,7 +15339,7 @@
       "answer_explanation": "- A. Pas de problème, l'équipe présentée à la ronde 2 est conforme. - B. L'équipe présentée à la ronde 2 sera forfait administratif au 8ème échiquier. - C. L'équipe présentée à la ronde 2 sera forfait administratif aux 7ème et 8ème échiquiers.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-116",
@@ -15385,7 +15386,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-117",
@@ -15433,7 +15434,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-118",
@@ -15480,7 +15481,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Quel sera le score final du match une fois que les forfaits administratifs et sanctions auront été appliqués ? ## A. 8-0 - B. 7-1 - C. 6-1 - D. 6-2 ## E. 5-2 - F. 5-3",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent012-child00"
     },
     {
       "id": "FR-ANN-UVC-119",
@@ -15530,7 +15531,7 @@
       "answer_explanation": "Avec quel temps lancer vous les parties ? - A. Comme vous n'aviez pas la composition de l'équipe à 15h, cette équipe est forfait. - B. L'équipe peut jouer avec 0h40 à leurs pendules (+ 30 secondes par coup) - C. L'équipe peut jouer avec 0h30 à leurs pendules (+ 30 secondes par coup) - D. L'équipe peut jouer avec 0h10 à leurs pendules (+ 30 secondes par coup)",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-120",
@@ -15577,7 +15578,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent024-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00"
     },
     {
       "id": "FR-ANN-UVC-121",
@@ -15624,7 +15625,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-122",
@@ -15672,7 +15673,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-123",
@@ -15718,7 +15719,7 @@
       "answer_explanation": "- A. Elle est conforme au règlement, pas de soucis. - B. Elle comporte une seule anomalie : Les joueurs aux échiquiers 1 et 2 doivent être inversés. - C. Elle comporte une seule anomalie : Il n'y a pas au moins une fille - D. Elle comporte 2 anomalies : Les 2 anomalies évoquées en B et C.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02"
     },
     {
       "id": "FR-ANN-UVC-124",
@@ -15769,7 +15770,7 @@
       "answer_explanation": "- A. Elle est conforme au règlement, pas de soucis. - B. Elle comporte une seule anomalie : Elodie est pupille, elle ne peut pas jouer à l'échiquier 3. - C. Elle comporte une seule anomalie : Les échiquiers 5 et 6 doivent être inversés. - D. Elle comporte 2 anomalies : Les 2 anomalies évoquées en B et C.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02"
     },
     {
       "id": "FR-ANN-UVC-125",
@@ -15819,7 +15820,7 @@
       "answer_source": "merged",
       "answer_explanation": "- A. Elle est conforme au règlement, pas de soucis. - B. Elle comporte une seule anomalie : Les joueurs aux échiquiers 1 et 2 doivent être inversés. - C. Elle comporte une seule anomalie : Les joueurs aux échiquiers 7 et 8 doivent être inversés. - D. Elle comporte 2 anomalies : Les 2 anomalies évoquées en B et C.",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02"
     },
     {
       "id": "FR-ANN-UVC-126",
@@ -15869,7 +15870,7 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p093-parent276-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p093-parent277-child00"
     },
     {
       "id": "FR-ANN-UVC-127",
@@ -15963,7 +15964,7 @@
       "answer_source": "article_reference",
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 1.0,
-      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent003-child00"
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00"
     },
     {
       "id": "FR-ANN-UVC-129",
@@ -16012,7 +16013,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p093-parent276-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p093-parent276-child01"
     },
     {
       "id": "FR-ANN-UVC-130",
@@ -16062,7 +16063,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent012-child00"
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00"
     },
     {
       "id": "FR-ANN-UVR-125",
@@ -16205,7 +16206,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02"
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent163-child00"
     },
     {
       "id": "FR-ANN-UVR-128",
@@ -16252,7 +16253,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent055-child00"
     },
     {
       "id": "FR-ANN-UVR-129",
@@ -16301,7 +16302,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-130",
@@ -16730,7 +16731,7 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent000-child00"
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-ANN-UVO-075",
@@ -16777,7 +16778,7 @@
       "answer_explanation": "Cf. article 3.1.2 Retard autorisé - R01 Règles générales",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child01"
     },
     {
       "id": "FR-ANN-UVO-076",
@@ -17353,7 +17354,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child02"
     },
     {
       "id": "FR-ANN-UVR-132",
@@ -17399,7 +17400,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child02"
     },
     {
       "id": "FR-ANN-UVR-133",
@@ -17444,7 +17445,7 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-134",
@@ -17677,7 +17678,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-139",
@@ -17925,7 +17926,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child02"
     },
     {
       "id": "FR-ANN-UVR-144",
@@ -17972,7 +17973,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02"
     },
     {
       "id": "FR-ANN-UVR-145",
@@ -18022,7 +18023,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-146",
@@ -18118,7 +18119,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child02"
     },
     {
       "id": "FR-ANN-UVR-148",
@@ -18165,7 +18166,7 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02"
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent164-child00"
     },
     {
       "id": "FR-ANN-UVR-149",
@@ -18258,7 +18259,7 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-151",
@@ -18340,7 +18341,7 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-153",
@@ -18597,7 +18598,7 @@
       "answer_source": "article_reference",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent178-child02"
     },
     {
       "id": "FR-ANN-UVR-159",
@@ -18639,7 +18640,7 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child01"
     },
     {
       "id": "FR-ANN-UVR-160",
@@ -19055,7 +19056,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child01"
     },
     {
       "id": "FR-ANN-UVC-139",
@@ -19450,7 +19451,7 @@
       "answer_explanation": ": Championnat de France des clubs ## C'est le jour J. Le match aura lieu à 14h15.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-147",
@@ -19499,7 +19500,7 @@
       "answer_explanation": ": Championnat de France des clubs",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-148",
@@ -19545,7 +19546,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent024-child00"
     },
     {
       "id": "FR-ANN-UVC-149",
@@ -19594,7 +19595,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00"
     },
     {
       "id": "FR-ANN-UVC-150",
@@ -19846,7 +19847,7 @@
       "answer_explanation": "Si pendant une partie, on constate qu'un coup illégal a été achevé, la position précédant immédiatement l'irrégularité sera rétablie. Les Articles 4.3 et 4.7 s'appliquent au coup remplaçant le coup illégal. La partie se poursuivra alors à partir de cette position rétablie.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-166",
@@ -19890,7 +19891,7 @@
       "answer_source": "article_reference",
       "answer_explanation": "Un joueur souhaitant proposer la nulle le fera après avoir joué un coup sur l'échiquier et avant d'appuyer sur sa pendule.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01"
     },
     {
       "id": "FR-ANN-UVR-167",
@@ -19936,7 +19937,7 @@
       "answer_explanation": "Les pénalités mentionnées aux articles 7 et 9 des Règles de Compétition sont d'une minute au lieu de deux minutes.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01"
     },
     {
       "id": "FR-ANN-UVR-168",
@@ -19984,7 +19985,7 @@
       "answer_explanation": "Si un joueur dispose de moins de cinq minutes à sa pendule à un moment d'une période de jeu et ne bénéficie pas d'un temps additionnel de 30 secondes ou plus à chaque coup, alors pour le reste de la période il n'est pas obligé de respecter les conditions requises à l'Article 8.1.1.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent026-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent027-child00"
     },
     {
       "id": "FR-ANN-UVR-169",
@@ -20034,7 +20035,7 @@
       "answer_explanation": "Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur, l'arbitre donnera deux minutes supplémentaires à son adversaire. Il faut penser également à enlever l'incrément crédité de 30 secondes lorsque le coup illégal a été achevé.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00"
     },
     {
       "id": "FR-ANN-UVR-170",
@@ -20130,7 +20131,7 @@
       "answer_explanation": "Autrement, le jeu sera régi par les Règles du Jeu Rapide spécifiées dans les articles A.2 et A.4 Article A.4.2 Annexe A Echecs Rapides Si l'arbitre observe l'une des situations décrites dans l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, il agira en respectant l'Article 7.5.5, à condition que l'adversaire n'ait pas joué son coup suivant.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01"
     },
     {
       "id": "FR-ANN-UVR-172",
@@ -20180,7 +20181,7 @@
       "answer_explanation": "- f) J'explique au joueur la règle concernée, mais sans me baser sur la partie en cours pour ne pas fournir d'aide extérieure ## Article 11.9 Règles du jeu Un joueur aura le droit de demander à l'arbitre l'explication d'un point particulier des Règles du Jeu d'Échecs.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p030-parent135-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p030-parent137-child00"
     },
     {
       "id": "FR-ANN-UVR-173",
@@ -20227,7 +20228,7 @@
       "answer_explanation": "Si un joueur au trait touche sur l'échiquier, avec l'intention de déplacer ou de prendre une ou plusieurs des pièces de l'adversaire, il doit prendre la première pièce touchée pouvant être prise. Commentaire final de l'article 4 Règles du jeu Lorsqu'un arbitre observe une violation de l'article 4, il doit toujours intervenir immédiatement, sans attendre qu'un joueur le réclame.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent162-child02"
+      "expected_chunk_id": "LA-octobre2025.pdf-p042-parent164-child00"
     },
     {
       "id": "FR-ANN-UVR-174",
@@ -20369,7 +20370,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child01"
     },
     {
       "id": "FR-ANN-UVR-177",
@@ -20418,7 +20419,7 @@
       "answer_explanation": "La vérification de l'apparition à trois reprises d'une même position est du devoir des joueurs, sous la supervision de l'arbitre.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent185-child02"
     },
     {
       "id": "FR-ANN-UVR-178",
@@ -20466,7 +20467,7 @@
       "answer_explanation": "Autrement, le jeu sera régi par les Règles du Jeu Rapide spécifiées dans les articles A.2 et A.4 Les Noirs effectuent un coup illégal achevé (Ce3+) en laissant leur roi en échec. Les Blancs jouent un coup légal (Rd3) en réponse au coup illégal achevé des Noirs. L'arbitre ne peut donc pas pénaliser les Noirs. Article A.4.2 Annexe A Echecs Rapides Si l'arbitre observe l'une des situations décrites dans l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, il agira en respectant l'Article 7.5.5, à condition que l'adversaire n'ait pas joué son coup suivant. Si l'adversaire ne réclame pas et que l'arbitre n'intervient pas, le coup illégal subsiste et la partie continuera.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child01"
     },
     {
       "id": "FR-ANN-UVR-179",
@@ -20561,7 +20562,7 @@
       "answer_explanation": "L'arbitre ne doit pas intervenir dans une partie, excepté dans les cas décrits dans les Règles du Jeu d'Échecs.... Il s'abstiendra d'informer un joueur, que son adversaire a achevé un coup ou que le joueur n'a pas appuyé sur sa pendule.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00"
     },
     {
       "id": "FR-ANN-UVR-181",
@@ -20608,7 +20609,7 @@
       "answer_explanation": "La partie est nulle lorsque le joueur au trait n'a aucun coup légal à sa disposition alors même que son roi n'est pas en échec. On dit alors que la partie se termine par le \"pat\". Ceci met immédiatement fin à la partie.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01"
     },
     {
       "id": "FR-ANN-UVR-182",
@@ -20707,7 +20708,7 @@
       "answer_source": "merged",
       "answer_explanation": "Si le joueur touche une pièce comme dans l'Article 4.3, il perd le droit de réclamer la nulle selon l'Article 9.2 ou 9.3 lors de ce coup. ## Les questions 23C, 24C et 25C sont pour les candidats au titre d'Arbitre de Club.",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02"
+      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00"
     },
     {
       "id": "FR-ANN-UVC-151",
@@ -20796,7 +20797,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
     },
     {
       "id": "FR-ANN-UVC-153",
@@ -20840,7 +20841,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02"
     },
     {
       "id": "FR-ANN-UVC-154",
@@ -20883,7 +20884,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent000-child00"
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-ANN-UVC-155",
@@ -20929,7 +20930,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent004-child01"
     },
     {
       "id": "FR-ANN-UVC-156",
@@ -20975,7 +20976,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00"
     },
     {
       "id": "FR-ANN-UVC-157",
@@ -21023,7 +21024,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00"
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent021-child00"
     },
     {
       "id": "FR-ANN-UVC-158",
@@ -21115,7 +21116,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01"
+      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01"
     },
     {
       "id": "FR-ANN-UVC-160",
@@ -21162,7 +21163,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-161",
@@ -21211,7 +21212,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-162",
@@ -21257,7 +21258,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-163",
@@ -21347,7 +21348,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-ANN-UVC-165",
@@ -21393,7 +21394,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-166",
@@ -21441,7 +21442,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00"
     },
     {
       "id": "FR-ANN-UVC-167",
@@ -21487,7 +21488,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     },
     {
       "id": "FR-ANN-UVC-168",
@@ -21531,7 +21532,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00"
     },
     {
       "id": "FR-ANN-UVC-169",
@@ -21624,7 +21625,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent158-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00"
     },
     {
       "id": "FR-ANN-UVC-171",
@@ -21716,7 +21717,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00"
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00"
     },
     {
       "id": "FR-ANN-UVC-173",
@@ -22061,7 +22062,7 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00"
     },
     {
       "id": "FR-ANN-UVC-180",
@@ -22106,7 +22107,7 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00"
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00"
     }
   ],
   "cleanup_stats": {

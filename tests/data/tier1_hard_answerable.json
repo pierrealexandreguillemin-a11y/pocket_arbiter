@@ -81,7 +81,7 @@
     {
       "id": "ffe:human:clubs:001:f4edbba1",
       "question": "Qu'est-ce que le 'noyau' d'une equipe en Nationale et quelle est la regle des 50% ?",
-      "expected_answer": "A02 p6 art 3.7.f - noyau = 50% joueurs ayant deja joue pour equipe",
+      "expected_answer": "Art. 3.7.f A02: En N1, N2 et N3, chaque equipe doit aligner a chaque ronde au moins 50% de personnes (appele noyau) inscrites sur le PV ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison.",
       "is_impossible": false,
       "expected_chunk_id": "",
       "expected_docs": [
@@ -116,7 +116,7 @@
     {
       "id": "ffe:human:clubs:002:8456e318",
       "question": "En Top 16, combien de 'joueurs etrangers' peut-on aligner par match et quelle est la definition exacte ?",
-      "expected_answer": "A02 p6 art 3.7.h = min 5 FR, 3.7.i = 1 joueur FR + 1 joueuse FR obligatoires",
+      "expected_answer": "Art. 3.7.h A02: Au moins 5 joueurs doivent posseder la nationalite francaise ou etre ressortissants UE residant en France, ou extracommunautaires residant en France depuis 5 ans. Art. 3.7.i: En Top 16/N1/N2, au moins 1 joueur FR + 1 joueuse FR obligatoires.",
       "is_impossible": false,
       "expected_chunk_id": "",
       "expected_docs": [
@@ -151,14 +151,14 @@
     {
       "id": "ffe:human:rules:001:f3c28955",
       "question": "C'est quoi le 'flag' en echecs et qu'est-ce qui se passe quand ca tombe ?",
-      "expected_answer": "LA p50 art 6.1 = 'chute du drapeau' = temps ecoule, partie perdue sauf exceptions",
+      "expected_answer": "Art. 6.1 LA: La 'pendule d'echecs' designe une horloge munie de deux afficheurs. Chaque afficheur est muni d'un 'drapeau'. La 'chute du drapeau' signifie la fin du temps imparti a un joueur.",
       "is_impossible": false,
       "expected_chunk_id": "",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        50
+        44
       ],
       "category": "temps",
       "keywords": [
@@ -186,14 +186,14 @@
     {
       "id": "ffe:human:rules:002:6fd2f969",
       "question": "Selon l'article 12.9 des Lois du Jeu FIDE, quelle est la procedure exacte pour reclamer une nulle apres 75 coups sans prise ni mouvement de pion ?",
-      "expected_answer": "Art 12.9 = sanctions comportement incorrect (16 mentions). Art 9.6.2 p70 = regle 75 coups nulle automatique. Question melange deux articles distincts.",
+      "expected_answer": "Art. 9.6 LA: Si 75 coups consecutifs ont ete joues par chaque joueur sans mouvement de pion ni prise de piece, la partie est nulle. C'est l'article 9.6.2, PAS 12.9 (qui concerne le comportement incorrect).",
       "is_impossible": false,
       "expected_chunk_id": "",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        70
+        52
       ],
       "category": "regles_jeu",
       "keywords": [

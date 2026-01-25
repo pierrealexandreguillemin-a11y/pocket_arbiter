@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 1.9
+> **Version**: 2.0
 > **Date**: 2026-01-25
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -86,6 +86,7 @@ pocket_arbiter/
 | TEST-PLAN-001 | [TEST_PLAN.md](TEST_PLAN.md) | Plan de tests ISO 29119 | Draft |
 | SPEC-GS-001 | [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) | Specification Gold Standard | Approuve |
 | SPEC-GS-V7 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v7.3.0 (URN ID Schema) | Approuve |
+| SPEC-ADV-V1 | [specs/ADVERSARIAL_QUESTIONS_STRATEGY.md](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie questions adversariales SQuAD 2.0 | Approuve |
 | SPEC-UTD-001 | [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) | Generation Donnees Unifiees | Draft |
 
 ### 2.5 Guides techniques

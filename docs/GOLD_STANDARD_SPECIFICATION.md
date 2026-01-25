@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.5
+> **Version**: 1.6
 > **Date**: 2026-01-25
 > **Statut**: Approuve
 > **Classification**: Qualite
@@ -409,6 +409,7 @@ python -m scripts.pipeline.tests.test_recall --coverage
 | [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) | UAEval4RAG Framework | 6 categories unanswerable |
 | [arXiv:1806.03822](https://arxiv.org/abs/1806.03822) | SQuAD 2.0 | 33% unanswerable ratio |
 | [arXiv:2510.11956](https://arxiv.org/abs/2510.11956) | CRUMQs Evaluation | Question quality |
+| [SPEC-ADV-V1](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie Adversariales Pocket Arbiter | Taxonomie unifiee |
 
 ### 11.2 Standards Context-Grounded Generation
 

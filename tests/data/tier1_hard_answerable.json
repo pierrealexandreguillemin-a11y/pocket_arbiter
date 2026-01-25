@@ -39,9 +39,11 @@
         "cognitive_level": "Remember",
         "difficulty": 0.8,
         "original_hard_type": "VOCABULARY_MISMATCH",
-        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2"
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+        "question_type": "vocabulary_bridge"
       },
-      "legacy_id": "FR-Q77"
+      "legacy_id": "FR-Q77",
+      "plausible_answer": "Non, après 18 mois d'inactivité le classement Elo est conservé"
     },
     {
       "id": "ffe:human:rating:002:d463c1d1",
@@ -74,9 +76,11 @@
         "cognitive_level": "Apply",
         "difficulty": 0.8,
         "original_hard_type": "VOCABULARY_MISMATCH",
-        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2"
+        "corpus_truth": "période d'un an (12 mois) - LA-octobre2025.pdf p.183 §7.2.2",
+        "question_type": "vocabulary_bridge"
       },
-      "legacy_id": "FR-Q94"
+      "legacy_id": "FR-Q94",
+      "plausible_answer": "Non, l'Elo ne disparaît jamais, il reste inactif"
     },
     {
       "id": "ffe:human:clubs:001:f4edbba1",
@@ -109,9 +113,11 @@
         "cognitive_level": "Understand",
         "difficulty": 0.8,
         "original_hard_type": "VOCABULARY_MISMATCH",
-        "corpus_truth": "A02 p6 art 3.7.f - noyau = 50% joueurs ayant deja joue pour equipe"
+        "corpus_truth": "A02 p6 art 3.7.f - noyau = 50% joueurs ayant deja joue pour equipe",
+        "question_type": "vocabulary_bridge"
       },
-      "legacy_id": "FR-Q141"
+      "legacy_id": "FR-Q141",
+      "plausible_answer": "Le terme 'noyau' n'est pas défini dans les règlements FFE"
     },
     {
       "id": "ffe:human:clubs:002:8456e318",
@@ -144,9 +150,11 @@
         "cognitive_level": "Understand",
         "difficulty": 0.8,
         "original_hard_type": "VOCABULARY_MISMATCH",
-        "corpus_truth": "A02 p6 art 3.7.h = min 5 FR, 3.7.i = 1 joueur FR + 1 joueuse FR obligatoires"
+        "corpus_truth": "A02 p6 art 3.7.h = min 5 FR, 3.7.i = 1 joueur FR + 1 joueuse FR obligatoires",
+        "question_type": "vocabulary_bridge"
       },
-      "legacy_id": "FR-Q144"
+      "legacy_id": "FR-Q144",
+      "plausible_answer": "Il n'y a pas de limite au nombre de joueurs étrangers"
     },
     {
       "id": "ffe:human:rules:001:f3c28955",
@@ -179,9 +187,11 @@
         "cognitive_level": "Remember",
         "difficulty": 0.8,
         "original_hard_type": "VOCABULARY_MISMATCH",
-        "corpus_truth": "LA p50 art 6.1 = 'chute du drapeau' = temps ecoule, partie perdue sauf exceptions"
+        "corpus_truth": "LA p50 art 6.1 = 'chute du drapeau' = temps ecoule, partie perdue sauf exceptions",
+        "question_type": "vocabulary_bridge"
       },
-      "legacy_id": "FR-Q149"
+      "legacy_id": "FR-Q149",
+      "plausible_answer": "Le 'flag' n'existe pas en échecs sur échiquier, c'est un terme online"
     },
     {
       "id": "ffe:human:rules:002:6fd2f969",
@@ -214,9 +224,11 @@
         "cognitive_level": "Remember",
         "difficulty": 0.8,
         "original_hard_type": "VOCABULARY_MISMATCH",
-        "corpus_truth": "Art 12.9 = sanctions comportement incorrect (16 mentions). Art 9.6.2 p70 = regle 75 coups nulle automatique. Question melange deux articles distincts."
+        "corpus_truth": "Art 12.9 = sanctions comportement incorrect (16 mentions). Art 9.6.2 p70 = regle 75 coups nulle automatique. Question melange deux articles distincts.",
+        "question_type": "vocabulary_bridge"
       },
-      "legacy_id": "FR-Q150"
+      "legacy_id": "FR-Q150",
+      "plausible_answer": "L'article 12.9 définit la règle des 75 coups pour la nulle"
     }
   ]
 }

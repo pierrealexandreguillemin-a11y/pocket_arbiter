@@ -31,9 +31,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - FIDE regle parties OTB, mouse slip = concept online",
-        "test_purpose": "Test clarification vocabulaire (SQuAD2-CR)"
+        "test_purpose": "Test clarification vocabulaire (SQuAD2-CR)",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-033"
+      "legacy_id": "FR-ADV-033",
+      "plausible_answer": "En cas de mouse slip, l'arbitre peut annuler le coup si signalé immédiatement"
     },
     {
       "id": "adversarial:human:rules:002:f32b311f",
@@ -61,9 +64,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - Pre-move n'existe pas en parties sur echiquier",
-        "test_purpose": "Test clarification concept online"
+        "test_purpose": "Test clarification concept online",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-034"
+      "legacy_id": "FR-ADV-034",
+      "plausible_answer": "Le pre-move permet de jouer instantanément après le coup adverse"
     },
     {
       "id": "adversarial:human:rules:003:ab65e3e2",
@@ -90,9 +96,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - Utiliser 'chute du drapeau' ou 'temps depasse'",
-        "test_purpose": "Test clarification anglicisme"
+        "test_purpose": "Test clarification anglicisme",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-035"
+      "legacy_id": "FR-ADV-035",
+      "plausible_answer": "Pour éviter le flagging, gardez toujours 30 secondes de réserve"
     },
     {
       "id": "adversarial:human:rules:004:5d7343a2",
@@ -119,9 +128,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - FIDE ne definit pas qualite des coups (blunder/mistake)",
-        "test_purpose": "Test clarification terme non-reglementaire"
+        "test_purpose": "Test clarification terme non-reglementaire",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-036"
+      "legacy_id": "FR-ADV-036",
+      "plausible_answer": "Un blunder est une erreur grave entraînant perte de matériel"
     },
     {
       "id": "adversarial:human:rules:005:7316b35c",
@@ -148,9 +160,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - Utiliser 'manipulation de classement' ou 'parties arrangees'",
-        "test_purpose": "Test clarification jargon"
+        "test_purpose": "Test clarification jargon",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-037"
+      "legacy_id": "FR-ADV-037",
+      "plausible_answer": "Le sandbagging est sanctionné par exclusion du tournoi"
     },
     {
       "id": "adversarial:human:rules:006:1d77e6a9",
@@ -177,9 +192,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - Utiliser 'pat' (position ou le joueur n'a pas de coup legal)",
-        "test_purpose": "Test clarification anglicisme basique"
+        "test_purpose": "Test clarification anglicisme basique",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-038"
+      "legacy_id": "FR-ADV-038",
+      "plausible_answer": "Le stalemate intentionnel est une stratégie défensive valide"
     },
     {
       "id": "adversarial:human:rules:007:15a36f7b",
@@ -207,9 +225,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - En francais: MC (Maitre Candidat), pas CM",
-        "test_purpose": "Test clarification abbreviation"
+        "test_purpose": "Test clarification abbreviation",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-039"
+      "legacy_id": "FR-ADV-039",
+      "plausible_answer": "Le titre CM s'obtient avec 2200 Elo et une norme"
     },
     {
       "id": "adversarial:human:rules:008:3c1a77d5",
@@ -236,9 +257,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - GM (Grandmaster) = GMI (Grand Maitre International)",
-        "test_purpose": "Test clarification equivalence titre"
+        "test_purpose": "Test clarification equivalence titre",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-040"
+      "legacy_id": "FR-ADV-040",
+      "plausible_answer": "GM est le titre anglais, GMI le titre français avec critères différents"
     },
     {
       "id": "adversarial:human:rating:001:3454fbf9",
@@ -265,9 +289,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - FFE parle de 'manipulation de classement'",
-        "test_purpose": "Test clarification jargon online"
+        "test_purpose": "Test clarification jargon online",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-041"
+      "legacy_id": "FR-ADV-041",
+      "plausible_answer": "L'elo farming est interdit et sanctionné par retrait de points"
     },
     {
       "id": "adversarial:human:rules:009:a82d8d15",
@@ -295,9 +322,12 @@
         "cognitive_level": "Remember",
         "hard_type": "VOCABULARY_MISMATCH",
         "corpus_truth": "MISMATCH - FIDE ne definit pas zugzwang (concept strategique)",
-        "test_purpose": "Test clarification concept technique"
+        "test_purpose": "Test clarification concept technique",
+        "difficulty": 0.7,
+        "question_type": "clarification_required"
       },
-      "legacy_id": "FR-ADV-042"
+      "legacy_id": "FR-ADV-042",
+      "plausible_answer": "Le zugzwang est régi par l'article 5.2 des règles FIDE"
     },
     {
       "id": "adversarial:human:clubs:001:8b8039d0",
@@ -329,9 +359,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Top 16 = reglement FFE (A02), pas FIDE",
-        "test_purpose": "Test correction entite federation"
+        "test_purpose": "Test correction entite federation",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-043"
+      "legacy_id": "FR-ADV-043",
+      "plausible_answer": "Le départage FIDE utilise Buchholz puis Sonneborn-Berger"
     },
     {
       "id": "adversarial:human:rules:010:dfc1a78b",
@@ -358,9 +391,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Titre Grand Maitre = FIDE (normes internationales)",
-        "test_purpose": "Test correction entite federation"
+        "test_purpose": "Test correction entite federation",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-044"
+      "legacy_id": "FR-ADV-044",
+      "plausible_answer": "La FFE délivre le titre GM après 3 normes et 2500 Elo"
     },
     {
       "id": "adversarial:human:clubs:002:6013bde1",
@@ -392,9 +428,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Nationale 1 = reglement FFE (A02)",
-        "test_purpose": "Test correction entite competition"
+        "test_purpose": "Test correction entite competition",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-045"
+      "legacy_id": "FR-ADV-045",
+      "plausible_answer": "Les règles FIDE limitent à 2 étrangers par équipe"
     },
     {
       "id": "adversarial:human:youth:001:e80677d5",
@@ -425,9 +464,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Poussin (U8) vs Pupille (U10) = categories differentes",
-        "test_purpose": "Test correction entite categorie"
+        "test_purpose": "Test correction entite categorie",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-046"
+      "legacy_id": "FR-ADV-046",
+      "plausible_answer": "Les Poussins peuvent participer au Championnat Pupilles avec dérogation"
     },
     {
       "id": "adversarial:human:rules:011:d365901b",
@@ -454,9 +496,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - AI (Arbitre International) = titre FIDE",
-        "test_purpose": "Test correction entite titre"
+        "test_purpose": "Test correction entite titre",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-047"
+      "legacy_id": "FR-ADV-047",
+      "plausible_answer": "La FFE délivre le titre AI après 10 tournois arbitrés"
     },
     {
       "id": "adversarial:human:rules:012:52ff876f",
@@ -488,9 +533,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Rapide (Annexe A.4) vs Blitz (Annexe B) = regles distinctes",
-        "test_purpose": "Test correction entite cadence"
+        "test_purpose": "Test correction entite cadence",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-048"
+      "legacy_id": "FR-ADV-048",
+      "plausible_answer": "En rapide, les règles blitz s'appliquent sous 2 minutes"
     },
     {
       "id": "adversarial:human:rules:013:82a31709",
@@ -521,9 +569,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Responsabilite = arbitre principal (art 12.1)",
-        "test_purpose": "Test correction entite role"
+        "test_purpose": "Test correction entite role",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-049"
+      "legacy_id": "FR-ADV-049",
+      "plausible_answer": "L'arbitre adjoint reçoit un avertissement ou suspension"
     },
     {
       "id": "adversarial:human:clubs:003:8f7ac433",
@@ -551,9 +602,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Qualifications = via ligues regionales, pas CDJE",
-        "test_purpose": "Test correction entite organe"
+        "test_purpose": "Test correction entite organe",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-050"
+      "legacy_id": "FR-ADV-050",
+      "plausible_answer": "La CDJE organise les qualifications via tournois départementaux"
     },
     {
       "id": "adversarial:human:rules:014:081c19de",
@@ -584,9 +638,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NUMBER_SWAP",
         "corpus_truth": "NOMBRE FAUX - Regle = 75 coups (art 9.6.2), pas 100",
-        "test_purpose": "Test correction nombre (SQuAD2-CR)"
+        "test_purpose": "Test correction nombre (SQuAD2-CR)",
+        "difficulty": 0.6,
+        "question_type": "numeric_trap"
       },
-      "legacy_id": "FR-ADV-051"
+      "legacy_id": "FR-ADV-051",
+      "plausible_answer": "Après 100 coups sans prise ni mouvement de pion, la partie est nulle"
     },
     {
       "id": "adversarial:human:rules:015:f3cc2275",
@@ -617,9 +674,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NUMBER_SWAP",
         "corpus_truth": "NOMBRE FAUX - Reclamation = 50 coups, nulle auto = 75 coups",
-        "test_purpose": "Test correction nombre"
+        "test_purpose": "Test correction nombre",
+        "difficulty": 0.6,
+        "question_type": "numeric_trap"
       },
-      "legacy_id": "FR-ADV-052"
+      "legacy_id": "FR-ADV-052",
+      "plausible_answer": "Oui, après 60 coups sans prise, la réclamation est valide"
     },
     {
       "id": "adversarial:human:rules:016:d3d0831e",
@@ -651,9 +711,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NUMBER_SWAP",
         "corpus_truth": "NOMBRE FAUX - Retard autorise = 60 min (A02 art 3.4)",
-        "test_purpose": "Test correction nombre temps"
+        "test_purpose": "Test correction nombre temps",
+        "difficulty": 0.6,
+        "question_type": "numeric_trap"
       },
-      "legacy_id": "FR-ADV-053"
+      "legacy_id": "FR-ADV-053",
+      "plausible_answer": "Oui, 45 minutes est le retard maximum autorisé en Top 16"
     },
     {
       "id": "adversarial:human:rules:017:683f1f3b",
@@ -685,9 +748,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NUMBER_SWAP",
         "corpus_truth": "NOMBRE IMPRECIS - Blitz = temps total 3-10 min, increment variable",
-        "test_purpose": "Test correction nombre cadence"
+        "test_purpose": "Test correction nombre cadence",
+        "difficulty": 0.6,
+        "question_type": "numeric_trap"
       },
-      "legacy_id": "FR-ADV-054"
+      "legacy_id": "FR-ADV-054",
+      "plausible_answer": "Oui, l'incrément minimum en blitz FIDE est de 3 secondes"
     },
     {
       "id": "adversarial:human:rules:018:eae20813",
@@ -718,9 +784,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NUMBER_SWAP",
         "corpus_truth": "NOMBRE FAUX - MI = 2400 Elo, GM = 2500 Elo",
-        "test_purpose": "Test correction nombre Elo"
+        "test_purpose": "Test correction nombre Elo",
+        "difficulty": 0.6,
+        "question_type": "numeric_trap"
       },
-      "legacy_id": "FR-ADV-055"
+      "legacy_id": "FR-ADV-055",
+      "plausible_answer": "Oui, à partir de 2500 Elo on peut demander le titre MI"
     },
     {
       "id": "adversarial:human:rules:019:9a6ac4d5",
@@ -748,9 +817,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Normes MI = FIDE Handbook, pas reglement FFE",
-        "test_purpose": "Test correction entite federation (SQuAD2-CR)"
+        "test_purpose": "Test correction entite federation (SQuAD2-CR)",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-063"
+      "legacy_id": "FR-ADV-063",
+      "plausible_answer": "La FFE exige 3 normes de 9 rondes pour le titre MI"
     },
     {
       "id": "adversarial:human:rules:020:a3d0cfeb",
@@ -778,9 +850,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ENTITY_SWAP",
         "corpus_truth": "SWAP - Olympiades = arbitres IA/FA FIDE, pas arbitres FFE",
-        "test_purpose": "Test correction entite competition internationale"
+        "test_purpose": "Test correction entite competition internationale",
+        "difficulty": 0.8,
+        "question_type": "entity_confusion"
       },
-      "legacy_id": "FR-ADV-064"
+      "legacy_id": "FR-ADV-064",
+      "plausible_answer": "L'arbitre FFE applique le règlement français aux réclamations"
     },
     {
       "id": "adversarial:human:rules:021:65ab2600",
@@ -811,9 +886,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NUMBER_SWAP",
         "corpus_truth": "NOMBRE IMPRECIS - 3 rep = reclamation (9.2), 5 rep = auto (9.6.1)",
-        "test_purpose": "Test correction nombre repetitions (SQuAD2-CR)"
+        "test_purpose": "Test correction nombre repetitions (SQuAD2-CR)",
+        "difficulty": 0.6,
+        "question_type": "numeric_trap"
       },
-      "legacy_id": "FR-ADV-065"
+      "legacy_id": "FR-ADV-065",
+      "plausible_answer": "Après 3 répétitions, le joueur peut demander la nulle"
     },
     {
       "id": "adversarial:human:rules:022:161f21d8",
@@ -845,9 +923,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NUMBER_SWAP",
         "corpus_truth": "NOMBRE IMPRECIS - Classique = temps total >= 60 min (Annexe A.1)",
-        "test_purpose": "Test correction nombre temps"
+        "test_purpose": "Test correction nombre temps",
+        "difficulty": 0.6,
+        "question_type": "numeric_trap"
       },
-      "legacy_id": "FR-ADV-066"
+      "legacy_id": "FR-ADV-066",
+      "plausible_answer": "Oui, 90 minutes est le temps minimum pour partie classique"
     },
     {
       "id": "adversarial:human:rules:023:0688073a",
@@ -879,9 +960,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 9.2: arbitre VERIFIE et ACCEPTE si valide",
-        "test_purpose": "Test detection antonym (SQuAD2-CR)"
+        "test_purpose": "Test detection antonym (SQuAD2-CR)",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-067"
+      "legacy_id": "FR-ADV-067",
+      "plausible_answer": "L'arbitre interdit si réclamation faite hors du tour du joueur"
     },
     {
       "id": "adversarial:human:rules:024:33c77901",
@@ -913,9 +997,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 8.7: les deux joueurs DOIVENT signer",
-        "test_purpose": "Test detection antonym obligation"
+        "test_purpose": "Test detection antonym obligation",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-068"
+      "legacy_id": "FR-ADV-068",
+      "plausible_answer": "Refuser si le résultat inscrit est incorrect"
     },
     {
       "id": "adversarial:human:rules:025:10d40d25",
@@ -946,9 +1033,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 7.5: arbitre DOIT intervenir",
-        "test_purpose": "Test detection antonym action"
+        "test_purpose": "Test detection antonym action",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-069"
+      "legacy_id": "FR-ADV-069",
+      "plausible_answer": "Ignorer si l'adversaire a joué ensuite"
     },
     {
       "id": "adversarial:human:rules:026:cb54c512",
@@ -979,9 +1069,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 6: pendule doit fonctionner",
-        "test_purpose": "Test detection antonym etat"
+        "test_purpose": "Test detection antonym etat",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-070"
+      "legacy_id": "FR-ADV-070",
+      "plausible_answer": "Désactiver pour une réclamation à l'arbitre"
     },
     {
       "id": "adversarial:human:rules:027:9a12a0f0",
@@ -1012,9 +1105,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 12.7: spectateurs NE DOIVENT PAS intervenir",
-        "test_purpose": "Test detection antonym interdiction"
+        "test_purpose": "Test detection antonym interdiction",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-071"
+      "legacy_id": "FR-ADV-071",
+      "plausible_answer": "Intervenir pour signaler irrégularité évidente"
     },
     {
       "id": "adversarial:human:rules:028:da97be9c",
@@ -1046,9 +1142,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 11.3.2: appareils electroniques INTERDITS",
-        "test_purpose": "Test detection antonym interdiction"
+        "test_purpose": "Test detection antonym interdiction",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-072"
+      "legacy_id": "FR-ADV-072",
+      "plausible_answer": "Permis si éteint dans un sac fermé"
     },
     {
       "id": "adversarial:human:rules:029:3628229c",
@@ -1079,9 +1178,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 7: arreter pendule et appeler arbitre",
-        "test_purpose": "Test detection antonym procedure"
+        "test_purpose": "Test detection antonym procedure",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-073"
+      "legacy_id": "FR-ADV-073",
+      "plausible_answer": "Continuer si l'arbitre n'est pas disponible"
     },
     {
       "id": "adversarial:human:rules:030:2db70ebf",
@@ -1113,9 +1215,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Art 9.1.2: offre en jouant, adversaire decide",
-        "test_purpose": "Test detection antonym sequence"
+        "test_purpose": "Test detection antonym sequence",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-074"
+      "legacy_id": "FR-ADV-074",
+      "plausible_answer": "Accepter jusqu'au prochain coup adverse"
     },
     {
       "id": "adversarial:human:rules:031:ed3966ff",
@@ -1146,9 +1251,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "PARTIEL - Art 9.1: adversaire peut accepter OU refuser",
-        "test_purpose": "Test nuance antonym (cas valide)"
+        "test_purpose": "Test nuance antonym (cas valide)",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-075"
+      "legacy_id": "FR-ADV-075",
+      "plausible_answer": "Le joueur peut toujours refuser une nulle proposée"
     },
     {
       "id": "adversarial:human:rules:032:776c4e00",
@@ -1180,9 +1288,12 @@
         "cognitive_level": "Remember",
         "hard_type": "ANTONYM",
         "corpus_truth": "ANTONYM - Sauf promotion (retrait pion) ou irregularite",
-        "test_purpose": "Test detection antonym exception"
+        "test_purpose": "Test detection antonym exception",
+        "difficulty": 0.9,
+        "question_type": "semantic_reversal"
       },
-      "legacy_id": "FR-ADV-076"
+      "legacy_id": "FR-ADV-076",
+      "plausible_answer": "Retirer pour corriger un coup illégal détecté"
     },
     {
       "id": "adversarial:human:clubs:004:2717779f",
@@ -1214,9 +1325,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NEGATION",
         "corpus_truth": "FAUX - Nulles Sofia/x coups = regle tournoi, pas FIDE base",
-        "test_purpose": "Test negation contextuelle"
+        "test_purpose": "Test negation contextuelle",
+        "difficulty": 0.85,
+        "question_type": "false_presupposition"
       },
-      "legacy_id": "FR-ADV-083"
+      "legacy_id": "FR-ADV-083",
+      "plausible_answer": "La règle Sofia interdit les nulles avant le 30ème coup"
     },
     {
       "id": "adversarial:human:rules:033:1ed6f85c",
@@ -1247,9 +1361,12 @@
         "cognitive_level": "Remember",
         "hard_type": "NEGATION",
         "corpus_truth": "FAUX - Zeitnot = situation, pas dependant de cadence",
-        "test_purpose": "Test negation incorrecte"
+        "test_purpose": "Test negation incorrecte",
+        "difficulty": 0.85,
+        "question_type": "false_presupposition"
       },
-      "legacy_id": "FR-ADV-084"
+      "legacy_id": "FR-ADV-084",
+      "plausible_answer": "Les parties longues ont assez de temps pour éviter le zeitnot"
     }
   ]
 }

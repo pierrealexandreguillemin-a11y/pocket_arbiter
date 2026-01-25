@@ -83,7 +83,7 @@ class TestGetTrainingArgs:
         """Valeurs par defaut."""
         args = get_training_args("output")
         assert args["num_train_epochs"] == 3
-        assert args["per_device_train_batch_size"] == 4
+        assert args["per_device_train_batch_size"] == 8  # LoRA permet batch plus grand
         assert args["gradient_accumulation_steps"] == 4
         assert args["warmup_ratio"] == 0.1
         assert args["logging_steps"] == 50

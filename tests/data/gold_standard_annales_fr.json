@@ -1,6 +1,6 @@
 {
   "version": {
-    "number": "6.27.0",
+    "number": "6.29.0",
     "date": "2026-01-25",
     "answer_text_coverage": "477/477 (100%)",
     "answer_explanation_coverage": "220/477 (46.1%)",
@@ -1817,9 +1817,9 @@
         "R01_2025_26_Regles_generales.pdf"
       ],
       "expected_pages": [
-        3
+        2
       ],
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent009-child00",
       "article_reference": "R01 - 3 .2. Forfait isolé",
       "keywords": [
         "forfait"
@@ -2478,7 +2478,7 @@
         "C01_2025_26_Coupe_de_France.pdf"
       ],
       "expected_pages": [
-        3
+        1
       ],
       "article_reference": "C01 - 3.2. Couleurs",
       "keywords": [
@@ -2511,10 +2511,10 @@
       "answer_note": "Fallback to article reference - choices not available",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent004-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 75
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-026",
@@ -2622,7 +2622,7 @@
         "C04_2025_26_Coupe_de_la_parité.pdf"
       ],
       "expected_pages": [
-        3
+        2
       ],
       "article_reference": "C04 - 3.7. Composition des équipes",
       "keywords": [
@@ -2659,10 +2659,10 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p003-parent013-child00",
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p002-parent008-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65
+      "chunk_score": 30
     },
     {
       "id": "FR-ANN-UVC-029",
@@ -3596,7 +3596,7 @@
         "mat",
         "règle"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -4641,7 +4641,7 @@
         "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
       ],
       "expected_pages": [
-        3
+        1
       ],
       "article_reference": "C03 Coupe Jean-Claude Loubatière - Article 3.7. Composition des équipes",
       "keywords": [
@@ -4671,10 +4671,10 @@
       "answer_source": "article_reference",
       "answer_explanation": "Selon le 3.7.b), chaque joueur ou joueuse doit avoir un Elo estimé ou réel inférieur ou égal à 1800. L'Elo à prendre en compte est le dernier Elo publié. Uniquement pour la phase départementale, le classement Elo du mois précédent ne dépassant pas les 1800 points pour un joueur ou une joueuse, sera autorisé .",
       "quality_score": 1.0,
-      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p003-parent012-child00",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent005-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 55
+      "chunk_score": 30
     },
     {
       "id": "FR-ANN-UVO-032",
@@ -9828,7 +9828,7 @@
         "R01_2025_26_Regles_generales.pdf"
       ],
       "expected_pages": [
-        3
+        6
       ],
       "article_reference": "R01 - 3.1.3 Forfait administratif",
       "keywords": [],
@@ -9861,10 +9861,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent032-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55
+      "chunk_score": 5
     },
     {
       "id": "FR-ANN-UVC-068",
@@ -10115,7 +10115,7 @@
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        3
+        2
       ],
       "article_reference": "A02 - 2.5 Responsable des rencontres et arbitrage",
       "keywords": [
@@ -10150,10 +10150,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent005-child00",
       "chunk_match_score": 20,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65
+      "chunk_score": 20
     },
     {
       "id": "FR-ANN-UVC-074",
@@ -10603,7 +10603,7 @@
         "C01_2025_26_Coupe_de_France.pdf"
       ],
       "expected_pages": [
-        3
+        4
       ],
       "article_reference": "C01 - 3.2 Couleurs",
       "keywords": [],
@@ -10636,10 +10636,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent020-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 55
+      "chunk_score": 10
     },
     {
       "id": "FR-ANN-UVC-084",
@@ -12997,7 +12997,7 @@
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        3
+        2
       ],
       "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.5 Responsable des rencontres et arbitrage.",
       "keywords": [
@@ -13037,10 +13037,10 @@
       "answer_explanation": "En N4, l'arbitre peut jouer son match de N4 et officier dans un maximum de 2 matchs de N4 et de division inférieure.",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65
+      "chunk_score": 40
     },
     {
       "id": "FR-ANN-UVC-102",
@@ -15785,7 +15785,7 @@
         "partie",
         "coup"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -15836,7 +15836,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -15887,7 +15887,7 @@
         "joueur",
         "adversaire"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -15939,7 +15939,7 @@
         "joueur",
         "adversaire"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -15989,7 +15989,7 @@
         "partie",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -16041,7 +16041,7 @@
         "joueur",
         "pièce"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -16093,7 +16093,7 @@
         "règle",
         "règlement"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "temporal",
@@ -16153,7 +16153,7 @@
         "joueur",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -16206,7 +16206,7 @@
         "pièce",
         "case"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -16264,7 +16264,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -17126,7 +17126,7 @@
         "C01_2025_26_Coupe_de_France.pdf"
       ],
       "expected_pages": [
-        3
+        1
       ],
       "article_reference": "Coupe de France, Article 3.2",
       "keywords": [
@@ -17166,10 +17166,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent004-child00",
       "chunk_match_score": 90,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65
+      "chunk_score": 45
     },
     {
       "id": "FR-ANN-UVR-125",
@@ -17493,7 +17493,7 @@
         "échiquier",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -18855,7 +18855,7 @@
         "cadence",
         "coup"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -19563,7 +19563,7 @@
       ],
       "article_reference": "Art. 7.5.1.",
       "keywords": [],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -20016,7 +20016,7 @@
         "joueur",
         "trait"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -20067,7 +20067,7 @@
         "coup",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20120,7 +20120,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -20172,7 +20172,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -20214,14 +20214,14 @@
         "R01_2025_26_Regles_generales.pdf"
       ],
       "expected_pages": [
-        3
+        5
       ],
       "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 3.1.3.",
       "keywords": [
         "mat",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -20252,10 +20252,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
       "chunk_match_score": 30,
       "chunk_match_method": "page_keyword",
-      "chunk_score": 65
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-137",
@@ -20272,7 +20272,7 @@
         "pendule",
         "cadence"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20322,7 +20322,7 @@
         "coup",
         "notation"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20374,7 +20374,7 @@
         "partie",
         "coup"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20426,7 +20426,7 @@
         "position",
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20475,7 +20475,7 @@
         "position",
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20525,7 +20525,7 @@
         "joueur",
         "règle"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -20581,7 +20581,7 @@
         "cadence",
         "coup"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20632,7 +20632,7 @@
         "coup",
         "pièce"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "multi-hop",
@@ -20683,7 +20683,7 @@
         "échiquier",
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -20733,13 +20733,13 @@
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        3
+        6
       ],
       "article_reference": "Article 2.2 du règlement A.02 : Championnat de France des clubs",
       "keywords": [
         "cadence"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -20770,10 +20770,10 @@
       "answer_explanation": ": Championnat de France des clubs ## C'est le jour J. Le match aura lieu à 14h15.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent007-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 80
+      "chunk_score": 50
     },
     {
       "id": "FR-ANN-UVC-147",
@@ -20791,7 +20791,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -20842,7 +20842,7 @@
         "mat",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -20894,7 +20894,7 @@
         "trait",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -20945,7 +20945,7 @@
         "trait",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.4,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21002,7 +21002,7 @@
         "joueur",
         "trait"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21054,7 +21054,7 @@
         "coup",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21108,7 +21108,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21160,7 +21160,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21213,7 +21213,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21257,7 +21257,7 @@
         "pendule",
         "cadence"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21307,7 +21307,7 @@
         "coup",
         "notation"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21360,7 +21360,7 @@
         "partie",
         "coup"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21413,7 +21413,7 @@
         "position",
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21462,7 +21462,7 @@
         "position",
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21513,7 +21513,7 @@
         "joueur",
         "règle"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21565,7 +21565,7 @@
         "cadence",
         "coup"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21617,7 +21617,7 @@
         "coup",
         "pièce"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21666,7 +21666,7 @@
       "keywords": [
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21715,7 +21715,7 @@
         "échec",
         "règle"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21768,7 +21768,7 @@
         "joueur",
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21820,7 +21820,7 @@
         "échiquier",
         "article"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21868,7 +21868,7 @@
       "keywords": [
         "cadence"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -21919,7 +21919,7 @@
         "coup",
         "joueur"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
       "reasoning_type": "multi-hop",
@@ -21970,7 +21970,7 @@
         "mat",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -22023,7 +22023,7 @@
         "trait",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -22075,7 +22075,7 @@
         "trait",
         "position"
       ],
-      "difficulty": null,
+      "difficulty": 0.3,
       "question_type": "factual",
       "cognitive_level": "RECALL",
       "reasoning_type": "single-hop",
@@ -22806,7 +22806,7 @@
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        3
+        5
       ],
       "article_reference": "Article 2.5 du A02 Championnat de France des clubs",
       "keywords": [
@@ -22842,10 +22842,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 80
+      "chunk_score": 25
     },
     {
       "id": "FR-ANN-UVC-166",
@@ -23361,7 +23361,7 @@
         "C04_2025_26_Coupe_de_la_parité.pdf"
       ],
       "expected_pages": [
-        3
+        1
       ],
       "article_reference": "Coupe de la parité",
       "keywords": [
@@ -23409,10 +23409,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p003-parent013-child00",
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent004-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 60
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-177",

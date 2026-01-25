@@ -193,9 +193,50 @@ ANNALES DNA (https://dna.ffechecs.fr/devenir-arbitre/examens/)
       "RAGEval: Scenario Specific RAG Evaluation - arXiv:2408.01262"
     ]
   },
+  "id_schema": {
+    "version": "1.0.0",
+    "format": "{corpus}:{source}:{category}:{sequence}:{hash}",
+    "description": "URN-like ID scheme for multi-corpus support and global uniqueness",
+    "corpus_values": {
+      "ffe": "Corpus FFE (règlements français)",
+      "fide": "Corpus FIDE (règlements internationaux)",
+      "adversarial": "Questions adversariales/unanswerable",
+      "synthetic": "Questions générées par LLM"
+    },
+    "source_values": {
+      "annales": "Questions d'examen officielles FFE",
+      "human": "Questions créées manuellement",
+      "squad-adv": "Questions importées SQuAD adversarial",
+      "llm-gen": "Questions générées par LLM"
+    },
+    "category_values": {
+      "rules": "Règles du jeu",
+      "rating": "Classement/Elo",
+      "clubs": "Interclubs/Compétitions",
+      "youth": "Jeunes",
+      "women": "Féminin",
+      "access": "Handicap/Accessibilité",
+      "admin": "Administratif",
+      "regional": "Régional/Départemental",
+      "open": "Open",
+      "tournament": "Tournoi"
+    },
+    "hash_algorithm": "SHA256[:8] for global uniqueness",
+    "examples": [
+      "ffe:annales:rules:001:a3f2b8c1",
+      "ffe:human:rating:001:7d4e9f2a",
+      "adversarial:squad-adv:rules:001:f1e2d3c4"
+    ],
+    "references": [
+      "SQuAD 2.0 ID format (24-char hex)",
+      "BEIR/MS MARCO simple string IDs",
+      "SQuAD Adversarial namespace: SQuAD-id-[annotator_id]"
+    ]
+  },
   "questions": [
     {
-      "id": "FR-ANN-UVR-001",
+      "id": "ffe:annales:rules:001:a3f2b8c1",
+      "legacy_id": "FR-ANN-UVR-001",
       "question": "À quel moment un joueur a-t-il le trait ?",
       "original_annales": "Quand dit-on qu'un joueur a le trait ?",
       "category": "regles_jeu",

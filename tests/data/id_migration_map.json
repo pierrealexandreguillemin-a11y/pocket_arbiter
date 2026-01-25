@@ -1,0 +1,2948 @@
+{
+  "migration_date": "2025-01-25",
+  "old_version": "7.2.1",
+  "new_version": "7.3.0",
+  "total_migrated": 420,
+  "mappings": [
+    {
+      "old_id": "FR-ANN-UVC-001",
+      "new_id": "ffe:annales:clubs:001:55d409b5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-002",
+      "new_id": "ffe:annales:clubs:002:79da8e92",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-003",
+      "new_id": "ffe:annales:clubs:003:06c34715",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-004",
+      "new_id": "ffe:annales:clubs:004:d22e1892",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-005",
+      "new_id": "ffe:annales:clubs:005:b740870c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-006",
+      "new_id": "ffe:annales:clubs:006:1bcec3d3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-007",
+      "new_id": "ffe:annales:clubs:007:3431b54c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-008",
+      "new_id": "ffe:annales:clubs:008:5e3f7d24",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-009",
+      "new_id": "ffe:annales:clubs:009:fd51d9be",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-010",
+      "new_id": "ffe:annales:clubs:010:4c1cad22",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-011",
+      "new_id": "ffe:annales:clubs:011:0ed8268f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-012",
+      "new_id": "ffe:annales:clubs:012:f348e858",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-013",
+      "new_id": "ffe:annales:clubs:013:a7e8c494",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-014",
+      "new_id": "ffe:annales:clubs:014:cd3052cc",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-015",
+      "new_id": "ffe:annales:clubs:015:9da1351e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-016",
+      "new_id": "ffe:annales:clubs:016:223bd59d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-017",
+      "new_id": "ffe:annales:clubs:017:5a48507f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-018",
+      "new_id": "ffe:annales:clubs:018:d470292e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-019",
+      "new_id": "ffe:annales:clubs:019:4d3a9bf8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-020",
+      "new_id": "ffe:annales:clubs:020:c41e0ed8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-021",
+      "new_id": "ffe:annales:clubs:021:820fd267",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-022",
+      "new_id": "ffe:annales:clubs:022:24508717",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-024",
+      "new_id": "ffe:annales:clubs:023:c8d17a34",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-025",
+      "new_id": "ffe:annales:clubs:024:1a5a6b69",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-026",
+      "new_id": "ffe:annales:clubs:025:32ae9180",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-027",
+      "new_id": "ffe:annales:clubs:026:13307982",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-028",
+      "new_id": "ffe:annales:clubs:027:dfac5c0c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-029",
+      "new_id": "ffe:annales:clubs:028:c3671008",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-030",
+      "new_id": "ffe:annales:clubs:029:f547eb51",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-031",
+      "new_id": "ffe:annales:clubs:030:fb3301cf",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-034",
+      "new_id": "ffe:annales:clubs:031:1246fc88",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-035",
+      "new_id": "ffe:annales:clubs:032:6dce6031",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-036",
+      "new_id": "ffe:annales:clubs:033:31688840",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-037",
+      "new_id": "ffe:annales:clubs:034:625be40b",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-038",
+      "new_id": "ffe:annales:clubs:035:f5891e65",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-039",
+      "new_id": "ffe:annales:clubs:036:ec8fdbb4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-040",
+      "new_id": "ffe:annales:clubs:037:4cad3047",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-041",
+      "new_id": "ffe:annales:clubs:038:269442e5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-044",
+      "new_id": "ffe:annales:clubs:039:3f520ce2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-045",
+      "new_id": "ffe:annales:clubs:040:a05251df",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-046",
+      "new_id": "ffe:annales:clubs:041:e82c17ac",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-047",
+      "new_id": "ffe:annales:clubs:042:fb1e75b1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-049",
+      "new_id": "ffe:annales:clubs:043:c37ae53e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-050",
+      "new_id": "ffe:annales:clubs:044:606adbcd",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-053",
+      "new_id": "ffe:annales:clubs:045:5e077c7c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-054",
+      "new_id": "ffe:annales:clubs:046:15a0bc61",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-055",
+      "new_id": "ffe:annales:clubs:047:5e5fef92",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-056",
+      "new_id": "ffe:annales:clubs:048:52bb444c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-057",
+      "new_id": "ffe:annales:clubs:049:0742c6b6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-058",
+      "new_id": "ffe:annales:clubs:050:df445310",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-059",
+      "new_id": "ffe:annales:clubs:051:e52e76d4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-060",
+      "new_id": "ffe:annales:clubs:052:07434c59",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-061",
+      "new_id": "ffe:annales:clubs:053:16c2d6a7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-062",
+      "new_id": "ffe:annales:clubs:054:5a8109b0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-063",
+      "new_id": "ffe:annales:clubs:055:c04a20b4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-064",
+      "new_id": "ffe:annales:clubs:056:576a2a97",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-065",
+      "new_id": "ffe:annales:clubs:057:545da9db",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-066",
+      "new_id": "ffe:annales:clubs:058:ccd218fa",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-067",
+      "new_id": "ffe:annales:clubs:059:5e0bff0d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-068",
+      "new_id": "ffe:annales:clubs:060:1a2abf50",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-069",
+      "new_id": "ffe:annales:clubs:061:edd75063",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-070",
+      "new_id": "ffe:annales:clubs:062:234551df",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-071",
+      "new_id": "ffe:annales:clubs:063:38534277",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-072",
+      "new_id": "ffe:annales:clubs:064:604e61af",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-073",
+      "new_id": "ffe:annales:clubs:065:ec4682c1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-074",
+      "new_id": "ffe:annales:clubs:066:5f02652f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-075",
+      "new_id": "ffe:annales:clubs:067:5d9af675",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-076",
+      "new_id": "ffe:annales:clubs:068:80f0d596",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-077",
+      "new_id": "ffe:annales:clubs:069:85fbbf2a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-078",
+      "new_id": "ffe:annales:clubs:070:d2fec36f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-079",
+      "new_id": "ffe:annales:clubs:071:e798252b",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-080",
+      "new_id": "ffe:annales:clubs:072:56e31640",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-081",
+      "new_id": "ffe:annales:clubs:073:446fdc89",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-082",
+      "new_id": "ffe:annales:clubs:074:f3c3e975",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-083",
+      "new_id": "ffe:annales:clubs:075:f1539e46",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-084",
+      "new_id": "ffe:annales:clubs:076:fe6e608a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-085",
+      "new_id": "ffe:annales:clubs:077:471269eb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-086",
+      "new_id": "ffe:annales:clubs:078:3a10054a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-087",
+      "new_id": "ffe:annales:clubs:079:46e85a44",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-088",
+      "new_id": "ffe:annales:clubs:080:6b0d5da4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-089",
+      "new_id": "ffe:annales:clubs:081:f141471f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-090",
+      "new_id": "ffe:annales:clubs:082:1ce54a3d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-091",
+      "new_id": "ffe:annales:clubs:083:6aab20b5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-092",
+      "new_id": "ffe:annales:clubs:084:25d549b3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-093",
+      "new_id": "ffe:annales:clubs:085:f99e636d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-094",
+      "new_id": "ffe:annales:clubs:086:bd9a1bc4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-096",
+      "new_id": "ffe:annales:clubs:087:4fb1f6f3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-097",
+      "new_id": "ffe:annales:clubs:088:fd36b954",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-098",
+      "new_id": "ffe:annales:clubs:089:ecd85785",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-100",
+      "new_id": "ffe:annales:clubs:090:99d9d73f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-101",
+      "new_id": "ffe:annales:clubs:091:89ec7556",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-102",
+      "new_id": "ffe:annales:clubs:092:46d8ab4d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-103",
+      "new_id": "ffe:annales:clubs:093:dd779b85",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-104",
+      "new_id": "ffe:annales:clubs:094:d9d7f876",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-105",
+      "new_id": "ffe:annales:clubs:095:dd1e92ae",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-106",
+      "new_id": "ffe:annales:clubs:096:18da13cb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-107",
+      "new_id": "ffe:annales:clubs:097:1c5185db",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-108",
+      "new_id": "ffe:annales:clubs:098:52c8b8e4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-109",
+      "new_id": "ffe:annales:clubs:099:0a0848b0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-110",
+      "new_id": "ffe:annales:clubs:100:303c88ca",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-111",
+      "new_id": "ffe:annales:clubs:101:43d2eafe",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-112",
+      "new_id": "ffe:annales:clubs:102:ba5593bb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-114",
+      "new_id": "ffe:annales:clubs:103:0c4c35b1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-115",
+      "new_id": "ffe:annales:clubs:104:dfa6ecc5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-116",
+      "new_id": "ffe:annales:clubs:105:605c23b2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-117",
+      "new_id": "ffe:annales:clubs:106:55bf9872",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-118",
+      "new_id": "ffe:annales:clubs:107:269c2c6a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-119",
+      "new_id": "ffe:annales:clubs:108:d4e26526",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-120",
+      "new_id": "ffe:annales:clubs:109:5bfbcc78",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-121",
+      "new_id": "ffe:annales:clubs:110:b34b2213",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-122",
+      "new_id": "ffe:annales:clubs:111:99da52c3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-123",
+      "new_id": "ffe:annales:clubs:112:9cc28219",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-124",
+      "new_id": "ffe:annales:clubs:113:2ae38fca",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-125",
+      "new_id": "ffe:annales:clubs:114:7723ff77",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-126",
+      "new_id": "ffe:annales:clubs:115:d5304484",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-127",
+      "new_id": "ffe:annales:clubs:116:e0e40fa6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-128",
+      "new_id": "ffe:annales:clubs:117:b7ece81e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-129",
+      "new_id": "ffe:annales:clubs:118:1ebfe905",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-130",
+      "new_id": "ffe:annales:clubs:119:ca3fa215",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-131",
+      "new_id": "ffe:annales:clubs:120:c822d69a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-132",
+      "new_id": "ffe:annales:clubs:121:62ea7644",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-133",
+      "new_id": "ffe:annales:clubs:122:cd7f23cd",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-134",
+      "new_id": "ffe:annales:clubs:123:c0abb635",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-135",
+      "new_id": "ffe:annales:clubs:124:ab156594",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-136",
+      "new_id": "ffe:annales:clubs:125:55638d99",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-137",
+      "new_id": "ffe:annales:clubs:126:b75dee27",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-138",
+      "new_id": "ffe:annales:clubs:127:7c18c532",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-139",
+      "new_id": "ffe:annales:clubs:128:1fefac53",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-140",
+      "new_id": "ffe:annales:clubs:129:e767b218",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-141",
+      "new_id": "ffe:annales:clubs:130:6929d1d0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-142",
+      "new_id": "ffe:annales:clubs:131:d2907731",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-143",
+      "new_id": "ffe:annales:clubs:132:82938744",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-144",
+      "new_id": "ffe:annales:clubs:133:d0c87aba",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-145",
+      "new_id": "ffe:annales:clubs:134:0c82f3e7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-146",
+      "new_id": "ffe:annales:clubs:135:861e14f1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-147",
+      "new_id": "ffe:annales:clubs:136:81380805",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-148",
+      "new_id": "ffe:annales:clubs:137:9cfd9d8d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-149",
+      "new_id": "ffe:annales:clubs:138:19a243d6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-150",
+      "new_id": "ffe:annales:clubs:139:361bba0a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-151",
+      "new_id": "ffe:annales:clubs:140:39a63caf",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-152",
+      "new_id": "ffe:annales:clubs:141:db33e683",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-153",
+      "new_id": "ffe:annales:clubs:142:2fb8bb68",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-154",
+      "new_id": "ffe:annales:clubs:143:8f0e03ed",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-155",
+      "new_id": "ffe:annales:clubs:144:7d1e83b2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-156",
+      "new_id": "ffe:annales:clubs:145:52a8515f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-157",
+      "new_id": "ffe:annales:clubs:146:eeaa5225",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-158",
+      "new_id": "ffe:annales:clubs:147:c88f39e5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-159",
+      "new_id": "ffe:annales:clubs:148:4c052739",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-160",
+      "new_id": "ffe:annales:clubs:149:8e80eccc",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-161",
+      "new_id": "ffe:annales:clubs:150:284f7746",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-162",
+      "new_id": "ffe:annales:clubs:151:58f51be6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-163",
+      "new_id": "ffe:annales:clubs:152:0a424a81",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-164",
+      "new_id": "ffe:annales:clubs:153:5c191988",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-165",
+      "new_id": "ffe:annales:clubs:154:14c31404",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-166",
+      "new_id": "ffe:annales:clubs:155:80798801",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-167",
+      "new_id": "ffe:annales:clubs:156:8d90bbb7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-168",
+      "new_id": "ffe:annales:clubs:157:d7b097bc",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-169",
+      "new_id": "ffe:annales:clubs:158:7fea3ff6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-170",
+      "new_id": "ffe:annales:clubs:159:952af9d4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-171",
+      "new_id": "ffe:annales:clubs:160:e28a5363",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-172",
+      "new_id": "ffe:annales:clubs:161:be79eda8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-173",
+      "new_id": "ffe:annales:clubs:162:23af4aa7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-174",
+      "new_id": "ffe:annales:clubs:163:efba7505",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-175",
+      "new_id": "ffe:annales:clubs:164:49af2846",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-176",
+      "new_id": "ffe:annales:clubs:165:186c22b0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-177",
+      "new_id": "ffe:annales:clubs:166:43bcdebb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-178",
+      "new_id": "ffe:annales:clubs:167:07f8bd8d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-179",
+      "new_id": "ffe:annales:clubs:168:6808d18e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVC-180",
+      "new_id": "ffe:annales:clubs:169:c16dfcad",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-ANN-UVO-020",
+      "new_id": "ffe:annales:open:001:1f863771",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-021",
+      "new_id": "ffe:annales:open:002:b543a501",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-022",
+      "new_id": "ffe:annales:open:003:6fdc49bb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-023",
+      "new_id": "ffe:annales:open:004:8fd9715e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-024",
+      "new_id": "ffe:annales:open:005:1ca082a8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-025",
+      "new_id": "ffe:annales:open:006:2db69ef2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-026",
+      "new_id": "ffe:annales:open:007:8345a353",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-027",
+      "new_id": "ffe:annales:open:008:cf4de702",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-028",
+      "new_id": "ffe:annales:open:009:4e5b3351",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-029",
+      "new_id": "ffe:annales:open:010:5bc6bc5e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-030",
+      "new_id": "ffe:annales:open:011:1d5e9de9",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-031",
+      "new_id": "ffe:annales:open:012:1c5af6e1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-032",
+      "new_id": "ffe:annales:open:013:51141e29",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-033",
+      "new_id": "ffe:annales:open:014:96d3083c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-034",
+      "new_id": "ffe:annales:open:015:95f4d64a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-035",
+      "new_id": "ffe:annales:open:016:ad8538d6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-036",
+      "new_id": "ffe:annales:open:017:67c3b0c7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-037",
+      "new_id": "ffe:annales:open:018:b7aaa6c2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-038",
+      "new_id": "ffe:annales:open:019:8188a2db",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-039",
+      "new_id": "ffe:annales:open:020:c8d86384",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-040",
+      "new_id": "ffe:annales:open:021:73ebcf51",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-041",
+      "new_id": "ffe:annales:open:022:ef6ad68d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-043",
+      "new_id": "ffe:annales:open:023:f52bd8ed",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-044",
+      "new_id": "ffe:annales:open:024:4bb364eb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-045",
+      "new_id": "ffe:annales:open:025:228839b5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-046",
+      "new_id": "ffe:annales:open:026:6db1678f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-047",
+      "new_id": "ffe:annales:open:027:012cae15",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-048",
+      "new_id": "ffe:annales:open:028:4cc73f07",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-049",
+      "new_id": "ffe:annales:open:029:bcc5611a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-050",
+      "new_id": "ffe:annales:open:030:6f4d6220",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-051",
+      "new_id": "ffe:annales:open:031:daec673d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-052",
+      "new_id": "ffe:annales:open:032:1ad21c08",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-053",
+      "new_id": "ffe:annales:open:033:c7af304e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-054",
+      "new_id": "ffe:annales:open:034:a50a1b29",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-055",
+      "new_id": "ffe:annales:open:035:cb1bec24",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-056",
+      "new_id": "ffe:annales:open:036:24602145",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-057",
+      "new_id": "ffe:annales:open:037:48253f77",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-058",
+      "new_id": "ffe:annales:open:038:3ae4a556",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-059",
+      "new_id": "ffe:annales:open:039:87f2338a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-060",
+      "new_id": "ffe:annales:open:040:b0c5b2b9",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-061",
+      "new_id": "ffe:annales:open:041:0af9b7dc",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-062",
+      "new_id": "ffe:annales:open:042:dc055770",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-063",
+      "new_id": "ffe:annales:open:043:b77bf58f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-064",
+      "new_id": "ffe:annales:open:044:b922066d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-065",
+      "new_id": "ffe:annales:open:045:d2ead6d5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-066",
+      "new_id": "ffe:annales:open:046:cc1e3b13",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-067",
+      "new_id": "ffe:annales:open:047:8191de57",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-068",
+      "new_id": "ffe:annales:open:048:d394d0e3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-069",
+      "new_id": "ffe:annales:open:049:d033d8c3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-071",
+      "new_id": "ffe:annales:open:050:eb7be3cd",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-073",
+      "new_id": "ffe:annales:open:051:d9e3bbc6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-074",
+      "new_id": "ffe:annales:open:052:40c01b4b",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-075",
+      "new_id": "ffe:annales:open:053:c86e4c21",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-076",
+      "new_id": "ffe:annales:open:054:772ce2a9",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-077",
+      "new_id": "ffe:annales:open:055:fff0d000",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-078",
+      "new_id": "ffe:annales:open:056:3e6a8494",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-079",
+      "new_id": "ffe:annales:open:057:1149ade0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-080",
+      "new_id": "ffe:annales:open:058:6a9ad243",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-081",
+      "new_id": "ffe:annales:open:059:e98a4668",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-082",
+      "new_id": "ffe:annales:open:060:5b4d6205",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-083",
+      "new_id": "ffe:annales:open:061:9abe718c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-084",
+      "new_id": "ffe:annales:open:062:9c34a5fa",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-085",
+      "new_id": "ffe:annales:open:063:f66e301c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVO-086",
+      "new_id": "ffe:annales:open:064:936ece0a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "open"
+    },
+    {
+      "old_id": "FR-ANN-UVR-023",
+      "new_id": "ffe:annales:rules:001:d56a5ed7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-024",
+      "new_id": "ffe:annales:rules:002:33e3bee8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-025",
+      "new_id": "ffe:annales:rules:003:182a9b44",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-026",
+      "new_id": "ffe:annales:rules:004:6e4f68c4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-027",
+      "new_id": "ffe:annales:rules:005:50bb0658",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-028",
+      "new_id": "ffe:annales:rules:006:2ed0beee",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-029",
+      "new_id": "ffe:annales:rules:007:148916ab",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-030",
+      "new_id": "ffe:annales:rules:008:49ee41a2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-032",
+      "new_id": "ffe:annales:rules:009:8b61df6a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-033",
+      "new_id": "ffe:annales:rules:010:2bcd0d93",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-034",
+      "new_id": "ffe:annales:rules:011:bbebc0df",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-035",
+      "new_id": "ffe:annales:rules:012:59a34ceb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-036",
+      "new_id": "ffe:annales:rules:013:4540ccad",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-037",
+      "new_id": "ffe:annales:rules:014:071efde4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-038",
+      "new_id": "ffe:annales:rules:015:218b82be",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-040",
+      "new_id": "ffe:annales:rules:016:9fabc206",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-042",
+      "new_id": "ffe:annales:rules:017:c2e125b4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-043",
+      "new_id": "ffe:annales:rules:018:84198fff",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-044",
+      "new_id": "ffe:annales:rules:019:a60a32b8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-045",
+      "new_id": "ffe:annales:rules:020:2abf7d5b",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-046",
+      "new_id": "ffe:annales:rules:021:6e7f46b5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-047",
+      "new_id": "ffe:annales:rules:022:a1699904",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-048",
+      "new_id": "ffe:annales:rules:023:313313c3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-049",
+      "new_id": "ffe:annales:rules:024:639c0418",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-050",
+      "new_id": "ffe:annales:rules:025:2c969d21",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-051",
+      "new_id": "ffe:annales:rules:026:1497bbbb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-052",
+      "new_id": "ffe:annales:rules:027:2d7ee8e7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-053",
+      "new_id": "ffe:annales:rules:028:b3ebab05",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-054",
+      "new_id": "ffe:annales:rules:029:30d59fea",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-055",
+      "new_id": "ffe:annales:rules:030:fc369c15",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-056",
+      "new_id": "ffe:annales:rules:031:01d9b54f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-057",
+      "new_id": "ffe:annales:rules:032:fea4adde",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-058",
+      "new_id": "ffe:annales:rules:033:660f6206",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-059",
+      "new_id": "ffe:annales:rules:034:18bf23f0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-060",
+      "new_id": "ffe:annales:rules:035:81c5709f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-061",
+      "new_id": "ffe:annales:rules:036:95dbe2c6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-062",
+      "new_id": "ffe:annales:rules:037:25385d5f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-063",
+      "new_id": "ffe:annales:rules:038:7733f1b3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-064",
+      "new_id": "ffe:annales:rules:039:3746f309",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-065",
+      "new_id": "ffe:annales:rules:040:3c49716f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-066",
+      "new_id": "ffe:annales:rules:041:eb8a701b",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-067",
+      "new_id": "ffe:annales:rules:042:11f3a37e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-068",
+      "new_id": "ffe:annales:rules:043:71689419",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-069",
+      "new_id": "ffe:annales:rules:044:ab624690",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-070",
+      "new_id": "ffe:annales:rules:045:89403c7f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-071",
+      "new_id": "ffe:annales:rules:046:350ac66f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-072",
+      "new_id": "ffe:annales:rules:047:b2870b62",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-073",
+      "new_id": "ffe:annales:rules:048:e207b726",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-074",
+      "new_id": "ffe:annales:rules:049:324c24ff",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-075",
+      "new_id": "ffe:annales:rules:050:efbd367a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-076",
+      "new_id": "ffe:annales:rules:051:8624de9c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-077",
+      "new_id": "ffe:annales:rules:052:ad487e20",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-078",
+      "new_id": "ffe:annales:rules:053:589c64b1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-079",
+      "new_id": "ffe:annales:rules:054:1f2c8ab5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-080",
+      "new_id": "ffe:annales:rules:055:14804bb4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-081",
+      "new_id": "ffe:annales:rules:056:b15cf14c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-082",
+      "new_id": "ffe:annales:rules:057:80e7e9da",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-083",
+      "new_id": "ffe:annales:rules:058:236d58e4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-084",
+      "new_id": "ffe:annales:rules:059:4643a274",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-085",
+      "new_id": "ffe:annales:rules:060:51e22661",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-086",
+      "new_id": "ffe:annales:rules:061:d2032ffa",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-087",
+      "new_id": "ffe:annales:rules:062:2b6141ed",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-088",
+      "new_id": "ffe:annales:rules:063:df712371",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-090",
+      "new_id": "ffe:annales:rules:064:c4dc2bd2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-096",
+      "new_id": "ffe:annales:rules:065:3f9334c5",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-098",
+      "new_id": "ffe:annales:rules:066:d2c9ccb7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-099",
+      "new_id": "ffe:annales:rules:067:2db11c50",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-100",
+      "new_id": "ffe:annales:rules:068:5c64c6f3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-111",
+      "new_id": "ffe:annales:rules:069:b69a968a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-114",
+      "new_id": "ffe:annales:rules:070:10f4c72f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-122",
+      "new_id": "ffe:annales:rules:071:21299833",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-126",
+      "new_id": "ffe:annales:rules:072:642aaaba",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-127",
+      "new_id": "ffe:annales:rules:073:67efc7f7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-128",
+      "new_id": "ffe:annales:rules:074:406fc882",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-129",
+      "new_id": "ffe:annales:rules:075:96244d87",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-130",
+      "new_id": "ffe:annales:rules:076:61867e75",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-133",
+      "new_id": "ffe:annales:rules:077:9764086b",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-134",
+      "new_id": "ffe:annales:rules:078:6e3dc32c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-135",
+      "new_id": "ffe:annales:rules:079:c3789d46",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-136",
+      "new_id": "ffe:annales:rules:080:7d46fef6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-137",
+      "new_id": "ffe:annales:rules:081:b3dfd538",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-138",
+      "new_id": "ffe:annales:rules:082:0ffd9851",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-139",
+      "new_id": "ffe:annales:rules:083:958a8418",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-140",
+      "new_id": "ffe:annales:rules:084:9b6aba85",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-145",
+      "new_id": "ffe:annales:rules:085:d7d2e0cb",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-146",
+      "new_id": "ffe:annales:rules:086:bcf958e4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-147",
+      "new_id": "ffe:annales:rules:087:65b43070",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-148",
+      "new_id": "ffe:annales:rules:088:06844059",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-149",
+      "new_id": "ffe:annales:rules:089:9f9846a0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-150",
+      "new_id": "ffe:annales:rules:090:2d67e0b8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-151",
+      "new_id": "ffe:annales:rules:091:4504ee69",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-152",
+      "new_id": "ffe:annales:rules:092:6e7290e6",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-153",
+      "new_id": "ffe:annales:rules:093:8d0ba054",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-154",
+      "new_id": "ffe:annales:rules:094:292c2180",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-155",
+      "new_id": "ffe:annales:rules:095:cc85a835",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-156",
+      "new_id": "ffe:annales:rules:096:db7b1227",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-157",
+      "new_id": "ffe:annales:rules:097:631f31e8",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-158",
+      "new_id": "ffe:annales:rules:098:3fbacfde",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-159",
+      "new_id": "ffe:annales:rules:099:a1e9cd97",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-160",
+      "new_id": "ffe:annales:rules:100:7e882181",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-161",
+      "new_id": "ffe:annales:rules:101:b57c84f0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-164",
+      "new_id": "ffe:annales:rules:102:eda76021",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-166",
+      "new_id": "ffe:annales:rules:103:f493b422",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-175",
+      "new_id": "ffe:annales:rules:104:0309cc7a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-176",
+      "new_id": "ffe:annales:rules:105:ca611079",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVR-177",
+      "new_id": "ffe:annales:rules:106:5a3dd069",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "rules"
+    },
+    {
+      "old_id": "FR-ANN-UVT-003",
+      "new_id": "ffe:annales:tournament:001:39ad4152",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-004",
+      "new_id": "ffe:annales:tournament:002:5d30fd70",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-005",
+      "new_id": "ffe:annales:tournament:003:2b1ab662",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-007",
+      "new_id": "ffe:annales:tournament:004:82f7f674",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-010",
+      "new_id": "ffe:annales:tournament:005:ed5b90d2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-011",
+      "new_id": "ffe:annales:tournament:006:66593d0c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-013",
+      "new_id": "ffe:annales:tournament:007:ccccbfee",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-014",
+      "new_id": "ffe:annales:tournament:008:4be0fbe1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-015",
+      "new_id": "ffe:annales:tournament:009:36b933ad",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-016",
+      "new_id": "ffe:annales:tournament:010:4b10a24a",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-018",
+      "new_id": "ffe:annales:tournament:011:1e2d7ebc",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-019",
+      "new_id": "ffe:annales:tournament:012:4549ef7e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-020",
+      "new_id": "ffe:annales:tournament:013:a7312ec7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-021",
+      "new_id": "ffe:annales:tournament:014:b1891890",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-022",
+      "new_id": "ffe:annales:tournament:015:27a9e155",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-023",
+      "new_id": "ffe:annales:tournament:016:698fd630",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-024",
+      "new_id": "ffe:annales:tournament:017:f1e23406",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-025",
+      "new_id": "ffe:annales:tournament:018:f5f5dfe0",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-026",
+      "new_id": "ffe:annales:tournament:019:b83d312f",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-027",
+      "new_id": "ffe:annales:tournament:020:0ee45b0c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-028",
+      "new_id": "ffe:annales:tournament:021:420f3fe9",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-032",
+      "new_id": "ffe:annales:tournament:022:43041a74",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-033",
+      "new_id": "ffe:annales:tournament:023:6a4bd26e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-034",
+      "new_id": "ffe:annales:tournament:024:923da57c",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-036",
+      "new_id": "ffe:annales:tournament:025:ed1ca4f9",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-039",
+      "new_id": "ffe:annales:tournament:026:fcc80bae",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-041",
+      "new_id": "ffe:annales:tournament:027:5cc51fc2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-042",
+      "new_id": "ffe:annales:tournament:028:bb9bc98e",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-044",
+      "new_id": "ffe:annales:tournament:029:5d665b67",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-045",
+      "new_id": "ffe:annales:tournament:030:7ff46cb9",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-046",
+      "new_id": "ffe:annales:tournament:031:bb520f55",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-047",
+      "new_id": "ffe:annales:tournament:032:40c5b1ee",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-048",
+      "new_id": "ffe:annales:tournament:033:20fdfa19",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-050",
+      "new_id": "ffe:annales:tournament:034:76520ac7",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-053",
+      "new_id": "ffe:annales:tournament:035:df3692a1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-054",
+      "new_id": "ffe:annales:tournament:036:bc62e693",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-055",
+      "new_id": "ffe:annales:tournament:037:59f9c31d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-056",
+      "new_id": "ffe:annales:tournament:038:b2eb5fa2",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-059",
+      "new_id": "ffe:annales:tournament:039:a4a07cb1",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-060",
+      "new_id": "ffe:annales:tournament:040:0813659b",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-061",
+      "new_id": "ffe:annales:tournament:041:7a4c52d4",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-062",
+      "new_id": "ffe:annales:tournament:042:0ae424b3",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-063",
+      "new_id": "ffe:annales:tournament:043:d15339ee",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-066",
+      "new_id": "ffe:annales:tournament:044:32492050",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-067",
+      "new_id": "ffe:annales:tournament:045:f0a2fcfc",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-068",
+      "new_id": "ffe:annales:tournament:046:8794b69d",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ANN-UVT-069",
+      "new_id": "ffe:annales:tournament:047:9ca2b175",
+      "corpus": "ffe",
+      "source": "annales",
+      "category": "tournament"
+    },
+    {
+      "old_id": "FR-ELO-001",
+      "new_id": "ffe:human:rating:001:406a0bbe",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-ELO-002",
+      "new_id": "ffe:human:rating:002:710d2088",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-ELO-003",
+      "new_id": "ffe:human:rating:003:880750a0",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-ELO-004",
+      "new_id": "ffe:human:rating:004:afe9a2af",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-ELO-005",
+      "new_id": "ffe:human:rating:005:91ec4e85",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-ELO-006",
+      "new_id": "ffe:human:rating:006:3f4dfb29",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-ELO-007",
+      "new_id": "ffe:human:rating:007:e6656888",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-ELO-008",
+      "new_id": "ffe:human:rating:008:271c694f",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-J01-001",
+      "new_id": "ffe:human:youth:001:f306d37c",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-J01-002",
+      "new_id": "ffe:human:youth:002:30725375",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-J01-003",
+      "new_id": "ffe:human:youth:003:b7774476",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-J02-001",
+      "new_id": "ffe:human:youth:004:eae93f57",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-J02-002",
+      "new_id": "ffe:human:youth:005:8f4bf758",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-J02-003",
+      "new_id": "ffe:human:youth:006:8ee016d4",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-J02-004",
+      "new_id": "ffe:human:youth:007:a0e7a66d",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-J03-001",
+      "new_id": "ffe:human:youth:008:78785108",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "youth"
+    },
+    {
+      "old_id": "FR-F01-001",
+      "new_id": "ffe:human:women:001:735e35bb",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "women"
+    },
+    {
+      "old_id": "FR-F02-001",
+      "new_id": "ffe:human:women:002:1667d108",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "women"
+    },
+    {
+      "old_id": "FR-H01-001",
+      "new_id": "ffe:human:access:001:e775f181",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "access"
+    },
+    {
+      "old_id": "FR-H02-001",
+      "new_id": "ffe:human:access:002:bfa0f3f8",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "access"
+    },
+    {
+      "old_id": "FR-E02-001",
+      "new_id": "ffe:human:rating:009:95e74930",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "rating"
+    },
+    {
+      "old_id": "FR-A01-001",
+      "new_id": "ffe:human:clubs:001:e20fddaa",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-A03-001",
+      "new_id": "ffe:human:clubs:002:aa5f1fec",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-MED-001",
+      "new_id": "ffe:human:admin:001:89810c8e",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "admin"
+    },
+    {
+      "old_id": "FR-FIN-001",
+      "new_id": "ffe:human:admin:002:4583c135",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "admin"
+    },
+    {
+      "old_id": "FR-STAT-001",
+      "new_id": "ffe:human:admin:003:3647aee2",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "admin"
+    },
+    {
+      "old_id": "FR-RI-001",
+      "new_id": "ffe:human:admin:004:e0771263",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "admin"
+    },
+    {
+      "old_id": "FR-DEL-001",
+      "new_id": "ffe:human:admin:005:35800014",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "admin"
+    },
+    {
+      "old_id": "FR-N6BDR-001",
+      "new_id": "ffe:human:regional:001:6794986f",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "regional"
+    },
+    {
+      "old_id": "FR-IJBDR-001",
+      "new_id": "ffe:human:regional:002:94cf56b9",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "regional"
+    },
+    {
+      "old_id": "FR-N4PACA-001",
+      "new_id": "ffe:human:regional:003:89e7d630",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "regional"
+    },
+    {
+      "old_id": "FR-REGPACA-001",
+      "new_id": "ffe:human:regional:004:a18d472b",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "regional"
+    },
+    {
+      "old_id": "FR-COMP-001",
+      "new_id": "ffe:human:clubs:003:3c3a124c",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "clubs"
+    },
+    {
+      "old_id": "FR-NOYAU-001",
+      "new_id": "ffe:human:clubs:004:f070542c",
+      "corpus": "ffe",
+      "source": "human",
+      "category": "clubs"
+    }
+  ]
+}

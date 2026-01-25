@@ -115,15 +115,24 @@ def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
 def select_same_doc_diff_page(
     positive_chunk: dict,
     by_source: dict[str, list[dict]],
+    excluded_ids: set[str] | None = None,
 ) -> dict | None:
-    """Select negative from same document but different pages."""
+    """Select negative from same document but different pages.
+
+    Args:
+        positive_chunk: The positive chunk to avoid.
+        by_source: Chunks indexed by source document.
+        excluded_ids: Set of chunk IDs to exclude (all positives in dataset).
+    """
     source = positive_chunk.get("source", "")
     positive_pages = set(positive_chunk.get("pages", [positive_chunk.get("page", -1)]))
+    excluded = excluded_ids or set()
 
     candidates = by_source.get(source, [])
     valid = [
         c for c in candidates
         if c["id"] != positive_chunk["id"]
+        and c["id"] not in excluded  # CRITICAL: exclude all positives
         and not set(c.get("pages", [c.get("page", -1)])).intersection(positive_pages)
     ]
 
@@ -134,10 +143,19 @@ def select_same_category(
     positive_chunk: dict,
     question: dict,
     by_category: dict[str, list[dict]],
+    excluded_ids: set[str] | None = None,
 ) -> dict | None:
-    """Select negative from same category."""
+    """Select negative from same category.
+
+    Args:
+        positive_chunk: The positive chunk to avoid.
+        question: Question dict with category.
+        by_category: Chunks indexed by category.
+        excluded_ids: Set of chunk IDs to exclude (all positives in dataset).
+    """
     # Get question category
     q_category = question.get("category", "general")
+    excluded = excluded_ids or set()
 
     # Map to chunk category
     category_mapping = {
@@ -151,7 +169,9 @@ def select_same_category(
     chunk_category = category_mapping.get(q_category, "general")
 
     candidates = by_category.get(chunk_category, [])
-    valid = [c for c in candidates if c["id"] != positive_chunk["id"]]
+    valid = [c for c in candidates
+             if c["id"] != positive_chunk["id"]
+             and c["id"] not in excluded]  # CRITICAL: exclude all positives
 
     return random.choice(valid) if valid else None
 
@@ -161,22 +181,35 @@ def select_semantic_similar(
     chunk_ids: list[str],
     embeddings: np.ndarray,
     positive_id: str,
+    excluded_ids: set[str] | None = None,
     min_similarity: float = 0.3,
     max_similarity: float = 0.9,
 ) -> str | None:
-    """Select semantically similar but not identical chunk."""
+    """Select semantically similar but not identical chunk.
+
+    Args:
+        positive_idx: Index of positive chunk in embeddings.
+        chunk_ids: List of all chunk IDs.
+        embeddings: Embedding matrix.
+        positive_id: ID of positive chunk.
+        excluded_ids: Set of chunk IDs to exclude (all positives in dataset).
+        min_similarity: Minimum cosine similarity threshold.
+        max_similarity: Maximum cosine similarity threshold.
+    """
     if embeddings is None or positive_idx >= len(embeddings):
         return None
 
+    excluded = excluded_ids or set()
     positive_emb = embeddings[positive_idx]
 
     # Compute similarities to all chunks
     similarities = []
     for i, emb in enumerate(embeddings):
-        if chunk_ids[i] != positive_id:
+        cid = chunk_ids[i]
+        if cid != positive_id and cid not in excluded:  # CRITICAL: exclude all positives
             sim = cosine_similarity(positive_emb, emb)
             if min_similarity <= sim <= max_similarity:
-                similarities.append((chunk_ids[i], sim))
+                similarities.append((cid, sim))
 
     if not similarities:
         return None
@@ -190,9 +223,19 @@ def select_semantic_similar(
 def select_random(
     positive_id: str,
     all_ids: list[str],
+    excluded_ids: set[str] | None = None,
 ) -> str | None:
-    """Select random chunk."""
-    candidates = [cid for cid in all_ids if cid != positive_id]
+    """Select random chunk.
+
+    Args:
+        positive_id: ID of positive chunk.
+        all_ids: List of all chunk IDs.
+        excluded_ids: Set of chunk IDs to exclude (all positives in dataset).
+    """
+    excluded = excluded_ids or set()
+    candidates = [cid for cid in all_ids
+                  if cid != positive_id
+                  and cid not in excluded]  # CRITICAL: exclude all positives
     return random.choice(candidates) if candidates else None
 
 
@@ -205,14 +248,28 @@ def select_hard_negative(
     all_ids: list[str],
     embeddings: np.ndarray | None,
     method_counts: dict[str, int],
+    excluded_ids: set[str] | None = None,
 ) -> tuple[dict | None, str]:
     """
     Select hard negative using hierarchical strategy.
 
     Tries to balance according to TARGET_DISTRIBUTION.
+
+    Args:
+        question: Question dict.
+        positive_chunk: The positive chunk.
+        chunk_index: All chunks indexed by ID.
+        by_source: Chunks indexed by source document.
+        by_category: Chunks indexed by category.
+        all_ids: List of all chunk IDs.
+        embeddings: Embedding matrix (optional).
+        method_counts: Current method distribution counts.
+        excluded_ids: Set of chunk IDs to exclude (ALL positives in dataset).
+                      CRITICAL for preventing positive-negative overlap.
     """
     positive_id = positive_chunk["id"]
     positive_idx = all_ids.index(positive_id) if positive_id in all_ids else -1
+    excluded = excluded_ids or set()
 
     # Calculate current distribution
     total = sum(method_counts.values()) or 1
@@ -229,28 +286,28 @@ def select_hard_negative(
         negative = None
 
         if method == "same_doc_diff_page":
-            negative = select_same_doc_diff_page(positive_chunk, by_source)
+            negative = select_same_doc_diff_page(positive_chunk, by_source, excluded)
 
         elif method == "same_category":
-            negative = select_same_category(positive_chunk, question, by_category)
+            negative = select_same_category(positive_chunk, question, by_category, excluded)
 
         elif method == "semantic_similar" and embeddings is not None:
             neg_id = select_semantic_similar(
-                positive_idx, all_ids, embeddings, positive_id
+                positive_idx, all_ids, embeddings, positive_id, excluded
             )
             if neg_id:
                 negative = chunk_index.get(neg_id)
 
         elif method == "random":
-            neg_id = select_random(positive_id, all_ids)
+            neg_id = select_random(positive_id, all_ids, excluded)
             if neg_id:
                 negative = chunk_index.get(neg_id)
 
         if negative:
             return negative, method
 
-    # Fallback to random
-    neg_id = select_random(positive_id, all_ids)
+    # Fallback to random (still excluding positives)
+    neg_id = select_random(positive_id, all_ids, excluded)
     return chunk_index.get(neg_id) if neg_id else None, "random_fallback"
 
 
@@ -351,8 +408,25 @@ def generate_triplets(
     embeddings: np.ndarray | None,
     embedding_model: Any = None,
 ) -> tuple[list[dict], dict]:
-    """Generate triplets for all questions with chunks."""
+    """Generate triplets for all questions with chunks.
+
+    CRITICAL: Collects ALL positive chunk IDs first to prevent any chunk
+    that is a positive for question A from being selected as a negative
+    for question B. This is industry standard practice per:
+    - sentence-transformers training guidelines
+    - NV-Embed-v2 paper recommendations
+    """
     questions = gs_data.get("questions", [])
+
+    # CRITICAL: First pass - collect ALL positive chunk IDs
+    # This prevents positive-negative overlap across the entire dataset
+    all_positive_ids: set[str] = set()
+    for q in questions:
+        chunk_id = q.get("expected_chunk_id")
+        if chunk_id:
+            all_positive_ids.add(chunk_id)
+
+    logger.info(f"Excluding {len(all_positive_ids)} positive chunks from negative selection")
 
     triplets = []
     method_counts: dict[str, int] = defaultdict(int)
@@ -380,7 +454,7 @@ def generate_triplets(
             skip_reasons["no_anchor_text"] += 1
             continue
 
-        # Select hard negative
+        # Select hard negative - EXCLUDING ALL POSITIVE CHUNKS
         negative_chunk, method = select_hard_negative(
             question,
             positive_chunk,
@@ -390,6 +464,7 @@ def generate_triplets(
             all_ids,
             embeddings,
             method_counts,
+            excluded_ids=all_positive_ids,  # CRITICAL: prevent overlap
         )
 
         if not negative_chunk:

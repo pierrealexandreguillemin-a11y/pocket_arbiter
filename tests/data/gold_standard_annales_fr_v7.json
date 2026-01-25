@@ -1,5 +1,5 @@
 {
-  "version": "7.1.0_cov8",
+  "version": "7.2.1",
   "schema": "unified-v1",
   "description": "Gold standard v7.0.0 - unified schema (SQuAD 2.0 + BEIR + ISO 42001)",
   "methodology": {
@@ -10,7 +10,7 @@
     "iso_reference": "ISO 42001 A.7.3, ISO 25010 FA-01"
   },
   "coverage": {
-    "total_questions": 409
+    "total_questions": 420
   },
   "questions": [
     {
@@ -41,7 +41,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 1.2 : Missions de l'arbitre - A : Auprès de l'échiquier : Art. 2.1 et 2.2",
         "difficulty": 0.15,
         "annales_source": {
@@ -91,7 +91,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 1.2 : Missions de l'arbitre - A : Auprès de l'échiquier : Art. 3.1",
         "difficulty": 0.14,
         "annales_source": {
@@ -142,7 +142,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R01 - Chapitre 8 : Rôle des Capitaines.",
         "difficulty": 0.2,
         "annales_source": {
@@ -190,7 +190,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R01 - Chapitre 11. Entente de Clubs. 11.1. Généralités",
         "difficulty": 0.17,
         "annales_source": {
@@ -240,7 +240,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 5 Les structures régionales et dép. - 5.1. La DRA.",
         "difficulty": 0.25,
         "annales_source": {
@@ -290,7 +290,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 6 Administration 6.2. Arbitres inactifs",
         "difficulty": 0.3,
         "annales_source": {
@@ -339,7 +339,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "LA - Chapitre 1.3 : Le RI de la D.N.A. - Organisation et administration - Article 7 - Délivrance des titres d'arbitres fédéraux - 7.1. Critères administratifs",
         "difficulty": 0.41,
         "annales_source": {
@@ -393,7 +393,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 Délivrance des titres d'arbitres fédéraux",
         "difficulty": 0.42,
         "annales_source": {
@@ -437,7 +437,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - 2. Statut d'un Joueur ou une Joueuse",
         "difficulty": 0.43,
         "annales_source": {
@@ -487,7 +487,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - 2.4 Catégories d'âge",
         "difficulty": 0.11,
         "annales_source": {
@@ -537,7 +537,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "ANALYZE",
+        "cognitive_level": "Analyze",
         "article_reference": "R01 - 3 .2. Forfait isolé",
         "difficulty": 0.29,
         "annales_source": {
@@ -591,7 +591,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - 4. Homologation d'un résultat",
         "difficulty": 0.36,
         "annales_source": {
@@ -639,7 +639,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R03 - 2.3 Droits d'inscriptions",
         "difficulty": 0.38,
         "annales_source": {
@@ -685,7 +685,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 - 2.5. Conditions de participation des joueurs et joueuses",
         "difficulty": 0.25,
         "annales_source": {
@@ -733,7 +733,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 - 2.3 Droits d'inscriptions",
         "difficulty": 0.46,
         "annales_source": {
@@ -782,7 +782,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - 1.2 Déroulement de la compétition",
         "difficulty": 0.16,
         "annales_source": {
@@ -830,7 +830,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - 2. Organisation de la compétition - 2.1.a Direction de Nationale",
         "difficulty": 0.46,
         "annales_source": {
@@ -878,7 +878,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "ANALYZE",
+        "cognitive_level": "Analyze",
         "article_reference": "A02 - 2.4 Arbitres",
         "difficulty": 0.37,
         "annales_source": {
@@ -929,7 +929,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - 3.7.c) Participation dans plusieurs équipes",
         "difficulty": 0.34,
         "annales_source": {
@@ -980,7 +980,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - 3.8 Forfaits sportifs",
         "difficulty": 0.85,
         "annales_source": {
@@ -1028,7 +1028,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - 3.9 Litiges techniques",
         "difficulty": 0.22,
         "annales_source": {
@@ -1078,7 +1078,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - 3.7 Composition des équipes - 3.7.f) Noyau de l'équipe",
         "difficulty": 0.4,
         "annales_source": {
@@ -1122,7 +1122,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C03 - 5.6. Appariement pour un groupe de plus de 7 équipes en nombre impair 5.6.a) Phase départementale et phase 2",
         "difficulty": 0.16,
         "annales_source": {
@@ -1168,7 +1168,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "C01 - 3.2. Couleurs",
         "difficulty": 0.38,
         "annales_source": {
@@ -1213,7 +1213,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C01 - 3.8. Forfaits sportifs",
         "difficulty": 0.24,
         "annales_source": {
@@ -1263,7 +1263,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "C01 - 4.2. Points de match",
         "difficulty": 0.3,
         "annales_source": {
@@ -1314,7 +1314,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C04 - 3.7. Composition des équipes",
         "difficulty": 0.19,
         "annales_source": {
@@ -1365,7 +1365,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C01 - 4.2. Points de match - 4.3. Classement",
         "difficulty": 0.27,
         "annales_source": {
@@ -1413,7 +1413,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.2 du RIDNA.",
         "difficulty": 0.01,
         "annales_source": {
@@ -1461,7 +1461,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 5.1.1 du RIDNA.",
         "difficulty": 0.21,
         "annales_source": {
@@ -1509,7 +1509,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.1.2 du R01 - Règles générales.",
         "difficulty": 0.31,
         "annales_source": {
@@ -1562,7 +1562,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 11 du R01 - Règles générales.",
         "difficulty": 0.2,
         "annales_source": {
@@ -1611,7 +1611,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.2.2 du R03 - Compétitions homologuées.",
         "difficulty": 0.43,
         "annales_source": {
@@ -1660,7 +1660,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.5 du R03 - Compétitions homologuées.",
         "difficulty": 0.24,
         "annales_source": {
@@ -1708,7 +1708,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.6.d du A02 - Championnat de France des clubs.",
         "difficulty": 0.2,
         "annales_source": {
@@ -1757,7 +1757,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.6.a du A02 - Championnat de France des clubs.",
         "difficulty": 0.36,
         "annales_source": {
@@ -1810,7 +1810,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 2.5 du A02 - Championnat de France des clubs.",
         "difficulty": 0.22,
         "annales_source": {
@@ -1862,7 +1862,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.6.c du A02 - Championnat de France des clubs.",
         "difficulty": 0.11,
         "annales_source": {
@@ -1913,7 +1913,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.7.f du A02 - Championnat de France des clubs.",
         "difficulty": 0.34,
         "annales_source": {
@@ -1963,7 +1963,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.11.a du A02 - Championnat de France des clubs.",
         "difficulty": 0.22,
         "annales_source": {
@@ -2013,7 +2013,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.11.c du A02 - Championnat de France des clubs.",
         "difficulty": 0.08,
         "annales_source": {
@@ -2061,7 +2061,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.8 du A02 - Championnat de France des clubs.",
         "difficulty": 0.42,
         "annales_source": {
@@ -2112,7 +2112,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1 du R02 - Règles générales - Annexes.",
         "difficulty": 0.41,
         "annales_source": {
@@ -2162,7 +2162,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 4 du R02 - Règles générales - Annexes.",
         "difficulty": 0.13,
         "annales_source": {
@@ -2210,7 +2210,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.2 du C03 - Coupe Jean-Claude Loubatière.",
         "difficulty": 0.46,
         "annales_source": {
@@ -2259,7 +2259,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.5 du C03 - Coupe Jean-Claude Loubatière.",
         "difficulty": 0.19,
         "annales_source": {
@@ -2307,7 +2307,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.1 du F01 - Championnat de France des Clubs Féminin.",
         "difficulty": 0.08,
         "annales_source": {
@@ -2355,7 +2355,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.2 du F02 - Championnat individuel Féminin de parties rapides.",
         "difficulty": 0.05,
         "annales_source": {
@@ -2403,7 +2403,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA:RIDNA - III.Cursus Fédéral DesArbitres -7.1Critères administratifs et 8.3 L'arbitre Fédéral Club",
         "difficulty": 0.22,
         "annales_source": {
@@ -2457,7 +2457,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA :RIDNA - II. Organisation Et Administration - 3.2 Direction des règlements.",
         "difficulty": 0.18,
         "annales_source": {
@@ -2506,7 +2506,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA :RIDNA - II. Organisation Et Administration - 4.1 Les superviseurs et superviseuses.",
         "difficulty": 0.06,
         "annales_source": {
@@ -2556,7 +2556,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA :RIDNA - II. Organisation Et Administration - 6.2 Arbitres inactifs.",
         "difficulty": 0.18,
         "annales_source": {
@@ -2604,7 +2604,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA :RIDNA - V. Classification Des Tournois - 12.4 Arbitres Fédéraux de Club",
         "difficulty": 0.08,
         "annales_source": {
@@ -2654,7 +2654,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Chapitre 1.2 Les missions de l'arbitre Articles 2.1 et Article 3",
         "difficulty": 0.27,
         "annales_source": {
@@ -2709,7 +2709,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Chapitre 5.1 Gestion d'un match",
         "difficulty": 0.05,
         "annales_source": {
@@ -2757,7 +2757,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA :Chapitre 5.1 Gestion d'un match",
         "difficulty": 0.31,
         "annales_source": {
@@ -2806,7 +2806,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R01 - 1. Licences et R01 - 2.2 Mutations",
         "difficulty": 0.51,
         "annales_source": {
@@ -2857,7 +2857,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R01 - 2. 4. Catégories d'âge",
         "difficulty": 0.3,
         "annales_source": {
@@ -2905,7 +2905,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - 3.1.3 Forfait administratif",
         "difficulty": 0.16,
         "annales_source": {
@@ -2953,7 +2953,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - 2.2 Mutations",
         "difficulty": 0.22,
         "annales_source": {
@@ -3004,7 +3004,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R03 - 2.3 Droits d'inscriptions",
         "difficulty": 0.19,
         "annales_source": {
@@ -3056,7 +3056,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 - 2.5 Conditions de participation des joueurs et joueuses",
         "difficulty": 0.12,
         "annales_source": {
@@ -3104,7 +3104,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R03 - 2.3 Droits d'inscriptions",
         "difficulty": 0.11,
         "annales_source": {
@@ -3153,7 +3153,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - 1.2 Déroulement de la compétition",
         "difficulty": 0.05,
         "annales_source": {
@@ -3203,7 +3203,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - 2.5 Responsable des rencontres et arbitrage",
         "difficulty": 0.56,
         "annales_source": {
@@ -3253,7 +3253,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - 3.6.d) Validité de la licence.",
         "difficulty": 0.26,
         "annales_source": {
@@ -3305,7 +3305,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - 3.7.c) Participation dans plusieurs équipes",
         "difficulty": 0.14,
         "annales_source": {
@@ -3353,7 +3353,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - 3.8 Forfaits sportifs",
         "difficulty": 0.11,
         "annales_source": {
@@ -3407,7 +3407,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "3.6.e) Elo et 3.7.j) Elo en N4",
         "difficulty": 0.16,
         "annales_source": {
@@ -3458,7 +3458,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - 3.7.a) et 3.7.g)",
         "difficulty": 0.2,
         "annales_source": {
@@ -3508,7 +3508,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "J01 - 2. Organisation générale",
         "difficulty": 0.23,
         "annales_source": {
@@ -3555,7 +3555,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "J01 - 3.2.2. Cadence - Qualifications zones interdépartementales.",
         "difficulty": 0.19,
         "annales_source": {
@@ -3603,7 +3603,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C01 - 1.3 Engagements",
         "difficulty": 0.48,
         "annales_source": {
@@ -3657,7 +3657,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "C01 - Points de partie",
         "difficulty": 0.2,
         "annales_source": {
@@ -3705,7 +3705,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C01 - 3.2 Couleurs",
         "difficulty": 0.24,
         "annales_source": {
@@ -3755,7 +3755,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "ANALYZE",
+        "cognitive_level": "Analyze",
         "article_reference": "C01 - 4.2 Points de match",
         "difficulty": 0.12,
         "annales_source": {
@@ -3806,7 +3806,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 7.1 Critères administratifs",
         "difficulty": 0.24,
         "annales_source": {
@@ -3861,7 +3861,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs",
         "difficulty": 0.28,
         "annales_source": {
@@ -3916,7 +3916,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.4. Arbitres Fédéraux de Club (AFC)",
         "difficulty": 0.24,
         "annales_source": {
@@ -3971,7 +3971,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.",
         "difficulty": 0.21,
         "annales_source": {
@@ -4024,7 +4024,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - Règles Générales - Article 2.4 Catégories d'âge.",
         "difficulty": 0.11,
         "annales_source": {
@@ -4078,7 +4078,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - Règles Générales - Article 3.1.2. Retard autorisé.",
         "difficulty": 0.21,
         "annales_source": {
@@ -4133,7 +4133,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "R03 - Compétitions homologuées - Article 2.2.2. Article 7.5.5 adapté sur les coups illégaux en cadence rapide.",
         "difficulty": 0.74,
         "annales_source": {
@@ -4187,7 +4187,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 1.1.",
         "difficulty": 0.13,
         "annales_source": {
@@ -4241,7 +4241,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R01 - Règles Générales - Article 4 Homologation d'un résultat.",
         "difficulty": 0.51,
         "annales_source": {
@@ -4294,7 +4294,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 - Règles Générales - Article 8 Le rôle des capitaines.",
         "difficulty": 0.21,
         "annales_source": {
@@ -4346,7 +4346,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R03 Compétitions Homologuées - Article 2.5 Conditions de participation des joueurs et joueuses",
         "difficulty": 0.27,
         "annales_source": {
@@ -4401,7 +4401,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
         "difficulty": 0.35,
         "annales_source": {
@@ -4452,7 +4452,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.6.a) Feuille de match.",
         "difficulty": 0.52,
         "annales_source": {
@@ -4506,7 +4506,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.6.d) Validité de la licence.",
         "difficulty": 0.12,
         "annales_source": {
@@ -4561,7 +4561,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.5 Responsable des rencontres et arbitrage.",
         "difficulty": 0.25,
         "annales_source": {
@@ -4614,7 +4614,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel.",
         "difficulty": 0.25,
         "annales_source": {
@@ -4669,7 +4669,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.7.g) Joueuses et joueurs mutés.",
         "difficulty": 0.2,
         "annales_source": {
@@ -4721,7 +4721,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.7.f) Noyau de l'équipe.",
         "difficulty": 0.81,
         "annales_source": {
@@ -4774,7 +4774,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
         "difficulty": 0.16,
         "annales_source": {
@@ -4829,7 +4829,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
         "difficulty": 0.27,
         "annales_source": {
@@ -4882,7 +4882,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division.",
         "difficulty": 0.32,
         "annales_source": {
@@ -4935,7 +4935,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.9 Litiges techniques.",
         "difficulty": 0.18,
         "annales_source": {
@@ -4990,7 +4990,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "J02 - Le Championnat de France Interclubs Jeunes - Article 2.5. Arbitres.",
         "difficulty": 0.45,
         "annales_source": {
@@ -5042,7 +5042,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C03 - Coupe Jean-Claude Loubatière - Article 2.5. Arbitres.",
         "difficulty": 0.16,
         "annales_source": {
@@ -5097,7 +5097,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C03 - Coupe Jean-Claude Loubatière - Article 1.2. Déroulement de la Coupe.",
         "difficulty": 0.35,
         "annales_source": {
@@ -5150,7 +5150,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "C01 - Coupe de France - Article 2.5. Arbitres.",
         "difficulty": 0.18,
         "annales_source": {
@@ -5199,7 +5199,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Championnat de France des clubs, Article 3.7.e.",
         "difficulty": 0.73,
         "annales_source": {
@@ -5250,7 +5250,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Championnat de France des clubs, Article 3.7.f",
         "difficulty": 0.71,
         "annales_source": {
@@ -5303,7 +5303,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France des clubs, Article 3.7.c",
         "difficulty": 0.37,
         "annales_source": {
@@ -5356,7 +5356,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France des clubs, Article 3.7.d.",
         "difficulty": 0.43,
         "annales_source": {
@@ -5406,7 +5406,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France des clubs, Articles 3.6 et 3.7.i",
         "difficulty": 0.95,
         "annales_source": {
@@ -5461,7 +5461,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France des clubs, Article 3.6.",
         "difficulty": 0.67,
         "annales_source": {
@@ -5515,7 +5515,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France des clubs, Article 4.1.",
         "difficulty": 0.73,
         "annales_source": {
@@ -5566,7 +5566,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France des clubs, Article 3.6.",
         "difficulty": 0.36,
         "annales_source": {
@@ -5620,7 +5620,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Championnat de France des clubs, Article 3.6.",
         "difficulty": 0.35,
         "annales_source": {
@@ -5669,7 +5669,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France interclubs jeunes, Articles 3.7.b et 3.7.c",
         "difficulty": 0.5,
         "annales_source": {
@@ -5722,7 +5722,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Championnat de France interclubs jeunes, Articles 3.7.b et 3.7.c",
         "difficulty": 0.63,
         "annales_source": {
@@ -5777,7 +5777,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France interclubs jeunes, Articles 3.7.b et 3.7.c",
         "difficulty": 0.67,
         "annales_source": {
@@ -5832,7 +5832,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "RI de la DNA, Article 19.",
         "difficulty": 0.56,
         "annales_source": {
@@ -5879,7 +5879,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Guide de l'arbitrage à l'international, Article 1.1",
         "difficulty": 0.36,
         "annales_source": {
@@ -5934,7 +5934,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Championnat de France interclubs jeunes, Article 2.5.",
         "difficulty": 0.57,
         "annales_source": {
@@ -5988,7 +5988,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "RI de la DNA, Article 18.5",
         "difficulty": 0.31,
         "annales_source": {
@@ -6041,7 +6041,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Coupe de France, Article 3.2",
         "difficulty": 0.6,
         "annales_source": {
@@ -6096,7 +6096,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "C01 - Coupe de France, art 2.3 : horaires en Coupe de France 56,7 (%)",
         "difficulty": 0.4,
         "annales_source": {
@@ -6146,7 +6146,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 1.2.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6199,7 +6199,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 1.4.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6254,7 +6254,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 2.3.1.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6307,7 +6307,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 2.4.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6358,7 +6358,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 3.1.3.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6411,7 +6411,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6462,7 +6462,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6516,7 +6516,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 12.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6570,7 +6570,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R.03 : Compétitions homologuées, art. 2.6.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6621,7 +6621,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R.03 : Compétitions homologuées, art. 2.3.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6673,7 +6673,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "de la DNA, art. 3.2 : Livre de l'Arbitre.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6726,7 +6726,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C.03 : Coupe Jean-Claude Loubatière, art. 2.5.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6779,7 +6779,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C.01 : Coupe de France, art. 3.8.",
         "difficulty": 0.4,
         "annales_source": {
@@ -6832,7 +6832,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "1.3 du règlement A.02 : Championnat de France des clubs",
         "difficulty": 0.4,
         "annales_source": {
@@ -6882,7 +6882,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.2 du règlement A.02 : Championnat de France des clubs",
         "difficulty": 0.4,
         "annales_source": {
@@ -6935,7 +6935,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 2.5 du règlement A.02 : Championnat de France des clubs",
         "difficulty": 0.4,
         "annales_source": {
@@ -6987,7 +6987,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 8 du règlement R.01 : Règles générales pour les compétitions fédérales",
         "difficulty": 0.4,
         "annales_source": {
@@ -7040,7 +7040,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.8 du règlement A.02 : Championnat de France des clubs",
         "difficulty": 0.4,
         "annales_source": {
@@ -7092,7 +7092,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "3.1 du règlement R.01 : Règles générales pour les compétitions fédérales",
         "difficulty": 0.4,
         "annales_source": {
@@ -7142,7 +7142,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 8.3 du RIDNA Livre de l'arbitre",
         "difficulty": 0.1,
         "annales_source": {
@@ -7190,7 +7190,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.1 du RIDNA Livre de l'arbitre",
         "difficulty": 0.15,
         "annales_source": {
@@ -7238,7 +7238,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 8.1 du RIDNA Livre de l'arbitre",
         "difficulty": 0.39,
         "annales_source": {
@@ -7292,7 +7292,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2 du Règlement disciplinaire de la FFE",
         "difficulty": 0.57,
         "annales_source": {
@@ -7342,7 +7342,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 1.4 du R01 Règles générales",
         "difficulty": 0.03,
         "annales_source": {
@@ -7393,7 +7393,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.4 du R01 Règles générales",
         "difficulty": 0.25,
         "annales_source": {
@@ -7443,7 +7443,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 5 du R01 Règles générales",
         "difficulty": 0.08,
         "annales_source": {
@@ -7496,7 +7496,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "Article 8 du R01 Règles générales",
         "difficulty": 0.0,
         "annales_source": {
@@ -7546,7 +7546,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.2.2 du R03 Compétitions homologuées",
         "difficulty": 0.14,
         "annales_source": {
@@ -7598,7 +7598,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.6 du A02 Championnat de France des clubs",
         "difficulty": 0.58,
         "annales_source": {
@@ -7652,7 +7652,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.7.c du A02 Championnat de France des clubs",
         "difficulty": 0.38,
         "annales_source": {
@@ -7702,7 +7702,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.6 du A02 Championnat de France des clubs",
         "difficulty": 0.28,
         "annales_source": {
@@ -7752,7 +7752,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.1 du A02 Championnat de France des clubs",
         "difficulty": 0.2,
         "annales_source": {
@@ -7800,7 +7800,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.2 du A02 Championnat de France des clubs",
         "difficulty": 0.08,
         "annales_source": {
@@ -7851,7 +7851,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.5 du A02 Championnat de France des clubs",
         "difficulty": 0.24,
         "annales_source": {
@@ -7904,7 +7904,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 2.6 du A02 Championnat de France des clubs",
         "difficulty": 0.16,
         "annales_source": {
@@ -7955,7 +7955,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.7.g du A02 Championnat de France des clubs",
         "difficulty": 0.2,
         "annales_source": {
@@ -8003,7 +8003,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.8 du A02 Championnat de France des clubs",
         "difficulty": 0.28,
         "annales_source": {
@@ -8054,7 +8054,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.7.b du J02 Championnat de France des interclubs jeunes",
         "difficulty": 0.43,
         "annales_source": {
@@ -8106,7 +8106,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.2 du C01 Coupe de France",
         "difficulty": 0.27,
         "annales_source": {
@@ -8156,7 +8156,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.3 du C01 Coupe de France",
         "difficulty": 0.22,
         "annales_source": {
@@ -8207,7 +8207,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 7 du H01 Conduite pour joueur handicapés",
         "difficulty": 0.15,
         "annales_source": {
@@ -8257,7 +8257,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 1.2 du C03 Coupe Jean-Claude Loubatière",
         "difficulty": 0.05,
         "annales_source": {
@@ -8307,7 +8307,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Loubatière",
         "difficulty": 0.26,
         "annales_source": {
@@ -8355,7 +8355,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.2 du C04 Coupe de la parité",
         "difficulty": 0.07,
         "annales_source": {
@@ -8409,7 +8409,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Coupe de la parité",
         "difficulty": 0.04,
         "annales_source": {
@@ -8463,7 +8463,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R02 Règles générales annexes",
         "difficulty": 0.35,
         "annales_source": {
@@ -8511,7 +8511,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.1 du F01 Championnat de France des clubs Féminins",
         "difficulty": 0.1,
         "annales_source": {
@@ -8559,7 +8559,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.2a du F01 Championnat de France des clubs Féminins",
         "difficulty": 0.06,
         "annales_source": {
@@ -8609,7 +8609,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.7.g du F01 Championnat de France des clubs Féminins",
         "difficulty": 0.26,
         "annales_source": {
@@ -8659,7 +8659,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 7.1 Critères administratifs",
         "difficulty": 0.15,
         "annales_source": {
@@ -8708,7 +8708,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 8.4 L'arbitre fédéral d'open (AFO)",
         "difficulty": 0.03,
         "annales_source": {
@@ -8751,7 +8751,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.3 Agrément FIDE. Guide de l'arbitrage à l'international - Article 2.2 Montant des droits",
         "difficulty": 0.07,
         "annales_source": {
@@ -8799,7 +8799,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.3 Arbitres Fédéraux d'Open (AFO1 et AFO2)",
         "difficulty": 0.05,
         "annales_source": {
@@ -8845,7 +8845,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2 Arbitres inactif",
         "difficulty": 0.34,
         "annales_source": {
@@ -8896,7 +8896,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 6.1 Le classement standard de la FIDE - Article 1.1 Cadence de jeu",
         "difficulty": 0.62,
         "annales_source": {
@@ -8946,7 +8946,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 6.1 Le classement standard de la FIDE - Article 8.2 Détermination du Classement initial 'Ru' d'un joueur ou d'une joueuse",
         "difficulty": 0.3,
         "annales_source": {
@@ -8989,7 +8989,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 5.2 Obligations administratives d'un tournoi - Paragraphe Homologation des Tournois",
         "difficulty": 0.11,
         "annales_source": {
@@ -9041,7 +9041,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 Compétitions Homologuées - Article 2.3 Droits d'inscriptions",
         "difficulty": 0.11,
         "annales_source": {
@@ -9092,7 +9092,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 Compétitions Homologuées - Article 2.5 Conditions de participation des joueurs et joueuse",
         "difficulty": 0.77,
         "annales_source": {
@@ -9138,7 +9138,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "F01 Championnat de France Féminin des clubs - Article 1.2 Déroulement de la compétition",
         "difficulty": 0.36,
         "annales_source": {
@@ -9186,7 +9186,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "C03 Coupe Jean-Claude Loubatière - Article 3.7. Composition des équipes",
         "difficulty": 0.13,
         "annales_source": {
@@ -9231,7 +9231,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 5.3 Gestion d'un tournoi - Paragraphe Obligations d'affichage",
         "difficulty": 0.02,
         "annales_source": {
@@ -9280,7 +9280,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R01 Règles Générales - Article 3 Forfaits",
         "difficulty": 0.31,
         "annales_source": {
@@ -9332,7 +9332,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 17 Mesures administratives",
         "difficulty": 0.16,
         "annales_source": {
@@ -9383,7 +9383,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 5.4 Rapport Technique et fin de tournoi - Paragraphe Gestion des résultats du tournoi",
         "difficulty": 0.05,
         "annales_source": {
@@ -9434,7 +9434,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 5.2 Obligations administratives d'un tournoi - Paragraphe Droits d'Homologation",
         "difficulty": 0.26,
         "annales_source": {
@@ -9478,7 +9478,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 5.5 Barème d'indemnisation des arbitres - Paragraphe 4 Calcul des indemnités pour les événements homologués par la FFE",
         "difficulty": 0.07,
         "annales_source": {
@@ -9524,7 +9524,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 4.2 Les systèmes de départages - Article 7.1 Buchholz (Bu) et article 14 Gestion des rondes non jouées et score ajusté",
         "difficulty": 0.82,
         "annales_source": {
@@ -9578,7 +9578,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 4.3 Les systèmes de partage des prix - Paragraphe Prix attribués au système Hort",
         "difficulty": 0.84,
         "annales_source": {
@@ -9626,7 +9626,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "LA RIDNA - Article 12.3.",
         "difficulty": 0.44,
         "annales_source": {
@@ -9671,7 +9671,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Guide de l'Arbitrage à l'International Article 2 Agrément FIDE",
         "difficulty": 0.2,
         "annales_source": {
@@ -9720,7 +9720,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "RI DNA, article 6.2",
         "difficulty": 0.11,
         "annales_source": {
@@ -9769,7 +9769,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Chapitre 6.2 : Classement rapide et blitz de la FIDE. Article 3 Page 186 du LA",
         "difficulty": 0.03,
         "annales_source": {
@@ -9819,7 +9819,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA Chapitre 6.1 Le classement standard de la FIDE - article 8.2 p 184 et exemple p 185",
         "difficulty": 0.33,
         "annales_source": {
@@ -9865,7 +9865,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA 5.2 Gestion administrative des tournois",
         "difficulty": 0.15,
         "annales_source": {
@@ -9913,7 +9913,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA 5.4 - Rapport Technique et fin de tournoi",
         "difficulty": 0.38,
         "annales_source": {
@@ -9955,7 +9955,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA 5.1 - Gestion d'un match - Avant Match p 165",
         "difficulty": 0.25,
         "annales_source": {
@@ -10005,7 +10005,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article A1 de l'annexe A",
         "difficulty": 0.03,
         "annales_source": {
@@ -10050,7 +10050,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.7.c. du règlement des interclubs jeunes.",
         "difficulty": 0.46,
         "annales_source": {
@@ -10093,7 +10093,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R03 Compétitions homologuées - Article 2.3 Droits d'inscriptions",
         "difficulty": 0.52,
         "annales_source": {
@@ -10141,7 +10141,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - 6.1 Le classement standard de la FIDE Article 1 : Cadence de jeu - page 181 - R03 2. Conditions d'homologation.",
         "difficulty": 0.11,
         "annales_source": {
@@ -10186,7 +10186,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - 6.1 Le classement standard de la FIDE Article 2 : Règlements en vigueur.",
         "difficulty": 0.25,
         "annales_source": {
@@ -10237,7 +10237,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C04 Coupe de la parité - 1.2 Déroulement de la compétition.",
         "difficulty": 0.1,
         "annales_source": {
@@ -10285,7 +10285,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "C04 Coupe de la parité - 4.3 Classement.",
         "difficulty": 0.21,
         "annales_source": {
@@ -10329,7 +10329,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 5.1 Gestion de fin de tournoi - Gestion administrative des tournois - Rapport technique",
         "difficulty": 0.02,
         "annales_source": {
@@ -10382,7 +10382,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 3.8.2.",
         "difficulty": 0.03,
         "annales_source": {
@@ -10435,7 +10435,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 4.2.1.",
         "difficulty": 0.16,
         "annales_source": {
@@ -10487,7 +10487,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 7.1.",
         "difficulty": 0.45,
         "annales_source": {
@@ -10543,7 +10543,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 7.5.4.",
         "difficulty": 0.52,
         "annales_source": {
@@ -10595,7 +10595,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 7.5.5.",
         "difficulty": 0.74,
         "annales_source": {
@@ -10647,7 +10647,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 6.9.",
         "difficulty": 0.26,
         "annales_source": {
@@ -10701,7 +10701,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 5.1.2.",
         "difficulty": 0.08,
         "annales_source": {
@@ -10755,7 +10755,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Art 9.2.2 et 9.1.2.3.",
         "difficulty": 0.61,
         "annales_source": {
@@ -10809,7 +10809,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 9.3. et 9.6.",
         "difficulty": 0.4,
         "annales_source": {
@@ -10859,7 +10859,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 11.2.1.",
         "difficulty": 0.22,
         "annales_source": {
@@ -10913,7 +10913,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art 7.5.",
         "difficulty": 0.14,
         "annales_source": {
@@ -10966,7 +10966,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 1.2 Règlement Intérieur DNA",
         "difficulty": 0.21,
         "annales_source": {
@@ -11018,7 +11018,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 1.2 Règlement Intérieur DNA",
         "difficulty": 0.21,
         "annales_source": {
@@ -11071,7 +11071,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 1.2 Règlement Intérieur DNA",
         "difficulty": 0.21,
         "annales_source": {
@@ -11123,7 +11123,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R03 Compétitions homologuées",
         "difficulty": 0.37,
         "annales_source": {
@@ -11175,7 +11175,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 Compétitions homologuées",
         "difficulty": 0.26,
         "annales_source": {
@@ -11226,7 +11226,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "R01 Règles générales",
         "difficulty": 0.37,
         "annales_source": {
@@ -11280,7 +11280,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 2.1 Les règles du jeu d'Echecs",
         "difficulty": 0.26,
         "annales_source": {
@@ -11331,7 +11331,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 1.2 Règlement Intérieur DNA",
         "difficulty": 0.05,
         "annales_source": {
@@ -11386,7 +11386,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 5.1 Départages",
         "difficulty": 0.16,
         "annales_source": {
@@ -11441,7 +11441,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 5.1 Départages",
         "difficulty": 0.26,
         "annales_source": {
@@ -11496,7 +11496,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA 5.1 Départages",
         "difficulty": 0.42,
         "annales_source": {
@@ -11549,7 +11549,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 6.1 Classement Fide",
         "difficulty": 0.74,
         "annales_source": {
@@ -11601,7 +11601,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 6.1 Classement Fide",
         "difficulty": 0.58,
         "annales_source": {
@@ -11650,7 +11650,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 5.2 Gestion homologation tournois",
         "difficulty": 0.95,
         "annales_source": {
@@ -11702,7 +11702,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 5.3 Système Hort",
         "difficulty": 0.21,
         "annales_source": {
@@ -11757,7 +11757,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA 5.2 Barème indemnisation",
         "difficulty": 0.26,
         "annales_source": {
@@ -11807,7 +11807,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA 5.2 Gestion homologation tournois",
         "difficulty": 0.16,
         "annales_source": {
@@ -11856,7 +11856,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 1.3 des règles du jeu",
         "difficulty": 0.16,
         "annales_source": {
@@ -11910,7 +11910,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Commentaire article 3.7.3.5 des règles du jeu",
         "difficulty": 0.07,
         "annales_source": {
@@ -11961,7 +11961,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Commentaire Article 3.10.3 des règles du jeu",
         "difficulty": 0.3,
         "annales_source": {
@@ -12009,7 +12009,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 4.2.1 et 4.3.1 des règles du jeu.",
         "difficulty": 0.02,
         "annales_source": {
@@ -12054,7 +12054,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 4.3.3 des règles du jeu",
         "difficulty": 0.14,
         "annales_source": {
@@ -12101,7 +12101,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 5.1.1 des règles du jeu",
         "difficulty": 0.19,
         "annales_source": {
@@ -12153,7 +12153,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 5.1.2 des règles du jeu",
         "difficulty": 0.61,
         "annales_source": {
@@ -12202,7 +12202,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 5.1.2 et 7.5.1 des règles du jeu",
         "difficulty": 0.38,
         "annales_source": {
@@ -12250,7 +12250,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 6.9 des règles du jeu",
         "difficulty": 0.18,
         "annales_source": {
@@ -12302,7 +12302,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 8.1.3 des règles du jeu",
         "difficulty": 0.22,
         "annales_source": {
@@ -12356,7 +12356,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article A.5.1.1 Annexe A des règles du jeu",
         "difficulty": 0.24,
         "annales_source": {
@@ -12402,7 +12402,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 4.3.3 des règles du jeu",
         "difficulty": 0.14,
         "annales_source": {
@@ -12451,7 +12451,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 5.1.1 des règles du jeu",
         "difficulty": 0.19,
         "annales_source": {
@@ -12502,7 +12502,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 5.1.2 des règles du jeu",
         "difficulty": 0.61,
         "annales_source": {
@@ -12551,7 +12551,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 5.1.2 et 7.5.1 des règles du jeu",
         "difficulty": 0.38,
         "annales_source": {
@@ -12603,7 +12603,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 8.1 des règles du jeu",
         "difficulty": 0.09,
         "annales_source": {
@@ -12658,7 +12658,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 9.1.2.3 et 9.5.1 des règles du jeu",
         "difficulty": 0.24,
         "annales_source": {
@@ -12703,7 +12703,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 9.2.1 des règles du jeu",
         "difficulty": 0.49,
         "annales_source": {
@@ -12757,7 +12757,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 9.5.3 des règles du jeu",
         "difficulty": 0.2,
         "annales_source": {
@@ -12806,7 +12806,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article 9.6.2 des règles du jeu",
         "difficulty": 0.15,
         "annales_source": {
@@ -12854,7 +12854,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article A.5.1.1 de l'annexe A des règles du jeu",
         "difficulty": 0.21,
         "annales_source": {
@@ -12909,7 +12909,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Article A.5.2 de l'annexe A des règles du jeu.",
         "difficulty": 0.2,
         "annales_source": {
@@ -12956,7 +12956,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Commentaire article A.5.3 de l'annexe A des règles du jeu",
         "difficulty": 0.13,
         "annales_source": {
@@ -13005,7 +13005,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA :Annexe A - Parties en cadence rapide - Article A.5.1.2 placement initial incorrect des pièces après 10 coups",
         "difficulty": 0.14,
         "annales_source": {
@@ -13053,7 +13053,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Articles 4.2.1 et 4.3.1 - L'exécution du déplacement des pièces",
         "difficulty": 0.25,
         "annales_source": {
@@ -13103,7 +13103,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Articles 8.1.1, 8.4 et A.2 - L'enregistrement des coups",
         "difficulty": 0.31,
         "annales_source": {
@@ -13154,7 +13154,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 5.2.1 La fin de la partie ; la partie se termine par le \"pat\".",
         "difficulty": 0.07,
         "annales_source": {
@@ -13207,7 +13207,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 5.2.2 La fin de la partie ; \"position morte\"",
         "difficulty": 0.16,
         "annales_source": {
@@ -13259,7 +13259,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Annexe D - LA : Articles D.2.6.1, D.2.10.4 et l'article 11.5 : Pendules pour les personnes handicapées visuelles",
         "difficulty": 0.3,
         "annales_source": {
@@ -13308,7 +13308,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Articles 11.2.3.3 La conduite des joueurs et joueuses et articles 12.2.4 L e rôle de l'Arbitre",
         "difficulty": 0.08,
         "annales_source": {
@@ -13360,7 +13360,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 6.8 : La pendule : Constation de la chute du drapeau",
         "difficulty": 0.14,
         "annales_source": {
@@ -13412,7 +13412,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 5.1.2 : La fin de la partie - Abandon d'un joueur",
         "difficulty": 0.35,
         "annales_source": {
@@ -13464,7 +13464,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 6.11.4 : Pendule mise en pause par un joueur pour une raison non valable,",
         "difficulty": 0.36,
         "annales_source": {
@@ -13515,7 +13515,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 6.9 : Résultat d'une fin de la partie par chute du drapeau en fonction du matériel",
         "difficulty": 0.23,
         "annales_source": {
@@ -13564,7 +13564,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 7.5.5 : Premier coup illégal achevé en cadence standard",
         "difficulty": 0.03,
         "annales_source": {
@@ -13617,7 +13617,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Annexe A : Partie en cadence rapide - Article A.3 (utilisé en blitz selon l'article B.3)",
         "difficulty": 0.03,
         "annales_source": {
@@ -13669,7 +13669,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Annexe A : jeu en cadence rapide - Article A.5.2 - 2 è coup illégal avec l'adversaire jouant immédiatement le coup suivant.",
         "difficulty": 0.25,
         "annales_source": {
@@ -13718,7 +13718,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 4.4.3 : L'exécution du déplacement des pièces - roque illégal",
         "difficulty": 0.55,
         "annales_source": {
@@ -13769,7 +13769,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 7.4.1 : Pièces renversées",
         "difficulty": 0.03,
         "annales_source": {
@@ -13818,7 +13818,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 9.2 : Demande incorrecte de partie nulle - 3 fois la même position",
         "difficulty": 0.46,
         "annales_source": {
@@ -13867,7 +13867,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 9.2.2 et 9.2.3 : Demande de nul : 3 fois la même position",
         "difficulty": 0.78,
         "annales_source": {
@@ -13916,7 +13916,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "LA : Article 7.2.1 - Règles du jeu en compétition",
         "difficulty": 0.18,
         "annales_source": {
@@ -13970,7 +13970,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article A.5.1.2 - Annexe A: Parties en cadence rapide",
         "difficulty": 0.06,
         "annales_source": {
@@ -14018,7 +14018,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 7.3 - Règles du jeu en compétition",
         "difficulty": 0.18,
         "annales_source": {
@@ -14068,7 +14068,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 4.4.2 - Règles fondamentales du jeu",
         "difficulty": 0.08,
         "annales_source": {
@@ -14120,7 +14120,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 7.5.5 - Règles du jeu en compétition",
         "difficulty": 0.27,
         "annales_source": {
@@ -14172,7 +14172,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 5.2.2 - Règles fondamentales du jeu",
         "difficulty": 0.05,
         "annales_source": {
@@ -14223,7 +14223,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : ARTICLE 5.2.1 - Règles fondamentales du jeu",
         "difficulty": 0.31,
         "annales_source": {
@@ -14273,7 +14273,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 5.1.1 - Règles fondamentales du jeu",
         "difficulty": 0.51,
         "annales_source": {
@@ -14323,7 +14323,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article A.3 - Annexe A : Parties en cadence rapide",
         "difficulty": 0.3,
         "annales_source": {
@@ -14373,7 +14373,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 5.1.2 - Règles fondamentales du jeu",
         "difficulty": 0.16,
         "annales_source": {
@@ -14422,7 +14422,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "A LA : rticle 7.5.1 - Règles du jeu en compétition",
         "difficulty": 0.22,
         "annales_source": {
@@ -14470,7 +14470,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Commentaire de l'Article 6.2.3 - Règles du jeu en compétition",
         "difficulty": 0.19,
         "annales_source": {
@@ -14516,7 +14516,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 6.8 - Règles du jeu en compétition",
         "difficulty": 0.12,
         "annales_source": {
@@ -14567,7 +14567,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 6.9 - Règles du jeu en compétition",
         "difficulty": 0.11,
         "annales_source": {
@@ -14617,7 +14617,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 6.8 - Règles du jeu encompétition Article A.5.5 - Annexe A:Parties en cadence rapide - LA : Article B.3 - Annexe B : Parties en cadence Blitz",
         "difficulty": 0.05,
         "annales_source": {
@@ -14668,7 +14668,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 6.2.1.2 - Règles dujeu en compétition / Article 7.5.1 - Règles du jeu en compétition",
         "difficulty": 0.56,
         "annales_source": {
@@ -14719,7 +14719,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 7.5.2 - Règles du jeu en compétition",
         "difficulty": 0.26,
         "annales_source": {
@@ -14772,7 +14772,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 9.6.1 - Règles du jeu en compétition",
         "difficulty": 0.14,
         "annales_source": {
@@ -14823,7 +14823,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 8.1.6 - Règles du jeu en compétition",
         "difficulty": 0.11,
         "annales_source": {
@@ -14874,7 +14874,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - Article 9.1.2.2 ou Article 8.1.5 ou encore Annexe C.12",
         "difficulty": 0.18,
         "annales_source": {
@@ -14928,7 +14928,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - Article 9.6.2",
         "difficulty": 0.6,
         "annales_source": {
@@ -14983,7 +14983,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Règles du jeu - article 7.3",
         "difficulty": 0.19,
         "annales_source": {
@@ -15031,7 +15031,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - Article 7.5.1 et article 4.3",
         "difficulty": 0.37,
         "annales_source": {
@@ -15077,7 +15077,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque.",
         "difficulty": 0.22,
         "annales_source": {
@@ -15132,7 +15132,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - Annexe A.5.2",
         "difficulty": 0.63,
         "annales_source": {
@@ -15186,7 +15186,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - Article 3.10.3",
         "difficulty": 0.16,
         "annales_source": {
@@ -15233,7 +15233,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu annexe A.3 et B.3",
         "difficulty": 0.14,
         "annales_source": {
@@ -15285,7 +15285,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - articles 7.5.3/7.5.4/3.10.1 et 6.2.3",
         "difficulty": 0.32,
         "annales_source": {
@@ -15339,7 +15339,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Règles du jeu - article 7.1 et article 7.5",
         "difficulty": 0.41,
         "annales_source": {
@@ -15388,7 +15388,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA. Art 9.4 des règles du jeu 71",
         "difficulty": 0.3,
         "annales_source": {
@@ -15440,7 +15440,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Commentaire 6.2.3 : Action de la pendule",
         "difficulty": 0.19,
         "annales_source": {
@@ -15492,7 +15492,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 4.5 : Pièce touchée",
         "difficulty": 0.23,
         "annales_source": {
@@ -15545,7 +15545,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Annexe A Article A.4.1.1 : Pas d'intervention sur pendule après 10 coups",
         "difficulty": 0.57,
         "annales_source": {
@@ -15598,7 +15598,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 7.5.1 : Rétablissement position après coup illégal",
         "difficulty": 0.24,
         "annales_source": {
@@ -15648,7 +15648,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Article 3.10.3 et son commentaire : Intervention sur position illégale",
         "difficulty": 0.62,
         "annales_source": {
@@ -15700,7 +15700,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 7.5.2. et 7.5.5.",
         "difficulty": 0.86,
         "annales_source": {
@@ -15751,7 +15751,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 6.4. et 6.9.",
         "difficulty": 0.91,
         "annales_source": {
@@ -15801,7 +15801,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 7.2.1. et A.4.1",
         "difficulty": 0.34,
         "annales_source": {
@@ -15852,7 +15852,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 6.4 et 6.8. et 6.9",
         "difficulty": 0.06,
         "annales_source": {
@@ -15904,7 +15904,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Art. 11.3.3 et 12.9.",
         "difficulty": 0.34,
         "annales_source": {
@@ -15955,7 +15955,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 7.5.1.",
         "difficulty": 0.3,
         "annales_source": {
@@ -16008,7 +16008,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 6.2.3. et 12.9",
         "difficulty": 0.69,
         "annales_source": {
@@ -16059,7 +16059,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 12.1.",
         "difficulty": 0.26,
         "annales_source": {
@@ -16114,7 +16114,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 7.5.4.",
         "difficulty": 0.17,
         "annales_source": {
@@ -16165,7 +16165,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "RI DNA. 22.2.",
         "difficulty": 0.23,
         "annales_source": {
@@ -16220,7 +16220,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 8.1.3.",
         "difficulty": 0.34,
         "annales_source": {
@@ -16274,7 +16274,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Art. 4.7.3.",
         "difficulty": 0.2,
         "annales_source": {
@@ -16325,7 +16325,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Art. 1.3. et 6.2.2.",
         "difficulty": 0.63,
         "annales_source": {
@@ -16378,7 +16378,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 7.5.2. et 7.5.5.",
         "difficulty": 0.86,
         "annales_source": {
@@ -16424,7 +16424,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 6.4. et 6.9.",
         "difficulty": 0.91,
         "annales_source": {
@@ -16466,7 +16466,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 7.5.1.",
         "difficulty": 0.3,
         "annales_source": {
@@ -16513,7 +16513,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 6.2.3. et 12.9",
         "difficulty": 0.69,
         "annales_source": {
@@ -16561,7 +16561,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Art. 6.9",
         "difficulty": 0.74,
         "annales_source": {
@@ -16609,7 +16609,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Art. 1.3. et 6.2.2.",
         "difficulty": 0.63,
         "annales_source": {
@@ -16653,7 +16653,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 11.3.3 et 12.9.",
         "difficulty": 0.34,
         "annales_source": {
@@ -16699,7 +16699,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 6.9",
         "difficulty": 0.74,
         "annales_source": {
@@ -16744,7 +16744,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Art. 7.6",
         "difficulty": 0.2,
         "annales_source": {
@@ -16789,7 +16789,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 7.5.4.",
         "difficulty": 0.17,
         "annales_source": {
@@ -16833,7 +16833,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "RI DNA. 22.2.",
         "difficulty": 0.23,
         "annales_source": {
@@ -16878,7 +16878,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "Art. 6.9",
         "difficulty": 0.74,
         "annales_source": {
@@ -16926,7 +16926,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA. Article 5.1.2 Règles du jeu",
         "difficulty": 0.3,
         "annales_source": {
@@ -16980,7 +16980,7 @@
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA. Article 9.1.2.1 Règles du jeu",
         "difficulty": 0.3,
         "annales_source": {
@@ -17025,7 +17025,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA. Article 5.1.1 Règles du jeu",
         "difficulty": 0.3,
         "annales_source": {
@@ -17076,7 +17076,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA. Article 12.9 Règles du jeu",
         "difficulty": 0.3,
         "annales_source": {
@@ -17130,7 +17130,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA. Article 11.12 Règles du jeu",
         "difficulty": 0.3,
         "annales_source": {
@@ -17182,7 +17182,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 3.5 : Règles du système suisse - Système de Haley : 2. Principe",
         "difficulty": 0.07,
         "annales_source": {
@@ -17230,7 +17230,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 - Compétitions homologuées : Article 2.3 - Droits d'inscription",
         "difficulty": 0.32,
         "annales_source": {
@@ -17281,7 +17281,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03 - Compétitions homologuées : Article 2.3 - Droits d'inscription",
         "difficulty": 0.17,
         "annales_source": {
@@ -17330,7 +17330,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "LA - Chapitre 3.5 Le système suisse - C.04.3 Système néerlandais - Art. A.4",
         "difficulty": 0.17,
         "annales_source": {
@@ -17380,7 +17380,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 3.5 Le système suisse - C.04.3 Système néerlandais - Article C",
         "difficulty": 0.37,
         "annales_source": {
@@ -17431,7 +17431,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "ANALYZE",
+        "cognitive_level": "Analyze",
         "article_reference": "LA - Chapitre 3.5 Le système suisse - C.04.3 Système néerlandais - Article D",
         "difficulty": 0.35,
         "annales_source": {
@@ -17485,7 +17485,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Règles du jeu - article 6.9",
         "difficulty": 0.28,
         "annales_source": {
@@ -17537,7 +17537,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Règle du jeu Article 7.3 + commentaire + LA - chapitre 3.5 Le système suisse - C.04.2Règles de gestion de tournois au système suisse - Article D.8",
         "difficulty": 0.07,
         "annales_source": {
@@ -17588,7 +17588,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Règles du jeu - article 6.7 + commentaire",
         "difficulty": 0.16,
         "annales_source": {
@@ -17640,7 +17640,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Règles du jeu - Annexe D - Article D.2.10",
         "difficulty": 0.37,
         "annales_source": {
@@ -17688,7 +17688,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "ANALYZE",
+        "cognitive_level": "Analyze",
         "article_reference": "C.04.2 Règles de gestion de tournois au système suisse - Article D.8",
         "difficulty": 0.21,
         "annales_source": {
@@ -17739,7 +17739,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - chapitre 3.5 Le système suisse - C.04.3 Le système néerlandais - Art. C",
         "difficulty": 0.4,
         "annales_source": {
@@ -17791,7 +17791,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Règles du jeu article 12.9.9 / article 11.5 /article 11.1/ Charte des joueurs et joueuses d'échecs/ Code de l'éthique de la FIDE. LA - Chapitre 4.5 Violence / Chapitre 6.1 Classement Standard FIDE Art. 5.1",
         "difficulty": 0.39,
         "annales_source": {
@@ -17839,7 +17839,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 4.2 Les systèmes de départage - article 6.5 Le cumulatif",
         "difficulty": 0.23,
         "annales_source": {
@@ -17889,7 +17889,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 4.2 Les systèmes de départage - article 6.5 Le cumulatif",
         "difficulty": 0.16,
         "annales_source": {
@@ -17939,7 +17939,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 4.3 les systèmes de partage des prix.",
         "difficulty": 0.12,
         "annales_source": {
@@ -17992,7 +17992,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 6.2 Classement Rapide de la FIDE article 7.3",
         "difficulty": 0.53,
         "annales_source": {
@@ -18045,7 +18045,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 6.1 Classement Standard de la FIDE article 8.3",
         "difficulty": 0.21,
         "annales_source": {
@@ -18096,7 +18096,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 5.5 Barème d'indemnisation des arbitres",
         "difficulty": 0.16,
         "annales_source": {
@@ -18147,7 +18147,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 5.5 Barème d'indemnisation des arbitres",
         "difficulty": 0.67,
         "annales_source": {
@@ -18198,7 +18198,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 5.5 Barème d'indemnisation des arbitres",
         "difficulty": 0.19,
         "annales_source": {
@@ -18247,7 +18247,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "LA : Chap. 5.2 : Préparation d'un tournoi - Homologation des tournois - Procédure",
         "difficulty": 0.05,
         "annales_source": {
@@ -18299,7 +18299,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Chap. 5.2 : Préparation d'un tournoi - Règlement intérieur",
         "difficulty": 0.0,
         "annales_source": {
@@ -18350,7 +18350,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Chap. 5.2 : Préparation d'un tournoi - Dans l'ordre l'arbitre principal d'un tournoi doit : ...",
         "difficulty": 0.0,
         "annales_source": {
@@ -18402,7 +18402,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article 7.5.5 des règles du jeu",
         "difficulty": 0.39,
         "annales_source": {
@@ -18455,7 +18455,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Article A.5.2 des règles du jeu",
         "difficulty": 0.39,
         "annales_source": {
@@ -18506,7 +18506,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Chap. 3.5 : Les règles du système suisse - D. Règles d'appariements, de couleurs et de publication : D8",
         "difficulty": 0.09,
         "annales_source": {
@@ -18555,7 +18555,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Chap. 3.5 : Les règles du système suisse C.04.3 - A6 : Différences de couleurs et préférences couleurs",
         "difficulty": 0.23,
         "annales_source": {
@@ -18606,7 +18606,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Chap. 3.5 : Les règles du système suisse - E. Règle d'attribution des couleurs - E.3.",
         "difficulty": 0.23,
         "annales_source": {
@@ -18656,7 +18656,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Chap. 3.5 : Les règles du système suisse - Règles pour l'ordre des transpositions et échanges - D.2",
         "difficulty": 0.29,
         "annales_source": {
@@ -18707,7 +18707,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Chap. 1.3 : Le règlement intérieur de la D.N.A : Titre VI : Charte de l'arbitrage et mesures administratives : Article 17.2 : Mesures administratives auprès de la Direction Juridique",
         "difficulty": 0.25,
         "annales_source": {
@@ -18756,7 +18756,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté",
         "difficulty": 0.27,
         "annales_source": {
@@ -18807,7 +18807,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté",
         "difficulty": 0.57,
         "annales_source": {
@@ -18856,7 +18856,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Chap. 5.2 : Droits d'homologations.",
         "difficulty": 0.09,
         "annales_source": {
@@ -18904,7 +18904,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Chap. 5.4 : Rapport technique de fin de tournoi",
         "difficulty": 0.05,
         "annales_source": {
@@ -18952,7 +18952,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "R03-Compétitions homologuées : Article 2.3 - Droits d'inscription",
         "difficulty": 0.11,
         "annales_source": {
@@ -19001,7 +19001,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "L.A. Chap. 2.2, article 6.5",
         "difficulty": 0.1,
         "annales_source": {
@@ -19050,7 +19050,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chap 3.5 Les règles du système Suisse - Partie C.04.3, paragraphe A.4 : flotteurs. (Ou utilisation de PAPI qui donne la réponse)",
         "difficulty": 0.45,
         "annales_source": {
@@ -19103,7 +19103,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA : Art. 6.7.2. des règles du jeu. Commentaire :",
         "difficulty": 0.2,
         "annales_source": {
@@ -19156,7 +19156,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA. Articles 7.5.2. et 7.5.5. des règles du jeu.",
         "difficulty": 0.26,
         "annales_source": {
@@ -19207,7 +19207,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA. Article 7.5.5. des règles du jeu.",
         "difficulty": 0.4,
         "annales_source": {
@@ -19256,7 +19256,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "L.A. Chap. 2.2, article 6.5",
         "difficulty": 0.36,
         "annales_source": {
@@ -19311,7 +19311,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.2 Paragraphe D.8",
         "difficulty": 0.15,
         "annales_source": {
@@ -19360,7 +19360,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 Paragraphe E : couleurs",
         "difficulty": 0.79,
         "annales_source": {
@@ -19412,7 +19412,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 Paragraphe E : couleurs",
         "difficulty": 0.37,
         "annales_source": {
@@ -19464,7 +19464,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3",
         "difficulty": 0.68,
         "annales_source": {
@@ -19516,7 +19516,7 @@
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
-        "cognitive_level": "RECALL",
+        "cognitive_level": "Remember",
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 - Utilisation de C.11",
         "difficulty": 0.56,
         "annales_source": {
@@ -19568,7 +19568,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 8.3 Règles Classement FIDE"
       }
     },
@@ -19601,7 +19601,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 8.3.3 Règles Classement FIDE"
       }
     },
@@ -19634,7 +19634,7 @@
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 8.3 Règles Classement FIDE"
       }
     },
@@ -19667,7 +19667,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 5 R01 Règles générales"
       }
     },
@@ -19700,7 +19700,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "Article 5 R01 Règles générales"
       }
     },
@@ -19733,7 +19733,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 5 R01 Règles générales"
       }
     },
@@ -19767,7 +19767,7 @@
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 5 R01 Règles générales"
       }
     },
@@ -19801,7 +19801,7 @@
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "ANALYZE",
+        "cognitive_level": "Analyze",
         "article_reference": "Article 5 R01 Règles générales"
       }
     },
@@ -19834,7 +19834,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.2.1 J01"
       }
     },
@@ -19868,7 +19868,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.2.3 J01"
       }
     },
@@ -19901,7 +19901,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.6 J01"
       }
     },
@@ -19934,7 +19934,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.7.a J02"
       }
     },
@@ -19967,7 +19967,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.3 J02"
       }
     },
@@ -20001,7 +20001,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.3 J02"
       }
     },
@@ -20034,7 +20034,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "Article 3.7.c J02"
       }
     },
@@ -20066,7 +20066,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 2.2.1 J03"
       }
     },
@@ -20099,7 +20099,7 @@
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.1 F01"
       }
     },
@@ -20132,7 +20132,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "APPLY",
+        "cognitive_level": "Apply",
         "article_reference": "Article 1.2 F02"
       }
     },
@@ -20163,7 +20163,7 @@
       "metadata": {
         "answer_type": "yes_no",
         "reasoning_type": "single-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "Article 2 H01"
       }
     },
@@ -20194,7 +20194,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
-        "cognitive_level": "UNDERSTAND",
+        "cognitive_level": "Understand",
         "article_reference": "Phase II H02"
       }
     },
@@ -20226,7 +20226,7 @@
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1 E02"
       }
     },
@@ -20258,7 +20258,7 @@
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.2 A01"
       }
     },
@@ -20291,8 +20291,371 @@
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "single-hop",
-        "cognitive_level": "REMEMBER",
+        "cognitive_level": "Remember",
         "article_reference": "Article 1.1 A03"
+      }
+    },
+    {
+      "id": "FR-MED-001",
+      "question": "Qui nomme le medecin federal de la FFE ?",
+      "expected_answer": "Le comite directeur de la FFE parmi les membres pris en son sein. Il doit etre obligatoirement docteur en medecine et licencie a la FFE.",
+      "is_impossible": false,
+      "expected_chunk_id": "2022_Reglement_medical_19082022.pdf-p002-parent002-child00",
+      "expected_docs": [
+        "2022_Reglement_medical_19082022.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "category": "medical",
+      "keywords": [
+        "medecin",
+        "federal",
+        "nomination",
+        "comite directeur"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 2.2.1 Reglement medical"
+      }
+    },
+    {
+      "id": "FR-FIN-001",
+      "question": "Qui certifie la sincerite des comptes de la FFE chaque annee ?",
+      "expected_answer": "Le commissaire aux comptes certifie tous les ans la sincerite des comptes, du resultat, et de la situation patrimoniale de la federation.",
+      "is_impossible": false,
+      "expected_chunk_id": "2023_Reglement_Financier20230610.pdf-p001-parent000-child00",
+      "expected_docs": [
+        "2023_Reglement_Financier20230610.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "administratif",
+      "keywords": [
+        "commissaire",
+        "comptes",
+        "certification",
+        "finances"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 2 Reglement Financier"
+      }
+    },
+    {
+      "id": "FR-STAT-001",
+      "question": "Quelle est l'adresse du siege social de la FFE ?",
+      "expected_answer": "Chateau d'Asnieres - 6, rue de l'Eglise - 92 600 Asnieres-sur-Seine. Il peut etre transfere dans ce departement par simple decision du comite directeur.",
+      "is_impossible": false,
+      "expected_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+      "expected_docs": [
+        "2024_Statuts20240420.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "category": "administratif",
+      "keywords": [
+        "siege",
+        "social",
+        "adresse",
+        "Asnieres"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 1.2 Statuts FFE"
+      }
+    },
+    {
+      "id": "FR-RI-001",
+      "question": "Combien de licencies A minimum sont necessaires pour l'affiliation d'un club a la FFE ?",
+      "expected_answer": "L'affiliation d'une association ne vaut que si elle compte au moins 5 licencies A.",
+      "is_impossible": false,
+      "expected_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00",
+      "expected_docs": [
+        "2025_Reglement_Interieur_20250503.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "category": "administratif",
+      "keywords": [
+        "affiliation",
+        "club",
+        "licencies A",
+        "minimum"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 1.1 Reglement Interieur"
+      }
+    },
+    {
+      "id": "FR-DEL-001",
+      "question": "Quelles formes de jeu d'echecs sont reconnues dans le contrat de delegation de la FFE avec l'Etat ?",
+      "expected_answer": "Cinq specialites : Classique, Rapide, Blitz, Chess960 et e-Chess.",
+      "is_impossible": false,
+      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p005-parent004-child00",
+      "expected_docs": [
+        "Contrat_de_delegation_15032022.pdf"
+      ],
+      "expected_pages": [
+        5
+      ],
+      "category": "administratif",
+      "keywords": [
+        "delegation",
+        "specialites",
+        "disciplines",
+        "e-Chess",
+        "contrat"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "list",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 1 Contrat de delegation"
+      }
+    },
+    {
+      "id": "FR-N6BDR-001",
+      "question": "Combien de joueurs composent une equipe en Nationale VI departementale des Bouches-du-Rhone ?",
+      "expected_answer": "4 joueurs qui possedent une licence A et affilies a un club des Bouches-du-Rhone.",
+      "is_impossible": false,
+      "expected_chunk_id": "Interclubs_DepartementalBdr.pdf-p005-parent008-child00",
+      "expected_docs": [
+        "Interclubs_DepartementalBdr.pdf"
+      ],
+      "expected_pages": [
+        5
+      ],
+      "category": "regional",
+      "keywords": [
+        "equipe",
+        "composition",
+        "N6",
+        "Bouches-du-Rhone"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 3.7 Reglement N6 BDR"
+      }
+    },
+    {
+      "id": "FR-IJBDR-001",
+      "question": "Quelle est la cadence pour l'echiquier 4 en Interclubs Jeunes des Bouches-du-Rhone ?",
+      "expected_answer": "50 minutes + 10 secondes par coup.",
+      "is_impossible": false,
+      "expected_chunk_id": "InterclubsJeunes_PACABdr.pdf-p002-parent001-child00",
+      "expected_docs": [
+        "InterclubsJeunes_PACABdr.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "category": "regional",
+      "keywords": [
+        "cadence",
+        "echiquier 4",
+        "interclubs",
+        "jeunes"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 7 Interclubs Jeunes BDR"
+      }
+    },
+    {
+      "id": "FR-N4PACA-001",
+      "question": "Combien de groupes de Nationale 4 sont crees en ligue PACA et de combien d'equipes chacun ?",
+      "expected_answer": "5 groupes de 8 equipes chacun. La ligue dispose de 5 accessions en N3.",
+      "is_impossible": false,
+      "expected_chunk_id": "règlement_n4_2024_2025__1_.pdf-p001-parent000-child00",
+      "expected_docs": [
+        "règlement_n4_2024_2025__1_.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "regional",
+      "keywords": [
+        "N4",
+        "groupes",
+        "PACA",
+        "structure"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 1.1 Reglement N4 PACA"
+      }
+    },
+    {
+      "id": "FR-REGPACA-001",
+      "question": "Combien de joueurs composent une equipe en Regionale de la ligue PACA ?",
+      "expected_answer": "5 joueurs licencies A.",
+      "is_impossible": false,
+      "expected_chunk_id": "règlement_régionale_2024_2025.pdf-p002-parent001-child00",
+      "expected_docs": [
+        "règlement_régionale_2024_2025.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "category": "regional",
+      "keywords": [
+        "equipe",
+        "composition",
+        "regionale",
+        "PACA"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 3.7.a Reglement Regionale PACA"
+      }
+    },
+    {
+      "id": "FR-COMP-001",
+      "question": "Quel est le nombre de joueurs par equipe selon le niveau de championnat : Top16, N1-N3, N4, Regionale PACA et Departementale BDR ?",
+      "expected_answer": "Top16/N1/N2/N3 : 8 joueurs. N4 : 8 joueurs (ou 6 si la Ligue le choisit). Regionale PACA : 5 joueurs. Departementale N6 BDR : 4 joueurs.",
+      "is_impossible": false,
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent004-child00",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+        "règlement_régionale_2024_2025.pdf",
+        "Interclubs_DepartementalBdr.pdf"
+      ],
+      "expected_pages": [
+        5,
+        2,
+        5
+      ],
+      "category": "interclubs",
+      "keywords": [
+        "composition",
+        "equipe",
+        "joueurs",
+        "championnat",
+        "national",
+        "regional"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "list",
+        "reasoning_type": "multi-hop",
+        "cognitive_level": "Understand",
+        "article_reference": "Article 3.7.a A02, Article 3.7.a Regionale PACA, Article 3.7 N6 BDR"
+      }
+    },
+    {
+      "id": "FR-NOYAU-001",
+      "question": "Quelle est la regle du noyau pour les equipes en N1, N2, N3 et N4 ?",
+      "expected_answer": "Chaque equipe doit aligner a chaque ronde au moins 50% de personnes ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison (sauf ronde 1). En cas d'infraction, forfait administratif sur l'echiquier hors noyau et tous ceux qui le suivent.",
+      "is_impossible": false,
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent005-child00",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "category": "interclubs",
+      "keywords": [
+        "noyau",
+        "equipe",
+        "50%",
+        "composition",
+        "N1",
+        "N2",
+        "N3",
+        "N4"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
+        "article_reference": "Article 3.7.f A02"
       }
     }
   ],

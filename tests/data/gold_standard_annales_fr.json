@@ -1,6 +1,6 @@
 {
   "version": {
-    "number": "6.24.1",
+    "number": "6.25.0",
     "date": "2026-01-25",
     "answer_text_coverage": "477/477 (100%)",
     "answer_explanation_coverage": "220/477 (46.1%)",
@@ -13,7 +13,7 @@
     "chunk_mapping": "article:136 kw:242 page:99",
     "chunk_mapping_method": "page + article + keywords",
     "chunk_confidence": "high:222 med:49 low:206",
-    "chunk_matching": "high:387 med:71 low:19"
+    "chunk_matching": "high:387 med:77 low:13"
   },
   "description": "Gold Standard v6 - Annales-based with official DNA questions",
   "methodology": {
@@ -1675,7 +1675,13 @@
         10
       ],
       "article_reference": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 Délivrance des titres d'arbitres fédéraux",
-      "keywords": [],
+      "keywords": [
+        "arbitre",
+        "arbitre",
+        "international",
+        "allemand",
+        "code"
+      ],
       "difficulty": 0.42,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -1703,7 +1709,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-009",
@@ -1860,7 +1866,13 @@
         4
       ],
       "article_reference": "R01 - 4. Homologation d'un résultat",
-      "keywords": [],
+      "keywords": [
+        "résultat",
+        "rencontre",
+        "entre",
+        "deux",
+        "équipes"
+      ],
       "difficulty": 0.36,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -1894,7 +1906,7 @@
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 35
     },
     {
       "id": "FR-ANN-UVC-013",
@@ -3232,7 +3244,13 @@
         58
       ],
       "article_reference": "LA - Chapitre 3.5 Le système suisse - C.04.2Règles de gestion de tournois au système suisse - Article B.2.b",
-      "keywords": [],
+      "keywords": [
+        "résultat",
+        "rencontre",
+        "entre",
+        "deux",
+        "équipes"
+      ],
       "difficulty": 0.1,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -3278,7 +3296,13 @@
         47
       ],
       "article_reference": "Règles du jeu - article 6.9",
-      "keywords": [],
+      "keywords": [
+        "tournoi",
+        "tournoi",
+        "montant",
+        "inscription",
+        "fixé"
+      ],
       "difficulty": 0.28,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -5048,7 +5072,13 @@
         57
       ],
       "article_reference": "LA :Annexe A - Parties en cadence rapide - Article A.5.1.2 placement initial incorrect des pièces après 10 coups",
-      "keywords": [],
+      "keywords": [
+        "arbitre",
+        "tournoi",
+        "arbitrer",
+        "chef",
+        "international"
+      ],
       "difficulty": 0.14,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -5081,7 +5111,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-050",
@@ -8435,7 +8465,13 @@
         57
       ],
       "article_reference": "LA : Article A.5.1.2 - Annexe A: Parties en cadence rapide",
-      "keywords": [],
+      "keywords": [
+        "arbitre",
+        "arbitres",
+        "fédéraux",
+        "open",
+        "compétence"
+      ],
       "difficulty": 0.06,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -8468,7 +8504,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVR-069",
@@ -9353,7 +9389,13 @@
         10
       ],
       "article_reference": "LA :RIDNA - II. Organisation Et Administration - 3.2 Direction des règlements.",
-      "keywords": [],
+      "keywords": [
+        "effectuer",
+        "demande",
+        "homologation",
+        "procédure",
+        "suivre"
+      ],
       "difficulty": 0.18,
       "question_type": "factual",
       "cognitive_level": "RECALL",
@@ -9384,10 +9426,10 @@
       "answer_explanation": "LA -RIDNA -II. ORGANISATION ET ADMINISTRATION -3.2 Direction des règlements",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-059",
@@ -10266,7 +10308,13 @@
         129
       ],
       "article_reference": "3.6.e) Elo et 3.7.j) Elo en N4",
-      "keywords": [],
+      "keywords": [
+        "cours",
+        "essais",
+        "appariements",
+        "celui",
+        "possible"
+      ],
       "difficulty": 0.16,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -10300,7 +10348,7 @@
       "expected_chunk_id": "LA-octobre2025.pdf-p129-parent379-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 15
     },
     {
       "id": "FR-ANN-UVC-078",
@@ -10503,7 +10551,13 @@
         5
       ],
       "article_reference": "C01 - Points de partie",
-      "keywords": [],
+      "keywords": [
+        "tournoi",
+        "arbitre",
+        "quelles",
+        "indemnités",
+        "arbitrage"
+      ],
       "difficulty": 0.2,
       "question_type": "scenario",
       "cognitive_level": "APPLY",
@@ -22207,7 +22261,13 @@
         1
       ],
       "article_reference": "Article 2 du Règlement disciplinaire de la FFE",
-      "keywords": [],
+      "keywords": [
+        "maître",
+        "international",
+        "espagnol",
+        "présente",
+        "pointage"
+      ],
       "difficulty": 0.57,
       "question_type": "factual",
       "cognitive_level": "RECALL",
@@ -23302,7 +23362,13 @@
         2
       ],
       "article_reference": "Coupe de la parité",
-      "keywords": [],
+      "keywords": [
+        "classement",
+        "tournoi",
+        "marie",
+        "demande",
+        "résultats"
+      ],
       "difficulty": 0.04,
       "question_type": "factual",
       "cognitive_level": "RECALL",
@@ -23357,7 +23423,13 @@
         1
       ],
       "article_reference": "R02 Règles générales annexes",
-      "keywords": [],
+      "keywords": [
+        "classement",
+        "suite",
+        "réponse",
+        "question",
+        "sera"
+      ],
       "difficulty": 0.35,
       "question_type": "factual",
       "cognitive_level": "RECALL",

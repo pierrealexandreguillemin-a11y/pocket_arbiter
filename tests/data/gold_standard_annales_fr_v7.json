@@ -1,5 +1,5 @@
 {
-  "version": "7.0.0_dedup_elo8_j7",
+  "version": "7.1.0_cov8",
   "schema": "unified-v1",
   "description": "Gold standard v7.0.0 - unified schema (SQuAD 2.0 + BEIR + ISO 42001)",
   "methodology": {
@@ -10,7 +10,7 @@
     "iso_reference": "ISO 42001 A.7.3, ISO 25010 FA-01"
   },
   "coverage": {
-    "total_questions": 401
+    "total_questions": 409
   },
   "questions": [
     {
@@ -19566,7 +19566,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "multi-hop",
         "cognitive_level": "APPLY",
         "article_reference": "Article 8.3 Règles Classement FIDE"
@@ -19599,7 +19599,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "multi-hop",
         "cognitive_level": "APPLY",
         "article_reference": "Article 8.3.3 Règles Classement FIDE"
@@ -19632,7 +19632,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "list",
         "reasoning_type": "multi-hop",
         "cognitive_level": "APPLY",
         "article_reference": "Article 8.3 Règles Classement FIDE"
@@ -19665,7 +19665,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 5 R01 Règles générales"
@@ -19698,7 +19698,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "PROCEDURAL",
+        "answer_type": "extractive",
         "reasoning_type": "multi-hop",
         "cognitive_level": "UNDERSTAND",
         "article_reference": "Article 5 R01 Règles générales"
@@ -19731,7 +19731,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 5 R01 Règles générales"
@@ -19765,7 +19765,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "list",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 5 R01 Règles générales"
@@ -19799,7 +19799,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "list",
         "reasoning_type": "multi-hop",
         "cognitive_level": "ANALYZE",
         "article_reference": "Article 5 R01 Règles générales"
@@ -19832,7 +19832,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 3.2.1 J01"
@@ -19866,7 +19866,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 3.2.3 J01"
@@ -19899,7 +19899,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 2.6 J01"
@@ -19932,7 +19932,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 3.7.a J02"
@@ -19965,7 +19965,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 3.3 J02"
@@ -19999,7 +19999,7 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "NUMERICAL",
+        "answer_type": "extractive",
         "reasoning_type": "single-hop",
         "cognitive_level": "REMEMBER",
         "article_reference": "Article 3.3 J02"
@@ -20032,10 +20032,267 @@
       },
       "audit": "",
       "metadata": {
-        "answer_type": "PROCEDURAL",
+        "answer_type": "extractive",
         "reasoning_type": "multi-hop",
         "cognitive_level": "UNDERSTAND",
         "article_reference": "Article 3.7.c J02"
+      }
+    },
+    {
+      "id": "FR-J03-001",
+      "question": "Quelle est la cadence de jeu lors de la phase departementale du Championnat de France scolaire ?",
+      "expected_answer": "15 min KO ou 12 min + 3 s par coup. Les appariements sont faits au systeme Suisse en 5 rondes minimum.",
+      "is_impossible": false,
+      "expected_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p002-parent009-child00",
+      "expected_docs": [
+        "J03_2025_26_Championnat_de_France_scolaire.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "category": "jeunes",
+      "keywords": [
+        "cadence",
+        "scolaire",
+        "departemental",
+        "15 min"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "REMEMBER",
+        "article_reference": "Article 2.2.1 J03"
+      }
+    },
+    {
+      "id": "FR-F01-001",
+      "question": "Combien de divisions comporte le Championnat de France Feminin des Clubs ?",
+      "expected_answer": "3 divisions : Top 12F (12 equipes), Nationale 1 feminine (4 groupes de 8 equipes), et Nationale 2 feminine.",
+      "is_impossible": false,
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
+      "expected_docs": [
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "feminin",
+      "keywords": [
+        "structure",
+        "division",
+        "Top 12F",
+        "N1F",
+        "N2F"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "list",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "REMEMBER",
+        "article_reference": "Article 1.1 F01"
+      }
+    },
+    {
+      "id": "FR-F02-001",
+      "question": "Combien de joueuses se qualifient pour la finale du Championnat individuel feminin rapides si 25 joueuses participent a la phase ZID ?",
+      "expected_answer": "3 joueuses. Pour 21 a 30 participantes, 3 joueuses se qualifient.",
+      "is_impossible": false,
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
+      "expected_docs": [
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "feminin",
+      "keywords": [
+        "qualification",
+        "finale",
+        "feminin",
+        "rapides",
+        "ZID"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "APPLY",
+        "article_reference": "Article 1.2 F02"
+      }
+    },
+    {
+      "id": "FR-H01-001",
+      "question": "Un joueur peut-il refuser de jouer contre un adversaire en raison de son handicap ?",
+      "expected_answer": "Non. Personne n'a le droit de refuser de jouer avec une personne contre laquelle elle a ete appariee correctement, notamment si sa raison est fondee sur un handicap de l'adversaire.",
+      "is_impossible": false,
+      "expected_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child00",
+      "expected_docs": [
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "handicap",
+      "keywords": [
+        "handicap",
+        "refus",
+        "appariement"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "yes_no",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "UNDERSTAND",
+        "article_reference": "Article 2 H01"
+      }
+    },
+    {
+      "id": "FR-H02-001",
+      "question": "Que se passe-t-il si une equipe recoit dans des locaux inaccessibles alors qu'un joueur adverse est handicape ?",
+      "expected_answer": "La rencontre sera deplacee dans un local accessible propose par l'equipe accueillante, sinon par le comite departemental, et a defaut par la Ligue. L'equipe fautive perdra la partie concernee si le principe n'est pas respecte.",
+      "is_impossible": false,
+      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00",
+      "expected_docs": [
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "handicap",
+      "keywords": [
+        "accessibilite",
+        "mobilite reduite",
+        "locaux"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "multi-hop",
+        "cognitive_level": "UNDERSTAND",
+        "article_reference": "Phase II H02"
+      }
+    },
+    {
+      "id": "FR-E02-001",
+      "question": "Quelle est la regle de compatibilite appliquee pour le calcul de l'Elo Rapide ?",
+      "expected_answer": "+-320 points. Le seuil d'entree au Rapide est de 7 parties compatibles et le plancher est de 800.",
+      "is_impossible": false,
+      "expected_chunk_id": "E02-Le_classement_rapide.pdf-p001-parent001-child00",
+      "expected_docs": [
+        "E02-Le_classement_rapide.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "classement",
+      "keywords": [
+        "compatibilite",
+        "elo",
+        "rapide",
+        "320 points"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "extractive",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "REMEMBER",
+        "article_reference": "Article 1 E02"
+      }
+    },
+    {
+      "id": "FR-A01-001",
+      "question": "Combien de tournois constituent le Championnat de France individuel ?",
+      "expected_answer": "10 tournois : National, National Feminin, Accession Roger FERRY, Veterans, Seniors Plus, Open A, Open B, Open C, Open D et Open E.",
+      "is_impossible": false,
+      "expected_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p001-parent001-child00",
+      "expected_docs": [
+        "A01_2025_26_Championnat_de_France.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "category": "competitions",
+      "keywords": [
+        "structure",
+        "tournoi",
+        "national",
+        "open"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "list",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "REMEMBER",
+        "article_reference": "Article 1.2 A01"
+      }
+    },
+    {
+      "id": "FR-A03-001",
+      "question": "Quelles sont les categories par moyenne Elo au Championnat de France des Clubs rapides ?",
+      "expected_answer": "3 categories : Categorie A (moyenne > 2000), Categorie B (moyenne > 1700), Categorie C (moyenne <= 1700).",
+      "is_impossible": false,
+      "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p004-parent000-child00",
+      "expected_docs": [
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "category": "competitions",
+      "keywords": [
+        "categorie",
+        "moyenne",
+        "elo",
+        "clubs",
+        "rapides"
+      ],
+      "validation": {
+        "status": "PENDING",
+        "method": "manual_creation",
+        "reviewer": "human"
+      },
+      "audit": "",
+      "metadata": {
+        "answer_type": "list",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "REMEMBER",
+        "article_reference": "Article 1.1 A03"
       }
     }
   ],

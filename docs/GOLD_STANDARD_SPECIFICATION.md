@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.4
-> **Date**: 2026-01-24
+> **Version**: 1.5
+> **Date**: 2026-01-25
 > **Statut**: Approuve
 > **Classification**: Qualite
 > **Auteur**: Claude Opus 4.5
@@ -49,23 +49,34 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 |---------------|-----------|--------|--------|
 | ~~GS INTL v2.1~~ | ~~93~~ | OBSOLETE | A refaire apres completion corpus FIDE |
 
-### 1.3 Gold Standard FR Annales v6.7.0 (2026-01-24)
+### 1.3 Gold Standard FR Annales v7.3.0 (2026-01-25)
 
 | Metrique | Valeur | Status |
 |----------|--------|--------|
-| Questions totales | 477 | ✅ |
-| answer_text complet | 477/477 (100%) | ✅ ATTEINT |
-| expected_pages | 390/477 (81.8%) | ✅ |
-| article_reference | 477/477 (100%) | ✅ |
-| Schema | v5.30-compatible | ✅ |
+| Questions totales | 420 | ✅ |
+| Documents couverts | 28/28 (100%) | ✅ |
+| ID Schema | URN-like v1.0.0 | ✅ NEW |
+| cognitive_level | Bloom's Taxonomy | ✅ |
+| answer_type | Standardise | ✅ |
 
-**Sources answer_text:**
-- Choix QCM derives: 322 questions (67.5%)
-- Corrige detaille extrait: 109 questions (22.9%)
-- Article reference fallback: 46 questions (9.6%)
+**Distribution par namespace:**
+| Namespace | Count |
+|-----------|-------|
+| ffe:annales:* | 386 |
+| ffe:human:* | 34 |
+
+**ID Schema v1.0.0 (multi-corpus ready):**
+```
+{corpus}:{source}:{category}:{sequence}:{hash}
+
+Exemples:
+  ffe:annales:rules:001:a3f2b8c1
+  ffe:human:rating:001:7d4e9f2a
+  adversarial:squad-adv:rules:001:f1e2d3c4
+```
 
 > Voir: `docs/specs/GOLD_STANDARD_V6_ANNALES.md` pour specifications detaillees
-> Voir: `scripts/evaluation/annales/README.md` pour pipeline extraction
+> Voir: `tests/data/id_migration_map.json` pour mapping legacy IDs
 
 ---
 

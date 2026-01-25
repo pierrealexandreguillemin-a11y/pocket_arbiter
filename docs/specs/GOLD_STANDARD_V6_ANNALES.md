@@ -181,7 +181,7 @@ ANNALES DNA (https://dna.ffechecs.fr/devenir-arbitre/examens/)
   },
   "taxonomy_standards": {
     "question_type": ["factual", "procedural", "scenario", "comparative"],
-    "cognitive_level": ["RECALL", "UNDERSTAND", "APPLY", "ANALYZE"],
+    "cognitive_level": ["Remember", "Understand", "Apply", "Analyze"],
     "reasoning_type": ["single-hop", "multi-hop", "temporal"],
     "answer_type": ["extractive", "abstractive", "yes_no", "list", "multiple_choice"],
     "references": [
@@ -206,7 +206,7 @@ ANNALES DNA (https://dna.ffechecs.fr/devenir-arbitre/examens/)
       "keywords": ["trait", "pendule", "appui", "jouer", "adversaire"],
       "difficulty": 0.16,
       "question_type": "factual",
-      "cognitive_level": "RECALL",
+      "cognitive_level": "Remember",
       "reasoning_type": "single-hop",
       "answer_type": "multiple_choice",
       "annales_source": {

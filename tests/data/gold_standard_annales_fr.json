@@ -1,6 +1,6 @@
 {
   "version": {
-    "number": "6.25.0",
+    "number": "6.27.0",
     "date": "2026-01-25",
     "answer_text_coverage": "477/477 (100%)",
     "answer_explanation_coverage": "220/477 (46.1%)",
@@ -13,7 +13,9 @@
     "chunk_mapping": "article:136 kw:242 page:99",
     "chunk_mapping_method": "page + article + keywords",
     "chunk_confidence": "high:222 med:49 low:206",
-    "chunk_matching": "high:387 med:77 low:13"
+    "chunk_matching": "high:400 med:77 low:0",
+    "page_corrections": 6,
+    "manual_page_corrections": 13
   },
   "description": "Gold Standard v6 - Annales-based with official DNA questions",
   "methodology": {
@@ -3241,7 +3243,7 @@
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        58
+        120
       ],
       "article_reference": "LA - Chapitre 3.5 Le système suisse - C.04.2Règles de gestion de tournois au système suisse - Article B.2.b",
       "keywords": [
@@ -3280,10 +3282,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 110
     },
     {
       "id": "FR-ANN-UVT-013",
@@ -3293,7 +3295,7 @@
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        47
+        46
       ],
       "article_reference": "Règles du jeu - article 6.9",
       "keywords": [
@@ -3333,10 +3335,10 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 90
     },
     {
       "id": "FR-ANN-UVT-014",
@@ -6193,7 +6195,7 @@
         "R01_2025_26_Regles_generales.pdf"
       ],
       "expected_pages": [
-        6
+        5
       ],
       "article_reference": "Article 11 du R01 - Règles générales.",
       "keywords": [
@@ -6231,10 +6233,10 @@
       "answer_explanation": "Des équipes issues d'une entente entre clubs peuvent être autorisées à participer à certaines compétitions de la Fédération Française des Echecs (Article 11.1). L'entente n'est valable que pour une saison. Elle peut être renouvelée sur décision de la Ligue. (Article 11.2.2) Chaque club est limité à une seule entente par compétition et par saison. (Article 11.3.4)",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent000-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-036",
@@ -6910,7 +6912,7 @@
       "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
       "chunk_match_score": 80,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-050",
@@ -10406,7 +10408,7 @@
         "J01_2025_26_Championnat_de_France_Jeunes.pdf"
       ],
       "expected_pages": [
-        1
+        4
       ],
       "article_reference": "J01 - 2. Organisation générale",
       "keywords": [
@@ -10441,10 +10443,10 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-080",
@@ -10548,7 +10550,7 @@
         "C01_2025_26_Coupe_de_France.pdf"
       ],
       "expected_pages": [
-        5
+        2
       ],
       "article_reference": "C01 - Points de partie",
       "keywords": [
@@ -10588,10 +10590,10 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent023-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 70
     },
     {
       "id": "FR-ANN-UVC-083",
@@ -20263,7 +20265,7 @@
         "R01_2025_26_Regles_generales.pdf"
       ],
       "expected_pages": [
-        4
+        6
       ],
       "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
       "keywords": [
@@ -20299,10 +20301,10 @@
       "answer_source": "choice_only",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent000-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-138",
@@ -20672,7 +20674,7 @@
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        1
+        2
       ],
       "article_reference": "1.3 du règlement A.02 : Championnat de France des clubs",
       "keywords": [
@@ -20718,10 +20720,10 @@
       "answer_explanation": ": Championnat de France des clubs)",
       "answer_source": "merged",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 90
     },
     {
       "id": "FR-ANN-UVC-146",
@@ -20731,7 +20733,7 @@
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        2
+        3
       ],
       "article_reference": "Article 2.2 du règlement A.02 : Championnat de France des clubs",
       "keywords": [
@@ -20768,10 +20770,10 @@
       "answer_explanation": ": Championnat de France des clubs ## C'est le jour J. Le match aura lieu à 14h15.",
       "quality_score": 0.5,
       "quality_warning": "short_answer",
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent007-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 80
     },
     {
       "id": "FR-ANN-UVC-147",
@@ -22258,7 +22260,7 @@
         "2018_Reglement_Disciplinaire20180422.pdf"
       ],
       "expected_pages": [
-        1
+        4
       ],
       "article_reference": "Article 2 du Règlement disciplinaire de la FFE",
       "keywords": [
@@ -22297,10 +22299,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent000-child00",
+      "expected_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
       "chunk_match_score": 110,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-155",
@@ -22804,7 +22806,7 @@
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        2
+        3
       ],
       "article_reference": "Article 2.5 du A02 Championnat de France des clubs",
       "keywords": [
@@ -22840,10 +22842,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 80
     },
     {
       "id": "FR-ANN-UVC-166",
@@ -23359,7 +23361,7 @@
         "C04_2025_26_Coupe_de_la_parité.pdf"
       ],
       "expected_pages": [
-        2
+        3
       ],
       "article_reference": "Coupe de la parité",
       "keywords": [
@@ -23407,10 +23409,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p002-parent008-child00",
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p003-parent013-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-177",
@@ -23420,7 +23422,7 @@
         "R02_2025_26_Regles_generales_Annexes.pdf"
       ],
       "expected_pages": [
-        1
+        2
       ],
       "article_reference": "R02 Règles générales annexes",
       "keywords": [
@@ -23468,10 +23470,10 @@
       "answer_type_mcq_letter": true,
       "answer_source": "choice_only",
       "quality_score": 1.0,
-      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p002-parent007-child00",
       "chunk_match_score": 10,
       "chunk_match_method": "page_only",
-      "chunk_score": 5
+      "chunk_score": 60
     },
     {
       "id": "FR-ANN-UVC-178",

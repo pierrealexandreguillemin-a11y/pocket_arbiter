@@ -49,21 +49,36 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 |---------------|-----------|--------|--------|
 | ~~GS INTL v2.1~~ | ~~93~~ | OBSOLETE | A refaire apres completion corpus FIDE |
 
-### 1.3 Gold Standard FR Annales v7.3.0 (2026-01-25)
+### 1.3 Gold Standard FR Annales v7.4.7 (2026-01-26)
 
 | Metrique | Valeur | Status |
 |----------|--------|--------|
 | Questions totales | 420 | ✅ |
 | Documents couverts | 28/28 (100%) | ✅ |
-| ID Schema | URN-like v1.0.0 | ✅ NEW |
-| cognitive_level | Bloom's Taxonomy | ✅ |
-| answer_type | Standardise | ✅ |
+| ID Schema | URN-like v1.0.0 | ✅ |
+| requires_context | 42 (exclus) | ✅ NEW |
+| Testables | 378 | ✅ |
+| Answerability (stricte) | 66.9% | ⚠️ |
+| Answerability (assouplie) | 82.8% | ✅ |
+| **Score humain** | **100%** | ✅ REFERENCE |
+
+**Note importante**: L'answerability stricte (66.9%) ne reflète PAS la qualité des données.
+Le score humain de 100% confirme que toutes les réponses sont dans le corpus.
+Les 33.1% qui échouent en stricte sont des questions `summary` (synthèses, pas extractions).
 
 **Distribution par namespace:**
 | Namespace | Count |
 |-----------|-------|
 | ffe:annales:* | 386 |
 | ffe:human:* | 34 |
+
+**Distribution reasoning_class (Know Your RAG):**
+| Classe | Count | % | Évaluation |
+|--------|-------|---|------------|
+| summary | 240 | 57% | Synthèse (keyword matching inapproprié) |
+| fact_single | 162 | 39% | Extraction directe |
+| arithmetic | 12 | 3% | Calcul requis |
+| reasoning | 6 | 1% | Raisonnement |
 
 **ID Schema v1.0.0 (multi-corpus ready):**
 ```

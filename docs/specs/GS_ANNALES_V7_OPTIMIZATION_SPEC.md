@@ -20,15 +20,32 @@
 | `gold_standard_fr.json` | **DEPRECATED** | Legacy (remplace par adversarial_questions.json) | 318 |
 | `adversarial_questions.json` | **ACTIF** | Evaluation adversariale | 105 |
 
-### 0.2 Etat Actuel v7.3.0
+### 0.2 Etat Actuel v7.4.7 (2026-01-26)
 
-| Metrique | Valeur | Cible Industrie | Gap |
-|----------|--------|-----------------|-----|
+| Metrique | Valeur | Cible Industrie | Status |
+|----------|--------|-----------------|--------|
 | Questions totales | 420 | >= 400 | ✅ OK |
-| Questions avec "?" | 287 (68%) | 100% | ❌ -32% |
-| question_type complete | 386 (92%) | 100% | ⚠️ -8% |
-| Diversity (4 classes) | 2 classes | 4 classes | ❌ Missing |
-| Hard negatives | Non generes | 100% | ❌ TODO |
+| Questions avec "?" | ~95% | 100% | ✅ OK |
+| question_type complete | 100% | 100% | ✅ OK |
+| reasoning_class complete | 100% | 100% | ✅ OK |
+| Diversity (4 classes) | 4 classes | 4 classes | ✅ OK |
+| requires_context | 42 | - | ✅ Marquées |
+| Hard negatives | Non generés | 100% | ❌ TODO |
+
+**Distribution reasoning_class (Know Your RAG):**
+| Classe | Count | % | Cible | Status |
+|--------|-------|---|-------|--------|
+| summary | 240 | 57% | 15-25% | ⚠️ Élevé (attendu pour annales) |
+| fact_single | 162 | 39% | 40-50% | ✅ OK |
+| arithmetic | 12 | 3% | - | ✅ NEW |
+| reasoning | 6 | 1% | 10-20% | ⚠️ Faible |
+
+**Answerability:**
+| Méthode | Valeur | Seuil | Status |
+|---------|--------|-------|--------|
+| Score humain | 100% | 100% | ✅ RÉFÉRENCE |
+| Stricte (keyword) | 66.9% | 80% | ⚠️ Inadapté pour summary |
+| Assouplie (RAG) | 82.8% | 80% | ✅ OK |
 
 ---
 

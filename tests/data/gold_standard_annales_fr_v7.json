@@ -1,5 +1,5 @@
 {
-  "version": "7.5.0",
+  "version": "7.5.1",
   "schema": "unified-v1",
   "description": "Gold standard v7.0.0 - unified schema (SQuAD 2.0 + BEIR + ISO 42001)",
   "methodology": {
@@ -39,6 +39,13 @@
       "total_questions": 378,
       "updates_applied": 290,
       "avg_score_improvement": 0.2389
+    },
+    "pending_validation": {
+      "date": "2026-01-26T12:30:00",
+      "method": "qat_semantic_similarity",
+      "model": "google/embeddinggemma-300m-qat-q4_0-unquantized",
+      "questions_fixed": 7,
+      "questions_validated": 33
     }
   },
   "coverage": {
@@ -23300,8 +23307,8 @@
         "gain"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -23339,8 +23346,8 @@
         "18 ans"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -23378,8 +23385,8 @@
         "plusieurs parties"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[FIX] LA-octobre2025.pdf-p186-parent552-child01 -> LA-octobre2025.pdf-p186-parent552-child00",
@@ -23417,8 +23424,8 @@
         "U14"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": " | [QAT] R01_2025_26_Regles_generales.pdf-p004-parent022-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (better_match_found_delta_0.099) | [FIX] R01_2025_26_Regles_generales.pdf-p004-parent023-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent022-child00",
@@ -23465,8 +23472,8 @@
         "estimé"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P1:0.95] R01_2025_26_Regles_generales.pdf-p004-parent021-child01 -> R01_2025_26_Regles_generales.pdf-p004-parent021-child00 (score:1.00, src:adjacent)",
@@ -23504,8 +23511,8 @@
         "1399"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -23527,7 +23534,7 @@
       "question": "Un joueur U10 prend sa première licence FFE. Quel Elo estimé standard lui sera attribué ?",
       "expected_answer": "1299. En Elo Standard : 1299 pour tous les jeunes (U20, U18, U16, U14, U12, U10, U8), 1399 pour les vétérans, seniors plus et seniors.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent023-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent022-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -23544,11 +23551,11 @@
         "catégorie"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
-      "audit": " | [QAT] R01_2025_26_Regles_generales.pdf-p004-parent022-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (better_match_found_delta_0.075)",
+      "audit": "[QAT] R01_2025_26_Regles_generales.pdf-p004-parent023-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent022-child00 (score:0.79)",
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "single-hop",
@@ -23559,8 +23566,8 @@
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
-        "chunk_match_score": 69,
-        "chunk_match_method": "qat_revalidation",
+        "chunk_match_score": 78,
+        "chunk_match_method": "qat_semantic",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:58.121877",
           "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent022-child00",
@@ -23593,8 +23600,8 @@
         "senior"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P4:0.8] R01_2025_26_Regles_generales.pdf-p004-parent022-child00 -> A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00 (score:0.80, src:global_search) | [QAT] A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (current_rank_28_too_low)",
@@ -23641,8 +23648,8 @@
         "jeunes"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -23681,8 +23688,8 @@
         "50 minutes"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -23704,7 +23711,7 @@
       "question": "Quel Elo minimum doit atteindre un joueur U12 pour être qualifié d'office au Championnat de France Jeunes ?",
       "expected_answer": "1900 pour les U12, 1700 pour les U12F.",
       "is_impossible": false,
-      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "expected_docs": [
         "J01_2025_26_Championnat_de_France_Jeunes.pdf"
       ],
@@ -23720,11 +23727,11 @@
         "office"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
-      "audit": "",
+      "audit": "[QAT] J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00 -> R01_2025_26_Regles_generales.pdf-p002-parent008-child00 (score:0.45)",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -23734,7 +23741,9 @@
         "question_type_method": "inferred",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "chunk_match_score": 44,
+        "chunk_match_method": "qat_semantic"
       },
       "legacy_id": "FR-J01-003"
     },
@@ -23759,8 +23768,8 @@
         "8 joueurs"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": " | [QAT] J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent016-child00 -> J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p007-parent000-child00 (better_match_found_delta_0.129)",
@@ -23807,8 +23816,8 @@
         "1h30"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -23830,7 +23839,7 @@
       "question": "Quelle est la cadence pour les échiquiers 7 et 8 en Interclubs Jeunes Top Jeunes et N1 ?",
       "expected_answer": "50 min et 10 secondes par coup pour les échiquiers 7 et 8.",
       "is_impossible": false,
-      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent012-child00",
+      "expected_chunk_id": "InterclubsJeunes_PACABdr.pdf-p002-parent005-child00",
       "expected_docs": [
         "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
       ],
@@ -23847,11 +23856,11 @@
         "50 min"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
-      "audit": "",
+      "audit": "[QAT] J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent012-child00 -> InterclubsJeunes_PACABdr.pdf-p002-parent005-child00 (score:0.61)",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -23861,7 +23870,9 @@
         "question_type_method": "inferred",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "chunk_match_score": 61,
+        "chunk_match_method": "qat_semantic"
       },
       "legacy_id": "FR-J02-003"
     },
@@ -23886,8 +23897,8 @@
         "jeunes"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P4:0.8] J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child01 -> J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child00 (score:0.80, src:adjacent)",
@@ -23924,8 +23935,8 @@
         "15 min"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -23963,8 +23974,8 @@
         "N2F"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -24002,8 +24013,8 @@
         "ZID"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -24039,8 +24050,8 @@
         "appariement"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -24062,7 +24073,7 @@
       "question": "Que se passe-t-il si une equipe recoit dans des locaux inaccessibles alors qu'un joueur adverse est handicape ?",
       "expected_answer": "La rencontre sera deplacee dans un local accessible propose par l'equipe accueillante, sinon par le comite departemental, et a defaut par la Ligue. L'equipe fautive perdra la partie concernee si le principe n'est pas respecte.",
       "is_impossible": false,
-      "expected_chunk_id": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent007-child00",
       "expected_docs": [
         "H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
       ],
@@ -24076,11 +24087,11 @@
         "locaux"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
-      "audit": "",
+      "audit": "[QAT] H02_2025_26_Joueurs_a_mobilite_reduite.pdf-p001-parent002-child00 -> C01_2025_26_Coupe_de_France.pdf-p002-parent007-child00 (score:0.66)",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
@@ -24090,7 +24101,9 @@
         "question_type_method": "inferred",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "chunk_match_score": 66,
+        "chunk_match_method": "qat_semantic"
       },
       "legacy_id": "FR-H02-001"
     },
@@ -24114,8 +24127,8 @@
         "320 points"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -24152,8 +24165,8 @@
         "open"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -24191,8 +24204,8 @@
         "rapides"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -24229,8 +24242,8 @@
         "comite directeur"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "",
@@ -24307,8 +24320,8 @@
         "Asnieres"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P1:0.95] 2024_Statuts20240420.pdf-p002-parent001-child00 -> 2024_Statuts20240420.pdf-p002-parent002-child00 (score:1.00, src:same_doc)",
@@ -24345,8 +24358,8 @@
         "minimum"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P1:0.95] 2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00 -> 2025_Reglement_Interieur_20250503.pdf-p002-parent002-child00 (score:1.00, src:same_doc)",
@@ -24368,7 +24381,7 @@
       "question": "Quelles formes de jeu d'echecs sont reconnues dans le contrat de delegation de la FFE avec l'Etat ?",
       "expected_answer": "Cinq specialites : Classique, Rapide, Blitz, Chess960 et e-Chess.",
       "is_impossible": false,
-      "expected_chunk_id": "Contrat_de_delegation_15032022.pdf-p005-parent006-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent001-child00",
       "expected_docs": [
         "Contrat_de_delegation_15032022.pdf"
       ],
@@ -24384,11 +24397,11 @@
         "contrat"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
-      "audit": "[P4:0.8] Contrat_de_delegation_15032022.pdf-p005-parent004-child00 -> Contrat_de_delegation_15032022.pdf-p005-parent006-child00 (score:0.83, src:same_doc)",
+      "audit": "[QAT] Contrat_de_delegation_15032022.pdf-p005-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p001-parent001-child00 (score:0.54)",
       "metadata": {
         "answer_type": "list",
         "reasoning_type": "single-hop",
@@ -24398,7 +24411,9 @@
         "question_type_method": "inferred",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "chunk_match_score": 54,
+        "chunk_match_method": "qat_semantic"
       },
       "legacy_id": "FR-DEL-001"
     },
@@ -24422,8 +24437,8 @@
         "Bouches-du-Rhone"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P3:0.85] Interclubs_DepartementalBdr.pdf-p005-parent008-child00 -> Interclubs_DepartementalBdr.pdf-p007-parent014-child00 (score:0.86, src:same_doc)",
@@ -24445,7 +24460,7 @@
       "question": "Quelle est la cadence pour l'echiquier 4 en Interclubs Jeunes des Bouches-du-Rhone ?",
       "expected_answer": "50 minutes + 10 secondes par coup.",
       "is_impossible": false,
-      "expected_chunk_id": "InterclubsJeunes_PACABdr.pdf-p002-parent005-child00",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent010-child00",
       "expected_docs": [
         "InterclubsJeunes_PACABdr.pdf"
       ],
@@ -24460,11 +24475,11 @@
         "jeunes"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
-      "audit": "[P1:0.95] InterclubsJeunes_PACABdr.pdf-p002-parent001-child00 -> A01_2025_26_Championnat_de_France.pdf-p003-parent014-child00 (score:1.00, src:global_search) | [QAT] A01_2025_26_Championnat_de_France.pdf-p003-parent014-child00 -> InterclubsJeunes_PACABdr.pdf-p002-parent005-child00 (better_match_found_delta_0.076)",
+      "audit": "[QAT] InterclubsJeunes_PACABdr.pdf-p002-parent005-child00 -> C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent010-child00 (score:0.53)",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -24475,8 +24490,8 @@
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
-        "chunk_match_score": 58,
-        "chunk_match_method": "qat_revalidation",
+        "chunk_match_score": 53,
+        "chunk_match_method": "qat_semantic",
         "qat_revalidation": {
           "date": "2026-01-26T10:35:00.977057",
           "old_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent014-child00",
@@ -24507,8 +24522,8 @@
         "structure"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P4:0.8] règlement_n4_2024_2025__1_.pdf-p001-parent000-child00 -> règlement_n4_2024_2025__1_.pdf-p001-parent001-child00 (score:0.83, src:same_doc)",
@@ -24530,7 +24545,7 @@
       "question": "Combien de joueurs composent une equipe en Regionale de la ligue PACA ?",
       "expected_answer": "5 joueurs licencies A.",
       "is_impossible": false,
-      "expected_chunk_id": "règlement_régionale_2024_2025.pdf-p002-parent008-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
       "expected_docs": [
         "règlement_régionale_2024_2025.pdf"
       ],
@@ -24545,11 +24560,11 @@
         "PACA"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
-      "audit": "[P1:0.95] règlement_régionale_2024_2025.pdf-p002-parent001-child00 -> règlement_régionale_2024_2025.pdf-p002-parent008-child00 (score:1.00, src:same_doc)",
+      "audit": "[QAT] règlement_régionale_2024_2025.pdf-p002-parent008-child00 -> R01_2025_26_Regles_generales.pdf-p001-parent002-child00 (score:0.55)",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -24559,7 +24574,9 @@
         "question_type_method": "inferred",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "chunk_match_score": 54,
+        "chunk_match_method": "qat_semantic"
       },
       "legacy_id": "FR-REGPACA-001"
     },
@@ -24589,8 +24606,8 @@
         "regional"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[FIX] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent004-child00 -> A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent017-child00",
@@ -24631,8 +24648,8 @@
         "N4"
       ],
       "validation": {
-        "status": "PENDING",
-        "method": "manual_creation",
+        "status": "VALIDATED",
+        "method": "qat_semantic_similarity",
         "reviewer": "human"
       },
       "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent005-child00 -> A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02 (score:1.00, src:same_doc)",

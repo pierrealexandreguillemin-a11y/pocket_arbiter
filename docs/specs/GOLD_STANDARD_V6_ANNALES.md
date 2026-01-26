@@ -183,6 +183,7 @@ ANNALES DNA (https://dna.ffechecs.fr/devenir-arbitre/examens/)
     "question_type": ["factual", "procedural", "scenario", "comparative"],
     "cognitive_level": ["Remember", "Understand", "Apply", "Analyze"],
     "reasoning_type": ["single-hop", "multi-hop", "temporal"],
+    "reasoning_class": ["fact_single", "summary", "reasoning"],
     "answer_type": ["extractive", "abstractive", "yes_no", "list", "multiple_choice"],
     "references": [
       "Bloom's Taxonomy for cognitive levels",
@@ -249,6 +250,7 @@ ANNALES DNA (https://dna.ffechecs.fr/devenir-arbitre/examens/)
       "question_type": "factual",
       "cognitive_level": "Remember",
       "reasoning_type": "single-hop",
+      "reasoning_class": "fact_single",
       "answer_type": "multiple_choice",
       "annales_source": {
         "session": "dec2024",

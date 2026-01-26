@@ -1,5 +1,5 @@
 {
-  "version": "7.4.6",
+  "version": "7.4.7",
   "schema": "unified-v1",
   "description": "Gold standard v7.0.0 - unified schema (SQuAD 2.0 + BEIR + ISO 42001)",
   "methodology": {
@@ -1548,7 +1548,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] Article 3.2 du RIDNA.: LA-octobre2025.pdf-p038-parent157-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.20)",
+      "audit": "[SMART_FIX] Article 3.2 du RIDNA.: LA-octobre2025.pdf-p038-parent157-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.20) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1572,7 +1572,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 80,
         "chunk_match_method": "article_direct",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -2311,7 +2311,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[CTX] answer_name",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -2337,7 +2337,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "answer_contains_exam_name"
       },
       "legacy_id": "FR-ANN-UVC-049"
     },
@@ -2473,7 +2475,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17)",
+      "audit": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -2497,7 +2499,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 80,
         "chunk_match_method": "article_direct",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -2525,7 +2527,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -2549,7 +2551,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 80,
         "chunk_match_method": "page_only",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -3280,7 +3282,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[CTX] answer_name",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -3307,7 +3309,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "answer_contains_exam_name"
       },
       "legacy_id": "FR-ANN-UVC-069"
     },
@@ -3935,7 +3939,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -3959,7 +3963,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 10,
         "chunk_match_method": "page_only",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -4507,7 +4511,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -4531,7 +4535,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -4623,7 +4627,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[SMART_FIX] R01 - Règles Générales - Article 4 Homologation d'un résultat.: R01_2025_26_Regles_generales.pdf-p001-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.07)",
+      "audit": "[SMART_FIX] R01 - Règles Générales - Article 4 Homologation d'un résultat.: R01_2025_26_Regles_generales.pdf-p001-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.07) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -4648,7 +4652,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 110,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -4911,7 +4915,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -4936,7 +4940,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 90,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -5199,7 +5203,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -5224,7 +5228,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 110,
         "chunk_match_method": "page_only",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -5487,7 +5491,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -5512,7 +5516,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 90,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -7702,7 +7706,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] 3.1 du règlement R.01 : Règles générales pour les compétitions fédérales: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.11)",
+      "audit": "[SMART_FIX] 3.1 du règlement R.01 : Règles générales pour les compétitions fédérales: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.11) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -7726,7 +7730,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 30,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -7918,7 +7922,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[SMART_FIX] Article 2 du Règlement disciplinaire de la FFE: 2018_Reglement_Disciplinaire20180422.pdf -> 2018_Reglement_Disciplinaire20180422.pdf (score:0.14)",
+      "audit": "[SMART_FIX] Article 2 du Règlement disciplinaire de la FFE: 2018_Reglement_Disciplinaire20180422.pdf -> 2018_Reglement_Disciplinaire20180422.pdf (score:0.14) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -7942,7 +7946,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 110,
         "chunk_match_method": "page_only",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -8027,7 +8031,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
@@ -8051,7 +8055,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 90,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -8138,7 +8142,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -8162,7 +8166,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -8192,7 +8196,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -8216,7 +8220,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 90,
         "chunk_match_method": "article_direct",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -9285,7 +9289,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -9309,7 +9313,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 80,
         "chunk_match_method": "page_only",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -11892,7 +11896,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] LA 1.2 Règlement Intérieur DNA: LA-octobre2025.pdf-p010-parent025-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.11)",
+      "audit": "[SMART_FIX] LA 1.2 Règlement Intérieur DNA: LA-octobre2025.pdf-p010-parent025-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.11) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -11915,7 +11919,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 30,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -12061,7 +12065,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -12084,7 +12088,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 20,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -12172,7 +12176,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[SMART_FIX] R01 Règles générales: R01_2025_26_Regles_generales.pdf-p005-pa -> R01_2025_26_Regles_generales.pdf-p001-pa (score:0.29)",
+      "audit": "[SMART_FIX] R01 Règles générales: R01_2025_26_Regles_generales.pdf-p005-pa -> R01_2025_26_Regles_generales.pdf-p001-pa (score:0.29) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -12196,7 +12200,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 30,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -13115,7 +13119,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -13139,7 +13143,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "article_direct",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -15188,7 +15192,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -15212,7 +15216,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 80,
         "chunk_match_method": "article_direct",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -17458,7 +17462,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] Art. 7.5.4.: LA-octobre2025.pdf-p049-parent176-child0 -> LA-octobre2025.pdf-p048-parent175-child0 (score:0.29)",
+      "audit": "[SMART_FIX] Art. 7.5.4.: LA-octobre2025.pdf-p049-parent176-child0 -> LA-octobre2025.pdf-p048-parent175-child0 (score:0.29) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -17483,7 +17487,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 50,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -17513,7 +17517,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -17538,7 +17542,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 20,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -18237,7 +18241,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -18255,7 +18259,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 20,
         "chunk_match_method": "page_keyword",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -18775,7 +18779,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -18799,7 +18803,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 10,
         "chunk_match_method": "page_only",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },
@@ -19766,7 +19770,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] LA : Chap. 5.2 : Préparation d'un tournoi - Homologation des tournois - Procédure: LA-octobre2025.pdf-p036-parent155-child0 -> LA-octobre2025.pdf-p224-parent684-child0 (score:0.25)",
+      "audit": "[SMART_FIX] LA : Chap. 5.2 : Préparation d'un tournoi - Homologation des tournois - Procédure: LA-octobre2025.pdf-p036-parent155-child0 -> LA-octobre2025.pdf-p224-parent684-child0 (score:0.25) [RECLASS] fact_single->summary (not extractable)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -19790,7 +19794,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 10,
         "chunk_match_method": "page_only",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true
       },

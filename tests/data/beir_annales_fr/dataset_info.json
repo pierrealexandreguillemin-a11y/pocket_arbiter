@@ -1,0 +1,14 @@
+{
+  "name": "chess-arbiters-fr",
+  "description": "French chess arbitration rules Q&A dataset from FFE annales",
+  "source": "Pocket Arbiter Gold Standard",
+  "version": "7.4.9",
+  "language": "fr",
+  "split": "test",
+  "statistics": {
+    "corpus_size": 1857,
+    "queries": 347,
+    "qrels": 347
+  },
+  "created": "2026-01-26T10:52:02.395276"
+}

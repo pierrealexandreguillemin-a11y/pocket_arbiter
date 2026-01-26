@@ -18,18 +18,18 @@ if TYPE_CHECKING:
 # ISO 42001 A.6.2.2 - Documentation modeles
 # ISO 25010 PR-01 - RAM < 500MB, PR-04 - Stockage < 200MB
 
-# Modele principal: EmbeddingGemma 300M Full Precision
-# - Taille: ~1.2GB RAM
-# - MTEB: 69.31 EN / 60.62 Multilingual (meilleure qualité)
-# - Source: https://huggingface.co/google/embeddinggemma-300m
-# NOTE: Full precision recommandé pour meilleur recall (arXiv 2509.11552)
-MODEL_ID = "google/embeddinggemma-300m"
+# Modele principal: EmbeddingGemma 300M QAT (Quantization-Aware Training)
+# - Utilise unquantized weights mais entraine pour quantization
+# - Pipeline coherence: corpus → fine-tuning QLoRA → TFLite deployment
+# - Source: https://huggingface.co/google/embeddinggemma-300m-qat-q4_0-unquantized
+# NOTE: QAT requis pour eviter distribution shift entre corpus et production
+MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
 
-# Alias pour compatibilité (MODEL_ID = MODEL_ID_FULL maintenant)
-MODEL_ID_FULL = MODEL_ID
+# Full precision (meilleur recall mais inconsistant avec deployment)
+MODEL_ID_FULL = "google/embeddinggemma-300m"
 
-# Ancien modele Q4 (deprecated - recall inférieur)
-MODEL_ID_Q4 = "google/embeddinggemma-300m-qat-q4_0-unquantized"
+# Alias pour compatibilite (QAT est maintenant le defaut)
+MODEL_ID_QAT = MODEL_ID
 
 # Fallback leger pour tests CI/CD
 FALLBACK_MODEL_ID = "intfloat/multilingual-e5-base"

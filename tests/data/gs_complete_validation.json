@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-01-26T10:52:12.587840",
+  "gold_standard_file": "tests\\data\\gold_standard_annales_fr_v7.json",
+  "gold_standard_version": "7.4.9",
+  "overall_status": "PASS",
+  "validations": {
+    "question_counts": {
+      "total_questions": 420,
+      "requires_context": 73,
+      "testable": 347,
+      "reasoning_class_distribution": {
+        "summary": 240,
+        "fact_single": 162,
+        "reasoning": 6,
+        "arithmetic": 12
+      },
+      "passed": true
+    },
+    "chunk_ids": {
+      "total_with_chunk_id": 420,
+      "valid_chunk_ids": 420,
+      "invalid_chunk_ids": 0,
+      "invalid_questions": [],
+      "validity_rate": 100.0,
+      "passed": true
+    },
+    "reformulations": {
+      "reformulated": 0,
+      "needs_review": 0,
+      "average_score": 0,
+      "min_score": null,
+      "max_score": null,
+      "passed": true
+    },
+    "triplet_readiness": {
+      "triplet_ready": 420,
+      "testable": 347,
+      "readiness_rate": 121.04,
+      "passed": true
+    },
+    "metadata_completeness": {
+      "field_completeness": {
+        "question_type": 100.0,
+        "reasoning_class": 100.0,
+        "article_reference": 100.0
+      },
+      "average_completeness": 100.0,
+      "passed": true
+    },
+    "embeddings": {
+      "exists": true,
+      "embeddings_shape": [
+        1857,
+        768
+      ],
+      "chunk_ids_count": 1857,
+      "chunks_count": 1857,
+      "shape_consistent": true,
+      "embedding_dim": 768,
+      "passed": true
+    }
+  }
+}

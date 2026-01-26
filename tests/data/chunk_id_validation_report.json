@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-01-26T10:06:15.612356",
+  "gold_standard_file": "tests\\data\\gold_standard_annales_fr_v7.json",
+  "gold_standard_version": "7.4.7",
+  "chunks_file": "corpus\\processed\\chunks_mode_b_fr.json",
+  "summary": {
+    "total_questions": 420,
+    "valid_chunk_ids": 420,
+    "invalid_chunk_ids": 0,
+    "requires_context_skipped": 42,
+    "validity_rate_percent": 100.0,
+    "status": "PASS"
+  },
+  "invalid_questions": []
+}

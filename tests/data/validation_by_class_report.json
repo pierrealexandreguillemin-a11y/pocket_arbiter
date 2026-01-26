@@ -1,0 +1,3812 @@
+{
+  "timestamp": "2026-01-26T10:48:24.099666",
+  "gold_standard_file": "tests\\data\\gold_standard_annales_fr_v7.json",
+  "gold_standard_version": "7.4.8",
+  "model_id": "google/embeddinggemma-300m-qat-q4_0-unquantized",
+  "thresholds": {
+    "fact_single": 0.85,
+    "summary": 0.8,
+    "reasoning": 0.9,
+    "arithmetic": "100% components present"
+  },
+  "summary": {
+    "total_validated": 369,
+    "passed": 8,
+    "failed": 361,
+    "pass_rate_percent": 2.17,
+    "status": "NEEDS_REVIEW"
+  },
+  "stats_by_class": {
+    "summary": {
+      "total": 219,
+      "passed": 0,
+      "failed": 219,
+      "pass_rate_percent": 0.0
+    },
+    "fact_single": {
+      "total": 135,
+      "passed": 3,
+      "failed": 132,
+      "pass_rate_percent": 2.22
+    },
+    "reasoning": {
+      "total": 6,
+      "passed": 0,
+      "failed": 6,
+      "pass_rate_percent": 0.0
+    },
+    "arithmetic": {
+      "total": 9,
+      "passed": 5,
+      "failed": 4,
+      "pass_rate_percent": 55.56
+    }
+  },
+  "results": [
+    {
+      "question_id": "ffe:annales:clubs:001:55d409b5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5537,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:002:79da8e92",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5804,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:003:06c34715",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5598,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:004:d22e1892",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4084,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:005:b740870c",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5218,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:006:1bcec3d3",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7654,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:007:3431b54c",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6317,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:008:5e3f7d24",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.533,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:009:fd51d9be",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6158,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:010:4c1cad22",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4466,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:011:0ed8268f",
+      "reasoning_class": "reasoning",
+      "validation": {
+        "method": "reasoning",
+        "score": 0.6064,
+        "threshold": 0.9,
+        "passed": false,
+        "note": "Multi-hop reasoning requires high coverage"
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:012:f348e858",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6727,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:013:a7e8c494",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4071,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:014:cd3052cc",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.551,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:015:9da1351e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4996,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:016:223bd59d",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.564,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:017:5a48507f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5579,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:018:d470292e",
+      "reasoning_class": "reasoning",
+      "validation": {
+        "method": "reasoning",
+        "score": 0.7335,
+        "threshold": 0.9,
+        "passed": false,
+        "note": "Multi-hop reasoning requires high coverage"
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:019:4d3a9bf8",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6244,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:020:c41e0ed8",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5787,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:021:820fd267",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6891,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:022:24508717",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5433,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:023:c8d17a34",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5837,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:024:1a5a6b69",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6989,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:025:32ae9180",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2307,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:026:13307982",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5238,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:028:c3671008",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.8158,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:029:f547eb51",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6548,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:030:fb3301cf",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5529,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:036:ec8fdbb4",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6639,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:037:4cad3047",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5869,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:038:269442e5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6425,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:039:3f520ce2",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7873,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:040:a05251df",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "4"
+        ],
+        "chunk_numbers": [
+          "4"
+        ],
+        "components_present": true,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:042:fb1e75b1",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "9"
+        ],
+        "chunk_numbers": [
+          "2",
+          "3",
+          "9"
+        ],
+        "components_present": true,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:046:15a0bc61",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5023,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:047:5e5fef92",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6157,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:048:52bb444c",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4121,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:049:0742c6b6",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.611,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:050:df445310",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5635,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:051:e52e76d4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5934,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:052:07434c59",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.8598,
+        "threshold": 0.85,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:053:16c2d6a7",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4061,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:054:5a8109b0",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4216,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:055:c04a20b4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5541,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:057:545da9db",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7207,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:058:ccd218fa",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "3"
+        ],
+        "chunk_numbers": [
+          "1",
+          "2",
+          "3"
+        ],
+        "components_present": true,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:059:5e0bff0d",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4724,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:060:1a2abf50",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4025,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:063:38534277",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7092,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:064:604e61af",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3813,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:065:ec4682c1",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6626,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:067:5d9af675",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5322,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:068:80f0d596",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6232,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:069:85fbbf2a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.3778,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:071:e798252b",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2768,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:073:446fdc89",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5905,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:074:f3c3e975",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6529,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:075:f1539e46",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5209,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:076:fe6e608a",
+      "reasoning_class": "reasoning",
+      "validation": {
+        "method": "reasoning",
+        "score": 0.609,
+        "threshold": 0.9,
+        "passed": false,
+        "note": "Multi-hop reasoning requires high coverage"
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:077:471269eb",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6907,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:079:46e85a44",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6253,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:081:f141471f",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5713,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:082:1ce54a3d",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5814,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:083:6aab20b5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5983,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:084:25d549b3",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5817,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:085:f99e636d",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6567,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:086:bd9a1bc4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5864,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:087:4fb1f6f3",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6336,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:090:99d9d73f",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6387,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:091:89ec7556",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6267,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:092:46d8ab4d",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6983,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:093:dd779b85",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6639,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:094:d9d7f876",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4415,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:095:dd1e92ae",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5785,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:096:18da13cb",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5304,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:097:1c5185db",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4855,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:098:52c8b8e4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4262,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:099:0a0848b0",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5605,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:100:303c88ca",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5842,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:101:43d2eafe",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3183,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:102:ba5593bb",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5923,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:103:0c4c35b1",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5061,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:104:dfa6ecc5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5391,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:105:605c23b2",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.571,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:106:55bf9872",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5312,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:107:269c2c6a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4807,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:108:d4e26526",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.539,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:109:5bfbcc78",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6351,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:110:b34b2213",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5766,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:111:99da52c3",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5053,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:112:9cc28219",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5983,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:113:2ae38fca",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7138,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:114:7723ff77",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.616,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:115:d5304484",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5649,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:116:e0e40fa6",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7205,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:117:b7ece81e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5575,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:118:1ebfe905",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5439,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:119:ca3fa215",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5982,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:120:c822d69a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.523,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:121:62ea7644",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.554,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:124:ab156594",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6174,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:125:55638d99",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6728,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:126:b75dee27",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5902,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:127:7c18c532",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.618,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:128:1fefac53",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6175,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:130:6929d1d0",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5663,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:131:d2907731",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5291,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:132:82938744",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5738,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:133:d0c87aba",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5766,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:134:0c82f3e7",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.589,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:135:861e14f1",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2745,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:136:81380805",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6872,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:139:361bba0a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6365,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:140:39a63caf",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5229,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:141:db33e683",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.588,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:142:2fb8bb68",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3975,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:143:8f0e03ed",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5213,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:144:7d1e83b2",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6538,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:145:52a8515f",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6949,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:146:eeaa5225",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.236,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:147:c88f39e5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6283,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:148:4c052739",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4236,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:149:8e80eccc",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6678,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:150:284f7746",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.534,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:151:58f51be6",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "0"
+        ],
+        "chunk_numbers": [
+          "3",
+          "7",
+          "8",
+          "9"
+        ],
+        "components_present": false,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:152:0a424a81",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "4"
+        ],
+        "chunk_numbers": [
+          "4"
+        ],
+        "components_present": true,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:153:5c191988",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "3"
+        ],
+        "chunk_numbers": [
+          "1",
+          "10",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "components_present": true,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:154:14c31404",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6002,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:155:80798801",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6692,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:156:8d90bbb7",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.688,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:157:d7b097bc",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.232,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:158:7fea3ff6",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7117,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:159:952af9d4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5866,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:160:e28a5363",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7252,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:161:be79eda8",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.1363,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:162:23af4aa7",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4886,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:163:efba7505",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6121,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:164:49af2846",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "4"
+        ],
+        "chunk_numbers": [
+          "0",
+          "100",
+          "150",
+          "200",
+          "5",
+          "50",
+          "6",
+          "7",
+          "8"
+        ],
+        "components_present": false,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:165:186c22b0",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.771,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:167:07f8bd8d",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.22,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:168:6808d18e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6185,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:clubs:169:c16dfcad",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6084,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:002:b543a501",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5876,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:003:6fdc49bb",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.143,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:004:8fd9715e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6971,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:006:2db69ef2",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3573,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:007:8345a353",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6686,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:008:cf4de702",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.329,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:009:4e5b3351",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5818,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:010:5bc6bc5e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6122,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:011:1d5e9de9",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3614,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:013:51141e29",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6269,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:014:96d3083c",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5928,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:015:95f4d64a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6881,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:016:ad8538d6",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6869,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:017:67c3b0c7",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5355,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:018:b7aaa6c2",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6371,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:020:c8d86384",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "7"
+        ],
+        "chunk_numbers": [
+          "40"
+        ],
+        "components_present": false,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:021:73ebcf51",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2295,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:022:ef6ad68d",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7194,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:023:f52bd8ed",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6637,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:024:4bb364eb",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5915,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:026:6db1678f",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5868,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:027:012cae15",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.534,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:028:4cc73f07",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7405,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:029:bcc5611a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5395,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:030:6f4d6220",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3745,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:031:daec673d",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3745,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:032:1ad21c08",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6658,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:033:c7af304e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5439,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:034:a50a1b29",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7615,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:035:cb1bec24",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4281,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:036:24602145",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6686,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:037:48253f77",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4592,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:038:3ae4a556",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5825,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:039:87f2338a",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7354,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:040:b0c5b2b9",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5717,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:041:0af9b7dc",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.418,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:042:dc055770",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3549,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:043:b77bf58f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4021,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:044:b922066d",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6119,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:045:d2ead6d5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6378,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:046:cc1e3b13",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5388,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:047:8191de57",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4114,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:048:d394d0e3",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5775,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:049:d033d8c3",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2314,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:050:eb7be3cd",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3431,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:051:d9e3bbc6",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4525,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:052:40c01b4b",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4919,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:053:c86e4c21",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5429,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:054:772ce2a9",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.502,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:055:fff0d000",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2425,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:056:3e6a8494",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2878,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:057:1149ade0",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.1901,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:058:6a9ad243",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.572,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:059:e98a4668",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.1991,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:060:5b4d6205",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2484,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:061:9abe718c",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5027,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:062:9c34a5fa",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4485,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:063:f66e301c",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2959,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:open:064:936ece0a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5545,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:001:d56a5ed7",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5455,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:002:33e3bee8",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6071,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:003:182a9b44",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3903,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:004:6e4f68c4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5337,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:005:50bb0658",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4141,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:006:2ed0beee",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.576,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:007:148916ab",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4271,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:009:8b61df6a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5923,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:010:2bcd0d93",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6478,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:011:bbebc0df",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.41,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:012:59a34ceb",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4385,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:013:4540ccad",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5956,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:014:071efde4",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4271,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:015:218b82be",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5792,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:016:9fabc206",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4591,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:017:c2e125b4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5549,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:018:84198fff",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4841,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:019:a60a32b8",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5923,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:020:2abf7d5b",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4135,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:021:6e7f46b5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4758,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:022:a1699904",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4599,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:023:313313c3",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5145,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:024:639c0418",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.705,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:025:2c969d21",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7412,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:026:1497bbbb",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7179,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:027:2d7ee8e7",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3748,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:028:b3ebab05",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6582,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:029:30d59fea",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6118,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:030:fc369c15",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5141,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:031:01d9b54f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2961,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:032:fea4adde",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5526,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:033:660f6206",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6064,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:034:18bf23f0",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5964,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:037:25385d5f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7061,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:039:3746f309",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.585,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:040:3c49716f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7548,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:041:eb8a701b",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6724,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:042:11f3a37e",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4361,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:043:71689419",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.655,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:044:ab624690",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5339,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:045:89403c7f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6057,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:046:350ac66f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2815,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:047:b2870b62",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5516,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:048:e207b726",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6811,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:049:324c24ff",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3382,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:050:efbd367a",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7962,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:051:8624de9c",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6573,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:052:ad487e20",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7879,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:053:589c64b1",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.3915,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:054:1f2c8ab5",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5911,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:056:b15cf14c",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6876,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:057:80e7e9da",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5791,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:059:4643a274",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4653,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:060:51e22661",
+      "reasoning_class": "arithmetic",
+      "validation": {
+        "method": "arithmetic",
+        "answer_numbers": [
+          "2"
+        ],
+        "chunk_numbers": [
+          "12",
+          "2019",
+          "3",
+          "30",
+          "60"
+        ],
+        "components_present": false,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:061:d2032ffa",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.652,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:062:2b6141ed",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.449,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:063:df712371",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5906,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:068:5c64c6f3",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6187,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:069:b69a968a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5881,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:070:10f4c72f",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6434,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:071:21299833",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5967,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:074:406fc882",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4463,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:075:96244d87",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5145,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:076:61867e75",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6356,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:077:9764086b",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6032,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:078:6e3dc32c",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5282,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:079:c3789d46",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4842,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:080:7d46fef6",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5628,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:081:b3dfd538",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5895,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:082:0ffd9851",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4312,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:083:958a8418",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5751,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:084:9b6aba85",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.1937,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:085:d7d2e0cb",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5451,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:086:bcf958e4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6368,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:087:65b43070",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6302,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:088:06844059",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5837,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:089:9f9846a0",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.58,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:090:2d67e0b8",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7365,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:091:4504ee69",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5598,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:092:6e7290e6",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.325,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:093:8d0ba054",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4355,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:094:292c2180",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6295,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:095:cc85a835",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4861,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:096:db7b1227",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5624,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:097:631f31e8",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2868,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:098:3fbacfde",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.563,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:099:a1e9cd97",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.2383,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:100:7e882181",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7158,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:101:b57c84f0",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.1961,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:103:f493b422",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7242,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:104:0309cc7a",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7912,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:105:ca611079",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.395,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:rules:106:5a3dd069",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7171,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:001:39ad4152",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7611,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:002:5d30fd70",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6782,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:003:2b1ab662",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5453,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:004:82f7f674",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7501,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:005:ed5b90d2",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5702,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:006:66593d0c",
+      "reasoning_class": "reasoning",
+      "validation": {
+        "method": "reasoning",
+        "score": 0.6693,
+        "threshold": 0.9,
+        "passed": false,
+        "note": "Multi-hop reasoning requires high coverage"
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:007:ccccbfee",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6389,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:008:4be0fbe1",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5922,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:009:36b933ad",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5396,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:010:4b10a24a",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6655,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:011:1e2d7ebc",
+      "reasoning_class": "reasoning",
+      "validation": {
+        "method": "reasoning",
+        "score": 0.7162,
+        "threshold": 0.9,
+        "passed": false,
+        "note": "Multi-hop reasoning requires high coverage"
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:012:4549ef7e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6215,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:013:a7312ec7",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5596,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:014:b1891890",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6874,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:015:27a9e155",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6853,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:016:698fd630",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6065,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:017:f1e23406",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7403,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:018:f5f5dfe0",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6315,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:019:b83d312f",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7781,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:020:0ee45b0c",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6566,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:022:43041a74",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7328,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:023:6a4bd26e",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5446,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:024:923da57c",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6475,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:026:fcc80bae",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.736,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:027:5cc51fc2",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.546,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:030:7ff46cb9",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.7439,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:031:bb520f55",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5353,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:033:20fdfa19",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4691,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:034:76520ac7",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5019,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:036:bc62e693",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.631,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:037:59f9c31d",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5974,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:038:b2eb5fa2",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.4904,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:039:a4a07cb1",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.5507,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:040:0813659b",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.537,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:041:7a4c52d4",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6948,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:042:0ae424b3",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.763,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:043:d15339ee",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6222,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:044:32492050",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5878,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:046:8794b69d",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.693,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:annales:tournament:047:9ca2b175",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7596,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:001:406a0bbe",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6554,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:002:710d2088",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6214,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:003:880750a0",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6035,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:004:afe9a2af",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7706,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:005:91ec4e85",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.8427,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:006:3f4dfb29",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.8136,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:007:e6656888",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.8108,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:008:271c694f",
+      "reasoning_class": "reasoning",
+      "validation": {
+        "method": "reasoning",
+        "score": 0.6468,
+        "threshold": 0.9,
+        "passed": false,
+        "note": "Multi-hop reasoning requires high coverage"
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:001:f306d37c",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.826,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:002:30725375",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6571,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:003:b7774476",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.4653,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:004:eae93f57",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6104,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:005:8f4bf758",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7165,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:006:8ee016d4",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6664,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:007:a0e7a66d",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.8373,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:youth:008:78785108",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7859,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:women:001:735e35bb",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7962,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:women:002:1667d108",
+      "reasoning_class": "summary",
+      "validation": {
+        "method": "summary",
+        "score": 0.6064,
+        "threshold": 0.8,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:access:001:e775f181",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6621,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:access:002:bfa0f3f8",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6868,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:rating:009:95e74930",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.887,
+        "threshold": 0.85,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:human:clubs:001:e20fddaa",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.8876,
+        "threshold": 0.85,
+        "passed": true
+      }
+    },
+    {
+      "question_id": "ffe:human:clubs:002:aa5f1fec",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5365,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:admin:001:89810c8e",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7385,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:admin:002:4583c135",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6991,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:admin:003:3647aee2",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.7102,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:admin:004:e0771263",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.741,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:admin:005:35800014",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.536,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:regional:001:6794986f",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6449,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:regional:002:94cf56b9",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6037,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:regional:003:89e7d630",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6611,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:regional:004:a18d472b",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.5661,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:clubs:003:3c3a124c",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.6575,
+        "threshold": 0.85,
+        "passed": false
+      }
+    },
+    {
+      "question_id": "ffe:human:clubs:004:f070542c",
+      "reasoning_class": "fact_single",
+      "validation": {
+        "method": "fact_single",
+        "score": 0.819,
+        "threshold": 0.85,
+        "passed": false
+      }
+    }
+  ]
+}

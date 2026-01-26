@@ -167,3 +167,8 @@ nul
 # Report JSON (regenerable)
 corpus/processed/*.report.json
 corpus/processed/*.ids.json
+# Backup and temp files
+tests/data/*.bak
+tests/data/*_backup*.json
+tests/data/questions_to_reformulate.json
+tests/data/reformulation_batch.json

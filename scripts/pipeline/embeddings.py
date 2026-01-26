@@ -447,7 +447,7 @@ def generate_corpus_embeddings(
     logger.info(f"Saved embeddings: {output_file}")
 
     ids_file = output_file.with_suffix(".ids.json")
-    save_json({"chunk_ids": ids, "total": len(ids)}, ids_file)
+    save_json({"chunk_ids": ids, "total": len(ids), "model_id": model_id}, ids_file)
 
     report = {
         "input_file": str(input_file),

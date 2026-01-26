@@ -1,5 +1,5 @@
 {
-  "version": "7.4.5",
+  "version": "7.4.6",
   "schema": "unified-v1",
   "description": "Gold standard v7.0.0 - unified schema (SQuAD 2.0 + BEIR + ISO 42001)",
   "methodology": {
@@ -1439,7 +1439,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1465,7 +1465,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVC-028"
     },
@@ -1650,7 +1652,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0)",
+      "audit": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0) [CTX] name:Daniela",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1677,7 +1679,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Daniela"
       },
       "legacy_id": "FR-ANN-UVC-034"
     },
@@ -1707,7 +1711,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1734,7 +1738,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVC-035"
     },
@@ -1760,7 +1766,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P4:0.8] LA-octobre2025.pdf-p216-parent661-child00 -> LA-octobre2025.pdf-p125-parent365-child00 (score:0.80, src:same_doc)",
+      "audit": "[P4:0.8] LA-octobre2025.pdf-p216-parent661-child00 -> LA-octobre2025.pdf-p125-parent365-child00 (score:0.80, src:same_doc) [CTX] name:Paul",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1785,7 +1791,9 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Paul"
       },
       "legacy_id": "FR-ANN-UVC-036"
     },
@@ -2194,7 +2202,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:global_search)",
+      "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:global_search) [CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -2220,7 +2228,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVC-046"
     },
@@ -2408,7 +2418,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] LA-octobre2025.pdf-p036-parent155-child00 -> LA-octobre2025.pdf-p139-parent409-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] LA-octobre2025.pdf-p036-parent155-child00 -> LA-octobre2025.pdf-p139-parent409-child00 (score:1.00, src:same_doc) [CTX] name:Paul",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -2435,7 +2445,9 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Paul"
       },
       "legacy_id": "FR-ANN-UVC-053"
     },
@@ -2999,7 +3011,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] LA :Chapitre 5.1 Gestion d'un match: LA-octobre2025.pdf-p017-parent059-child0 -> LA-octobre2025.pdf-p165-parent000-child0 (score:0.10)",
+      "audit": "[SMART_FIX] LA :Chapitre 5.1 Gestion d'un match: LA-octobre2025.pdf-p017-parent059-child0 -> LA-octobre2025.pdf-p165-parent000-child0 (score:0.10) [CTX] name:Andreina",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -3026,7 +3038,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Andreina"
       },
       "legacy_id": "FR-ANN-UVC-064"
     },
@@ -3322,7 +3336,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] R03 - 2.5 Conditions de participation des joueurs et joueuses: R03_2025_26_Competitions_homologuees.pdf -> R03_2025_26_Competitions_homologuees.pdf (score:0.11)",
+      "audit": "[SMART_FIX] R03 - 2.5 Conditions de participation des joueurs et joueuses: R03_2025_26_Competitions_homologuees.pdf -> R03_2025_26_Competitions_homologuees.pdf (score:0.11) [CTX] name:Gauthier",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -3348,7 +3362,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Gauthier"
       },
       "legacy_id": "FR-ANN-UVC-070"
     },
@@ -3535,7 +3551,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] A02 - 3.6.d) Validité de la licence.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.11)",
+      "audit": "[SMART_FIX] A02 - 3.6.d) Validité de la licence.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.11) [CTX] name:Gauthier",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -3561,7 +3577,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Gauthier"
       },
       "legacy_id": "FR-ANN-UVC-074"
     },
@@ -3756,7 +3774,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P3:0.85] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.85, src:global_search)",
+      "audit": "[P3:0.85] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.85, src:global_search) [CTX] name:Cécile",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -3782,7 +3800,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Cécile"
       },
       "legacy_id": "FR-ANN-UVC-078"
     },
@@ -3861,7 +3881,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[CTX] name:Gauthier",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -3887,7 +3907,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Gauthier"
       },
       "legacy_id": "FR-ANN-UVC-080"
     },
@@ -4829,7 +4851,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] position suivante",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -4856,7 +4878,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVC-098"
     },
@@ -6708,7 +6732,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] position suivante",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -6735,7 +6759,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVC-133"
     },
@@ -7108,7 +7134,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent011-child00 -> LA-octobre2025.pdf-p056-parent191-child00 (score:1.00, src:global_search)",
+      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent011-child00 -> LA-octobre2025.pdf-p056-parent191-child00 (score:1.00, src:global_search) [CTX] position suivante",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -7133,7 +7159,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVC-140"
     },
@@ -7557,7 +7585,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[CTX] position suivante",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -7582,7 +7610,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVC-148"
     },
@@ -7614,7 +7644,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] position suivante",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -7639,7 +7669,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVC-149"
     },
@@ -9361,7 +9393,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P4:0.8] LA-octobre2025.pdf-p048-parent174-child00 -> LA-octobre2025.pdf-p018-parent069-child00 (score:0.80, src:same_doc)",
+      "audit": "[P4:0.8] LA-octobre2025.pdf-p048-parent174-child00 -> LA-octobre2025.pdf-p018-parent069-child00 (score:0.80, src:same_doc) [CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -9388,7 +9420,9 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVO-020"
     },
@@ -9563,7 +9597,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2 Arbitres inactif: LA-octobre2025.pdf-p027-parent120-child0 -> LA-octobre2025.pdf-p017-parent064-child0 (score:0.53)",
+      "audit": "[SMART_FIX] LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2 Arbitres inactif: LA-octobre2025.pdf-p027-parent120-child0 -> LA-octobre2025.pdf-p017-parent064-child0 (score:0.53) [CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -9590,7 +9624,9 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVO-024"
     },
@@ -16296,7 +16332,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque.: LA-octobre2025.pdf-p040-parent159-child0 -> LA-octobre2025.pdf-p066-parent215-child0 (score:0.25)",
+      "audit": "[SMART_FIX] Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque.: LA-octobre2025.pdf-p040-parent159-child0 -> LA-octobre2025.pdf-p066-parent215-child0 (score:0.25) [CTX] position suivante",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -16323,7 +16359,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVR-096"
     },
@@ -16414,7 +16452,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] LA-octobre2025.pdf-p041-parent160-child00 -> LA-octobre2025.pdf-p013-parent037-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] LA-octobre2025.pdf-p041-parent160-child00 -> LA-octobre2025.pdf-p013-parent037-child00 (score:1.00, src:same_doc) [CTX] position suivante",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -16435,7 +16473,9 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVR-099"
     },
@@ -16688,7 +16728,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] LA-octobre2025.pdf-p044-parent167-child00 -> LA-octobre2025.pdf-p044-parent168-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] LA-octobre2025.pdf-p044-parent167-child00 -> LA-octobre2025.pdf-p044-parent168-child00 (score:1.00, src:same_doc) [CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -16714,7 +16754,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVR-126"
     },
@@ -16744,7 +16786,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] position suivante",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -16771,7 +16813,9 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "position suivante"
       },
       "legacy_id": "FR-ANN-UVR-127"
     },
@@ -19667,7 +19711,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -19694,7 +19738,9 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVT-028"
     },
@@ -20053,7 +20099,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P2:0.9] LA-octobre2025.pdf-p120-parent351-child00 -> LA-octobre2025.pdf-p125-parent365-child00 (score:0.91, src:same_doc)",
+      "audit": "[P2:0.9] LA-octobre2025.pdf-p120-parent351-child00 -> LA-octobre2025.pdf-p125-parent365-child00 (score:0.91, src:same_doc) [CTX] name:Paul",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -20080,7 +20126,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Paul"
       },
       "legacy_id": "FR-ANN-UVT-042"
     },
@@ -20108,7 +20156,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] LA-octobre2025.pdf-p015-parent045-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] LA-octobre2025.pdf-p015-parent045-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:same_doc) [CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -20134,7 +20182,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVT-044"
     },
@@ -20270,7 +20320,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté: LA-octobre2025.pdf-p016-parent057-child0 -> LA-octobre2025.pdf-p153-parent464-child0 (score:0.73)",
+      "audit": "[SMART_FIX] LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté: LA-octobre2025.pdf-p016-parent057-child0 -> LA-octobre2025.pdf-p153-parent464-child0 (score:0.73) [CTX] name:Paul",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -20297,7 +20347,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "name:Paul"
       },
       "legacy_id": "FR-ANN-UVT-047"
     },
@@ -20430,7 +20482,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] LA : Chap. 5.4 : Rapport technique de fin de tournoi: LA-octobre2025.pdf-p041-parent161-child0 -> LA-octobre2025.pdf-p165-parent000-child0 (score:0.19)",
+      "audit": "[SMART_FIX] LA : Chap. 5.4 : Rapport technique de fin de tournoi: LA-octobre2025.pdf-p041-parent161-child0 -> LA-octobre2025.pdf-p165-parent000-child0 (score:0.19) [CTX] ci-dessous",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -20456,7 +20508,9 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true,
+        "context_reason": "ci-dessous"
       },
       "legacy_id": "FR-ANN-UVT-053"
     },

@@ -1,7 +1,7 @@
 {
-  "version": "7.5.6",
+  "version": "7.6",
   "schema": "unified-v1",
-  "description": "Gold standard v7.0.0 - unified schema (SQuAD 2.0 + BEIR + ISO 42001)",
+  "description": "Gold standard v7.6 - reasoning benchmark, validated metrics, LREM justified",
   "methodology": {
     "source": "Annales examens arbitres FFE (DNA)",
     "validation": "Questions officielles validées par jury national",
@@ -52,6 +52,21 @@
       "method": "procrustes_qat_to_full",
       "chunks_realigned": 238,
       "mean_improvement": 0.14806865060999364
+    },
+    "v76_validation": {
+      "date": "2026-01-26",
+      "total_questions": 420,
+      "requires_context": 92,
+      "testables": 328,
+      "invalid_chunk_ids": 0,
+      "missing_reasoning_class": 0,
+      "reasoning_distribution": {
+        "summary": 240,
+        "fact_single": 162,
+        "arithmetic": 12,
+        "reasoning": 6
+      },
+      "scientific_justification": "LREM (arXiv:2510.14321) +19.2% Q&A, Know Your RAG (arXiv:2411.19710) 95% fact_single trap"
     }
   },
   "coverage": {

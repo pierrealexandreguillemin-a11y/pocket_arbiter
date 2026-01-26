@@ -1,5 +1,5 @@
 {
-  "version": "7.4.4",
+  "version": "7.4.5",
   "schema": "unified-v1",
   "description": "Gold standard v7.0.0 - unified schema (SQuAD 2.0 + BEIR + ISO 42001)",
   "methodology": {
@@ -2355,7 +2355,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[P4:0.8] R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.83, src:global_search)",
+      "audit": "[P4:0.8] R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.83, src:global_search) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -2381,7 +2381,8 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVC-050"
     },
@@ -4190,7 +4191,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SMART_FIX] LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs: LA-octobre2025.pdf-p027-parent120-child0 -> LA-octobre2025.pdf-p087-parent261-child0 (score:0.21)",
+      "audit": "[SMART_FIX] LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs: LA-octobre2025.pdf-p027-parent120-child0 -> LA-octobre2025.pdf-p087-parent261-child0 (score:0.21) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "temporal",
@@ -4217,7 +4218,8 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVC-086"
     },
@@ -4308,7 +4310,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[SMART_FIX] R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p001-pa (score:0.25)",
+      "audit": "[SMART_FIX] R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p001-pa (score:0.25) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -4335,7 +4337,8 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVC-088"
     },
@@ -4770,7 +4773,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[SMART_FIX] A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.25)",
+      "audit": "[SMART_FIX] A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.25) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -4794,7 +4797,8 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVC-097"
     },
@@ -6763,7 +6767,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "[P1:0.95] R01_2025_26_Regles_generales.pdf-p002-parent006-child00 -> R01_2025_26_Regles_generales.pdf-p006-parent000-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] R01_2025_26_Regles_generales.pdf-p002-parent006-child00 -> R01_2025_26_Regles_generales.pdf-p006-parent000-child00 (score:1.00, src:same_doc) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -6788,7 +6792,8 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVC-134"
     },
@@ -13183,7 +13188,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] LA-octobre2025.pdf-p043-parent165-child00 -> LA-octobre2025.pdf-p013-parent037-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] LA-octobre2025.pdf-p043-parent165-child00 -> LA-octobre2025.pdf-p013-parent037-child00 (score:1.00, src:same_doc) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
@@ -13203,7 +13208,8 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVR-030"
     },
@@ -14653,7 +14659,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[RECLASS] fact_single -> arithmetic",
+      "audit": "[RECLASS] fact_single -> arithmetic [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -14680,7 +14686,8 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "arithmetic",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVR-060"
     },
@@ -14710,7 +14717,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": false
       },
-      "audit": "",
+      "audit": "[CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -14737,7 +14744,8 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVR-061"
     },
@@ -14819,7 +14827,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[SHORT_FIX] LA-octobre2025.pdf-p042-parent -> LA-octobre2025.pdf-p157-parent (art:1, kw:8)",
+      "audit": "[SHORT_FIX] LA-octobre2025.pdf-p042-parent -> LA-octobre2025.pdf-p157-parent (art:1, kw:8) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -14846,7 +14854,8 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVR-063"
     },
@@ -16236,7 +16245,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] LA-octobre2025.pdf-p049-parent176-child00 -> LA-octobre2025.pdf-p013-parent037-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] LA-octobre2025.pdf-p049-parent176-child00 -> LA-octobre2025.pdf-p013-parent037-child00 (score:1.00, src:same_doc) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
@@ -16257,7 +16266,8 @@
         "chunk_match_method": "page_only",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVR-090"
     },
@@ -16345,7 +16355,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -16372,7 +16382,8 @@
         "chunk_match_method": "page_keyword",
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVR-098"
     },
@@ -18283,7 +18294,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "[P1:0.95] LA-octobre2025.pdf-p043-parent165-child00 -> LA-octobre2025.pdf-p036-parent155-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] LA-octobre2025.pdf-p043-parent165-child00 -> LA-octobre2025.pdf-p036-parent155-child00 (score:1.00, src:same_doc) [CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -18309,7 +18320,8 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVR-164"
     },
@@ -19875,7 +19887,7 @@
         "verified_date": "2026-01-24",
         "pages_verified": true
       },
-      "audit": "",
+      "audit": "[CTX] marked requires_context",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -19902,7 +19914,8 @@
         "chunk_match_method": "article_direct",
         "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
-        "triplet_ready": true
+        "triplet_ready": true,
+        "requires_context": true
       },
       "legacy_id": "FR-ANN-UVT-036"
     },

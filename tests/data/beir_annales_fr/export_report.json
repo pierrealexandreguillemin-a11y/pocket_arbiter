@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-01-26T10:52:02.396024",
+  "gold_standard_file": "tests\\data\\gold_standard_annales_fr_v7.json",
+  "gold_standard_version": "7.4.9",
+  "chunks_file": "corpus\\processed\\chunks_mode_b_fr.json",
+  "output_directory": "tests\\data\\beir_annales_fr",
+  "files_created": {
+    "corpus.jsonl": "tests\\data\\beir_annales_fr\\corpus.jsonl",
+    "queries.jsonl": "tests\\data\\beir_annales_fr\\queries.jsonl",
+    "qrels/test.tsv": "tests\\data\\beir_annales_fr\\qrels\\test.tsv",
+    "dataset_info.json": "tests\\data\\beir_annales_fr\\dataset_info.json"
+  },
+  "statistics": {
+    "corpus_documents": 1857,
+    "queries": 347,
+    "relevance_judgments": 347,
+    "skipped_requires_context": 73
+  },
+  "beir_compatible": true
+}

@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-01-25T22:59:09.110672",
+  "input_version": "7.3.0",
+  "output_version": "7.4.0",
+  "pre_optimization": {
+    "questions_without_mark": 133,
+    "question_type_none": 34,
+    "missing_reasoning_class": 420
+  },
+  "post_optimization": {
+    "total": 420,
+    "with_question_mark": 301,
+    "question_type_distribution": {
+      "factual": 238,
+      "scenario": 161,
+      "procedural": 15,
+      "comparative": 6
+    },
+    "reasoning_class_distribution": {
+      "summary": 215,
+      "fact_single": 199,
+      "reasoning": 6
+    },
+    "reasoning_type_distribution": {
+      "multi-hop": 220,
+      "single-hop": 187,
+      "temporal": 13
+    },
+    "cognitive_level_distribution": {
+      "Remember": 238,
+      "Apply": 161,
+      "Understand": 15,
+      "Analyze": 6
+    },
+    "triplet_ready": 420
+  },
+  "modifications_count": 420,
+  "modifications_sample": [
+    {
+      "id": "ffe:annales:clubs:001:55d409b5",
+      "modifications": [
+        "added_reasoning_class:summary"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:002:79da8e92",
+      "modifications": [
+        "added_reasoning_class:summary"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:003:06c34715",
+      "modifications": [
+        "added_reasoning_class:fact_single"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:004:d22e1892",
+      "modifications": [
+        "added_reasoning_class:fact_single"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:005:b740870c",
+      "modifications": [
+        "added_reasoning_class:summary"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:006:1bcec3d3",
+      "modifications": [
+        "added_reasoning_class:summary"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:007:3431b54c",
+      "modifications": [
+        "added_reasoning_class:fact_single"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:008:5e3f7d24",
+      "modifications": [
+        "added_question_mark",
+        "added_reasoning_class:summary"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:009:fd51d9be",
+      "modifications": [
+        "added_reasoning_class:summary"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:010:4c1cad22",
+      "modifications": [
+        "added_reasoning_class:summary"
+      ]
+    }
+  ],
+  "modification_types": {
+    "added_reasoning_class:summary": 215,
+    "added_reasoning_class:fact_single": 199,
+    "added_question_mark": 14,
+    "added_reasoning_class:reasoning": 6,
+    "inferred_question_type:scenario": 4,
+    "inferred_question_type:factual": 24,
+    "inferred_question_type:procedural": 5,
+    "inferred_question_type:comparative": 1
+  }
+}

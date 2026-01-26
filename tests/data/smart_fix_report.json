@@ -1,0 +1,1644 @@
+{
+  "date": "2026-01-26T08:56:52.424963",
+  "from_version": "7.4.2",
+  "to_version": "7.4.3",
+  "total_processed": 219,
+  "fixes_applied": 101,
+  "no_article_ref": 0,
+  "no_better_match": 115,
+  "fixes": [
+    {
+      "id": "ffe:annales:clubs:006:1bcec3d3",
+      "article_ref": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 6 Administration 6.2. Arbitres inactifs",
+      "old_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
+      "old_score": 0.0,
+      "new_score": 0.6666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:008:5e3f7d24",
+      "article_ref": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 Délivrance des titres d'arbitres fédéraux",
+      "old_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p012-parent031-child00",
+      "old_score": 0.3,
+      "new_score": 0.6
+    },
+    {
+      "id": "ffe:annales:clubs:011:0ed8268f",
+      "article_ref": "R01 - 3 .2. Forfait isolé",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent009-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+      "old_score": 0.16666666666666666,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:clubs:029:f547eb51",
+      "article_ref": "Article 3.2 du RIDNA.",
+      "old_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "old_score": 0.0,
+      "new_score": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:030:fb3301cf",
+      "article_ref": "Article 5.1.1 du RIDNA.",
+      "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
+      "old_score": 0.0,
+      "new_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:clubs:035:f5891e65",
+      "article_ref": "Article 3.6.d du A02 - Championnat de France des clubs.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00",
+      "old_score": 0.15384615384615385,
+      "new_score": 0.17307692307692307
+    },
+    {
+      "id": "ffe:annales:clubs:036:ec8fdbb4",
+      "article_ref": "Article 3.6.a du A02 - Championnat de France des clubs.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "old_score": 0.034482758620689655,
+      "new_score": 0.5517241379310345
+    },
+    {
+      "id": "ffe:annales:clubs:046:15a0bc61",
+      "article_ref": "Article 2.5 du C03 - Coupe Jean-Claude Loubatière.",
+      "old_chunk_id": "LA-octobre2025.pdf-p078-parent238-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
+      "old_score": 0.0,
+      "new_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:056:576a2a97",
+      "article_ref": "LA :Chapitre 5.1 Gestion d'un match",
+      "old_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "old_score": 0.0,
+      "new_score": 0.0975609756097561
+    },
+    {
+      "id": "ffe:annales:clubs:059:5e0bff0d",
+      "article_ref": "R01 - 3.1.3 Forfait administratif",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent009-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+      "old_score": 0.0,
+      "new_score": 0.125
+    },
+    {
+      "id": "ffe:annales:clubs:062:234551df",
+      "article_ref": "R03 - 2.5 Conditions de participation des joueurs et joueuses",
+      "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
+      "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent011-child00",
+      "old_score": 0.02631578947368421,
+      "new_score": 0.10526315789473684
+    },
+    {
+      "id": "ffe:annales:clubs:063:38534277",
+      "article_ref": "R03 - 2.3 Droits d'inscriptions",
+      "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+      "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent011-child00",
+      "old_score": 0.0,
+      "new_score": 0.13333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:066:5f02652f",
+      "article_ref": "A02 - 3.6.d) Validité de la licence.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "old_score": 0.05555555555555555,
+      "new_score": 0.1111111111111111
+    },
+    {
+      "id": "ffe:annales:clubs:067:5d9af675",
+      "article_ref": "A02 - 3.7.c) Participation dans plusieurs équipes",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
+      "old_score": 0.16666666666666666,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:078:3a10054a",
+      "article_ref": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs",
+      "old_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p087-parent261-child00",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.21428571428571427
+    },
+    {
+      "id": "ffe:annales:clubs:080:6b0d5da4",
+      "article_ref": "R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+      "old_score": 0.0,
+      "new_score": 0.25
+    },
+    {
+      "id": "ffe:annales:clubs:081:f141471f",
+      "article_ref": "R01 - Règles Générales - Article 2.4 Catégories d'âge.",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "old_score": 0.0,
+      "new_score": 0.125
+    },
+    {
+      "id": "ffe:annales:clubs:082:1ce54a3d",
+      "article_ref": "R01 - Règles Générales - Article 3.1.2. Retard autorisé.",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+      "old_score": 0.0,
+      "new_score": 0.18181818181818182
+    },
+    {
+      "id": "ffe:annales:clubs:084:25d549b3",
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 1.1.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "old_score": 0.0,
+      "new_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:clubs:085:f99e636d",
+      "article_ref": "R01 - Règles Générales - Article 4 Homologation d'un résultat.",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+      "old_score": 0.0,
+      "new_score": 0.07142857142857142
+    },
+    {
+      "id": "ffe:annales:clubs:087:4fb1f6f3",
+      "article_ref": "R03 Compétitions Homologuées - Article 2.5 Conditions de participation des joueurs et joueuses",
+      "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
+      "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent002-child00",
+      "old_score": 0.0,
+      "new_score": 0.0625
+    },
+    {
+      "id": "ffe:annales:clubs:088:fd36b954",
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+      "old_score": 0.0,
+      "new_score": 0.25
+    },
+    {
+      "id": "ffe:annales:clubs:092:46d8ab4d",
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:clubs:093:dd779b85",
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 3.7.g) Joueuses et joueurs mutés.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child01",
+      "old_score": 0.0,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:097:1c5185db",
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "old_score": 0.2,
+      "new_score": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:104:dfa6ecc5",
+      "article_ref": "Championnat de France des clubs, Article 3.7.f",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
+      "old_score": 0.1,
+      "new_score": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:109:5bfbcc78",
+      "article_ref": "Championnat de France des clubs, Article 4.1.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "old_score": 0.16666666666666666,
+      "new_score": 0.19444444444444445
+    },
+    {
+      "id": "ffe:annales:clubs:110:b34b2213",
+      "article_ref": "Championnat de France des clubs, Article 3.6.",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "old_score": 0.1111111111111111,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:116:e0e40fa6",
+      "article_ref": "Guide de l'arbitrage à l'international, Article 1.1",
+      "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "old_score": 0.0,
+      "new_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:clubs:119:ca3fa215",
+      "article_ref": "Coupe de France, Article 3.2",
+      "old_chunk_id": "LA-octobre2025.pdf-p056-parent150-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+      "old_score": 0.027777777777777776,
+      "new_score": 0.2222222222222222
+    },
+    {
+      "id": "ffe:annales:clubs:124:ab156594",
+      "article_ref": "R.01 : Règles générales pour les compétitions fédérales, art. 2.4.",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child01",
+      "old_score": 0.07692307692307693,
+      "new_score": 0.23076923076923078
+    },
+    {
+      "id": "ffe:annales:clubs:127:7c18c532",
+      "article_ref": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child01",
+      "old_score": 0.16666666666666666,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:131:d2907731",
+      "article_ref": "de la DNA, art. 3.2 : Livre de l'Arbitre.",
+      "old_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p053-parent183-child02",
+      "old_score": 0.0,
+      "new_score": 0.6666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:133:d0c87aba",
+      "article_ref": "C.01 : Coupe de France, art. 3.8.",
+      "old_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent019-child00",
+      "new_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent004-child00",
+      "old_score": 0.0,
+      "new_score": 0.25
+    },
+    {
+      "id": "ffe:annales:clubs:139:361bba0a",
+      "article_ref": "3.1 du règlement R.01 : Règles générales pour les compétitions fédérales",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+      "old_score": 0.05714285714285714,
+      "new_score": 0.11428571428571428
+    },
+    {
+      "id": "ffe:annales:clubs:143:8f0e03ed",
+      "article_ref": "Article 2 du Règlement disciplinaire de la FFE",
+      "old_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
+      "new_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p001-parent001-child00",
+      "old_score": 0.0,
+      "new_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:clubs:149:8e80eccc",
+      "article_ref": "Article 3.6 du A02 Championnat de France des clubs",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00",
+      "old_score": 0.1320754716981132,
+      "new_score": 0.22641509433962265
+    },
+    {
+      "id": "ffe:annales:clubs:150:284f7746",
+      "article_ref": "Article 3.7.c du A02 Championnat de France des clubs",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent000-child00",
+      "old_score": 0.0,
+      "new_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:156:8d90bbb7",
+      "article_ref": "Article 3.7.g du A02 Championnat de France des clubs",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
+      "old_score": 0.16666666666666666,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:clubs:158:7fea3ff6",
+      "article_ref": "Article 3.7.b du J02 Championnat de France des interclubs jeunes",
+      "old_chunk_id": "LA-octobre2025.pdf-p086-parent256-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent212-child02",
+      "old_score": 0.09090909090909091,
+      "new_score": 0.1590909090909091
+    },
+    {
+      "id": "ffe:annales:clubs:159:952af9d4",
+      "article_ref": "Article 3.2 du C01 Coupe de France",
+      "old_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
+      "old_score": 0.2222222222222222,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:160:e28a5363",
+      "article_ref": "Article 1.3 du C01 Coupe de France",
+      "old_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
+      "old_score": 0.35,
+      "new_score": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:162:23af4aa7",
+      "article_ref": "Article 1.2 du C03 Coupe Jean-Claude Loubatière",
+      "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p211-parent634-child00",
+      "old_score": 0.0,
+      "new_score": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:165:186c22b0",
+      "article_ref": "Coupe de la parité",
+      "old_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent004-child00",
+      "new_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent000-child00",
+      "old_score": 0.013333333333333334,
+      "new_score": 0.04
+    },
+    {
+      "id": "ffe:annales:clubs:169:c16dfcad",
+      "article_ref": "Article 3.7.g du F01 Championnat de France des clubs Féminins",
+      "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent017-child00",
+      "old_score": 0.046511627906976744,
+      "new_score": 0.06976744186046512
+    },
+    {
+      "id": "ffe:annales:open:002:b543a501",
+      "article_ref": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 8.4 L'arbitre fédéral d'open (AFO)",
+      "old_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "new_chunk_id": "LA-octobre2025.pdf-p012-parent031-child00",
+      "old_score": 0.42857142857142855,
+      "new_score": 0.7142857142857143
+    },
+    {
+      "id": "ffe:annales:open:004:8fd9715e",
+      "article_ref": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.3 Arbitres Fédéraux d'Open (AFO1 et AFO2)",
+      "old_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.5714285714285714
+    },
+    {
+      "id": "ffe:annales:open:005:1ca082a8",
+      "article_ref": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2 Arbitres inactif",
+      "old_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
+      "old_score": 0.06666666666666667,
+      "new_score": 0.5333333333333333
+    },
+    {
+      "id": "ffe:annales:open:011:1d5e9de9",
+      "article_ref": "F01 Championnat de France Féminin des clubs - Article 1.2 Déroulement de la compétition",
+      "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent211-child00",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.42857142857142855
+    },
+    {
+      "id": "ffe:annales:open:012:1c5af6e1",
+      "article_ref": "C03 Coupe Jean-Claude Loubatière - Article 3.7. Composition des équipes",
+      "old_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent005-child00",
+      "new_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.7142857142857143
+    },
+    {
+      "id": "ffe:annales:open:017:67c3b0c7",
+      "article_ref": "LA - Chapitre 5.2 Obligations administratives d'un tournoi - Paragraphe Droits d'Homologation",
+      "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "old_score": 0.0,
+      "new_score": 0.5714285714285714
+    },
+    {
+      "id": "ffe:annales:open:018:b7aaa6c2",
+      "article_ref": "LA - Chapitre 5.5 Barème d'indemnisation des arbitres - Paragraphe 4 Calcul des indemnités pour les événements homologués par la FFE",
+      "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "old_score": 0.0,
+      "new_score": 0.4444444444444444
+    },
+    {
+      "id": "ffe:annales:open:023:f52bd8ed",
+      "article_ref": "RI DNA, article 6.2",
+      "old_chunk_id": "LA-octobre2025.pdf-p027-parent121-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "old_score": 0.0,
+      "new_score": 0.25
+    },
+    {
+      "id": "ffe:annales:open:024:4bb364eb",
+      "article_ref": "Chapitre 6.2 : Classement rapide et blitz de la FIDE. Article 3 Page 186 du LA",
+      "old_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p042-parent163-child00",
+      "old_score": 0.0,
+      "new_score": 0.125
+    },
+    {
+      "id": "ffe:annales:open:025:228839b5",
+      "article_ref": "LA Chapitre 6.1 Le classement standard de la FIDE - article 8.2 p 184 et exemple p 185",
+      "old_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "old_score": 0.16666666666666666,
+      "new_score": 0.6666666666666666
+    },
+    {
+      "id": "ffe:annales:open:032:1ad21c08",
+      "article_ref": "LA - 6.1 Le classement standard de la FIDE Article 1 : Cadence de jeu - page 181 - R03 2. Conditions d'homologation.",
+      "old_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "old_score": 0.0,
+      "new_score": 0.375
+    },
+    {
+      "id": "ffe:annales:open:038:3ae4a556",
+      "article_ref": "Art 4.2.1.",
+      "old_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "old_score": 0.42857142857142855,
+      "new_score": 0.5714285714285714
+    },
+    {
+      "id": "ffe:annales:open:042:dc055770",
+      "article_ref": "Art 6.9.",
+      "old_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:open:043:b77bf58f",
+      "article_ref": "Art 5.1.2.",
+      "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "old_score": 0.375,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:open:044:b922066d",
+      "article_ref": "Art 9.2.2 et 9.1.2.3.",
+      "old_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "old_score": 0.2857142857142857,
+      "new_score": 0.5714285714285714
+    },
+    {
+      "id": "ffe:annales:open:045:d2ead6d5",
+      "article_ref": "Art 9.3. et 9.6.",
+      "old_chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "new_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "old_score": 0.3333333333333333,
+      "new_score": 0.47619047619047616
+    },
+    {
+      "id": "ffe:annales:open:048:d394d0e3",
+      "article_ref": "LA 1.2 Règlement Intérieur DNA",
+      "old_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "old_score": 0.0,
+      "new_score": 0.1111111111111111
+    },
+    {
+      "id": "ffe:annales:open:050:eb7be3cd",
+      "article_ref": "LA 1.2 Règlement Intérieur DNA",
+      "old_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p011-parent027-child00",
+      "old_score": 0.0,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:open:053:c86e4c21",
+      "article_ref": "R01 Règles générales",
+      "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child00",
+      "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:open:054:772ce2a9",
+      "article_ref": "LA 2.1 Les règles du jeu d'Echecs",
+      "old_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent214-child00",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.42857142857142855
+    },
+    {
+      "id": "ffe:annales:open:055:fff0d000",
+      "article_ref": "LA 1.2 Règlement Intérieur DNA",
+      "old_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p072-parent218-child00",
+      "old_score": 0.0,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:open:056:3e6a8494",
+      "article_ref": "LA 5.1 Départages",
+      "old_chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p153-parent462-child00",
+      "old_score": 0.0,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:open:058:6a9ad243",
+      "article_ref": "LA 5.1 Départages",
+      "old_chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p147-parent430-child00",
+      "old_score": 0.0,
+      "new_score": 0.3
+    },
+    {
+      "id": "ffe:annales:open:064:936ece0a",
+      "article_ref": "LA 5.2 Gestion homologation tournois",
+      "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "old_score": 0.0,
+      "new_score": 0.6666666666666666
+    },
+    {
+      "id": "ffe:annales:rules:009:8b61df6a",
+      "article_ref": "Article 6.9 des règles du jeu",
+      "old_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p091-parent273-child01",
+      "old_score": 0.375,
+      "new_score": 0.625
+    },
+    {
+      "id": "ffe:annales:rules:023:313313c3",
+      "article_ref": "Commentaire article A.5.3 de l'annexe A des règles du jeu",
+      "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+      "old_score": 0.0,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:rules:026:1497bbbb",
+      "article_ref": "LA : Articles 8.1.1, 8.4 et A.2 - L'enregistrement des coups",
+      "old_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p172-parent567-child00",
+      "old_score": 0.15384615384615385,
+      "new_score": 0.2692307692307692
+    },
+    {
+      "id": "ffe:annales:rules:029:30d59fea",
+      "article_ref": "LA : Annexe D - LA : Articles D.2.6.1, D.2.10.4 et l'article 11.5 : Pendules pour les personnes handicapées visuelles",
+      "old_chunk_id": "LA-octobre2025.pdf-p054-parent185-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p077-parent234-child01",
+      "old_score": 0.038461538461538464,
+      "new_score": 0.15384615384615385
+    },
+    {
+      "id": "ffe:annales:rules:037:25385d5f",
+      "article_ref": "LA : Annexe A : jeu en cadence rapide - Article A.5.2 - 2 è coup illégal avec l'adversaire jouant immédiatement le coup suivant.",
+      "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "old_score": 0.075,
+      "new_score": 0.2
+    },
+    {
+      "id": "ffe:annales:rules:039:3746f309",
+      "article_ref": "LA : Article 7.4.1 : Pièces renversées",
+      "old_chunk_id": "LA-octobre2025.pdf-p048-parent174-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p217-parent665-child00",
+      "old_score": 0.25,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:rules:052:ad487e20",
+      "article_ref": "A LA : rticle 7.5.1 - Règles du jeu en compétition",
+      "old_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p074-parent228-child00",
+      "old_score": 0.043478260869565216,
+      "new_score": 0.13043478260869565
+    },
+    {
+      "id": "ffe:annales:rules:055:14804bb4",
+      "article_ref": "LA : Article 6.9 - Règles du jeu en compétition",
+      "old_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "old_score": 0.1,
+      "new_score": 0.2
+    },
+    {
+      "id": "ffe:annales:rules:056:b15cf14c",
+      "article_ref": "LA : Article 6.8 - Règles du jeu encompétition Article A.5.5 - Annexe A:Parties en cadence rapide - LA : Article B.3 - Annexe B : Parties en cadence Blitz",
+      "old_chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+      "old_score": 0.0,
+      "new_score": 0.11538461538461539
+    },
+    {
+      "id": "ffe:annales:rules:057:80e7e9da",
+      "article_ref": "LA : Article 6.2.1.2 - Règles dujeu en compétition / Article 7.5.1 - Règles du jeu en compétition",
+      "old_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent211-child00",
+      "old_score": 0.0,
+      "new_score": 0.1
+    },
+    {
+      "id": "ffe:annales:rules:062:2b6141ed",
+      "article_ref": "Règles du jeu - Article 9.6.2",
+      "old_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "old_score": 0.2857142857142857,
+      "new_score": 0.42857142857142855
+    },
+    {
+      "id": "ffe:annales:rules:065:3f9334c5",
+      "article_ref": "Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque.",
+      "old_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent215-child01",
+      "old_score": 0.0,
+      "new_score": 0.25
+    },
+    {
+      "id": "ffe:annales:rules:069:b69a968a",
+      "article_ref": "Règles du jeu - articles 7.5.3/7.5.4/3.10.1 et 6.2.3",
+      "old_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+      "old_score": 0.25,
+      "new_score": 0.625
+    },
+    {
+      "id": "ffe:annales:rules:079:c3789d46",
+      "article_ref": "Art. 7.2.1. et A.4.1",
+      "old_chunk_id": "LA-octobre2025.pdf-p025-parent115-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "old_score": 0.0,
+      "new_score": 0.25
+    },
+    {
+      "id": "ffe:annales:rules:080:7d46fef6",
+      "article_ref": "Art. 6.4 et 6.8. et 6.9",
+      "old_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p091-parent273-child01",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:rules:082:0ffd9851",
+      "article_ref": "Art. 7.5.1.",
+      "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p194-parent214-child01",
+      "old_score": 0.0,
+      "new_score": 0.42857142857142855
+    },
+    {
+      "id": "ffe:annales:rules:083:958a8418",
+      "article_ref": "Art. 6.2.3. et 12.9",
+      "old_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "old_score": 0.25,
+      "new_score": 0.375
+    },
+    {
+      "id": "ffe:annales:rules:084:9b6aba85",
+      "article_ref": "Art. 12.1.",
+      "old_chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+      "old_score": 0.0,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:rules:085:d7d2e0cb",
+      "article_ref": "Art. 7.5.4.",
+      "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "old_score": 0.14285714285714285,
+      "new_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:rules:087:65b43070",
+      "article_ref": "Art. 8.1.3.",
+      "old_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
+      "old_score": 0.35294117647058826,
+      "new_score": 0.7058823529411765
+    },
+    {
+      "id": "ffe:annales:rules:089:9f9846a0",
+      "article_ref": "Art. 1.3. et 6.2.2.",
+      "old_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "new_chunk_id": "LA-octobre2025.pdf-p066-parent211-child00",
+      "old_score": 0.18181818181818182,
+      "new_score": 0.36363636363636365
+    },
+    {
+      "id": "ffe:annales:tournament:005:ed5b90d2",
+      "article_ref": "LA - Chapitre 3.5 Le système suisse - C.04.3 Système néerlandais - Article C",
+      "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p140-parent390-child00",
+      "old_score": 0.1,
+      "new_score": 0.2
+    },
+    {
+      "id": "ffe:annales:tournament:008:4be0fbe1",
+      "article_ref": "Règle du jeu Article 7.3 + commentaire + LA - chapitre 3.5 Le système suisse - C.04.2Règles de gestion de tournois au système suisse - Article D.8",
+      "old_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
+      "old_score": 0.16666666666666666,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:tournament:009:36b933ad",
+      "article_ref": "Règles du jeu - article 6.7 + commentaire",
+      "old_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p020-parent085-child00",
+      "old_score": 0.25,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:tournament:012:4549ef7e",
+      "article_ref": "LA - chapitre 3.5 Le système suisse - C.04.3 Le système néerlandais - Art. C",
+      "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p140-parent390-child00",
+      "old_score": 0.0,
+      "new_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:tournament:022:43041a74",
+      "article_ref": "LA : Chap. 5.2 : Préparation d'un tournoi - Homologation des tournois - Procédure",
+      "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p224-parent684-child00",
+      "old_score": 0.0,
+      "new_score": 0.25
+    },
+    {
+      "id": "ffe:annales:tournament:024:923da57c",
+      "article_ref": "LA : Chap. 5.2 : Préparation d'un tournoi - Dans l'ordre l'arbitre principal d'un tournoi doit : ...",
+      "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "old_score": 0.14583333333333334,
+      "new_score": 0.22916666666666666
+    },
+    {
+      "id": "ffe:annales:tournament:027:5cc51fc2",
+      "article_ref": "LA : Chap. 3.5 : Les règles du système suisse - D. Règles d'appariements, de couleurs et de publication : D8",
+      "old_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p206-parent619-child00",
+      "old_score": 0.0,
+      "new_score": 0.5
+    },
+    {
+      "id": "ffe:annales:tournament:032:40c5b1ee",
+      "article_ref": "LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté",
+      "old_chunk_id": "LA-octobre2025.pdf-p016-parent057-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p153-parent464-child00",
+      "old_score": 0.0,
+      "new_score": 0.7272727272727273
+    },
+    {
+      "id": "ffe:annales:tournament:035:df3692a1",
+      "article_ref": "LA : Chap. 5.4 : Rapport technique de fin de tournoi",
+      "old_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "old_score": 0.038461538461538464,
+      "new_score": 0.19230769230769232
+    },
+    {
+      "id": "ffe:annales:tournament:037:59f9c31d",
+      "article_ref": "L.A. Chap. 2.2, article 6.5",
+      "old_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p023-parent102-child00",
+      "old_score": 0.0,
+      "new_score": 0.125
+    },
+    {
+      "id": "ffe:annales:tournament:043:d15339ee",
+      "article_ref": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.2 Paragraphe D.8",
+      "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+      "new_chunk_id": "LA-octobre2025.pdf-p140-parent390-child00",
+      "old_score": 0.0,
+      "new_score": 0.26666666666666666
+    }
+  ],
+  "remaining_issues": [
+    {
+      "id": "ffe:annales:clubs:012:f348e858",
+      "current_score": 0.0,
+      "article_ref": "R01 - 4. Homologation d'un résultat",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:020:c41e0ed8",
+      "current_score": 0.0,
+      "article_ref": "A02 - 3.8 Forfaits sportifs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 1
+    },
+    {
+      "id": "ffe:annales:clubs:025:32ae9180",
+      "current_score": 0.0,
+      "article_ref": "C01 - 3.8. Forfaits sportifs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 1
+    },
+    {
+      "id": "ffe:annales:clubs:027:dfac5c0c",
+      "current_score": 0.0,
+      "article_ref": "C04 - 3.7. Composition des équipes",
+      "reason": "no_better_match_found",
+      "candidates_checked": 2
+    },
+    {
+      "id": "ffe:annales:clubs:031:1246fc88",
+      "current_score": 0.0,
+      "article_ref": "Article 3.1.2 du R01 - Règles générales.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:032:6dce6031",
+      "current_score": 0.275,
+      "article_ref": "Article 11 du R01 - Règles générales.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 9
+    },
+    {
+      "id": "ffe:annales:clubs:034:625be40b",
+      "current_score": 0.0,
+      "article_ref": "Article 2.5 du R03 - Compétitions homologuées.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:037:4cad3047",
+      "current_score": 0.16666666666666666,
+      "article_ref": "Article 2.5 du A02 - Championnat de France des clubs.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:040:a05251df",
+      "current_score": 0.0,
+      "article_ref": "Article 3.11.a du A02 - Championnat de France des clubs.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:042:fb1e75b1",
+      "current_score": 0.0,
+      "article_ref": "Article 3.8 du A02 - Championnat de France des clubs.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:043:c37ae53e",
+      "current_score": 0.0,
+      "article_ref": "Article 1 du R02 - Règles générales - Annexes.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 6
+    },
+    {
+      "id": "ffe:annales:clubs:047:5e5fef92",
+      "current_score": 0.0,
+      "article_ref": "Article 1.1 du F01 - Championnat de France des Clubs Féminin.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 3
+    },
+    {
+      "id": "ffe:annales:clubs:049:0742c6b6",
+      "current_score": 0.0,
+      "article_ref": "LA:RIDNA - III.Cursus Fédéral DesArbitres -7.1Critères administratifs et 8.3 L'arbitre Fédéral Club",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:051:e52e76d4",
+      "current_score": 0.0,
+      "article_ref": "LA :RIDNA - II. Organisation Et Administration - 4.1 Les superviseurs et superviseuses.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:053:16c2d6a7",
+      "current_score": 0.0,
+      "article_ref": "LA :RIDNA - V. Classification Des Tournois - 12.4 Arbitres Fédéraux de Club",
+      "reason": "no_better_match_found",
+      "candidates_checked": 5
+    },
+    {
+      "id": "ffe:annales:clubs:054:5a8109b0",
+      "current_score": 0.0,
+      "article_ref": "LA : Chapitre 1.2 Les missions de l'arbitre Articles 2.1 et Article 3",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:055:c04a20b4",
+      "current_score": 0.0,
+      "article_ref": "LA : Chapitre 5.1 Gestion d'un match",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:057:545da9db",
+      "current_score": 0.2,
+      "article_ref": "R01 - 1. Licences et R01 - 2.2 Mutations",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:058:ccd218fa",
+      "current_score": 0.0,
+      "article_ref": "R01 - 2. 4. Catégories d'âge",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:060:1a2abf50",
+      "current_score": 0.0,
+      "article_ref": "R01 - 2.2 Mutations",
+      "reason": "no_better_match_found",
+      "candidates_checked": 3
+    },
+    {
+      "id": "ffe:annales:clubs:061:edd75063",
+      "current_score": 0.0,
+      "article_ref": "R03 - 2.3 Droits d'inscriptions",
+      "reason": "no_better_match_found",
+      "candidates_checked": 5
+    },
+    {
+      "id": "ffe:annales:clubs:065:ec4682c1",
+      "current_score": 0.13636363636363635,
+      "article_ref": "A02 - 2.5 Responsable des rencontres et arbitrage",
+      "reason": "no_better_match_found",
+      "candidates_checked": 1
+    },
+    {
+      "id": "ffe:annales:clubs:071:e798252b",
+      "current_score": 0.0,
+      "article_ref": "J01 - 2. Organisation générale",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:072:56e31640",
+      "current_score": 0.0,
+      "article_ref": "J01 - 3.2.2. Cadence - Qualifications zones interdépartementales.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:073:446fdc89",
+      "current_score": 0.0,
+      "article_ref": "C01 - 1.3 Engagements",
+      "reason": "no_better_match_found",
+      "candidates_checked": 1
+    },
+    {
+      "id": "ffe:annales:clubs:074:f3c3e975",
+      "current_score": 0.0,
+      "article_ref": "C01 - Points de partie",
+      "reason": "no_better_match_found",
+      "candidates_checked": 2
+    },
+    {
+      "id": "ffe:annales:clubs:079:46e85a44",
+      "current_score": 0.3333333333333333,
+      "article_ref": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.4. Arbitres Fédéraux de Club (AFC)",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:083:6aab20b5",
+      "current_score": 0.2857142857142857,
+      "article_ref": "R03 - Compétitions homologuées - Article 2.2.2. Article 7.5.5 adapté sur les coups illégaux en cadence rapide.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:086:bd9a1bc4",
+      "current_score": 0.2,
+      "article_ref": "R01 - Règles Générales - Article 8 Le rôle des capitaines.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 8
+    },
+    {
+      "id": "ffe:annales:clubs:089:ecd85785",
+      "current_score": 0.21428571428571427,
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 3.6.a) Feuille de match.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 9
+    },
+    {
+      "id": "ffe:annales:clubs:090:99d9d73f",
+      "current_score": 0.14285714285714285,
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 3.6.d) Validité de la licence.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 7
+    },
+    {
+      "id": "ffe:annales:clubs:091:89ec7556",
+      "current_score": 0.14285714285714285,
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 2.5 Responsable des rencontres et arbitrage.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:clubs:095:dd1e92ae",
+      "current_score": 0.25,
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 5
+    },
+    {
+      "id": "ffe:annales:clubs:096:18da13cb",
+      "current_score": 0.2727272727272727,
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 5
+    },
+    {
+      "id": "ffe:annales:clubs:098:52c8b8e4",
+      "current_score": 0.3333333333333333,
+      "article_ref": "A02 - Le Championnat de France des Clubs - Article 3.9 Litiges techniques.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:clubs:099:0a0848b0",
+      "current_score": 0.0,
+      "article_ref": "J02 - Le Championnat de France Interclubs Jeunes - Article 2.5. Arbitres.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 2
+    },
+    {
+      "id": "ffe:annales:clubs:100:303c88ca",
+      "current_score": 0.0,
+      "article_ref": "C03 - Coupe Jean-Claude Loubatière - Article 2.5. Arbitres.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:clubs:105:605c23b2",
+      "current_score": 0.2,
+      "article_ref": "Championnat de France des clubs, Article 3.7.c",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:113:2ae38fca",
+      "current_score": 0.0,
+      "article_ref": "Championnat de France interclubs jeunes, Articles 3.7.b et 3.7.c",
+      "reason": "no_better_match_found",
+      "candidates_checked": 8
+    },
+    {
+      "id": "ffe:annales:clubs:114:7723ff77",
+      "current_score": 0.4,
+      "article_ref": "Championnat de France interclubs jeunes, Articles 3.7.b et 3.7.c",
+      "reason": "no_better_match_found",
+      "candidates_checked": 8
+    },
+    {
+      "id": "ffe:annales:clubs:122:cd7f23cd",
+      "current_score": 0.3333333333333333,
+      "article_ref": "R.01 : Règles générales pour les compétitions fédérales, art. 1.4.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:132:82938744",
+      "current_score": 0.0,
+      "article_ref": "C.03 : Coupe Jean-Claude Loubatière, art. 2.5.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:clubs:134:0c82f3e7",
+      "current_score": 0.13793103448275862,
+      "article_ref": "1.3 du règlement A.02 : Championnat de France des clubs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:137:9cfd9d8d",
+      "current_score": 0.0,
+      "article_ref": "Article 8 du règlement R.01 : Règles générales pour les compétitions fédérales",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:138:19a243d6",
+      "current_score": 0.0,
+      "article_ref": "Article 3.8 du règlement A.02 : Championnat de France des clubs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:145:52a8515f",
+      "current_score": 0.0,
+      "article_ref": "Article 2.4 du R01 Règles générales",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:clubs:146:eeaa5225",
+      "current_score": 0.0,
+      "article_ref": "Article 5 du R01 Règles générales",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:147:c88f39e5",
+      "current_score": 0.12,
+      "article_ref": "Article 8 du R01 Règles générales",
+      "reason": "no_better_match_found",
+      "candidates_checked": 8
+    },
+    {
+      "id": "ffe:annales:clubs:148:4c052739",
+      "current_score": 0.0,
+      "article_ref": "Article 2.2.2 du R03 Compétitions homologuées",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:151:58f51be6",
+      "current_score": 0.0,
+      "article_ref": "Article 3.6 du A02 Championnat de France des clubs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:152:0a424a81",
+      "current_score": 0.0,
+      "article_ref": "Article 1.1 du A02 Championnat de France des clubs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:153:5c191988",
+      "current_score": 0.0,
+      "article_ref": "Article 1.2 du A02 Championnat de France des clubs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:157:d7b097bc",
+      "current_score": 0.0,
+      "article_ref": "Article 3.8 du A02 Championnat de France des clubs",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:161:be79eda8",
+      "current_score": 0.0,
+      "article_ref": "Article 7 du H01 Conduite pour joueur handicapés",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:163:efba7505",
+      "current_score": 0.13846153846153847,
+      "article_ref": "Loubatière",
+      "reason": "no_better_match_found",
+      "candidates_checked": 3
+    },
+    {
+      "id": "ffe:annales:clubs:164:49af2846",
+      "current_score": 0.0,
+      "article_ref": "Article 1.2 du C04 Coupe de la parité",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:clubs:166:43bcdebb",
+      "current_score": 0.023255813953488372,
+      "article_ref": "R02 Règles générales annexes",
+      "reason": "no_chunks_match_article"
+    },
+    {
+      "id": "ffe:annales:clubs:168:6808d18e",
+      "current_score": 0.0,
+      "article_ref": "Article 1.2a du F01 Championnat de France des clubs Féminins",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:003:6fdc49bb",
+      "current_score": 0.0,
+      "article_ref": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.3 Agrément FIDE. Guide de l'arbitrage à l'international - Article 2.2 Montant des droits",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:006:2db69ef2",
+      "current_score": 0.3333333333333333,
+      "article_ref": "LA - Chapitre 6.1 Le classement standard de la FIDE - Article 1.1 Cadence de jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:009:4e5b3351",
+      "current_score": 0.125,
+      "article_ref": "R03 Compétitions Homologuées - Article 2.3 Droits d'inscriptions",
+      "reason": "no_better_match_found",
+      "candidates_checked": 7
+    },
+    {
+      "id": "ffe:annales:open:019:8188a2db",
+      "current_score": 0.0,
+      "article_ref": "LA - Chapitre 4.2 Les systèmes de départages - Article 7.1 Buchholz (Bu) et article 14 Gestion des rondes non jouées et score ajusté",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:020:c8d86384",
+      "current_score": 0.0,
+      "article_ref": "LA - Chapitre 4.3 Les systèmes de partage des prix - Paragraphe Prix attribués au système Hort",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:022:ef6ad68d",
+      "current_score": 0.0,
+      "article_ref": "Guide de l'Arbitrage à l'International Article 2 Agrément FIDE",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:026:6db1678f",
+      "current_score": 0.0,
+      "article_ref": "LA 5.2 Gestion administrative des tournois",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:039:87f2338a",
+      "current_score": 0.38461538461538464,
+      "article_ref": "Art 7.1.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:open:051:d9e3bbc6",
+      "current_score": 0.0,
+      "article_ref": "R03 Compétitions homologuées",
+      "reason": "no_better_match_found",
+      "candidates_checked": 2
+    },
+    {
+      "id": "ffe:annales:open:061:9abe718c",
+      "current_score": 0.42857142857142855,
+      "article_ref": "LA 5.2 Gestion homologation tournois",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:002:33e3bee8",
+      "current_score": 0.3,
+      "article_ref": "Commentaire article 3.7.3.5 des règles du jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:006:2ed0beee",
+      "current_score": 0.0,
+      "article_ref": "Article 5.1.1 des règles du jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:013:4540ccad",
+      "current_score": 0.0,
+      "article_ref": "Article 5.1.1 des règles du jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:015:218b82be",
+      "current_score": 0.42857142857142855,
+      "article_ref": "Article 5.1.2 et 7.5.1 des règles du jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:016:9fabc206",
+      "current_score": 0.4090909090909091,
+      "article_ref": "Article 8.1 des règles du jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:030:fc369c15",
+      "current_score": 0.2857142857142857,
+      "article_ref": "LA : Articles 11.2.3.3 La conduite des joueurs et joueuses et articles 12.2.4 L e rôle de l'Arbitre",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:031:01d9b54f",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 6.8 : La pendule : Constation de la chute du drapeau",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:033:660f6206",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 6.11.4 : Pendule mise en pause par un joueur pour une raison non valable,",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:035:81c5709f",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 7.5.5 : Premier coup illégal achevé en cadence standard",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:036:95dbe2c6",
+      "current_score": 0.0,
+      "article_ref": "LA : Annexe A : Partie en cadence rapide - Article A.3 (utilisé en blitz selon l'article B.3)",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:038:7733f1b3",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 4.4.3 : L'exécution du déplacement des pièces - roque illégal",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:040:3c49716f",
+      "current_score": 0.2,
+      "article_ref": "LA : Article 9.2 : Demande incorrecte de partie nulle - 3 fois la même position",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:044:ab624690",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 7.3 - Règles du jeu en compétition",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:045:89403c7f",
+      "current_score": 0.35294117647058826,
+      "article_ref": "LA : Article 4.4.2 - Règles fondamentales du jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:046:350ac66f",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 7.5.5 - Règles du jeu en compétition",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:054:1f2c8ab5",
+      "current_score": 0.2222222222222222,
+      "article_ref": "LA : Article 6.8 - Règles du jeu en compétition",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:058:236d58e4",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 7.5.2 - Règles du jeu en compétition",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:060:51e22661",
+      "current_score": 0.0,
+      "article_ref": "LA : Article 8.1.6 - Règles du jeu en compétition",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:063:df712371",
+      "current_score": 0.4,
+      "article_ref": "Règles du jeu - article 7.3",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:066:d2c9ccb7",
+      "current_score": 0.2,
+      "article_ref": "Règles du jeu - Annexe A.5.2",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:068:5c64c6f3",
+      "current_score": 0.4,
+      "article_ref": "Règles du jeu annexe A.3 et B.3",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:075:96244d87",
+      "current_score": 0.2222222222222222,
+      "article_ref": "LA : Article 7.5.1 : Rétablissement position après coup illégal",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:077:9764086b",
+      "current_score": 0.0,
+      "article_ref": "Art. 7.5.2. et 7.5.5.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:078:6e3dc32c",
+      "current_score": 0.3333333333333333,
+      "article_ref": "Art. 6.4. et 6.9.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:081:b3dfd538",
+      "current_score": 0.4,
+      "article_ref": "Art. 11.3.3 et 12.9.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:086:bcf958e4",
+      "current_score": 0.0,
+      "article_ref": "RI DNA. 22.2.",
+      "reason": "no_chunks_match_article"
+    },
+    {
+      "id": "ffe:annales:rules:088:06844059",
+      "current_score": 0.0,
+      "article_ref": "Art. 4.7.3.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:090:2d67e0b8",
+      "current_score": 0.0,
+      "article_ref": "Art. 7.5.2. et 7.5.5.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:091:4504ee69",
+      "current_score": 0.0,
+      "article_ref": "Art. 6.4. et 6.9.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:092:6e7290e6",
+      "current_score": 0.0,
+      "article_ref": "Art. 7.5.1.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:093:8d0ba054",
+      "current_score": 0.0,
+      "article_ref": "Art. 6.2.3. et 12.9",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:094:292c2180",
+      "current_score": 0.0,
+      "article_ref": "Art. 6.9",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:rules:095:cc85a835",
+      "current_score": 0.0,
+      "article_ref": "Art. 1.3. et 6.2.2.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:096:db7b1227",
+      "current_score": 0.0,
+      "article_ref": "Art. 11.3.3 et 12.9.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:097:631f31e8",
+      "current_score": 0.0,
+      "article_ref": "Art. 6.9",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:rules:098:3fbacfde",
+      "current_score": 0.0,
+      "article_ref": "Art. 7.6",
+      "reason": "no_better_match_found",
+      "candidates_checked": 3
+    },
+    {
+      "id": "ffe:annales:rules:099:a1e9cd97",
+      "current_score": 0.0,
+      "article_ref": "Art. 7.5.4.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:rules:100:7e882181",
+      "current_score": 0.0,
+      "article_ref": "RI DNA. 22.2.",
+      "reason": "no_chunks_match_article"
+    },
+    {
+      "id": "ffe:annales:rules:101:b57c84f0",
+      "current_score": 0.0,
+      "article_ref": "Art. 6.9",
+      "reason": "no_better_match_found",
+      "candidates_checked": 4
+    },
+    {
+      "id": "ffe:annales:tournament:003:2b1ab662",
+      "current_score": 0.0,
+      "article_ref": "R03 - Compétitions homologuées : Article 2.3 - Droits d'inscription",
+      "reason": "no_better_match_found",
+      "candidates_checked": 7
+    },
+    {
+      "id": "ffe:annales:tournament:004:82f7f674",
+      "current_score": 0.08333333333333333,
+      "article_ref": "LA - Chapitre 3.5 Le système suisse - C.04.3 Système néerlandais - Art. A.4",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:tournament:013:a7312ec7",
+      "current_score": 0.0,
+      "article_ref": "Règles du jeu article 12.9.9 / article 11.5 /article 11.1/ Charte des joueurs et joueuses d'échecs/ Code de l'éthique de la FIDE. LA - Chapitre 4.5 Violence / Chapitre 6.1 Classement Standard FIDE Art. 5.1",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:tournament:018:f5f5dfe0",
+      "current_score": 0.13953488372093023,
+      "article_ref": "LA - Chapitre 6.1 Classement Standard de la FIDE article 8.3",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:tournament:021:420f3fe9",
+      "current_score": 0.0,
+      "article_ref": "LA - Chapitre 5.5 Barème d'indemnisation des arbitres",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:tournament:025:ed1ca4f9",
+      "current_score": 0.4835164835164835,
+      "article_ref": "LA : Article 7.5.5 des règles du jeu",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:tournament:033:20fdfa19",
+      "current_score": 0.0,
+      "article_ref": "LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:tournament:034:76520ac7",
+      "current_score": 0.0,
+      "article_ref": "LA : Chap. 5.2 : Droits d'homologations.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:annales:tournament:040:0813659b",
+      "current_score": 0.0,
+      "article_ref": "LA. Articles 7.5.2. et 7.5.5. des règles du jeu.",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:human:rating:004:afe9a2af",
+      "current_score": 0.3333333333333333,
+      "article_ref": "Article 5 R01 Règles générales",
+      "reason": "no_better_match_found",
+      "candidates_checked": 10
+    },
+    {
+      "id": "ffe:human:youth:003:b7774476",
+      "current_score": 0.0,
+      "article_ref": "Article 2.6 J01",
+      "reason": "no_better_match_found",
+      "candidates_checked": 1
+    }
+  ]
+}

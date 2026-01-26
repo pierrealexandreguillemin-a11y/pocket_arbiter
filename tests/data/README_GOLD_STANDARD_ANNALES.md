@@ -1,6 +1,6 @@
 # Gold Standard Annales - Documentation
 
-> Version: 7.4.3
+> Version: 7.4.8
 > Date: 2026-01-26
 > Source: Annales examens arbitres FFE
 
@@ -8,8 +8,25 @@
 
 - **420 questions** issues des annales d'examen d'arbitre FFE
 - **28 documents** dans le corpus (PDF FFE)
-- **100% chunk_ids valides** (tous pointent vers un chunk existant)
+- **100% chunk_ids valides** (revalidés dans espace QAT)
+- **51 requires_context** (exclus des tests RAG)
+- **369 testables** pour évaluation RAG
 - **Format actuel**: Questions au format QCM original (reformulation en attente)
+
+## Cohérence Pipeline Embedding
+
+> **IMPORTANT**: Tout le pipeline utilise le même modèle d'embedding.
+
+| Composant | Modèle |
+|-----------|--------|
+| Corpus embeddings | `google/embeddinggemma-300m-qat-q4_0-unquantized` |
+| GS chunk_ids | Revalidés dans espace QAT (v7.4.8) |
+| Hard negatives | Même espace QAT |
+| Fine-tuning cible | QAT → TFLite Android |
+
+**Historique migration**:
+- v7.4.7: Validé contre `embeddinggemma-300m` (FULL)
+- v7.4.8: Revalidé contre `embeddinggemma-300m-qat` (290/378 chunks mis à jour)
 
 ## État de la Reformulation
 
@@ -219,15 +236,15 @@ python scripts/evaluation/annales/smart_chunk_fix.py
 python scripts/evaluation/annales/validate_gs_quality.py
 ```
 
-## Métriques de Qualité (v7.4.7)
+## Métriques de Qualité (v7.4.8)
 
 | Métrique | Valeur | Seuil | Status |
 |----------|--------|-------|--------|
 | Chunk IDs valides | 100% | >= 95% | ✓ PASS |
-| requires_context | 42 | - | Exclus |
-| Questions testables | 378 | - | - |
-| Answerability (stricte) | 66.9% | >= 80% | ✗ FAIL |
-| Answerability (assouplie) | 82.8% | >= 80% | ✓ PASS |
+| requires_context | 51 | - | Exclus |
+| Questions testables | 369 | - | - |
+| QAT revalidation | 290/378 mis à jour | - | ✓ DONE |
+| Score moyen chunk | 0.61 | - | Espace QAT |
 
 ### Méthodes d'Answerability
 
@@ -239,14 +256,23 @@ python scripts/evaluation/annales/validate_gs_quality.py
 - Stricte OU matching numérique avec word boundaries
 - OU substring pour réponses <= 20 caractères
 
-### reasoning_class Distribution
+### reasoning_class Distribution (testables: 369)
 
 | Classe | Count | Description |
 |--------|-------|-------------|
-| summary | 240 | Synthèse d'information |
-| fact_single | 162 | Extraction directe |
-| arithmetic | 12 | Calcul requis |
+| summary | 223 | Synthèse d'information |
+| fact_single | 138 | Extraction directe |
+| arithmetic | 11 | Calcul requis |
 | reasoning | 6 | Raisonnement explicite |
+
+### QAT Revalidation (v7.4.8)
+
+| Métrique | Valeur |
+|----------|--------|
+| Modèle | `google/embeddinggemma-300m-qat-q4_0-unquantized` |
+| Chunks mis à jour | 290/378 (77%) |
+| Score moyen optimal | 0.61 |
+| Amélioration moyenne | +0.24 |
 
 ## Actions Complétées
 
@@ -259,10 +285,10 @@ python scripts/evaluation/annales/validate_gs_quality.py
 - 12 questions: `fact_single` → `arithmetic`
 - 25 questions: `fact_single` → `summary` (non-extractables)
 
-### ✓ Priorité 3: Marquer les questions à contexte (42)
+### ✓ Priorité 3: Marquer les questions à contexte (51)
 - Images: `<!-- image -->`
 - Patterns: "ci-dessous", "tableau suivant"
-- Noms d'examen: Daniela, Albert, Paul, etc.
+- Noms d'examen: Daniela, Albert, Paul, Olivier, Marie, Jean, Pierre, etc.
 
 ## Historique des Versions
 
@@ -276,6 +302,7 @@ python scripts/evaluation/annales/validate_gs_quality.py
 | 7.4.5 | 2026-01-26 | 13 questions marquées requires_context |
 | 7.4.6 | 2026-01-26 | 27 questions requires_context ajoutées |
 | 7.4.7 | 2026-01-26 | 25 fact_single → summary (non-extractables) |
+| 7.4.8 | 2026-01-26 | QAT revalidation (290 chunks) + 9 requires_context |
 
 ## Références
 

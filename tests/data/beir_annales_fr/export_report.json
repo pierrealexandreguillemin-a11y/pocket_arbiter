@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-01-26T10:52:02.396024",
+  "timestamp": "2026-01-26T11:18:12.286739",
   "gold_standard_file": "tests\\data\\gold_standard_annales_fr_v7.json",
-  "gold_standard_version": "7.4.9",
+  "gold_standard_version": "7.5.0",
   "chunks_file": "corpus\\processed\\chunks_mode_b_fr.json",
   "output_directory": "tests\\data\\beir_annales_fr",
   "files_created": {
@@ -12,9 +12,9 @@
   },
   "statistics": {
     "corpus_documents": 1857,
-    "queries": 347,
-    "relevance_judgments": 347,
-    "skipped_requires_context": 73
+    "queries": 328,
+    "relevance_judgments": 328,
+    "skipped_requires_context": 92
   },
   "beir_compatible": true
 }

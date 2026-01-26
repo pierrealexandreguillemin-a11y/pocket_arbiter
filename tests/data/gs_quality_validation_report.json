@@ -1,0 +1,4138 @@
+{
+  "validation_date": "2026-01-26T08:06:10.163236",
+  "gs_version": "7.4.1",
+  "total_validated": 420,
+  "compute_semantic": true,
+  "metrics": {
+    "chunk_id_valid": 418,
+    "chunk_id_invalid": 2,
+    "answerable": 238,
+    "not_answerable": 182,
+    "avg_keyword_score": 0.487,
+    "avg_semantic_score": 0.445,
+    "pct_chunk_valid": 99.5,
+    "pct_answerable": 56.7
+  },
+  "thresholds": {
+    "keyword_answerable": 0.3,
+    "semantic_answerable": 0.6
+  },
+  "details": [
+    {
+      "id": "ffe:annales:clubs:001:55d409b5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.544,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:002:79da8e92",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.414,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.41"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:003:06c34715",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.459,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:004:d22e1892",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.519,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:005:b740870c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.714,
+      "semantic_score": 0.59,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:006:1bcec3d3",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.263,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:007:3431b54c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.833,
+      "semantic_score": 0.787,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:008:5e3f7d24",
+      "chunk_id_valid": true,
+      "keyword_score": 0.3,
+      "semantic_score": 0.486,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:009:fd51d9be",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.583,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:010:4c1cad22",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.718,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:011:0ed8268f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.167,
+      "semantic_score": 0.612,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.17"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:012:f348e858",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.822,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:013:a7e8c494",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.502,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:014:cd3052cc",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.326,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:015:9da1351e",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.465,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:016:223bd59d",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.792,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:017:5a48507f",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.632,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:018:d470292e",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.799,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:019:4d3a9bf8",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.524,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:020:c41e0ed8",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.629,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:021:820fd267",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.632,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:022:24508717",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.796,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:023:c8d17a34",
+      "chunk_id_valid": true,
+      "keyword_score": 0.875,
+      "semantic_score": 0.656,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:024:1a5a6b69",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.835,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:025:32ae9180",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.766,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:026:13307982",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.555,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:027:dfac5c0c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.365,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:028:c3671008",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.637,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:029:f547eb51",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.158,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.16"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:030:fb3301cf",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.112,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.11"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:031:1246fc88",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.157,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.16"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:032:6dce6031",
+      "chunk_id_valid": true,
+      "keyword_score": 0.275,
+      "semantic_score": 0.282,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.28",
+        "low_semantic_score:0.28"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:033:31688840",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.506,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:034:625be40b",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.312,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.31"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:035:f5891e65",
+      "chunk_id_valid": true,
+      "keyword_score": 0.145,
+      "semantic_score": 0.295,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.15",
+        "low_semantic_score:0.29"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:036:ec8fdbb4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.034,
+      "semantic_score": 0.34,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.03",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:037:4cad3047",
+      "chunk_id_valid": true,
+      "keyword_score": 0.167,
+      "semantic_score": 0.107,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.17",
+        "low_semantic_score:0.11"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:038:269442e5",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.567,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:039:3f520ce2",
+      "chunk_id_valid": true,
+      "keyword_score": 0.846,
+      "semantic_score": 0.786,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:040:a05251df",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.52,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:041:e82c17ac",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.56,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:042:fb1e75b1",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.49,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:043:c37ae53e",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.257,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:044:606adbcd",
+      "chunk_id_valid": true,
+      "keyword_score": 0.833,
+      "semantic_score": 0.027,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.03"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:045:5e077c7c",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.246,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:046:15a0bc61",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.066,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.07"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:047:5e5fef92",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.309,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.31"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:048:52bb444c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.241,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:049:0742c6b6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.35,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.35"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:050:df445310",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.392,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:051:e52e76d4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.094,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.09"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:052:07434c59",
+      "chunk_id_valid": true,
+      "keyword_score": 0.935,
+      "semantic_score": 0.701,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:053:16c2d6a7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.21,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.21"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:054:5a8109b0",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.331,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:055:c04a20b4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.22,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.22"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:056:576a2a97",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.27,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.27"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:057:545da9db",
+      "chunk_id_valid": true,
+      "keyword_score": 0.2,
+      "semantic_score": 0.452,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.20",
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:058:ccd218fa",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.159,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.16"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:059:5e0bff0d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.26,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:060:1a2abf50",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.241,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:061:edd75063",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.211,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.21"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:062:234551df",
+      "chunk_id_valid": true,
+      "keyword_score": 0.026,
+      "semantic_score": 0.262,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.03",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:063:38534277",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.286,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.29"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:064:604e61af",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.457,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:065:ec4682c1",
+      "chunk_id_valid": true,
+      "keyword_score": 0.136,
+      "semantic_score": 0.388,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:066:5f02652f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.056,
+      "semantic_score": 0.216,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.06",
+        "low_semantic_score:0.22"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:067:5d9af675",
+      "chunk_id_valid": true,
+      "keyword_score": 0.167,
+      "semantic_score": 0.366,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.17",
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:068:80f0d596",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.703,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:069:85fbbf2a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.494,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:070:d2fec36f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.854,
+      "semantic_score": 0.645,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:071:e798252b",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.309,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.31"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:072:56e31640",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.059,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.06"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:073:446fdc89",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.186,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.19"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:074:f3c3e975",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.304,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.30"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:075:f1539e46",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.694,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:076:fe6e608a",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.522,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:077:471269eb",
+      "chunk_id_valid": true,
+      "keyword_score": 0.857,
+      "semantic_score": 0.8,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:078:3a10054a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.4,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.40"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:079:46e85a44",
+      "chunk_id_valid": true,
+      "keyword_score": 0.375,
+      "semantic_score": 0.491,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:080:6b0d5da4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.2,
+      "semantic_score": 0.224,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.20",
+        "low_semantic_score:0.22"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:081:f141471f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.324,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:082:1ce54a3d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.237,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:083:6aab20b5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.286,
+      "semantic_score": 0.263,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.29",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:084:25d549b3",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.341,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:085:f99e636d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.242,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:086:bd9a1bc4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.2,
+      "semantic_score": 0.342,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.20",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:087:4fb1f6f3",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.203,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.20"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:088:fd36b954",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.096,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.10"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:089:ecd85785",
+      "chunk_id_valid": true,
+      "keyword_score": 0.214,
+      "semantic_score": 0.265,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.21",
+        "low_semantic_score:0.27"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:090:99d9d73f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.178,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.18"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:091:89ec7556",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.207,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.21"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:092:46d8ab4d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.481,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.48"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:093:dd779b85",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.468,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.47"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:094:d9d7f876",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.531,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:095:dd1e92ae",
+      "chunk_id_valid": true,
+      "keyword_score": 0.25,
+      "semantic_score": 0.243,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.25",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:096:18da13cb",
+      "chunk_id_valid": true,
+      "keyword_score": 0.273,
+      "semantic_score": 0.243,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.27",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:097:1c5185db",
+      "chunk_id_valid": true,
+      "keyword_score": 0.2,
+      "semantic_score": 0.332,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.20",
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:098:52c8b8e4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.333,
+      "semantic_score": 0.369,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:099:0a0848b0",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.438,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:100:303c88ca",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.222,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.22"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:101:43d2eafe",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.342,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:102:ba5593bb",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.658,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:103:0c4c35b1",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.532,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:104:dfa6ecc5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.1,
+      "semantic_score": 0.322,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.10",
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:105:605c23b2",
+      "chunk_id_valid": true,
+      "keyword_score": 0.2,
+      "semantic_score": 0.251,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.20",
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:106:55bf9872",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.449,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:107:269c2c6a",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.449,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:108:d4e26526",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.526,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:109:5bfbcc78",
+      "chunk_id_valid": true,
+      "keyword_score": 0.162,
+      "semantic_score": 0.652,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.16"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:110:b34b2213",
+      "chunk_id_valid": true,
+      "keyword_score": 0.111,
+      "semantic_score": 0.315,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.11",
+        "low_semantic_score:0.31"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:111:99da52c3",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.393,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:112:9cc28219",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.196,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.20"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:113:2ae38fca",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.565,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:114:7723ff77",
+      "chunk_id_valid": true,
+      "keyword_score": 0.4,
+      "semantic_score": 0.416,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:115:d5304484",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.574,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:116:e0e40fa6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.362,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:117:b7ece81e",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.395,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:118:1ebfe905",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.52,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:119:ca3fa215",
+      "chunk_id_valid": true,
+      "keyword_score": 0.028,
+      "semantic_score": 0.48,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.03",
+        "low_semantic_score:0.48"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:120:c822d69a",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.331,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:121:62ea7644",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.393,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:122:cd7f23cd",
+      "chunk_id_valid": true,
+      "keyword_score": 0.333,
+      "semantic_score": 0.149,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.15"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:123:c0abb635",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.172,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.17"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:124:ab156594",
+      "chunk_id_valid": true,
+      "keyword_score": 0.074,
+      "semantic_score": 0.259,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.07",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:125:55638d99",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.804,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:126:b75dee27",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.522,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:127:7c18c532",
+      "chunk_id_valid": true,
+      "keyword_score": 0.167,
+      "semantic_score": 0.572,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.17"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:128:1fefac53",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.166,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.17"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:129:e767b218",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.364,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:130:6929d1d0",
+      "chunk_id_valid": true,
+      "keyword_score": 0.875,
+      "semantic_score": 0.557,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:131:d2907731",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.203,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.20"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:132:82938744",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.259,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:133:d0c87aba",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.442,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:134:0c82f3e7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.138,
+      "semantic_score": 0.301,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.30"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:135:861e14f1",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.453,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:136:81380805",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.488,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:137:9cfd9d8d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.21,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.21"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:138:19a243d6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.587,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:139:361bba0a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.056,
+      "semantic_score": 0.363,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.06",
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:140:39a63caf",
+      "chunk_id_valid": true,
+      "keyword_score": 0.667,
+      "semantic_score": 0.547,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:141:db33e683",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.529,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:142:2fb8bb68",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.498,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.50"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:143:8f0e03ed",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.263,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:144:7d1e83b2",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.319,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:145:52a8515f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.403,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.40"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:146:eeaa5225",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.454,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:147:c88f39e5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.12,
+      "semantic_score": 0.342,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.12",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:148:4c052739",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.077,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.08"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:149:8e80eccc",
+      "chunk_id_valid": true,
+      "keyword_score": 0.13,
+      "semantic_score": 0.341,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.13",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:150:284f7746",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.338,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:151:58f51be6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.389,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:152:0a424a81",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.404,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.40"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:153:5c191988",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.45,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:154:14c31404",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.42,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:155:80798801",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.36,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:156:8d90bbb7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.272,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.27"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:157:d7b097bc",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.413,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.41"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:158:7fea3ff6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.091,
+      "semantic_score": 0.485,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.09",
+        "low_semantic_score:0.48"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:159:952af9d4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.222,
+      "semantic_score": 0.249,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.22",
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:160:e28a5363",
+      "chunk_id_valid": true,
+      "keyword_score": 0.35,
+      "semantic_score": 0.308,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.31"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:161:be79eda8",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.422,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:162:23af4aa7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.27,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.27"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:163:efba7505",
+      "chunk_id_valid": true,
+      "keyword_score": 0.134,
+      "semantic_score": 0.31,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.13",
+        "low_semantic_score:0.31"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:164:49af2846",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.256,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:165:186c22b0",
+      "chunk_id_valid": true,
+      "keyword_score": 0.013,
+      "semantic_score": 0.305,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.01",
+        "low_semantic_score:0.30"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:166:43bcdebb",
+      "chunk_id_valid": true,
+      "keyword_score": 0.023,
+      "semantic_score": 0.281,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.02",
+        "low_semantic_score:0.28"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:167:07f8bd8d",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.591,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:clubs:168:6808d18e",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.131,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.13"
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:169:c16dfcad",
+      "chunk_id_valid": true,
+      "keyword_score": 0.047,
+      "semantic_score": 0.142,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.05",
+        "low_semantic_score:0.14"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:001:1f863771",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.657,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:002:b543a501",
+      "chunk_id_valid": true,
+      "keyword_score": 0.429,
+      "semantic_score": 0.247,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:003:6fdc49bb",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.338,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:004:8fd9715e",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.358,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:005:1ca082a8",
+      "chunk_id_valid": true,
+      "keyword_score": 0.067,
+      "semantic_score": 0.318,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.07",
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:006:2db69ef2",
+      "chunk_id_valid": true,
+      "keyword_score": 0.333,
+      "semantic_score": 0.373,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:007:8345a353",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.812,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:008:cf4de702",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.277,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.28"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:009:4e5b3351",
+      "chunk_id_valid": true,
+      "keyword_score": 0.125,
+      "semantic_score": 0.318,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.12",
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:010:5bc6bc5e",
+      "chunk_id_valid": true,
+      "keyword_score": 0.571,
+      "semantic_score": 0.703,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:011:1d5e9de9",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.368,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:012:1c5af6e1",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.556,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:013:51141e29",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.437,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:014:96d3083c",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.574,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:015:95f4d64a",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.332,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:016:ad8538d6",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.057,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.06"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:017:67c3b0c7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.238,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:018:b7aaa6c2",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.468,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.47"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:019:8188a2db",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.25,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:020:c8d86384",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.244,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:021:73ebcf51",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.406,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.41"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:022:ef6ad68d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.457,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:023:f52bd8ed",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.343,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:024:4bb364eb",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.163,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.16"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:025:228839b5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.167,
+      "semantic_score": 0.344,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.17",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:026:6db1678f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.279,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.28"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:027:012cae15",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.363,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:028:4cc73f07",
+      "chunk_id_valid": true,
+      "keyword_score": 0.879,
+      "semantic_score": 0.901,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:029:bcc5611a",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.3,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.30"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:030:6f4d6220",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.526,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:031:daec673d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.754,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:032:1ad21c08",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.241,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:033:c7af304e",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.654,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:034:a50a1b29",
+      "chunk_id_valid": true,
+      "keyword_score": 0.889,
+      "semantic_score": 0.471,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.47"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:035:cb1bec24",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.33,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:036:24602145",
+      "chunk_id_valid": true,
+      "keyword_score": 0.846,
+      "semantic_score": 0.684,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:037:48253f77",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.524,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:038:3ae4a556",
+      "chunk_id_valid": true,
+      "keyword_score": 0.429,
+      "semantic_score": 0.527,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:039:87f2338a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.385,
+      "semantic_score": 0.538,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:040:b0c5b2b9",
+      "chunk_id_valid": true,
+      "keyword_score": 0.833,
+      "semantic_score": 0.531,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:041:0af9b7dc",
+      "chunk_id_valid": true,
+      "keyword_score": 0.556,
+      "semantic_score": 0.703,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:042:dc055770",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.398,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.40"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:043:b77bf58f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.375,
+      "semantic_score": 0.49,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:044:b922066d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.286,
+      "semantic_score": 0.716,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.29"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:045:d2ead6d5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.333,
+      "semantic_score": 0.524,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:046:cc1e3b13",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.612,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:047:8191de57",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.137,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.14"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:048:d394d0e3",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.192,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.19"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:049:d033d8c3",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.17,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.17"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:050:eb7be3cd",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.07,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.07"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:051:d9e3bbc6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.268,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.27"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:052:40c01b4b",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.193,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.19"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:053:c86e4c21",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.393,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:054:772ce2a9",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.546,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:055:fff0d000",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.278,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.28"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:056:3e6a8494",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.219,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.22"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:057:1149ade0",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.5,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:058:6a9ad243",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.137,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.14"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:059:e98a4668",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.282,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.28"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:060:5b4d6205",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.271,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.27"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:061:9abe718c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.409,
+      "semantic_score": 0.296,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.30"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:062:9c34a5fa",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.712,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:open:063:f66e301c",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.376,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.38"
+      ]
+    },
+    {
+      "id": "ffe:annales:open:064:936ece0a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.396,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.40"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:001:d56a5ed7",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.25,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:002:33e3bee8",
+      "chunk_id_valid": true,
+      "keyword_score": 0.3,
+      "semantic_score": 0.349,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.35"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:003:182a9b44",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.497,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.50"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:004:6e4f68c4",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.566,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:005:50bb0658",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.588,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:006:2ed0beee",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.362,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:007:148916ab",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.133,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.13"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:008:49ee41a2",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.149,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.15"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:009:8b61df6a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.375,
+      "semantic_score": 0.328,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:010:2bcd0d93",
+      "chunk_id_valid": true,
+      "keyword_score": 0.636,
+      "semantic_score": 0.472,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.47"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:011:bbebc0df",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.433,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.43"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:012:59a34ceb",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.34,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:013:4540ccad",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.476,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.48"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:014:071efde4",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.092,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.09"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:015:218b82be",
+      "chunk_id_valid": true,
+      "keyword_score": 0.375,
+      "semantic_score": 0.589,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:016:9fabc206",
+      "chunk_id_valid": true,
+      "keyword_score": 0.409,
+      "semantic_score": 0.586,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:017:c2e125b4",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.618,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:018:84198fff",
+      "chunk_id_valid": true,
+      "keyword_score": 0.556,
+      "semantic_score": 0.397,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.40"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:019:a60a32b8",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.051,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.05"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:020:2abf7d5b",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.089,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.09"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:021:6e7f46b5",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.33,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:022:a1699904",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.335,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:023:313313c3",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.458,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:024:639c0418",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.741,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:025:2c969d21",
+      "chunk_id_valid": true,
+      "keyword_score": 0.826,
+      "semantic_score": 0.721,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:026:1497bbbb",
+      "chunk_id_valid": true,
+      "keyword_score": 0.154,
+      "semantic_score": 0.286,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.15",
+        "low_semantic_score:0.29"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:027:2d7ee8e7",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.462,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:028:b3ebab05",
+      "chunk_id_valid": true,
+      "keyword_score": 0.833,
+      "semantic_score": 0.569,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:029:30d59fea",
+      "chunk_id_valid": true,
+      "keyword_score": 0.038,
+      "semantic_score": 0.447,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.04",
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:030:fc369c15",
+      "chunk_id_valid": true,
+      "keyword_score": 0.286,
+      "semantic_score": 0.366,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.29",
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:031:01d9b54f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.332,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.33"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:032:fea4adde",
+      "chunk_id_valid": true,
+      "keyword_score": 0.9,
+      "semantic_score": 0.717,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:033:660f6206",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.431,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.43"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:034:18bf23f0",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.558,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:035:81c5709f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.53,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:036:95dbe2c6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.388,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.39"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:037:25385d5f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.071,
+      "semantic_score": 0.413,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.07",
+        "low_semantic_score:0.41"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:038:7733f1b3",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.096,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.10"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:039:3746f309",
+      "chunk_id_valid": true,
+      "keyword_score": 0.25,
+      "semantic_score": 0.205,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.25",
+        "low_semantic_score:0.21"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:040:3c49716f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.2,
+      "semantic_score": 0.21,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.20",
+        "low_semantic_score:0.21"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:041:eb8a701b",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.373,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:042:11f3a37e",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.5,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:043:71689419",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.666,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:044:ab624690",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.356,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.36"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:045:89403c7f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.333,
+      "semantic_score": 0.484,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.48"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:046:350ac66f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.478,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.48"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:047:b2870b62",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.692,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:048:e207b726",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.42,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:049:324c24ff",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.32,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:050:efbd367a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.626,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:051:8624de9c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.75,
+      "semantic_score": 0.674,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:052:ad487e20",
+      "chunk_id_valid": true,
+      "keyword_score": 0.043,
+      "semantic_score": 0.231,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.04",
+        "low_semantic_score:0.23"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:053:589c64b1",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.317,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:054:1f2c8ab5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.222,
+      "semantic_score": 0.365,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.22",
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:055:14804bb4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.1,
+      "semantic_score": 0.397,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.10",
+        "low_semantic_score:0.40"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:056:b15cf14c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.432,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.43"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:057:80e7e9da",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.145,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.14"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:058:236d58e4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.456,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:059:4643a274",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.445,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:060:51e22661",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.444,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:061:d2032ffa",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.674,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:062:2b6141ed",
+      "chunk_id_valid": true,
+      "keyword_score": 0.286,
+      "semantic_score": 0.565,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.29"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:063:df712371",
+      "chunk_id_valid": true,
+      "keyword_score": 0.4,
+      "semantic_score": 0.417,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:064:c4dc2bd2",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.171,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.17"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:065:3f9334c5",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.237,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.24"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:066:d2c9ccb7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.2,
+      "semantic_score": 0.525,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.20"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:067:2db11c50",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.02,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.02"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:068:5c64c6f3",
+      "chunk_id_valid": true,
+      "keyword_score": 0.4,
+      "semantic_score": 0.648,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:069:b69a968a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.25,
+      "semantic_score": 0.202,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.25",
+        "low_semantic_score:0.20"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:070:10f4c72f",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.104,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.10"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:071:21299833",
+      "chunk_id_valid": true,
+      "keyword_score": 0.9,
+      "semantic_score": 0.7,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:072:642aaaba",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.718,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:073:67efc7f7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.75,
+      "semantic_score": 0.258,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.26"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:074:406fc882",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": -0.023,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:-0.02"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:075:96244d87",
+      "chunk_id_valid": true,
+      "keyword_score": 0.222,
+      "semantic_score": 0.536,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.22"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:076:61867e75",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.219,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.22"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:077:9764086b",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.558,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:078:6e3dc32c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.333,
+      "semantic_score": 0.422,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:079:c3789d46",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.323,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.32"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:080:7d46fef6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.422,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.14",
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:081:b3dfd538",
+      "chunk_id_valid": true,
+      "keyword_score": 0.4,
+      "semantic_score": 0.534,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:082:0ffd9851",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.439,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:083:958a8418",
+      "chunk_id_valid": true,
+      "keyword_score": 0.25,
+      "semantic_score": 0.759,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:084:9b6aba85",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.445,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:085:d7d2e0cb",
+      "chunk_id_valid": true,
+      "keyword_score": 0.143,
+      "semantic_score": 0.71,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.14"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:086:bcf958e4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.674,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:087:65b43070",
+      "chunk_id_valid": true,
+      "keyword_score": 0.353,
+      "semantic_score": 0.683,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:088:06844059",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.761,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:089:9f9846a0",
+      "chunk_id_valid": true,
+      "keyword_score": 0.182,
+      "semantic_score": 0.573,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.18"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:090:2d67e0b8",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.651,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:091:4504ee69",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.432,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.43"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:092:6e7290e6",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.275,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.28"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:093:8d0ba054",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.514,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:094:292c2180",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.493,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:095:cc85a835",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.705,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:096:db7b1227",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.481,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.48"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:097:631f31e8",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.472,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.47"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:098:3fbacfde",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.555,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:099:a1e9cd97",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.338,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:100:7e882181",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.835,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:101:b57c84f0",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.447,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:102:eda76021",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.461,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:103:f493b422",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.803,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:104:0309cc7a",
+      "chunk_id_valid": true,
+      "keyword_score": 0.762,
+      "semantic_score": 0.838,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:rules:105:ca611079",
+      "chunk_id_valid": true,
+      "keyword_score": 0.5,
+      "semantic_score": 0.34,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:rules:106:5a3dd069",
+      "chunk_id_valid": true,
+      "keyword_score": 0.538,
+      "semantic_score": 0.684,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:001:39ad4152",
+      "chunk_id_valid": true,
+      "keyword_score": 0.917,
+      "semantic_score": 0.919,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:002:5d30fd70",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.553,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:003:2b1ab662",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.182,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.18"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:004:82f7f674",
+      "chunk_id_valid": true,
+      "keyword_score": 0.083,
+      "semantic_score": 0.463,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.08",
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:005:ed5b90d2",
+      "chunk_id_valid": true,
+      "keyword_score": 0.1,
+      "semantic_score": 0.122,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.10",
+        "low_semantic_score:0.12"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:006:66593d0c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.857,
+      "semantic_score": 0.731,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:007:ccccbfee",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.199,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.20"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:008:4be0fbe1",
+      "chunk_id_valid": true,
+      "keyword_score": 0.167,
+      "semantic_score": 0.369,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.17",
+        "low_semantic_score:0.37"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:009:36b933ad",
+      "chunk_id_valid": true,
+      "keyword_score": 0.25,
+      "semantic_score": 0.493,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.25",
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:010:4b10a24a",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.808,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:011:1e2d7ebc",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.446,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:012:4549ef7e",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.198,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.20"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:013:a7312ec7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.181,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.18"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:014:b1891890",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.487,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.49"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:015:27a9e155",
+      "chunk_id_valid": true,
+      "keyword_score": 0.941,
+      "semantic_score": 0.813,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:016:698fd630",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.426,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.43"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:017:f1e23406",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.497,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.50"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:018:f5f5dfe0",
+      "chunk_id_valid": true,
+      "keyword_score": 0.149,
+      "semantic_score": 0.526,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.15"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:019:b83d312f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.955,
+      "semantic_score": 0.742,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:020:0ee45b0c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.875,
+      "semantic_score": 0.771,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:021:420f3fe9",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.51,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:022:43041a74",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.122,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.12"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:023:6a4bd26e",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.437,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.44"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:024:923da57c",
+      "chunk_id_valid": true,
+      "keyword_score": 0.146,
+      "semantic_score": 0.312,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.15",
+        "low_semantic_score:0.31"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:025:ed1ca4f9",
+      "chunk_id_valid": true,
+      "keyword_score": 0.484,
+      "semantic_score": 0.839,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:026:fcc80bae",
+      "chunk_id_valid": true,
+      "keyword_score": 0.929,
+      "semantic_score": 0.337,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.34"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:027:5cc51fc2",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.165,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.16"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:028:bb9bc98e",
+      "chunk_id_valid": true,
+      "keyword_score": 0.915,
+      "semantic_score": 0.817,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:029:5d665b67",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.56,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:030:7ff46cb9",
+      "chunk_id_valid": true,
+      "keyword_score": 0.882,
+      "semantic_score": 0.892,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:031:bb520f55",
+      "chunk_id_valid": true,
+      "keyword_score": 0.882,
+      "semantic_score": 0.625,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:032:40c5b1ee",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.248,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:033:20fdfa19",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.167,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.17"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:034:76520ac7",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.087,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.09"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:035:df3692a1",
+      "chunk_id_valid": true,
+      "keyword_score": 0.038,
+      "semantic_score": 0.274,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.04",
+        "low_semantic_score:0.27"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:036:bc62e693",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.253,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:037:59f9c31d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.057,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.06"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:038:b2eb5fa2",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.25,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.25"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:039:a4a07cb1",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.46,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.46"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:040:0813659b",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.554,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:041:7a4c52d4",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.559,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:042:0ae424b3",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.454,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.45"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:043:d15339ee",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.189,
+      "answerable": false,
+      "issues": [
+        "low_keyword_score:0.00",
+        "low_semantic_score:0.19"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:044:32492050",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.496,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.50"
+      ]
+    },
+    {
+      "id": "ffe:annales:tournament:045:f0a2fcfc",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.623,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:046:8794b69d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.9,
+      "semantic_score": 0.849,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:annales:tournament:047:9ca2b175",
+      "chunk_id_valid": true,
+      "keyword_score": 0.778,
+      "semantic_score": 0.6,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:001:406a0bbe",
+      "chunk_id_valid": true,
+      "keyword_score": 0.714,
+      "semantic_score": 0.785,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:002:710d2088",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.762,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:003:880750a0",
+      "chunk_id_valid": false,
+      "keyword_score": 0.0,
+      "semantic_score": null,
+      "answerable": false,
+      "issues": [
+        "invalid_chunk_id"
+      ]
+    },
+    {
+      "id": "ffe:human:rating:004:afe9a2af",
+      "chunk_id_valid": true,
+      "keyword_score": 0.333,
+      "semantic_score": 0.695,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:005:91ec4e85",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.832,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:006:3f4dfb29",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.807,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:007:e6656888",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.743,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:008:271c694f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.8,
+      "semantic_score": 0.149,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.15"
+      ]
+    },
+    {
+      "id": "ffe:human:youth:001:f306d37c",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.718,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:youth:002:30725375",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.767,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:youth:003:b7774476",
+      "chunk_id_valid": true,
+      "keyword_score": 0.0,
+      "semantic_score": 0.769,
+      "answerable": true,
+      "issues": [
+        "low_keyword_score:0.00"
+      ]
+    },
+    {
+      "id": "ffe:human:youth:004:eae93f57",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.742,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:youth:005:8f4bf758",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.866,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:youth:006:8ee016d4",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.813,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:youth:007:a0e7a66d",
+      "chunk_id_valid": true,
+      "keyword_score": 0.812,
+      "semantic_score": 0.799,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:youth:008:78785108",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.801,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:women:001:735e35bb",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.886,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:women:002:1667d108",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.761,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:access:001:e775f181",
+      "chunk_id_valid": true,
+      "keyword_score": 0.933,
+      "semantic_score": 0.629,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:access:002:bfa0f3f8",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.693,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:rating:009:95e74930",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.918,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:clubs:001:e20fddaa",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.683,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:clubs:002:aa5f1fec",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.791,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:admin:001:89810c8e",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.842,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:admin:002:4583c135",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.728,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:admin:003:3647aee2",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.769,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:admin:004:e0771263",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.735,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:admin:005:35800014",
+      "chunk_id_valid": true,
+      "keyword_score": 0.833,
+      "semantic_score": 0.415,
+      "answerable": true,
+      "issues": [
+        "low_semantic_score:0.42"
+      ]
+    },
+    {
+      "id": "ffe:human:regional:001:6794986f",
+      "chunk_id_valid": true,
+      "keyword_score": 0.857,
+      "semantic_score": 0.696,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:regional:002:94cf56b9",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.761,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:regional:003:89e7d630",
+      "chunk_id_valid": true,
+      "keyword_score": 0.833,
+      "semantic_score": 0.645,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:regional:004:a18d472b",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.738,
+      "answerable": true,
+      "issues": []
+    },
+    {
+      "id": "ffe:human:clubs:003:3c3a124c",
+      "chunk_id_valid": false,
+      "keyword_score": 0.0,
+      "semantic_score": null,
+      "answerable": false,
+      "issues": [
+        "invalid_chunk_id"
+      ]
+    },
+    {
+      "id": "ffe:human:clubs:004:f070542c",
+      "chunk_id_valid": true,
+      "keyword_score": 1.0,
+      "semantic_score": 0.843,
+      "answerable": true,
+      "issues": []
+    }
+  ],
+  "issues_summary": {
+    "low_semantic_score": 261,
+    "low_keyword_score": 194,
+    "invalid_chunk_id": 2
+  }
+}

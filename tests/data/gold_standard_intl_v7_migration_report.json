@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-01-25T15:53:52.835331",
+  "input_version": "2.4",
+  "output_version": "7.0.0",
+  "total_questions": 93,
+  "migrated": 93,
+  "errors": [],
+  "warnings": [
+    "intl_027: Missing expected_chunk_id",
+    "intl_028: Missing expected_chunk_id",
+    "intl_029: Missing expected_chunk_id",
+    "intl_030: Missing expected_chunk_id",
+    "intl_031: Missing expected_chunk_id",
+    "intl_033: Missing expected_chunk_id",
+    "intl_034: Missing expected_chunk_id",
+    "intl_035: Missing expected_chunk_id",
+    "intl_036: Missing expected_chunk_id",
+    "INTL-ADV-001: Missing expected_chunk_id",
+    "INTL-ADV-002: Missing expected_chunk_id",
+    "INTL-ADV-003: Missing expected_chunk_id",
+    "INTL-ADV-004: Missing expected_chunk_id",
+    "INTL-ADV-005: Missing expected_chunk_id",
+    "INTL-ADV-006: Missing expected_chunk_id",
+    "INTL-ADV-007: Missing expected_chunk_id",
+    "INTL-ADV-008: Missing expected_chunk_id",
+    "INTL-ADV-009: Missing expected_chunk_id",
+    "INTL-ADV-010: Missing expected_chunk_id",
+    "INTL-ADV-011: Missing expected_chunk_id",
+    "INTL-ADV-012: Missing expected_chunk_id",
+    "INTL-ADV-013: Missing expected_chunk_id",
+    "INTL-ADV-014: Missing expected_chunk_id",
+    "INTL-ADV-015: Missing expected_chunk_id",
+    "INTL-ADV-016: Missing expected_chunk_id",
+    "INTL-ADV-017: Missing expected_chunk_id",
+    "INTL-ADV-018: Missing expected_chunk_id",
+    "INTL-ADV-019: Missing expected_chunk_id"
+  ],
+  "missing_ids": 0,
+  "fields_added": {
+    "expected_answer": 93,
+    "is_impossible": 93,
+    "validation.reviewer": 93
+  },
+  "normalized": {
+    "reasoning_type": 67
+  },
+  "field_order_changes": true
+}

@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 2.0
-> **Date**: 2026-01-25
+> **Version**: 2.1
+> **Date**: 2026-01-26
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -85,7 +85,8 @@ pocket_arbiter/
 |----|----------|-------------|--------|
 | TEST-PLAN-001 | [TEST_PLAN.md](TEST_PLAN.md) | Plan de tests ISO 29119 | Draft |
 | SPEC-GS-001 | [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) | Specification Gold Standard | Approuve |
-| SPEC-GS-V7 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v7.4.7 (420Q, 82.8% answerability) | Approuve |
+| **SPEC-GS-CONF-001** | [specs/GS_CONFORMITY_CHECKLIST.md](specs/GS_CONFORMITY_CHECKLIST.md) | **Checklist conformite GS (one-shot)** | **Approuve** |
+| SPEC-GS-V6 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v6 pipeline (historique) | Obsolete |
 | SPEC-GS-OPT | [specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md](specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md) | Optimisation GS v7 pour triplets | En cours |
 | SPEC-ADV-V1 | [specs/ADVERSARIAL_QUESTIONS_STRATEGY.md](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie questions adversariales SQuAD 2.0 | Approuve |
 | SPEC-UTD-001 | [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) | Generation Donnees Unifiees | Draft |
@@ -122,8 +123,10 @@ pocket_arbiter/
 
 ### C
 - **Chunking** : [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md)
+- **chunk_match_score** : [specs/GS_CONFORMITY_CHECKLIST.md](specs/GS_CONFORMITY_CHECKLIST.md) CB-01 (seuil = 100%)
 - **Citation** : [AI_POLICY.md](AI_POLICY.md) Section 7.2
 - **Compatibilite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) Section 2.3
+- **Conformite GS** : [specs/GS_CONFORMITY_CHECKLIST.md](specs/GS_CONFORMITY_CHECKLIST.md) (checklist complete)
 - **Context-Grounded Generation** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 1.4, [specs/TRIPLET_GENERATION_SPEC.md](specs/TRIPLET_GENERATION_SPEC.md) Section 4.5
 - **Controle documentaire** : [DOC_CONTROL.md](DOC_CONTROL.md)
 - **Corpus** : [corpus/INVENTORY.md](../corpus/INVENTORY.md)
@@ -295,6 +298,7 @@ pocket_arbiter/
 | 1.6 | 2026-01-24 | Claude Opus 4.5 | Ajout SPEC-UTD-001 (Unified Training Data), index ARES/BEIR/RAGAS/Triplets |
 | 1.7 | 2026-01-24 | Claude Opus 4.5 | **Ajout index standards industrie**: BY DESIGN, Context-Grounded, Deduplication, Hard Negatives, MTEB, MMTEB (INTL), Model Collapse, NV-Embed-v2, Quality Gates, RAGen, SemHash, SoftDedup, Standards Industrie |
 | 1.8 | 2026-01-24 | Claude Opus 4.5 | **Ajout Dual-RAG Architecture** (VISION v2.0): index separation FR/INTL, references croisees tous docs concernes |
+| 2.1 | 2026-01-26 | Claude Opus 4.5 | **Ajout GS_CONFORMITY_CHECKLIST.md** (SPEC-GS-CONF-001): checklist one-shot conformite GS, index chunk_match_score/Conformite GS, GOLD_STANDARD_V6_ANNALES.md marque Obsolete |
 
 ---
 

@@ -1,0 +1,2599 @@
+{
+  "date": "2026-01-26T08:04:51.099366",
+  "from_version": "7.4.0",
+  "to_version": "7.4.1",
+  "thresholds": [
+    0.95,
+    0.9,
+    0.85,
+    0.8
+  ],
+  "passes": [
+    {
+      "threshold": 0.95,
+      "pass_number": 1,
+      "fixes_count": 111,
+      "fixes": [
+        {
+          "id": "ffe:annales:clubs:002:79da8e92",
+          "old_chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p045-parent215-child02",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:004:d22e1892",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent030-child00",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:009:fd51d9be",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent003-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:013:a7e8c494",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+          "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:015:9da1351e",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+          "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:016:223bd59d",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:017:5a48507f",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00",
+          "new_chunk_id": "2024_Statuts20240420.pdf-p011-parent036-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:019:4d3a9bf8",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:021:820fd267",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:022:24508717",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+          "new_chunk_id": "règlement_régionale_2024_2025.pdf-p002-parent008-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:038:269442e5",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent013-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:041:e82c17ac",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p122-parent353-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:045:5e077c7c",
+          "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p139-parent409-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:050:df445310",
+          "old_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p020-parent085-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:064:604e61af",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p125-parent365-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:068:80f0d596",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p137-parent465-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:075:f1539e46",
+          "old_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent020-child00",
+          "new_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p015-parent057-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:076:fe6e608a",
+          "old_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
+          "new_chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent006-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:094:d9d7f876",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+          "new_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent012-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:101:43d2eafe",
+          "old_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p122-parent353-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:103:0c4c35b1",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:106:55bf9872",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:107:269c2c6a",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:108:d4e26526",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p050-parent178-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:111:99da52c3",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:112:9cc28219",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02",
+          "new_chunk_id": "Contrat_de_delegation_15032022.pdf-p009-parent017-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:117:b7ece81e",
+          "old_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
+          "new_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p007-parent000-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:118:1ebfe905",
+          "old_chunk_id": "LA-octobre2025.pdf-p093-parent276-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:120:c822d69a",
+          "old_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent007-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p140-parent390-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:121:62ea7644",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:123:c0abb635",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent000-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:125:55638d99",
+          "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:126:b75dee27",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent000-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent013-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:128:1fefac53",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent019-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p059-parent194-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:129:e767b218",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent011-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p056-parent191-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:135:861e14f1",
+          "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
+          "new_chunk_id": "LA-octobre2025.pdf-p227-parent425-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:136:81380805",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+          "new_chunk_id": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf-p001-parent000-child01",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:140:39a63caf",
+          "old_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p010-parent019-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:141:db33e683",
+          "old_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p024-parent110-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:142:2fb8bb68",
+          "old_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:144:7d1e83b2",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:clubs:167:07f8bd8d",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
+          "new_chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p006-parent017-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:008:cf4de702",
+          "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p222-parent677-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:014:96d3083c",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent010-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p147-parent430-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:015:95f4d64a",
+          "old_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
+          "new_chunk_id": "Contrat_de_delegation_15032022.pdf-p012-parent026-child01",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:027:012cae15",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:029:bcc5611a",
+          "old_chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+          "score": 1.0,
+          "source": "adjacent",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:030:6f4d6220",
+          "old_chunk_id": "LA-octobre2025.pdf-p086-parent256-child01",
+          "new_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:033:c7af304e",
+          "old_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:035:cb1bec24",
+          "old_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p004-parent024-child00",
+          "new_chunk_id": "Contrat_de_delegation_15032022.pdf-p010-parent021-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:037:48253f77",
+          "old_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p042-parent163-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:047:8191de57",
+          "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p059-parent194-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:052:40c01b4b",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent001-child00",
+          "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent002-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:057:1149ade0",
+          "old_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:059:e98a4668",
+          "old_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:060:5b4d6205",
+          "old_chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:062:9c34a5fa",
+          "old_chunk_id": "LA-octobre2025.pdf-p033-parent507-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p089-parent267-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:open:063:f66e301c",
+          "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:001:d56a5ed7",
+          "old_chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:003:182a9b44",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p036-parent154-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:005:50bb0658",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+          "score": 1.0,
+          "source": "adjacent",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:007:148916ab",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:008:49ee41a2",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:011:bbebc0df",
+          "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
+          "new_chunk_id": "LA-octobre2025.pdf-p167-parent497-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:012:59a34ceb",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+          "score": 1.0,
+          "source": "adjacent",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:014:071efde4",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:019:a60a32b8",
+          "old_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:020:2abf7d5b",
+          "old_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:021:6e7f46b5",
+          "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p167-parent498-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:022:a1699904",
+          "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p167-parent497-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:024:639c0418",
+          "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p206-parent618-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:027:2d7ee8e7",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:034:18bf23f0",
+          "old_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:041:eb8a701b",
+          "old_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p094-parent280-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:042:11f3a37e",
+          "old_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p020-parent085-child01",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:043:71689419",
+          "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p180-parent528-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:047:b2870b62",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:049:324c24ff",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p008-parent011-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:051:8624de9c",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p167-parent498-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:053:589c64b1",
+          "old_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p036-parent154-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:059:4643a274",
+          "old_chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:064:c4dc2bd2",
+          "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:067:2db11c50",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:070:10f4c72f",
+          "old_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p013-parent037-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:072:642aaaba",
+          "old_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:074:406fc882",
+          "old_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p009-parent012-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:076:61867e75",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p023-parent103-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:rules:102:eda76021",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:002:5d30fd70",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:007:ccccbfee",
+          "old_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p031-parent112-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:010:4b10a24a",
+          "old_chunk_id": "LA-octobre2025.pdf-p061-parent200-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:011:1e2d7ebc",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p018-parent066-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:014:b1891890",
+          "old_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p147-parent429-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:016:698fd630",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:017:f1e23406",
+          "old_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:019:b83d312f",
+          "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "new_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent019-child00",
+          "score": 0.9545454545454546,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:023:6a4bd26e",
+          "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p079-parent241-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:029:5d665b67",
+          "old_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p122-parent353-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:036:bc62e693",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p005-parent004-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:038:b2eb5fa2",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p009-parent016-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:039:a4a07cb1",
+          "old_chunk_id": "LA-octobre2025.pdf-p045-parent215-child02",
+          "new_chunk_id": "LA-octobre2025.pdf-p025-parent115-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:042:0ae424b3",
+          "old_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p012-parent031-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:044:32492050",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p019-parent079-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:annales:tournament:045:f0a2fcfc",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:human:rating:005:91ec4e85",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent021-child01",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent021-child00",
+          "score": 1.0,
+          "source": "adjacent",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:human:admin:002:4583c135",
+          "old_chunk_id": "2023_Reglement_Financier20230610.pdf-p001-parent000-child00",
+          "new_chunk_id": "2023_Reglement_Financier20230610.pdf-p001-parent001-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:human:admin:003:3647aee2",
+          "old_chunk_id": "2024_Statuts20240420.pdf-p002-parent001-child00",
+          "new_chunk_id": "2024_Statuts20240420.pdf-p002-parent002-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:human:admin:004:e0771263",
+          "old_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent001-child00",
+          "new_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p002-parent002-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:human:regional:002:94cf56b9",
+          "old_chunk_id": "InterclubsJeunes_PACABdr.pdf-p002-parent001-child00",
+          "new_chunk_id": "A01_2025_26_Championnat_de_France.pdf-p003-parent014-child00",
+          "score": 1.0,
+          "source": "global_search",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:human:regional:004:a18d472b",
+          "old_chunk_id": "règlement_régionale_2024_2025.pdf-p002-parent001-child00",
+          "new_chunk_id": "règlement_régionale_2024_2025.pdf-p002-parent008-child00",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        },
+        {
+          "id": "ffe:human:clubs:004:f070542c",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent005-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
+          "score": 1.0,
+          "source": "same_doc",
+          "threshold": 0.95,
+          "pass": 1
+        }
+      ]
+    },
+    {
+      "threshold": 0.9,
+      "pass_number": 2,
+      "fixes_count": 6,
+      "fixes": [
+        {
+          "id": "ffe:annales:clubs:052:07434c59",
+          "old_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p166-parent492-child00",
+          "score": 0.9333333333333333,
+          "source": "same_doc",
+          "threshold": 0.9,
+          "pass": 2
+        },
+        {
+          "id": "ffe:annales:tournament:001:39ad4152",
+          "old_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child01",
+          "score": 0.9166666666666666,
+          "source": "global_search",
+          "threshold": 0.9,
+          "pass": 2
+        },
+        {
+          "id": "ffe:annales:tournament:015:27a9e155",
+          "old_chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
+          "score": 0.9354838709677419,
+          "source": "global_search",
+          "threshold": 0.9,
+          "pass": 2
+        },
+        {
+          "id": "ffe:annales:tournament:026:fcc80bae",
+          "old_chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p056-parent191-child00",
+          "score": 0.9259259259259259,
+          "source": "same_doc",
+          "threshold": 0.9,
+          "pass": 2
+        },
+        {
+          "id": "ffe:annales:tournament:028:bb9bc98e",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p125-parent365-child00",
+          "score": 0.9130434782608695,
+          "source": "same_doc",
+          "threshold": 0.9,
+          "pass": 2
+        },
+        {
+          "id": "ffe:annales:tournament:046:8794b69d",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
+          "score": 0.9,
+          "source": "global_search",
+          "threshold": 0.9,
+          "pass": 2
+        }
+      ]
+    },
+    {
+      "threshold": 0.85,
+      "pass_number": 3,
+      "fixes_count": 12,
+      "fixes": [
+        {
+          "id": "ffe:annales:clubs:070:d2fec36f",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p025-parent114-child00",
+          "score": 0.8541666666666666,
+          "source": "global_search",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:clubs:077:471269eb",
+          "old_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
+          "score": 0.8571428571428571,
+          "source": "same_doc",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:clubs:130:6929d1d0",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p056-parent191-child00",
+          "score": 0.875,
+          "source": "global_search",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:open:028:4cc73f07",
+          "old_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
+          "score": 0.8709677419354839,
+          "source": "global_search",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:open:034:a50a1b29",
+          "old_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent001-child00",
+          "new_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+          "score": 0.8888888888888888,
+          "source": "global_search",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:rules:032:fea4adde",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p165-parent488-child00",
+          "score": 0.8888888888888888,
+          "source": "same_doc",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:tournament:006:66593d0c",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p054-parent184-child01",
+          "score": 0.8571428571428571,
+          "source": "same_doc",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:tournament:020:0ee45b0c",
+          "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "new_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
+          "score": 0.875,
+          "source": "global_search",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:tournament:030:7ff46cb9",
+          "old_chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p129-parent383-child00",
+          "score": 0.875,
+          "source": "same_doc",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:tournament:031:bb520f55",
+          "old_chunk_id": "LA-octobre2025.pdf-p092-parent274-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p025-parent114-child00",
+          "score": 0.8823529411764706,
+          "source": "same_doc",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:annales:tournament:047:9ca2b175",
+          "old_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+          "new_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p002-parent004-child00",
+          "score": 0.875,
+          "source": "global_search",
+          "threshold": 0.85,
+          "pass": 3
+        },
+        {
+          "id": "ffe:human:regional:001:6794986f",
+          "old_chunk_id": "Interclubs_DepartementalBdr.pdf-p005-parent008-child00",
+          "new_chunk_id": "Interclubs_DepartementalBdr.pdf-p007-parent014-child00",
+          "score": 0.8571428571428571,
+          "source": "same_doc",
+          "threshold": 0.85,
+          "pass": 3
+        }
+      ]
+    },
+    {
+      "threshold": 0.8,
+      "pass_number": 4,
+      "fixes_count": 23,
+      "fixes": [
+        {
+          "id": "ffe:annales:clubs:001:55d409b5",
+          "old_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p010-parent024-child00",
+          "score": 0.8,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:003:06c34715",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
+          "new_chunk_id": "J03_2025_26_Championnat_de_France_scolaire.pdf-p005-parent023-child00",
+          "score": 0.8,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:007:3431b54c",
+          "old_chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p018-parent069-child00",
+          "score": 0.8333333333333334,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:033:31688840",
+          "old_chunk_id": "LA-octobre2025.pdf-p216-parent661-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p125-parent365-child00",
+          "score": 0.8,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:039:3f520ce2",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p125-parent363-child00",
+          "score": 0.8461538461538461,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:044:606adbcd",
+          "old_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p025-parent114-child00",
+          "score": 0.8333333333333334,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:048:52bb444c",
+          "old_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p005-parent004-child00",
+          "score": 0.8,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:069:85fbbf2a",
+          "old_chunk_id": "LA-octobre2025.pdf-p129-parent379-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p133-parent390-child01",
+          "score": 0.8,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:154:14c31404",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p024-parent110-child00",
+          "score": 0.8,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:clubs:155:80798801",
+          "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent005-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+          "score": 0.8,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:open:001:1f863771",
+          "old_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p018-parent069-child00",
+          "score": 0.8,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:open:007:8345a353",
+          "old_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+          "new_chunk_id": "LA-octobre2025.pdf-p190-parent565-child00",
+          "score": 0.8,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:open:031:daec673d",
+          "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+          "new_chunk_id": "2025_Reglement_Interieur_20250503.pdf-p003-parent005-child00",
+          "score": 0.8,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:open:036:24602145",
+          "old_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
+          "new_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p003-parent010-child00",
+          "score": 0.8461538461538461,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:open:040:b0c5b2b9",
+          "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+          "score": 0.8333333333333334,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:rules:025:2c969d21",
+          "old_chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+          "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent011-child00",
+          "score": 0.8095238095238095,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:rules:028:b3ebab05",
+          "old_chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+          "new_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
+          "score": 0.8214285714285714,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:rules:050:efbd367a",
+          "old_chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
+          "new_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+          "score": 0.8,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:annales:tournament:041:7a4c52d4",
+          "old_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "new_chunk_id": "LA-octobre2025.pdf-p031-parent112-child00",
+          "score": 0.8,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:human:rating:008:271c694f",
+          "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent022-child00",
+          "new_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p002-parent009-child00",
+          "score": 0.8,
+          "source": "global_search",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:human:youth:007:a0e7a66d",
+          "old_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child01",
+          "new_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child00",
+          "score": 0.8,
+          "source": "adjacent",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:human:admin:005:35800014",
+          "old_chunk_id": "Contrat_de_delegation_15032022.pdf-p005-parent004-child00",
+          "new_chunk_id": "Contrat_de_delegation_15032022.pdf-p005-parent006-child00",
+          "score": 0.8333333333333334,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        },
+        {
+          "id": "ffe:human:regional:003:89e7d630",
+          "old_chunk_id": "règlement_n4_2024_2025__1_.pdf-p001-parent000-child00",
+          "new_chunk_id": "règlement_n4_2024_2025__1_.pdf-p001-parent001-child00",
+          "score": 0.8333333333333334,
+          "source": "same_doc",
+          "threshold": 0.8,
+          "pass": 4
+        }
+      ]
+    }
+  ],
+  "total_fixed": 152,
+  "remaining_issues": [
+    {
+      "id": "ffe:annales:clubs:005:b740870c",
+      "chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
+      "current_score": 0.7142857142857143
+    },
+    {
+      "id": "ffe:annales:clubs:006:1bcec3d3",
+      "chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:008:5e3f7d24",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+      "current_score": 0.3
+    },
+    {
+      "id": "ffe:annales:clubs:010:4c1cad22",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+      "current_score": 0.5
+    },
+    {
+      "id": "ffe:annales:clubs:011:0ed8268f",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent009-child00",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:012:f348e858",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:020:c41e0ed8",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:025:32ae9180",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent019-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:027:dfac5c0c",
+      "chunk_id": "C04_2025_26_Coupe_de_la_parité-table0-summary",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:028:c3671008",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
+      "current_score": 0.5
+    },
+    {
+      "id": "ffe:annales:clubs:029:f547eb51",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:030:fb3301cf",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:031:1246fc88",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:032:6dce6031",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
+      "current_score": 0.275
+    },
+    {
+      "id": "ffe:annales:clubs:034:625be40b",
+      "chunk_id": "LA-octobre2025.pdf-p078-parent238-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:035:f5891e65",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.1568627450980392
+    },
+    {
+      "id": "ffe:annales:clubs:036:ec8fdbb4",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:037:4cad3047",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "current_score": 0.18181818181818182
+    },
+    {
+      "id": "ffe:annales:clubs:040:a05251df",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:042:fb1e75b1",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:043:c37ae53e",
+      "chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:046:15a0bc61",
+      "chunk_id": "LA-octobre2025.pdf-p078-parent238-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:047:5e5fef92",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:049:0742c6b6",
+      "chunk_id": "LA-octobre2025.pdf-p011-parent026-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:051:e52e76d4",
+      "chunk_id": "LA-octobre2025.pdf-p016-parent054-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:053:16c2d6a7",
+      "chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:054:5a8109b0",
+      "chunk_id": "LA-octobre2025.pdf-p008-parent010-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:055:c04a20b4",
+      "chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:056:576a2a97",
+      "chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:057:545da9db",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+      "current_score": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:058:ccd218fa",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:059:5e0bff0d",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent009-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:060:1a2abf50",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:061:edd75063",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:062:234551df",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
+      "current_score": 0.02631578947368421
+    },
+    {
+      "id": "ffe:annales:clubs:063:38534277",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:065:ec4682c1",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent005-child00",
+      "current_score": 0.13636363636363635
+    },
+    {
+      "id": "ffe:annales:clubs:066:5f02652f",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "current_score": 0.05555555555555555
+    },
+    {
+      "id": "ffe:annales:clubs:067:5d9af675",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:071:e798252b",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent017-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:072:56e31640",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent019-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:073:446fdc89",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent002-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:074:f3c3e975",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:078:3a10054a",
+      "chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:clubs:079:46e85a44",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
+      "current_score": 0.35714285714285715
+    },
+    {
+      "id": "ffe:annales:clubs:080:6b0d5da4",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:081:f141471f",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:082:1ce54a3d",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:083:6aab20b5",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
+      "current_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:clubs:084:25d549b3",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:085:f99e636d",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:086:bd9a1bc4",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
+      "current_score": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:087:4fb1f6f3",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:088:fd36b954",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:089:ecd85785",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "current_score": 0.21428571428571427
+    },
+    {
+      "id": "ffe:annales:clubs:090:99d9d73f",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:clubs:091:89ec7556",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:092:46d8ab4d",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:clubs:093:dd779b85",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:095:dd1e92ae",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
+      "current_score": 0.25
+    },
+    {
+      "id": "ffe:annales:clubs:096:18da13cb",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
+      "current_score": 0.2727272727272727
+    },
+    {
+      "id": "ffe:annales:clubs:097:1c5185db",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+      "current_score": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:098:52c8b8e4",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:099:0a0848b0",
+      "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:100:303c88ca",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:104:dfa6ecc5",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.1
+    },
+    {
+      "id": "ffe:annales:clubs:105:605c23b2",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:109:5bfbcc78",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
+      "current_score": 0.17647058823529413
+    },
+    {
+      "id": "ffe:annales:clubs:110:b34b2213",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.1111111111111111
+    },
+    {
+      "id": "ffe:annales:clubs:113:2ae38fca",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:114:7723ff77",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent017-child00",
+      "current_score": 0.25
+    },
+    {
+      "id": "ffe:annales:clubs:116:e0e40fa6",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:119:ca3fa215",
+      "chunk_id": "LA-octobre2025.pdf-p056-parent150-child00",
+      "current_score": 0.027777777777777776
+    },
+    {
+      "id": "ffe:annales:clubs:122:cd7f23cd",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:clubs:124:ab156594",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+      "current_score": 0.07692307692307693
+    },
+    {
+      "id": "ffe:annales:clubs:127:7c18c532",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child00",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:131:d2907731",
+      "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:132:82938744",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:133:d0c87aba",
+      "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent019-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:134:0c82f3e7",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+      "current_score": 0.13793103448275862
+    },
+    {
+      "id": "ffe:annales:clubs:137:9cfd9d8d",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:138:19a243d6",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:139:361bba0a",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+      "current_score": 0.058823529411764705
+    },
+    {
+      "id": "ffe:annales:clubs:143:8f0e03ed",
+      "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p004-parent009-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:145:52a8515f",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:146:eeaa5225",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent021-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:147:c88f39e5",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
+      "current_score": 0.125
+    },
+    {
+      "id": "ffe:annales:clubs:148:4c052739",
+      "chunk_id": "LA-octobre2025.pdf-p216-parent661-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:149:8e80eccc",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.13725490196078433
+    },
+    {
+      "id": "ffe:annales:clubs:150:284f7746",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:151:58f51be6",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:152:0a424a81",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:153:5c191988",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:156:8d90bbb7",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:clubs:157:d7b097bc",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:158:7fea3ff6",
+      "chunk_id": "LA-octobre2025.pdf-p086-parent256-child01",
+      "current_score": 0.09302325581395349
+    },
+    {
+      "id": "ffe:annales:clubs:159:952af9d4",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "current_score": 0.2222222222222222
+    },
+    {
+      "id": "ffe:annales:clubs:160:e28a5363",
+      "chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+      "current_score": 0.3684210526315789
+    },
+    {
+      "id": "ffe:annales:clubs:161:be79eda8",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:162:23af4aa7",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:163:efba7505",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent008-child00",
+      "current_score": 0.140625
+    },
+    {
+      "id": "ffe:annales:clubs:164:49af2846",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:165:186c22b0",
+      "chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p001-parent004-child00",
+      "current_score": 0.0136986301369863
+    },
+    {
+      "id": "ffe:annales:clubs:166:43bcdebb",
+      "chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p002-parent007-child00",
+      "current_score": 0.025
+    },
+    {
+      "id": "ffe:annales:clubs:168:6808d18e",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:clubs:169:c16dfcad",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "current_score": 0.046511627906976744
+    },
+    {
+      "id": "ffe:annales:open:002:b543a501",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "current_score": 0.42857142857142855
+    },
+    {
+      "id": "ffe:annales:open:003:6fdc49bb",
+      "chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:004:8fd9715e",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:open:005:1ca082a8",
+      "chunk_id": "LA-octobre2025.pdf-p027-parent120-child00",
+      "current_score": 0.07692307692307693
+    },
+    {
+      "id": "ffe:annales:open:006:2db69ef2",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:open:009:4e5b3351",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+      "current_score": 0.125
+    },
+    {
+      "id": "ffe:annales:open:010:5bc6bc5e",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
+      "current_score": 0.5714285714285714
+    },
+    {
+      "id": "ffe:annales:open:011:1d5e9de9",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:open:012:1c5af6e1",
+      "chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent005-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:open:013:51141e29",
+      "chunk_id": "LA-octobre2025.pdf-p033-parent507-child00",
+      "current_score": 0.5
+    },
+    {
+      "id": "ffe:annales:open:017:67c3b0c7",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:018:b7aaa6c2",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:019:8188a2db",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:020:c8d86384",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:021:73ebcf51",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
+      "current_score": 0.5
+    },
+    {
+      "id": "ffe:annales:open:022:ef6ad68d",
+      "chunk_id": "LA-octobre2025.pdf-p019-parent078-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:023:f52bd8ed",
+      "chunk_id": "LA-octobre2025.pdf-p027-parent121-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:024:4bb364eb",
+      "chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:025:228839b5",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:open:026:6db1678f",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:032:1ad21c08",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent047-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:038:3ae4a556",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "current_score": 0.42857142857142855
+    },
+    {
+      "id": "ffe:annales:open:039:87f2338a",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "current_score": 0.38461538461538464
+    },
+    {
+      "id": "ffe:annales:open:041:0af9b7dc",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.5555555555555556
+    },
+    {
+      "id": "ffe:annales:open:042:dc055770",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:open:043:b77bf58f",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "current_score": 0.375
+    },
+    {
+      "id": "ffe:annales:open:044:b922066d",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+      "current_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:open:045:d2ead6d5",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:open:048:d394d0e3",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:050:eb7be3cd",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:051:d9e3bbc6",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:053:c86e4c21",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent029-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:open:054:772ce2a9",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:open:055:fff0d000",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:056:3e6a8494",
+      "chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:058:6a9ad243",
+      "chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:open:061:9abe718c",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.45
+    },
+    {
+      "id": "ffe:annales:open:064:936ece0a",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:002:33e3bee8",
+      "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
+      "current_score": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:006:2ed0beee",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:009:8b61df6a",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "current_score": 0.375
+    },
+    {
+      "id": "ffe:annales:rules:010:2bcd0d93",
+      "chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
+      "current_score": 0.6
+    },
+    {
+      "id": "ffe:annales:rules:013:4540ccad",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:015:218b82be",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "current_score": 0.42857142857142855
+    },
+    {
+      "id": "ffe:annales:rules:016:9fabc206",
+      "chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
+      "current_score": 0.4
+    },
+    {
+      "id": "ffe:annales:rules:018:84198fff",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent180-child00",
+      "current_score": 0.5555555555555556
+    },
+    {
+      "id": "ffe:annales:rules:023:313313c3",
+      "chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:026:1497bbbb",
+      "chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
+      "current_score": 0.15384615384615385
+    },
+    {
+      "id": "ffe:annales:rules:029:30d59fea",
+      "chunk_id": "LA-octobre2025.pdf-p054-parent185-child00",
+      "current_score": 0.038461538461538464
+    },
+    {
+      "id": "ffe:annales:rules:030:fc369c15",
+      "chunk_id": "LA-octobre2025.pdf-p053-parent183-child00",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:rules:031:01d9b54f",
+      "chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:033:660f6206",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:035:81c5709f",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:036:95dbe2c6",
+      "chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:037:25385d5f",
+      "chunk_id": "LA-octobre2025.pdf-p057-parent191-child01",
+      "current_score": 0.075
+    },
+    {
+      "id": "ffe:annales:rules:038:7733f1b3",
+      "chunk_id": "LA-octobre2025.pdf-p042-parent162-child02",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:039:3746f309",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child01",
+      "current_score": 0.25
+    },
+    {
+      "id": "ffe:annales:rules:040:3c49716f",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "current_score": 0.2
+    },
+    {
+      "id": "ffe:annales:rules:044:ab624690",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:045:89403c7f",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:rules:046:350ac66f",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:048:e207b726",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "current_score": 0.5
+    },
+    {
+      "id": "ffe:annales:rules:052:ad487e20",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "current_score": 0.043478260869565216
+    },
+    {
+      "id": "ffe:annales:rules:054:1f2c8ab5",
+      "chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
+      "current_score": 0.2222222222222222
+    },
+    {
+      "id": "ffe:annales:rules:055:14804bb4",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "current_score": 0.1
+    },
+    {
+      "id": "ffe:annales:rules:056:b15cf14c",
+      "chunk_id": "LA-octobre2025.pdf-p028-parent124-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:057:80e7e9da",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:058:236d58e4",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:060:51e22661",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:061:d2032ffa",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
+      "current_score": 0.5
+    },
+    {
+      "id": "ffe:annales:rules:062:2b6141ed",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent181-child01",
+      "current_score": 0.2857142857142857
+    },
+    {
+      "id": "ffe:annales:rules:063:df712371",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "current_score": 0.4444444444444444
+    },
+    {
+      "id": "ffe:annales:rules:065:3f9334c5",
+      "chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:066:d2c9ccb7",
+      "chunk_id": "LA-octobre2025.pdf-p056-parent191-child00",
+      "current_score": 0.1111111111111111
+    },
+    {
+      "id": "ffe:annales:rules:068:5c64c6f3",
+      "chunk_id": "LA-octobre2025.pdf-p058-parent192-child01",
+      "current_score": 0.4
+    },
+    {
+      "id": "ffe:annales:rules:069:b69a968a",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "current_score": 0.25
+    },
+    {
+      "id": "ffe:annales:rules:073:67efc7f7",
+      "chunk_id": "LA-octobre2025.pdf-p042-parent163-child00",
+      "current_score": 0.75
+    },
+    {
+      "id": "ffe:annales:rules:075:96244d87",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.2222222222222222
+    },
+    {
+      "id": "ffe:annales:rules:077:9764086b",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:078:6e3dc32c",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:annales:rules:079:c3789d46",
+      "chunk_id": "LA-octobre2025.pdf-p025-parent115-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:080:7d46fef6",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:rules:081:b3dfd538",
+      "chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+      "current_score": 0.4
+    },
+    {
+      "id": "ffe:annales:rules:082:0ffd9851",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:083:958a8418",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
+      "current_score": 0.25
+    },
+    {
+      "id": "ffe:annales:rules:084:9b6aba85",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:085:d7d2e0cb",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.14285714285714285
+    },
+    {
+      "id": "ffe:annales:rules:086:bcf958e4",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent187-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:087:65b43070",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "current_score": 0.4
+    },
+    {
+      "id": "ffe:annales:rules:088:06844059",
+      "chunk_id": "LA-octobre2025.pdf-p042-parent163-child02",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:089:9f9846a0",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "current_score": 0.18181818181818182
+    },
+    {
+      "id": "ffe:annales:rules:090:2d67e0b8",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:091:4504ee69",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:092:6e7290e6",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:093:8d0ba054",
+      "chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:094:292c2180",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent173-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:095:cc85a835",
+      "chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:096:db7b1227",
+      "chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:097:631f31e8",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:098:3fbacfde",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:099:a1e9cd97",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:100:7e882181",
+      "chunk_id": "LA-octobre2025.pdf-p158-parent473-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:101:b57c84f0",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:rules:104:0309cc7a",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
+      "current_score": 0.7619047619047619
+    },
+    {
+      "id": "ffe:annales:rules:105:ca611079",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
+      "current_score": 0.5
+    },
+    {
+      "id": "ffe:annales:rules:106:5a3dd069",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent185-child02",
+      "current_score": 0.5384615384615384
+    },
+    {
+      "id": "ffe:annales:tournament:003:2b1ab662",
+      "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:004:82f7f674",
+      "chunk_id": "LA-octobre2025.pdf-p057-parent191-child02",
+      "current_score": 0.08333333333333333
+    },
+    {
+      "id": "ffe:annales:tournament:005:ed5b90d2",
+      "chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+      "current_score": 0.1
+    },
+    {
+      "id": "ffe:annales:tournament:008:4be0fbe1",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "current_score": 0.16666666666666666
+    },
+    {
+      "id": "ffe:annales:tournament:009:36b933ad",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "current_score": 0.25
+    },
+    {
+      "id": "ffe:annales:tournament:012:4549ef7e",
+      "chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:013:a7312ec7",
+      "chunk_id": "LA-octobre2025.pdf-p055-parent189-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:018:f5f5dfe0",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "current_score": 0.13953488372093023
+    },
+    {
+      "id": "ffe:annales:tournament:021:420f3fe9",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:022:43041a74",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:024:923da57c",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.13043478260869565
+    },
+    {
+      "id": "ffe:annales:tournament:025:ed1ca4f9",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "current_score": 0.4777777777777778
+    },
+    {
+      "id": "ffe:annales:tournament:027:5cc51fc2",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent045-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:032:40c5b1ee",
+      "chunk_id": "LA-octobre2025.pdf-p016-parent057-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:033:20fdfa19",
+      "chunk_id": "LA-octobre2025.pdf-p016-parent057-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:034:76520ac7",
+      "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:035:df3692a1",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "current_score": 0.038461538461538464
+    },
+    {
+      "id": "ffe:annales:tournament:037:59f9c31d",
+      "chunk_id": "LA-octobre2025.pdf-p027-parent122-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:040:0813659b",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:043:d15339ee",
+      "chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:human:rating:001:406a0bbe",
+      "chunk_id": "LA-octobre2025.pdf-p186-parent552-child00",
+      "current_score": 0.7142857142857143
+    },
+    {
+      "id": "ffe:human:rating:003:880750a0",
+      "chunk_id": "LA-octobre2025.pdf-p186-parent552-child01",
+      "current_score": 0.0,
+      "issue": "invalid_chunk_id"
+    },
+    {
+      "id": "ffe:human:rating:004:afe9a2af",
+      "chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent022-child00",
+      "current_score": 0.3333333333333333
+    },
+    {
+      "id": "ffe:human:youth:003:b7774476",
+      "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
+      "current_score": 0.0
+    },
+    {
+      "id": "ffe:human:clubs:003:3c3a124c",
+      "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent004-child00",
+      "current_score": 0.0,
+      "issue": "invalid_chunk_id"
+    }
+  ]
+}

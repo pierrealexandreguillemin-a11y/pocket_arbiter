@@ -216,7 +216,7 @@ def late_chunking(text: str, model, chunk_boundaries: list[tuple]):
 
 **4.2 Modeles compatibles late chunking**
 - `jina-embeddings-v3` (natif)
-- `intfloat/multilingual-e5-large-instruct` (long context)
+- `google/embeddinggemma-300m` (pipeline unifie)
 
 ### Phase 5: Contextual Retrieval (+49-67%)
 

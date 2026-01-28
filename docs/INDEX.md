@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 2.1
-> **Date**: 2026-01-26
+> **Version**: 2.2
+> **Date**: 2026-01-28
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -86,6 +86,7 @@ pocket_arbiter/
 | TEST-PLAN-001 | [TEST_PLAN.md](TEST_PLAN.md) | Plan de tests ISO 29119 | Draft |
 | SPEC-GS-001 | [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) | Specification Gold Standard | Approuve |
 | **SPEC-GS-CONF-001** | [specs/GS_CONFORMITY_CHECKLIST.md](specs/GS_CONFORMITY_CHECKLIST.md) | **Checklist conformite GS (one-shot)** | **Approuve** |
+| **PLAN-GS-CONF-001** | [plans/GS_CONFORMITY_PLAN_V1.md](plans/GS_CONFORMITY_PLAN_V1.md) | **Plan mise en conformite GS + hard negatives hybride Claude+EmbeddingGemma** | **En cours** |
 | SPEC-GS-V6 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v6 pipeline (historique) | Obsolete |
 | SPEC-GS-OPT | [specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md](specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md) | Optimisation GS v7 pour triplets | En cours |
 | SPEC-ADV-V1 | [specs/ADVERSARIAL_QUESTIONS_STRATEGY.md](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie questions adversariales SQuAD 2.0 | Approuve |
@@ -299,6 +300,7 @@ pocket_arbiter/
 | 1.7 | 2026-01-24 | Claude Opus 4.5 | **Ajout index standards industrie**: BY DESIGN, Context-Grounded, Deduplication, Hard Negatives, MTEB, MMTEB (INTL), Model Collapse, NV-Embed-v2, Quality Gates, RAGen, SemHash, SoftDedup, Standards Industrie |
 | 1.8 | 2026-01-24 | Claude Opus 4.5 | **Ajout Dual-RAG Architecture** (VISION v2.0): index separation FR/INTL, references croisees tous docs concernes |
 | 2.1 | 2026-01-26 | Claude Opus 4.5 | **Ajout GS_CONFORMITY_CHECKLIST.md** (SPEC-GS-CONF-001): checklist one-shot conformite GS, index chunk_match_score/Conformite GS, GOLD_STANDARD_V6_ANNALES.md marque Obsolete |
+| 2.2 | 2026-01-28 | Claude Opus 4.5 | **Ajout GS_CONFORMITY_PLAN_V1.md** (PLAN-GS-CONF-001). Suppression scripts hard_negative_mining dangereux (3 scripts + 1 test). Purge references intfloat/multilingual-e5 (modele unique EmbeddingGemma). Hard negatives: methode hybride Claude LLM-as-judge + EmbeddingGemma pre-filtrage |
 
 ---
 

@@ -60,21 +60,21 @@
 ### Pre-requis
 - [x] Phase 1A complete (Gate: corpus_processed = True)
 - [x] Specs embeddings documentees (PROJECT_ROADMAP.md v1.2)
-- [x] Modele embedding valide localement (multilingual-e5-small fallback)
+- [x] Modele embedding valide localement (EmbeddingGemma-300m)
 - [x] `tests/data/adversarial.json` cree (30 questions)
 
 ### Stack technique
 
 | Composant | Production | Fallback (actuel) | Specs |
 |-----------|------------|-------------------|-------|
-| Embedding | EmbeddingGemma-300m | multilingual-e5-small | 768D / 384D |
+| Embedding | EmbeddingGemma-300m | EmbeddingGemma-300m | 768D |
 | Vector Store | SqliteVectorStore | SqliteVectorStore | SQLite + BLOB |
 | Recall cible | >= 80% | >= 20% | ISO 25010 |
 
 ### embeddings.py
 - [x] Script executable sans erreur
-- [x] Modele fallback : `intfloat/multilingual-e5-small` via sentence-transformers
-- [x] Output : fichier numpy (.npy) 384D
+- [x] Modele : `google/embeddinggemma-300m` via sentence-transformers
+- [x] Output : fichier numpy (.npy) 768D
 - [x] Performance mesuree (103ms/chunk FR, 123ms/chunk INTL)
 - [x] Tests unitaires (30 tests)
 
@@ -155,5 +155,5 @@
 | 1.0 | 2026-01-11 | Creation initiale |
 | 1.1 | 2026-01-14 | Phase 1A complete, metriques ajoutees |
 | 1.2 | 2026-01-14 | Phase 1B: FAISS -> SqliteVectorStore, EmbeddingGemma-300m |
-| 1.3 | 2026-01-15 | Phase 1B fallback model (multilingual-e5-small) - ERREUR |
+| 1.3 | 2026-01-15 | Phase 1B fallback model (supprime, EmbeddingGemma unique) |
 | 1.4 | 2026-01-15 | CORRECTION: Phase 1B marquee INCOMPLETE, recall 27% < 80% bloquant |

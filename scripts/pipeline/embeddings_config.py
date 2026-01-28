@@ -32,7 +32,7 @@ MODEL_ID_FULL = "google/embeddinggemma-300m"
 MODEL_ID_QAT = MODEL_ID
 
 # Fallback leger pour tests CI/CD
-FALLBACK_MODEL_ID = "intfloat/multilingual-e5-base"
+FALLBACK_MODEL_ID = "google/embeddinggemma-300m"
 
 EMBEDDING_DIM = 768
 FALLBACK_EMBEDDING_DIM = 768

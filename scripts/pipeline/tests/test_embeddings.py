@@ -12,9 +12,8 @@ Ce fichier teste les fonctions d'embedding generation:
 - measure_performance() - Mesure latence
 - generate_corpus_embeddings() - Pipeline complet
 
-Note: Ces tests utilisent le modele de fallback (multilingual-e5-small)
-par defaut pour des tests rapides. Les tests de modele principal
-sont marques pour execution conditionnelle.
+Note: Ces tests utilisent EmbeddingGemma-300m (modele unique du pipeline).
+Les tests lourds sont marques pour execution conditionnelle.
 """
 
 import tempfile
@@ -55,7 +54,7 @@ def fallback_model():
     Charge le modele de fallback pour les tests.
 
     Scope: module pour eviter rechargement a chaque test.
-    Modele: multilingual-e5-base (768D, conforme SDK).
+    Modele: EmbeddingGemma-300m (768D, conforme SDK).
     """
     return load_embedding_model(FALLBACK_MODEL_ID)
 
@@ -119,7 +118,7 @@ class TestLoadEmbeddingModel:
         """Verifie que les constantes sont definies correctement."""
         # ISO 42001 A.6.2.2 - Modele Full Precision (meilleur recall)
         assert MODEL_ID == "google/embeddinggemma-300m"
-        assert FALLBACK_MODEL_ID == "intfloat/multilingual-e5-base"
+        assert FALLBACK_MODEL_ID == "google/embeddinggemma-300m"
         assert EMBEDDING_DIM == 768
         assert FALLBACK_EMBEDDING_DIM == 768
         # Google recommande 128-256 pour in-batch negatives
@@ -238,10 +237,8 @@ class TestGoogleOfficialAPI:
 
     def test_is_embeddinggemma_model_false(self):
         """Detecte correctement un modele non-EmbeddingGemma."""
-        assert is_embeddinggemma_model("intfloat/multilingual-e5-base") is False
-        assert (
-            is_embeddinggemma_model("sentence-transformers/all-MiniLM-L6-v2") is False
-        )
+        assert is_embeddinggemma_model("sentence-transformers/all-MiniLM-L6-v2") is False
+        assert is_embeddinggemma_model("bert-base-uncased") is False
 
     def test_embed_query_returns_1d(self, fallback_model):
         """embed_query retourne un vecteur 1D."""

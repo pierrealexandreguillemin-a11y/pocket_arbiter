@@ -181,7 +181,7 @@ INFERENCE_MAP = {
 {
   "anchor": "Question en francais, style oral naturel ?",
   "positive": "Texte exact du chunk source (expected_chunk_id)",
-  "negative": "Hard negative mine avec TopK-PercPos",
+  "negative": "Hard negative mine avec mine_hard_negatives()",
   "metadata": {
     "source": "gold_standard",
     "question_id": "ffe:annales:rules:001:a3f2b8c1",
@@ -189,11 +189,10 @@ INFERENCE_MAP = {
     "reasoning_class": "fact_single",
     "difficulty": 0.16,
     "negative_mining": {
-      "method": "topk_percpos",
-      "teacher_model": "intfloat/multilingual-e5-large",
-      "positive_score": 0.89,
-      "negative_score": 0.72,
-      "threshold_ratio": 0.95
+      "method": "mine_hard_negatives",
+      "model": "google/embeddinggemma-300m",
+      "relative_margin": 0.05,
+      "num_negatives": 5
     }
   }
 }
@@ -201,15 +200,18 @@ INFERENCE_MAP = {
 
 #### 2.2.2 Pipeline Hard Negative Mining
 
+> **Modele unique**: EmbeddingGemma pour mining ET fine-tuning (coherence pipeline Google AI RAG / LiteRT).
+> Pas de teacher model externe. Ref: ai.google.dev/gemma/docs/embeddinggemma/fine-tuning
+
 ```python
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import mine_hard_negatives
 
-# 1. Charger teacher model (multilingual pour FR)
-teacher = SentenceTransformer("intfloat/multilingual-e5-large")
+# 1. Charger modele (meme modele pour mining et fine-tuning)
+model = SentenceTransformer("google/embeddinggemma-300m")
 
 # 2. Charger corpus chunks
-corpus = load_chunks("corpus/processed/chunks_for_embedding_fr.json")
+corpus = load_chunks("corpus/processed/chunks_mode_b_fr.json")
 
 # 3. Positive-aware mining
 def mine_with_topk_percpos(
@@ -221,9 +223,9 @@ def mine_with_topk_percpos(
     """
     TopK-PercPos: Reject negatives with score > 95% of positive score
     """
-    q_emb = teacher.encode(queries)
-    p_emb = teacher.encode(positives)
-    c_emb = teacher.encode(corpus)
+    q_emb = model.encode(queries)
+    p_emb = model.encode(positives)
+    c_emb = model.encode(corpus)
 
     hard_negatives = []
     for i, (q, p) in enumerate(zip(q_emb, p_emb)):

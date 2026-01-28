@@ -10,7 +10,6 @@ ISO Reference:
 
 Modules:
     - generate_synthetic_data: Generation de paires (query, chunk)
-    - hard_negative_mining: Mining de negatifs difficiles
     - finetune_embeddinggemma: Fine-tuning avec sentence-transformers
     - evaluate_finetuned: Evaluation recall sur gold standard
 """
@@ -18,7 +17,6 @@ Modules:
 __all__ = [
     "generate_questions_for_chunk",
     "generate_synthetic_dataset",
-    "mine_hard_negatives",
     "finetune_embeddinggemma",
     "get_training_args",
     "evaluate_finetuned_model",
@@ -39,11 +37,6 @@ def __getattr__(name: str):
         from scripts.training.generate_synthetic_data import generate_synthetic_dataset
 
         return generate_synthetic_dataset
-
-    if name == "mine_hard_negatives":
-        from scripts.training.hard_negative_mining import mine_hard_negatives
-
-        return mine_hard_negatives
 
     if name == "finetune_embeddinggemma":
         from scripts.training.finetune_embeddinggemma import finetune_embeddinggemma

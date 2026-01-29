@@ -4,7 +4,6 @@
 import json
 import subprocess
 from pathlib import Path
-from typing import List, Optional, Tuple
 
 from .utils import Colors, colored
 
@@ -15,9 +14,9 @@ class ExecutableGates:
     def __init__(
         self,
         root: Path,
-        errors: List[str],
-        warnings: List[str],
-        passed: List[str],
+        errors: list[str],
+        warnings: list[str],
+        passed: list[str],
         verbose: bool = False,
     ):
         self.root = root
@@ -26,13 +25,13 @@ class ExecutableGates:
         self.passed = passed
         self.verbose = verbose
 
-    def log(self, message: str):
+    def log(self, message: str) -> None:
         if self.verbose:
             print(f"  {message}")
 
     def run_command(
-        self, cmd: List[str], cwd: Optional[Path] = None
-    ) -> Tuple[bool, str]:
+        self, cmd: list[str], cwd: Path | None = None
+    ) -> tuple[bool, str]:
         """Run a command and return success status and output."""
         try:
             result = subprocess.run(
@@ -103,7 +102,7 @@ class ExecutableGates:
             return True
 
         try:
-            with open(cov_file, "r") as f:
+            with open(cov_file) as f:
                 cov_data = json.load(f)
             total_cov = cov_data.get("totals", {}).get("percent_covered", 0) / 100
 
@@ -138,7 +137,7 @@ class ExecutableGates:
         self.errors.append(f"Lint errors: {error_count} dans {path}")
         return False
 
-    def gate_json_valid(self, patterns: Optional[List[str]] = None) -> bool:
+    def gate_json_valid(self, patterns: list[str] | None = None) -> bool:
         """Gate: Validate all JSON files in patterns."""
         if patterns is None:
             patterns = ["tests/data/*.json", ".iso/*.json"]
@@ -151,7 +150,7 @@ class ExecutableGates:
         for pattern in patterns:
             for json_file in self.root.glob(pattern):
                 try:
-                    with open(json_file, "r", encoding="utf-8") as f:
+                    with open(json_file, encoding="utf-8") as f:
                         json.load(f)
                     valid_count += 1
                 except json.JSONDecodeError as e:

@@ -11,7 +11,6 @@ ISO Reference:
 
 import re
 
-
 # Month patterns for session detection (comprehensive)
 MONTH_PATTERNS: dict[str, str] = {
     # December (most common for FFE exams)

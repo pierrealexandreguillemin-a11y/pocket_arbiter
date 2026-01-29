@@ -179,7 +179,7 @@ def create_vector_db(
                 ("model_id", model_id),
             )
 
-        for chunk, embedding in zip(chunks, embeddings):
+        for chunk, embedding in zip(chunks, embeddings, strict=True):
             _validate_chunk(chunk)
 
             # Build metadata from all non-core fields (ISO 42001 traceability)

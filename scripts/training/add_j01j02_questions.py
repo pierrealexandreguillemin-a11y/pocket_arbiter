@@ -8,7 +8,7 @@ from pathlib import Path
 def main() -> None:
     gs_path = Path("tests/data/gold_standard_annales_fr_v7.json")
 
-    with open(gs_path, "r", encoding="utf-8") as f:
+    with open(gs_path, encoding="utf-8") as f:
         gs = json.load(f)
 
     j01j02_questions = [

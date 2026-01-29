@@ -114,7 +114,6 @@ pocket_arbiter/
 |   |   +-- export_serialization.py # Serialisation embeddings
 |   |   +-- export_validation.py # Validation exports
 |   |   +-- query_expansion.py  # Synonymes chess FR + stemmer
-|   |   +-- reranker.py         # Cross-encoder (optionnel)
 |   |   +-- token_utils.py      # Utilitaires tokens (tiktoken)
 |   |   +-- chunk_normalizer.py # Normalisation taille chunks
 |   |   +-- utils.py            # Utilitaires communs

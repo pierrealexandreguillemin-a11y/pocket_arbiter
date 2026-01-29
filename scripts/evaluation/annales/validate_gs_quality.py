@@ -21,10 +21,9 @@ ISO 29119: Couverture de test
 import json
 import re
 import sys
-from pathlib import Path
-from datetime import datetime
 from dataclasses import dataclass
-from typing import Optional
+from datetime import datetime
+from pathlib import Path
 
 import numpy as np
 
@@ -45,7 +44,7 @@ def get_embedding_model():
 
 def load_json(path: str) -> dict:
     """Load JSON file with UTF-8 encoding."""
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -141,7 +140,7 @@ class ValidationResult:
     question_id: str
     chunk_id_valid: bool
     keyword_score: float
-    semantic_score: Optional[float]
+    semantic_score: float | None
     answerable: bool
     issues: list[str]
 

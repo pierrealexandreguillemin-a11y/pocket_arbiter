@@ -12,7 +12,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-
 # Path constants
 BASE_DIR = Path(__file__).parent.parent.parent.parent
 DATA_DIR = BASE_DIR / "data" / "evaluation" / "ares"
@@ -176,7 +175,7 @@ def run_context_relevance_evaluation(
 
     # Check API key for OpenAI
     if llm_config["host"] == "openai" and not check_openai_api_key():
-        raise EnvironmentError(
+        raise OSError(
             "OPENAI_API_KEY environment variable not set. "
             "Set it or use a local vLLM model."
         )
@@ -377,6 +376,7 @@ def run_ollama_evaluation(
     """
     import csv
     import re
+
     import requests
 
     if output_dir is None:
@@ -597,7 +597,7 @@ def run_groq_evaluation(
 
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
-        raise EnvironmentError(
+        raise OSError(
             "GROQ_API_KEY not set. Get free key at https://console.groq.com"
         )
 
@@ -827,7 +827,7 @@ def run_huggingface_evaluation(
 
     api_key = os.environ.get("HF_TOKEN") or os.environ.get("HUGGINGFACE_TOKEN")
     if not api_key:
-        raise EnvironmentError(
+        raise OSError(
             "HF_TOKEN not set. Get free token at https://huggingface.co/settings/tokens"
         )
 

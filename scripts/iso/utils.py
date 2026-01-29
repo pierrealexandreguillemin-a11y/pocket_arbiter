@@ -3,7 +3,6 @@
 
 import os
 import sys
-from typing import Optional
 
 # Fix Windows console encoding
 if sys.platform == "win32":
@@ -18,7 +17,7 @@ def _is_fancy_terminal() -> bool:
     return True
 
 
-def _get_colors(fancy: Optional[bool] = None):
+def _get_colors(fancy: bool | None = None) -> dict[str, str]:
     """Get color codes based on terminal support."""
     if fancy is None:
         fancy = _is_fancy_terminal()
@@ -33,7 +32,7 @@ def _get_colors(fancy: Optional[bool] = None):
     return {"RED": "", "GREEN": "", "YELLOW": "", "BLUE": "", "NC": ""}
 
 
-def _get_icons(fancy: Optional[bool] = None):
+def _get_icons(fancy: bool | None = None) -> dict[str, str]:
     """Get icons based on terminal support."""
     if fancy is None:
         fancy = _is_fancy_terminal()

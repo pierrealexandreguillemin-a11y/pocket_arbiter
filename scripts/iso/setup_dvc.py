@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 DVC Setup Script - Pocket Arbiter
 =================================
@@ -15,7 +14,6 @@ import argparse
 import subprocess
 import sys
 from pathlib import Path
-from typing import Optional, Tuple
 
 # Fix Windows encoding
 if sys.platform == "win32":
@@ -23,7 +21,7 @@ if sys.platform == "win32":
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")  # type: ignore
 
 
-def run_command(cmd: list, cwd: Optional[Path] = None) -> Tuple[bool, str]:
+def run_command(cmd: list, cwd: Path | None = None) -> tuple[bool, str]:
     """Run a command and return success status and output."""
     try:
         result = subprocess.run(
@@ -70,7 +68,7 @@ def _step_init_dvc(project_root: Path) -> bool:
     return True
 
 
-def _step_configure_remote(project_root: Path, remote_url: Optional[str]) -> None:
+def _step_configure_remote(project_root: Path, remote_url: str | None) -> None:
     """Step 3: Configure remote if provided."""
     if not remote_url:
         return

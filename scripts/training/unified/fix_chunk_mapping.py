@@ -13,12 +13,11 @@ ISO 29119: Données test valides
 """
 
 import json
-import sqlite3
 import re
-from pathlib import Path
+import sqlite3
 from collections import defaultdict
 from dataclasses import dataclass
-from typing import Optional
+from pathlib import Path
 
 # Paths
 GS_PATH = Path("tests/data/gold_standard_annales_fr.json")
@@ -168,7 +167,7 @@ def find_best_chunk(
     question: dict,
     chunks: dict[str, dict],
     source_filter: str,
-) -> Optional[ChunkMatch]:
+) -> ChunkMatch | None:
     """
     Find the best chunk for a question.
 
@@ -285,7 +284,7 @@ def verify_page_in_docling(
     answer_text: str,
     page_texts: dict[int, str],
     current_page: int,
-) -> Optional[int]:
+) -> int | None:
     """
     Verify the correct page in docling for an article.
 

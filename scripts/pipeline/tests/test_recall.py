@@ -74,8 +74,6 @@ def benchmark_recall(
     top_k: int = 5,
     use_hybrid: bool = False,
     tolerance: int = 0,
-    reranker=None,
-    top_k_retrieve: int | None = None,
 ) -> dict:
     """
     Benchmark le recall sur un ensemble de questions gold standard.
@@ -89,8 +87,6 @@ def benchmark_recall(
         top_k: Nombre de resultats finaux.
         use_hybrid: Recherche hybride (vector + BM25).
         tolerance: Tolerance pages (±N).
-        reranker: CrossEncoder pour reranking (optionnel).
-        top_k_retrieve: Candidats avant reranking.
 
     Returns:
         Dict avec recall_mean, recall_percent, questions_detail, failed_questions.
@@ -98,7 +94,6 @@ def benchmark_recall(
     from scripts.pipeline.embeddings import embed_query
     from scripts.pipeline.export_search import (
         retrieve_hybrid,
-        retrieve_hybrid_rerank,
         smart_retrieve,
     )
     from scripts.pipeline.utils import load_json
@@ -112,19 +107,7 @@ def benchmark_recall(
     for q in questions:
         query_emb = embed_query(q["question"], model)
 
-        if reranker is not None:
-            # Funnel Mode: use default top_k_retrieve=100 unless overridden
-            kwargs = {"top_k_final": top_k}
-            if top_k_retrieve is not None:
-                kwargs["top_k_retrieve"] = top_k_retrieve
-            retrieved = retrieve_hybrid_rerank(
-                db_path,
-                query_emb,
-                q["question"],
-                reranker,
-                **kwargs,
-            )
-        elif use_hybrid:
+        if use_hybrid:
             retrieved = retrieve_hybrid(db_path, query_emb, q["question"], top_k=top_k)
         else:
             # smart_retrieve: auto source_filter based on specific patterns
@@ -156,7 +139,7 @@ def benchmark_recall(
         "total_questions": len(questions),
         "top_k": top_k,
         "use_hybrid": use_hybrid,
-        "use_reranker": reranker is not None,
+        "use_reranker": False,
         "tolerance": tolerance,
         "recall_mean": recall_mean,
         "recall_percent": round(recall_mean * 100, 2),
@@ -233,14 +216,13 @@ def main():
     Usage:
         python -m scripts.pipeline.tests.test_recall
         python -m scripts.pipeline.tests.test_recall --corpus intl
-        python -m scripts.pipeline.tests.test_recall --hybrid --rerank
+        python -m scripts.pipeline.tests.test_recall --hybrid
     """
     import argparse
 
     parser = argparse.ArgumentParser(description="Benchmark Recall ISO 25010")
     parser.add_argument("--corpus", choices=["fr", "intl", "both"], default="both")
     parser.add_argument("--hybrid", action="store_true", help="Hybrid search")
-    parser.add_argument("--rerank", action="store_true", help="Cross-encoder reranking")
     parser.add_argument("--tolerance", type=int, default=2, help="Page tolerance")
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--verbose", "-v", action="store_true")
@@ -251,13 +233,6 @@ def main():
 
     print(f"Loading embedding model: {MODEL_ID}")
     model = load_embedding_model(MODEL_ID)
-
-    reranker = None
-    if args.rerank:
-        from scripts.pipeline.reranker import DEFAULT_MODEL, load_reranker
-
-        print(f"Loading reranker: {DEFAULT_MODEL}")
-        reranker = load_reranker(DEFAULT_MODEL)
 
     # Define corpora
     corpora = []
@@ -294,7 +269,6 @@ def main():
             continue
 
         print(f"\n=== {name} ===")
-        # Funnel Mode: use default top_k_retrieve=100 from export_search
         result = benchmark_recall(
             db_path,
             questions_file,
@@ -302,7 +276,6 @@ def main():
             top_k=args.top_k,
             use_hybrid=args.hybrid,
             tolerance=args.tolerance,
-            reranker=reranker,
         )
 
         recall_pct = result["recall_percent"]

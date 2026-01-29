@@ -19,13 +19,11 @@ ISO 29119: Test data completeness
 """
 
 import json
-import sqlite3
 import re
-from pathlib import Path
-from dataclasses import dataclass, field
-from typing import Optional
+import sqlite3
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
+from dataclasses import dataclass, field
+from pathlib import Path
 
 # === CONSTANTS ===
 
@@ -58,15 +56,15 @@ class NormalizationResult:
     """Result of normalizing one question."""
 
     id: str
-    chunk_id: Optional[str] = None
-    page_verified: Optional[int] = None
+    chunk_id: str | None = None
+    page_verified: int | None = None
     page_original: list = field(default_factory=list)
     difficulty_human: float = 0.5
     difficulty_retrieval: float = DIFFICULTY_SINGLE_HOP
-    error: Optional[str] = None
+    error: str | None = None
 
 
-def load_docling_json(doc_name: str) -> Optional[dict]:
+def load_docling_json(doc_name: str) -> dict | None:
     """Load docling JSON for a document."""
     # Map document names to docling files
     name_mappings = {
@@ -99,7 +97,7 @@ def load_docling_json(doc_name: str) -> Optional[dict]:
 
 def find_page_in_docling(
     docling: dict, article_ref: str, answer_text: str
-) -> Optional[int]:
+) -> int | None:
     """
     Find the correct page in docling JSON by matching article reference and answer.
 
@@ -150,7 +148,7 @@ def find_page_in_docling(
 
 def find_chunk_for_page(
     conn: sqlite3.Connection, source: str, page: int
-) -> Optional[str]:
+) -> str | None:
     """Find the best chunk for a given source and page."""
     # Normalize source name for matching
     source_pattern = source.replace(".pdf", "").split("_")[0]

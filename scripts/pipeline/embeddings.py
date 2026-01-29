@@ -241,7 +241,7 @@ def embed_documents(
         getattr(model, "model_card_data", {}).get("base_model", MODEL_ID)
     ):
         docs_with_prompts = []
-        for doc, title in zip(documents, titles):
+        for doc, title in zip(documents, titles, strict=True):
             if title:
                 prompt = PROMPT_DOCUMENT_WITH_TITLE.format(title=title)
             else:
@@ -259,14 +259,14 @@ def embed_documents(
 
     # EmbeddingGemma sans titles: utiliser methode officielle encode_document
     if hasattr(model, "encode_document"):
-        embeddings = model.encode_document(
+        doc_embeddings = model.encode_document(
             documents,
             batch_size=batch_size,
             show_progress_bar=show_progress,
             normalize_embeddings=normalize,
             convert_to_numpy=True,
         )
-        return np.array(embeddings)
+        return np.array(doc_embeddings)
 
     # Fallback pour autres modeles: encode standard
     embeddings = model.encode(

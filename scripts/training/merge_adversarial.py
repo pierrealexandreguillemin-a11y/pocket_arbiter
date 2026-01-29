@@ -5,8 +5,8 @@ Usage:
     python scripts/training/merge_adversarial.py [--dry-run]
 """
 
-import json
 import argparse
+import json
 from pathlib import Path
 
 

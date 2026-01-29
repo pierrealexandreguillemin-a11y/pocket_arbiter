@@ -2,7 +2,6 @@
 """Base class for ISO checks."""
 
 from pathlib import Path
-from typing import List
 
 
 class BaseChecker:
@@ -11,9 +10,9 @@ class BaseChecker:
     def __init__(
         self,
         root: Path,
-        errors: List[str],
-        warnings: List[str],
-        passed: List[str],
+        errors: list[str],
+        warnings: list[str],
+        passed: list[str],
         verbose: bool = False,
     ):
         self.root = root
@@ -22,7 +21,7 @@ class BaseChecker:
         self.passed = passed
         self.verbose = verbose
 
-    def log(self, message: str):
+    def log(self, message: str) -> None:
         """Log verbose messages."""
         if self.verbose:
             print(f"  {message}")

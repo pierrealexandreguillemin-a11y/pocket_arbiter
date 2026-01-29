@@ -19,8 +19,8 @@ ISO Reference:
 See: docs/plans/GS_CONFORMITY_PLAN_V1.md S4 Phase 2
 """
 
-import pytest
 import numpy as np
+import pytest
 
 _mod = pytest.importorskip(
     "scripts.training.unified.generate_hard_negatives",

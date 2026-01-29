@@ -17,7 +17,6 @@ import json
 import os
 import time
 from pathlib import Path
-from typing import Optional
 
 from cerebras.cloud.sdk import Cerebras
 
@@ -191,7 +190,7 @@ def run_generation(
     api_key: str,
     chunks_path: str,
     corpus: str = "ffe",
-    max_chunks: Optional[int] = None,
+    max_chunks: int | None = None,
     questions_per_chunk: int = 3,
 ) -> list[dict]:
     """Run the generation pipeline."""

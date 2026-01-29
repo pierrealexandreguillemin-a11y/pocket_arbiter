@@ -12,7 +12,6 @@ import random
 from pathlib import Path
 from typing import Any
 
-
 # Path constants
 BASE_DIR = Path(__file__).parent.parent.parent.parent
 TESTS_DATA_DIR = BASE_DIR / "tests" / "data"

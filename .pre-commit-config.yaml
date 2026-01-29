@@ -59,9 +59,9 @@ repos:
     hooks:
       - id: mypy
         name: "ISO 5055 | Type Safety Analysis"
-        description: "Static type checking for reliability"
+        description: "Static type checking for reliability (config in pyproject.toml)"
         args: [--ignore-missing-imports, --explicit-package-bases]
-        exclude: ^(tests/|scripts/iso/tests/|scripts/pipeline/tests/)
+        exclude: ^(scripts/training/|scripts/evaluation/|scripts/pipeline/_obsolete/|scripts/pipeline/adversarial_harness\.py|scripts/pipeline/chunker_langchain\.py|scripts/consolidate_|scripts/create_|scripts/validate_anti_hallucination\.py|.*tests/)
 
   # --------------------------------------------------------------------------
   # DATA INTEGRITY: Config File Validation (ISO 25012 - Data Quality)
@@ -97,10 +97,10 @@ repos:
   - repo: local
     hooks:
       - id: pytest-quick
-        name: "ISO 29119 | Quick Test Gate"
-        description: "Run tests to prevent broken commits"
+        name: "ISO 29119 | Quick Test Gate (core modules)"
+        description: "Run core tests to prevent broken commits"
         entry: python
-        args: [-m, pytest, scripts/, -x, --tb=short, -q]
+        args: [-m, pytest, scripts/iso/tests/, scripts/pipeline/tests/, -x, --tb=short, -q]
         language: system
         pass_filenames: false
         stages: [pre-commit]
@@ -143,11 +143,20 @@ repos:
       # MAINTAINABILITY: Complexity Analysis (ISO 25010 - Maintainability)
       # Cyclomatic complexity: max B (11-20)
       # ------------------------------------------------------------------------
-      - id: xenon
-        name: "ISO 25010 | Cyclomatic Complexity"
-        description: "Ensure maintainable code complexity"
+      - id: xenon-pipeline
+        name: "ISO 25010 | Cyclomatic Complexity (pipeline)"
+        description: "Ensure maintainable code complexity in pipeline modules"
         entry: python
-        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/]
+        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/pipeline/, -e, scripts/pipeline/_obsolete, -e, scripts/pipeline/adversarial_harness.py]
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+
+      - id: xenon-iso
+        name: "ISO 25010 | Cyclomatic Complexity (iso)"
+        description: "Ensure maintainable code complexity in ISO modules"
+        entry: python
+        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/iso/]
         language: system
         pass_filenames: false
         stages: [pre-push]

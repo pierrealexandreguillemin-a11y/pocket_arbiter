@@ -217,7 +217,7 @@ def validate_beir_export(output_dir: Path) -> dict:
     # Check corpus
     corpus_path = output_dir / "corpus.jsonl"
     if corpus_path.exists():
-        with open(corpus_path, "r", encoding="utf-8") as corpus_file:
+        with open(corpus_path, encoding="utf-8") as corpus_file:
             for line in corpus_file:
                 doc = json.loads(line)
                 if "_id" not in doc or "text" not in doc:
@@ -229,7 +229,7 @@ def validate_beir_export(output_dir: Path) -> dict:
     # Check queries
     queries_path = output_dir / "queries.jsonl"
     if queries_path.exists():
-        with open(queries_path, "r", encoding="utf-8") as queries_file:
+        with open(queries_path, encoding="utf-8") as queries_file:
             for line in queries_file:
                 query = json.loads(line)
                 if "_id" not in query or "text" not in query:
@@ -241,7 +241,7 @@ def validate_beir_export(output_dir: Path) -> dict:
     # Check qrels
     qrels_path = output_dir / "qrels" / "test.tsv"
     if qrels_path.exists():
-        with open(qrels_path, "r", encoding="utf-8") as qrels_file:
+        with open(qrels_path, encoding="utf-8") as qrels_file:
             for i, line in enumerate(qrels_file):
                 if i == 0 and "query-id" in line:
                     continue  # Skip header

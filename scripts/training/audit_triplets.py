@@ -16,8 +16,8 @@ Usage:
 import json
 import random
 from collections import Counter
-from pathlib import Path
 from dataclasses import dataclass
+from pathlib import Path
 
 
 @dataclass

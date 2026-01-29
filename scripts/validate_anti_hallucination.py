@@ -8,9 +8,9 @@ def main():
     print("=== VALIDATION ANTI-HALLUCINATION ===\n")
 
     # Load valid chunk_ids
-    with open("corpus/processed/chunks_mode_b_fr.json", "r", encoding="utf-8") as f:
+    with open("corpus/processed/chunks_mode_b_fr.json", encoding="utf-8") as f:
         valid_fr = {c["id"] for c in json.load(f)["chunks"]}
-    with open("corpus/processed/chunks_mode_b_intl.json", "r", encoding="utf-8") as f:
+    with open("corpus/processed/chunks_mode_b_intl.json", encoding="utf-8") as f:
         valid_intl = {c["id"] for c in json.load(f)["chunks"]}
 
     valid_ids = valid_fr | valid_intl
@@ -24,7 +24,7 @@ def main():
 
     for i in range(1, 7):
         filepath = f"data/semantic_validation/agent_{i}_results.json"
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             data = json.load(f)
 
         for r in data["results"]:

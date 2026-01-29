@@ -14,11 +14,9 @@ ISO 29119: Test data completeness
 import json
 import re
 import sqlite3
-from pathlib import Path
-from dataclasses import dataclass, field
-from typing import Optional
 from collections import defaultdict
-
+from dataclasses import dataclass, field
+from pathlib import Path
 
 # === CONSTANTS ===
 
@@ -54,7 +52,7 @@ class PageScore:
     layer1_score: float = 0.0  # Article reference match
     layer2_score: float = 0.0  # Answer text overlap
     layer3_valid: bool = False  # Chunk exists in DB
-    chunk_id: Optional[str] = None
+    chunk_id: str | None = None
     debug_info: dict = field(default_factory=dict)
 
     @property
@@ -72,16 +70,16 @@ class QuestionResult:
     """Result for one question."""
 
     id: str
-    best_page: Optional[int] = None
-    chunk_id: Optional[str] = None
+    best_page: int | None = None
+    chunk_id: str | None = None
     difficulty_human: float = 0.5
     difficulty_retrieval: float = DIFFICULTY_SINGLE_HOP
     confidence: str = "low"
     method: str = "none"
-    error: Optional[str] = None
+    error: str | None = None
 
 
-def load_docling(doc_name: str) -> Optional[dict]:
+def load_docling(doc_name: str) -> dict | None:
     """Load docling JSON, build page→texts index."""
     docling_name = DOC_TO_DOCLING.get(doc_name)
     if not docling_name:
@@ -206,7 +204,6 @@ def layer2_text_overlap(
         "avec",
         "sans",
         "cette",
-        "cette",
         "être",
         "avoir",
         "fait",
@@ -278,7 +275,7 @@ def layer2_text_overlap(
 
 def layer3_chunk_validation(
     conn: sqlite3.Connection, source: str, page_no: int
-) -> tuple[bool, Optional[str]]:
+) -> tuple[bool, str | None]:
     """
     Couche 3: Verify chunk exists in DB for source+page.
 

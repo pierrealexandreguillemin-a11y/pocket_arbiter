@@ -13,7 +13,7 @@ def consolidate_results() -> dict:
 
     for i in range(1, 7):
         filepath = Path(f"data/semantic_validation/agent_{i}_results.json")
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             data = json.load(f)
 
         all_results.extend(data["results"])
@@ -73,9 +73,9 @@ def consolidate_results() -> dict:
 def apply_corrections(corrections: list[dict]) -> tuple[int, int]:
     """Apply corrections to gold standard files."""
     # Load gold standards
-    with open("tests/data/gold_standard_fr.json", "r", encoding="utf-8") as f:
+    with open("tests/data/gold_standard_fr.json", encoding="utf-8") as f:
         gs_fr = json.load(f)
-    with open("tests/data/gold_standard_intl.json", "r", encoding="utf-8") as f:
+    with open("tests/data/gold_standard_intl.json", encoding="utf-8") as f:
         gs_intl = json.load(f)
 
     # Create lookup by question id

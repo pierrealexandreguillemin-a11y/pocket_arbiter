@@ -12,9 +12,9 @@ ISO 25010: Qualité des données
 import json
 import re
 import sys
-from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
+from pathlib import Path
 
 # Configuration
 MIN_ANSWER_MATCH_RATIO = 0.3  # Au moins 30% des mots-clés de la réponse
@@ -22,7 +22,7 @@ MIN_ANSWER_MATCH_RATIO = 0.3  # Au moins 30% des mots-clés de la réponse
 
 def load_json(path: str) -> dict:
     """Load JSON file with UTF-8 encoding."""
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -99,7 +99,6 @@ def extract_keywords(text: str, min_length: int = 4) -> list[str]:
         "vers",
         "chez",
         "contre",
-        "entre",
         "parmi",
         "sauf",
     }

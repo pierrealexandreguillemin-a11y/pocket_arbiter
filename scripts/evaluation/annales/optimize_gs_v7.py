@@ -22,7 +22,6 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
-
 # Mapping for inferring question_type from cognitive_level + answer_type
 QUESTION_TYPE_INFERENCE = {
     ("Remember", "extractive"): "factual",
@@ -314,7 +313,7 @@ def main():
     )
 
     print(f"Loading {input_path}...")
-    with open(input_path, "r", encoding="utf-8") as f:
+    with open(input_path, encoding="utf-8") as f:
         data = json.load(f)
 
     original_version = data.get("version", "7.3.0")

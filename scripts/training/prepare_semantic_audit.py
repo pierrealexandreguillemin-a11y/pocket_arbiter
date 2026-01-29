@@ -75,13 +75,13 @@ def divide_into_batches(
 
     # FR batches (5 batches of ~40-53 questions each)
     fr_sorted = sorted(fr_questions, key=lambda x: x["id"])
-    _batch_size = 40  # noqa: F841 — documents intended slice size
+    batch_size = 40
 
-    batches["batch_1"] = fr_sorted[0:40]  # FR-Q01 to ~FR-Q40
-    batches["batch_2"] = fr_sorted[40:80]  # FR-Q41 to ~FR-Q80
-    batches["batch_3"] = fr_sorted[80:120]  # FR-Q81 to ~FR-Q120
-    batches["batch_4"] = fr_sorted[120:160]  # FR-Q121 to ~FR-Q160
-    batches["batch_5"] = fr_sorted[160:]  # FR-Q161 to end
+    batches["batch_1"] = fr_sorted[0:batch_size]
+    batches["batch_2"] = fr_sorted[batch_size : batch_size * 2]
+    batches["batch_3"] = fr_sorted[batch_size * 2 : batch_size * 3]
+    batches["batch_4"] = fr_sorted[batch_size * 3 : batch_size * 4]
+    batches["batch_5"] = fr_sorted[batch_size * 4 :]
 
     # INTL batch (1 batch for all INTL questions)
     batches["batch_6"] = sorted(intl_questions, key=lambda x: x["id"])

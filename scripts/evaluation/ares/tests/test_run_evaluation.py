@@ -172,5 +172,5 @@ class TestRunMockEvaluation:
 
         cr = result["context_relevance"]
         assert cr["ci_95_lower"] <= cr["score"] <= cr["ci_95_upper"]
-        assert 0.0 <= cr["ci_95_lower"]
+        assert cr["ci_95_lower"] >= 0.0
         assert cr["ci_95_upper"] <= 1.0

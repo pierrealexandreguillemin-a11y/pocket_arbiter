@@ -9,8 +9,8 @@ ISO Reference: ISO/IEC 42001 A.6.2.2, ISO/IEC 25010 S4.2
 
 import argparse
 import json
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 # Question templates by category
 QUESTION_TEMPLATES_FR = [

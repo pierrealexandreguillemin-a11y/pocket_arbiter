@@ -18,7 +18,8 @@ logger = logging.getLogger(__name__)
 def _check_table_exists(cursor: sqlite3.Cursor, table_name: str) -> bool:
     """Check if a table exists in the database."""
     cursor.execute(
-        f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'"
+        "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+        (table_name,),
     )
     return cursor.fetchone() is not None
 

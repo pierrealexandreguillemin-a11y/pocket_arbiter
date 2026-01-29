@@ -9,7 +9,6 @@ Les fixtures pour tests futurs seront ajoutees lors de l'implementation.
 
 import pytest
 
-
 # =============================================================================
 # Custom Markers
 # =============================================================================

@@ -4,6 +4,7 @@
 import json
 import subprocess
 from unittest.mock import patch
+
 import pytest
 
 from ..gates import ExecutableGates

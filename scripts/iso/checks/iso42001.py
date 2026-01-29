@@ -2,7 +2,7 @@
 """ISO/IEC 42001 - AI Governance Checks."""
 
 from ..base import BaseChecker
-from ..utils import Icons, Colors, colored
+from ..utils import Colors, Icons, colored
 
 
 class ISO42001Checks(BaseChecker):

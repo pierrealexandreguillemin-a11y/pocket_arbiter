@@ -24,7 +24,6 @@ import json
 import os
 import time
 from pathlib import Path
-from typing import Optional
 
 from huggingface_hub import InferenceClient
 
@@ -301,7 +300,7 @@ def run_generation(
     chunks_path: str,
     output_dir: Path,
     corpus: str = "ffe",
-    max_chunks: Optional[int] = None,
+    max_chunks: int | None = None,
     questions_per_chunk: int = 3,
     delay: float = 1.5,
 ) -> list[dict]:

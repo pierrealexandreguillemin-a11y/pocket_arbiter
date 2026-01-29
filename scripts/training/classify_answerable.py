@@ -32,8 +32,8 @@ Taxonomies:
 
 import json
 import re
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
 
 
 def classify_answer_type(question: str) -> str:

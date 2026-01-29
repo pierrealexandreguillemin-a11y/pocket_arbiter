@@ -179,6 +179,7 @@ class TestProcessDoclingOutputHybrid:
     def test_handles_missing_docling_document(self, tmp_path):
         """Logs warning when docling_document missing."""
         import json
+
         from scripts.pipeline.chunker_hybrid import process_docling_output_hybrid
 
         # Create file without docling_document
@@ -194,6 +195,7 @@ class TestProcessDoclingOutputHybrid:
     def test_creates_output_file(self, tmp_path):
         """Creates output JSON file."""
         import json
+
         from scripts.pipeline.chunker_hybrid import process_docling_output_hybrid
 
         # Create minimal docling file

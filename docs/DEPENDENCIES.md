@@ -92,23 +92,6 @@ EMBEDDING_DIM = 384  # MRL: truncatable to 256, 128
 - MRL: Matryoshka Representation Learning (variable dimensions)
 - Source: [Google AI Blog](https://ai.googleblog.com/)
 
-### 3.2 Reranker
-
-| Package | Version | Source | Justification |
-|---------|---------|--------|---------------|
-| `FlagEmbedding` | >=1.3.5 | BAAI | bge-reranker-v2-m3. Cross-encoder multilingual. |
-
-**Configuration**:
-```python
-MODEL = "BAAI/bge-reranker-v2-m3"
-# Query-time reranking, not corpus processing
-```
-
-**Recherche**:
-- BAAI BGE: State-of-art reranking 2025
-- bge-reranker-v2-m3: Multilingual (100+ langues), FR natif
-- Cross-encoder: +5-10% recall vs bi-encoder seul
-
 ---
 
 ## 4. Dependencies On-Device
@@ -173,7 +156,6 @@ Toutes les versions specifiees sont les **latest stable** au 2026-01-19:
 | tiktoken | >=0.8.0 | 0.8.0 | OK |
 | langchain-text-splitters | >=0.3.0 | 0.3.6 | OK |
 | sentence-transformers | >=5.2.0 | 5.2.0 | OK |
-| FlagEmbedding | >=1.3.5 | 1.3.5 | OK |
 | ai-edge-litert | >=2.1.0 | 2.1.0 | OK |
 | pytest | >=8.0.0 | 8.3.4 | OK |
 | pytest-cov | >=5.0.0 | 6.0.0 | OK |
@@ -193,7 +175,6 @@ Toutes les versions specifiees sont les **latest stable** au 2026-01-19:
 - [Docling](https://github.com/DS4SD/docling)
 - [LangChain Text Splitters](https://python.langchain.com/docs/modules/data_connection/document_transformers/)
 - [Sentence Transformers](https://www.sbert.net/)
-- [FlagEmbedding](https://github.com/FlagOpen/FlagEmbedding)
 - [Google AI Edge](https://ai.google.dev/edge)
 
 ---

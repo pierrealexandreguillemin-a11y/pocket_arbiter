@@ -23,14 +23,14 @@ ISO 25010: Amélioration qualité données
 import json
 import re
 import sys
-from pathlib import Path
-from datetime import datetime
 from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
 
 
 def load_json(path: str) -> dict:
     """Load JSON file with UTF-8 encoding."""
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -125,7 +125,7 @@ def find_adjacent_chunks(chunk_id: str, chunk_index: dict) -> list[str]:
         return [chunk_id]
 
     adjacent = []
-    for cid in chunk_index.keys():
+    for cid in chunk_index:
         if cid.startswith(parent):
             adjacent.append(cid)
 

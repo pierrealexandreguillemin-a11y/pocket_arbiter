@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Tests for DVC setup script."""
 
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from ..setup_dvc import run_command, _step_init_dvc, _step_track_models
+from ..setup_dvc import _step_init_dvc, _step_track_models, run_command
 
 
 class TestRunCommand:

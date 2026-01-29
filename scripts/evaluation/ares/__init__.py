@@ -6,8 +6,8 @@ Reference: https://github.com/stanford-futuredata/ARES
 
 from scripts.evaluation.ares.convert_to_ares import convert_gold_standard_to_ares
 from scripts.evaluation.ares.generate_few_shot import generate_few_shot_examples
-from scripts.evaluation.ares.run_evaluation import run_context_relevance_evaluation
 from scripts.evaluation.ares.report import generate_evaluation_report
+from scripts.evaluation.ares.run_evaluation import run_context_relevance_evaluation
 
 __all__ = [
     "convert_gold_standard_to_ares",

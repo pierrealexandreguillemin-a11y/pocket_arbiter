@@ -11,7 +11,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-
 # Path constants
 BASE_DIR = Path(__file__).parent.parent.parent.parent
 DATA_DIR = BASE_DIR / "data" / "evaluation" / "ares"

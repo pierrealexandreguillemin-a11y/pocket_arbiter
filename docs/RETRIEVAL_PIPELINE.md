@@ -228,14 +228,6 @@ CREATE VIRTUAL TABLE chunks_fts USING fts5(
 - Snowball French stemmer (optionnel)
 - Stopwords FR
 
-### 10. Reranking (Optionnel)
-
-**Fichier:** `scripts/pipeline/reranker.py`
-
-- Modele: `BAAI/bge-reranker-v2-m3`
-- Usage: Pool large (100) -> rerank -> top-k final
-- Status: Implemente, CPU lent (~2h pour benchmark)
-
 ---
 
 ## Mesure du Recall

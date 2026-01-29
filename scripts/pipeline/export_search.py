@@ -12,7 +12,6 @@ import logging
 import os
 import sqlite3
 from pathlib import Path
-from typing import TYPE_CHECKING
 
 import numpy as np
 
@@ -83,6 +82,21 @@ def _is_glossary_chunk(chunk_id: str, source: str, page: int) -> bool:
             return True
 
     return False
+
+
+def _apply_glossary_boost(
+    base_score: float,
+    glossary_boost: float | None,
+    chunk_id: str,
+    source: str,
+    page: int,
+) -> tuple[float, bool]:
+    """Apply glossary boost to a chunk score if enabled."""
+    if glossary_boost is None:
+        return base_score, False
+    is_glossary = _is_glossary_chunk(chunk_id, source, page)
+    score = base_score * glossary_boost if is_glossary else base_score
+    return score, is_glossary
 
 
 def retrieve_similar(
@@ -168,16 +182,10 @@ def retrieve_similar(
             # Cosine similarity (embeddings should be normalized)
             base_score = float(np.dot(query_embedding, embedding))
 
-            # Apply glossary boost if enabled
-            is_glossary = False
-            if glossary_boost is not None:
-                is_glossary = _is_glossary_chunk(chunk_id, source, page)
-                if is_glossary:
-                    score = base_score * glossary_boost
-                else:
-                    score = base_score
-            else:
-                score = base_score
+            # Apply glossary boost and build result
+            score, is_glossary = _apply_glossary_boost(
+                base_score, glossary_boost, chunk_id, source, page
+            )
 
             result = {
                 "id": chunk_id,
@@ -434,98 +442,6 @@ def retrieve_hybrid(
     return results
 
 
-def retrieve_hybrid_rerank(
-    db_path: Path,
-    query_embedding: np.ndarray,
-    query_text: str,
-    reranker: "CrossEncoder",
-    top_k_retrieve: int = DEFAULT_INITIAL_K,
-    top_k_final: int = 5,
-    vector_weight: float = DEFAULT_VECTOR_WEIGHT,
-    bm25_weight: float = DEFAULT_BM25_WEIGHT,
-    use_query_expansion: bool = True,
-    expanded_query_embedding: "np.ndarray | None" = None,
-) -> list[dict]:
-    """
-    Recherche hybride avec reranking cross-encoder (Funnel Mode).
-
-    Pipeline 2025 enterprise standard pour recall optimal:
-    1. Query expansion (synonymes chess FR)
-    2. Retrieve top_k_retrieve (100) avec hybrid search (BM25 + vector + RRF)
-    3. Rerank pool complet avec cross-encoder
-    4. Return top_k_final (5)
-
-    Research: Databricks +48% recall (74%->89%), VectorHub/Superlinked Funnel Mode.
-
-    ISO Reference:
-        - ISO/IEC 25010 - Performance efficiency (Recall >= 90%)
-
-    Args:
-        db_path: Chemin de la base SQLite.
-        query_embedding: Vecteur query normalise.
-        query_text: Texte de la query pour BM25 et reranking.
-        reranker: CrossEncoder charge pour reranking.
-        top_k_retrieve: Pool initial avant rerank (defaut 100 - Funnel Mode).
-        top_k_final: Nombre de resultats finaux apres reranking (defaut 5).
-        vector_weight: Poids de la recherche vectorielle (defaut 0.4).
-        bm25_weight: Poids de la recherche BM25 (defaut 0.6).
-        use_query_expansion: Utiliser l'expansion de query (defaut True).
-        expanded_query_embedding: Embedding de la query expandue (optionnel).
-            Si fourni, utilise pour la recherche vectorielle.
-
-    Returns:
-        Liste de dicts avec id, text, source, page, hybrid_score, rerank_score.
-
-    Example:
-        >>> from scripts.pipeline.reranker import load_reranker
-        >>> reranker = load_reranker()
-        >>> results = retrieve_hybrid_rerank(
-        ...     db_path, query_emb, "toucher-jouer", reranker
-        ... )
-    """
-    from scripts.pipeline.reranker import rerank
-
-    # Step 0: Query expansion for BM25 (adds synonyms)
-    bm25_query = query_text
-    if use_query_expansion:
-        from scripts.pipeline.query_expansion import expand_query_bm25
-
-        expanded = expand_query_bm25(query_text)
-        if expanded:
-            bm25_query = f"{query_text} {expanded}"
-
-    # Use expanded embedding if provided, otherwise use original
-    vector_embedding = (
-        expanded_query_embedding
-        if expanded_query_embedding is not None
-        else query_embedding
-    )
-
-    # Step 1: Hybrid search (BM25 + vector with RRF)
-    hybrid_results = retrieve_hybrid(
-        db_path,
-        vector_embedding,  # Use expanded embedding if available
-        bm25_query,  # Use expanded query for BM25
-        top_k=top_k_retrieve,
-        vector_weight=vector_weight,
-        bm25_weight=bm25_weight,
-    )
-
-    if not hybrid_results:
-        return []
-
-    # Step 2: Rerank with cross-encoder (use original query)
-    reranked = rerank(
-        query=query_text,  # Use original query for reranking
-        chunks=hybrid_results,
-        model=reranker,
-        top_k=top_k_final,
-        content_key="text",
-    )
-
-    return reranked
-
-
 # =============================================================================
 # Smart Retrieve (auto source_filter)
 # =============================================================================
@@ -754,7 +670,3 @@ def retrieve_with_glossary_boost(
 
     return results
 
-
-# Type hint for CrossEncoder (imported only for type checking)
-if TYPE_CHECKING:
-    from sentence_transformers import CrossEncoder

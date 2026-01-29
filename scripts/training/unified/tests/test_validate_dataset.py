@@ -3,12 +3,12 @@
 import pytest
 
 from scripts.training.unified.validate_dataset import (
+    DEDUP_THRESHOLD,
+    ENTROPY_THRESHOLD,
     check_exact_duplicates,
     compute_entropy,
     compute_text_hash,
     validate_schema,
-    DEDUP_THRESHOLD,
-    ENTROPY_THRESHOLD,
 )
 
 

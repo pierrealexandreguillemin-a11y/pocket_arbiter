@@ -123,7 +123,7 @@ def main() -> None:
     unanswerable_path = Path("tests/data/tier1_unanswerable.json")
     hard_answerable_path = Path("tests/data/tier1_hard_answerable.json")
 
-    with open(review_path, "r", encoding="utf-8") as f:
+    with open(review_path, encoding="utf-8") as f:
         review = json.load(f)
 
     tier1_types = [

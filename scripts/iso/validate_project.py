@@ -12,12 +12,12 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any
 
-from .utils import Icons, Colors, colored
+from .checks import ISO12207Checks, ISO25010Checks, ISO29119Checks, ISO42001Checks
 from .gates import ExecutableGates
 from .phases import PhaseValidator
-from .checks import ISO12207Checks, ISO25010Checks, ISO29119Checks, ISO42001Checks
+from .utils import Colors, Icons, colored
 
 
 class ISOValidator:
@@ -26,17 +26,17 @@ class ISOValidator:
     def __init__(self, project_root: Path, verbose: bool = False):
         self.root = project_root
         self.verbose = verbose
-        self.errors: List[str] = []
-        self.warnings: List[str] = []
-        self.passed: List[str] = []
+        self.errors: list[str] = []
+        self.warnings: list[str] = []
+        self.passed: list[str] = []
 
-    def _make_checker(self, cls):
+    def _make_checker(self, cls: type) -> Any:
         """Create a checker instance with shared state."""
         return cls(self.root, self.errors, self.warnings, self.passed, self.verbose)
 
     def validate_all(
-        self, phase: Optional[int] = None, run_gates: bool = False
-    ) -> Tuple[bool, Dict]:
+        self, phase: int | None = None, run_gates: bool = False
+    ) -> tuple[bool, dict]:
         """Run all validations."""
         print(colored("=" * 60, Colors.BLUE))
         print(colored("  ISO Validation - Pocket Arbiter", Colors.BLUE))
@@ -92,7 +92,7 @@ class ISOValidator:
             },
         }
 
-    def _print_summary(self):
+    def _print_summary(self) -> None:
         """Print validation summary."""
         print(colored("\n" + "=" * 60, Colors.BLUE))
         print(colored("  RÉSUMÉ", Colors.BLUE))
@@ -122,7 +122,7 @@ class ISOValidator:
         print(colored("=" * 60, Colors.BLUE))
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Valide la conformité ISO")
     parser.add_argument("--phase", "-p", type=int, choices=[0, 1, 2, 3, 4, 5])
     parser.add_argument("--verbose", "-v", action="store_true")

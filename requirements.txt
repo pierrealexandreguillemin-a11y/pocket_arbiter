@@ -14,9 +14,6 @@ langchain-text-splitters>=0.3.0  # RecursiveCharacterTextSplitter
 # === Embeddings (Google) ===
 sentence-transformers>=5.2.0  # EmbeddingGemma support, MRL
 
-# === Reranker (BAAI) ===
-FlagEmbedding>=1.3.5  # bge-reranker-v2-m3, multilingual
-
 # === On-device (Google AI Edge) ===
 ai-edge-litert>=2.1.0  # LiteRT successor to TFLite
 

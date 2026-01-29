@@ -19,9 +19,9 @@ Usage:
 """
 
 import json
-from pathlib import Path
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Callable
+from pathlib import Path
 
 
 @dataclass
@@ -271,15 +271,15 @@ def main():
 
         # Import retrieval components
         try:
-            from pathlib import Path as P
             import sys
+            from pathlib import Path as P
 
             # Add project root to path for imports
             project_root = P(__file__).parent.parent.parent
             if str(project_root) not in sys.path:
                 sys.path.insert(0, str(project_root))
 
-            from scripts.pipeline.embeddings import load_embedding_model, embed_query
+            from scripts.pipeline.embeddings import embed_query, load_embedding_model
             from scripts.pipeline.export_search import retrieve_similar
 
             # Load model and DB

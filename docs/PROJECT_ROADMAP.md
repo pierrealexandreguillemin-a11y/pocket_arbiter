@@ -137,7 +137,6 @@ Generer embeddings et exporter au format Google AI Edge RAG SDK.
 | `scripts/pipeline/embeddings.py` | Generation vecteurs 768D | ✅ |
 | `scripts/pipeline/export_sdk.py` | Export format SqliteVectorStore | ✅ |
 | `scripts/pipeline/export_search.py` | Hybrid BM25+Vector+RRF + glossary boost | ✅ ENHANCED |
-| `scripts/pipeline/reranker.py` | Cross-encoder reranking | ✅ NEW |
 | `corpus/processed/corpus_mode_b_fr.db` | Base SQLite FR (9.8 MB) - ACTIF | ✅ |
 | `corpus/processed/corpus_mode_a_intl.db` | Base SQLite INTL (OBSOLETE) | ⏸️ A reconstruire |
 

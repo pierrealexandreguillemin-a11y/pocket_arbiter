@@ -30,7 +30,7 @@ def load_json(file_path: Path) -> dict:
         FileNotFoundError: Si le fichier n'existe pas.
         json.JSONDecodeError: Si le JSON est invalide.
     """
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         return json.load(f)
 
 

@@ -4,7 +4,7 @@
 import os
 from unittest.mock import patch
 
-from ..utils import Colors, Icons, colored, _is_fancy_terminal, _get_colors, _get_icons
+from ..utils import Colors, Icons, _get_colors, _get_icons, _is_fancy_terminal, colored
 
 
 class TestIsFancyTerminal:

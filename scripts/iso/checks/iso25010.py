@@ -2,7 +2,7 @@
 """ISO/IEC 25010 - Software Quality Checks."""
 
 from ..base import BaseChecker
-from ..utils import Icons, Colors, colored
+from ..utils import Colors, Icons, colored
 
 
 class ISO25010Checks(BaseChecker):

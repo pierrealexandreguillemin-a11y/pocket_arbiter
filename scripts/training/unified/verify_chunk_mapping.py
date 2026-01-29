@@ -13,11 +13,10 @@ ISO 29119: Test data quality
 """
 
 import json
-import sqlite3
 import re
-from dataclasses import dataclass
-from typing import Optional
+import sqlite3
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass
 
 # Difficulty taxonomy constants
 DIFFICULTY_SINGLE_HOP = 0.3  # Direct fact lookup
@@ -53,7 +52,7 @@ def get_chunks_for_source(conn: sqlite3.Connection, source_pattern: str) -> list
     ]
 
 
-def extract_article_reference(text: str) -> Optional[str]:
+def extract_article_reference(text: str) -> str | None:
     """Extract article number from text (e.g., 'Article 7.5.5')."""
     patterns = [
         r"Article\s*(\d+\.\d+\.\d+\.\d+)",
@@ -166,7 +165,7 @@ def classify_retrieval_difficulty(question: dict, best_chunk: dict) -> float:
 
 def find_best_chunk_for_question(
     question: dict, chunks: list[dict]
-) -> tuple[Optional[str], float]:
+) -> tuple[str | None, float]:
     """
     Find the best matching chunk for a question.
 

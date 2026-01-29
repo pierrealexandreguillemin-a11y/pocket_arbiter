@@ -30,7 +30,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from pydantic import BaseModel, Field
 
@@ -48,8 +48,8 @@ class ChildDocument(BaseModel):
     doc_id: str  # Link to parent
     type: str = "table_summary"
     text: str = Field(..., min_length=1)
-    source: Optional[str] = None
-    page: Optional[int] = None
+    source: str | None = None
+    page: int | None = None
     table_type: str = "other"
 
 
@@ -59,8 +59,8 @@ class ParentDocument(BaseModel):
     id: str
     type: str = "table"
     table_type: str = "other"
-    source: Optional[str] = None
-    page: Optional[int] = None
+    source: str | None = None
+    page: int | None = None
     headers: list[str] = Field(default_factory=list)
     rows: list[list[str]] = Field(default_factory=list)
     markdown: str = ""

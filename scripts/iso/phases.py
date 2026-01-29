@@ -2,11 +2,10 @@
 """Phase-specific validation for ISO compliance."""
 
 from pathlib import Path
-from typing import List
 
 from .base import BaseChecker
 from .gates import ExecutableGates
-from .utils import Icons, Colors, colored
+from .utils import Colors, Icons, colored
 
 
 class PhaseValidator(BaseChecker):
@@ -15,9 +14,9 @@ class PhaseValidator(BaseChecker):
     def __init__(
         self,
         root: Path,
-        errors: List[str],
-        warnings: List[str],
-        passed: List[str],
+        errors: list[str],
+        warnings: list[str],
+        passed: list[str],
         verbose: bool = False,
     ):
         super().__init__(root, errors, warnings, passed, verbose)

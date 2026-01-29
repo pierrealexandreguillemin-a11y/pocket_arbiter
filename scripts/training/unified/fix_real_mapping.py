@@ -9,10 +9,10 @@ ISO 42001 A.6.2.2: Provenance traçable = chunk contient réponse
 """
 
 import json
-import sqlite3
 import re
-from pathlib import Path
+import sqlite3
 from collections import defaultdict
+from pathlib import Path
 
 GS_PATH = Path("tests/data/gold_standard_annales_fr.json")
 DB_PATH = Path("corpus/processed/corpus_mode_b_fr.db")

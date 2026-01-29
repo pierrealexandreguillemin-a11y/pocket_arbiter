@@ -19,7 +19,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-
 # Reasoning type priority (higher = keep)
 RT_PRIORITY = {
     "multi-hop": 3,
@@ -161,7 +160,7 @@ def main() -> int:
 
     # Load input
     print(f"Loading: {input_path}")
-    with open(input_path, "r", encoding="utf-8") as f:
+    with open(input_path, encoding="utf-8") as f:
         data = json.load(f)
 
     questions = data.get("questions", [])

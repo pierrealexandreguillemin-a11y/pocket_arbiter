@@ -4,7 +4,7 @@
 import json
 
 from ..base import BaseChecker
-from ..utils import Icons, Colors, colored
+from ..utils import Colors, Icons, colored
 
 
 class ISO12207Checks(BaseChecker):
@@ -16,7 +16,7 @@ class ISO12207Checks(BaseChecker):
         if not config_file.exists():
             return 0
         try:
-            with open(config_file, "r", encoding="utf-8") as f:
+            with open(config_file, encoding="utf-8") as f:
                 config = json.load(f)
             phases = config.get("phases", [])
             for phase in reversed(phases):

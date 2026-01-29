@@ -181,7 +181,7 @@ def save_pairs_jsonl(pairs: list[dict], output_path: Path) -> None:
 def load_pairs_jsonl(input_path: Path) -> list[dict]:
     """Charge les paires depuis un fichier JSONL."""
     pairs = []
-    with open(input_path, "r", encoding="utf-8") as f:
+    with open(input_path, encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 pairs.append(json.loads(line))

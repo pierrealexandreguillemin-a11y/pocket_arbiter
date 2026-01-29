@@ -18,13 +18,13 @@ ISO 42001: Correction anti-hallucination avec traçabilité
 import json
 import re
 import sys
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 
 def load_json(path: str) -> dict:
     """Load JSON file with UTF-8 encoding."""
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -95,13 +95,11 @@ def extract_question_keywords(question: str, min_length: int = 4) -> list[str]:
         "quelles",
         "comment",
         "combien",
-        "quel",
         "propositions",
         "proposition",
         "suivantes",
         "suivante",
         "parmi",
-        "correspond",
         "correspond",
         "lequel",
         "laquelle",
@@ -132,8 +130,6 @@ def extract_question_keywords(question: str, min_length: int = 4) -> list[str]:
         "vers",
         "chez",
         "contre",
-        "entre",
-        "parmi",
         "sauf",
         "seront",
         "aurons",

@@ -37,7 +37,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-
 # Schema field order (industry standards)
 FIELD_ORDER = [
     "id",
@@ -357,7 +356,7 @@ def main() -> int:
 
     # Load input
     print(f"Loading: {input_path}")
-    with open(input_path, "r", encoding="utf-8") as f:
+    with open(input_path, encoding="utf-8") as f:
         data = json.load(f)
 
     # Migrate

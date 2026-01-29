@@ -77,7 +77,7 @@ def load_triplets_jsonl(input_path: Path) -> list[dict]:
     if not input_path.exists():
         raise FileNotFoundError(f"Triplets file not found: {input_path}")
     triplets = []
-    with open(input_path, "r", encoding="utf-8") as f:
+    with open(input_path, encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 triplets.append(json.loads(line))

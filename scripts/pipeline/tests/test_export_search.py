@@ -15,6 +15,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+from scripts.pipeline.export_sdk import create_vector_db
 from scripts.pipeline.export_search import (
     DEFAULT_BM25_WEIGHT,
     DEFAULT_VECTOR_WEIGHT,
@@ -24,8 +25,6 @@ from scripts.pipeline.export_search import (
     retrieve_similar,
     search_bm25,
 )
-from scripts.pipeline.export_sdk import create_vector_db
-
 
 # =============================================================================
 # Fixtures

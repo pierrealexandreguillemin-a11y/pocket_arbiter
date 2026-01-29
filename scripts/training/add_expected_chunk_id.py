@@ -13,8 +13,8 @@ ISO 29119-3 - Test data documented
 """
 
 import json
-import sqlite3
 import re
+import sqlite3
 from pathlib import Path
 from typing import Any
 

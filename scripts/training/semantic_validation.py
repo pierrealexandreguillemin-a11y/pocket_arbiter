@@ -176,8 +176,6 @@ def extract_corpus_keywords(text: str, min_len: int = 3) -> list[str]:
         "game",
         "games",
         "arbiter",
-        "shall",
-        "must",
         "move",
         "moves",
         "piece",
@@ -232,7 +230,7 @@ def validate_question(
         content = index.get((source, page), "")
         if not content and expected_docs:
             # Essayer sans extension ou avec variantes
-            for alt_source in index.keys():
+            for alt_source in index:
                 if alt_source[1] == page:
                     # Vérifier si le nom de source est similaire
                     if (

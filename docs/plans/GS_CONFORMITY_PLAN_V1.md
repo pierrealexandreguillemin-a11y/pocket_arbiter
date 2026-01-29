@@ -579,6 +579,11 @@ assert (unified / 'dataset_composition.json').exists()
 
 ## 5. VALIDATION FINALE
 
+> **Note**: Ce script est un contrôle rapide "one-shot" exécutable en une commande.
+> Il vérifie les mêmes critères que les quality gates §6.4 mais sans décomposition
+> par phase. Usage: vérification finale post-Phase 3 OU diagnostic rapide à tout moment.
+> Les gates §6.4 sont la référence normative (ISO 29119); ce script est un outil pratique.
+
 ```bash
 python -c "
 import json
@@ -651,7 +656,12 @@ else:
 
 > **ISO 29119**: Vérification et validation à chaque niveau
 > **ISO 42001 A.7.3**: Documentation des décisions IA
-> **QUALITY_REQUIREMENTS.md §4**: TD-01..05, TT-01..05, TV-01..04
+> **QUALITY_REQUIREMENTS.md §4**:
+>   - §4.1 Gold Standard: TD-01..05 (taille, couverture, adversariales, validation, dedup)
+>   - §4.2 Triplets: TT-01..05 (hard neg, anchor indep, diversity, grounded, collapse)
+>   - §4.3 Benchmarks: TB-01..05 (MTEB, MMTEB, BEIR, RAGAS, ARES) — post-fine-tuning
+>   - §4.4 Synthetic: TS-01..05 (ratio, LLM-judge, human review, dedup, diversity) — si applicable
+>   - §4.5 DVC: TV-01..04 (version, reproducibility, lineage, schema)
 
 ### 6.1 Niveaux de qualité
 
@@ -744,6 +754,10 @@ tests/data/checkpoints/
 | G0-7 | REGRESSION CB-02, CB-03 | PASS | OUI |
 | G0-8 | REGRESSION CQ-01, CQ-08 | PASS | OUI |
 | G0-9 | REGRESSION F-02, F-03, M-03, M-04 | PASS | OUI |
+| G0-10 | CB-05 zero recursive generation | 0% | OUI |
+| G0-11 | CB-06 lineage documentée | 100% | OUI |
+| G0-12 | CB-07 expected_docs present | 100% | OUI |
+| G0-13 | CB-08 expected_pages present | >= 80% | OUI |
 
 ```python
 # Script gate Phase 0 → Phase 1
@@ -777,7 +791,39 @@ def gate_phase0(gs):
         if len(q['question'].strip()) < 10:
             errors.append(f"G0-9 REGRESSION F-02: {q['id']}")
 
-    # Alerte non-bloquante
+    # G0-10: CB-05 zero recursive generation
+    for q in questions:
+        if q.get('metadata',{}).get('generation_depth', 0) > 0:
+            errors.append(f"G0-10 FAIL: {q['id']} recursive generation detected")
+
+    # G0-11: CB-06 lineage
+    for q in questions:
+        if not q.get('metadata',{}).get('original_question'):
+            errors.append(f"G0-11 FAIL: {q['id']} no lineage (original_question)")
+
+    # G0-12: CB-07 expected_docs
+    for q in questions:
+        if not q.get('metadata',{}).get('expected_docs'):
+            errors.append(f"G0-12 FAIL: {q['id']} no expected_docs")
+
+    # G0-13: CB-08 expected_pages >= 80%
+    with_pages = sum(1 for q in questions if q.get('metadata',{}).get('expected_pages'))
+    if with_pages < 0.8 * len(questions):
+        errors.append(f"G0-13 FAIL: expected_pages {with_pages}/{len(questions)} < 80%")
+
+    # G0-5: Spot-check log (tous pass)
+    spot_log = Path('tests/data/checkpoints/spot_check_log.jsonl')
+    if spot_log.exists():
+        import json as _json
+        with open(spot_log, encoding='utf-8') as f:
+            checks = [_json.loads(line) for line in f if line.strip()]
+        fails = [c for c in checks if not c.get('pass')]
+        if fails:
+            errors.append(f"G0-5 FAIL: {len(fails)} spot-check failures")
+    else:
+        errors.append("G0-5 FAIL: spot_check_log.jsonl not found")
+
+    # G0-6: Alerte non-bloquante
     qc = [q for q in questions if q.get('metadata',{}).get('quality_check',{}).get('confidence',1) < 0.7]
     if len(qc) > 0.1 * len(questions):
         warnings.append(f"G0-6 WARN: {len(qc)}/{len(questions)} low confidence")
@@ -795,6 +841,38 @@ def gate_phase0(gs):
 | G1-4 | F-04 expected_answer > 5 chars review | 100% traité | OUI |
 | G1-5 | REGRESSION: tous critères Phase 0 | PASS | OUI |
 
+```python
+def gate_phase1(gs):
+    errors, warnings = [], []
+    questions = gs['questions']
+    rc = [q for q in questions if q.get('metadata',{}).get('requires_context')]
+
+    # G1-1: CB-09
+    for q in rc:
+        if not q.get('metadata',{}).get('requires_context_reason'):
+            errors.append(f"G1-1 FAIL: {q['id']} no requires_context_reason")
+
+    # G1-2 + G1-3: M-01/M-02
+    for q in questions:
+        d = q.get('metadata',{}).get('difficulty')
+        if d is None:
+            errors.append(f"G1-2 FAIL: {q['id']} no difficulty")
+        elif not (0 <= d <= 1):
+            errors.append(f"G1-3 FAIL: {q['id']} difficulty={d} not in [0,1]")
+
+    # G1-4: F-04 review status
+    short_answers = [q for q in questions if len(q.get('expected_answer','').strip()) <= 5]
+    for q in short_answers:
+        if not q.get('metadata',{}).get('short_answer_reviewed'):
+            errors.append(f"G1-4 FAIL: {q['id']} short answer not reviewed")
+
+    # G1-5: Regression Phase 0
+    reg_errors = regression_check(gs, phase_completed=0)
+    errors.extend(f"G1-5 {e}" for e in reg_errors)
+
+    return errors, warnings
+```
+
 #### GATE 2→3: Hard negatives validés
 
 | # | Critère | Seuil | Bloquant |
@@ -807,6 +885,64 @@ def gate_phase0(gs):
 | G2-6 | Faux négatifs rejetés par LLM | 100% documentés | OUI |
 | G2-7 | REGRESSION: tous critères Phases 0+1 | PASS | OUI |
 
+```python
+def gate_phase2(gs, chunks_by_id):
+    errors, warnings = [], []
+    questions = gs['questions']
+    testables = [q for q in questions if not q.get('metadata',{}).get('requires_context')]
+
+    total_hns, same_doc_hns = 0, 0
+    seen_neg_ids = {}  # question_id -> set of neg chunk ids
+
+    for q in testables:
+        hns = q.get('metadata',{}).get('hard_negatives', [])
+        positive_id = q.get('expected_chunk_id','')
+
+        # G2-1: >= 3 hard negatives
+        if len(hns) < 3:
+            errors.append(f"G2-1 FAIL: {q['id']} has {len(hns)} hard negatives")
+
+        neg_ids = set()
+        for hn in hns:
+            hn_id = hn.get('chunk_id','')
+            # G2-3: negative != positive
+            if hn_id == positive_id:
+                errors.append(f"G2-3 FAIL: {q['id']} negative == positive ({hn_id})")
+            # G2-2: duplicates
+            if hn_id in neg_ids:
+                errors.append(f"G2-2 FAIL: {q['id']} duplicate negative {hn_id}")
+            neg_ids.add(hn_id)
+            # G2-4: same_doc ratio
+            total_hns += 1
+            if hn.get('source') == 'same_doc':
+                same_doc_hns += 1
+            # G2-6: false negatives documented
+            if hn.get('is_false_negative') and not hn.get('reason'):
+                errors.append(f"G2-6 FAIL: {q['id']} false negative not documented")
+
+    # G2-4: global same_doc ratio
+    if total_hns > 0 and same_doc_hns / total_hns < 0.4:
+        errors.append(f"G2-4 FAIL: same_doc ratio {same_doc_hns}/{total_hns} < 40%")
+
+    # G2-5: Spot-check (same pattern as G0-5)
+    spot_log = Path('tests/data/checkpoints/spot_check_phase2_log.jsonl')
+    if spot_log.exists():
+        import json as _json
+        with open(spot_log, encoding='utf-8') as f:
+            checks = [_json.loads(line) for line in f if line.strip()]
+        fails = [c for c in checks if not c.get('pass')]
+        if fails:
+            errors.append(f"G2-5 FAIL: {len(fails)} spot-check failures")
+    else:
+        errors.append("G2-5 FAIL: spot_check_phase2_log.jsonl not found")
+
+    # G2-7: Regression Phases 0+1
+    reg_errors = regression_check(gs, phase_completed=1)
+    errors.extend(f"G2-7 {e}" for e in reg_errors)
+
+    return errors, warnings
+```
+
 #### GATE 3→Fine-tuning: Export validé
 
 | # | Critère | Seuil | Bloquant |
@@ -818,6 +954,87 @@ def gate_phase0(gs):
 | G3-5 | Val = 100% gold_standard | TRUE | OUI |
 | G3-6 | QA-01 deduplication < 5% | < 5% | NON (alerte) |
 | G3-7 | REGRESSION complète Phases 0+1+2 | PASS | OUI |
+
+```python
+def gate_phase3(gs):
+    import json as _json
+    import jsonschema
+    from pathlib import Path
+
+    errors, warnings = [], []
+    unified = Path('data/training/unified')
+
+    # G3-1: All 6 formats exist
+    required = {
+        'EX-01': 'triplets_train.jsonl',
+        'EX-02': 'ares_train.tsv',
+        'EX-03': 'beir/queries.jsonl',
+        'EX-04': 'ragas_val.jsonl',
+        'EX-05': 'triplets_train.jsonl.dvc',  # DVC tracked
+        'EX-06': 'dataset_composition.json',
+    }
+    for ex_id, path in required.items():
+        if not (unified / path).exists():
+            errors.append(f"G3-1 FAIL: {ex_id} missing {path}")
+
+    # G3-2: Schema validation
+    schema_path = Path('docs/schemas/triplet_schema.json')
+    if schema_path.exists():
+        with open(schema_path, encoding='utf-8') as f:
+            schema = _json.load(f)
+        for split in ['triplets_train.jsonl', 'triplets_val.jsonl']:
+            fpath = unified / split
+            if fpath.exists():
+                with open(fpath, encoding='utf-8') as f:
+                    for i, line in enumerate(f):
+                        try:
+                            jsonschema.validate(_json.loads(line), schema)
+                        except jsonschema.ValidationError as e:
+                            errors.append(f"G3-2 FAIL: {split}:{i} {e.message[:80]}")
+
+    # G3-3: Split 80/20 seed=42
+    comp_path = unified / 'dataset_composition.json'
+    if comp_path.exists():
+        with open(comp_path, encoding='utf-8') as f:
+            comp = _json.load(f)
+        splits = comp.get('splits', {})
+        if splits.get('train', {}).get('percentage') != 80:
+            errors.append(f"G3-3 FAIL: train split != 80%")
+        if splits.get('val', {}).get('percentage') != 20:
+            errors.append(f"G3-3 FAIL: val split != 20%")
+
+    # G3-4: No data leakage
+    train_ids, val_ids = set(), set()
+    for split, id_set in [('triplets_train.jsonl', train_ids), ('triplets_val.jsonl', val_ids)]:
+        fpath = unified / split
+        if fpath.exists():
+            with open(fpath, encoding='utf-8') as f:
+                for line in f:
+                    t = _json.loads(line)
+                    id_set.add(t.get('metadata',{}).get('question_id',''))
+    overlap = train_ids & val_ids
+    if overlap:
+        errors.append(f"G3-4 FAIL: {len(overlap)} question_ids in both train/val")
+
+    # G3-5: Val = 100% gold_standard
+    val_path = unified / 'triplets_val.jsonl'
+    if val_path.exists():
+        with open(val_path, encoding='utf-8') as f:
+            for line in f:
+                t = _json.loads(line)
+                if t.get('metadata',{}).get('source') != 'gold_standard':
+                    errors.append(f"G3-5 FAIL: val contains non-GS source")
+                    break
+
+    # G3-6: Deduplication (alerte)
+    # Vérifié par validate_dataset.py, résultat dans composition report
+
+    # G3-7: Regression complète
+    reg_errors = regression_check(gs, phase_completed=2)
+    errors.extend(f"G3-7 {e}" for e in reg_errors)
+
+    return errors, warnings
+```
 
 ### 6.5 Checkpoint et rollback
 

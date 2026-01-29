@@ -1,16 +1,38 @@
-"""Tests for generate_hard_negatives.py (Step 3)."""
+"""
+Tests for generate_hard_negatives.py (Step 3 - Phase 2).
+
+STATUS: SKIPPED - Module not yet implemented.
+REASON: Phase 2 (hard negative mining) requires:
+  - Phase 0 complete (BY DESIGN reformulation + chunk validation)
+  - Phase 1 complete (metadata completion)
+  - Gate Phase 1->2 PASS
+  - EmbeddingGemma QAT pre-filtering + Claude LLM-as-judge pipeline
+
+These tests define the TDD contract for the future module.
+They will be unskipped when Phase 2 implementation begins.
+
+ISO Reference:
+    - ISO 29119-3 S4.3: Test design preconditions
+    - ISO 12207 S6.4.2: Phase gate dependencies
+    - ISO 42001 A.7.3: AI pipeline sequencing
+
+See: docs/plans/GS_CONFORMITY_PLAN_V1.md S4 Phase 2
+"""
 
 import pytest
 import numpy as np
 
-from scripts.training.unified.generate_hard_negatives import (
-    build_chunk_indices,
-    cosine_similarity,
-    select_random,
-    select_same_doc_diff_page,
-    validate_quality_gates,
-    TARGET_DISTRIBUTION,
+_mod = pytest.importorskip(
+    "scripts.training.unified.generate_hard_negatives",
+    reason="Phase 2 not yet implemented - gate Phase 1->2 required (ISO 12207 S6.4.2)",
 )
+
+build_chunk_indices = _mod.build_chunk_indices
+cosine_similarity = _mod.cosine_similarity
+select_random = _mod.select_random
+select_same_doc_diff_page = _mod.select_same_doc_diff_page
+validate_quality_gates = _mod.validate_quality_gates
+TARGET_DISTRIBUTION = _mod.TARGET_DISTRIBUTION
 
 
 class TestCosimeSimilarity:

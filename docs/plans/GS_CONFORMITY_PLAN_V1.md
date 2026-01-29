@@ -421,7 +421,7 @@ q['metadata']['hard_negatives'] = [
 ]
 q['metadata']['hard_negative_mining'] = {
     'method': 'hybrid_claude_embeddinggemma',
-    'pre_filter': 'google/embeddinggemma-300m',
+    'pre_filter': 'google/embeddinggemma-300m-qat-q4_0-unquantized',
     'judge': 'claude-opus-4-5-20251101',
     'num_candidates': 10,
     'num_selected': 5,
@@ -819,7 +819,7 @@ def gate_phase0(gs):
 | G3-6 | QA-01 deduplication < 5% | < 5% | NON (alerte) |
 | G3-7 | REGRESSION complète Phases 0+1+2 | PASS | OUI |
 
-### 6.5 Q6 — Checkpoint et rollback
+### 6.5 Checkpoint et rollback
 
 **Stratégie par phase:**
 
@@ -857,6 +857,10 @@ def regression_check(gs, phase_completed):
             errors.append(f"REGRESSION CQ-08: {q['id']}")
         if len(q['question'].strip()) < 10:
             errors.append(f"REGRESSION F-02: {q['id']}")
+        if not q.get('metadata',{}).get('cognitive_level'):
+            errors.append(f"REGRESSION M-03: {q['id']}")
+        if not q.get('metadata',{}).get('category'):
+            errors.append(f"REGRESSION M-04: {q['id']}")
 
     if phase_completed >= 0:
         for q in questions:
@@ -876,8 +880,11 @@ def regression_check(gs, phase_completed):
 
     if phase_completed >= 2:
         for q in testables:
-            if len(q.get('metadata',{}).get('hard_negatives',[])) < 3:
+            hns = q.get('metadata',{}).get('hard_negatives',[])
+            if len(hns) < 3:
                 errors.append(f"REGRESSION CT-01: {q['id']}")
+            # F-03: positive chunk text >= 50 chars (vérifiable via chunk)
+            # Vérifié dans validate_quality_gates(), pas ici (besoin du corpus)
 
     return errors
 ```

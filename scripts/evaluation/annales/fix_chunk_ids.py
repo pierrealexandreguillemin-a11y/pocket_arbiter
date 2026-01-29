@@ -283,7 +283,7 @@ def fix_chunk_ids_multipass(
                 q["expected_chunk_id"] = new_id
 
                 # Update audit trail
-                audit_note = f"[P{thresholds.index(threshold)+1}:{threshold}] {old_id} -> {new_id} (score:{best['score']:.2f}, src:{best['source']})"
+                audit_note = f"[P{thresholds.index(threshold) + 1}:{threshold}] {old_id} -> {new_id} (score:{best['score']:.2f}, src:{best['source']})"
                 q["audit"] = (q.get("audit", "") + " " + audit_note).strip()
 
                 fix_info = {

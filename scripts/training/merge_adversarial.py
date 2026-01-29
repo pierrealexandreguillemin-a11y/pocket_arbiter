@@ -89,7 +89,7 @@ def merge_adversarial(dry_run: bool = False) -> None:
     )
     gs_fr["statistics"]["adversarial_questions"] = adv_count
     gs_fr["statistics"]["adversarial_ratio"] = (
-        f"{adv_count/len(gs_fr['questions'])*100:.1f}%"
+        f"{adv_count / len(gs_fr['questions']) * 100:.1f}%"
     )
 
     # Merge INTL
@@ -131,10 +131,10 @@ def merge_adversarial(dry_run: bool = False) -> None:
     print(f"  Total: {total}")
     print("\nAdversarial ratio:")
     print(
-        f"  Unanswerable: {unanswerable_total}/{total} ({unanswerable_total/total*100:.1f}%)"
+        f"  Unanswerable: {unanswerable_total}/{total} ({unanswerable_total / total * 100:.1f}%)"
     )
     print(
-        f"  Answerable: {total - unanswerable_total}/{total} ({(total-unanswerable_total)/total*100:.1f}%)"
+        f"  Answerable: {total - unanswerable_total}/{total} ({(total - unanswerable_total) / total * 100:.1f}%)"
     )
 
     # Conformance check

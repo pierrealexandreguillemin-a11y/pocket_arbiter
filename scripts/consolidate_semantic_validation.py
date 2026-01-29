@@ -120,7 +120,7 @@ def main():
     ts = consolidated["total_summary"]
     print("\n=== RESUME FINAL ===")
     print(f"Total questions: {ts['total']}")
-    print(f"  KEEP: {ts['keep']} ({ts['keep']/ts['total']*100:.1f}%)")
+    print(f"  KEEP: {ts['keep']} ({ts['keep'] / ts['total'] * 100:.1f}%)")
     print(f"  WRONG_CORRECTED: {ts['wrong_corrected']}")
     print(f"  WRONG_NO_CHUNK: {ts['wrong_no_chunk']}")
     print(f"  PARTIAL_ACCEPTABLE: {ts['partial_acceptable']}")

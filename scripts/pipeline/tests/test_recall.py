@@ -296,7 +296,7 @@ def main():
             print("\nFailed questions:")
             for q in result["failed_questions"]:
                 print(
-                    f"  {q['id']}: {q['recall']*100:.0f}% - expected {q['expected_pages']}, got {q['retrieved_pages']}"
+                    f"  {q['id']}: {q['recall'] * 100:.0f}% - expected {q['expected_pages']}, got {q['retrieved_pages']}"
                 )
 
     # Final result

@@ -374,7 +374,7 @@ def run_generation(
 
         # Checkpoint every 100 chunks
         if (i + 1) % 100 == 0:
-            checkpoint_path = output_dir / f"checkpoint_{corpus}_{i+1}.json"
+            checkpoint_path = output_dir / f"checkpoint_{corpus}_{i + 1}.json"
             with open(checkpoint_path, "w", encoding="utf-8") as f:
                 json.dump(all_questions, f, ensure_ascii=False, indent=2)
             print(f"  Checkpoint saved: {checkpoint_path}")
@@ -392,8 +392,8 @@ def run_generation(
     print(f"=== DONE ({corpus.upper()}) ===")
     print(f"Total questions: {len(all_questions)}")
     print(f"Errors: {errors}")
-    print(f"Time: {elapsed/60:.1f} min")
-    print(f"Rate: {len(all_questions)/elapsed*60:.1f} questions/min")
+    print(f"Time: {elapsed / 60:.1f} min")
+    print(f"Rate: {len(all_questions) / elapsed * 60:.1f} questions/min")
     print(f"Output: {output_path}")
 
     return all_questions

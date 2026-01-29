@@ -705,12 +705,14 @@ class TestConvertToAresIntegration:
         from scripts.evaluation.ares import convert_to_ares
 
         # Patch path constants
-        with patch.object(
-            convert_to_ares, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
-        ), patch.object(
-            convert_to_ares, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
-        ), patch.object(
-            convert_to_ares, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+        with (
+            patch.object(
+                convert_to_ares, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
+            ),
+            patch.object(convert_to_ares, "CORPUS_DIR", mock_corpus_data["corpus_dir"]),
+            patch.object(
+                convert_to_ares, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+            ),
         ):
             result = convert_to_ares.convert_gold_standard_to_ares(
                 corpus="test",
@@ -778,12 +780,16 @@ class TestGenerateFewShotIntegration:
         """generate_few_shot_examples creates expected output file."""
         from scripts.evaluation.ares import generate_few_shot
 
-        with patch.object(
-            generate_few_shot, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
-        ), patch.object(
-            generate_few_shot, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
-        ), patch.object(
-            generate_few_shot, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+        with (
+            patch.object(
+                generate_few_shot, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
+            ),
+            patch.object(
+                generate_few_shot, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
+            ),
+            patch.object(
+                generate_few_shot, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+            ),
         ):
             result = generate_few_shot.generate_few_shot_examples(
                 corpus="test",
@@ -817,8 +823,9 @@ class TestReportIntegration:
         data_dir = tmp_path / "data" / "evaluation" / "ares"
         data_dir.mkdir(parents=True)
 
-        with patch.object(report, "DATA_DIR", data_dir), patch.object(
-            report, "RESULTS_DIR", data_dir / "results"
+        with (
+            patch.object(report, "DATA_DIR", data_dir),
+            patch.object(report, "RESULTS_DIR", data_dir / "results"),
         ):
             result = report.generate_evaluation_report(
                 corpus="test", output_dir=output_dir
@@ -1017,13 +1024,16 @@ class TestCLIMain:
             "sys.argv", ["convert_to_ares", "--corpus", "fr", "--seed", "123"]
         )
 
-        with patch.object(
-            convert_to_ares, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
-        ), patch.object(
-            convert_to_ares, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
-        ), patch.object(
-            convert_to_ares, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
-        ), patch.object(convert_to_ares, "OUTPUT_DIR", mock_corpus_data["output_dir"]):
+        with (
+            patch.object(
+                convert_to_ares, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
+            ),
+            patch.object(convert_to_ares, "CORPUS_DIR", mock_corpus_data["corpus_dir"]),
+            patch.object(
+                convert_to_ares, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+            ),
+            patch.object(convert_to_ares, "OUTPUT_DIR", mock_corpus_data["output_dir"]),
+        ):
             convert_to_ares.main()
 
         assert (mock_corpus_data["output_dir"] / "gold_label_fr.tsv").exists()
@@ -1098,14 +1108,19 @@ class TestCLIMain:
             ],
         )
 
-        with patch.object(
-            generate_few_shot, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
-        ), patch.object(
-            generate_few_shot, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
-        ), patch.object(
-            generate_few_shot, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
-        ), patch.object(
-            generate_few_shot, "OUTPUT_DIR", mock_corpus_data["output_dir"]
+        with (
+            patch.object(
+                generate_few_shot, "TESTS_DATA_DIR", mock_corpus_data["tests_data"]
+            ),
+            patch.object(
+                generate_few_shot, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
+            ),
+            patch.object(
+                generate_few_shot, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
+            ),
+            patch.object(
+                generate_few_shot, "OUTPUT_DIR", mock_corpus_data["output_dir"]
+            ),
         ):
             generate_few_shot.main()
 
@@ -1124,8 +1139,9 @@ class TestCLIMain:
         data_dir = tmp_path / "data" / "evaluation" / "ares"
         data_dir.mkdir(parents=True)
 
-        with patch.object(report, "DATA_DIR", data_dir), patch.object(
-            report, "RESULTS_DIR", data_dir / "results"
+        with (
+            patch.object(report, "DATA_DIR", data_dir),
+            patch.object(report, "RESULTS_DIR", data_dir / "results"),
         ):
             # Patch generate_evaluation_report to use our temp output dir
             original_func = report.generate_evaluation_report

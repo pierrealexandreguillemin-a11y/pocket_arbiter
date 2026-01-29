@@ -144,9 +144,12 @@ class TestMainCLI:
                         True,
                         {"passed": 10, "warnings": 0, "errors": 0, "details": {}},
                     )
-                    with patch("sys.exit"), patch.object(
-                        ISOValidator, "__init__", return_value=None
-                    ) as mock_init:
+                    with (
+                        patch("sys.exit"),
+                        patch.object(
+                            ISOValidator, "__init__", return_value=None
+                        ) as mock_init,
+                    ):
                         main()
                         # Verify __init__ was called (verbose flag parsed)
                         assert mock_init.called or mock_validate.called

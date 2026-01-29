@@ -158,7 +158,13 @@ def extract_pdf_docling(
     )
 
     try:
-        result = converter.convert(pdf_path)
+        with warnings.catch_warnings():
+            warnings.filterwarnings(
+                "ignore",
+                message="Field `generate_table_images` is deprecated",
+                category=DeprecationWarning,
+            )
+            result = converter.convert(pdf_path)
         doc = result.document
     except Exception as e:
         raise RuntimeError(f"Docling extraction failed: {e}") from e

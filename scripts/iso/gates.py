@@ -29,9 +29,7 @@ class ExecutableGates:
         if self.verbose:
             print(f"  {message}")
 
-    def run_command(
-        self, cmd: list[str], cwd: Path | None = None
-    ) -> tuple[bool, str]:
+    def run_command(self, cmd: list[str], cwd: Path | None = None) -> tuple[bool, str]:
         """Run a command and return success status and output."""
         try:
             result = subprocess.run(
@@ -78,7 +76,7 @@ class ExecutableGates:
 
     def gate_coverage(self, target: float = 0.60, required: bool = False) -> bool:
         """Gate: Check test coverage meets target."""
-        print(f"    Checking coverage (target: {target*100:.0f}%)...", end=" ")
+        print(f"    Checking coverage (target: {target * 100:.0f}%)...", end=" ")
 
         self.run_command(
             [
@@ -107,13 +105,15 @@ class ExecutableGates:
             total_cov = cov_data.get("totals", {}).get("percent_covered", 0) / 100
 
             if total_cov >= target:
-                print(colored(f"OK ({total_cov*100:.1f}%)", Colors.GREEN))
+                print(colored(f"OK ({total_cov * 100:.1f}%)", Colors.GREEN))
                 self.passed.append(
-                    f"Coverage: {total_cov*100:.1f}% >= {target*100:.0f}%"
+                    f"Coverage: {total_cov * 100:.1f}% >= {target * 100:.0f}%"
                 )
                 return True
-            print(colored(f"FAILED ({total_cov*100:.1f}%)", Colors.RED))
-            self.errors.append(f"Coverage: {total_cov*100:.1f}% < {target*100:.0f}%")
+            print(colored(f"FAILED ({total_cov * 100:.1f}%)", Colors.RED))
+            self.errors.append(
+                f"Coverage: {total_cov * 100:.1f}% < {target * 100:.0f}%"
+            )
             return False
         except Exception as e:
             print(colored("SKIP", Colors.YELLOW), f"({e})")

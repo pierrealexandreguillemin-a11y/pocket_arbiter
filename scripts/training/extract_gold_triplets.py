@@ -263,8 +263,7 @@ def extract_gold_triplets_mode_b(
         )
 
     logger.info(
-        f"Extracted {len(triplets)} triplets from {corpus.upper()} "
-        f"(skipped: {skipped})"
+        f"Extracted {len(triplets)} triplets from {corpus.upper()} (skipped: {skipped})"
     )
     return triplets
 

@@ -183,7 +183,7 @@ def finetune_embeddinggemma(
         trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
         total = sum(p.numel() for p in model.parameters())
         logger.info(
-            f"Trainable params: {trainable:,} / {total:,} ({100*trainable/total:.2f}%)"
+            f"Trainable params: {trainable:,} / {total:,} ({100 * trainable / total:.2f}%)"
         )
     else:
         logger.info("Full fine-tuning (no LoRA)")

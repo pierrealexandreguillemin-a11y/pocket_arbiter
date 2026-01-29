@@ -162,14 +162,14 @@ def print_report(fr: dict, intl: dict) -> bool:
     print("=" * 70)
 
     for r in [fr, intl]:
-        print(f"\n{'='*70}")
+        print(f"\n{'=' * 70}")
         print(f"{r['name']}")
         print("=" * 70)
 
         print("\n1. METRIQUES GENERALES")
         print(f"   Total questions: {r['total']}")
         print(
-            f"   Answerable: {r['answerable']} ({r['answerable']/r['total']*100:.1f}%)"
+            f"   Answerable: {r['answerable']} ({r['answerable'] / r['total'] * 100:.1f}%)"
         )
         print(f"   Unanswerable: {r['unanswerable']} ({r['ratio']:.1f}%)")
 
@@ -316,7 +316,7 @@ def print_report(fr: dict, intl: dict) -> bool:
             all_pass = False
         print(f"  {status} {name}")
 
-    print(f"\n{'='*70}")
+    print(f"\n{'=' * 70}")
     if all_pass:
         print("VERDICT: CONFORME AUX STANDARDS INDUSTRIE ET NORMES ISO")
     else:

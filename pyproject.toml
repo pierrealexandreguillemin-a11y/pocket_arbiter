@@ -116,6 +116,9 @@ markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests requiring external resources",
 ]
+filterwarnings = [
+    "ignore:Field `generate_table_images` is deprecated:DeprecationWarning",
+]
 
 # =============================================================================
 # COVERAGE — ISO 29119 (Test Coverage)

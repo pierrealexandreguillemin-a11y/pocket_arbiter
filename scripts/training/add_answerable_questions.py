@@ -1592,9 +1592,9 @@ def main():
     print(f"\nSaved to {args.output}")
     print(f"Version: {old_version} -> {new_version}")
     print(f"Total questions: {len(gs['questions'])}")
-    print(f"Answerable: {answerable} ({100*answerable/len(gs['questions']):.1f}%)")
+    print(f"Answerable: {answerable} ({100 * answerable / len(gs['questions']):.1f}%)")
     print(
-        f"Unanswerable: {unanswerable} ({100*unanswerable/len(gs['questions']):.1f}%)"
+        f"Unanswerable: {unanswerable} ({100 * unanswerable / len(gs['questions']):.1f}%)"
     )
 
 

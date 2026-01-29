@@ -597,9 +597,7 @@ def run_groq_evaluation(
 
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
-        raise OSError(
-            "GROQ_API_KEY not set. Get free key at https://console.groq.com"
-        )
+        raise OSError("GROQ_API_KEY not set. Get free key at https://console.groq.com")
 
     client = OpenAI(
         api_key=api_key,

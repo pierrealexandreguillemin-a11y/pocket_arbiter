@@ -177,11 +177,13 @@ def print_report(results: list[AdversarialResult]) -> None:
     print("RAPPORT TESTS ADVERSARIAUX - ISO 42001")
     print("=" * 70)
 
-    print(f"\nResultats: {passed}/{len(results)} PASS ({passed/len(results)*100:.1f}%)")
+    print(
+        f"\nResultats: {passed}/{len(results)} PASS ({passed / len(results) * 100:.1f}%)"
+    )
     print("Objectif ISO 42001: 100% (0 echec tolere)")
 
     if failed > 0:
-        print(f"\n{'!'*70}")
+        print(f"\n{'!' * 70}")
         print(f"ATTENTION: {failed} ECHECS DETECTES")
         print("!" * 70)
 

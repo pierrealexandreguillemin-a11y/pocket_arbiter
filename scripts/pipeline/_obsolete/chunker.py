@@ -216,7 +216,7 @@ def chunk_markdown(
                     continue
 
                 child_page = find_page(child_text) or page
-                child_id = f"{source}-p{child_page}-parent{len(parent_chunks)-1:03d}-child{c_idx:02d}"
+                child_id = f"{source}-p{child_page}-parent{len(parent_chunks) - 1:03d}-child{c_idx:02d}"
 
                 child_chunks.append(
                     {
@@ -355,7 +355,7 @@ def main() -> None:
     )
     if args.raw_dir:
         print(
-            f"  with_page: {stats['with_page']} ({100*stats['with_page']/max(1,stats['children']):.1f}%)"
+            f"  with_page: {stats['with_page']} ({100 * stats['with_page'] / max(1, stats['children']):.1f}%)"
         )
 
 

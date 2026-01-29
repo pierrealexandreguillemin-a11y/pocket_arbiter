@@ -151,9 +151,9 @@ class TestChessSynonyms:
         """No duplicate synonyms per term."""
         for term, synonyms in CHESS_SYNONYMS.items():
             normalized = [normalize_text(s) for s in synonyms]
-            assert len(normalized) == len(
-                set(normalized)
-            ), f"{term} has duplicate synonyms"
+            assert len(normalized) == len(set(normalized)), (
+                f"{term} has duplicate synonyms"
+            )
 
 
 class TestIntegrationWithSearch:

@@ -207,7 +207,7 @@ def print_report(report: AnswerabilityReport, show_failed: int = 10) -> None:
             f"\nLowest similarity questions ({min(show_failed, len(report.low_similarity_questions))}):"
         )
         for i, q in enumerate(report.low_similarity_questions[:show_failed]):
-            print(f"\n  [{i+1}] Similarity: {q['similarity']:.3f}")
+            print(f"\n  [{i + 1}] Similarity: {q['similarity']:.3f}")
             print(f"      Category: {q['category']}")
             print(f"      Q: {q['question'][:100]}...")
             print(f"      Chunk: {q['chunk_id'][:40]}...")

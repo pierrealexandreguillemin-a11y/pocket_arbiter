@@ -206,13 +206,13 @@ def run_generation(
         chunks = chunks[:max_chunks]
 
     lang = "FR" if corpus == "ffe" else "EN"
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"CEREBRAS GENERATION - {corpus.upper()} ({lang})")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"Model: {MODEL}")
     print(f"Chunks: {len(chunks)}")
     print(f"Questions/chunk: {questions_per_chunk}")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
     all_questions = []
     errors = 0
@@ -242,7 +242,7 @@ def run_generation(
 
         # Checkpoint every 100
         if (i + 1) % 100 == 0:
-            checkpoint = OUTPUT_DIR / f"checkpoint_{corpus}_{i+1}.json"
+            checkpoint = OUTPUT_DIR / f"checkpoint_{corpus}_{i + 1}.json"
             with open(checkpoint, "w", encoding="utf-8") as f:
                 json.dump(all_questions, f, ensure_ascii=False, indent=2)
             print(f"  >> Checkpoint: {checkpoint}")
@@ -253,13 +253,13 @@ def run_generation(
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(all_questions, f, ensure_ascii=False, indent=2)
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"DONE - {corpus.upper()}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"Questions: {len(all_questions)}")
     print(f"Errors: {errors}")
-    print(f"Time: {elapsed/60:.1f} min")
-    print(f"Rate: {len(all_questions)/elapsed*60:.0f} Q/min")
+    print(f"Time: {elapsed / 60:.1f} min")
+    print(f"Rate: {len(all_questions) / elapsed * 60:.0f} Q/min")
     print(f"Output: {output_path}")
 
     return all_questions

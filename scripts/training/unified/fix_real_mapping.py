@@ -244,7 +244,7 @@ def main():
 
     conn.close()
 
-    print(f"  Article + Réponse OK: {both_ok}/477 ({100*both_ok/477:.1f}%)")
+    print(f"  Article + Réponse OK: {both_ok}/477 ({100 * both_ok / 477:.1f}%)")
 
 
 if __name__ == "__main__":

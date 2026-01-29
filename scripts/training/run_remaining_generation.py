@@ -95,12 +95,12 @@ def main():
         open(OUTPUT_DIR / "synthetic_questions_ffe.json", encoding="utf-8")
     )
 
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print("GENERATION CHUNKS RESTANTS - FFE")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"Questions existantes: {len(existing)}")
     print(f"Chunks restants: {len(remaining)}")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
     all_questions = existing.copy()
     errors = 0
@@ -137,13 +137,13 @@ def main():
         json.dump(all_questions, f, ensure_ascii=False, indent=2)
 
     new_questions = len(all_questions) - len(existing)
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("DONE")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"Nouvelles questions: {new_questions}")
     print(f"Total questions: {len(all_questions)}")
     print(f"Errors: {errors}")
-    print(f"Time: {elapsed/60:.1f} min")
+    print(f"Time: {elapsed / 60:.1f} min")
 
 
 if __name__ == "__main__":

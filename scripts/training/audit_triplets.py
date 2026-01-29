@@ -147,7 +147,7 @@ def run_audit(
     # 1. Duplicates
     n_duplicates, dup_examples = detect_duplicates(questions)
     unique = len(questions) - n_duplicates
-    print(f"\nDuplicates: {n_duplicates} ({n_duplicates/len(questions)*100:.1f}%)")
+    print(f"\nDuplicates: {n_duplicates} ({n_duplicates / len(questions) * 100:.1f}%)")
     if dup_examples:
         print(f"  Exemples: {dup_examples[:3]}")
 
@@ -155,11 +155,11 @@ def run_audit(
     categories, difficulties = analyze_distribution(questions)
     print("\nCategories:")
     for cat, count in sorted(categories.items(), key=lambda x: -x[1]):
-        print(f"  {cat}: {count} ({count/len(questions)*100:.1f}%)")
+        print(f"  {cat}: {count} ({count / len(questions) * 100:.1f}%)")
 
     print("\nDifficultes:")
     for diff, count in sorted(difficulties.items(), key=lambda x: -x[1]):
-        print(f"  {diff}: {count} ({count/len(questions)*100:.1f}%)")
+        print(f"  {diff}: {count} ({count / len(questions) * 100:.1f}%)")
 
     # 3. Chunks coverage
     chunk_ids = set(q.get("chunk_id") for q in questions)
@@ -246,7 +246,7 @@ def print_sample_for_review(sample: list[dict], limit: int = 10) -> None:
     print("=" * 60)
 
     for i, q in enumerate(sample[:limit]):
-        print(f"\n[{i+1}] {q.get('category', '?')} | {q.get('difficulty', '?')}")
+        print(f"\n[{i + 1}] {q.get('category', '?')} | {q.get('difficulty', '?')}")
         print(f"    Q: {q.get('question', '?')}")
         print(f"    Chunk: {q.get('chunk_id', '?')[:30]}...")
 

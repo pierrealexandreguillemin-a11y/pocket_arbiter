@@ -195,9 +195,9 @@ def main():
     print("\n" + "=" * 60)
     print("FILTERING RESULTS")
     print("=" * 60)
-    print(f'Original: {stats["original"]}')
-    print(f'Kept: {stats["kept"]}')
-    print(f'Removed: {stats["removed_total"]} ({stats["removal_rate"]:.1f}%)')
+    print(f"Original: {stats['original']}")
+    print(f"Kept: {stats['kept']}")
+    print(f"Removed: {stats['removed_total']} ({stats['removal_rate']:.1f}%)")
 
     print("\nRemoved by type:")
     for type_name, count in sorted(
@@ -223,7 +223,7 @@ def main():
     print("=" * 60)
     cats = Counter(q["category"] for q in kept)
     for cat, count in cats.most_common():
-        print(f"  {cat}: {count} ({count/len(kept)*100:.1f}%)")
+        print(f"  {cat}: {count} ({count / len(kept) * 100:.1f}%)")
 
 
 if __name__ == "__main__":

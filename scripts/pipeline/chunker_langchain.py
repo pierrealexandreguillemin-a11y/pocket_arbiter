@@ -370,7 +370,7 @@ def chunk_markdown_langchain(
                     child_text, text_to_page, ordered_texts, parent_page
                 )
 
-                child_id = f"{source}-p{child_page:03d}-parent{len(parent_chunks)-1:03d}-child{c_idx:02d}"
+                child_id = f"{source}-p{child_page:03d}-parent{len(parent_chunks) - 1:03d}-child{c_idx:02d}"
 
                 child_chunks.append(
                     {

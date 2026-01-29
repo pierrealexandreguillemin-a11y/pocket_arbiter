@@ -182,7 +182,7 @@ def generate_question_templates(
     for i in range(need):
         templates.append(
             {
-                "id": f"NEW-Q{i+1:03d}",
+                "id": f"NEW-Q{i + 1:03d}",
                 "question": "",
                 "category": "",
                 "expected_docs": [],

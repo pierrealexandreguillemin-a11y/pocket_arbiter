@@ -313,10 +313,10 @@ def main():
 
     conn.close()
 
-    print(f"  Answer >= 30%:      {answer_ok}/477 ({100*answer_ok/477:.1f}%)")
-    print(f"  Article trouvé:     {article_ok}/477 ({100*article_ok/477:.1f}%)")
-    print(f"  BOTH (cible):       {both_ok}/477 ({100*both_ok/477:.1f}%)")
-    print(f"  Aucun:              {neither}/477 ({100*neither/477:.1f}%)")
+    print(f"  Answer >= 30%:      {answer_ok}/477 ({100 * answer_ok / 477:.1f}%)")
+    print(f"  Article trouvé:     {article_ok}/477 ({100 * article_ok / 477:.1f}%)")
+    print(f"  BOTH (cible):       {both_ok}/477 ({100 * both_ok / 477:.1f}%)")
+    print(f"  Aucun:              {neither}/477 ({100 * neither / 477:.1f}%)")
 
 
 if __name__ == "__main__":

@@ -359,8 +359,8 @@ def main() -> None:
     logger.info("")
     logger.info("SUMMARY:")
     logger.info(f"  Total triplets: {len(triplets)}")
-    logger.info(f"  Train: {len(train)} ({args.train_ratio*100:.0f}%)")
-    logger.info(f"  Val: {len(val)} ({(1-args.train_ratio)*100:.0f}%)")
+    logger.info(f"  Train: {len(train)} ({args.train_ratio * 100:.0f}%)")
+    logger.info(f"  Val: {len(val)} ({(1 - args.train_ratio) * 100:.0f}%)")
     logger.info(f"  Formats exported: {', '.join(formats)}")
     logger.info(f"  Output directory: {args.output_dir}")
 

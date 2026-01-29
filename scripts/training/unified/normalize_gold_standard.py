@@ -146,9 +146,7 @@ def find_page_in_docling(
     return best_page
 
 
-def find_chunk_for_page(
-    conn: sqlite3.Connection, source: str, page: int
-) -> str | None:
+def find_chunk_for_page(conn: sqlite3.Connection, source: str, page: int) -> str | None:
     """Find the best chunk for a given source and page."""
     # Normalize source name for matching
     source_pattern = source.replace(".pdf", "").split("_")[0]

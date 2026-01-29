@@ -669,4 +669,3 @@ def retrieve_with_glossary_boost(
     )
 
     return results
-

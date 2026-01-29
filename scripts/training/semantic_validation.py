@@ -468,9 +468,9 @@ def main():
             if results["answerable"] > 0
             else 0
         )
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("SEMANTIC VALIDATION REPORT")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"Total questions: {results['total']}")
         print(f"Answerable: {results['answerable']}")
         print(f"Validated: {results['validated']} ({pct:.1f}%)")
@@ -480,9 +480,9 @@ def main():
         print(f"Pages not found: {results['pages_not_found']}")
 
         # Afficher les problèmes
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("ISSUES FOUND")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         for q in results["questions"]:
             if q["status"] != "VALIDATED":

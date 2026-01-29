@@ -18,7 +18,8 @@ import tiktoken
 TOKENIZER_NAME = "cl100k_base"
 
 # EmbeddingGemma tokenizer for HybridChunker (ISO 42001)
-EMBED_MODEL_ID = "google/embeddinggemma-300m"
+# QAT model = pipeline unique (chunking → encoding → fine-tuning → deployment)
+EMBED_MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
 
 # Singleton for EmbeddingGemma tokenizer (lazy load)
 _gemma_tokenizer: Any = None

@@ -116,8 +116,8 @@ class TestLoadEmbeddingModel:
 
     def test_model_constants_defined(self):
         """Verifie que les constantes sont definies correctement."""
-        # ISO 42001 A.6.2.2 - Modele Full Precision (meilleur recall)
-        assert MODEL_ID == "google/embeddinggemma-300m"
+        # ISO 42001 A.6.2.2 - Modele QAT (coherence QLoRA → TFLite → LiteRT)
+        assert MODEL_ID == "google/embeddinggemma-300m-qat-q4_0-unquantized"
         assert FALLBACK_MODEL_ID == "google/embeddinggemma-300m"
         assert EMBEDDING_DIM == 768
         assert FALLBACK_EMBEDDING_DIM == 768

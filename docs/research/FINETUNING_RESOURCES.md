@@ -244,7 +244,7 @@ from sentence_transformers import (
 from sentence_transformers.losses import CachedMultipleNegativesRankingLoss
 from sentence_transformers.training_args import BatchSamplers
 
-model = SentenceTransformer("google/embeddinggemma-300m")
+model = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized")
 loss = CachedMultipleNegativesRankingLoss(model, mini_batch_size=8)
 
 args = SentenceTransformerTrainingArguments(

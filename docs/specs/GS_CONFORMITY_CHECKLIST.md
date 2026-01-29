@@ -2,12 +2,13 @@
 
 > **Document ID**: SPEC-GS-CONF-001
 > **ISO Reference**: ISO 42001, ISO 25010, ISO 29119
-> **Version**: 1.0
-> **Date**: 2026-01-26
-> **Statut**: Approuve
+> **Version**: 2.0
+> **Date**: 2026-01-28
+> **Statut**: Aligne sur PLAN-GS-CONF-001
 > **Classification**: Critique
 > **Usage**: One-shot - Mise en conformite GS avant generation triplets
 > **Mots-cles**: conformite, checklist, gold standard, triplets, validation, ISO
+> **Plan associe**: [GS_CONFORMITY_PLAN_V1.md](../plans/GS_CONFORMITY_PLAN_V1.md)
 
 ---
 
@@ -111,14 +112,49 @@ for question in gs['questions']:
 | CT-05 | Split train/val | 80/20 | Seed fixe | ML best practices |
 | CT-06 | DVC tracked | 100% | Reproductibilite | ISO 12207 |
 
+### 3.3 Criteres Format (TRIPLET_GENERATION_SPEC S2.2)
+
+| ID | Critere | Seuil | Justification | Source |
+|----|---------|-------|---------------|--------|
+| F-01 | anchor finit par ? | 100% | Forme interrogative | TRIPLET_GENERATION_SPEC S2.2 |
+| F-02 | anchor >= 10 chars | 100% | Longueur minimum | TRIPLET_GENERATION_SPEC S2.2 |
+| F-03 | positive >= 50 chars | 100% | Chunk significatif | TRIPLET_GENERATION_SPEC S2.2 |
+| F-04 | expected_answer > 5 chars | 100% | Reponse significative | TRIPLET_GENERATION_SPEC S2.2 |
+
+### 3.4 Criteres Metadonnees (GS_ANNALES_V7_OPTIMIZATION_SPEC)
+
+| ID | Critere | Seuil | Justification | Source |
+|----|---------|-------|---------------|--------|
+| M-01 | difficulty present | 100% | Classification difficulte | GS_ANNALES_V7_OPTIMIZATION_SPEC |
+| M-02 | difficulty in [0,1] | 100% | Valeur normalisee | GS_ANNALES_V7_OPTIMIZATION_SPEC |
+| M-03 | cognitive_level | 100% | Taxonomie Bloom | Know Your RAG |
+| M-04 | category | 100% | Couverture domaine | BEIR |
+
+### 3.5 Criteres Qualite Avancee (UNIFIED_TRAINING_DATA_SPEC)
+
+| ID | Critere | Seuil | Methode | Source |
+|----|---------|-------|---------|--------|
+| QA-01 | Deduplication inter-questions | cosine < 0.95 | SemHash | SoftDedup |
+| QA-02 | Anchor independence | cosine(anchor, positive) < 0.9 | Embedding check | E5 training |
+
+### 3.6 Criteres Export Multi-Format (UNIFIED_TRAINING_DATA_SPEC)
+
+| ID | Critere | Format | Source |
+|----|---------|--------|--------|
+| EX-01 | Triplets JSONL | anchor/positive/negative | TRIPLET_GENERATION_SPEC S2.1 |
+| EX-02 | ARES TSV | Query/Document/Answer/Label | ARES |
+| EX-03 | BEIR | queries.jsonl + corpus.jsonl + qrels.tsv | BEIR |
+| EX-04 | RAGAS | question/answer/contexts/ground_truth | RAGAS |
+| EX-05 | DVC tracking | dvc add + push | ISO 12207 |
+| EX-06 | Composition report JSON | dataset_composition.json | Interne |
+
 ---
 
-## 4. Checklist Actionnable
+## 4. Checklist Actionnable (alignee sur PLAN-GS-CONF-001)
 
-### 4.1 Phase 1: Audit Initial
+### 4.0 Audit Initial
 
 ```bash
-# Executer audit complet
 python -c "
 import json
 
@@ -126,131 +162,278 @@ with open('tests/data/gold_standard_annales_fr_v7.json', encoding='utf-8') as f:
     gs = json.load(f)
 
 questions = gs['questions']
+testables = [q for q in questions if not q.get('metadata',{}).get('requires_context')]
+rc = [q for q in questions if q.get('metadata',{}).get('requires_context')]
+
 print(f'=== AUDIT GS v{gs[\"version\"]} ===')
-print(f'Total questions: {len(questions)}')
+print(f'Total: {len(questions)}, Testables: {len(testables)}, requires_context: {len(rc)}')
 
-# CB-01: chunk_match_score = 100%
-score_100 = sum(1 for q in questions if q.get('metadata', {}).get('chunk_match_score') == 100)
-print(f'CB-01 chunk_match_score=100: {score_100}/{len(questions)} ({100*score_100/len(questions):.1f}%)')
+# Bloquants
+s100 = sum(1 for q in questions if q.get('metadata',{}).get('chunk_match_score') == 100)
+bd = sum(1 for q in questions if q.get('metadata',{}).get('by_design'))
+rc_r = sum(1 for q in rc if q.get('metadata',{}).get('requires_context_reason'))
+print(f'CB-01 chunk_match_score=100: {s100}/{len(questions)}')
+print(f'CB-04 by_design: {bd}/{len(questions)}')
+print(f'CB-09 rc_reason: {rc_r}/{len(rc)}')
 
-# CB-02: expected_chunk_id valide
-has_chunk_id = sum(1 for q in questions if q.get('expected_chunk_id'))
-print(f'CB-02 expected_chunk_id present: {has_chunk_id}/{len(questions)}')
+# Format
+f01 = sum(1 for q in questions if q['question'].strip().endswith('?'))
+f04 = sum(1 for q in questions if len(q.get('expected_answer','')) > 5)
+print(f'F-01 ends with ?: {f01}/{len(questions)}')
+print(f'F-04 answer > 5 chars: {f04}/{len(questions)}')
 
-# CB-09: requires_context_reason
-rc = [q for q in questions if q.get('metadata', {}).get('requires_context')]
-rc_no_reason = [q for q in rc if not q.get('metadata', {}).get('requires_context_reason')]
-print(f'CB-09 requires_context sans reason: {len(rc_no_reason)}/{len(rc)}')
+# Metadata
+m01 = sum(1 for q in questions if q.get('metadata',{}).get('difficulty') is not None)
+m02 = sum(1 for q in questions if isinstance(q.get('metadata',{}).get('difficulty'), (int,float)) and 0 <= q['metadata']['difficulty'] <= 1)
+print(f'M-01 difficulty present: {m01}/{len(questions)}')
+print(f'M-02 difficulty in [0,1]: {m02}/{len(questions)}')
 
-# CQ-01: reasoning_class
-has_rc = sum(1 for q in questions if q.get('metadata', {}).get('reasoning_class'))
-print(f'CQ-01 reasoning_class present: {has_rc}/{len(questions)}')
-
-# CQ-08: expected_answer
-has_answer = sum(1 for q in questions if q.get('expected_answer', '').strip())
-print(f'CQ-08 expected_answer non-vide: {has_answer}/{len(questions)}')
+# Triplets
+ct01 = sum(1 for q in testables if len(q.get('metadata',{}).get('hard_negatives',[])) >= 3)
+print(f'CT-01 hard_negatives>=3: {ct01}/{len(testables)}')
 "
 ```
 
-### 4.2 Phase 2: Correction CB-01 (BLOQUANT)
+### 4.1 Phase 0: BY DESIGN + chunk validation (CB-01 + CB-04)
 
-**Probleme**: chunk_match_score < 100% signifie que la reponse n'est PAS dans le chunk.
+> **Acteur**: LLM (Claude Code ou Gemini 2.5 Flash via API)
+> **Ref plan**: PLAN-GS-CONF-001 Phase 0
 
-**Solutions par ordre de priorite:**
+**Methode combinee**: Pour CHAQUE question, le LLM recoit le chunk + la question + la reponse
+et produit: validation chunk, reformulation BY DESIGN, requires_context_reason.
 
-| Priorite | Solution | Effort | Impact |
-|----------|----------|--------|--------|
-| 1 | Realigner expected_chunk_id vers chunk contenant reponse | Eleve | 100% fix |
-| 2 | Reformuler expected_answer pour matcher chunk | Moyen | Partiel |
-| 3 | Marquer requires_context=true si reponse non-extractible | Faible | Exclusion |
+- [ ] 420/420 questions traitees
+- [ ] CB-04 by_design = 100%
+- [ ] CB-01 chunk_match_score = 100% testables
+- [ ] F-01 question finit par ? = 100%
+- [ ] original_question preservee dans metadata
 
-**Script realignement:**
-```python
-# Pour chaque question avec score < 100:
-# 1. Chercher chunk contenant expected_answer (exact ou semantique)
-# 2. Si trouve: mettre a jour expected_chunk_id
-# 3. Si non trouve: marquer requires_context=true avec reason
-```
+### 4.2 Phase 1: Corrections Metadonnees
 
-### 4.3 Phase 3: Correction CB-09 (BLOQUANT)
+> **Acteur**: LLM (CB-09) + Python deterministe (M-01/M-02, F-04)
+> **Ref plan**: PLAN-GS-CONF-001 Phase 1
 
-**Probleme**: requires_context=true sans raison = violation ISO 42001 tracabilite.
+- [ ] CB-09 requires_context_reason = 100% (42 manquants)
+- [ ] M-01 difficulty present = 100% (34 manquants)
+- [ ] M-02 difficulty in [0,1] = 100%
+- [ ] F-04 expected_answer > 5 chars = review 32 questions
 
-**Actions:**
-```python
-VALID_REASONS = [
-    "answer_requires_calculation",      # Reponse = calcul (dates, Elo)
-    "answer_requires_context_position", # Reponse depend position echiquier
-    "answer_requires_external_data",    # Donnees hors corpus (Elo joueur)
-    "answer_is_reformulation",          # Reponse = synthese non-extractible
-    "chunk_not_in_corpus"               # Article reference hors corpus
-]
+### 4.3 Phase 2: Hard Negatives (CT-01)
 
-for q in questions:
-    if q.get('metadata', {}).get('requires_context') and not q.get('metadata', {}).get('requires_context_reason'):
-        # Analyser et assigner raison
-        q['metadata']['requires_context_reason'] = determine_reason(q)
-```
+> **Acteur**: EmbeddingGemma (pre-filtre local) + LLM (juge)
+> **Ref plan**: PLAN-GS-CONF-001 Phase 2
 
-### 4.4 Phase 4: Validation Finale
+- [ ] Etape 2B: EmbeddingGemma encode 1857 chunks + 420 queries → top-10 candidats
+- [ ] Etape 2A: LLM juge 10 candidats/question → 3-5 hard negatives valides
+- [ ] Etape 2C: same_doc >= 40% enrichissement
+- [ ] CT-01 hard_negatives >= 3 = 100% testables
+- [ ] CT-02 pas de duplicate negatives
+- [ ] CT-03 negative != positive = 100%
+
+### 4.4 Phase 3: Export Multi-Format (EX-01..06)
+
+> **Acteur**: Python (scripts deterministes)
+> **Ref plan**: PLAN-GS-CONF-001 Phase 3
+
+- [ ] EX-01 Triplets JSONL (train + val)
+- [ ] EX-02 ARES TSV
+- [ ] EX-03 BEIR (queries + corpus + qrels)
+- [ ] EX-04 RAGAS
+- [ ] EX-05 DVC tracking
+- [ ] EX-06 Composition report JSON
+- [ ] CT-04 Schema JSON valide = 100%
+- [ ] CT-05 Split train/val 80/20 (seed=42)
+
+### 4.5 Validation Finale
 
 ```bash
-# Toutes les conditions MUST PASS
 python -c "
-import json
-import sys
+import json, sys
+from pathlib import Path
 
 with open('tests/data/gold_standard_annales_fr_v7.json', encoding='utf-8') as f:
     gs = json.load(f)
 
 questions = gs['questions']
-testable = [q for q in questions if not q.get('metadata', {}).get('requires_context')]
-
+testables = [q for q in questions if not q.get('metadata',{}).get('requires_context')]
+rc = [q for q in questions if q.get('metadata',{}).get('requires_context')]
 errors = []
 
-# CB-01: chunk_match_score = 100% pour testables
-for q in testable:
-    score = q.get('metadata', {}).get('chunk_match_score', 0)
-    if score != 100:
-        errors.append(f'CB-01 FAIL: {q[\"id\"]} score={score}')
+# Phase 0
+for q in questions:
+    if not q.get('metadata',{}).get('by_design'):
+        errors.append(f'CB-04: {q[\"id\"]}')
+    if not q['question'].strip().endswith('?'):
+        errors.append(f'F-01: {q[\"id\"]}')
+for q in testables:
+    if q.get('metadata',{}).get('chunk_match_score') != 100:
+        errors.append(f'CB-01: {q[\"id\"]}')
 
-# CB-09: requires_context_reason
-rc = [q for q in questions if q.get('metadata', {}).get('requires_context')]
+# Phase 1
 for q in rc:
-    if not q.get('metadata', {}).get('requires_context_reason'):
-        errors.append(f'CB-09 FAIL: {q[\"id\"]} missing reason')
+    if not q.get('metadata',{}).get('requires_context_reason'):
+        errors.append(f'CB-09: {q[\"id\"]}')
+for q in questions:
+    d = q.get('metadata',{}).get('difficulty')
+    if d is None or not (0 <= d <= 1):
+        errors.append(f'M-01: {q[\"id\"]}')
+
+# Phase 2
+for q in testables:
+    if len(q.get('metadata',{}).get('hard_negatives',[])) < 3:
+        errors.append(f'CT-01: {q[\"id\"]}')
+
+# Phase 3
+unified = Path('data/training/unified')
+for f in ['triplets_train.jsonl','triplets_val.jsonl','ares_train.tsv','beir/queries.jsonl','ragas_val.jsonl','dataset_composition.json']:
+    if not (unified / f).exists():
+        errors.append(f'EX: missing {f}')
 
 if errors:
     print(f'CONFORMITY FAILED: {len(errors)} errors')
-    for e in errors[:10]:
+    for e in errors[:30]:
         print(f'  {e}')
     sys.exit(1)
 else:
-    print('CONFORMITY PASSED: Ready for triplet generation')
-    sys.exit(0)
+    print('CONFORMITY PASSED - Ready for semantic bridge training')
 "
 ```
 
 ---
 
-## 5. Etat Actuel GS v7.6
+## 5. Etat Actuel GS v7.6 (audit 2026-01-28)
 
-| Critere | Seuil | Actuel | Status |
-|---------|-------|--------|--------|
-| CB-01 chunk_match_score=100 | 100% | 2.9% (12/420) | **FAIL** |
-| CB-02 expected_chunk_id | 100% | 100% | PASS |
-| CB-03 expected_chunk_id non-null | 100% testables | 100% | PASS |
-| CB-09 requires_context_reason | 100% | 54% (50/92) | **FAIL** |
-| CQ-01 reasoning_class | 100% | 100% | PASS |
-| CQ-08 expected_answer | 100% | 100% | PASS |
+### 5.1 Criteres Bloquants
 
-**Verdict: GS v7.6 NON CONFORME pour generation triplets.**
+| Critere | Seuil | Actuel | Status | Phase |
+|---------|-------|--------|--------|-------|
+| CB-01 chunk_match_score=100 | 100% testables | 2.9% (12/420) | **FAIL** | Phase 0 |
+| CB-02 expected_chunk_id | 100% | 100% | PASS | - |
+| CB-03 expected_chunk_id non-null | 100% testables | 100% | PASS | - |
+| CB-04 by_design | 100% | **0%** (0/420) | **FAIL** | Phase 0 |
+| CB-09 requires_context_reason | 100% rc | 54.3% (50/92) | **FAIL** | Phase 1 |
+
+### 5.2 Criteres Format
+
+| Critere | Seuil | Actuel | Status | Phase |
+|---------|-------|--------|--------|-------|
+| F-01 question finit par ? | 100% | 71.7% (301/420) | **FAIL** | Phase 0 |
+| F-02 anchor >= 10 chars | 100% | 100% (420/420) | PASS | - |
+| F-03 positive >= 50 chars | 100% | 100% (420/420) | PASS | - |
+| F-04 expected_answer > 5 chars | 100% | 92.4% (388/420) | **FAIL** | Phase 1 |
+
+### 5.3 Criteres Metadonnees
+
+| Critere | Seuil | Actuel | Status | Phase |
+|---------|-------|--------|--------|-------|
+| M-01 difficulty present | 100% | 91.9% (386/420) | **FAIL** | Phase 1 |
+| M-02 difficulty in [0,1] | 100% | 91.9% (386/420) | **FAIL** | Phase 1 |
+| M-03 cognitive_level | 100% | 100% (420/420) | PASS | - |
+| M-04 category | 100% | 100% (420/420) | PASS | - |
+
+### 5.4 Criteres Triplets
+
+| Critere | Seuil | Actuel | Status | Phase |
+|---------|-------|--------|--------|-------|
+| CT-01 hard_negatives >= 3 | 100% testables | 0% (0/328) | **FAIL** | Phase 2 |
+| QA-01 deduplication | cosine < 0.95 | Non verifie | **AUDIT** | Phase 2 |
+| QA-02 anchor independence | cosine < 0.9 | Non verifie | **AUDIT** | Phase 2 |
+
+### 5.5 Criteres Export
+
+| Critere | Actuel | Phase |
+|---------|--------|-------|
+| EX-01 Triplets JSONL | Non genere | Phase 3 |
+| EX-02 ARES TSV | Non genere | Phase 3 |
+| EX-03 BEIR | Non genere | Phase 3 |
+| EX-04 RAGAS | Non genere | Phase 3 |
+| EX-05 DVC tracking | Non configure | Phase 3 |
+| EX-06 Composition report | Non genere | Phase 3 |
+
+### 5.6 Resume
+
+| Phase | FAIL | PASS | AUDIT | Acteur |
+|-------|:----:|:----:|:-----:|--------|
+| Phase 0 | 3 (CB-01, CB-04, F-01) | 3 | 0 | LLM |
+| Phase 1 | 3 (CB-09, M-01, F-04) | 2 | 0 | LLM + Python |
+| Phase 2 | 1 (CT-01) | 0 | 2 | EmbeddingGemma + LLM |
+| Phase 3 | 0 | 0 | 0 | Python (6 exports) |
+| **Total** | **7** | **5** | **2** | |
+
+**Verdict: GS v7.6 NON CONFORME - 7 criteres FAIL, 2 AUDIT requis.**
 
 ---
 
-## 6. References
+## 6. Acteurs et Evaluation d'Utilite
 
-### 6.1 Documents Projet (Approfondissement)
+### 6.1 Matrice Acteur par Phase
+
+| Phase | Tache | Claude Code | Gemini 2.5 Flash (free) | Mistral (free) | Python local |
+|-------|-------|:-----------:|:-----------------------:|:--------------:|:------------:|
+| **0** CB-04 BY DESIGN | Reformulation 420 Q | **Optimal** | Bon | Tres bon (FR) | - |
+| **0** CB-01 | Validation chunk-reponse | **Optimal** | Bon | Bon | - |
+| **1** CB-09 | requires_context_reason | **Optimal** | OK | Bon | - |
+| **1** M-01/M-02 | difficulty | - | - | - | **Script** |
+| **1** F-01 | question finit par ? | Fait en Phase 0 | - | - | - |
+| **1** F-04 | Review answers | Bon | OK | OK | - |
+| **2B** | Encode top-10 candidats | - | - | - | **EmbeddingGemma** |
+| **2A** | Juge hard negatives | **Optimal** | Bon | Bon | - |
+| **2C** | same_doc enrichment | - | - | - | **Script** |
+| **3** | Export 6 formats | - | - | - | **Script** |
+| **QA** | Deduplication audit | - | - | - | **EmbeddingGemma** |
+
+### 6.2 Evaluation Claude pour ce domaine
+
+**Domaine**: Reformulation BY DESIGN de questions d'arbitrage echecs FR pour QLoRA fine-tuning.
+
+| Competence requise | Claude | Gemini Flash | Mistral | Importance |
+|--------------------|:------:|:------------:|:-------:|:----------:|
+| Comprehension regles FFE/FIDE FR | Excellent | Bon | Tres bon | Critique |
+| Raisonnement chunk→reponse | Superieur | Bon | Bon | Critique |
+| Reformulation naturelle FR | Excellent | Bon | Excellent | Haute |
+| Detection faux negatifs | Superieur | Moyen | Moyen | Haute |
+| JSON structure | Natif | Schema enforced | OK | Moyenne |
+| Cout | Inclus CC | $0 (free tier) | $0 (experiment) | Variable |
+
+**Conclusion**: Claude est l'acteur optimal pour Phases 0+1+2A (taches LLM).
+Alternative free viable: **Gemini 2.5 Flash** (AI Studio, 250 RPD) ou **Mistral** (experiment, 1B tok/mois).
+Qualite estimee des alternatives: 85-95% de Claude pour ce domaine specifique.
+
+### 6.3 Budget Tokens Estime
+
+| Phase | Input tokens | Output tokens | Total |
+|-------|:----------:|:-----------:|:-----:|
+| Phase 0 (420 Q) | ~215K | ~126K | ~341K |
+| Phase 2A (420 Q) | ~1,470K | ~168K | ~1,638K |
+| **Total LLM** | **~1,685K** | **~294K** | **~1,979K** |
+
+### 6.4 Strategie Recommandee
+
+```
+OPTION A (Optimale): Claude Code direct
+  Phase 0: Claude traite 420 Q par batches (~20 Q/tour)
+  Phase 1: Python deterministe + Claude pour CB-09
+  Phase 2B: Python + EmbeddingGemma local (Kaggle T4 si pas de GPU)
+  Phase 2A: Claude juge les hard negatives
+  Phase 3: Python scripts
+
+OPTION B (Free): Gemini 2.5 Flash API
+  Phase 0: Script Python + google.generativeai (250 RPD = 2 jours)
+  Phase 1: Python deterministe + Gemini pour CB-09
+  Phase 2B: Python + EmbeddingGemma local (Kaggle T4)
+  Phase 2A: Gemini juge les hard negatives (250 RPD = 2 jours)
+  Phase 3: Python scripts
+
+OPTION C (Hybride): Claude Phase 0 + Gemini Phase 2A
+  Phase 0: Claude (qualite maximale pour BY DESIGN = fondation)
+  Phase 2A: Gemini 2.5 Flash (jugement hard neg = moins critique)
+```
+
+---
+
+## 7. References
+
+### 7.1 Documents Projet (Approfondissement)
 
 | Document | Section | Contenu | Quand consulter |
 |----------|---------|---------|-----------------|
@@ -267,7 +450,7 @@ else:
 | [research/FINETUNING_RESOURCES.md](../research/FINETUNING_RESOURCES.md) | S2-4 | Sources Google, hyperparametres | Fine-tuning |
 | [GS_ANNALES_V7_OPTIMIZATION_SPEC.md](GS_ANNALES_V7_OPTIMIZATION_SPEC.md) | - | Optimisation GS pour triplets | Ameliorations |
 
-### 6.2 Standards Industrie
+### 7.2 Standards Industrie
 
 | Standard | Reference | Exigence |
 |----------|-----------|----------|
@@ -277,7 +460,7 @@ else:
 | SoftDedup | arXiv:2407.06564 | Deduplication < 0.95 |
 | RAGen | arXiv:2411.14831 | Context-grounded generation |
 
-### 6.3 Normes ISO
+### 7.3 Normes ISO
 
 | Norme | Controle | Application |
 |-------|----------|-------------|
@@ -287,7 +470,7 @@ else:
 | ISO 25010 | Exactitude | expected_answer dans chunk |
 | ISO 29119 | Test data | Schema validation |
 
-### 6.4 Sources Web de Confiance (2026-01-26)
+### 7.4 Sources Web de Confiance (2026-01-26)
 
 #### ArXiv (Papers)
 | Paper | ID | Contribution |
@@ -333,6 +516,14 @@ else:
 | Fine-tune EmbeddingGemma | [kaggle.com](https://www.kaggle.com/code/nilaychauhan/fine-tune-embeddinggemma) | Nilay Chauhan (Google) |
 | Fine-tune Gemma LoRA | [kaggle.com](https://www.kaggle.com/code/nilaychauhan/fine-tune-gemma-models-in-keras-using-lora) | Nilay Chauhan (Google) |
 
+#### Outils LLM / Alternatives Free
+| Outil | URL | Contenu |
+|-------|-----|---------|
+| Kilo Code | [kilo.ai](https://kilo.ai/) | Agent coding open-source, modeles free via OpenRouter |
+| Kilo Code Free Models | [kilo.ai/docs](https://kilo.ai/docs/advanced-usage/free-and-budget-models) | DeepSeek R1, Qwen3 Coder, Kimi K2 (free) |
+| Google AI Studio | [ai.google.dev](https://ai.google.dev/gemini-api/docs/pricing) | Gemini 2.5 Flash free tier (250 RPD) |
+| Mistral Experiment | [mistral.ai](https://mistral.ai/pricing) | Tier gratuit, excellent FR |
+
 #### Autres Sources
 | Source | URL | Contenu |
 |--------|-----|---------|
@@ -343,13 +534,15 @@ else:
 
 ---
 
-## 7. Historique
+## 8. Historique
 
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-26 | Creation - Consolidation requirements ISO + industrie |
+| 2.0 | 2026-01-28 | Alignement sur PLAN-GS-CONF-001: ajout criteres F-01..04, M-01..04, QA-01..02, EX-01..06; checklist actionnable par phase; audit complet v7.6; matrice acteurs; evaluation Claude/Gemini/Mistral |
 
 ---
 
 *Document ISO 42001/25010/29119 - Pocket Arbiter Project*
 *Usage: Checklist one-shot avant generation triplets*
+*Aligne sur: PLAN-GS-CONF-001 (GS_CONFORMITY_PLAN_V1.md)*

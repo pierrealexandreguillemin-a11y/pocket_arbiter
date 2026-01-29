@@ -511,11 +511,11 @@ Base Model (BF16) → Quantize 4-bit → LoRA adapters → Merge → Export TFLi
 ```python
 from sentence_transformers import SentenceTransformer
 
-# Actuel: 768D
-model = SentenceTransformer("google/embeddinggemma-300m")
+# Actuel: 768D (QAT = coherent avec QLoRA fine-tuning)
+model = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized")
 
-# Optimise: 256D (3x plus petit)
-model_256 = SentenceTransformer("google/embeddinggemma-300m", truncate_dim=256)
+# Optimise: 256D via MRL (3x plus petit)
+model_256 = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized", truncate_dim=256)
 ```
 
 | Dimension | Taille Embeddings | RAM Operations | MTEB Impact |

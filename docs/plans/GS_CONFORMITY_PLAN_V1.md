@@ -9,7 +9,11 @@
 ## 0. SEMANTIC BRIDGE - REQUIREMENTS CRITIQUES
 
 ### 0.1 Modèle Cible
-- **Model**: `google/embeddinggemma-300m-qat-q4_0-unquantized` (QLoRA recommended)
+- **Model**: `google/embeddinggemma-300m-qat-q4_0-unquantized` (**QAT obligatoire pour QLoRA**)
+- **Pourquoi QAT**: Poids entraînés avec simulation de quantization → robustes au bruit 4-bit
+  - QAT + QLoRA = pas de distribution shift (le modèle s'attend à être quantifié)
+  - Full + QLoRA = dégradation (poids non préparés pour la quantization)
+  - Cohérence end-to-end: QAT → QLoRA → TFLite int4 → LiteRT Android
 - **Framework**: sentence-transformers >= 3.0 + peft
 - **Loss**: `CachedMultipleNegativesRankingLoss`
 - **Dimensions**: 768D (ou MRL: 512/256/128)
@@ -342,13 +346,17 @@ OUTPUT JSON:
 #### Étape 2B: EmbeddingGemma pre-filtrage (candidats pour Claude)
 
 > EmbeddingGemma fournit les 10 candidats que Claude juge ensuite.
-> Le modèle reste unique dans le pipeline (coherence Google AI RAG / LiteRT).
+> Le modèle QAT reste unique dans le pipeline (coherence QLoRA → TFLite → LiteRT).
+> NOTE: Utiliser le QAT (pas le full) car c'est ce modèle qui sera fine-tuné.
+> Les hard negatives doivent être "hard" pour le QAT, pas pour le full.
 
 ```python
 from sentence_transformers import SentenceTransformer
 import numpy as np
 
-model = SentenceTransformer("google/embeddinggemma-300m")
+# IMPORTANT: QAT model = celui qui sera fine-tuné via QLoRA
+# Les candidats hard negatives doivent refléter CE que CE modèle "voit"
+model = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized")
 
 # Encoder tout le corpus une seule fois
 corpus_texts = [c["text"] for c in all_chunks]
@@ -639,7 +647,244 @@ else:
 
 ---
 
-## 6. COMMITS
+## 6. AUTOCONTRÔLE QUALITÉ
+
+> **ISO 29119**: Vérification et validation à chaque niveau
+> **ISO 42001 A.7.3**: Documentation des décisions IA
+> **QUALITY_REQUIREMENTS.md §4**: TD-01..05, TT-01..05, TV-01..04
+
+### 6.1 Niveaux de qualité
+
+```
+Q1 ─ Par question     Autocontrôle LLM (confidence + flags)
+Q2 ─ Par batch         Spot-check humain 10%
+Q3 ─ Par phase         Quality gate (critères + régression)
+Q4 ─ Par export        Schema validation + composition report
+Q5 ─ Global            Validation finale + benchmark recall
+```
+
+### 6.2 Q1 — Autocontrôle par question (LLM self-assessment)
+
+Pour CHAQUE question traitée par le LLM, le JSON de sortie DOIT inclure:
+
+```json
+{
+  "quality_check": {
+    "confidence": 0.92,
+    "flags": [],
+    "reformulation_preserves_meaning": true,
+    "chunk_derivability": "certain|probable|doubtful|impossible",
+    "needs_human_review": false
+  }
+}
+```
+
+**Règles d'escalade:**
+| Condition | Action |
+|-----------|--------|
+| `confidence < 0.7` | Flag pour review humain |
+| `chunk_derivability == "doubtful"` | Flag + chercher chunk alternatif |
+| `chunk_derivability == "impossible"` | Marquer `requires_context=true` avec reason |
+| `reformulation_preserves_meaning == false` | Rejeter, garder question originale |
+| `flags` non vide | Review humain obligatoire |
+
+**Métriques Q1 attendues:**
+| Métrique | Cible | Alerte |
+|----------|-------|--------|
+| Taux confidence >= 0.7 | >= 90% | < 85% → revoir prompt |
+| Taux needs_human_review | <= 15% | > 25% → revoir prompt |
+| Taux chunk_derivability certain | >= 70% testables | < 60% → problème corpus |
+
+### 6.3 Q2 — Spot-check par batch
+
+**Protocole:**
+```
+Pour chaque batch de ~20 questions:
+  1. LLM traite les 20 questions
+  2. Sauvegarder: gs_v7_batch_{n}.json (checkpoint)
+  3. Humain review 2 questions au hasard (10%)
+     - La reformulation garde le même sens?
+     - La réponse est dérivable du chunk identifié?
+     - Le style est naturel, finit par ?
+     - Les metadata sont cohérentes?
+  4. Si 1/2 échoue → review les 20, ajuster le prompt
+  5. Si 2/2 échoue → STOP, revoir la méthode
+  6. Si 0/2 échoue → batch validé, continuer
+```
+
+**Checkpoints:**
+```
+tests/data/checkpoints/
+├── gs_v7_phase0_batch_01.json    # Questions 1-20
+├── gs_v7_phase0_batch_02.json    # Questions 21-40
+├── ...
+├── gs_v7_phase0_batch_21.json    # Questions 401-420
+├── gs_v7_phase0_VALIDATED.json   # Merge final après gate
+└── spot_check_log.jsonl          # Log des reviews humains
+```
+
+**Format spot_check_log.jsonl:**
+```json
+{"batch": 1, "question_id": "ffe:annales:clubs:007:...", "reviewer": "human", "pass": true, "notes": ""}
+{"batch": 1, "question_id": "ffe:annales:clubs:014:...", "reviewer": "human", "pass": true, "notes": ""}
+```
+
+### 6.4 Q3 — Quality gates inter-phases
+
+#### GATE 0→1: BY DESIGN + chunk validation
+
+| # | Critère | Seuil | Bloquant |
+|---|---------|-------|:--------:|
+| G0-1 | CB-04 by_design | 100% | OUI |
+| G0-2 | CB-01 chunk_match_score=100 testables | >= 90% | OUI |
+| G0-3 | F-01 finit par ? | 100% | OUI |
+| G0-4 | original_question préservée | 100% | OUI |
+| G0-5 | Spot-check: 0 échec sur sample 10% | 0 échec | OUI |
+| G0-6 | Q1 confidence >= 0.7 | >= 90% | NON (alerte) |
+| G0-7 | REGRESSION CB-02, CB-03 | PASS | OUI |
+| G0-8 | REGRESSION CQ-01, CQ-08 | PASS | OUI |
+| G0-9 | REGRESSION F-02, F-03, M-03, M-04 | PASS | OUI |
+
+```python
+# Script gate Phase 0 → Phase 1
+def gate_phase0(gs):
+    errors, warnings = [], []
+
+    questions = gs['questions']
+    testables = [q for q in questions if not q.get('metadata',{}).get('requires_context')]
+
+    # Critères bloquants
+    for q in questions:
+        if not q.get('metadata',{}).get('by_design'):
+            errors.append(f"G0-1 FAIL: {q['id']} not by_design")
+        if not q['question'].strip().endswith('?'):
+            errors.append(f"G0-3 FAIL: {q['id']} not ending with ?")
+        if not q.get('metadata',{}).get('original_question'):
+            errors.append(f"G0-4 FAIL: {q['id']} no original_question")
+
+    validated = sum(1 for q in testables if q.get('metadata',{}).get('chunk_match_score') == 100)
+    if validated < 0.9 * len(testables):
+        errors.append(f"G0-2 FAIL: {validated}/{len(testables)} chunk_match=100")
+
+    # Régression
+    for q in questions:
+        if not q.get('expected_chunk_id'):
+            errors.append(f"G0-7 REGRESSION CB-02: {q['id']}")
+        if not q.get('metadata',{}).get('reasoning_class'):
+            errors.append(f"G0-8 REGRESSION CQ-01: {q['id']}")
+        if not q.get('expected_answer','').strip():
+            errors.append(f"G0-8 REGRESSION CQ-08: {q['id']}")
+        if len(q['question'].strip()) < 10:
+            errors.append(f"G0-9 REGRESSION F-02: {q['id']}")
+
+    # Alerte non-bloquante
+    qc = [q for q in questions if q.get('metadata',{}).get('quality_check',{}).get('confidence',1) < 0.7]
+    if len(qc) > 0.1 * len(questions):
+        warnings.append(f"G0-6 WARN: {len(qc)}/{len(questions)} low confidence")
+
+    return errors, warnings
+```
+
+#### GATE 1→2: Métadonnées complètes
+
+| # | Critère | Seuil | Bloquant |
+|---|---------|-------|:--------:|
+| G1-1 | CB-09 requires_context_reason | 100% rc | OUI |
+| G1-2 | M-01 difficulty present | 100% | OUI |
+| G1-3 | M-02 difficulty in [0,1] | 100% | OUI |
+| G1-4 | F-04 expected_answer > 5 chars review | 100% traité | OUI |
+| G1-5 | REGRESSION: tous critères Phase 0 | PASS | OUI |
+
+#### GATE 2→3: Hard negatives validés
+
+| # | Critère | Seuil | Bloquant |
+|---|---------|-------|:--------:|
+| G2-1 | CT-01 hard_negatives >= 3 | 100% testables | OUI |
+| G2-2 | CT-02 pas de duplicate negatives | 0% | OUI |
+| G2-3 | CT-03 negative != positive | 100% | OUI |
+| G2-4 | same_doc ratio | >= 40% | OUI |
+| G2-5 | Spot-check hard negatives 10% | 0 échec | OUI |
+| G2-6 | Faux négatifs rejetés par LLM | 100% documentés | OUI |
+| G2-7 | REGRESSION: tous critères Phases 0+1 | PASS | OUI |
+
+#### GATE 3→Fine-tuning: Export validé
+
+| # | Critère | Seuil | Bloquant |
+|---|---------|-------|:--------:|
+| G3-1 | EX-01..06 tous formats générés | 6/6 | OUI |
+| G3-2 | CT-04 schema JSON valide | 100% | OUI |
+| G3-3 | CT-05 split 80/20 seed=42 | Exact | OUI |
+| G3-4 | No data leakage train/val | 0 overlap | OUI |
+| G3-5 | Val = 100% gold_standard | TRUE | OUI |
+| G3-6 | QA-01 deduplication < 5% | < 5% | NON (alerte) |
+| G3-7 | REGRESSION complète Phases 0+1+2 | PASS | OUI |
+
+### 6.5 Q6 — Checkpoint et rollback
+
+**Stratégie par phase:**
+
+| Phase | Checkpoint | Rollback |
+|-------|-----------|----------|
+| Phase 0 | `gs_v7_phase0_batch_{n}.json` toutes les 20 Q | Recharger batch n-1 |
+| Phase 1 | `gs_v7_phase1_COMPLETE.json` | Recharger phase0_VALIDATED |
+| Phase 2 | `gs_v7_phase2_batch_{n}.json` toutes les 20 Q | Recharger batch n-1 |
+| Phase 3 | `data/training/unified/` versionné DVC | `dvc checkout` |
+
+**Git commits = snapshots:**
+```
+Chaque phase validée (gate PASS) → git commit
+Si gate FAIL → corriger et re-tester, PAS de commit
+Si correction impossible → git revert au commit précédent
+```
+
+### 6.6 Script de régression unifié
+
+```python
+def regression_check(gs, phase_completed):
+    """Vérifie que les critères des phases précédentes sont toujours PASS."""
+    errors = []
+    questions = gs['questions']
+    testables = [q for q in questions if not q.get('metadata',{}).get('requires_context')]
+    rc = [q for q in questions if q.get('metadata',{}).get('requires_context')]
+
+    # Critères TOUJOURS vérifiés (invariants)
+    for q in questions:
+        if not q.get('expected_chunk_id'):
+            errors.append(f"REGRESSION CB-02: {q['id']}")
+        if not q.get('metadata',{}).get('reasoning_class'):
+            errors.append(f"REGRESSION CQ-01: {q['id']}")
+        if not q.get('expected_answer','').strip():
+            errors.append(f"REGRESSION CQ-08: {q['id']}")
+        if len(q['question'].strip()) < 10:
+            errors.append(f"REGRESSION F-02: {q['id']}")
+
+    if phase_completed >= 0:
+        for q in questions:
+            if not q.get('metadata',{}).get('by_design'):
+                errors.append(f"REGRESSION CB-04: {q['id']}")
+            if not q['question'].strip().endswith('?'):
+                errors.append(f"REGRESSION F-01: {q['id']}")
+
+    if phase_completed >= 1:
+        for q in rc:
+            if not q.get('metadata',{}).get('requires_context_reason'):
+                errors.append(f"REGRESSION CB-09: {q['id']}")
+        for q in questions:
+            d = q.get('metadata',{}).get('difficulty')
+            if d is None or not (0 <= d <= 1):
+                errors.append(f"REGRESSION M-01: {q['id']}")
+
+    if phase_completed >= 2:
+        for q in testables:
+            if len(q.get('metadata',{}).get('hard_negatives',[])) < 3:
+                errors.append(f"REGRESSION CT-01: {q['id']}")
+
+    return errors
+```
+
+---
+
+## 7. COMMITS
 
 ```bash
 # Phase 0: BY DESIGN + chunk validation
@@ -684,9 +929,9 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 
 ---
 
-## 7. MÉTRIQUES CIBLES
+## 8. MÉTRIQUES CIBLES
 
-### 7.1 Conformité GS
+### 8.1 Conformité GS
 
 | Métrique | Cible |
 |----------|-------|
@@ -696,7 +941,7 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 | F-01 question finit par ? | 100% |
 | M-01 difficulty in [0,1] | 100% |
 
-### 7.2 Triplets pour Semantic Bridge
+### 8.2 Triplets pour Semantic Bridge
 
 | Métrique | Cible | Justification |
 |----------|-------|---------------|
@@ -707,7 +952,7 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 | Train/val split | 80/20 | UNIFIED_TRAINING_DATA_SPEC |
 | Val = 100% GS | TRUE | Pas de synthétique en val |
 
-### 7.3 Fine-tuning (Post-export)
+### 8.3 Fine-tuning (Post-export)
 
 | Métrique | Cible Baseline | Cible Fine-tuned |
 |----------|----------------|------------------|
@@ -717,7 +962,7 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 
 ---
 
-## 8. RÉFÉRENCES ARXIV/INDUSTRIE
+## 9. RÉFÉRENCES ARXIV/INDUSTRIE
 
 | Ref | Titre | Usage |
 |-----|-------|-------|
@@ -730,7 +975,7 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 | Databricks Blog | Embedding Finetuning | LLM-as-judge pour hard negatives |
 | NVIDIA SDG RAG | Synthetic Data Generation | 4 critères qualité LLM |
 
-### 8.1 Architecture Hard Negatives Hybride
+### 9.1 Architecture Hard Negatives Hybride
 
 ```
 Phase 2 Pipeline:
@@ -753,7 +998,7 @@ Phase 2 Pipeline:
 
 ---
 
-## 9. STATUS
+## 10. STATUS
 
 - [ ] Phase 0: BY DESIGN + chunk validation
 - [ ] Phase 1: Metadata fixes

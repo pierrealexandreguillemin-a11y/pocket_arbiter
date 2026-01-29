@@ -19,8 +19,8 @@ import argparse
 import sqlite3
 from pathlib import Path
 
-# Default model for existing DBs (created before model_id was tracked)
-DEFAULT_MODEL_ID = "google/embeddinggemma-300m"
+# Default model for existing DBs - QAT (coherence QLoRA pipeline)
+DEFAULT_MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
 
 
 def update_model_id(db_path: Path, model_id: str) -> dict:

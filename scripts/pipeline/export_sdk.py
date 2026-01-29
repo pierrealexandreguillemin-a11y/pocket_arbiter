@@ -385,8 +385,8 @@ def main() -> None:
     parser.add_argument(
         "--model-id", "-m",
         type=str,
-        default="google/embeddinggemma-300m",
-        help="Model ID for traceability (default: google/embeddinggemma-300m)",
+        default="google/embeddinggemma-300m-qat-q4_0-unquantized",
+        help="Model ID for traceability (default: QAT model)",
     )
     parser.add_argument("--verbose", "-v", action="store_true", help="Logs detailles")
 

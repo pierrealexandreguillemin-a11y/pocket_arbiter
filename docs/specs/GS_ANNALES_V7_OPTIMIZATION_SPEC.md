@@ -207,8 +207,8 @@ INFERENCE_MAP = {
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import mine_hard_negatives
 
-# 1. Charger modele (meme modele pour mining et fine-tuning)
-model = SentenceTransformer("google/embeddinggemma-300m")
+# 1. Charger modele QAT (meme modele pour mining et fine-tuning QLoRA)
+model = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized")
 
 # 2. Charger corpus chunks
 corpus = load_chunks("corpus/processed/chunks_mode_b_fr.json")

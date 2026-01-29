@@ -348,7 +348,7 @@ def main() -> None:
         logger.info("Checking semantic duplicates...")
         try:
             from sentence_transformers import SentenceTransformer
-            model = SentenceTransformer("google/embeddinggemma-300m")
+            model = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized")
             semantic_dups = check_semantic_duplicates(triplets, model)
             status = "PASS" if semantic_dups.get("passed", False) else "FAIL"
             logger.info(f"  Semantic dedup: {status}")

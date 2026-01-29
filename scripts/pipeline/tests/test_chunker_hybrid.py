@@ -199,7 +199,11 @@ class TestProcessDoclingOutputHybrid:
         # Create minimal docling file
         data = {
             "filename": "test.pdf",
-            "docling_document": {"schema_name": "DoclingDocument", "version": "1.0.0", "name": "test"}
+            "docling_document": {
+                "schema_name": "DoclingDocument",
+                "version": "1.0.0",
+                "name": "test",
+            },
         }
         (tmp_path / "test.json").write_text(json.dumps(data), encoding="utf-8")
 

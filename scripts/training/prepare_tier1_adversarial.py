@@ -48,9 +48,10 @@ def fix_cognitive_level(level: str) -> str:
 def extract_page_from_corpus_truth(corpus_truth: str) -> list[int]:
     """Extract page numbers from corpus_truth field."""
     import re
+
     pages = []
     # Pattern: p.123, p123, page 123
-    matches = re.findall(r'p\.?(\d+)|page\s*(\d+)', corpus_truth.lower())
+    matches = re.findall(r"p\.?(\d+)|page\s*(\d+)", corpus_truth.lower())
     for m in matches:
         page = m[0] or m[1]
         if page:
@@ -78,7 +79,6 @@ EXPECTED_DOCS_MAP = {
     "FR-ADV-055": ["LA-octobre2025.pdf"],  # 2500 MI -> 2400
     "FR-ADV-065": ["LA-octobre2025.pdf"],  # 3 repetitions
     "FR-ADV-066": ["LA-octobre2025.pdf"],  # 90 min classique
-
     # ANTONYM - reference real rules with opposite meaning
     "FR-ADV-067": ["LA-octobre2025.pdf"],  # interdire reclamation
     "FR-ADV-068": ["LA-octobre2025.pdf"],  # refuser signer
@@ -90,13 +90,13 @@ EXPECTED_DOCS_MAP = {
     "FR-ADV-074": ["LA-octobre2025.pdf"],  # nulle apres coup
     "FR-ADV-075": ["LA-octobre2025.pdf"],  # refuser nulle
     "FR-ADV-076": ["LA-octobre2025.pdf"],  # retirer piece
-
     # NEGATION (remaining - those with FAUX corpus_truth)
     "FR-ADV-083": ["LA-octobre2025.pdf"],  # Sofia rule
     "FR-ADV-084": ["LA-octobre2025.pdf"],  # zeitnot parties longues
-
     # ENTITY_SWAP - some reference FFE/FIDE rules
-    "FR-ADV-043": ["A02_2025_26_Championnat_de_France_des_Clubs.pdf"],  # Top16 FIDE->FFE
+    "FR-ADV-043": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+    ],  # Top16 FIDE->FFE
     "FR-ADV-045": ["A02_2025_26_Championnat_de_France_des_Clubs.pdf"],  # N1 FIDE->FFE
     "FR-ADV-046": ["J01_2025_26_Championnat_de_France_Jeunes.pdf"],  # Poussin/Pupille
     "FR-ADV-048": ["LA-octobre2025.pdf"],  # Rapide vs Blitz
@@ -126,12 +126,18 @@ def main() -> None:
     with open(review_path, "r", encoding="utf-8") as f:
         review = json.load(f)
 
-    tier1_types = ["VOCABULARY_MISMATCH", "ENTITY_SWAP", "ANTONYM", "NEGATION", "NUMBER_SWAP"]
+    tier1_types = [
+        "VOCABULARY_MISMATCH",
+        "ENTITY_SWAP",
+        "ANTONYM",
+        "NEGATION",
+        "NUMBER_SWAP",
+    ]
 
     # VOCABULARY_MISMATCH questions where answer EXISTS (hard but answerable)
     HARD_ANSWERABLE_IDS = [
-        "FR-Q77",   # 18 mois vs 12 mois - answer exists
-        "FR-Q94",   # 18 mois vs 12 mois - answer exists
+        "FR-Q77",  # 18 mois vs 12 mois - answer exists
+        "FR-Q94",  # 18 mois vs 12 mois - answer exists
         "FR-Q141",  # noyau jargon - answer exists in A02
         "FR-Q144",  # joueurs etrangers - answer exists in A02
         "FR-Q149",  # flag anglicism - drapeau exists in LA
@@ -153,7 +159,9 @@ def main() -> None:
 
         # Exclude questions that explain true rules (NEGATION type CORRECT)
         if legacy_id in EXCLUDE_IDS:
-            excluded.append({"id": legacy_id, "reason": "Actually answerable (explains true rule)"})
+            excluded.append(
+                {"id": legacy_id, "reason": "Actually answerable (explains true rule)"}
+            )
             continue
 
         # Get category for ID

@@ -21,23 +21,55 @@ DB_PATH = Path("corpus/processed/corpus_mode_b_fr.db")
 def normalize(text: str) -> str:
     """Normalize text for matching."""
     text = text.lower()
-    text = re.sub(r'[àâä]', 'a', text)
-    text = re.sub(r'[éèêë]', 'e', text)
-    text = re.sub(r'[îï]', 'i', text)
-    text = re.sub(r'[ôö]', 'o', text)
-    text = re.sub(r'[ùûü]', 'u', text)
-    text = re.sub(r'[ç]', 'c', text)
+    text = re.sub(r"[àâä]", "a", text)
+    text = re.sub(r"[éèêë]", "e", text)
+    text = re.sub(r"[îï]", "i", text)
+    text = re.sub(r"[ôö]", "o", text)
+    text = re.sub(r"[ùûü]", "u", text)
+    text = re.sub(r"[ç]", "c", text)
     return text
 
 
 def get_keywords(text: str) -> set[str]:
     """Extract significant keywords."""
     stopwords = {
-        'dans', 'pour', 'avec', 'sans', 'cette', 'etre', 'avoir', 'fait',
-        'faire', 'plus', 'moins', 'tout', 'tous', 'peut', 'doit', 'sont',
-        'elle', 'nous', 'vous', 'leur', 'meme', 'autre', 'entre', 'aussi',
-        'article', 'regles', 'regle', 'joueur', 'joueurs', 'partie',
-        'echecs', 'coup', 'coups', 'blanc', 'blancs', 'noir', 'noirs',
+        "dans",
+        "pour",
+        "avec",
+        "sans",
+        "cette",
+        "etre",
+        "avoir",
+        "fait",
+        "faire",
+        "plus",
+        "moins",
+        "tout",
+        "tous",
+        "peut",
+        "doit",
+        "sont",
+        "elle",
+        "nous",
+        "vous",
+        "leur",
+        "meme",
+        "autre",
+        "entre",
+        "aussi",
+        "article",
+        "regles",
+        "regle",
+        "joueur",
+        "joueurs",
+        "partie",
+        "echecs",
+        "coup",
+        "coups",
+        "blanc",
+        "blancs",
+        "noir",
+        "noirs",
     }
     words = normalize(text).split()
     return {w for w in words if len(w) > 3 and w not in stopwords}
@@ -56,7 +88,7 @@ def score_chunk(chunk_text: str, answer_text: str, article_ref: str) -> float:
             score += (matches / len(answer_kw)) * 100
 
     # Article number
-    art_match = re.search(r'(\d+\.\d+(?:\.\d+)?)', article_ref)
+    art_match = re.search(r"(\d+\.\d+(?:\.\d+)?)", article_ref)
     if art_match:
         art_num = art_match.group(1)
         if art_num in chunk_norm:
@@ -119,12 +151,14 @@ def main():
     )
     chunks_by_source: dict[str, list[dict]] = defaultdict(list)
     for row in cur:
-        chunks_by_source[row[2]].append({
-            "id": row[0],
-            "text": row[1],
-            "source": row[2],
-            "page": row[3],
-        })
+        chunks_by_source[row[2]].append(
+            {
+                "id": row[0],
+                "text": row[1],
+                "source": row[2],
+                "page": row[3],
+            }
+        )
 
     print(f"Loaded {sum(len(c) for c in chunks_by_source.values())} chunks")
     print(f"Processing {len(gs['questions'])} questions...")
@@ -201,7 +235,7 @@ def main():
 
         # Check article
         art_ok = False
-        art_match = re.search(r'(\d+\.\d+(?:\.\d+)?)', article_ref)
+        art_match = re.search(r"(\d+\.\d+(?:\.\d+)?)", article_ref)
         if art_match and art_match.group(1) in chunk_text:
             art_ok = True
 

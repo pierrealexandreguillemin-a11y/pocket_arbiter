@@ -36,10 +36,16 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "data" / "training" / "unified" / "gs_with_chunk
 def normalize_source_name(source: str) -> str:
     """Normalize source name for matching by removing accents."""
     replacements = [
-        ("é", "e"), ("è", "e"), ("ê", "e"), ("ë", "e"),
-        ("à", "a"), ("â", "a"),
-        ("ù", "u"), ("û", "u"),
-        ("î", "i"), ("ï", "i"),
+        ("é", "e"),
+        ("è", "e"),
+        ("ê", "e"),
+        ("ë", "e"),
+        ("à", "a"),
+        ("â", "a"),
+        ("ù", "u"),
+        ("û", "u"),
+        ("î", "i"),
+        ("ï", "i"),
         ("ô", "o"),
         ("ç", "c"),
     ]
@@ -121,7 +127,7 @@ def score_chunk_for_question(
     article_ref = question.get("article_reference", "")
     if article_ref:
         # Extract article numbers like "1.3", "4.7.3"
-        article_nums = re.findall(r'\d+(?:\.\d+)*', article_ref)
+        article_nums = re.findall(r"\d+(?:\.\d+)*", article_ref)
         for num in article_nums:
             if num in chunk_text:
                 score += 5.0
@@ -129,7 +135,7 @@ def score_chunk_for_question(
         # Check for "article" keyword near number
         if "article" in article_ref.lower():
             for num in article_nums:
-                pattern = rf'article\s+{re.escape(num)}'
+                pattern = rf"article\s+{re.escape(num)}"
                 if re.search(pattern, chunk_text, re.IGNORECASE):
                     score += 10.0
 
@@ -137,8 +143,8 @@ def score_chunk_for_question(
     answer_text = question.get("answer_text", "")
     if answer_text and len(answer_text) > 20:
         # Check for partial answer presence
-        answer_words = set(re.findall(r'\b\w{5,}\b', answer_text.lower()))
-        chunk_words = set(re.findall(r'\b\w{5,}\b', chunk_text))
+        answer_words = set(re.findall(r"\b\w{5,}\b", answer_text.lower()))
+        chunk_words = set(re.findall(r"\b\w{5,}\b", chunk_text))
         overlap = len(answer_words.intersection(chunk_words))
         score += overlap * 1.5
 
@@ -146,7 +152,7 @@ def score_chunk_for_question(
     section = chunk.get("section", "")
     if section and article_ref:
         section_lower = section.lower()
-        for num in re.findall(r'\d+(?:\.\d+)*', article_ref):
+        for num in re.findall(r"\d+(?:\.\d+)*", article_ref):
             if num in section_lower:
                 score += 3.0
 
@@ -190,11 +196,15 @@ def map_question_to_chunk(
 
     if not candidates:
         result["mapping_method"] = "no_candidates"
-        result["error"] = f"No chunks found for pages {expected_pages} in {source_pattern}"
+        result["error"] = (
+            f"No chunks found for pages {expected_pages} in {source_pattern}"
+        )
         return result
 
     # Score all candidates
-    scored = [(chunk, score_chunk_for_question(chunk, question)) for chunk in candidates]
+    scored = [
+        (chunk, score_chunk_for_question(chunk, question)) for chunk in candidates
+    ]
     scored.sort(key=lambda x: x[1], reverse=True)
 
     best_chunk, best_score = scored[0]
@@ -276,10 +286,12 @@ def process_gold_standard(
                 stats["adversarial"] += 1
             else:
                 stats["failed"] += 1
-                failed_questions.append({
-                    "id": question.get("id"),
-                    "error": mapping["error"],
-                })
+                failed_questions.append(
+                    {
+                        "id": question.get("id"),
+                        "error": mapping["error"],
+                    }
+                )
 
     # Calculate coverage
     mappable = stats["total"] - stats["adversarial"]
@@ -301,25 +313,29 @@ def main() -> None:
         description="Map Gold Standard questions to corpus chunks"
     )
     parser.add_argument(
-        "--gold-standard", "-g",
+        "--gold-standard",
+        "-g",
         type=Path,
         default=DEFAULT_GS,
         help="Path to gold standard JSON",
     )
     parser.add_argument(
-        "--chunks", "-c",
+        "--chunks",
+        "-c",
         type=Path,
         default=DEFAULT_CHUNKS,
         help="Path to chunks JSON",
     )
     parser.add_argument(
-        "--output", "-o",
+        "--output",
+        "-o",
         type=Path,
         default=DEFAULT_OUTPUT,
         help="Output path for enriched gold standard",
     )
     parser.add_argument(
-        "--verbose", "-v",
+        "--verbose",
+        "-v",
         action="store_true",
         help="Verbose output",
     )
@@ -365,7 +381,9 @@ def main() -> None:
     logger.info(f"  Adversarial (no pages): {stats['adversarial']}")
     logger.info(f"  Failed: {stats['failed']}")
     logger.info(f"  Coverage: {report['coverage']:.1%}")
-    logger.info(f"  Quality Gate (>=80%): {'PASS' if report['quality_gate'] else 'FAIL'}")
+    logger.info(
+        f"  Quality Gate (>=80%): {'PASS' if report['quality_gate'] else 'FAIL'}"
+    )
     logger.info("")
     logger.info("By method:")
     for method, count in stats["by_method"].items():

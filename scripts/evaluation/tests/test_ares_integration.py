@@ -220,11 +220,7 @@ class TestOnlyAnswerable:
             },
         ]
 
-        validated = [
-            q
-            for q in questions
-            if q["validation"]["status"] == "VALIDATED"
-        ]
+        validated = [q for q in questions if q["validation"]["status"] == "VALIDATED"]
 
         assert len(validated) == 1
         assert validated[0]["id"] == "Q1"
@@ -252,9 +248,8 @@ class TestChunkTraceability:
         for neg in negatives:
             neg_pages = set(neg["pages"])
             # Either different source OR non-overlapping pages
-            assert (
-                neg["source"] != positive_source
-                or not neg_pages.intersection(positive_pages)
+            assert neg["source"] != positive_source or not neg_pages.intersection(
+                positive_pages
             )
 
     def test_mapping_file_has_gs_id(self, tmp_path: Path) -> None:
@@ -304,8 +299,18 @@ class TestNegativeRatio:
     def test_negative_samples_labeled_zero(self, tmp_path: Path) -> None:
         """Negative samples must have label 0."""
         samples = [
-            {"Query": "Q1", "Document": "D1", "Answer": "A1", "Context_Relevance_Label": 1},
-            {"Query": "Q2", "Document": "D2", "Answer": "", "Context_Relevance_Label": 0},
+            {
+                "Query": "Q1",
+                "Document": "D1",
+                "Answer": "A1",
+                "Context_Relevance_Label": 1,
+            },
+            {
+                "Query": "Q2",
+                "Document": "D2",
+                "Answer": "",
+                "Context_Relevance_Label": 0,
+            },
         ]
 
         negatives = [s for s in samples if s["Context_Relevance_Label"] == 0]
@@ -400,7 +405,9 @@ class TestConfidenceIntervalValid:
         }
 
         compliance_invalid = _assess_iso_compliance(invalid_cr, {"total_samples": 100})
-        assert compliance_invalid["checks"]["confidence_interval_valid"]["pass"] is False
+        assert (
+            compliance_invalid["checks"]["confidence_interval_valid"]["pass"] is False
+        )
 
 
 # ============================================================================
@@ -420,17 +427,20 @@ class TestMockEvaluation:
         gold_label_path = gold_label_dir / "gold_label_fr.tsv"
         with open(gold_label_path, "w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(
-                f, fieldnames=["Query", "Document", "Answer", "Context_Relevance_Label"],
-                delimiter="\t"
+                f,
+                fieldnames=["Query", "Document", "Answer", "Context_Relevance_Label"],
+                delimiter="\t",
             )
             writer.writeheader()
             for i in range(10):
-                writer.writerow({
-                    "Query": f"Question {i}",
-                    "Document": f"Document {i}",
-                    "Answer": f"Answer {i}",
-                    "Context_Relevance_Label": 1 if i < 7 else 0,
-                })
+                writer.writerow(
+                    {
+                        "Query": f"Question {i}",
+                        "Document": f"Document {i}",
+                        "Answer": f"Answer {i}",
+                        "Context_Relevance_Label": 1 if i < 7 else 0,
+                    }
+                )
 
         # Patch DATA_DIR to use tmp_path
         with patch("scripts.evaluation.ares.run_evaluation.DATA_DIR", gold_label_dir):
@@ -852,12 +862,14 @@ class TestRunEvaluationIntegration:
             )
             writer.writeheader()
             for i in range(20):
-                writer.writerow({
-                    "Query": f"Question {i}",
-                    "Document": f"Document {i}",
-                    "Answer": f"Answer {i}",
-                    "Context_Relevance_Label": 1 if i < 14 else 0,
-                })
+                writer.writerow(
+                    {
+                        "Query": f"Question {i}",
+                        "Document": f"Document {i}",
+                        "Answer": f"Answer {i}",
+                        "Context_Relevance_Label": 1 if i < 14 else 0,
+                    }
+                )
 
         with patch.object(run_evaluation, "DATA_DIR", mock_corpus_data["output_dir"]):
             result = run_evaluation.run_mock_evaluation(corpus="test")
@@ -953,7 +965,9 @@ class TestCLIMain:
 
         # Create fr gold standard in mock location
         with open(
-            mock_corpus_data["tests_data"] / "gold_standard_fr.json", "w", encoding="utf-8"
+            mock_corpus_data["tests_data"] / "gold_standard_fr.json",
+            "w",
+            encoding="utf-8",
         ) as f:
             json.dump(
                 {
@@ -974,7 +988,9 @@ class TestCLIMain:
 
         # Create fr chunks
         with open(
-            mock_corpus_data["corpus_dir"] / "chunks_mode_b_fr.json", "w", encoding="utf-8"
+            mock_corpus_data["corpus_dir"] / "chunks_mode_b_fr.json",
+            "w",
+            encoding="utf-8",
         ) as f:
             json.dump(
                 {
@@ -1008,9 +1024,7 @@ class TestCLIMain:
             convert_to_ares, "CORPUS_DIR", mock_corpus_data["corpus_dir"]
         ), patch.object(
             convert_to_ares, "DATA_TRAINING_DIR", mock_corpus_data["training_dir"]
-        ), patch.object(
-            convert_to_ares, "OUTPUT_DIR", mock_corpus_data["output_dir"]
-        ):
+        ), patch.object(convert_to_ares, "OUTPUT_DIR", mock_corpus_data["output_dir"]):
             convert_to_ares.main()
 
         assert (mock_corpus_data["output_dir"] / "gold_label_fr.tsv").exists()
@@ -1023,7 +1037,9 @@ class TestCLIMain:
 
         # Create fr gold standard
         with open(
-            mock_corpus_data["tests_data"] / "gold_standard_fr.json", "w", encoding="utf-8"
+            mock_corpus_data["tests_data"] / "gold_standard_fr.json",
+            "w",
+            encoding="utf-8",
         ) as f:
             json.dump(
                 {
@@ -1044,7 +1060,9 @@ class TestCLIMain:
 
         # Create fr chunks
         with open(
-            mock_corpus_data["corpus_dir"] / "chunks_mode_b_fr.json", "w", encoding="utf-8"
+            mock_corpus_data["corpus_dir"] / "chunks_mode_b_fr.json",
+            "w",
+            encoding="utf-8",
         ) as f:
             json.dump(
                 {
@@ -1070,7 +1088,15 @@ class TestCLIMain:
 
         monkeypatch.setattr(
             "sys.argv",
-            ["generate_few_shot", "--corpus", "fr", "--n-positive", "1", "--n-negative", "1"],
+            [
+                "generate_few_shot",
+                "--corpus",
+                "fr",
+                "--n-positive",
+                "1",
+                "--n-negative",
+                "1",
+            ],
         )
 
         with patch.object(
@@ -1129,12 +1155,14 @@ class TestCLIMain:
             )
             writer.writeheader()
             for i in range(10):
-                writer.writerow({
-                    "Query": f"Q{i}",
-                    "Document": f"D{i}",
-                    "Answer": f"A{i}",
-                    "Context_Relevance_Label": 1 if i < 7 else 0,
-                })
+                writer.writerow(
+                    {
+                        "Query": f"Q{i}",
+                        "Document": f"D{i}",
+                        "Answer": f"A{i}",
+                        "Context_Relevance_Label": 1 if i < 7 else 0,
+                    }
+                )
 
         monkeypatch.setattr("sys.argv", ["run_evaluation", "--corpus", "fr", "--mock"])
 

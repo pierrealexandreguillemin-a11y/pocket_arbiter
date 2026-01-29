@@ -33,10 +33,14 @@ import logging
 import os
 import re
 from pathlib import Path
+
 # Workaround for Windows symlink permission issue with HuggingFace
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
-from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
+from langchain_text_splitters import (
+    MarkdownHeaderTextSplitter,
+    RecursiveCharacterTextSplitter,
+)
 
 from scripts.pipeline.token_utils import count_tokens, get_tokenizer
 
@@ -51,9 +55,9 @@ PARENT_CHUNK_OVERLAP = 154  # NVIDIA 2025: 15% optimal
 
 # Child chunks: precise semantic units for search (Chroma 2025)
 CHILD_CHUNK_SIZE = 450
-CHILD_CHUNK_OVERLAP = 68    # NVIDIA 2025: 15% optimal
+CHILD_CHUNK_OVERLAP = 68  # NVIDIA 2025: 15% optimal
 
-MIN_CHUNK_TOKENS = 30       # Evite fragments inutiles
+MIN_CHUNK_TOKENS = 30  # Evite fragments inutiles
 
 # Headers Markdown extraits par Docling
 HEADERS_TO_SPLIT = [
@@ -98,10 +102,12 @@ def chunk_markdown(
     normalized_pages = []
     if page_map:
         for page in page_map:
-            normalized_pages.append({
-                "page_num": page["page_num"],
-                "text_norm": normalize_for_match(page.get("text", "")),
-            })
+            normalized_pages.append(
+                {
+                    "page_num": page["page_num"],
+                    "text_norm": normalize_for_match(page.get("text", "")),
+                }
+            )
 
     def find_page(text: str) -> int:
         """Find the page number for a text snippet using fuzzy matching."""
@@ -115,7 +121,9 @@ def chunk_markdown(
         # Try multiple snippets from the text
         snippets = [
             text_norm[:80],  # Start
-            text_norm[50:130] if len(text_norm) > 130 else text_norm[:80],  # Early middle
+            text_norm[50:130]
+            if len(text_norm) > 130
+            else text_norm[:80],  # Early middle
         ]
 
         for snippet in snippets:
@@ -181,17 +189,19 @@ def chunk_markdown(
             page = find_page(parent_text)
             parent_id = f"{source}-p{page:03d}-parent{len(parent_chunks):03d}"
 
-            parent_chunks.append({
-                "id": parent_id,
-                "text": parent_text,
-                "source": source,
-                "page": page,
-                "section": section,
-                "article_num": article_num,
-                "tokens": parent_tokens,
-                "corpus": corpus,
-                "chunk_type": "parent",
-            })
+            parent_chunks.append(
+                {
+                    "id": parent_id,
+                    "text": parent_text,
+                    "source": source,
+                    "page": page,
+                    "section": section,
+                    "article_num": article_num,
+                    "tokens": parent_tokens,
+                    "corpus": corpus,
+                    "chunk_type": "parent",
+                }
+            )
 
             # Split parent into child chunks
             child_texts = child_splitter.split_text(parent_text)
@@ -208,18 +218,20 @@ def chunk_markdown(
                 child_page = find_page(child_text) or page
                 child_id = f"{source}-p{child_page}-parent{len(parent_chunks)-1:03d}-child{c_idx:02d}"
 
-                child_chunks.append({
-                    "id": child_id,
-                    "text": child_text,
-                    "source": source,
-                    "page": child_page,
-                    "section": section,
-                    "article_num": article_num,
-                    "parent_id": parent_id,
-                    "tokens": child_tokens,
-                    "corpus": corpus,
-                    "chunk_type": "child",
-                })
+                child_chunks.append(
+                    {
+                        "id": child_id,
+                        "text": child_text,
+                        "source": source,
+                        "page": child_page,
+                        "section": section,
+                        "article_num": article_num,
+                        "parent_id": parent_id,
+                        "tokens": child_tokens,
+                        "corpus": corpus,
+                        "chunk_type": "child",
+                    }
+                )
 
     return parent_chunks, child_chunks
 
@@ -291,11 +303,21 @@ def process_docling_output(
     # Save parents (for LLM context retrieval)
     parents_file = output_file.with_name(output_file.stem + "_parents.json")
     with open(parents_file, "w", encoding="utf-8") as f:
-        json.dump({"chunks": all_parents, "total": len(all_parents)}, f, ensure_ascii=False, indent=2)
+        json.dump(
+            {"chunks": all_parents, "total": len(all_parents)},
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
 
     # Save children (for embedding/search)
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump({"chunks": all_children, "total": len(all_children)}, f, ensure_ascii=False, indent=2)
+        json.dump(
+            {"chunks": all_children, "total": len(all_children)},
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
 
     pct_section = 100 * stats["with_section"] / max(1, stats["children"])
     pct_page = 100 * stats["with_page"] / max(1, stats["children"])
@@ -309,18 +331,32 @@ def process_docling_output(
 
 def main() -> None:
     """CLI entry point."""
-    parser = argparse.ArgumentParser(description="Markdown Chunker - Pocket Arbiter (Parent-Child)")
-    parser.add_argument("--input", "-i", type=Path, required=True, help="Docling output directory")
-    parser.add_argument("--output", "-o", type=Path, required=True, help="Output chunks JSON (children)")
-    parser.add_argument("--corpus", "-c", type=str, default="fr", help="Corpus name (fr/intl)")
-    parser.add_argument("--raw-dir", "-r", type=Path, help="Raw extraction directory (for page mapping)")
+    parser = argparse.ArgumentParser(
+        description="Markdown Chunker - Pocket Arbiter (Parent-Child)"
+    )
+    parser.add_argument(
+        "--input", "-i", type=Path, required=True, help="Docling output directory"
+    )
+    parser.add_argument(
+        "--output", "-o", type=Path, required=True, help="Output chunks JSON (children)"
+    )
+    parser.add_argument(
+        "--corpus", "-c", type=str, default="fr", help="Corpus name (fr/intl)"
+    )
+    parser.add_argument(
+        "--raw-dir", "-r", type=Path, help="Raw extraction directory (for page mapping)"
+    )
 
     args = parser.parse_args()
 
     stats = process_docling_output(args.input, args.output, args.corpus, args.raw_dir)
-    print(f"\nProcessed {stats['files']} files -> {stats['parents']} parents, {stats['children']} children")
+    print(
+        f"\nProcessed {stats['files']} files -> {stats['parents']} parents, {stats['children']} children"
+    )
     if args.raw_dir:
-        print(f"  with_page: {stats['with_page']} ({100*stats['with_page']/max(1,stats['children']):.1f}%)")
+        print(
+            f"  with_page: {stats['with_page']} ({100*stats['with_page']/max(1,stats['children']):.1f}%)"
+        )
 
 
 if __name__ == "__main__":

@@ -101,14 +101,19 @@ def build_article_page_index(chunks: list[dict[str, Any]]) -> dict[str, dict[str
         # Find generic regulation patterns (R01, R02, A02, etc.)
         for match in REGULATION_PATTERN.finditer(text):
             reg_type = match.group(1).upper()  # R or A
-            reg_num = match.group(2)            # 01, 02, etc.
-            section = match.group(3)            # 5.3, 2, etc.
+            reg_num = match.group(2)  # 01, 02, etc.
+            section = match.group(3)  # 5.3, 2, etc.
             articles.add(f"{reg_type}{reg_num}.{section}")
 
         for article in articles:
             key = f"{source}|{article}"
             if key not in index:
-                index[key] = {"pages": set(), "chunks": [], "source": source, "article": article}
+                index[key] = {
+                    "pages": set(),
+                    "chunks": [],
+                    "source": source,
+                    "article": article,
+                }
 
             index[key]["pages"].update(pages)
             index[key]["chunks"].append(
@@ -297,8 +302,21 @@ def validate_gold_standard(
         # Validate answer (optional - check if answer text exists)
         answer = q.get("expected_answer", "")
         if len(answer) <= 4 and answer.upper() in [
-            "A", "B", "C", "D", "AB", "AC", "AD", "BC", "BD", "CD",
-            "ABC", "ABD", "ACD", "BCD", "ABCD",
+            "A",
+            "B",
+            "C",
+            "D",
+            "AB",
+            "AC",
+            "AD",
+            "BC",
+            "BD",
+            "CD",
+            "ABC",
+            "ABD",
+            "ACD",
+            "BCD",
+            "ABCD",
         ]:
             stats["letter_only"] += 1
             q["validation"]["answer_type"] = "letter_only"
@@ -365,7 +383,11 @@ def main() -> None:
     print()
     print("By document:")
     for doc, doc_stats in sorted(stats["by_document"].items()):
-        pct = doc_stats["with_pages"] * 100 / doc_stats["total"] if doc_stats["total"] > 0 else 0
+        pct = (
+            doc_stats["with_pages"] * 100 / doc_stats["total"]
+            if doc_stats["total"] > 0
+            else 0
+        )
         print(f"  {doc}: {doc_stats['with_pages']}/{doc_stats['total']} ({pct:.0f}%)")
 
 

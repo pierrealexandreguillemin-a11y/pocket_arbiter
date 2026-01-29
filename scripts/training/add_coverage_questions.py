@@ -30,14 +30,18 @@ def main() -> None:
             "expected_pages": [2],
             "category": "jeunes",
             "keywords": ["cadence", "scolaire", "departemental", "15 min"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 2.2.1 J03"
-            }
+                "article_reference": "Article 2.2.1 J03",
+            },
         },
         {
             "id": "FR-F01-001",
@@ -45,18 +49,24 @@ def main() -> None:
             "expected_answer": "3 divisions : Top 12F (12 equipes), Nationale 1 feminine (4 groupes de 8 equipes), et Nationale 2 feminine.",
             "is_impossible": False,
             "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
-            "expected_docs": ["F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"],
+            "expected_docs": [
+                "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+            ],
             "expected_pages": [1],
             "category": "feminin",
             "keywords": ["structure", "division", "Top 12F", "N1F", "N2F"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "list",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 1.1 F01"
-            }
+                "article_reference": "Article 1.1 F01",
+            },
         },
         {
             "id": "FR-F02-001",
@@ -64,18 +74,24 @@ def main() -> None:
             "expected_answer": "3 joueuses. Pour 21 a 30 participantes, 3 joueuses se qualifient.",
             "is_impossible": False,
             "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
-            "expected_docs": ["F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"],
+            "expected_docs": [
+                "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+            ],
             "expected_pages": [1],
             "category": "feminin",
             "keywords": ["qualification", "finale", "feminin", "rapides", "ZID"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "APPLY",
-                "article_reference": "Article 1.2 F02"
-            }
+                "article_reference": "Article 1.2 F02",
+            },
         },
         {
             "id": "FR-H01-001",
@@ -87,14 +103,18 @@ def main() -> None:
             "expected_pages": [1],
             "category": "handicap",
             "keywords": ["handicap", "refus", "appariement"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "yes_no",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "UNDERSTAND",
-                "article_reference": "Article 2 H01"
-            }
+                "article_reference": "Article 2 H01",
+            },
         },
         {
             "id": "FR-H02-001",
@@ -106,14 +126,18 @@ def main() -> None:
             "expected_pages": [1],
             "category": "handicap",
             "keywords": ["accessibilite", "mobilite reduite", "locaux"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "UNDERSTAND",
-                "article_reference": "Phase II H02"
-            }
+                "article_reference": "Phase II H02",
+            },
         },
         {
             "id": "FR-E02-001",
@@ -125,14 +149,18 @@ def main() -> None:
             "expected_pages": [1],
             "category": "classement",
             "keywords": ["compatibilite", "elo", "rapide", "320 points"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 1 E02"
-            }
+                "article_reference": "Article 1 E02",
+            },
         },
         {
             "id": "FR-A01-001",
@@ -144,14 +172,18 @@ def main() -> None:
             "expected_pages": [1],
             "category": "competitions",
             "keywords": ["structure", "tournoi", "national", "open"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "list",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 1.2 A01"
-            }
+                "article_reference": "Article 1.2 A01",
+            },
         },
         {
             "id": "FR-A03-001",
@@ -159,19 +191,25 @@ def main() -> None:
             "expected_answer": "3 categories : Categorie A (moyenne > 2000), Categorie B (moyenne > 1700), Categorie C (moyenne <= 1700).",
             "is_impossible": False,
             "expected_chunk_id": "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf-p004-parent000-child00",
-            "expected_docs": ["A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"],
+            "expected_docs": [
+                "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf"
+            ],
             "expected_pages": [4],
             "category": "competitions",
             "keywords": ["categorie", "moyenne", "elo", "clubs", "rapides"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "list",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 1.1 A03"
-            }
-        }
+                "article_reference": "Article 1.1 A03",
+            },
+        },
     ]
 
     gs["questions"].extend(coverage_questions)
@@ -184,7 +222,7 @@ def main() -> None:
     with open(gs_path, "w", encoding="utf-8") as f:
         json.dump(gs, f, indent=2, ensure_ascii=False)
 
-    print(f"Questions ajoutees: 8 (J03, F01, F02, H01, H02, E02, A01, A03)")
+    print("Questions ajoutees: 8 (J03, F01, F02, H01, H02, E02, A01, A03)")
     print(f"Total questions: {len(gs['questions'])}")
 
 

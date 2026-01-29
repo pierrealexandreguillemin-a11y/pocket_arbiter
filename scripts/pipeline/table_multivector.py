@@ -84,7 +84,9 @@ def table_to_markdown(table: dict[str, Any]) -> str:
 
     for row in rows:
         padded = list(row) + [""] * (len(headers) - len(row))
-        lines.append("| " + " | ".join(str(cell) for cell in padded[:len(headers)]) + " |")
+        lines.append(
+            "| " + " | ".join(str(cell) for cell in padded[: len(headers)]) + " |"
+        )
 
     return "\n".join(lines)
 
@@ -165,7 +167,9 @@ def process_tables_multivector(
         logger.error("ERREUR: Summaries Claude Code manquants!")
         logger.error(f"Fichier attendu: {summaries_file}")
         logger.error("")
-        logger.error("Claude Code doit generer les summaries AVANT d'executer ce script.")
+        logger.error(
+            "Claude Code doit generer les summaries AVANT d'executer ce script."
+        )
         logger.error("=" * 60)
         sys.exit(1)
 
@@ -175,7 +179,7 @@ def process_tables_multivector(
     summaries = summaries_data.get("summaries", {})
     if not summaries:
         logger.error("ERREUR: Fichier summaries vide ou format invalide.")
-        logger.error("Format attendu: {\"summaries\": {\"table_id\": \"summary text\", ...}}")
+        logger.error('Format attendu: {"summaries": {"table_id": "summary text", ...}}')
         sys.exit(1)
 
     logger.info(f"Loaded {len(summaries)} Claude Code summaries")
@@ -251,7 +255,9 @@ def process_tables_multivector(
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    logger.info(f"Saved {len(children)} children + {len(parents)} parents to {output_file}")
+    logger.info(
+        f"Saved {len(children)} children + {len(parents)} parents to {output_file}"
+    )
 
     report = {
         "corpus": corpus,

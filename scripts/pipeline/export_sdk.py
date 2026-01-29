@@ -184,7 +184,9 @@ def create_vector_db(
 
             # Build metadata from all non-core fields (ISO 42001 traceability)
             core_fields = {"id", "text", "source", "page", "tokens"}
-            metadata = {k: v for k, v in chunk.items() if k not in core_fields and v is not None}
+            metadata = {
+                k: v for k, v in chunk.items() if k not in core_fields and v is not None
+            }
             # Merge with existing metadata if present
             if "metadata" in chunk and isinstance(chunk["metadata"], dict):
                 metadata.update(chunk["metadata"])
@@ -383,7 +385,8 @@ def main() -> None:
         "--output", "-o", type=Path, required=True, help="Fichier SQLite de sortie"
     )
     parser.add_argument(
-        "--model-id", "-m",
+        "--model-id",
+        "-m",
         type=str,
         default="google/embeddinggemma-300m-qat-q4_0-unquantized",
         help="Model ID for traceability (default: QAT model)",
@@ -395,7 +398,9 @@ def main() -> None:
     if args.verbose:
         logging.getLogger().setLevel(logging.DEBUG)
 
-    report = export_corpus(args.chunks, args.embeddings, args.output, model_id=args.model_id)
+    report = export_corpus(
+        args.chunks, args.embeddings, args.output, model_id=args.model_id
+    )
 
     logger.info("=" * 50)
     logger.info(f"Total chunks: {report['total_chunks']}")

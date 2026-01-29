@@ -91,6 +91,21 @@ repos:
       - id: trailing-whitespace
         name: "ISO 5055 | Trailing Whitespace"
 
+  # --------------------------------------------------------------------------
+  # TESTING: Quick Gate (ISO 29119 - Regression)
+  # --------------------------------------------------------------------------
+  - repo: local
+    hooks:
+      - id: pytest-quick
+        name: "ISO 29119 | Quick Test Gate"
+        description: "Run tests to prevent broken commits"
+        entry: python
+        args: [-m, pytest, scripts/, -x, --tb=short, -q]
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+        always_run: true
+
   # ============================================================================
   # STAGE: COMMIT-MSG
   # Focus: Traceability and documentation (ISO 15289)
@@ -118,7 +133,7 @@ repos:
         name: "ISO 29119 | Test Coverage (80% min)"
         description: "Run tests with coverage measurement"
         entry: python
-        args: [-m, pytest, scripts/iso/tests/, scripts/pipeline/tests/, -v, --tb=short, --cov=scripts, --cov-fail-under=80, -x]
+        args: [-m, pytest, scripts/, -v, --tb=short, --cov=scripts, --cov-config=.coveragerc, --cov-fail-under=80, -x]
         language: system
         pass_filenames: false
         stages: [pre-push]

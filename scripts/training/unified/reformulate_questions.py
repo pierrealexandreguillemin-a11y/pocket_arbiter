@@ -107,6 +107,7 @@ class GeminiClient:
     def client(self) -> Any:
         if self._client is None:
             import google.generativeai as genai
+
             genai.configure(api_key=self.api_key)
             self._client = genai.GenerativeModel(self.model)
         return self._client
@@ -131,6 +132,7 @@ class AnthropicClient:
 
     def generate(self, prompt: str) -> str:
         import anthropic
+
         client = anthropic.Anthropic(api_key=self.api_key)
         message = client.messages.create(
             model=self.model,
@@ -155,6 +157,7 @@ class OpenAIClient:
 
     def generate(self, prompt: str) -> str:
         import openai
+
         client = openai.OpenAI(api_key=self.api_key)
         response = client.chat.completions.create(
             model=self.model,
@@ -177,6 +180,7 @@ class OllamaClient:
 
     def generate(self, prompt: str) -> str:
         import requests
+
         response = requests.post(
             f"{self.base_url}/api/generate",
             json={"model": self.model, "prompt": prompt, "stream": False},
@@ -196,7 +200,9 @@ def create_llm_client(provider: str = "mock", **kwargs: Any) -> LLMClient:
         "ollama": OllamaClient,
     }
     if provider not in providers:
-        raise ValueError(f"Unknown provider: {provider}. Available: {list(providers.keys())}")
+        raise ValueError(
+            f"Unknown provider: {provider}. Available: {list(providers.keys())}"
+        )
     return providers[provider](**{k: v for k, v in kwargs.items() if v is not None})
 
 
@@ -208,7 +214,11 @@ def load_json_file(path: Path) -> Any:
 
 def build_chunk_index(chunks_data: Any) -> dict[str, dict]:
     """Build index of chunks by ID for fast lookup."""
-    chunks = chunks_data.get("chunks", chunks_data) if isinstance(chunks_data, dict) else chunks_data
+    chunks = (
+        chunks_data.get("chunks", chunks_data)
+        if isinstance(chunks_data, dict)
+        else chunks_data
+    )
     return {chunk["id"]: chunk for chunk in chunks}
 
 
@@ -236,7 +246,7 @@ def reformulate_question(
         except Exception as e:
             logger.warning(f"Attempt {attempt + 1}/{max_retries} failed: {e}")
             if attempt < max_retries - 1:
-                time.sleep(2 ** attempt)  # Exponential backoff
+                time.sleep(2**attempt)  # Exponential backoff
             else:
                 logger.error(f"Failed to reformulate: {question.get('id')}")
                 return question.get("question", "")  # Fallback to original
@@ -316,38 +326,44 @@ def main() -> None:
         description="Reformulate GS questions with chunk context (BY DESIGN)"
     )
     parser.add_argument(
-        "--input", "-i",
+        "--input",
+        "-i",
         type=Path,
         default=DEFAULT_INPUT,
         help="Input GS with chunks JSON",
     )
     parser.add_argument(
-        "--chunks", "-c",
+        "--chunks",
+        "-c",
         type=Path,
         default=DEFAULT_CHUNKS,
         help="Chunks JSON file",
     )
     parser.add_argument(
-        "--output", "-o",
+        "--output",
+        "-o",
         type=Path,
         default=DEFAULT_OUTPUT,
         help="Output reformulated GS JSON",
     )
     parser.add_argument(
-        "--provider", "-p",
+        "--provider",
+        "-p",
         type=str,
         default="mock",
         choices=["mock", "gemini", "anthropic", "openai", "ollama"],
         help="LLM provider",
     )
     parser.add_argument(
-        "--model", "-m",
+        "--model",
+        "-m",
         type=str,
         default=None,
         help="Model name (provider-specific)",
     )
     parser.add_argument(
-        "--limit", "-l",
+        "--limit",
+        "-l",
         type=int,
         default=None,
         help="Limit number of questions to process",
@@ -358,7 +374,8 @@ def main() -> None:
         help="Re-reformulate even if already done",
     )
     parser.add_argument(
-        "--verbose", "-v",
+        "--verbose",
+        "-v",
         action="store_true",
     )
     args = parser.parse_args()

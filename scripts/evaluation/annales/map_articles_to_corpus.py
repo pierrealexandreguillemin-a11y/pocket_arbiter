@@ -378,7 +378,9 @@ def map_all_parsed_annales(
         all_documents.update(result_stats["documents_used"])
 
         # Save mapped file
-        output_file = output_dir / f"mapped_{parsed_file.stem.replace('parsed_', '')}.json"
+        output_file = (
+            output_dir / f"mapped_{parsed_file.stem.replace('parsed_', '')}.json"
+        )
         save_json(result["data"], output_file)
         logger.info(f"Saved: {output_file}")
 

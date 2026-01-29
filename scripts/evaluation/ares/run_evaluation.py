@@ -158,9 +158,7 @@ def run_context_relevance_evaluation(
 
     # Validate LLM config
     if llm not in LLM_CONFIGS:
-        raise ValueError(
-            f"Unknown LLM: {llm}. Available: {list(LLM_CONFIGS.keys())}"
-        )
+        raise ValueError(f"Unknown LLM: {llm}. Available: {list(LLM_CONFIGS.keys())}")
 
     llm_config = LLM_CONFIGS[llm]
 
@@ -185,9 +183,7 @@ def run_context_relevance_evaluation(
 
     # Check ARES availability
     if not check_ares_available():
-        raise ImportError(
-            "ARES not installed. Install with: pip install ares-ai"
-        )
+        raise ImportError("ARES not installed. Install with: pip install ares-ai")
 
     # Import ARES (only when actually running)
     from ares import ARES
@@ -239,14 +235,21 @@ def run_context_relevance_evaluation(
     }
 
     # Save results
-    result_path = output_dir / f"evaluation_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    result_path = (
+        output_dir
+        / f"evaluation_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    )
     with open(result_path, "w", encoding="utf-8") as f:
         json.dump(evaluation_result, f, indent=2, ensure_ascii=False)
 
     print(f"Results saved to: {result_path}")
-    print(f"\nContext Relevance Score: {evaluation_result['context_relevance']['score']:.2%}")
-    print(f"95% CI: [{evaluation_result['context_relevance']['ci_95_lower']:.2%}, "
-          f"{evaluation_result['context_relevance']['ci_95_upper']:.2%}]")
+    print(
+        f"\nContext Relevance Score: {evaluation_result['context_relevance']['score']:.2%}"
+    )
+    print(
+        f"95% CI: [{evaluation_result['context_relevance']['ci_95_lower']:.2%}, "
+        f"{evaluation_result['context_relevance']['ci_95_upper']:.2%}]"
+    )
 
     return evaluation_result
 
@@ -404,32 +407,38 @@ def run_ollama_evaluation(
         for row in reader:
             label = row.get("Context_Relevance_Label", "")
             if label in ("0", "1"):
-                few_shot_examples.append({
-                    "query": row["Query"],
-                    "document": row["Document"],
-                    "label": "[[Yes]]" if label == "1" else "[[No]]",
-                })
+                few_shot_examples.append(
+                    {
+                        "query": row["Query"],
+                        "document": row["Document"],
+                        "label": "[[Yes]]" if label == "1" else "[[No]]",
+                    }
+                )
 
     # Load gold labeled samples (for PPI)
     gold_samples: list[dict[str, str | int]] = []
     with open(gold_label_path, encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
         for row in reader:
-            gold_samples.append({
-                "query": str(row["Query"]),
-                "document": str(row["Document"]),
-                "gold_label": int(row["Context_Relevance_Label"]),
-            })
+            gold_samples.append(
+                {
+                    "query": str(row["Query"]),
+                    "document": str(row["Document"]),
+                    "gold_label": int(row["Context_Relevance_Label"]),
+                }
+            )
 
     # Load unlabeled samples
     unlabeled_samples: list[dict[str, str]] = []
     with open(unlabeled_path, encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
         for row in reader:
-            unlabeled_samples.append({
-                "query": str(row["Query"]),
-                "document": str(row["Document"]),
-            })
+            unlabeled_samples.append(
+                {
+                    "query": str(row["Query"]),
+                    "document": str(row["Document"]),
+                }
+            )
 
     # Limit samples for quick testing
     if max_samples > 0:
@@ -448,13 +457,13 @@ def run_ollama_evaluation(
 
     # ARES-verbatim system prompt
     system_prompt = (
-        'You are an expert dialogue agent. Your task is to analyze the provided '
-        'document and determine whether it is relevant for responding to the dialogue. '
-        'In your evaluation, you should consider the content of the document and how '
-        'it relates to the provided dialogue. Output your final verdict by strictly '
+        "You are an expert dialogue agent. Your task is to analyze the provided "
+        "document and determine whether it is relevant for responding to the dialogue. "
+        "In your evaluation, you should consider the content of the document and how "
+        "it relates to the provided dialogue. Output your final verdict by strictly "
         'following this format: "[[Yes]]" if the document is relevant and "[[No]]" '
-        'if the document provided is not relevant. Do not provide any additional '
-        'explanation for your decision.'
+        "if the document provided is not relevant. Do not provide any additional "
+        "explanation for your decision."
     )
 
     # Build few-shot prompt (ARES format)
@@ -516,9 +525,7 @@ Label: """
             print(f"  Unlabeled: {j + 1}/{len(unlabeled_samples)}")
 
     # ARES-verbatim PPI confidence interval
-    estimate, ci_lower, ci_upper = _ppi_mean_ci(
-        Y_labeled, Yhat_labeled, Yhat_unlabeled
-    )
+    estimate, ci_lower, ci_upper = _ppi_mean_ci(Y_labeled, Yhat_labeled, Yhat_unlabeled)
 
     # Calculate accuracy on gold set
     n_correct = sum(p == y for p, y in zip(Yhat_labeled, Y_labeled))
@@ -547,7 +554,10 @@ Label: """
     }
 
     # Save results
-    result_path = output_dir / f"ares_ollama_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    result_path = (
+        output_dir
+        / f"ares_ollama_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    )
     with open(result_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 
@@ -616,32 +626,38 @@ def run_groq_evaluation(
         for row in reader:
             label = row.get("Context_Relevance_Label", "")
             if label in ("0", "1"):
-                few_shot_examples.append({
-                    "query": row["Query"],
-                    "document": row["Document"],
-                    "label": "[[Yes]]" if label == "1" else "[[No]]",
-                })
+                few_shot_examples.append(
+                    {
+                        "query": row["Query"],
+                        "document": row["Document"],
+                        "label": "[[Yes]]" if label == "1" else "[[No]]",
+                    }
+                )
 
     # Load gold labeled samples
     gold_samples: list[dict[str, str | int]] = []
     with open(gold_label_path, encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
         for row in reader:
-            gold_samples.append({
-                "query": str(row["Query"]),
-                "document": str(row["Document"]),
-                "gold_label": int(row["Context_Relevance_Label"]),
-            })
+            gold_samples.append(
+                {
+                    "query": str(row["Query"]),
+                    "document": str(row["Document"]),
+                    "gold_label": int(row["Context_Relevance_Label"]),
+                }
+            )
 
     # Load unlabeled samples
     unlabeled_samples: list[dict[str, str]] = []
     with open(unlabeled_path, encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
         for row in reader:
-            unlabeled_samples.append({
-                "query": str(row["Query"]),
-                "document": str(row["Document"]),
-            })
+            unlabeled_samples.append(
+                {
+                    "query": str(row["Query"]),
+                    "document": str(row["Document"]),
+                }
+            )
 
     # Limit samples
     if max_samples > 0:
@@ -660,33 +676,40 @@ def run_groq_evaluation(
 
     # ARES-verbatim system prompt
     system_prompt = (
-        'You are an expert dialogue agent. Your task is to analyze the provided '
-        'document and determine whether it is relevant for responding to the dialogue. '
-        'In your evaluation, you should consider the content of the document and how '
-        'it relates to the provided dialogue. Output your final verdict by strictly '
+        "You are an expert dialogue agent. Your task is to analyze the provided "
+        "document and determine whether it is relevant for responding to the dialogue. "
+        "In your evaluation, you should consider the content of the document and how "
+        "it relates to the provided dialogue. Output your final verdict by strictly "
         'following this format: "[[Yes]]" if the document is relevant and "[[No]]" '
-        'if the document provided is not relevant. Do not provide any additional '
-        'explanation for your decision.'
+        "if the document provided is not relevant. Do not provide any additional "
+        "explanation for your decision."
     )
 
     # Build few-shot messages
     few_shot_messages: list[dict[str, str]] = []
     for ex in few_shot_examples[:5]:
-        few_shot_messages.append({
-            "role": "user",
-            "content": f"Question: {ex['query']}\nDocument: {ex['document'][:500]}",
-        })
-        few_shot_messages.append({
-            "role": "assistant",
-            "content": ex["label"],
-        })
+        few_shot_messages.append(
+            {
+                "role": "user",
+                "content": f"Question: {ex['query']}\nDocument: {ex['document'][:500]}",
+            }
+        )
+        few_shot_messages.append(
+            {
+                "role": "assistant",
+                "content": ex["label"],
+            }
+        )
 
     def evaluate_sample(query: str, document: str) -> int:
         """Evaluate a single sample, returns 1 (relevant) or 0 (not relevant)."""
         messages = [
             {"role": "system", "content": system_prompt},
             *few_shot_messages,
-            {"role": "user", "content": f"Question: {query}\nDocument: {document[:2000]}"},
+            {
+                "role": "user",
+                "content": f"Question: {query}\nDocument: {document[:2000]}",
+            },
         ]
 
         try:
@@ -733,9 +756,7 @@ def run_groq_evaluation(
             print(f"  Unlabeled: {j + 1}/{len(unlabeled_samples)}")
 
     # ARES-verbatim PPI confidence interval
-    estimate, ci_lower, ci_upper = _ppi_mean_ci(
-        Y_labeled, Yhat_labeled, Yhat_unlabeled
-    )
+    estimate, ci_lower, ci_upper = _ppi_mean_ci(Y_labeled, Yhat_labeled, Yhat_unlabeled)
 
     # Calculate accuracy on gold set
     n_correct = sum(p == y for p, y in zip(Yhat_labeled, Y_labeled))
@@ -764,7 +785,10 @@ def run_groq_evaluation(
     }
 
     # Save results
-    result_path = output_dir / f"ares_groq_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    result_path = (
+        output_dir
+        / f"ares_groq_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    )
     with open(result_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 
@@ -830,32 +854,38 @@ def run_huggingface_evaluation(
         for row in reader:
             label = row.get("Context_Relevance_Label", "")
             if label in ("0", "1"):
-                few_shot_examples.append({
-                    "query": row["Query"],
-                    "document": row["Document"],
-                    "label": "[[Yes]]" if label == "1" else "[[No]]",
-                })
+                few_shot_examples.append(
+                    {
+                        "query": row["Query"],
+                        "document": row["Document"],
+                        "label": "[[Yes]]" if label == "1" else "[[No]]",
+                    }
+                )
 
     # Load gold labeled samples
     gold_samples: list[dict[str, str | int]] = []
     with open(gold_label_path, encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
         for row in reader:
-            gold_samples.append({
-                "query": str(row["Query"]),
-                "document": str(row["Document"]),
-                "gold_label": int(row["Context_Relevance_Label"]),
-            })
+            gold_samples.append(
+                {
+                    "query": str(row["Query"]),
+                    "document": str(row["Document"]),
+                    "gold_label": int(row["Context_Relevance_Label"]),
+                }
+            )
 
     # Load unlabeled samples
     unlabeled_samples: list[dict[str, str]] = []
     with open(unlabeled_path, encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
         for row in reader:
-            unlabeled_samples.append({
-                "query": str(row["Query"]),
-                "document": str(row["Document"]),
-            })
+            unlabeled_samples.append(
+                {
+                    "query": str(row["Query"]),
+                    "document": str(row["Document"]),
+                }
+            )
 
     # Limit samples
     if max_samples > 0:
@@ -878,7 +908,7 @@ def run_huggingface_evaluation(
         few_shot_text += f"\nQuestion: {ex['query']}\nDocument: {ex['document'][:300]}\nRelevant: {ex['label']}\n"
 
     system_prompt = (
-        'Determine if the document is relevant to answer the question. '
+        "Determine if the document is relevant to answer the question. "
         'Reply ONLY with "[[Yes]]" or "[[No]]".'
     )
 
@@ -896,12 +926,16 @@ Relevant: [/INST]"""
             resp = requests.post(
                 api_url,
                 headers=headers,
-                json={"inputs": prompt, "parameters": {"max_new_tokens": 10, "temperature": 0.01}},
+                json={
+                    "inputs": prompt,
+                    "parameters": {"max_new_tokens": 10, "temperature": 0.01},
+                },
                 timeout=60,
             )
             if resp.status_code == 503:
                 # Model loading, wait and retry
                 import time
+
                 time.sleep(20)
                 resp = requests.post(
                     api_url,
@@ -911,7 +945,9 @@ Relevant: [/INST]"""
                 )
             resp.raise_for_status()
             result = resp.json()
-            response_text = result[0].get("generated_text", "") if isinstance(result, list) else ""
+            response_text = (
+                result[0].get("generated_text", "") if isinstance(result, list) else ""
+            )
 
             # Parse response
             yes_match = re.search(r"\[\[Yes\]\]", response_text, re.IGNORECASE)
@@ -948,9 +984,7 @@ Relevant: [/INST]"""
             print(f"  Unlabeled: {j + 1}/{len(unlabeled_samples)}")
 
     # PPI confidence interval
-    estimate, ci_lower, ci_upper = _ppi_mean_ci(
-        Y_labeled, Yhat_labeled, Yhat_unlabeled
-    )
+    estimate, ci_lower, ci_upper = _ppi_mean_ci(Y_labeled, Yhat_labeled, Yhat_unlabeled)
 
     n_correct = sum(p == y for p, y in zip(Yhat_labeled, Y_labeled))
     accuracy = n_correct / len(Y_labeled) if Y_labeled else 0.0
@@ -977,7 +1011,9 @@ Relevant: [/INST]"""
         "method": "ARES-verbatim PPI",
     }
 
-    result_path = output_dir / f"ares_hf_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    result_path = (
+        output_dir / f"ares_hf_{corpus}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    )
     with open(result_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 

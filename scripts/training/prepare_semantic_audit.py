@@ -51,15 +51,17 @@ def extract_answerable_questions(
             print(f"Warning: Chunk not found for {q['id']}: {chunk_id}")
             continue
 
-        results.append({
-            "id": q["id"],
-            "question": q["question"],
-            "expected_chunk_id": chunk_id,
-            "chunk_text": chunk_text,
-            "corpus": corpus,
-            "expected_docs": q.get("expected_docs", []),
-            "keywords": q.get("keywords", []),
-        })
+        results.append(
+            {
+                "id": q["id"],
+                "question": q["question"],
+                "expected_chunk_id": chunk_id,
+                "chunk_text": chunk_text,
+                "corpus": corpus,
+                "expected_docs": q.get("expected_docs", []),
+                "keywords": q.get("keywords", []),
+            }
+        )
 
     return results
 
@@ -73,13 +75,13 @@ def divide_into_batches(
 
     # FR batches (5 batches of ~40-53 questions each)
     fr_sorted = sorted(fr_questions, key=lambda x: x["id"])
-    batch_size = 40
+    _batch_size = 40  # noqa: F841 — documents intended slice size
 
-    batches["batch_1"] = fr_sorted[0:40]      # FR-Q01 to ~FR-Q40
-    batches["batch_2"] = fr_sorted[40:80]     # FR-Q41 to ~FR-Q80
-    batches["batch_3"] = fr_sorted[80:120]    # FR-Q81 to ~FR-Q120
-    batches["batch_4"] = fr_sorted[120:160]   # FR-Q121 to ~FR-Q160
-    batches["batch_5"] = fr_sorted[160:]      # FR-Q161 to end
+    batches["batch_1"] = fr_sorted[0:40]  # FR-Q01 to ~FR-Q40
+    batches["batch_2"] = fr_sorted[40:80]  # FR-Q41 to ~FR-Q80
+    batches["batch_3"] = fr_sorted[80:120]  # FR-Q81 to ~FR-Q120
+    batches["batch_4"] = fr_sorted[120:160]  # FR-Q121 to ~FR-Q160
+    batches["batch_5"] = fr_sorted[160:]  # FR-Q161 to end
 
     # INTL batch (1 batch for all INTL questions)
     batches["batch_6"] = sorted(intl_questions, key=lambda x: x["id"])
@@ -125,11 +127,16 @@ def main() -> None:
     for batch_name, batch_data in batches.items():
         output_file = output_dir / f"{batch_name}.json"
         with open(output_file, "w", encoding="utf-8") as f:
-            json.dump({
-                "batch_name": batch_name,
-                "count": len(batch_data),
-                "questions": batch_data
-            }, f, ensure_ascii=False, indent=2)
+            json.dump(
+                {
+                    "batch_name": batch_name,
+                    "count": len(batch_data),
+                    "questions": batch_data,
+                },
+                f,
+                ensure_ascii=False,
+                indent=2,
+            )
 
         summary[batch_name] = {
             "count": len(batch_data),
@@ -141,10 +148,15 @@ def main() -> None:
     # Save summary
     summary_file = output_dir / "batch_summary.json"
     with open(summary_file, "w", encoding="utf-8") as f:
-        json.dump({
-            "total_questions": len(fr_answerable) + len(intl_answerable),
-            "batches": summary
-        }, f, ensure_ascii=False, indent=2)
+        json.dump(
+            {
+                "total_questions": len(fr_answerable) + len(intl_answerable),
+                "batches": summary,
+            },
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
 
     print(f"\nSummary saved to {summary_file}")
     print(f"Total questions for audit: {len(fr_answerable) + len(intl_answerable)}")

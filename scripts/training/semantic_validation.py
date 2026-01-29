@@ -37,27 +37,158 @@ def extract_corpus_keywords(text: str, min_len: int = 3) -> list[str]:
     """Extrait des mots-clés significatifs d'un texte de corpus."""
     # Mots vides courants en anglais et français
     stopwords = {
-        "the", "a", "an", "is", "are", "was", "were", "be", "been", "being",
-        "have", "has", "had", "do", "does", "did", "will", "would", "could",
-        "should", "may", "might", "must", "shall", "can", "this", "that",
-        "these", "those", "i", "you", "he", "she", "it", "we", "they", "who",
-        "what", "which", "when", "where", "why", "how", "all", "each", "every",
-        "both", "few", "more", "most", "other", "some", "such", "no", "nor",
-        "not", "only", "own", "same", "so", "than", "too", "very", "just",
-        "but", "and", "or", "if", "because", "as", "until", "while", "of",
-        "at", "by", "for", "with", "about", "against", "between", "into",
-        "through", "during", "before", "after", "above", "below", "to", "from",
-        "up", "down", "in", "out", "on", "off", "over", "under", "again",
-        "further", "then", "once", "here", "there", "any", "also", "see",
-        "les", "le", "la", "un", "une", "des", "du", "de", "et", "ou", "que",
-        "qui", "dans", "sur", "pour", "par", "avec", "est", "sont", "être",
-        "avoir", "fait", "faire", "plus", "moins", "très", "bien", "mal",
-        "player", "players", "game", "games", "arbiter", "shall", "must",
-        "move", "moves", "piece", "pieces", "chess", "clock", "time",
+        "the",
+        "a",
+        "an",
+        "is",
+        "are",
+        "was",
+        "were",
+        "be",
+        "been",
+        "being",
+        "have",
+        "has",
+        "had",
+        "do",
+        "does",
+        "did",
+        "will",
+        "would",
+        "could",
+        "should",
+        "may",
+        "might",
+        "must",
+        "shall",
+        "can",
+        "this",
+        "that",
+        "these",
+        "those",
+        "i",
+        "you",
+        "he",
+        "she",
+        "it",
+        "we",
+        "they",
+        "who",
+        "what",
+        "which",
+        "when",
+        "where",
+        "why",
+        "how",
+        "all",
+        "each",
+        "every",
+        "both",
+        "few",
+        "more",
+        "most",
+        "other",
+        "some",
+        "such",
+        "no",
+        "nor",
+        "not",
+        "only",
+        "own",
+        "same",
+        "so",
+        "than",
+        "too",
+        "very",
+        "just",
+        "but",
+        "and",
+        "or",
+        "if",
+        "because",
+        "as",
+        "until",
+        "while",
+        "of",
+        "at",
+        "by",
+        "for",
+        "with",
+        "about",
+        "against",
+        "between",
+        "into",
+        "through",
+        "during",
+        "before",
+        "after",
+        "above",
+        "below",
+        "to",
+        "from",
+        "up",
+        "down",
+        "in",
+        "out",
+        "on",
+        "off",
+        "over",
+        "under",
+        "again",
+        "further",
+        "then",
+        "once",
+        "here",
+        "there",
+        "any",
+        "also",
+        "see",
+        "les",
+        "le",
+        "la",
+        "un",
+        "une",
+        "des",
+        "du",
+        "de",
+        "et",
+        "ou",
+        "que",
+        "qui",
+        "dans",
+        "sur",
+        "pour",
+        "par",
+        "avec",
+        "est",
+        "sont",
+        "être",
+        "avoir",
+        "fait",
+        "faire",
+        "plus",
+        "moins",
+        "très",
+        "bien",
+        "mal",
+        "player",
+        "players",
+        "game",
+        "games",
+        "arbiter",
+        "shall",
+        "must",
+        "move",
+        "moves",
+        "piece",
+        "pieces",
+        "chess",
+        "clock",
+        "time",
     }
 
     # Extraire les mots
-    words = re.findall(r'\b[a-zA-Z0-9]+\b', text.lower())
+    words = re.findall(r"\b[a-zA-Z0-9]+\b", text.lower())
 
     # Filtrer
     keywords = []
@@ -80,8 +211,8 @@ def validate_question(
     Returns:
         Dict avec status, issues, suggested_keywords, page_content_preview
     """
-    q_id = question.get("id", "unknown")
-    q_text = question.get("question", "")
+    _q_id = question.get("id", "unknown")
+    _q_text = question.get("question", "")
     expected_pages = question.get("expected_pages", [])
     expected_docs = question.get("expected_docs", [])
     current_keywords = question.get("keywords", [])
@@ -104,7 +235,10 @@ def validate_question(
             for alt_source in index.keys():
                 if alt_source[1] == page:
                     # Vérifier si le nom de source est similaire
-                    if source.replace(".pdf", "") in alt_source[0] or alt_source[0] in source:
+                    if (
+                        source.replace(".pdf", "") in alt_source[0]
+                        or alt_source[0] in source
+                    ):
                         content = index.get(alt_source, "")
                         break
         page_content += content
@@ -112,7 +246,9 @@ def validate_question(
     if not page_content.strip():
         return {
             "status": "PAGES_NOT_FOUND",
-            "issues": [f"Pages {expected_pages} not found in corpus for source {source}"],
+            "issues": [
+                f"Pages {expected_pages} not found in corpus for source {source}"
+            ],
             "suggested_keywords": [],
             "page_content": "",
         }
@@ -153,7 +289,9 @@ def validate_question(
         "valid_keywords": valid_keywords,
         "invalid_keywords": invalid_keywords,
         "suggested_keywords": corpus_keywords[:8],
-        "page_content_preview": page_content[:500] + "..." if len(page_content) > 500 else page_content,
+        "page_content_preview": page_content[:500] + "..."
+        if len(page_content) > 500
+        else page_content,
     }
 
 
@@ -203,7 +341,9 @@ def validate_gs(gs_path: str, chunks_path: str, default_source: str = "") -> dic
     return results
 
 
-def fix_keywords_from_corpus(gs_path: str, chunks_path: str, default_source: str, output_path: str) -> dict:
+def fix_keywords_from_corpus(
+    gs_path: str, chunks_path: str, default_source: str, output_path: str
+) -> dict:
     """Corrige les keywords en les extrayant du corpus et met à jour le GS."""
     gs = load_gs(gs_path)
     index = load_chunks(chunks_path)
@@ -249,7 +389,9 @@ def fix_keywords_from_corpus(gs_path: str, chunks_path: str, default_source: str
 
         # Vérifier keywords actuels
         current_keywords = q.get("keywords", []) or []
-        valid_count = sum(1 for kw in current_keywords if kw and kw.lower() in page_content_lower)
+        valid_count = sum(
+            1 for kw in current_keywords if kw and kw.lower() in page_content_lower
+        )
 
         if valid_count >= 3:
             # Déjà bon
@@ -263,9 +405,14 @@ def fix_keywords_from_corpus(gs_path: str, chunks_path: str, default_source: str
             corpus_keywords = extract_corpus_keywords(page_content)
 
             # Garder les keywords valides existants + ajouter du corpus
-            new_keywords = [kw for kw in current_keywords if kw and kw.lower() in page_content_lower]
+            new_keywords = [
+                kw for kw in current_keywords if kw and kw.lower() in page_content_lower
+            ]
             for kw in corpus_keywords:
-                if kw not in [k.lower() for k in new_keywords] and len(new_keywords) < 6:
+                if (
+                    kw not in [k.lower() for k in new_keywords]
+                    and len(new_keywords) < 6
+                ):
                     new_keywords.append(kw)
 
             if len(new_keywords) >= 2:
@@ -290,10 +437,17 @@ def main():
     """Point d'entrée."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Semantic validation of Gold Standards")
+    parser = argparse.ArgumentParser(
+        description="Semantic validation of Gold Standards"
+    )
     parser.add_argument("--gs", type=Path, required=True, help="Gold Standard JSON")
     parser.add_argument("--chunks", type=Path, required=True, help="Chunks JSON")
-    parser.add_argument("--source", type=str, default="", help="Default source name (optional for multi-source)")
+    parser.add_argument(
+        "--source",
+        type=str,
+        default="",
+        help="Default source name (optional for multi-source)",
+    )
     parser.add_argument("--fix", action="store_true", help="Fix keywords from corpus")
     parser.add_argument("--output", type=Path, help="Output path for fixed GS")
     args = parser.parse_args()
@@ -301,17 +455,23 @@ def main():
     if args.fix:
         if not args.output:
             args.output = args.gs
-        stats = fix_keywords_from_corpus(str(args.gs), str(args.chunks), args.source, str(args.output))
-        print(f"\nFix Results:")
+        stats = fix_keywords_from_corpus(
+            str(args.gs), str(args.chunks), args.source, str(args.output)
+        )
+        print("\nFix Results:")
         print(f"  Already valid: {stats['already_valid']}")
         print(f"  Fixed: {stats['total_fixed']}")
         print(f"  Cannot fix: {stats['cannot_fix']}")
     else:
         results = validate_gs(str(args.gs), str(args.chunks), args.source)
 
-        pct = results['validated']/results['answerable']*100 if results['answerable'] > 0 else 0
+        pct = (
+            results["validated"] / results["answerable"] * 100
+            if results["answerable"] > 0
+            else 0
+        )
         print(f"\n{'='*60}")
-        print(f"SEMANTIC VALIDATION REPORT")
+        print("SEMANTIC VALIDATION REPORT")
         print(f"{'='*60}")
         print(f"Total questions: {results['total']}")
         print(f"Answerable: {results['answerable']}")
@@ -323,7 +483,7 @@ def main():
 
         # Afficher les problèmes
         print(f"\n{'='*60}")
-        print(f"ISSUES FOUND")
+        print("ISSUES FOUND")
         print(f"{'='*60}")
 
         for q in results["questions"]:

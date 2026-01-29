@@ -17,7 +17,6 @@ import re
 import sys
 from pathlib import Path
 from datetime import datetime
-from collections import defaultdict
 
 
 def load_json(path: str) -> dict:
@@ -36,11 +35,23 @@ def normalize_text(text: str) -> str:
     """Normalize text for comparison."""
     text = text.lower()
     replacements = {
-        'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-        'à': 'a', 'â': 'a', 'ä': 'a',
-        'ù': 'u', 'û': 'u', 'ü': 'u',
-        'î': 'i', 'ï': 'i', 'ô': 'o', 'ö': 'o',
-        'ç': 'c', 'œ': 'oe', 'æ': 'ae',
+        "é": "e",
+        "è": "e",
+        "ê": "e",
+        "ë": "e",
+        "à": "a",
+        "â": "a",
+        "ä": "a",
+        "ù": "u",
+        "û": "u",
+        "ü": "u",
+        "î": "i",
+        "ï": "i",
+        "ô": "o",
+        "ö": "o",
+        "ç": "c",
+        "œ": "oe",
+        "æ": "ae",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
@@ -51,11 +62,31 @@ def extract_keywords(text: str, min_length: int = 4) -> list[str]:
     """Extract meaningful keywords from text."""
     text = normalize_text(text)
     stopwords = {
-        'pour', 'dans', 'avec', 'cette', 'celui', 'celle', 'sont', 'etre',
-        'avoir', 'fait', 'faire', 'peut', 'doit', 'tous', 'tout', 'plus',
-        'moins', 'entre', 'autres', 'autre', 'comme', 'ainsi', 'donc',
+        "pour",
+        "dans",
+        "avec",
+        "cette",
+        "celui",
+        "celle",
+        "sont",
+        "etre",
+        "avoir",
+        "fait",
+        "faire",
+        "peut",
+        "doit",
+        "tous",
+        "tout",
+        "plus",
+        "moins",
+        "entre",
+        "autres",
+        "autre",
+        "comme",
+        "ainsi",
+        "donc",
     }
-    words = re.findall(r'\b[a-z]+\b', text)
+    words = re.findall(r"\b[a-z]+\b", text)
     return [w for w in words if len(w) >= min_length and w not in stopwords]
 
 
@@ -81,29 +112,34 @@ def extract_article_patterns(article_ref: str) -> list[str]:
     patterns = []
 
     # Extract article numbers (e.g., "3.2", "12.4")
-    article_nums = re.findall(r'\b(\d+\.?\d*)\b', article_ref)
+    article_nums = re.findall(r"\b(\d+\.?\d*)\b", article_ref)
     patterns.extend(article_nums)
 
     # Extract "Article X" patterns
-    article_match = re.findall(r'Article\s+(\d+\.?\d*)', article_ref, re.IGNORECASE)
+    article_match = re.findall(r"Article\s+(\d+\.?\d*)", article_ref, re.IGNORECASE)
     for m in article_match:
         patterns.append(f"Article {m}")
 
     # Extract "Chapitre X" patterns
-    chap_match = re.findall(r'Chapitre\s+(\d+\.?\d*)', article_ref, re.IGNORECASE)
+    chap_match = re.findall(r"Chapitre\s+(\d+\.?\d*)", article_ref, re.IGNORECASE)
     for m in chap_match:
         patterns.append(f"Chapitre {m}")
 
     # Extract section titles (capitalized words)
-    titles = re.findall(r'[A-ZÉÈÊÀÂÇ][a-zéèêàâùûîïôöç]+(?:\s+[A-ZÉÈÊÀÂÇ]?[a-zéèêàâùûîïôöç]+)*', article_ref)
+    titles = re.findall(
+        r"[A-ZÉÈÊÀÂÇ][a-zéèêàâùûîïôöç]+(?:\s+[A-ZÉÈÊÀÂÇ]?[a-zéèêàâùûîïôöç]+)*",
+        article_ref,
+    )
     for t in titles:
-        if len(t) > 5 and t not in ['Article', 'Chapitre', 'Section']:
+        if len(t) > 5 and t not in ["Article", "Chapitre", "Section"]:
             patterns.append(t)
 
     return list(set(patterns))
 
 
-def find_chunks_by_article(article_ref: str, chunks: list[dict], source_docs: list[str] = None) -> list[dict]:
+def find_chunks_by_article(
+    article_ref: str, chunks: list[dict], source_docs: list[str] = None
+) -> list[dict]:
     """
     Find chunks matching article reference.
 
@@ -133,11 +169,13 @@ def find_chunks_by_article(article_ref: str, chunks: list[dict], source_docs: li
                 matches += 1
 
         if matches > 0:
-            candidates.append({
-                "chunk_id": chunk["id"],
-                "matches": matches,
-                "text_preview": text[:200],
-            })
+            candidates.append(
+                {
+                    "chunk_id": chunk["id"],
+                    "matches": matches,
+                    "text_preview": text[:200],
+                }
+            )
 
     # Sort by number of matches
     candidates.sort(key=lambda x: x["matches"], reverse=True)
@@ -184,23 +222,27 @@ def smart_fix_chunk_ids(gs: dict, chunks: list[dict], chunk_index: dict) -> dict
         # Check if we have article reference
         if not article_ref:
             results["no_article_ref"] += 1
-            results["remaining_issues"].append({
-                "id": qid,
-                "current_score": current_score,
-                "reason": "no_article_reference",
-            })
+            results["remaining_issues"].append(
+                {
+                    "id": qid,
+                    "current_score": current_score,
+                    "reason": "no_article_reference",
+                }
+            )
             continue
 
         # Find candidate chunks by article reference
         candidates = find_chunks_by_article(article_ref, chunks, expected_docs)
 
         if not candidates:
-            results["remaining_issues"].append({
-                "id": qid,
-                "current_score": current_score,
-                "article_ref": article_ref,
-                "reason": "no_chunks_match_article",
-            })
+            results["remaining_issues"].append(
+                {
+                    "id": qid,
+                    "current_score": current_score,
+                    "article_ref": article_ref,
+                    "reason": "no_chunks_match_article",
+                }
+            )
             continue
 
         # Score candidates by keyword match with answer
@@ -225,33 +267,40 @@ def smart_fix_chunk_ids(gs: dict, chunks: list[dict], chunk_index: dict) -> dict
             new_id = best_candidate["chunk_id"]
 
             q["expected_chunk_id"] = new_id
-            q["audit"] = (q.get("audit", "") + f" [SMART_FIX] {article_ref}: {old_id[:40]} -> {new_id[:40]} (score:{best_score:.2f})").strip()
+            q["audit"] = (
+                q.get("audit", "")
+                + f" [SMART_FIX] {article_ref}: {old_id[:40]} -> {new_id[:40]} (score:{best_score:.2f})"
+            ).strip()
 
             results["fixes_applied"] += 1
-            results["fixes"].append({
-                "id": qid,
-                "article_ref": article_ref,
-                "old_chunk_id": old_id,
-                "new_chunk_id": new_id,
-                "old_score": current_score,
-                "new_score": best_score,
-            })
+            results["fixes"].append(
+                {
+                    "id": qid,
+                    "article_ref": article_ref,
+                    "old_chunk_id": old_id,
+                    "new_chunk_id": new_id,
+                    "old_score": current_score,
+                    "new_score": best_score,
+                }
+            )
         else:
             results["no_better_match"] += 1
-            results["remaining_issues"].append({
-                "id": qid,
-                "current_score": current_score,
-                "article_ref": article_ref,
-                "reason": "no_better_match_found",
-                "candidates_checked": len(candidates),
-            })
+            results["remaining_issues"].append(
+                {
+                    "id": qid,
+                    "current_score": current_score,
+                    "article_ref": article_ref,
+                    "reason": "no_better_match_found",
+                    "candidates_checked": len(candidates),
+                }
+            )
 
     return results
 
 
 def main():
     """Main smart fix pipeline."""
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     base_path = Path(__file__).parent.parent.parent.parent
     gs_path = base_path / "tests" / "data" / "gold_standard_annales_fr_v7.json"

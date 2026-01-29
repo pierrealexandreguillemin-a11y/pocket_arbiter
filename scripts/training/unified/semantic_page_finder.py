@@ -49,6 +49,7 @@ DOC_TO_DOCLING = {
 @dataclass
 class PageScore:
     """Score for a candidate page."""
+
     page_no: int
     layer1_score: float = 0.0  # Article reference match
     layer2_score: float = 0.0  # Answer text overlap
@@ -59,12 +60,17 @@ class PageScore:
     @property
     def total_score(self) -> float:
         """Combined score with layer weights."""
-        return (self.layer1_score * 10) + (self.layer2_score * 5) + (3 if self.layer3_valid else 0)
+        return (
+            (self.layer1_score * 10)
+            + (self.layer2_score * 5)
+            + (3 if self.layer3_valid else 0)
+        )
 
 
 @dataclass
 class QuestionResult:
     """Result for one question."""
+
     id: str
     best_page: Optional[int] = None
     chunk_id: Optional[str] = None
@@ -147,8 +153,7 @@ def extract_article_numbers(article_ref: str) -> list[str]:
 
 
 def layer1_article_match(
-    page_texts: dict[int, list[str]],
-    article_ref: str
+    page_texts: dict[int, list[str]], article_ref: str
 ) -> dict[int, float]:
     """
     Couche 1: Match article numbers in docling text.
@@ -184,9 +189,7 @@ def layer1_article_match(
 
 
 def layer2_text_overlap(
-    page_texts: dict[int, list[str]],
-    answer_text: str,
-    question_text: str
+    page_texts: dict[int, list[str]], answer_text: str, question_text: str
 ) -> dict[int, float]:
     """
     Couche 2: Keyword overlap between answer/question and page text.
@@ -198,12 +201,54 @@ def layer2_text_overlap(
 
     # Extract keywords (words > 3 chars, not stopwords)
     stopwords = {
-        "dans", "pour", "avec", "sans", "cette", "cette", "être", "avoir",
-        "fait", "faire", "plus", "moins", "tout", "tous", "toute", "toutes",
-        "peut", "doit", "sont", "été", "qui", "que", "quoi", "dont", "elle",
-        "elles", "nous", "vous", "leur", "leurs", "même", "autres", "autre",
-        "entre", "sous", "aussi", "ainsi", "donc", "alors", "comme", "mais",
-        "avant", "après", "depuis", "pendant", "selon", "contre", "vers",
+        "dans",
+        "pour",
+        "avec",
+        "sans",
+        "cette",
+        "cette",
+        "être",
+        "avoir",
+        "fait",
+        "faire",
+        "plus",
+        "moins",
+        "tout",
+        "tous",
+        "toute",
+        "toutes",
+        "peut",
+        "doit",
+        "sont",
+        "été",
+        "qui",
+        "que",
+        "quoi",
+        "dont",
+        "elle",
+        "elles",
+        "nous",
+        "vous",
+        "leur",
+        "leurs",
+        "même",
+        "autres",
+        "autre",
+        "entre",
+        "sous",
+        "aussi",
+        "ainsi",
+        "donc",
+        "alors",
+        "comme",
+        "mais",
+        "avant",
+        "après",
+        "depuis",
+        "pendant",
+        "selon",
+        "contre",
+        "vers",
     }
 
     def extract_keywords(text: str) -> set[str]:
@@ -232,9 +277,7 @@ def layer2_text_overlap(
 
 
 def layer3_chunk_validation(
-    conn: sqlite3.Connection,
-    source: str,
-    page_no: int
+    conn: sqlite3.Connection, source: str, page_no: int
 ) -> tuple[bool, Optional[str]]:
     """
     Couche 3: Verify chunk exists in DB for source+page.
@@ -248,7 +291,7 @@ def layer3_chunk_validation(
         """SELECT id FROM chunks
            WHERE source LIKE ? AND page = ?
            ORDER BY id LIMIT 1""",
-        (source_pattern, page_no)
+        (source_pattern, page_no),
     )
     row = cur.fetchone()
     if row:
@@ -257,9 +300,7 @@ def layer3_chunk_validation(
 
 
 def find_best_page(
-    question: dict,
-    page_texts: dict[int, list[str]],
-    conn: sqlite3.Connection
+    question: dict, page_texts: dict[int, list[str]], conn: sqlite3.Connection
 ) -> QuestionResult:
     """
     Find the best single page for a question using 3-layer analysis.
@@ -345,9 +386,16 @@ def classify_retrieval_difficulty(question: dict) -> float:
 
     # Reasoning indicators
     reasoning_patterns = [
-        r"combien", r"calculer", r"quel.*score", r"quelle.*sanction",
-        r"que.*faire", r"comment.*réagir", r"si.*alors",
-        r"exception", r"priorité", r"différence"
+        r"combien",
+        r"calculer",
+        r"quel.*score",
+        r"quelle.*sanction",
+        r"que.*faire",
+        r"comment.*réagir",
+        r"si.*alors",
+        r"exception",
+        r"priorité",
+        r"différence",
     ]
 
     for p in reasoning_patterns:
@@ -469,8 +517,7 @@ def validate_results() -> dict:
         if q.get("expected_chunk_id"):
             validation["with_chunk_id"] += 1
             cur = conn.execute(
-                "SELECT 1 FROM chunks WHERE id = ?",
-                (q["expected_chunk_id"],)
+                "SELECT 1 FROM chunks WHERE id = ?", (q["expected_chunk_id"],)
             )
             if cur.fetchone():
                 validation["chunk_exists"] += 1
@@ -524,17 +571,19 @@ if __name__ == "__main__":
     print(f"  chunks exist in DB:     {validation['chunk_exists']}/{total}")
     print(f"  single page:            {validation['single_page']}/{total}")
     print(f"  difficulty_human:       {validation['with_difficulty_human']}/{total}")
-    print(f"  difficulty_retrieval:   {validation['with_difficulty_retrieval']}/{total}")
+    print(
+        f"  difficulty_retrieval:   {validation['with_difficulty_retrieval']}/{total}"
+    )
     print(f"  page [3] remaining:     {validation['page_3_count']}")
     print("=" * 60)
 
     # Check quality gates
     all_pass = (
-        validation["with_chunk_id"] == total and
-        validation["chunk_exists"] == total and
-        validation["single_page"] == total and
-        validation["with_difficulty_human"] == total and
-        validation["with_difficulty_retrieval"] == total
+        validation["with_chunk_id"] == total
+        and validation["chunk_exists"] == total
+        and validation["single_page"] == total
+        and validation["with_difficulty_human"] == total
+        and validation["with_difficulty_retrieval"] == total
     )
 
     if all_pass:

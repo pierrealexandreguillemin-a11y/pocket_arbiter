@@ -158,13 +158,15 @@ def generate_synthetic_dataset(
         questions = generate_questions_for_chunk(text, chunk_id)
 
         for q in questions:
-            pairs.append({
-                "query": q,
-                "positive": text,
-                "chunk_id": chunk_id,
-                "source": source,
-                "page": page,
-            })
+            pairs.append(
+                {
+                    "query": q,
+                    "positive": text,
+                    "chunk_id": chunk_id,
+                    "source": source,
+                    "page": page,
+                }
+            )
 
     # Save to JSONL
     output_path.parent.mkdir(parents=True, exist_ok=True)

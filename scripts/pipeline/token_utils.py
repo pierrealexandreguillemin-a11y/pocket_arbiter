@@ -47,6 +47,7 @@ def get_gemma_tokenizer() -> Any:
     global _gemma_tokenizer
     if _gemma_tokenizer is None:
         from transformers import AutoTokenizer
+
         _gemma_tokenizer = AutoTokenizer.from_pretrained(EMBED_MODEL_ID)
     return _gemma_tokenizer
 

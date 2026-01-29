@@ -37,8 +37,9 @@ def get_embedding_model():
     global _model
     if _model is None:
         from sentence_transformers import SentenceTransformer
+
         print("  Chargement du modèle d'embeddings...")
-        _model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+        _model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
     return _model
 
 
@@ -58,11 +59,23 @@ def normalize_text(text: str) -> str:
     """Normalize text for comparison."""
     text = text.lower()
     replacements = {
-        'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-        'à': 'a', 'â': 'a', 'ä': 'a',
-        'ù': 'u', 'û': 'u', 'ü': 'u',
-        'î': 'i', 'ï': 'i', 'ô': 'o', 'ö': 'o',
-        'ç': 'c', 'œ': 'oe', 'æ': 'ae',
+        "é": "e",
+        "è": "e",
+        "ê": "e",
+        "ë": "e",
+        "à": "a",
+        "â": "a",
+        "ä": "a",
+        "ù": "u",
+        "û": "u",
+        "ü": "u",
+        "î": "i",
+        "ï": "i",
+        "ô": "o",
+        "ö": "o",
+        "ç": "c",
+        "œ": "oe",
+        "æ": "ae",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
@@ -73,10 +86,24 @@ def extract_keywords(text: str, min_length: int = 4) -> list[str]:
     """Extract meaningful keywords from text."""
     text = normalize_text(text)
     stopwords = {
-        'pour', 'dans', 'avec', 'cette', 'celui', 'celle', 'sont', 'etre',
-        'avoir', 'fait', 'faire', 'peut', 'doit', 'tous', 'tout', 'plus',
+        "pour",
+        "dans",
+        "avec",
+        "cette",
+        "celui",
+        "celle",
+        "sont",
+        "etre",
+        "avoir",
+        "fait",
+        "faire",
+        "peut",
+        "doit",
+        "tous",
+        "tout",
+        "plus",
     }
-    words = re.findall(r'\b[a-z]+\b', text)
+    words = re.findall(r"\b[a-z]+\b", text)
     return [w for w in words if len(w) >= min_length and w not in stopwords]
 
 
@@ -110,6 +137,7 @@ def compute_semantic_similarity(text1: str, text2: str) -> float:
 @dataclass
 class ValidationResult:
     """Result of validating a single question."""
+
     question_id: str
     chunk_id_valid: bool
     keyword_score: float
@@ -119,9 +147,7 @@ class ValidationResult:
 
 
 def validate_question(
-    question: dict,
-    chunk_index: dict,
-    compute_semantic: bool = True
+    question: dict, chunk_index: dict, compute_semantic: bool = True
 ) -> ValidationResult:
     """Validate a single question."""
     qid = question["id"]
@@ -172,10 +198,7 @@ def validate_question(
 
 
 def validate_gold_standard(
-    gs: dict,
-    chunk_index: dict,
-    compute_semantic: bool = True,
-    sample_size: int = None
+    gs: dict, chunk_index: dict, compute_semantic: bool = True, sample_size: int = None
 ) -> dict:
     """
     Validate entire Gold Standard.
@@ -189,6 +212,7 @@ def validate_gold_standard(
     questions = gs["questions"]
     if sample_size:
         import random
+
         questions = random.sample(questions, min(sample_size, len(questions)))
 
     results = {
@@ -241,17 +265,23 @@ def validate_gold_standard(
         # Track issues
         for issue in result.issues:
             issue_type = issue.split(":")[0]
-            results["issues_summary"][issue_type] = results["issues_summary"].get(issue_type, 0) + 1
+            results["issues_summary"][issue_type] = (
+                results["issues_summary"].get(issue_type, 0) + 1
+            )
 
         # Store detail
-        results["details"].append({
-            "id": result.question_id,
-            "chunk_id_valid": result.chunk_id_valid,
-            "keyword_score": round(result.keyword_score, 3),
-            "semantic_score": round(result.semantic_score, 3) if result.semantic_score else None,
-            "answerable": result.answerable,
-            "issues": result.issues,
-        })
+        results["details"].append(
+            {
+                "id": result.question_id,
+                "chunk_id_valid": result.chunk_id_valid,
+                "keyword_score": round(result.keyword_score, 3),
+                "semantic_score": round(result.semantic_score, 3)
+                if result.semantic_score
+                else None,
+                "answerable": result.answerable,
+                "issues": result.issues,
+            }
+        )
 
     # Compute averages
     results["metrics"]["avg_keyword_score"] = round(np.mean(keyword_scores), 3)
@@ -260,15 +290,19 @@ def validate_gold_standard(
 
     # Compute percentages
     total = len(questions)
-    results["metrics"]["pct_chunk_valid"] = round(100 * results["metrics"]["chunk_id_valid"] / total, 1)
-    results["metrics"]["pct_answerable"] = round(100 * results["metrics"]["answerable"] / total, 1)
+    results["metrics"]["pct_chunk_valid"] = round(
+        100 * results["metrics"]["chunk_id_valid"] / total, 1
+    )
+    results["metrics"]["pct_answerable"] = round(
+        100 * results["metrics"]["answerable"] / total, 1
+    )
 
     return results
 
 
 def main():
     """Main validation pipeline."""
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     base_path = Path(__file__).parent.parent.parent.parent
     gs_path = base_path / "tests" / "data" / "gold_standard_annales_fr_v7.json"
@@ -310,13 +344,13 @@ Modèle: paraphrase-multilingual-MiniLM-L12-v2
     print(f"\nVersion GS: {results['gs_version']}")
     print(f"Questions validées: {results['total_validated']}")
 
-    print(f"\nMétriques:")
+    print("\nMétriques:")
     print(f"  Chunk IDs valides: {results['metrics']['pct_chunk_valid']}%")
     print(f"  Answerable: {results['metrics']['pct_answerable']}%")
     print(f"  Score keyword moyen: {results['metrics']['avg_keyword_score']}")
     print(f"  Score sémantique moyen: {results['metrics']['avg_semantic_score']}")
 
-    print(f"\nProblèmes détectés:")
+    print("\nProblèmes détectés:")
     for issue, count in sorted(results["issues_summary"].items(), key=lambda x: -x[1]):
         print(f"  - {issue}: {count}")
 
@@ -327,10 +361,10 @@ Modèle: paraphrase-multilingual-MiniLM-L12-v2
 
     passed = True
     checks = [
-        ("Chunk IDs >= 95%", results['metrics']['pct_chunk_valid'] >= 95),
-        ("Answerable >= 50%", results['metrics']['pct_answerable'] >= 50),
-        ("Avg Keyword >= 0.4", results['metrics']['avg_keyword_score'] >= 0.4),
-        ("Avg Semantic >= 0.5", results['metrics']['avg_semantic_score'] >= 0.5),
+        ("Chunk IDs >= 95%", results["metrics"]["pct_chunk_valid"] >= 95),
+        ("Answerable >= 50%", results["metrics"]["pct_answerable"] >= 50),
+        ("Avg Keyword >= 0.4", results["metrics"]["avg_keyword_score"] >= 0.4),
+        ("Avg Semantic >= 0.5", results["metrics"]["avg_semantic_score"] >= 0.5),
     ]
 
     for check_name, check_passed in checks:

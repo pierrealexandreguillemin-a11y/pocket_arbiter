@@ -45,9 +45,9 @@ DEFAULT_BATCH_SIZE = 128
 # Truncation sans re-training, perte <2% accuracy
 # Source: arxiv.org/abs/2509.20354, huggingface.co/blog/embeddinggemma
 MRL_DIMS = [768, 512, 256, 128]  # Dimensions supportées (nested)
-MRL_DIM_FULL = 768      # Meilleure qualité
+MRL_DIM_FULL = 768  # Meilleure qualité
 MRL_DIM_BALANCED = 256  # Équilibre qualité/performance (recommandé mobile)
-MRL_DIM_FAST = 128      # Minimum, +6x compression vs 768D
+MRL_DIM_FAST = 128  # Minimum, +6x compression vs 768D
 
 # --- Prompts Officiels Google (OBLIGATOIRES pour performance optimale) ---
 # Source: https://huggingface.co/blog/embeddinggemma

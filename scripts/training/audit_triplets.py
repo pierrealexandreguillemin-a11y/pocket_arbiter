@@ -12,6 +12,7 @@ Usage:
     python scripts/pipeline/audit_triplets.py
     python scripts/pipeline/audit_triplets.py --sample 100
 """
+
 import json
 import random
 from collections import Counter
@@ -22,6 +23,7 @@ from dataclasses import dataclass
 @dataclass
 class AuditReport:
     """Audit report structure."""
+
     total_questions: int
     unique_questions: int
     duplicates: int
@@ -30,7 +32,7 @@ class AuditReport:
     chunks_covered: int
     avg_question_length: float
     short_questions: list[dict]  # < 20 chars
-    long_questions: list[dict]   # > 200 chars
+    long_questions: list[dict]  # > 200 chars
     missing_fields: list[dict]
     sample_for_review: list[dict]
 
@@ -88,9 +90,7 @@ def find_quality_issues(questions: list[dict]) -> tuple[list, list, list]:
 
 
 def sample_for_review(
-    questions: list[dict],
-    sample_size: int = 100,
-    stratified: bool = True
+    questions: list[dict], sample_size: int = 100, stratified: bool = True
 ) -> list[dict]:
     """
     Sample questions for human review.
@@ -126,7 +126,7 @@ def sample_for_review(
 def run_audit(
     triplets_path: str,
     sample_size: int = 100,
-    output_dir: str = "data/synthetic_triplets"
+    output_dir: str = "data/synthetic_triplets",
 ) -> AuditReport:
     """
     Run full audit on synthetic triplets.
@@ -153,11 +153,11 @@ def run_audit(
 
     # 2. Distribution
     categories, difficulties = analyze_distribution(questions)
-    print(f"\nCategories:")
+    print("\nCategories:")
     for cat, count in sorted(categories.items(), key=lambda x: -x[1]):
         print(f"  {cat}: {count} ({count/len(questions)*100:.1f}%)")
 
-    print(f"\nDifficultes:")
+    print("\nDifficultes:")
     for diff, count in sorted(difficulties.items(), key=lambda x: -x[1]):
         print(f"  {diff}: {count} ({count/len(questions)*100:.1f}%)")
 
@@ -168,7 +168,7 @@ def run_audit(
     # 4. Quality issues
     short, long, missing = find_quality_issues(questions)
     avg_len = sum(len(q.get("question", "")) for q in questions) / len(questions)
-    print(f"\nQualite:")
+    print("\nQualite:")
     print(f"  Longueur moyenne: {avg_len:.1f} chars")
     print(f"  Questions courtes (<20): {len(short)}")
     print(f"  Questions longues (>200): {len(long)}")
@@ -188,12 +188,17 @@ def run_audit(
     # Save quality issues
     issues_path = output_path / "audit_quality_issues.json"
     with open(issues_path, "w", encoding="utf-8") as f:
-        json.dump({
-            "short_questions": short[:50],
-            "long_questions": long[:50],
-            "missing_fields": missing[:50],
-            "duplicate_examples": dup_examples,
-        }, f, ensure_ascii=False, indent=2)
+        json.dump(
+            {
+                "short_questions": short[:50],
+                "long_questions": long[:50],
+                "missing_fields": missing[:50],
+                "duplicate_examples": dup_examples,
+            },
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
     print(f"  Issues: {issues_path}")
 
     # Create report
@@ -222,12 +227,14 @@ def run_audit(
     print(f"Score qualite: {quality_score:.1f}%")
 
     # Conformity checks
-    print(f"\nConformite ISO 42001:")
-    print(f"  [{'OK' if n_duplicates < len(questions) * 0.05 else 'XX'}] Duplicates < 5%")
+    print("\nConformite ISO 42001:")
+    print(
+        f"  [{'OK' if n_duplicates < len(questions) * 0.05 else 'XX'}] Duplicates < 5%"
+    )
     print(f"  [{'OK' if len(missing) == 0 else 'XX'}] Tous les champs requis")
     print(f"  [{'OK' if len(categories) >= 3 else 'XX'}] Diversite categories (>=3)")
-    print(f"  [--] Answerability (necessite embedding check)")
-    print(f"  [--] Human review (echantillon pret)")
+    print("  [--] Answerability (necessite embedding check)")
+    print("  [--] Human review (echantillon pret)")
 
     return report
 
@@ -251,18 +258,15 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input",
         default="data/synthetic_triplets/synthetic_triplets_ffe_final.json",
-        help="Path to triplets JSON"
+        help="Path to triplets JSON",
     )
     parser.add_argument(
-        "--sample",
-        type=int,
-        default=100,
-        help="Sample size for human review"
+        "--sample", type=int, default=100, help="Sample size for human review"
     )
     parser.add_argument(
         "--show-sample",
         action="store_true",
-        help="Print sample questions for quick review"
+        help="Print sample questions for quick review",
     )
 
     args = parser.parse_args()

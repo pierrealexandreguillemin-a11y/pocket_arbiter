@@ -222,7 +222,11 @@ def main() -> None:
     print(f"Answer not derivable: {stats['answer_not_derivable']}")
     print(f"MCQ letters moved: {stats['mcq_letters_removed']}")
 
-    derivable_pct = (stats['answer_derived_complete'] + stats['answer_derived_partial']) / stats['total'] * 100
+    derivable_pct = (
+        (stats["answer_derived_complete"] + stats["answer_derived_partial"])
+        / stats["total"]
+        * 100
+    )
     print(f"\nDerivable rate: {derivable_pct:.1f}%")
 
     if args.dry_run:

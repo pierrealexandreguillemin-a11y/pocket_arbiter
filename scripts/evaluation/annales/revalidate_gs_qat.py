@@ -31,7 +31,7 @@ from typing import TYPE_CHECKING
 import numpy as np
 
 from scripts.pipeline.embeddings import load_embedding_model
-from scripts.pipeline.embeddings_config import MODEL_ID, PROMPT_DOCUMENT, PROMPT_QUERY
+from scripts.pipeline.embeddings_config import MODEL_ID, PROMPT_QUERY
 from scripts.pipeline.utils import load_json, save_json
 
 if TYPE_CHECKING:
@@ -82,7 +82,7 @@ def find_optimal_chunk(
     q_text = question.get("question", "")
     answer = question.get("expected_answer", "")
     current_chunk_id = question.get("expected_chunk_id")
-    article_ref = question.get("metadata", {}).get("article_reference", "")
+    _article_ref = question.get("metadata", {}).get("article_reference", "")
 
     # Encode Q+A comme query (meilleure représentation de l'intent)
     qa_text = f"{q_text} {answer}"
@@ -132,9 +132,14 @@ def find_optimal_chunk(
     elif current_rank is not None and current_rank > TOP_K:
         needs_update = True
         update_reason = f"current_rank_{current_rank}_too_low"
-    elif optimal["chunk_id"] != current_chunk_id and optimal["score"] - (current_score or 0) > DRIFT_THRESHOLD:
+    elif (
+        optimal["chunk_id"] != current_chunk_id
+        and optimal["score"] - (current_score or 0) > DRIFT_THRESHOLD
+    ):
         needs_update = True
-        update_reason = f"better_match_found_delta_{optimal['score'] - (current_score or 0):.3f}"
+        update_reason = (
+            f"better_match_found_delta_{optimal['score'] - (current_score or 0):.3f}"
+        )
 
     return {
         "question_id": question.get("id"),
@@ -211,9 +216,7 @@ def revalidate_gold_standard(
         stats["total"] += 1
 
         # Find optimal chunk
-        result = find_optimal_chunk(
-            q, corpus_embeddings, chunk_ids, chunks_map, model
-        )
+        result = find_optimal_chunk(q, corpus_embeddings, chunk_ids, chunks_map, model)
         results.append(result)
 
         if result["needs_update"]:
@@ -241,7 +244,9 @@ def revalidate_gold_standard(
 
                 # Update audit trail
                 audit = q.get("audit", "")
-                q["audit"] = f"{audit} | [QAT] {old_chunk_id} -> {result['optimal_chunk_id']} ({result['update_reason']})"
+                q["audit"] = (
+                    f"{audit} | [QAT] {old_chunk_id} -> {result['optimal_chunk_id']} ({result['update_reason']})"
+                )
 
                 stats["updates_applied"] += 1
                 stats["score_improved_total"] += result["optimal_score"] - old_score
@@ -260,7 +265,9 @@ def revalidate_gold_standard(
             "updates_applied": stats["updates_applied"],
             "avg_score_improvement": round(
                 stats["score_improved_total"] / stats["updates_applied"], 4
-            ) if stats["updates_applied"] > 0 else 0,
+            )
+            if stats["updates_applied"] > 0
+            else 0,
         }
 
     # Generate report
@@ -283,43 +290,50 @@ def main() -> None:
     )
 
     parser.add_argument(
-        "--gs", "-g",
+        "--gs",
+        "-g",
         type=Path,
         required=True,
         help="Gold standard JSON file",
     )
     parser.add_argument(
-        "--embeddings", "-e",
+        "--embeddings",
+        "-e",
         type=Path,
         required=True,
         help="Corpus embeddings .npy file",
     )
     parser.add_argument(
-        "--ids", "-i",
+        "--ids",
+        "-i",
         type=Path,
         required=True,
         help="Chunk IDs JSON file",
     )
     parser.add_argument(
-        "--chunks", "-c",
+        "--chunks",
+        "-c",
         type=Path,
         required=True,
         help="Chunks JSON file",
     )
     parser.add_argument(
-        "--model", "-m",
+        "--model",
+        "-m",
         type=str,
         default=MODEL_ID,
         help=f"Embedding model ID (default: {MODEL_ID})",
     )
     parser.add_argument(
-        "--output", "-o",
+        "--output",
+        "-o",
         type=Path,
         default=None,
         help="Output GS JSON (if not specified, dry-run mode)",
     )
     parser.add_argument(
-        "--report", "-r",
+        "--report",
+        "-r",
         type=Path,
         default=None,
         help="Output report JSON",
@@ -364,11 +378,17 @@ def main() -> None:
     updates_needed = [r for r in report["results"] if r["needs_update"]]
     if updates_needed:
         logger.info("-" * 60)
-        logger.info(f"Sample updates needed ({min(5, len(updates_needed))} of {len(updates_needed)}):")
+        logger.info(
+            f"Sample updates needed ({min(5, len(updates_needed))} of {len(updates_needed)}):"
+        )
         for r in updates_needed[:5]:
             logger.info(f"  {r['question_id']}:")
-            logger.info(f"    Current: {r['current_chunk_id']} (score={r['current_score']}, rank={r['current_rank']})")
-            logger.info(f"    Optimal: {r['optimal_chunk_id']} (score={r['optimal_score']})")
+            logger.info(
+                f"    Current: {r['current_chunk_id']} (score={r['current_score']}, rank={r['current_rank']})"
+            )
+            logger.info(
+                f"    Optimal: {r['optimal_chunk_id']} (score={r['optimal_score']})"
+            )
             logger.info(f"    Reason: {r['update_reason']}")
 
     # Save outputs

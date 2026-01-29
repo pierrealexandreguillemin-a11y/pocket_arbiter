@@ -270,9 +270,7 @@ class TestExtractCorpusDocling:
             )
 
     @patch("scripts.pipeline.extract_docling.extract_pdf_docling")
-    def test_corpus_extraction(
-        self, mock_extract: MagicMock, tmp_path: Path
-    ):
+    def test_corpus_extraction(self, mock_extract: MagicMock, tmp_path: Path):
         """Teste l'extraction d'un corpus."""
         from scripts.pipeline.extract_docling import extract_corpus_docling
 
@@ -355,8 +353,22 @@ class TestExtractCorpusDocling:
         (input_dir / "file2.pdf").write_bytes(b"%PDF-1.4")
 
         mock_extract.side_effect = [
-            {"filename": "file1.pdf", "markdown": "", "tables": [{}], "total_tables": 1, "extraction_date": "", "extractor": "docling"},
-            {"filename": "file2.pdf", "markdown": "", "tables": [{}, {}], "total_tables": 2, "extraction_date": "", "extractor": "docling"},
+            {
+                "filename": "file1.pdf",
+                "markdown": "",
+                "tables": [{}],
+                "total_tables": 1,
+                "extraction_date": "",
+                "extractor": "docling",
+            },
+            {
+                "filename": "file2.pdf",
+                "markdown": "",
+                "tables": [{}, {}],
+                "total_tables": 2,
+                "extraction_date": "",
+                "extractor": "docling",
+            },
         ]
 
         report = extract_corpus_docling(input_dir, tmp_path / "out")

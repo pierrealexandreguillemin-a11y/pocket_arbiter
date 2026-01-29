@@ -50,7 +50,7 @@ def main() -> None:
 
     print(f"Fixed NUMERICAL: {fixed_count['NUMERICAL']} -> extractive/list")
     print(f"Fixed PROCEDURAL: {fixed_count['PROCEDURAL']} -> extractive")
-    print(f"Version: 7.1.0")
+    print("Version: 7.1.0")
 
 
 if __name__ == "__main__":

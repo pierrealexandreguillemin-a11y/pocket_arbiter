@@ -18,6 +18,7 @@ Usage:
     # Avec HF token (optionnel, pour rate limit plus eleve)
     HF_TOKEN=hf_xxx python scripts/pipeline/generate_triplets_hf.py --corpus ffe
 """
+
 import argparse
 import json
 import os
@@ -355,7 +356,9 @@ def run_generation(
         if i % 10 == 0:
             elapsed = time.time() - start_time
             rate = len(all_questions) / elapsed * 60 if elapsed > 0 else 0
-            print(f"[{i}/{len(chunks)}] {len(all_questions)} questions ({rate:.1f}/min)")
+            print(
+                f"[{i}/{len(chunks)}] {len(all_questions)} questions ({rate:.1f}/min)"
+            )
 
         questions = generate_questions(
             client=client,

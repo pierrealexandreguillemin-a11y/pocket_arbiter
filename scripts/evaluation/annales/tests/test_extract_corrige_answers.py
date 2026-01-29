@@ -643,9 +643,7 @@ Explication officielle du correcteur pour cette question.
             docling_dir.mkdir()
 
             output_path = Path(tmpdir) / "output.json"
-            update_gold_standard_with_explanations(
-                gs_path, [docling_dir], output_path
-            )
+            update_gold_standard_with_explanations(gs_path, [docling_dir], output_path)
 
             result = json.loads(output_path.read_text(encoding="utf-8"))
             assert result["version"]["number"] == "6.7.0"
@@ -691,9 +689,7 @@ Explication officielle du correcteur pour cette question.
             docling_dir.mkdir()
 
             output_path = Path(tmpdir) / "output.json"
-            update_gold_standard_with_explanations(
-                gs_path, [docling_dir], output_path
-            )
+            update_gold_standard_with_explanations(gs_path, [docling_dir], output_path)
 
             result = json.loads(output_path.read_text(encoding="utf-8"))
             assert result["version"]["number"] == "6.7.0"

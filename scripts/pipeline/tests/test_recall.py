@@ -262,10 +262,22 @@ def main():
     # Define corpora
     corpora = []
     if args.corpus in ["fr", "both"]:
-        corpora.append(("FR", CORPUS_DIR / "corpus_mode_b_fr.db", DATA_DIR / "gold_standard_fr.json"))
+        corpora.append(
+            (
+                "FR",
+                CORPUS_DIR / "corpus_mode_b_fr.db",
+                DATA_DIR / "gold_standard_fr.json",
+            )
+        )
     if args.corpus in ["intl", "both"]:
         # INTL: corpus_mode_a_intl.db (mode_b INTL obsolete, a reconstruire)
-        corpora.append(("INTL", CORPUS_DIR / "corpus_mode_a_intl.db", DATA_DIR / "gold_standard_intl.json"))
+        corpora.append(
+            (
+                "INTL",
+                CORPUS_DIR / "corpus_mode_a_intl.db",
+                DATA_DIR / "gold_standard_intl.json",
+            )
+        )
 
     # Run benchmarks
     print("\n" + "=" * 60)
@@ -300,7 +312,9 @@ def main():
         print(f"Recall@{args.top_k}: {recall_pct:.2f}%")
         print(f"ISO 25010 (>=80%): {'PASS' if iso_pass else 'FAIL'}")
         print(f"Target (>=90%): {'PASS' if target_pass else 'FAIL'}")
-        print(f"Questions: {result['total_questions']}, Failed: {len(result['failed_questions'])}")
+        print(
+            f"Questions: {result['total_questions']}, Failed: {len(result['failed_questions'])}"
+        )
 
         if not iso_pass:
             all_pass = False
@@ -308,7 +322,9 @@ def main():
         if args.verbose and result["failed_questions"]:
             print("\nFailed questions:")
             for q in result["failed_questions"]:
-                print(f"  {q['id']}: {q['recall']*100:.0f}% - expected {q['expected_pages']}, got {q['retrieved_pages']}")
+                print(
+                    f"  {q['id']}: {q['recall']*100:.0f}% - expected {q['expected_pages']}, got {q['retrieved_pages']}"
+                )
 
     # Final result
     print("\n" + "=" * 60)

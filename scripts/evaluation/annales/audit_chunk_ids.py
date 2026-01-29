@@ -37,13 +37,23 @@ def normalize_text(text: str) -> str:
     text = text.lower()
     # Remove accents for matching
     replacements = {
-        'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-        'à': 'a', 'â': 'a', 'ä': 'a',
-        'ù': 'u', 'û': 'u', 'ü': 'u',
-        'î': 'i', 'ï': 'i',
-        'ô': 'o', 'ö': 'o',
-        'ç': 'c',
-        'œ': 'oe', 'æ': 'ae',
+        "é": "e",
+        "è": "e",
+        "ê": "e",
+        "ë": "e",
+        "à": "a",
+        "â": "a",
+        "ä": "a",
+        "ù": "u",
+        "û": "u",
+        "ü": "u",
+        "î": "i",
+        "ï": "i",
+        "ô": "o",
+        "ö": "o",
+        "ç": "c",
+        "œ": "oe",
+        "æ": "ae",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
@@ -55,13 +65,45 @@ def extract_keywords(text: str, min_length: int = 4) -> list[str]:
     text = normalize_text(text)
     # Remove common words
     stopwords = {
-        'pour', 'dans', 'avec', 'cette', 'celui', 'celle', 'sont', 'etre',
-        'avoir', 'fait', 'faire', 'peut', 'doit', 'tous', 'tout', 'plus',
-        'moins', 'entre', 'autres', 'autre', 'comme', 'ainsi', 'donc',
-        'lors', 'apres', 'avant', 'depuis', 'pendant', 'selon', 'sans',
-        'sous', 'vers', 'chez', 'contre', 'entre', 'parmi', 'sauf',
+        "pour",
+        "dans",
+        "avec",
+        "cette",
+        "celui",
+        "celle",
+        "sont",
+        "etre",
+        "avoir",
+        "fait",
+        "faire",
+        "peut",
+        "doit",
+        "tous",
+        "tout",
+        "plus",
+        "moins",
+        "entre",
+        "autres",
+        "autre",
+        "comme",
+        "ainsi",
+        "donc",
+        "lors",
+        "apres",
+        "avant",
+        "depuis",
+        "pendant",
+        "selon",
+        "sans",
+        "sous",
+        "vers",
+        "chez",
+        "contre",
+        "entre",
+        "parmi",
+        "sauf",
     }
-    words = re.findall(r'\b[a-z]+\b', text)
+    words = re.findall(r"\b[a-z]+\b", text)
     return [w for w in words if len(w) >= min_length and w not in stopwords]
 
 
@@ -103,7 +145,9 @@ def check_answer_in_chunk(answer: str, chunk_text: str) -> dict:
     }
 
 
-def find_best_chunk(answer: str, chunks: list[dict], source_doc: str = None) -> list[dict]:
+def find_best_chunk(
+    answer: str, chunks: list[dict], source_doc: str = None
+) -> list[dict]:
     """
     Find chunks that best match the answer.
     Returns top candidates with scores.
@@ -124,12 +168,14 @@ def find_best_chunk(answer: str, chunks: list[dict], source_doc: str = None) -> 
         ratio = found / len(answer_keywords)
 
         if ratio >= 0.2:  # At least 20% match
-            candidates.append({
-                "chunk_id": chunk["id"],
-                "score": ratio,
-                "found_keywords": found,
-                "total_keywords": len(answer_keywords),
-            })
+            candidates.append(
+                {
+                    "chunk_id": chunk["id"],
+                    "score": ratio,
+                    "found_keywords": found,
+                    "total_keywords": len(answer_keywords),
+                }
+            )
 
     # Sort by score descending
     candidates.sort(key=lambda x: x["score"], reverse=True)
@@ -183,7 +229,7 @@ def audit_gold_standard(gs_path: str, chunks_path: str) -> dict:
         if chunk_id not in chunk_index:
             results["summary"]["chunk_id_missing"] += 1
             detail["status"] = "INVALID_CHUNK_ID"
-            detail["issue"] = f"Chunk ID not found in index"
+            detail["issue"] = "Chunk ID not found in index"
 
             # Try to find best matching chunk
             source_doc = expected_docs[0] if expected_docs else None
@@ -208,7 +254,9 @@ def audit_gold_standard(gs_path: str, chunks_path: str) -> dict:
         else:
             results["summary"]["not_answerable"] += 1
             detail["status"] = "ANSWER_NOT_IN_CHUNK"
-            detail["issue"] = f"Answer keywords not found (ratio: {check['keyword_ratio']:.2f})"
+            detail["issue"] = (
+                f"Answer keywords not found (ratio: {check['keyword_ratio']:.2f})"
+            )
 
             # Try to find better chunk
             source_doc = expected_docs[0] if expected_docs else None
@@ -225,7 +273,7 @@ def audit_gold_standard(gs_path: str, chunks_path: str) -> dict:
 
 def main():
     """Main audit pipeline."""
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     base_path = Path(__file__).parent.parent.parent.parent
     gs_path = base_path / "tests" / "data" / "gold_standard_annales_fr_v7.json"
@@ -236,7 +284,7 @@ def main():
     print("AUDIT CHUNK_IDS - Gold Standard Annales")
     print("=" * 70)
 
-    print(f"\nLoading data...")
+    print("\nLoading data...")
     print(f"  GS: {gs_path}")
     print(f"  Chunks: {chunks_path}")
 
@@ -257,7 +305,7 @@ def main():
     print(f"  - Réponse ABSENTE: {results['summary']['not_answerable']}")
     print()
 
-    pct_ok = 100 * results['summary']['answerable'] / results['total_questions']
+    pct_ok = 100 * results["summary"]["answerable"] / results["total_questions"]
     print(f"TAUX ANSWERABILITY: {pct_ok:.1f}%")
     print()
 
@@ -277,7 +325,9 @@ def main():
                 print(f"  - {issue['id']}")
                 if "suggested_chunks" in issue:
                     best = issue["suggested_chunks"][0]
-                    print(f"    Suggestion: {best['chunk_id']} (score: {best['score']:.2f})")
+                    print(
+                        f"    Suggestion: {best['chunk_id']} (score: {best['score']:.2f})"
+                    )
             if len(issues) > 5:
                 print(f"  ... et {len(issues) - 5} autres")
 

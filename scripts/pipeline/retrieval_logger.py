@@ -152,4 +152,6 @@ def log_retrieval(
 
 def log_fallback_warning(query: str) -> None:
     """Log un warning quand le fallback est déclenché."""
-    _logger.warning(f"FALLBACK: No glossary chunk for '{query[:50]}...' -> retry sans boost")
+    _logger.warning(
+        f"FALLBACK: No glossary chunk for '{query[:50]}...' -> retry sans boost"
+    )

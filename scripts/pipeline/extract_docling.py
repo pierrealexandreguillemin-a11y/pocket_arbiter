@@ -26,17 +26,31 @@ Example:
 import argparse
 import logging
 import os
+import warnings
 from pathlib import Path
 from typing import Any
+
+# Suppress docling internal deprecation for generate_table_images (docling >= 2.68)
+# Our code uses table.data.grid, not generate_table_images
+warnings.filterwarnings(
+    "ignore",
+    message="Field `generate_table_images` is deprecated",
+    category=DeprecationWarning,
+)
 
 # Workaround for Windows symlink permission issue with HuggingFace
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
-from docling.datamodel.base_models import InputFormat
-from docling.datamodel.pipeline_options import PdfPipelineOptions
-from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.datamodel.base_models import InputFormat  # noqa: E402
+from docling.datamodel.pipeline_options import PdfPipelineOptions  # noqa: E402
+from docling.document_converter import DocumentConverter, PdfFormatOption  # noqa: E402
 
-from scripts.pipeline.utils import get_timestamp, list_pdf_files, normalize_text, save_json
+from scripts.pipeline.utils import (  # noqa: E402
+    get_timestamp,
+    list_pdf_files,
+    normalize_text,
+    save_json,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -138,7 +152,9 @@ def extract_pdf_docling(
     pipeline_options.do_table_structure = do_table_structure
 
     converter = DocumentConverter(
-        format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)}
+        format_options={
+            InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
+        }
     )
 
     try:

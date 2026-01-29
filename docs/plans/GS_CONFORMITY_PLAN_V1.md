@@ -102,6 +102,10 @@ PHASE 4: DEPLOIEMENT ANDROID
 | CB-03 | expected_chunk_id non-null | 100% testables | 100% | ✓ |
 | CB-04 | BY DESIGN (reformulation chunk visible) | 100% | **0%** | **420** |
 | CB-09 | requires_context_reason | 100% si rc=true | 54% (50/92) | **42** |
+| CB-05 | Zero recursive generation | 0% | 0% | ✓ |
+| CB-06 | Lineage documentée (original_question) | 100% | ~100% | Audit |
+| CB-07 | expected_docs present | 100% | ~100% | Audit |
+| CB-08 | expected_pages present | >= 80% | ~80% | Audit |
 
 ### 1.2 Critères Qualité (GS_CONFORMITY_CHECKLIST.md)
 
@@ -109,6 +113,9 @@ PHASE 4: DEPLOIEMENT ANDROID
 |----|---------|-------|--------|-------|
 | CQ-01 | reasoning_class | 100% | 100% | ✓ |
 | CQ-08 | expected_answer non-vide | 100% | 100% | ✓ |
+
+> **Note**: CQ-02..CQ-07 definis dans GS_CONFORMITY_CHECKLIST.md §2.
+> Ce sont des criteres SHOULD (non-bloquants pour l'execution des phases).
 
 ### 1.3 Critères Triplets (TRIPLET_GENERATION_SPEC.md)
 
@@ -261,10 +268,13 @@ VALID_REASONS = [
 
 for q in questions:
     if q['metadata'].get('requires_context') and not q['metadata'].get('requires_context_reason'):
-        q['metadata']['requires_context_reason'] = determine_reason(q)
+        # determine_reason(): classification LLM (Claude/Gemini)
+        # Input: question + metadata → Output: one of VALID_REASONS
+        # Implementation: LLM analyse question+chunk characteristics
+        q['metadata']['requires_context_reason'] = determine_reason(q)  # LLM call
 ```
 
-#### 1.3 Compléter difficulty (M-01/M-02)
+#### 1.2 Compléter difficulty (M-01/M-02)
 ```python
 for q in questions:
     diff = q['metadata'].get('difficulty')
@@ -276,7 +286,7 @@ for q in questions:
             q['metadata']['difficulty'] = mapping.get(q['metadata'].get('cognitive_level'), 0.5)
 ```
 
-#### 1.4 Review expected_answer courts (F-04)
+#### 1.3 Review expected_answer courts (F-04)
 Les 32 questions avec answer < 5 chars doivent être vérifiées manuellement.
 
 **Validation Phase 1:**
@@ -501,10 +511,17 @@ data/training/unified/beir/
 ```
 **Output:** `data/training/unified/ragas_val.jsonl`
 
-#### 3.5 Composition Report (EX-06)
+#### 3.5 DVC Tracking (EX-05)
+```bash
+dvc add data/training/unified/
+git add data/training/unified.dvc data/training/.gitignore
+```
+
+#### 3.6 Composition Report (EX-06)
 ```json
 {
   "version": "1.0",
+  "seed": 42,
   "source": {
     "gold_standard": "gold_standard_annales_fr_v7.json",
     "gold_standard_version": "7.7",
@@ -532,12 +549,6 @@ data/training/unified/beir/
 }
 ```
 **Output:** `data/training/unified/dataset_composition.json`
-
-#### 3.6 DVC Tracking (EX-05)
-```bash
-dvc add data/training/unified/
-git add data/training/unified.dvc data/training/.gitignore
-```
 
 **Split (CT-05):**
 - Train: 80% (testables ~262)
@@ -579,10 +590,10 @@ assert (unified / 'dataset_composition.json').exists()
 
 ## 5. VALIDATION FINALE
 
-> **Note**: Ce script est un contrôle rapide "one-shot" exécutable en une commande.
-> Il vérifie les mêmes critères que les quality gates §6.4 mais sans décomposition
-> par phase. Usage: vérification finale post-Phase 3 OU diagnostic rapide à tout moment.
-> Les gates §6.4 sont la référence normative (ISO 29119); ce script est un outil pratique.
+> **Note**: Ce script est un controle rapide "one-shot" en une commande.
+> Il couvre un SOUS-ENSEMBLE des criteres des quality gates §6.4:
+> CB-04, CB-01, CB-09, F-01, M-01, CT-01, EX-01..06 (7 criteres sur ~30).
+> Les gates §6.4 sont la reference normative complete (ISO 29119).
 
 ```bash
 python -c "
@@ -739,6 +750,11 @@ tests/data/checkpoints/
 {"batch": 1, "question_id": "ffe:annales:clubs:014:...", "reviewer": "human", "pass": true, "notes": ""}
 ```
 
+> **Note d'assemblage**: Les gate functions ci-dessous sont presentees comme
+> blocs independants. En script unifie, `regression_check()` (§6.6) doit etre
+> defini AVANT les gates qui l'appellent. Imports communs: `from pathlib import Path`,
+> `import json`, `import jsonschema`.
+
 ### 6.4 Q3 — Quality gates inter-phases
 
 #### GATE 0→1: BY DESIGN + chunk validation
@@ -760,6 +776,9 @@ tests/data/checkpoints/
 | G0-13 | CB-08 expected_pages present | >= 80% | OUI |
 
 ```python
+from pathlib import Path
+import json as _json
+
 # Script gate Phase 0 → Phase 1
 def gate_phase0(gs):
     errors, warnings = [], []
@@ -790,13 +809,19 @@ def gate_phase0(gs):
             errors.append(f"G0-8 REGRESSION CQ-08: {q['id']}")
         if len(q['question'].strip()) < 10:
             errors.append(f"G0-9 REGRESSION F-02: {q['id']}")
+        # G0-9 REGRESSION F-03: requires corpus lookup, deferred to regression_check()
+        if not q.get('metadata', {}).get('cognitive_level'):
+            errors.append(f"G0-9 REGRESSION M-03: {q['id']}")
+        if not q.get('metadata', {}).get('category'):
+            errors.append(f"G0-9 REGRESSION M-04: {q['id']}")
 
     # G0-10: CB-05 zero recursive generation
     for q in questions:
         if q.get('metadata',{}).get('generation_depth', 0) > 0:
             errors.append(f"G0-10 FAIL: {q['id']} recursive generation detected")
 
-    # G0-11: CB-06 lineage
+    # G0-11: CB-06 lineage (meme check que G0-4, scope normatif different)
+    # G0-4 = preservation donnees; G0-11 = ISO 42001 A.6.2.3 tracabilite lineage
     for q in questions:
         if not q.get('metadata',{}).get('original_question'):
             errors.append(f"G0-11 FAIL: {q['id']} no lineage (original_question)")
@@ -814,7 +839,6 @@ def gate_phase0(gs):
     # G0-5: Spot-check log (tous pass)
     spot_log = Path('tests/data/checkpoints/spot_check_log.jsonl')
     if spot_log.exists():
-        import json as _json
         with open(spot_log, encoding='utf-8') as f:
             checks = [_json.loads(line) for line in f if line.strip()]
         fails = [c for c in checks if not c.get('pass')]
@@ -842,6 +866,8 @@ def gate_phase0(gs):
 | G1-5 | REGRESSION: tous critères Phase 0 | PASS | OUI |
 
 ```python
+from pathlib import Path
+
 def gate_phase1(gs):
     errors, warnings = [], []
     questions = gs['questions']
@@ -886,13 +912,15 @@ def gate_phase1(gs):
 | G2-7 | REGRESSION: tous critères Phases 0+1 | PASS | OUI |
 
 ```python
+from pathlib import Path
+import json as _json
+
 def gate_phase2(gs, chunks_by_id):
     errors, warnings = [], []
     questions = gs['questions']
     testables = [q for q in questions if not q.get('metadata',{}).get('requires_context')]
 
     total_hns, same_doc_hns = 0, 0
-    seen_neg_ids = {}  # question_id -> set of neg chunk ids
 
     for q in testables:
         hns = q.get('metadata',{}).get('hard_negatives', [])
@@ -952,7 +980,7 @@ def gate_phase2(gs, chunks_by_id):
 | G3-3 | CT-05 split 80/20 seed=42 | Exact | OUI |
 | G3-4 | No data leakage train/val | 0 overlap | OUI |
 | G3-5 | Val = 100% gold_standard | TRUE | OUI |
-| G3-6 | QA-01 deduplication < 5% | < 5% | NON (alerte) |
+| G3-6 | QA-01 deduplication < 5% + QA-02 anchor < 0.9 | < 5% / < 0.9 | OUI |
 | G3-7 | REGRESSION complète Phases 0+1+2 | PASS | OUI |
 
 ```python
@@ -967,6 +995,7 @@ def gate_phase3(gs):
     # G3-1: All 6 formats exist
     required = {
         'EX-01': 'triplets_train.jsonl',
+        'EX-01b': 'triplets_val.jsonl',
         'EX-02': 'ares_train.tsv',
         'EX-03': 'beir/queries.jsonl',
         'EX-04': 'ragas_val.jsonl',
@@ -1002,6 +1031,8 @@ def gate_phase3(gs):
             errors.append(f"G3-3 FAIL: train split != 80%")
         if splits.get('val', {}).get('percentage') != 20:
             errors.append(f"G3-3 FAIL: val split != 20%")
+        if comp.get('seed') != 42:
+            errors.append(f"G3-3 FAIL: seed != 42 (got {comp.get('seed')})")
 
     # G3-4: No data leakage
     train_ids, val_ids = set(), set()
@@ -1026,8 +1057,19 @@ def gate_phase3(gs):
                     errors.append(f"G3-5 FAIL: val contains non-GS source")
                     break
 
-    # G3-6: Deduplication (alerte)
-    # Vérifié par validate_dataset.py, résultat dans composition report
+    # G3-6: QA-01 deduplication + QA-02 anchor independence (BLOQUANT)
+    if comp_path.exists():
+        dedup_rate = comp.get('quality_audits', {}).get('duplicate_rate')
+        if dedup_rate is not None and dedup_rate >= 0.05:
+            errors.append(f"G3-6 FAIL: duplicate_rate {dedup_rate:.1%} >= 5%")
+        elif dedup_rate is None:
+            errors.append("G3-6 FAIL: deduplication audit not performed")
+        # QA-02/TT-02: cosine(anchor, positive) < 0.9
+        anchor_sim = comp.get('quality_audits', {}).get('max_anchor_positive_cosine')
+        if anchor_sim is not None and anchor_sim >= 0.9:
+            errors.append(f"G3-6 FAIL: anchor independence {anchor_sim:.2f} >= 0.9")
+        elif anchor_sim is None:
+            errors.append("G3-6 FAIL: anchor independence audit not performed")
 
     # G3-7: Regression complète
     reg_errors = regression_check(gs, phase_completed=2)
@@ -1229,3 +1271,19 @@ Phase 2 Pipeline:
 - [ ] Phase 2: Hard negatives (hybrid Claude + EmbeddingGemma)
 - [ ] Phase 3: Multi-format export
 - [ ] Validation finale
+
+---
+
+## 11. LESSONS LEARNED
+
+> **Note**: Zero dette technique. Tous les findings actionnables sont corriges.
+> Cette section documente les lecons tirees des erreurs de processus git
+> et les clarifications post-audit.
+
+| Finding | Description | ISO | Lecon |
+|---------|-------------|-----|-------|
+| L-1 | Cycle add/delete/add/delete hard negatives (760 lignes) | 12207 | Feature branches pour code experimental |
+| L-2 | Commit 0008c9f melange 4 changements non-lies | 12207 | Un concern = un commit atomique |
+| L-3 | Type `data(gs):` non-conventionnel | 12207 | Types valides: feat/fix/test/docs/refactor/chore |
+| M-7 | Finding fantome dans matrice de tracabilite audit | 29119 | Verifier 1:1 entre matrice et descriptions de commits. M-7 "invariants GS" n'avait pas de description ni d'action concrete — N/A |
+| L-8 | Secret API Cerebras dans historique git | 27001 | git filter-repo applique. Cle a rotation obligatoire. Ne jamais committer de secrets, meme temporairement |

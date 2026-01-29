@@ -194,11 +194,17 @@ def export_beir_format(
     corpus_path = beir_dir / "corpus.jsonl"
     with open(corpus_path, "w", encoding="utf-8") as f:
         for doc_id, doc in corpus.items():
-            f.write(json.dumps({
-                "_id": doc_id,
-                "title": doc["title"],
-                "text": doc["text"],
-            }, ensure_ascii=False) + "\n")
+            f.write(
+                json.dumps(
+                    {
+                        "_id": doc_id,
+                        "title": doc["title"],
+                        "text": doc["text"],
+                    },
+                    ensure_ascii=False,
+                )
+                + "\n"
+            )
 
     # Export qrels.tsv (BEIR format: query-id, corpus-id, score)
     qrels_path = beir_dir / "qrels.tsv"
@@ -251,19 +257,22 @@ def main() -> None:
         description="Export triplets to multiple evaluation formats"
     )
     parser.add_argument(
-        "--input", "-i",
+        "--input",
+        "-i",
         type=Path,
         default=DEFAULT_INPUT,
         help="Input triplets JSONL",
     )
     parser.add_argument(
-        "--output-dir", "-o",
+        "--output-dir",
+        "-o",
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
         help="Output directory",
     )
     parser.add_argument(
-        "--formats", "-f",
+        "--formats",
+        "-f",
         type=str,
         default="triplets,ares,beir,ragas",
         help=f"Comma-separated formats to export: {','.join(ALL_FORMATS)}",
@@ -275,13 +284,15 @@ def main() -> None:
         help="Train/val split ratio (default: 0.8)",
     )
     parser.add_argument(
-        "--seed", "-s",
+        "--seed",
+        "-s",
         type=int,
         default=42,
         help="Random seed for reproducibility",
     )
     parser.add_argument(
-        "--verbose", "-v",
+        "--verbose",
+        "-v",
         action="store_true",
     )
     args = parser.parse_args()

@@ -661,7 +661,9 @@ QUESTION_TEMPLATES_FR = [
     {
         "question": "Quelles sont les conditions de participation au championnat féminin individuel ?",
         "category": "feminin",
-        "expected_docs": ["F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"],
+        "expected_docs": [
+            "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+        ],
         "expected_pages": [1, 2],
         "keywords": ["féminin", "championnat", "individuel", "participation"],
         "metadata": {
@@ -674,7 +676,9 @@ QUESTION_TEMPLATES_FR = [
     {
         "question": "Quelle est la cadence pour le championnat féminin rapide ?",
         "category": "feminin",
-        "expected_docs": ["F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"],
+        "expected_docs": [
+            "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
+        ],
         "expected_pages": [1],
         "keywords": ["féminin", "rapide", "cadence", "championnat"],
         "metadata": {
@@ -1512,16 +1516,18 @@ def main():
     existing_ids = [q["id"] for q in gs["questions"]]
     if args.corpus == "fr":
         last_num = max(
-            [int(id.split("-")[1][1:]) for id in existing_ids
-             if id.startswith("FR-Q") and not id.startswith("FR-Q-")]
+            [
+                int(id.split("-")[1][1:])
+                for id in existing_ids
+                if id.startswith("FR-Q") and not id.startswith("FR-Q-")
+            ]
             + [0]
         )
         templates = QUESTION_TEMPLATES_FR
         id_prefix = "FR-Q"
     else:
         last_num = max(
-            [int(id.split("_")[1]) for id in existing_ids
-             if id.startswith("intl_")]
+            [int(id.split("_")[1]) for id in existing_ids if id.startswith("intl_")]
             + [0]
         )
         templates = QUESTION_TEMPLATES_INTL
@@ -1548,7 +1554,9 @@ def main():
 
     if args.dry_run:
         print("\nDry run - not writing output")
-        print(f"Sample question: {json.dumps(new_questions[0], indent=2, ensure_ascii=False)}")
+        print(
+            f"Sample question: {json.dumps(new_questions[0], indent=2, ensure_ascii=False)}"
+        )
         return
 
     # Add to GS
@@ -1558,16 +1566,24 @@ def main():
     old_version = gs.get("version", "5.29")
     new_version = "5.30" if args.corpus == "fr" else "2.4"
     gs["version"] = new_version
-    gs["description"] = f"Gold standard v{new_version} - {len(gs['questions'])} questions (added {len(new_questions)} answerable)"
+    gs["description"] = (
+        f"Gold standard v{new_version} - {len(gs['questions'])} questions (added {len(new_questions)} answerable)"
+    )
 
     # Update statistics
-    answerable = sum(1 for q in gs["questions"] if q.get("metadata", {}).get("hard_type", "ANSWERABLE") == "ANSWERABLE")
+    answerable = sum(
+        1
+        for q in gs["questions"]
+        if q.get("metadata", {}).get("hard_type", "ANSWERABLE") == "ANSWERABLE"
+    )
     unanswerable = len(gs["questions"]) - answerable
     if "statistics" not in gs:
         gs["statistics"] = {}
     gs["statistics"]["total_questions"] = len(gs["questions"])
     gs["statistics"]["adversarial_questions"] = unanswerable
-    gs["statistics"]["adversarial_ratio"] = f"{100 * unanswerable / len(gs['questions']):.1f}%"
+    gs["statistics"]["adversarial_ratio"] = (
+        f"{100 * unanswerable / len(gs['questions']):.1f}%"
+    )
 
     # Save
     with open(args.output, "w", encoding="utf-8") as f:
@@ -1577,7 +1593,9 @@ def main():
     print(f"Version: {old_version} -> {new_version}")
     print(f"Total questions: {len(gs['questions'])}")
     print(f"Answerable: {answerable} ({100*answerable/len(gs['questions']):.1f}%)")
-    print(f"Unanswerable: {unanswerable} ({100*unanswerable/len(gs['questions']):.1f}%)")
+    print(
+        f"Unanswerable: {unanswerable} ({100*unanswerable/len(gs['questions']):.1f}%)"
+    )
 
 
 if __name__ == "__main__":

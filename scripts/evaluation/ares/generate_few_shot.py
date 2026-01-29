@@ -265,9 +265,7 @@ def generate_few_shot_examples(
             continue
 
         # Find matching triplet for answer (FR only, INTL uses chunk text)
-        triplet = next(
-            (t for t in triplets if t.get("anchor") == q["question"]), None
-        )
+        triplet = next((t for t in triplets if t.get("anchor") == q["question"]), None)
         answer = triplet["positive"] if triplet else chunk["text"][:500]
 
         reasoning_template = positive_templates[i % len(positive_templates)]
@@ -325,8 +323,12 @@ def generate_few_shot_examples(
         writer.writerows(few_shot_samples)
 
     print(f"Created {len(few_shot_samples)} few-shot examples at {output_path}")
-    print(f"  - Positive: {sum(1 for s in few_shot_samples if s['Context_Relevance_Label'] == 1)}")
-    print(f"  - Negative: {sum(1 for s in few_shot_samples if s['Context_Relevance_Label'] == 0)}")
+    print(
+        f"  - Positive: {sum(1 for s in few_shot_samples if s['Context_Relevance_Label'] == 1)}"
+    )
+    print(
+        f"  - Negative: {sum(1 for s in few_shot_samples if s['Context_Relevance_Label'] == 0)}"
+    )
 
     return output_path
 

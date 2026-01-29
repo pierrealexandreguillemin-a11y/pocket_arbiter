@@ -291,8 +291,7 @@ def convert_gold_standard_to_ares(
                 "total_samples": len(all_samples),
                 "positive_count": len(positive_samples),
                 "negative_count": len(negative_samples),
-                "negative_ratio": len(negative_samples)
-                / len(all_samples)
+                "negative_ratio": len(negative_samples) / len(all_samples)
                 if all_samples
                 else 0,
                 "samples": traceability,

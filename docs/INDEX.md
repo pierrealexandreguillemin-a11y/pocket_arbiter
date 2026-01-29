@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 2.2
-> **Date**: 2026-01-28
+> **Version**: 2.3
+> **Date**: 2026-01-29
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -301,6 +301,7 @@ pocket_arbiter/
 | 1.8 | 2026-01-24 | Claude Opus 4.5 | **Ajout Dual-RAG Architecture** (VISION v2.0): index separation FR/INTL, references croisees tous docs concernes |
 | 2.1 | 2026-01-26 | Claude Opus 4.5 | **Ajout GS_CONFORMITY_CHECKLIST.md** (SPEC-GS-CONF-001): checklist one-shot conformite GS, index chunk_match_score/Conformite GS, GOLD_STANDARD_V6_ANNALES.md marque Obsolete |
 | 2.2 | 2026-01-28 | Claude Opus 4.5 | **Ajout GS_CONFORMITY_PLAN_V1.md** (PLAN-GS-CONF-001). Suppression scripts hard_negative_mining dangereux (3 scripts + 1 test). Purge references intfloat/multilingual-e5 (modele unique EmbeddingGemma). Hard negatives: methode hybride Claude LLM-as-judge + EmbeddingGemma pre-filtrage |
+| 2.3 | 2026-01-29 | Claude Opus 4.5 | Audit 25 findings: fix securite API key, rename test_adversarial, .coveragerc + pre-commit hook coverage bloquant, corrections plan gates (imports, numbering, CB-05..08, EX-05/06, G3-6 bloquant, S5 note). Lessons learned §11. |
 
 ---
 

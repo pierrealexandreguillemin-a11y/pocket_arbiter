@@ -8,7 +8,6 @@ Usage:
 import json
 import argparse
 from pathlib import Path
-from datetime import datetime
 
 
 def load_json(path: Path) -> dict:
@@ -49,14 +48,18 @@ def merge_adversarial(dry_run: bool = False) -> None:
     new_fr = [q for q in adv["questions_fr"] if q["id"] not in existing_fr_ids]
     new_intl = [q for q in adv["questions_intl"] if q["id"] not in existing_intl_ids]
 
-    print(f"\nBefore merge:")
+    print("\nBefore merge:")
     print(f"  FR: {before_fr} questions")
     print(f"  INTL: {before_intl} questions")
     print(f"  Total: {before_fr + before_intl}")
 
-    print(f"\nNew adversarial questions:")
-    print(f"  FR: {len(new_fr)} (skipped {len(adv['questions_fr']) - len(new_fr)} duplicates)")
-    print(f"  INTL: {len(new_intl)} (skipped {len(adv['questions_intl']) - len(new_intl)} duplicates)")
+    print("\nNew adversarial questions:")
+    print(
+        f"  FR: {len(new_fr)} (skipped {len(adv['questions_fr']) - len(new_fr)} duplicates)"
+    )
+    print(
+        f"  INTL: {len(new_intl)} (skipped {len(adv['questions_intl']) - len(new_intl)} duplicates)"
+    )
 
     if dry_run:
         print("\n[DRY RUN] No changes made.")
@@ -77,11 +80,17 @@ def merge_adversarial(dry_run: bool = False) -> None:
     )
 
     # Count adversarial
-    adv_count = len([q for q in gs_fr["questions"]
-                     if q.get("metadata", {}).get("hard_type")
-                     and not q.get("expected_pages")])
+    adv_count = len(
+        [
+            q
+            for q in gs_fr["questions"]
+            if q.get("metadata", {}).get("hard_type") and not q.get("expected_pages")
+        ]
+    )
     gs_fr["statistics"]["adversarial_questions"] = adv_count
-    gs_fr["statistics"]["adversarial_ratio"] = f"{adv_count/len(gs_fr['questions'])*100:.1f}%"
+    gs_fr["statistics"]["adversarial_ratio"] = (
+        f"{adv_count/len(gs_fr['questions'])*100:.1f}%"
+    )
 
     # Merge INTL
     gs_intl["questions"].extend(new_intl)
@@ -100,37 +109,53 @@ def merge_adversarial(dry_run: bool = False) -> None:
     total = after_fr + after_intl
 
     # Count all unanswerable
-    unanswerable_fr = len([q for q in gs_fr["questions"]
-                           if q.get("metadata", {}).get("hard_type")
-                           and not q.get("expected_pages")])
-    unanswerable_intl = len([q for q in gs_intl["questions"]
-                             if q.get("metadata", {}).get("hard_type")
-                             and not q.get("expected_pages")])
+    unanswerable_fr = len(
+        [
+            q
+            for q in gs_fr["questions"]
+            if q.get("metadata", {}).get("hard_type") and not q.get("expected_pages")
+        ]
+    )
+    unanswerable_intl = len(
+        [
+            q
+            for q in gs_intl["questions"]
+            if q.get("metadata", {}).get("hard_type") and not q.get("expected_pages")
+        ]
+    )
     unanswerable_total = unanswerable_fr + unanswerable_intl
 
-    print(f"\nAfter merge:")
+    print("\nAfter merge:")
     print(f"  FR: {after_fr} questions (+{after_fr - before_fr})")
     print(f"  INTL: {after_intl} questions (+{after_intl - before_intl})")
     print(f"  Total: {total}")
-    print(f"\nAdversarial ratio:")
-    print(f"  Unanswerable: {unanswerable_total}/{total} ({unanswerable_total/total*100:.1f}%)")
-    print(f"  Answerable: {total - unanswerable_total}/{total} ({(total-unanswerable_total)/total*100:.1f}%)")
+    print("\nAdversarial ratio:")
+    print(
+        f"  Unanswerable: {unanswerable_total}/{total} ({unanswerable_total/total*100:.1f}%)"
+    )
+    print(
+        f"  Answerable: {total - unanswerable_total}/{total} ({(total-unanswerable_total)/total*100:.1f}%)"
+    )
 
     # Conformance check
     ratio = unanswerable_total / total * 100
     if 25 <= ratio <= 35:
-        print(f"\n[OK] CONFORME SQuAD 2.0 (25-33%)")
+        print("\n[OK] CONFORME SQuAD 2.0 (25-33%)")
     else:
         print(f"\n[WARN] Ratio {ratio:.1f}% hors cible (25-33%)")
 
-    print(f"\nFiles updated:")
+    print("\nFiles updated:")
     print(f"  {gs_fr_path}")
     print(f"  {gs_intl_path}")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Merge adversarial questions into gold standard")
-    parser.add_argument("--dry-run", action="store_true", help="Preview changes without saving")
+    parser = argparse.ArgumentParser(
+        description="Merge adversarial questions into gold standard"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Preview changes without saving"
+    )
     args = parser.parse_args()
 
     merge_adversarial(dry_run=args.dry_run)

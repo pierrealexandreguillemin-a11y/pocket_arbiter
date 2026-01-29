@@ -242,7 +242,10 @@ class TestCleanupGoldStandard:
                 {"choices": {"A": "Voir article 1"}, "expected_answer": "A"},
                 {"choices": {"A": "Voir article 2"}, "expected_answer": "A"},
                 # Long enough answer to be considered good quality (>30 chars)
-                {"choices": {"A": "Une réponse normale et suffisamment longue"}, "expected_answer": "A"},
+                {
+                    "choices": {"A": "Une réponse normale et suffisamment longue"},
+                    "expected_answer": "A",
+                },
             ]
         }
         result = cleanup_gold_standard(gs_data)
@@ -261,9 +264,15 @@ class TestCleanupGoldStandard:
         gs_data = {
             "questions": [
                 # Good answer (derived complete)
-                {"choices": {"A": "Une réponse complète et détaillée"}, "expected_answer": "A"},
+                {
+                    "choices": {"A": "Une réponse complète et détaillée"},
+                    "expected_answer": "A",
+                },
                 # Multiple choice answer
-                {"choices": {"A": "Premier choix", "B": "Deuxième choix"}, "expected_answer": "AB"},
+                {
+                    "choices": {"A": "Premier choix", "B": "Deuxième choix"},
+                    "expected_answer": "AB",
+                },
                 # Short answer (warning)
                 {"choices": {"A": "Oui"}, "expected_answer": "A"},
                 # Reference only (warning)
@@ -280,7 +289,9 @@ class TestCleanupGoldStandard:
         assert result["cleanup_stats"]["total"] == 6
 
         # Check stats are recorded
-        assert result["cleanup_stats"]["mcq_letters_removed"] >= 5  # All expected_answer moved
+        assert (
+            result["cleanup_stats"]["mcq_letters_removed"] >= 5
+        )  # All expected_answer moved
 
         # Check quality assessment ran
         assert result["cleanup_stats"]["quality_good"] >= 1

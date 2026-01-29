@@ -182,7 +182,9 @@ def finetune_embeddinggemma(
         # Compter les parametres entrainables
         trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
         total = sum(p.numel() for p in model.parameters())
-        logger.info(f"Trainable params: {trainable:,} / {total:,} ({100*trainable/total:.2f}%)")
+        logger.info(
+            f"Trainable params: {trainable:,} / {total:,} ({100*trainable/total:.2f}%)"
+        )
     else:
         logger.info("Full fine-tuning (no LoRA)")
 
@@ -244,31 +246,68 @@ Examples:
       --no-lora
         """,
     )
-    parser.add_argument("--triplets", "-t", type=Path, required=True,
-                        help="Fichier JSONL des triplets")
-    parser.add_argument("--output", "-o", type=Path, required=True,
-                        help="Repertoire de sortie du modele")
-    parser.add_argument("--model", "-m", type=str, default=DEFAULT_MODEL_ID,
-                        help=f"Model ID (default: {DEFAULT_MODEL_ID})")
-    parser.add_argument("--epochs", "-e", type=int, default=DEFAULT_EPOCHS,
-                        help=f"Nombre d'epochs (default: {DEFAULT_EPOCHS})")
-    parser.add_argument("--batch-size", "-b", type=int, default=DEFAULT_BATCH_SIZE,
-                        help=f"Batch size (default: {DEFAULT_BATCH_SIZE})")
-    parser.add_argument("--learning-rate", type=float, default=DEFAULT_LEARNING_RATE,
-                        help=f"Learning rate (default: {DEFAULT_LEARNING_RATE})")
+    parser.add_argument(
+        "--triplets", "-t", type=Path, required=True, help="Fichier JSONL des triplets"
+    )
+    parser.add_argument(
+        "--output",
+        "-o",
+        type=Path,
+        required=True,
+        help="Repertoire de sortie du modele",
+    )
+    parser.add_argument(
+        "--model",
+        "-m",
+        type=str,
+        default=DEFAULT_MODEL_ID,
+        help=f"Model ID (default: {DEFAULT_MODEL_ID})",
+    )
+    parser.add_argument(
+        "--epochs",
+        "-e",
+        type=int,
+        default=DEFAULT_EPOCHS,
+        help=f"Nombre d'epochs (default: {DEFAULT_EPOCHS})",
+    )
+    parser.add_argument(
+        "--batch-size",
+        "-b",
+        type=int,
+        default=DEFAULT_BATCH_SIZE,
+        help=f"Batch size (default: {DEFAULT_BATCH_SIZE})",
+    )
+    parser.add_argument(
+        "--learning-rate",
+        type=float,
+        default=DEFAULT_LEARNING_RATE,
+        help=f"Learning rate (default: {DEFAULT_LEARNING_RATE})",
+    )
 
     # LoRA options
     lora_group = parser.add_mutually_exclusive_group()
-    lora_group.add_argument("--use-lora", action="store_true", default=True,
-                            help="Utiliser LoRA/PEFT (default)")
-    lora_group.add_argument("--no-lora", action="store_true",
-                            help="Full fine-tuning sans LoRA")
-    parser.add_argument("--lora-r", type=int, default=LORA_R,
-                        help=f"LoRA rank (default: {LORA_R})")
-    parser.add_argument("--lora-alpha", type=int, default=LORA_ALPHA,
-                        help=f"LoRA alpha (default: {LORA_ALPHA})")
+    lora_group.add_argument(
+        "--use-lora",
+        action="store_true",
+        default=True,
+        help="Utiliser LoRA/PEFT (default)",
+    )
+    lora_group.add_argument(
+        "--no-lora", action="store_true", help="Full fine-tuning sans LoRA"
+    )
+    parser.add_argument(
+        "--lora-r", type=int, default=LORA_R, help=f"LoRA rank (default: {LORA_R})"
+    )
+    parser.add_argument(
+        "--lora-alpha",
+        type=int,
+        default=LORA_ALPHA,
+        help=f"LoRA alpha (default: {LORA_ALPHA})",
+    )
 
-    parser.add_argument("--use-gpu", action="store_true", help="Utiliser GPU si disponible")
+    parser.add_argument(
+        "--use-gpu", action="store_true", help="Utiliser GPU si disponible"
+    )
     parser.add_argument("--verbose", "-v", action="store_true")
     args = parser.parse_args()
 

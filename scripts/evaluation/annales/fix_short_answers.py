@@ -38,11 +38,23 @@ def normalize_text(text: str) -> str:
     """Normalize text for comparison."""
     text = text.lower()
     replacements = {
-        'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-        'à': 'a', 'â': 'a', 'ä': 'a',
-        'ù': 'u', 'û': 'u', 'ü': 'u',
-        'î': 'i', 'ï': 'i', 'ô': 'o', 'ö': 'o',
-        'ç': 'c', 'œ': 'oe', 'æ': 'ae',
+        "é": "e",
+        "è": "e",
+        "ê": "e",
+        "ë": "e",
+        "à": "a",
+        "â": "a",
+        "ä": "a",
+        "ù": "u",
+        "û": "u",
+        "ü": "u",
+        "î": "i",
+        "ï": "i",
+        "ô": "o",
+        "ö": "o",
+        "ç": "c",
+        "œ": "oe",
+        "æ": "ae",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
@@ -53,7 +65,11 @@ def is_short_answer(answer: str) -> bool:
     """Check if answer is short (numeric, monetary, or < 4 chars)."""
     answer = answer.strip()
     # Numeric (with optional unit)
-    if re.match(r'^\d+[\s]*(€|euros?|minutes?|heures?|jours?|points?)?\.?$', answer, re.IGNORECASE):
+    if re.match(
+        r"^\d+[\s]*(€|euros?|minutes?|heures?|jours?|points?)?\.?$",
+        answer,
+        re.IGNORECASE,
+    ):
         return True
     # Very short text
     if len(answer) < 10:
@@ -65,17 +81,69 @@ def extract_question_keywords(question: str, min_length: int = 4) -> list[str]:
     """Extract meaningful keywords from question text."""
     text = normalize_text(question)
     stopwords = {
-        'pour', 'dans', 'avec', 'cette', 'celui', 'celle', 'sont', 'etre',
-        'quelle', 'quel', 'quels', 'quelles', 'comment', 'combien', 'quel',
-        'propositions', 'proposition', 'suivantes', 'suivante', 'parmi',
-        'correspond', 'correspond', 'lequel', 'laquelle', 'lesquels',
-        'avoir', 'fait', 'faire', 'peut', 'doit', 'tous', 'tout', 'plus',
-        'moins', 'entre', 'autres', 'autre', 'comme', 'ainsi', 'donc',
-        'lors', 'apres', 'avant', 'depuis', 'pendant', 'selon', 'sans',
-        'sous', 'vers', 'chez', 'contre', 'entre', 'parmi', 'sauf',
-        'seront', 'aurons', 'nous', 'vous', 'leur', 'leurs', 'notre',
+        "pour",
+        "dans",
+        "avec",
+        "cette",
+        "celui",
+        "celle",
+        "sont",
+        "etre",
+        "quelle",
+        "quel",
+        "quels",
+        "quelles",
+        "comment",
+        "combien",
+        "quel",
+        "propositions",
+        "proposition",
+        "suivantes",
+        "suivante",
+        "parmi",
+        "correspond",
+        "correspond",
+        "lequel",
+        "laquelle",
+        "lesquels",
+        "avoir",
+        "fait",
+        "faire",
+        "peut",
+        "doit",
+        "tous",
+        "tout",
+        "plus",
+        "moins",
+        "entre",
+        "autres",
+        "autre",
+        "comme",
+        "ainsi",
+        "donc",
+        "lors",
+        "apres",
+        "avant",
+        "depuis",
+        "pendant",
+        "selon",
+        "sans",
+        "sous",
+        "vers",
+        "chez",
+        "contre",
+        "entre",
+        "parmi",
+        "sauf",
+        "seront",
+        "aurons",
+        "nous",
+        "vous",
+        "leur",
+        "leurs",
+        "notre",
     }
-    words = re.findall(r'\b[a-z]+\b', text)
+    words = re.findall(r"\b[a-z]+\b", text)
     return [w for w in words if len(w) >= min_length and w not in stopwords]
 
 
@@ -84,18 +152,21 @@ def extract_article_patterns(article_ref: str) -> list[str]:
     patterns = []
 
     # Extract article numbers (e.g., "3.8", "12.4")
-    article_nums = re.findall(r'\b(\d+\.?\d*)\b', article_ref)
+    article_nums = re.findall(r"\b(\d+\.?\d*)\b", article_ref)
     patterns.extend(article_nums)
 
     # Extract "Article X" patterns
-    article_match = re.findall(r'Article\s+(\d+\.?\d*)', article_ref, re.IGNORECASE)
+    article_match = re.findall(r"Article\s+(\d+\.?\d*)", article_ref, re.IGNORECASE)
     for m in article_match:
         patterns.append(f"Article {m}")
 
     # Extract section titles
-    titles = re.findall(r'[A-ZÉÈÊÀÂÇ][a-zéèêàâùûîïôöç]+(?:\s+[A-ZÉÈÊÀÂÇ]?[a-zéèêàâùûîïôöç]+)*', article_ref)
+    titles = re.findall(
+        r"[A-ZÉÈÊÀÂÇ][a-zéèêàâùûîïôöç]+(?:\s+[A-ZÉÈÊÀÂÇ]?[a-zéèêàâùûîïôöç]+)*",
+        article_ref,
+    )
     for t in titles:
-        if len(t) > 5 and t not in ['Article', 'Chapitre', 'Section']:
+        if len(t) > 5 and t not in ["Article", "Chapitre", "Section"]:
             patterns.append(t)
 
     return list(set(patterns))
@@ -106,7 +177,7 @@ def find_chunk_for_short_answer(
     answer: str,
     article_ref: str,
     chunks: list[dict],
-    source_docs: list[str] = None
+    source_docs: list[str] = None,
 ) -> dict | None:
     """
     Find best chunk for question with short answer.
@@ -118,7 +189,7 @@ def find_chunk_for_short_answer(
     """
     answer_norm = normalize_text(answer)
     # Also check raw number for numeric answers
-    answer_num = re.search(r'\d+', answer)
+    answer_num = re.search(r"\d+", answer)
     answer_num = answer_num.group() if answer_num else None
 
     question_keywords = extract_question_keywords(question)
@@ -139,7 +210,7 @@ def find_chunk_for_short_answer(
         has_answer = answer_norm in chunk_norm
         if not has_answer and answer_num:
             # For numeric, check with word boundaries
-            has_answer = bool(re.search(rf'\b{answer_num}\b', chunk_text))
+            has_answer = bool(re.search(rf"\b{answer_num}\b", chunk_text))
 
         if not has_answer:
             continue
@@ -158,13 +229,15 @@ def find_chunk_for_short_answer(
 
         if article_score > 0 or keyword_score >= 2:
             total_score = article_score * 2 + keyword_score
-            candidates.append({
-                "chunk_id": chunk["id"],
-                "article_score": article_score,
-                "keyword_score": keyword_score,
-                "total_score": total_score,
-                "text_preview": chunk_text[:150],
-            })
+            candidates.append(
+                {
+                    "chunk_id": chunk["id"],
+                    "article_score": article_score,
+                    "keyword_score": keyword_score,
+                    "total_score": total_score,
+                    "text_preview": chunk_text[:150],
+                }
+            )
 
     if not candidates:
         return None
@@ -205,13 +278,15 @@ def fix_short_answer_chunks(gs: dict, chunks: list[dict], chunk_index: dict) -> 
         reasoning_class = q.get("metadata", {}).get("reasoning_class", "")
 
         # Check if needs reclassification to arithmetic
-        if re.match(r'^\d+\.?$', answer.strip()):
+        if re.match(r"^\d+\.?$", answer.strip()):
             if reasoning_class == "fact_single":
-                results["reclassify_arithmetic"].append({
-                    "id": qid,
-                    "answer": answer,
-                    "current_class": reasoning_class,
-                })
+                results["reclassify_arithmetic"].append(
+                    {
+                        "id": qid,
+                        "answer": answer,
+                        "current_class": reasoning_class,
+                    }
+                )
 
         # Check current chunk
         answer_in_current = False
@@ -221,9 +296,11 @@ def fix_short_answer_chunks(gs: dict, chunks: list[dict], chunk_index: dict) -> 
             chunk_norm = normalize_text(chunk_text)
             answer_in_current = answer_norm in chunk_norm
             if not answer_in_current:
-                answer_num = re.search(r'\d+', answer)
+                answer_num = re.search(r"\d+", answer)
                 if answer_num:
-                    answer_in_current = bool(re.search(rf'\b{answer_num.group()}\b', chunk_text))
+                    answer_in_current = bool(
+                        re.search(rf"\b{answer_num.group()}\b", chunk_text)
+                    )
 
         if answer_in_current:
             results["already_ok"] += 1
@@ -239,32 +316,39 @@ def fix_short_answer_chunks(gs: dict, chunks: list[dict], chunk_index: dict) -> 
             new_id = best["chunk_id"]
 
             q["expected_chunk_id"] = new_id
-            q["audit"] = (q.get("audit", "") + f" [SHORT_FIX] {old_id[:30]} -> {new_id[:30]} (art:{best['article_score']}, kw:{best['keyword_score']})").strip()
+            q["audit"] = (
+                q.get("audit", "")
+                + f" [SHORT_FIX] {old_id[:30]} -> {new_id[:30]} (art:{best['article_score']}, kw:{best['keyword_score']})"
+            ).strip()
 
             results["fixes_applied"] += 1
-            results["fixes"].append({
-                "id": qid,
-                "answer": answer,
-                "old_chunk_id": old_id,
-                "new_chunk_id": new_id,
-                "article_score": best["article_score"],
-                "keyword_score": best["keyword_score"],
-            })
+            results["fixes"].append(
+                {
+                    "id": qid,
+                    "answer": answer,
+                    "old_chunk_id": old_id,
+                    "new_chunk_id": new_id,
+                    "article_score": best["article_score"],
+                    "keyword_score": best["keyword_score"],
+                }
+            )
         else:
             results["no_match_found"] += 1
-            results["remaining_issues"].append({
-                "id": qid,
-                "answer": answer,
-                "article_ref": article_ref,
-                "reason": "no_chunk_contains_answer",
-            })
+            results["remaining_issues"].append(
+                {
+                    "id": qid,
+                    "answer": answer,
+                    "article_ref": article_ref,
+                    "reason": "no_chunk_contains_answer",
+                }
+            )
 
     return results
 
 
 def main():
     """Main fix pipeline for short answers."""
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     base_path = Path(__file__).parent.parent.parent.parent
     gs_path = base_path / "tests" / "data" / "gold_standard_annales_fr_v7.json"
@@ -307,17 +391,23 @@ Stratégie:
 
     if results["reclassify_arithmetic"]:
         print(f"\n{'=' * 70}")
-        print(f"RECLASSIFICATION ARITHMETIC: {len(results['reclassify_arithmetic'])} questions")
+        print(
+            f"RECLASSIFICATION ARITHMETIC: {len(results['reclassify_arithmetic'])} questions"
+        )
         print("=" * 70)
         for item in results["reclassify_arithmetic"][:10]:
-            print(f"  - {item['id']}: '{item['answer']}' ({item['current_class']} -> arithmetic)")
+            print(
+                f"  - {item['id']}: '{item['answer']}' ({item['current_class']} -> arithmetic)"
+            )
 
         # Apply reclassification
         for item in results["reclassify_arithmetic"]:
             for q in gs["questions"]:
                 if q["id"] == item["id"]:
                     q["metadata"]["reasoning_class"] = "arithmetic"
-                    q["audit"] = (q.get("audit", "") + " [RECLASS] fact_single -> arithmetic").strip()
+                    q["audit"] = (
+                        q.get("audit", "") + " [RECLASS] fact_single -> arithmetic"
+                    ).strip()
 
     if results["fixes"]:
         print(f"\n{'=' * 70}")

@@ -26,24 +26,24 @@ logger = logging.getLogger(__name__)
 
 # Distribution cibles selon standards académiques
 ANSWER_TYPE_DISTRIBUTION = {
-    "FACTUAL": 0.36,      # What/Who/When facts
-    "PROCEDURAL": 0.23,   # How to do something
-    "LIST": 0.24,         # Multiple items
+    "FACTUAL": 0.36,  # What/Who/When facts
+    "PROCEDURAL": 0.23,  # How to do something
+    "LIST": 0.24,  # Multiple items
     "CONDITIONAL": 0.09,  # If/When conditions
-    "DEFINITIONAL": 0.07, # What is / definition
+    "DEFINITIONAL": 0.07,  # What is / definition
 }
 
 COGNITIVE_LEVEL_DISTRIBUTION = {
-    "REMEMBER": 0.25,    # Recall facts
+    "REMEMBER": 0.25,  # Recall facts
     "UNDERSTAND": 0.25,  # Explain concepts
-    "APPLY": 0.25,       # Use in new situations
-    "ANALYZE": 0.25,     # Break down, compare
+    "APPLY": 0.25,  # Use in new situations
+    "ANALYZE": 0.25,  # Break down, compare
 }
 
 REASONING_TYPE_DISTRIBUTION = {
-    "LEXICAL_MATCH": 0.10,     # Direct word match
-    "SINGLE_SENTENCE": 0.30,   # Answer in one sentence
-    "MULTI_SENTENCE": 0.30,    # Answer spans multiple sentences
+    "LEXICAL_MATCH": 0.10,  # Direct word match
+    "SINGLE_SENTENCE": 0.30,  # Answer in one sentence
+    "MULTI_SENTENCE": 0.30,  # Answer spans multiple sentences
     "DOMAIN_KNOWLEDGE": 0.30,  # Requires chess expertise
 }
 
@@ -103,7 +103,9 @@ def analyze_coverage(
     # Calculate need for target ratio
     # target_ratio = unanswerable / (answerable + need + unanswerable)
     # Solving: need = unanswerable / target_ratio - total
-    target_total = int(unanswerable / target_unanswerable_ratio) if unanswerable > 0 else total
+    target_total = (
+        int(unanswerable / target_unanswerable_ratio) if unanswerable > 0 else total
+    )
     need_answerable = max(0, target_total - total)
 
     # Analyze chunk coverage
@@ -129,8 +131,10 @@ def analyze_coverage(
         "total_pages": len(all_pages),
         "uncovered_pages": len(uncovered_pages),
         "uncovered_by_source": {
-            src: len(chunks) for src, chunks in
-            sorted(source_chunks.items(), key=lambda x: -len(x[1]))[:10]
+            src: len(chunks)
+            for src, chunks in sorted(source_chunks.items(), key=lambda x: -len(x[1]))[
+                :10
+            ]
         },
     }
 
@@ -176,22 +180,24 @@ def generate_question_templates(
 
     templates = []
     for i in range(need):
-        templates.append({
-            "id": f"NEW-Q{i+1:03d}",
-            "question": "",
-            "category": "",
-            "expected_docs": [],
-            "expected_pages": [],
-            "keywords": [],
-            "metadata": {
-                "hard_type": "ANSWERABLE",
-                "hard_reason": "Standard question - to be filled",
-                "answer_type": answer_types[i % len(answer_types)],
-                "cognitive_level": cognitive_levels[i % len(cognitive_levels)],
-                "reasoning_type": reasoning_types[i % len(reasoning_types)],
-            },
-            "difficulty": "medium",
-        })
+        templates.append(
+            {
+                "id": f"NEW-Q{i+1:03d}",
+                "question": "",
+                "category": "",
+                "expected_docs": [],
+                "expected_pages": [],
+                "keywords": [],
+                "metadata": {
+                    "hard_type": "ANSWERABLE",
+                    "hard_reason": "Standard question - to be filled",
+                    "answer_type": answer_types[i % len(answer_types)],
+                    "cognitive_level": cognitive_levels[i % len(cognitive_levels)],
+                    "reasoning_type": reasoning_types[i % len(reasoning_types)],
+                },
+                "difficulty": "medium",
+            }
+        )
 
     return templates
 
@@ -216,13 +222,19 @@ def suggest_themes_from_chunks(
         section = chunk.get("section", "")
         if section and section not in seen_sections:
             seen_sections.add(section)
-            text_preview = chunk["text"][:200] + "..." if len(chunk["text"]) > 200 else chunk["text"]
-            suggestions.append({
-                "source": chunk["source"],
-                "page": chunk["page"],
-                "section": section,
-                "text_preview": text_preview,
-            })
+            text_preview = (
+                chunk["text"][:200] + "..."
+                if len(chunk["text"]) > 200
+                else chunk["text"]
+            )
+            suggestions.append(
+                {
+                    "source": chunk["source"],
+                    "page": chunk["page"],
+                    "section": section,
+                    "text_preview": text_preview,
+                }
+            )
 
         if len(suggestions) >= limit:
             break
@@ -235,12 +247,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate answerable questions for Gold Standard"
     )
-    parser.add_argument(
-        "--gs", type=Path, required=True, help="Gold Standard JSON"
-    )
-    parser.add_argument(
-        "--chunks", type=Path, required=True, help="Chunks Mode B JSON"
-    )
+    parser.add_argument("--gs", type=Path, required=True, help="Gold Standard JSON")
+    parser.add_argument("--chunks", type=Path, required=True, help="Chunks Mode B JSON")
     parser.add_argument(
         "--output", "-o", type=Path, help="Output JSON for new questions"
     )
@@ -248,12 +256,13 @@ def main() -> None:
         "--analyze", action="store_true", help="Analyze only, don't generate"
     )
     parser.add_argument(
-        "--target-ratio", type=float, default=0.33,
-        help="Target unanswerable ratio (default: 0.33)"
+        "--target-ratio",
+        type=float,
+        default=0.33,
+        help="Target unanswerable ratio (default: 0.33)",
     )
     parser.add_argument(
-        "--suggest", type=int, default=20,
-        help="Number of theme suggestions"
+        "--suggest", type=int, default=20, help="Number of theme suggestions"
     )
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--verbose", "-v", action="store_true")

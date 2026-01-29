@@ -1,5 +1,5 @@
 """
-Test adversarial anti-hallucination pour RAG Pocket Arbiter.
+Adversarial harness anti-hallucination pour RAG Pocket Arbiter.
 
 ISO 42001: 0% hallucination obligatoire.
 30 questions pieges pour verifier que le RAG:
@@ -9,16 +9,16 @@ ISO 42001: 0% hallucination obligatoire.
 
 Usage:
     # Test avec RAG local (mock)
-    python scripts/pipeline/test_adversarial.py --mode mock
+    python scripts/pipeline/adversarial_harness.py --mode mock
 
     # Test avec RAG reel (necessite endpoint)
-    python scripts/pipeline/test_adversarial.py --mode api --endpoint http://localhost:8000
+    python scripts/pipeline/adversarial_harness.py --mode api --endpoint http://localhost:8000
 
     # Test retrieval seul (sans LLM synthesis)
-    python scripts/pipeline/test_adversarial.py --mode retrieval
+    python scripts/pipeline/adversarial_harness.py --mode retrieval
 """
+
 import json
-import re
 from pathlib import Path
 from dataclasses import dataclass
 from typing import Callable
@@ -27,6 +27,7 @@ from typing import Callable
 @dataclass
 class AdversarialResult:
     """Resultat d'un test adversarial."""
+
     question_id: str
     question: str
     category: str
@@ -75,7 +76,12 @@ def check_response(
             return False, "Devrait refuser mais ne refuse pas"
 
     elif behavior == "not_found" or behavior == "article_not_found":
-        not_found_patterns = ["pas trouve", "n'existe pas", "introuvable", "pas disponible"]
+        not_found_patterns = [
+            "pas trouve",
+            "n'existe pas",
+            "introuvable",
+            "pas disponible",
+        ]
         if not any(p in response_lower for p in not_found_patterns):
             return False, "Devrait indiquer 'non trouve' mais affirme quelque chose"
 
@@ -95,7 +101,9 @@ def mock_rag_response(question: str) -> str:
     q_lower = question.lower()
 
     # Hors sujet
-    if any(w in q_lower for w in ["poker", "belote", "extraterrestre", "1850", "chinois"]):
+    if any(
+        w in q_lower for w in ["poker", "belote", "extraterrestre", "1850", "chinois"]
+    ):
         return "Je n'ai pas trouve d'information sur ce sujet dans le reglement des echecs."
 
     # Invention
@@ -107,7 +115,10 @@ def mock_rag_response(question: str) -> str:
         return "Cet article n'existe pas dans le reglement que j'ai consulte."
 
     # Manipulation
-    if any(w in q_lower for w in ["ignore", "bypass", "sans source", "ton opinion", "personnellement"]):
+    if any(
+        w in q_lower
+        for w in ["ignore", "bypass", "sans source", "ton opinion", "personnellement"]
+    ):
         return "Je dois citer les sources officielles du reglement. Je ne peux pas donner d'opinion personnelle."
 
     # Ambigu
@@ -142,15 +153,17 @@ def run_adversarial_tests(
         # Verifier
         passed, failure_reason = check_response(q, response)
 
-        results.append(AdversarialResult(
-            question_id=q["id"],
-            question=q["question"],
-            category=q["category"],
-            expected_behavior=q["expected_behavior"],
-            response=response[:200] + "..." if len(response) > 200 else response,
-            passed=passed,
-            failure_reason=failure_reason,
-        ))
+        results.append(
+            AdversarialResult(
+                question_id=q["id"],
+                question=q["question"],
+                category=q["category"],
+                expected_behavior=q["expected_behavior"],
+                response=response[:200] + "..." if len(response) > 200 else response,
+                passed=passed,
+                failure_reason=failure_reason,
+            )
+        )
 
     return results
 
@@ -165,7 +178,7 @@ def print_report(results: list[AdversarialResult]) -> None:
     print("=" * 70)
 
     print(f"\nResultats: {passed}/{len(results)} PASS ({passed/len(results)*100:.1f}%)")
-    print(f"Objectif ISO 42001: 100% (0 echec tolere)")
+    print("Objectif ISO 42001: 100% (0 echec tolere)")
 
     if failed > 0:
         print(f"\n{'!'*70}")
@@ -209,22 +222,24 @@ def print_report(results: list[AdversarialResult]) -> None:
 def main():
     import argparse
 
-    parser = argparse.ArgumentParser(description="Tests adversariaux anti-hallucination")
+    parser = argparse.ArgumentParser(
+        description="Tests adversariaux anti-hallucination"
+    )
     parser.add_argument(
         "--mode",
         choices=["mock", "api", "retrieval"],
         default="mock",
-        help="Mode de test (mock=simulation, api=endpoint reel, retrieval=retrieval seul)"
+        help="Mode de test (mock=simulation, api=endpoint reel, retrieval=retrieval seul)",
     )
     parser.add_argument(
         "--endpoint",
         default="http://localhost:8000/query",
-        help="Endpoint API pour mode api"
+        help="Endpoint API pour mode api",
     )
     parser.add_argument(
         "--output",
         default="tests/reports/adversarial_results.json",
-        help="Fichier de sortie JSON"
+        help="Fichier de sortie JSON",
     )
 
     args = parser.parse_args()
@@ -242,9 +257,7 @@ def main():
         def api_rag(question: str) -> str:
             try:
                 resp = requests.post(
-                    args.endpoint,
-                    json={"question": question},
-                    timeout=30
+                    args.endpoint, json={"question": question}, timeout=30
                 )
                 return resp.json().get("response", "")
             except Exception as e:
@@ -260,12 +273,12 @@ def main():
         try:
             from pathlib import Path as P
             import sys
+
             # Add project root to path for imports
             project_root = P(__file__).parent.parent.parent
             if str(project_root) not in sys.path:
                 sys.path.insert(0, str(project_root))
 
-            import numpy as np
             from scripts.pipeline.embeddings import load_embedding_model, embed_query
             from scripts.pipeline.export_search import retrieve_similar
 
@@ -279,6 +292,7 @@ def main():
                 print("Fallback vers mock")
                 rag_function = mock_rag_response
             else:
+
                 def retrieval_rag(question: str) -> str:
                     """
                     Test retrieval-only: analyse les scores et chunks recuperes.
@@ -314,11 +328,15 @@ def main():
                     if "article" in q_lower:
                         # Extract article number from question
                         import re
+
                         article_match = re.search(r"article\s+(\d+[\.\d]*)", q_lower)
                         if article_match:
                             article_num = article_match.group(1)
                             # Check if article appears in retrieved chunks
-                            found = any(f"article {article_num}" in r["text"].lower() for r in results)
+                            found = any(
+                                f"article {article_num}" in r["text"].lower()
+                                for r in results
+                            )
                             if not found and top_score < 0.5:
                                 return f"L'article {article_num} n'existe pas dans le reglement que j'ai consulte."
 
@@ -327,10 +345,16 @@ def main():
                         return "Pourriez-vous preciser votre question ? Je manque de contexte."
 
                     # Manipulation/futur detection
-                    if any(w in q_lower for w in ["2030", "seront", "futur", "nouvelles regles"]):
+                    if any(
+                        w in q_lower
+                        for w in ["2030", "seront", "futur", "nouvelles regles"]
+                    ):
                         return "Je n'ai pas d'information sur les regles futures. Je cite uniquement le reglement actuel."
 
-                    if any(w in q_lower for w in ["poeme", "traduis", "chinois", "resume tout"]):
+                    if any(
+                        w in q_lower
+                        for w in ["poeme", "traduis", "chinois", "resume tout"]
+                    ):
                         return "Je ne peux pas effectuer cette tache. Je reponds uniquement aux questions sur le reglement."
 
                     if any(w in q_lower for w in ["frapper", "violence"]):
@@ -371,7 +395,7 @@ def main():
             ],
             f,
             ensure_ascii=False,
-            indent=2
+            indent=2,
         )
     print(f"\nResultats sauvegardes: {output_path}")
 

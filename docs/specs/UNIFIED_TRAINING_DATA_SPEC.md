@@ -685,12 +685,10 @@ python scripts/training/unified/reformulate_questions.py \
   --model gemini-2.0-flash \
   --output data/training/unified/gs_reformulated.json
 
-# Etape 3: Hard negatives
-python scripts/training/unified/generate_hard_negatives.py \
-  --input data/training/unified/gs_reformulated.json \
-  --chunks corpus/processed/chunks_mode_b_fr.json \
-  --embeddings corpus/processed/embeddings_mode_b_fr.npy \
-  --output data/training/unified/triplets_raw.jsonl
+# Etape 3: Hard negatives (Phase 2 - hybride Claude+EmbeddingGemma)
+# NOTE: generate_hard_negatives.py supprime en v2.2 (2026-01-28).
+# Methode actuelle: EmbeddingGemma pre-filter + Claude LLM-as-judge.
+# Voir: docs/plans/GS_CONFORMITY_PLAN_V1.md §4 Phase 2
 
 # Etape 4: Export multi-format
 python scripts/training/unified/export_formats.py \

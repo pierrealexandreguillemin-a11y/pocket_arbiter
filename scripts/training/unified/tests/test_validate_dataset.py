@@ -31,31 +31,37 @@ class TestValidateSchema:
     """Tests for validate_schema."""
 
     def test_valid_triplet(self) -> None:
-        triplets = [{
-            "anchor": "This is a question about rules",
-            "positive": "This is the positive chunk with enough text",
-            "negative": "This is the negative chunk with enough text",
-        }]
+        triplets = [
+            {
+                "anchor": "This is a question about rules",
+                "positive": "This is the positive chunk with enough text",
+                "negative": "This is the negative chunk with enough text",
+            }
+        ]
         result = validate_schema(triplets)
         assert result["passed"] is True
         assert result["valid_count"] == 1
 
     def test_missing_required_field(self) -> None:
-        triplets = [{
-            "anchor": "This is a question",
-            "positive": "This is the positive chunk",
-            # Missing "negative"
-        }]
+        triplets = [
+            {
+                "anchor": "This is a question",
+                "positive": "This is the positive chunk",
+                # Missing "negative"
+            }
+        ]
         result = validate_schema(triplets)
         assert result["passed"] is False
         assert result["error_count"] == 1
 
     def test_field_too_short(self) -> None:
-        triplets = [{
-            "anchor": "Short",  # Less than 10 chars
-            "positive": "This is the positive chunk with enough text",
-            "negative": "This is the negative chunk with enough text",
-        }]
+        triplets = [
+            {
+                "anchor": "Short",  # Less than 10 chars
+                "positive": "This is the positive chunk with enough text",
+                "negative": "This is the negative chunk with enough text",
+            }
+        ]
         result = validate_schema(triplets)
         assert result["passed"] is False
 

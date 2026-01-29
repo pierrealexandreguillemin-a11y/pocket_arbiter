@@ -48,21 +48,44 @@ ANSWER_TYPES = ["extractive", "abstractive", "yes_no", "list", "multiple_choice"
 
 # Keywords for question type classification
 SCENARIO_KEYWORDS = [
-    "vous êtes", "vous etes", "un joueur", "une joueuse", "un arbitre",
-    "lors d'une", "lors d'un", "pendant", "au cours", "en cours de",
-    "votre club", "l'équipe", "le capitaine", "le directeur",
-    "que faites-vous", "que décidez-vous", "que lui répondez-vous",
-    "quelle décision", "comment réagissez-vous",
+    "vous êtes",
+    "vous etes",
+    "un joueur",
+    "une joueuse",
+    "un arbitre",
+    "lors d'une",
+    "lors d'un",
+    "pendant",
+    "au cours",
+    "en cours de",
+    "votre club",
+    "l'équipe",
+    "le capitaine",
+    "le directeur",
+    "que faites-vous",
+    "que décidez-vous",
+    "que lui répondez-vous",
+    "quelle décision",
+    "comment réagissez-vous",
 ]
 
 PROCEDURAL_KEYWORDS = [
-    "comment", "quelle procédure", "quelles étapes", "de quelle manière",
-    "que doit faire", "quelle démarche", "pour obtenir",
+    "comment",
+    "quelle procédure",
+    "quelles étapes",
+    "de quelle manière",
+    "que doit faire",
+    "quelle démarche",
+    "pour obtenir",
 ]
 
 COMPARATIVE_KEYWORDS = [
-    "quelle différence", "comparez", "par rapport à", "contrairement à",
-    "à la différence de", "parmi les suivants",
+    "quelle différence",
+    "comparez",
+    "par rapport à",
+    "contrairement à",
+    "à la différence de",
+    "parmi les suivants",
 ]
 
 # Full question block pattern (## Question N : text + choices until next question)
@@ -144,10 +167,10 @@ def _classify_cognitive_level(question_type: str) -> str:
         Cognitive level: RECALL, UNDERSTAND, APPLY, or ANALYZE.
     """
     level_map = {
-        "scenario": "APPLY",      # Application of rules to situation
+        "scenario": "APPLY",  # Application of rules to situation
         "procedural": "UNDERSTAND",  # Understanding process
-        "comparative": "ANALYZE",    # Analysis and comparison
-        "factual": "RECALL",         # Factual recall
+        "comparative": "ANALYZE",  # Analysis and comparison
+        "factual": "RECALL",  # Factual recall
     }
     return level_map.get(question_type, "RECALL")
 
@@ -228,7 +251,9 @@ def classify_question_taxonomy(
 
     question_type = _classify_question_type(text_lower, uv, len(text))
     cognitive_level = _classify_cognitive_level(question_type)
-    reasoning_type = _classify_reasoning_type(text_lower, question_type, has_multiple_refs)
+    reasoning_type = _classify_reasoning_type(
+        text_lower, question_type, has_multiple_refs
+    )
     answer_type = _classify_answer_type(text_lower, question_type, has_choices)
 
     return {
@@ -256,11 +281,11 @@ def _extract_choices_from_block(block: str) -> dict[str, str]:
     # Try all choice patterns in order of specificity
     patterns = [
         CHOICE_PATTERN_DASH_LETTER_PAREN,  # "- a)" format
-        CHOICE_PATTERN_DASH_LETTER_DASH,   # "- A - " format (jun2021)
-        CHOICE_PATTERN_LETTER_COLON,       # "- A :" or "A :" format (dec2019)
-        CHOICE_PATTERN_LETTER_DASH,        # "A - " format
-        CHOICE_PATTERN_LETTER_DOT,         # "a." format
-        CHOICE_PATTERN_PERMISSIVE,         # Permissive (2018 inconsistent formats)
+        CHOICE_PATTERN_DASH_LETTER_DASH,  # "- A - " format (jun2021)
+        CHOICE_PATTERN_LETTER_COLON,  # "- A :" or "A :" format (dec2019)
+        CHOICE_PATTERN_LETTER_DASH,  # "A - " format
+        CHOICE_PATTERN_LETTER_DOT,  # "a." format
+        CHOICE_PATTERN_PERMISSIVE,  # Permissive (2018 inconsistent formats)
     ]
 
     for pattern in patterns:
@@ -366,7 +391,9 @@ def _parse_correction_table(table: dict[str, Any]) -> list[dict[str, Any]]:
         return corrections
 
     for row in rows:
-        if len(row) <= max(filter(None, [question_idx, answer_idx, article_idx, rate_idx])):
+        if len(row) <= max(
+            filter(None, [question_idx, answer_idx, article_idx, rate_idx])
+        ):
             continue
 
         # Extract question number (may be embedded in text like "1 Roque")
@@ -379,7 +406,9 @@ def _parse_correction_table(table: dict[str, Any]) -> list[dict[str, Any]]:
         correction = {
             "num": q_num,
             "correct_answer": str(row[answer_idx]).strip().upper(),
-            "article_reference": _clean_text(str(row[article_idx])) if article_idx and article_idx < len(row) else "",
+            "article_reference": _clean_text(str(row[article_idx]))
+            if article_idx and article_idx < len(row)
+            else "",
             "success_rate": None,
             "difficulty": None,
         }
@@ -414,22 +443,30 @@ def _extract_all_questions_from_markdown(markdown: str) -> list[dict[str, Any]]:
 
         # Extract question text (before first choice)
         q_text_match = re.search(r"^(.+?)(?=\n\s*-\s*[a-d]\))", q_content, re.DOTALL)
-        q_text = _clean_text(q_text_match.group(1)) if q_text_match else _clean_text(q_content[:200])
+        q_text = (
+            _clean_text(q_text_match.group(1))
+            if q_text_match
+            else _clean_text(q_content[:200])
+        )
 
         # Extract choices from content
         choices = _extract_choices_from_block(q_content)
 
-        questions.append({
-            "num": q_num,
-            "text": q_text,
-            "choices": choices,
-        })
+        questions.append(
+            {
+                "num": q_num,
+                "text": q_text,
+                "choices": choices,
+            }
+        )
 
     logger.info(f"Extracted {len(questions)} questions from markdown")
     return questions
 
 
-def _group_questions_by_sequence(questions: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
+def _group_questions_by_sequence(
+    questions: list[dict[str, Any]],
+) -> list[list[dict[str, Any]]]:
     """
     Group questions by contiguous sequences (Q1, Q2, ... Q30 = one UV).
 
@@ -483,39 +520,45 @@ def _merge_questions_corrections(
             has_multiple_refs = " et " in article_ref or "," in article_ref
 
             # Classify question using taxonomy
-            taxonomy = classify_question_taxonomy(text, uv, has_multiple_refs, has_choices)
+            taxonomy = classify_question_taxonomy(
+                text, uv, has_multiple_refs, has_choices
+            )
 
-            merged.append({
-                "num": q_num,
-                "text": text,
-                "choices": choices,
-                "correct_answer": corr["correct_answer"],
-                "article_reference": article_ref,
-                "success_rate": corr["success_rate"],
-                "difficulty": corr["difficulty"],
-                # Industry-standard taxonomy metadata
-                "question_type": taxonomy["question_type"],
-                "cognitive_level": taxonomy["cognitive_level"],
-                "reasoning_type": taxonomy["reasoning_type"],
-                "answer_type": taxonomy["answer_type"],
-            })
+            merged.append(
+                {
+                    "num": q_num,
+                    "text": text,
+                    "choices": choices,
+                    "correct_answer": corr["correct_answer"],
+                    "article_reference": article_ref,
+                    "success_rate": corr["success_rate"],
+                    "difficulty": corr["difficulty"],
+                    # Industry-standard taxonomy metadata
+                    "question_type": taxonomy["question_type"],
+                    "cognitive_level": taxonomy["cognitive_level"],
+                    "reasoning_type": taxonomy["reasoning_type"],
+                    "answer_type": taxonomy["answer_type"],
+                }
+            )
         else:
             logger.warning(f"No correction found for question {q_num}")
             # Still classify even without correction
             taxonomy = classify_question_taxonomy(text, uv, False, has_choices)
-            merged.append({
-                "num": q_num,
-                "text": text,
-                "choices": choices,
-                "correct_answer": None,
-                "article_reference": None,
-                "success_rate": None,
-                "difficulty": None,
-                "question_type": taxonomy["question_type"],
-                "cognitive_level": taxonomy["cognitive_level"],
-                "reasoning_type": taxonomy["reasoning_type"],
-                "answer_type": taxonomy["answer_type"],
-            })
+            merged.append(
+                {
+                    "num": q_num,
+                    "text": text,
+                    "choices": choices,
+                    "correct_answer": None,
+                    "article_reference": None,
+                    "success_rate": None,
+                    "difficulty": None,
+                    "question_type": taxonomy["question_type"],
+                    "cognitive_level": taxonomy["cognitive_level"],
+                    "reasoning_type": taxonomy["reasoning_type"],
+                    "answer_type": taxonomy["answer_type"],
+                }
+            )
 
     return merged
 
@@ -576,7 +619,9 @@ def _extract_corrections_from_tables(
         if corrections:
             # Try to determine UV from context if not in table
             if uv is None:
-                uv = _infer_uv_from_question_count(len(corrections), set(uv_corrections.keys()))
+                uv = _infer_uv_from_question_count(
+                    len(corrections), set(uv_corrections.keys())
+                )
 
             if uv:
                 if uv in uv_corrections:
@@ -641,7 +686,9 @@ def _calculate_unit_statistics(questions: list[dict[str, Any]]) -> dict[str, int
     """
     return {
         "total_questions": len(questions),
-        "with_text": sum(1 for q in questions if q.get("text") and "[Question" not in q["text"]),
+        "with_text": sum(
+            1 for q in questions if q.get("text") and "[Question" not in q["text"]
+        ),
         "with_choices": sum(1 for q in questions if q.get("choices")),
         "with_corrections": sum(1 for q in questions if q.get("correct_answer")),
     }
@@ -692,7 +739,7 @@ def parse_annales_file(json_path: Path) -> dict[str, Any]:
     used_uvs: set[str] = set()
 
     # Only process sequences that have corrections
-    question_groups_to_process = question_groups[:len(uv_corrections)]
+    question_groups_to_process = question_groups[: len(uv_corrections)]
 
     for q_group in question_groups_to_process:
         matched_uv, matched_corrections = _match_question_group_to_uv(
@@ -703,15 +750,19 @@ def parse_annales_file(json_path: Path) -> dict[str, Any]:
             continue  # Skip extra sequences (corrigé duplicates)
 
         # Merge questions with corrections
-        merged = _merge_questions_corrections(q_group, matched_corrections, uv=matched_uv)
+        merged = _merge_questions_corrections(
+            q_group, matched_corrections, uv=matched_uv
+        )
 
         if merged:
             stats = _calculate_unit_statistics(merged)
-            units.append({
-                "uv": matched_uv,
-                "questions": merged,
-                "statistics": stats,
-            })
+            units.append(
+                {
+                    "uv": matched_uv,
+                    "questions": merged,
+                    "statistics": stats,
+                }
+            )
             total_questions += len(merged)
             logger.info(f"{matched_uv}: {len(merged)} questions ({stats})")
 
@@ -739,7 +790,8 @@ def parse_annales_directory(input_dir: Path, output_dir: Path) -> dict[str, Any]
 
     # Find all JSON files (exclude report files)
     json_files = [
-        f for f in input_dir.glob("*.json")
+        f
+        for f in input_dir.glob("*.json")
         if "report" not in f.name.lower() and "Annales" in f.name
     ]
 
@@ -779,7 +831,9 @@ def parse_annales_directory(input_dir: Path, output_dir: Path) -> dict[str, Any]
         "by_session": {
             r["session"]: {
                 "total": r["total_questions"],
-                "units": {u["uv"]: u["statistics"]["total_questions"] for u in r["units"]},
+                "units": {
+                    u["uv"]: u["statistics"]["total_questions"] for u in r["units"]
+                },
             }
             for r in all_results
         },

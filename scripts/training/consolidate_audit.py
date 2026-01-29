@@ -65,35 +65,42 @@ def consolidate_results(batches: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def generate_correction_list(
-    consolidated: dict[str, Any], output_file: Path
-) -> None:
+def generate_correction_list(consolidated: dict[str, Any], output_file: Path) -> None:
     """Generate a list of questions needing correction."""
     wrong = consolidated["problematic_questions"]["wrong"]
     partial = consolidated["problematic_questions"]["partial"]
 
     corrections = []
     for q in wrong:
-        corrections.append({
-            "id": q["id"],
-            "action_needed": "REPLACE_CHUNK",
-            "reason": q.get("reason", "Chunk does not answer question"),
-            "priority": "HIGH",
-        })
+        corrections.append(
+            {
+                "id": q["id"],
+                "action_needed": "REPLACE_CHUNK",
+                "reason": q.get("reason", "Chunk does not answer question"),
+                "priority": "HIGH",
+            }
+        )
 
     for q in partial:
-        corrections.append({
-            "id": q["id"],
-            "action_needed": "REVIEW_CHUNK",
-            "reason": q.get("reason", "Partial answer"),
-            "priority": "MEDIUM",
-        })
+        corrections.append(
+            {
+                "id": q["id"],
+                "action_needed": "REVIEW_CHUNK",
+                "reason": q.get("reason", "Partial answer"),
+                "priority": "MEDIUM",
+            }
+        )
 
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump({
-            "corrections_needed": len(corrections),
-            "corrections": corrections,
-        }, f, ensure_ascii=False, indent=2)
+        json.dump(
+            {
+                "corrections_needed": len(corrections),
+                "corrections": corrections,
+            },
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
 
 
 def main() -> None:

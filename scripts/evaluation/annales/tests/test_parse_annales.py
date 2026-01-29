@@ -72,12 +72,16 @@ class TestClassifyQuestionTaxonomy:
 
     def test_yes_no_answer_type(self) -> None:
         """Should detect yes/no answer type with vrai/faux keywords."""
-        result = classify_question_taxonomy("Cette affirmation est vrai ou faux?", "UVR", has_choices=False)
+        result = classify_question_taxonomy(
+            "Cette affirmation est vrai ou faux?", "UVR", has_choices=False
+        )
         assert result["answer_type"] == "yes_no"
 
     def test_list_answer_type(self) -> None:
         """Should detect list answer type with list keywords."""
-        result = classify_question_taxonomy("Listez les conditions requises", "UVR", has_choices=False)
+        result = classify_question_taxonomy(
+            "Listez les conditions requises", "UVR", has_choices=False
+        )
         assert result["answer_type"] == "list"
 
     def test_abstractive_for_scenario(self) -> None:
@@ -100,12 +104,16 @@ class TestClassifyQuestionTaxonomy:
 
     def test_enumeration_keyword_list(self) -> None:
         """Should detect list answer type with énumérez keyword."""
-        result = classify_question_taxonomy("Énumérez les règles applicables", "UVR", has_choices=False)
+        result = classify_question_taxonomy(
+            "Énumérez les règles applicables", "UVR", has_choices=False
+        )
         assert result["answer_type"] == "list"
 
     def test_quels_sont_keyword_list(self) -> None:
         """Should detect list answer type with 'quels sont' keyword."""
-        result = classify_question_taxonomy("Quels sont les critères requis?", "UVR", has_choices=False)
+        result = classify_question_taxonomy(
+            "Quels sont les critères requis?", "UVR", has_choices=False
+        )
         assert result["answer_type"] == "list"
 
 
@@ -186,7 +194,12 @@ class TestParseCorrectionTable:
     def test_parse_standard_table(self) -> None:
         """Should parse standard correction table."""
         table = {
-            "headers": ["Question", "Réponse", "Articles de référence", "Taux Réussite"],
+            "headers": [
+                "Question",
+                "Réponse",
+                "Articles de référence",
+                "Taux Réussite",
+            ],
             "rows": [
                 ["1", "A", "Article 1.1", "80%"],
                 ["2", "B", "Article 2.1", "65%"],

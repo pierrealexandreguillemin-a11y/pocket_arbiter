@@ -118,7 +118,9 @@ class TestExtractKeywords:
     def test_limits_to_five_keywords(self) -> None:
         """Should limit to 5 keywords maximum."""
         # Text with many chess terms
-        text = "Le joueur adversaire fait un coup illegal sur l'échiquier avec une pièce"
+        text = (
+            "Le joueur adversaire fait un coup illegal sur l'échiquier avec une pièce"
+        )
         keywords = _extract_keywords(text)
         assert len(keywords) <= 5
 

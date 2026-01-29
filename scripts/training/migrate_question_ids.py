@@ -21,7 +21,9 @@ def generate_hash(content: str) -> str:
     return hashlib.sha256(content.encode()).hexdigest()[:8]
 
 
-def generate_new_id(corpus: str, source: str, category: str, seq: int, question: str) -> str:
+def generate_new_id(
+    corpus: str, source: str, category: str, seq: int, question: str
+) -> str:
     """Generate new URN-like question ID."""
     base = f"{corpus}:{source}:{category}:{seq:03d}"
     hash_input = f"{base}:{question}"
@@ -32,15 +34,17 @@ def generate_new_id(corpus: str, source: str, category: str, seq: int, question:
 def map_uv_to_category(uv_code: str) -> str:
     """Map UV code from annales to category."""
     mapping = {
-        "UVR": "rules",      # Règles du jeu
-        "UVC": "clubs",      # Compétitions/Clubs
-        "UVO": "open",       # Open
-        "UVT": "tournament", # Tournoi
+        "UVR": "rules",  # Règles du jeu
+        "UVC": "clubs",  # Compétitions/Clubs
+        "UVO": "open",  # Open
+        "UVT": "tournament",  # Tournoi
     }
     return mapping.get(uv_code, "general")
 
 
-def map_old_id_to_new(old_id: str, question: str, category: str) -> tuple[str, str, str]:
+def map_old_id_to_new(
+    old_id: str, question: str, category: str
+) -> tuple[str, str, str]:
     """Map old ID to new (corpus, source, category)."""
 
     # Annales questions
@@ -128,13 +132,15 @@ def main() -> None:
         new_id = generate_new_id(corpus, source, cat, seq, question_text)
 
         # Track migration
-        migration_map.append({
-            "old_id": old_id,
-            "new_id": new_id,
-            "corpus": corpus,
-            "source": source,
-            "category": cat,
-        })
+        migration_map.append(
+            {
+                "old_id": old_id,
+                "new_id": new_id,
+                "corpus": corpus,
+                "source": source,
+                "category": cat,
+            }
+        )
 
         # Update question
         q["id"] = new_id
@@ -151,9 +157,21 @@ def main() -> None:
         "format": "{corpus}:{source}:{category}:{sequence}:{hash}",
         "corpus_values": ["ffe", "fide", "adversarial", "synthetic"],
         "source_values": ["annales", "human", "squad-adv", "llm-gen"],
-        "category_values": ["rules", "rating", "clubs", "youth", "women", "access", "admin", "regional", "open", "tournament", "general"],
+        "category_values": [
+            "rules",
+            "rating",
+            "clubs",
+            "youth",
+            "women",
+            "access",
+            "admin",
+            "regional",
+            "open",
+            "tournament",
+            "general",
+        ],
         "hash_algorithm": "sha256[:8]",
-        "version": "1.0.0"
+        "version": "1.0.0",
     }
 
     # Save updated gold standard
@@ -163,18 +181,23 @@ def main() -> None:
     # Save migration map
     migration_path = Path("tests/data/id_migration_map.json")
     with open(migration_path, "w", encoding="utf-8") as f:
-        json.dump({
-            "migration_date": "2025-01-25",
-            "old_version": "7.2.1",
-            "new_version": "7.3.0",
-            "total_migrated": len(migration_map),
-            "mappings": migration_map
-        }, f, indent=2, ensure_ascii=False)
+        json.dump(
+            {
+                "migration_date": "2025-01-25",
+                "old_version": "7.2.1",
+                "new_version": "7.3.0",
+                "total_migrated": len(migration_map),
+                "mappings": migration_map,
+            },
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
 
     # Print summary
     print("=== Migration Complete ===")
     print(f"Total questions migrated: {len(migration_map)}")
-    print(f"Version: 7.2.1 -> 7.3.0")
+    print("Version: 7.2.1 -> 7.3.0")
     print()
     print("Distribution by namespace:")
     for key in sorted(stats.keys()):

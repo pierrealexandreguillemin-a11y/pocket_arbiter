@@ -37,8 +37,14 @@ EXAM_PATTERNS = [
     # Scenario patterns (situation-based)
     (r"^(Dans|Lors|Pendant|Au cours)", "scenario"),
     (r"^(Un joueur|Une joueuse|Le joueur|La joueuse)", "scenario"),
-    (r"^(Un arbitre|Une arbitre|Un organisateur)", "scenario"),  # "Un arbitre constate..."
-    (r"^(Vous êtes|Vous arbitrez|Vous observez)", "scenario"),  # Various "Vous" patterns
+    (
+        r"^(Un arbitre|Une arbitre|Un organisateur)",
+        "scenario",
+    ),  # "Un arbitre constate..."
+    (
+        r"^(Vous êtes|Vous arbitrez|Vous observez)",
+        "scenario",
+    ),  # Various "Vous" patterns
     (r"^Cadence\s*[:\d]", "scenario"),  # "Cadence : 1h30..." or "Cadence 50..."
     (r"^##?\s*Cadence", "scenario"),  # Markdown "## Cadence"
     (r"^En (Nationale|N\d|Open|Interclub|tournoi|match|coupe|cadence)", "scenario"),
@@ -47,7 +53,10 @@ EXAM_PATTERNS = [
     (r"^(Après|Avant|Suite à)", "scenario"),
     (r"^(À|A) la (table|ronde|fin)", "scenario"),
     (r"^Partie\s", "scenario"),
-    (r"^Une (fois|rencontre|partie|équipe)", "scenario"),  # "Une fois le..." "Une rencontre..."
+    (
+        r"^Une (fois|rencontre|partie|équipe)",
+        "scenario",
+    ),  # "Une fois le..." "Une rencontre..."
     # Direct questions
     (r"^(Que|Qu'|Quoi|Comment|Pourquoi|Quand|Où|Combien|Quel|Quelle)", "direct"),
     # Selection/choice patterns

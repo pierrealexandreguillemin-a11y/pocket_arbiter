@@ -29,10 +29,16 @@ CORPUS_INTL_DB = PROJECT_ROOT / "corpus" / "processed" / "corpus_mode_b_intl.db"
 def normalize_source_name(source: str) -> str:
     """Normalize source name for matching by removing accents."""
     replacements = [
-        ("é", "e"), ("è", "e"), ("ê", "e"), ("ë", "e"),
-        ("à", "a"), ("â", "a"),
-        ("ù", "u"), ("û", "u"),
-        ("î", "i"), ("ï", "i"),
+        ("é", "e"),
+        ("è", "e"),
+        ("ê", "e"),
+        ("ë", "e"),
+        ("à", "a"),
+        ("â", "a"),
+        ("ù", "u"),
+        ("û", "u"),
+        ("î", "i"),
+        ("ï", "i"),
         ("ô", "o"),
         ("ç", "c"),
     ]
@@ -91,12 +97,14 @@ def get_chunks_for_pages(
 
     chunks = []
     for row in cursor.fetchall():
-        chunks.append({
-            "id": row[0],
-            "text": row[1],
-            "source": row[2],
-            "page": row[3],
-        })
+        chunks.append(
+            {
+                "id": row[0],
+                "text": row[1],
+                "source": row[2],
+                "page": row[3],
+            }
+        )
 
     conn.close()
     return chunks
@@ -126,7 +134,7 @@ def find_best_chunk_for_question(
     question_text = question.get("question", "").lower()
 
     # Extract additional terms from question
-    question_words = set(re.findall(r'\b\w{4,}\b', question_text))
+    question_words = set(re.findall(r"\b\w{4,}\b", question_text))
     all_terms = set(k.lower() for k in keywords) | question_words
 
     # Score each chunk
@@ -146,7 +154,7 @@ def find_best_chunk_for_question(
         article_num = question.get("metadata", {}).get("article_num", "")
         if article_num:
             # Check for article patterns like "4.1", "Article 4"
-            articles = re.findall(r'\d+\.?\d*', article_num)
+            articles = re.findall(r"\d+\.?\d*", article_num)
             for art in articles:
                 if art in chunk_text_lower:
                     score += 5  # Strong boost for article match
@@ -203,10 +211,12 @@ def process_gold_standard(
         expected_docs = question.get("expected_docs", [])
 
         if not expected_pages:
-            failed_questions.append({
-                "id": qid,
-                "reason": "No expected_pages",
-            })
+            failed_questions.append(
+                {
+                    "id": qid,
+                    "reason": "No expected_pages",
+                }
+            )
             failed_matching += 1
             continue
 
@@ -217,12 +227,14 @@ def process_gold_standard(
         chunks = get_chunks_for_pages(db_path, source_pattern, expected_pages)
 
         if not chunks:
-            failed_questions.append({
-                "id": qid,
-                "reason": "No chunks found for pages",
-                "pages": expected_pages,
-                "source": source_pattern,
-            })
+            failed_questions.append(
+                {
+                    "id": qid,
+                    "reason": "No chunks found for pages",
+                    "pages": expected_pages,
+                    "source": source_pattern,
+                }
+            )
             no_chunks_found += 1
             continue
 
@@ -232,21 +244,25 @@ def process_gold_standard(
         if matched_chunk_id:
             question["expected_chunk_id"] = matched_chunk_id
             chunk_id_found += 1
-            modifications.append({
-                "id": qid,
-                "chunk_id": matched_chunk_id,
-                "num_candidates": len(chunks),
-            })
+            modifications.append(
+                {
+                    "id": qid,
+                    "chunk_id": matched_chunk_id,
+                    "num_candidates": len(chunks),
+                }
+            )
         else:
             # Take first chunk as fallback (least bad option)
             question["expected_chunk_id"] = chunks[0]["id"]
             chunk_id_found += 1
-            modifications.append({
-                "id": qid,
-                "chunk_id": chunks[0]["id"],
-                "num_candidates": len(chunks),
-                "method": "fallback_first_chunk",
-            })
+            modifications.append(
+                {
+                    "id": qid,
+                    "chunk_id": chunks[0]["id"],
+                    "num_candidates": len(chunks),
+                    "method": "fallback_first_chunk",
+                }
+            )
 
     # Save updated gold standard
     with open(gold_path, "w", encoding="utf-8") as f:
@@ -292,7 +308,9 @@ def main() -> None:
     print(f"  Failed matching: {report_intl['failed_matching']}")
 
     # Save combined report
-    report_path = PROJECT_ROOT / "corpus" / "processed" / "chunk_id_enrichment_report.json"
+    report_path = (
+        PROJECT_ROOT / "corpus" / "processed" / "chunk_id_enrichment_report.json"
+    )
     combined_report = {
         "fr": report_fr,
         "intl": report_intl,

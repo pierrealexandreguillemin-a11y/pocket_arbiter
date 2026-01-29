@@ -44,12 +44,23 @@ def normalize_text(text: str) -> str:
     """Normalize text for comparison."""
     text = text.lower()
     replacements = {
-        'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-        'à': 'a', 'â': 'a', 'ä': 'a',
-        'ù': 'u', 'û': 'u', 'ü': 'u',
-        'î': 'i', 'ï': 'i',
-        'ô': 'o', 'ö': 'o',
-        'ç': 'c', 'œ': 'oe', 'æ': 'ae',
+        "é": "e",
+        "è": "e",
+        "ê": "e",
+        "ë": "e",
+        "à": "a",
+        "â": "a",
+        "ä": "a",
+        "ù": "u",
+        "û": "u",
+        "ü": "u",
+        "î": "i",
+        "ï": "i",
+        "ô": "o",
+        "ö": "o",
+        "ç": "c",
+        "œ": "oe",
+        "æ": "ae",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
@@ -60,12 +71,38 @@ def extract_keywords(text: str, min_length: int = 4) -> list[str]:
     """Extract meaningful keywords from text."""
     text = normalize_text(text)
     stopwords = {
-        'pour', 'dans', 'avec', 'cette', 'celui', 'celle', 'sont', 'etre',
-        'avoir', 'fait', 'faire', 'peut', 'doit', 'tous', 'tout', 'plus',
-        'moins', 'entre', 'autres', 'autre', 'comme', 'ainsi', 'donc',
-        'lors', 'apres', 'avant', 'depuis', 'pendant', 'selon', 'sans',
+        "pour",
+        "dans",
+        "avec",
+        "cette",
+        "celui",
+        "celle",
+        "sont",
+        "etre",
+        "avoir",
+        "fait",
+        "faire",
+        "peut",
+        "doit",
+        "tous",
+        "tout",
+        "plus",
+        "moins",
+        "entre",
+        "autres",
+        "autre",
+        "comme",
+        "ainsi",
+        "donc",
+        "lors",
+        "apres",
+        "avant",
+        "depuis",
+        "pendant",
+        "selon",
+        "sans",
     }
-    words = re.findall(r'\b[a-z]+\b', text)
+    words = re.findall(r"\b[a-z]+\b", text)
     return [w for w in words if len(w) >= min_length and w not in stopwords]
 
 
@@ -74,7 +111,7 @@ def get_parent_id(chunk_id: str) -> str:
     Extract parent ID from chunk_id.
     Example: LA-octobre2025.pdf-p038-parent157-child00 -> LA-octobre2025.pdf-p038-parent157
     """
-    match = re.match(r'(.+-parent\d+)', chunk_id)
+    match = re.match(r"(.+-parent\d+)", chunk_id)
     return match.group(1) if match else chunk_id
 
 
@@ -114,7 +151,7 @@ def find_best_chunk_with_adjacents(
     current_chunk_id: str,
     chunks: list[dict],
     chunk_index: dict,
-    source_doc: str = None
+    source_doc: str = None,
 ) -> dict | None:
     """
     Find best matching chunk, prioritizing adjacent chunks.
@@ -138,11 +175,13 @@ def find_best_chunk_with_adjacents(
         if adj_id in chunk_index:
             score = compute_answer_score(answer, chunk_index[adj_id])
             if score > 0:
-                candidates.append({
-                    "chunk_id": adj_id,
-                    "score": score,
-                    "source": "adjacent",
-                })
+                candidates.append(
+                    {
+                        "chunk_id": adj_id,
+                        "score": score,
+                        "source": "adjacent",
+                    }
+                )
 
     # Phase 2: Search in same document
     if source_doc:
@@ -150,11 +189,13 @@ def find_best_chunk_with_adjacents(
             if source_doc in chunk["id"] and chunk["id"] not in adjacent_ids:
                 score = compute_answer_score(answer, chunk["text"])
                 if score >= 0.5:  # Only consider reasonable matches
-                    candidates.append({
-                        "chunk_id": chunk["id"],
-                        "score": score,
-                        "source": "same_doc",
-                    })
+                    candidates.append(
+                        {
+                            "chunk_id": chunk["id"],
+                            "score": score,
+                            "source": "same_doc",
+                        }
+                    )
 
     # Phase 3: Search all chunks (only if no good match found)
     if not candidates or max(c["score"] for c in candidates) < 0.8:
@@ -162,11 +203,13 @@ def find_best_chunk_with_adjacents(
             if chunk["id"] not in [c["chunk_id"] for c in candidates]:
                 score = compute_answer_score(answer, chunk["text"])
                 if score >= 0.7:
-                    candidates.append({
-                        "chunk_id": chunk["id"],
-                        "score": score,
-                        "source": "global_search",
-                    })
+                    candidates.append(
+                        {
+                            "chunk_id": chunk["id"],
+                            "score": score,
+                            "source": "global_search",
+                        }
+                    )
 
     if not candidates:
         return None
@@ -177,10 +220,7 @@ def find_best_chunk_with_adjacents(
 
 
 def fix_chunk_ids_multipass(
-    gs: dict,
-    chunks: list[dict],
-    chunk_index: dict,
-    thresholds: list[float]
+    gs: dict, chunks: list[dict], chunk_index: dict, thresholds: list[float]
 ) -> dict:
     """
     Fix chunk_ids using multiple passes with decreasing thresholds.
@@ -222,7 +262,9 @@ def fix_chunk_ids_multipass(
             # Check current chunk score
             current_score = 0.0
             if current_chunk_id in chunk_index:
-                current_score = compute_answer_score(answer, chunk_index[current_chunk_id])
+                current_score = compute_answer_score(
+                    answer, chunk_index[current_chunk_id]
+                )
 
             # Skip if current chunk is already good enough
             if current_score >= threshold:
@@ -257,12 +299,14 @@ def fix_chunk_ids_multipass(
                 results["all_fixes"].append(fix_info)
                 fixed_ids.add(qid)
 
-        results["passes"].append({
-            "threshold": threshold,
-            "pass_number": thresholds.index(threshold) + 1,
-            "fixes_count": len(pass_fixes),
-            "fixes": pass_fixes,
-        })
+        results["passes"].append(
+            {
+                "threshold": threshold,
+                "pass_number": thresholds.index(threshold) + 1,
+                "fixes_count": len(pass_fixes),
+                "fixes": pass_fixes,
+            }
+        )
         results["total_fixed"] += len(pass_fixes)
 
     # Identify remaining issues
@@ -270,27 +314,33 @@ def fix_chunk_ids_multipass(
         if q["id"] not in fixed_ids:
             chunk_id = q.get("expected_chunk_id", "")
             if chunk_id in chunk_index:
-                score = compute_answer_score(q.get("expected_answer", ""), chunk_index[chunk_id])
+                score = compute_answer_score(
+                    q.get("expected_answer", ""), chunk_index[chunk_id]
+                )
                 if score < 0.8:
-                    results["remaining_issues"].append({
+                    results["remaining_issues"].append(
+                        {
+                            "id": q["id"],
+                            "chunk_id": chunk_id,
+                            "current_score": score,
+                        }
+                    )
+            else:
+                results["remaining_issues"].append(
+                    {
                         "id": q["id"],
                         "chunk_id": chunk_id,
-                        "current_score": score,
-                    })
-            else:
-                results["remaining_issues"].append({
-                    "id": q["id"],
-                    "chunk_id": chunk_id,
-                    "current_score": 0.0,
-                    "issue": "invalid_chunk_id",
-                })
+                        "current_score": 0.0,
+                        "issue": "invalid_chunk_id",
+                    }
+                )
 
     return results
 
 
 def main():
     """Main fix pipeline with multiple passes."""
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     base_path = Path(__file__).parent.parent.parent.parent
     gs_path = base_path / "tests" / "data" / "gold_standard_annales_fr_v7.json"
@@ -348,7 +398,7 @@ Recherche prioritaire dans chunks adjacents (même parent).
     print(f"Problèmes restants: {len(results['remaining_issues'])}")
 
     if results["remaining_issues"]:
-        print(f"\nÉchantillon problèmes non résolus:")
+        print("\nÉchantillon problèmes non résolus:")
         for issue in results["remaining_issues"][:5]:
             print(f"  - {issue['id']}: score={issue.get('current_score', 0):.2f}")
 

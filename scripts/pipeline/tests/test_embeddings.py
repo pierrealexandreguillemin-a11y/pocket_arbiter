@@ -237,7 +237,9 @@ class TestGoogleOfficialAPI:
 
     def test_is_embeddinggemma_model_false(self):
         """Detecte correctement un modele non-EmbeddingGemma."""
-        assert is_embeddinggemma_model("sentence-transformers/all-MiniLM-L6-v2") is False
+        assert (
+            is_embeddinggemma_model("sentence-transformers/all-MiniLM-L6-v2") is False
+        )
         assert is_embeddinggemma_model("bert-base-uncased") is False
 
     def test_embed_query_returns_1d(self, fallback_model):

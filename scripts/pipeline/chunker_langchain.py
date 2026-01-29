@@ -338,18 +338,20 @@ def chunk_markdown_langchain(
 
             parent_id = f"{source}-p{parent_page:03d}-parent{len(parent_chunks):03d}"
 
-            parent_chunks.append({
-                "id": parent_id,
-                "text": parent_text,
-                "source": source,
-                "page": parent_page,
-                "pages": [parent_page],
-                "section": section,
-                "article_num": article_num,
-                "tokens": parent_tokens,
-                "corpus": corpus,
-                "chunk_type": "parent",
-            })
+            parent_chunks.append(
+                {
+                    "id": parent_id,
+                    "text": parent_text,
+                    "source": source,
+                    "page": parent_page,
+                    "pages": [parent_page],
+                    "section": section,
+                    "article_num": article_num,
+                    "tokens": parent_tokens,
+                    "corpus": corpus,
+                    "chunk_type": "parent",
+                }
+            )
 
             # Step 2: Split parent into child chunks (450 tokens)
             child_texts = child_splitter.split_text(parent_text)
@@ -370,19 +372,21 @@ def chunk_markdown_langchain(
 
                 child_id = f"{source}-p{child_page:03d}-parent{len(parent_chunks)-1:03d}-child{c_idx:02d}"
 
-                child_chunks.append({
-                    "id": child_id,
-                    "text": child_text,
-                    "source": source,
-                    "page": child_page,
-                    "pages": [child_page],
-                    "section": section,
-                    "article_num": article_num,
-                    "parent_id": parent_id,
-                    "tokens": child_tokens,
-                    "corpus": corpus,
-                    "chunk_type": "child",
-                })
+                child_chunks.append(
+                    {
+                        "id": child_id,
+                        "text": child_text,
+                        "source": source,
+                        "page": child_page,
+                        "pages": [child_page],
+                        "section": section,
+                        "article_num": article_num,
+                        "parent_id": parent_id,
+                        "tokens": child_tokens,
+                        "corpus": corpus,
+                        "chunk_type": "child",
+                    }
+                )
 
     return parent_chunks, child_chunks
 
@@ -471,25 +475,29 @@ def merge_table_summaries(
         tables_data = json.load(f)
 
     table_children = tables_data.get("children", [])
-    logger.info(f"  Merging {len(table_children)} table summaries from {tables_file.name}")
+    logger.info(
+        f"  Merging {len(table_children)} table summaries from {tables_file.name}"
+    )
 
     # Convert table summaries to chunk format
     merged = list(children)  # Copy to avoid mutating original
     for table in table_children:
-        merged.append({
-            "id": table.get("id", f"{table.get('doc_id', 'unknown')}-summary"),
-            "text": table.get("text", ""),
-            "source": table.get("source", ""),
-            "page": table.get("page", 1),
-            "pages": [table.get("page", 1)],
-            "section": "",
-            "article_num": None,
-            "parent_id": None,  # Table summaries have no parent
-            "tokens": count_tokens_gemma(table.get("text", "")),
-            "corpus": corpus,
-            "chunk_type": "table_summary",
-            "table_type": table.get("table_type"),
-        })
+        merged.append(
+            {
+                "id": table.get("id", f"{table.get('doc_id', 'unknown')}-summary"),
+                "text": table.get("text", ""),
+                "source": table.get("source", ""),
+                "page": table.get("page", 1),
+                "pages": [table.get("page", 1)],
+                "section": "",
+                "article_num": None,
+                "parent_id": None,  # Table summaries have no parent
+                "tokens": count_tokens_gemma(table.get("text", "")),
+                "corpus": corpus,
+                "chunk_type": "table_summary",
+                "table_type": table.get("table_type"),
+            }
+        )
 
     return merged
 
@@ -550,7 +558,9 @@ def process_docling_output_langchain(
         children_before = len(all_children)
         all_children = merge_table_summaries(all_children, tables_file, corpus)
         stats["table_summaries"] = len(all_children) - children_before
-        stats["with_page"] += stats["table_summaries"]  # All table summaries have page >= 1
+        stats["with_page"] += stats[
+            "table_summaries"
+        ]  # All table summaries have page >= 1
 
     # Save parents (for LLM context retrieval)
     parents_file = output_file.with_name(output_file.stem + "_parents.json")

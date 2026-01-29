@@ -64,14 +64,16 @@ def load_chunks_mode_b(chunks_path: Path) -> dict[int, list[dict]]:
         page = chunk["page"]
         if page not in page_index:
             page_index[page] = []
-        page_index[page].append({
-            "id": chunk["id"],
-            "text": chunk["text"],
-            "page": chunk["page"],
-            "source": chunk["source"],
-            "section": chunk.get("section"),
-            "tokens": chunk.get("tokens", 0),
-        })
+        page_index[page].append(
+            {
+                "id": chunk["id"],
+                "text": chunk["text"],
+                "page": chunk["page"],
+                "source": chunk["source"],
+                "section": chunk.get("section"),
+                "tokens": chunk.get("tokens", 0),
+            }
+        )
 
     logger.info(f"Loaded {len(data['chunks'])} chunks from {chunks_path.name}")
     return page_index
@@ -223,9 +225,9 @@ def extract_gold_triplets_mode_b(
 
         # 2. Random hard negative (différente page, même corpus)
         negative_candidates = [
-            c for c in all_chunks
-            if abs(c["page"] - positive["page"]) > 2
-            and c["id"] != positive["id"]
+            c
+            for c in all_chunks
+            if abs(c["page"] - positive["page"]) > 2 and c["id"] != positive["id"]
         ]
 
         if not negative_candidates:
@@ -236,23 +238,29 @@ def extract_gold_triplets_mode_b(
         negative = random.choice(negative_candidates)
 
         # 3. Créer triplet
-        triplets.append({
-            "anchor": q["question"],
-            "positive": positive["text"],
-            "negative": negative["text"],
-            "metadata": {
-                "source": "gold_standard",
-                "gs_id": q["id"],
-                "corpus": corpus,
-                "positive_chunk_id": positive["id"],
-                "positive_page": positive["page"],
-                "negative_chunk_id": negative["id"],
-                "negative_page": negative["page"],
-                "answer_type": q.get("metadata", {}).get("answer_type", "FACTUAL"),
-                "cognitive_level": q.get("metadata", {}).get("cognitive_level", "UNDERSTAND"),
-                "reasoning_type": q.get("metadata", {}).get("reasoning_type", "SINGLE_SENTENCE"),
-            },
-        })
+        triplets.append(
+            {
+                "anchor": q["question"],
+                "positive": positive["text"],
+                "negative": negative["text"],
+                "metadata": {
+                    "source": "gold_standard",
+                    "gs_id": q["id"],
+                    "corpus": corpus,
+                    "positive_chunk_id": positive["id"],
+                    "positive_page": positive["page"],
+                    "negative_chunk_id": negative["id"],
+                    "negative_page": negative["page"],
+                    "answer_type": q.get("metadata", {}).get("answer_type", "FACTUAL"),
+                    "cognitive_level": q.get("metadata", {}).get(
+                        "cognitive_level", "UNDERSTAND"
+                    ),
+                    "reasoning_type": q.get("metadata", {}).get(
+                        "reasoning_type", "SINGLE_SENTENCE"
+                    ),
+                },
+            }
+        )
 
     logger.info(
         f"Extracted {len(triplets)} triplets from {corpus.upper()} "
@@ -305,21 +313,25 @@ def extract_gold_triplets_sqlite(
             continue
 
         # 3. Créer triplet
-        triplets.append({
-            "anchor": q["question"],
-            "positive": positive["text"],
-            "negative": negative["text"],
-            "gs_id": q["id"],
-            "positive_page": positive["page"],
-            "negative_page": negative["page"],
-            "negative_score": negative.get("score", 0),
-        })
+        triplets.append(
+            {
+                "anchor": q["question"],
+                "positive": positive["text"],
+                "negative": negative["text"],
+                "gs_id": q["id"],
+                "positive_page": positive["page"],
+                "negative_page": negative["page"],
+                "negative_score": negative.get("score", 0),
+            }
+        )
 
     logger.info(f"Extracted {len(triplets)} triplets ({skipped} skipped)")
     return triplets
 
 
-def save_triplets_jsonl(triplets: list[dict], output_path: Path, training_format: bool = True) -> None:
+def save_triplets_jsonl(
+    triplets: list[dict], output_path: Path, training_format: bool = True
+) -> None:
     """Sauvegarde les triplets au format JSONL."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -327,7 +339,11 @@ def save_triplets_jsonl(triplets: list[dict], output_path: Path, training_format
         for t in triplets:
             if training_format:
                 # Format sentence-transformers (anchor, positive, negative only)
-                out = {"anchor": t["anchor"], "positive": t["positive"], "negative": t["negative"]}
+                out = {
+                    "anchor": t["anchor"],
+                    "positive": t["positive"],
+                    "negative": t["negative"],
+                }
             else:
                 out = t
             f.write(json.dumps(out, ensure_ascii=False) + "\n")
@@ -342,18 +358,10 @@ def main() -> None:
     )
 
     # Mode B arguments (recommended for QLoRA)
-    parser.add_argument(
-        "--gs-fr", type=Path, help="Gold Standard FR JSON (Mode B)"
-    )
-    parser.add_argument(
-        "--gs-intl", type=Path, help="Gold Standard INTL JSON (Mode B)"
-    )
-    parser.add_argument(
-        "--chunks-fr", type=Path, help="Chunks Mode B FR JSON"
-    )
-    parser.add_argument(
-        "--chunks-intl", type=Path, help="Chunks Mode B INTL JSON"
-    )
+    parser.add_argument("--gs-fr", type=Path, help="Gold Standard FR JSON (Mode B)")
+    parser.add_argument("--gs-intl", type=Path, help="Gold Standard INTL JSON (Mode B)")
+    parser.add_argument("--chunks-fr", type=Path, help="Chunks Mode B FR JSON")
+    parser.add_argument("--chunks-intl", type=Path, help="Chunks Mode B INTL JSON")
 
     # Legacy arguments (Mode A SQLite)
     parser.add_argument("--gs", "-g", type=Path, help="Gold Standard JSON (legacy)")
@@ -363,7 +371,9 @@ def main() -> None:
     parser.add_argument("--output", "-o", type=Path, required=True, help="Output JSONL")
     parser.add_argument("--min-score", type=float, default=DEFAULT_MIN_SCORE)
     parser.add_argument("--max-score", type=float, default=DEFAULT_MAX_SCORE)
-    parser.add_argument("--model", "-m", type=str, default=None, help="Model ID (legacy)")
+    parser.add_argument(
+        "--model", "-m", type=str, default=None, help="Model ID (legacy)"
+    )
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
     parser.add_argument("--verbose", "-v", action="store_true")
     args = parser.parse_args()
@@ -372,6 +382,7 @@ def main() -> None:
         logging.getLogger().setLevel(logging.DEBUG)
 
     import random
+
     random.seed(args.seed)
 
     # Detect mode
@@ -388,7 +399,12 @@ def main() -> None:
             with open(args.chunks_fr, encoding="utf-8") as f:
                 chunks_data = json.load(f)
             all_chunks_fr = [
-                {"id": c["id"], "text": c["text"], "page": c["page"], "source": c["source"]}
+                {
+                    "id": c["id"],
+                    "text": c["text"],
+                    "page": c["page"],
+                    "source": c["source"],
+                }
                 for c in chunks_data["chunks"]
             ]
             page_index_fr = load_chunks_mode_b(args.chunks_fr)
@@ -403,7 +419,12 @@ def main() -> None:
             with open(args.chunks_intl, encoding="utf-8") as f:
                 chunks_data = json.load(f)
             all_chunks_intl = [
-                {"id": c["id"], "text": c["text"], "page": c["page"], "source": c["source"]}
+                {
+                    "id": c["id"],
+                    "text": c["text"],
+                    "page": c["page"],
+                    "source": c["source"],
+                }
                 for c in chunks_data["chunks"]
             ]
             page_index_intl = load_chunks_mode_b(args.chunks_intl)
@@ -423,8 +444,12 @@ def main() -> None:
         save_triplets_jsonl(triplets, full_output, training_format=False)
 
         # Report
-        fr_count = len([t for t in triplets if t.get("metadata", {}).get("corpus") == "fr"])
-        intl_count = len([t for t in triplets if t.get("metadata", {}).get("corpus") == "intl"])
+        fr_count = len(
+            [t for t in triplets if t.get("metadata", {}).get("corpus") == "fr"]
+        )
+        intl_count = len(
+            [t for t in triplets if t.get("metadata", {}).get("corpus") == "intl"]
+        )
 
         report = {
             "mode": "mode_b",
@@ -444,6 +469,7 @@ def main() -> None:
         logger.info("Legacy mode: Extracting from SQLite with embeddings")
 
         from scripts.pipeline.embeddings import MODEL_ID, load_embedding_model
+
         model_id = args.model or MODEL_ID
         logger.info(f"Loading model: {model_id}")
         model = load_embedding_model(model_id)

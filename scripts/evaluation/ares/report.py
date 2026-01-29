@@ -220,7 +220,8 @@ def _assess_iso_compliance(
             "requirement": "95% CI bounds valid",
             "value": f"[{context_relevance.get('ci_95_lower', 0):.2%}, {context_relevance.get('ci_95_upper', 0):.2%}]",
             "pass": (
-                0 <= context_relevance.get("ci_95_lower", 0)
+                0
+                <= context_relevance.get("ci_95_lower", 0)
                 <= context_relevance.get("score", 0)
                 <= context_relevance.get("ci_95_upper", 0)
                 <= 1
@@ -358,7 +359,8 @@ def _generate_recommendations(
 
     if not iso_compliance.get("overall_pass", False):
         failed_checks = [
-            k for k, v in iso_compliance.get("checks", {}).items()
+            k
+            for k, v in iso_compliance.get("checks", {}).items()
             if not v.get("pass", False)
         ]
         recommendations.append(

@@ -140,11 +140,20 @@ def migrate_metadata(
     result = OrderedDict()
 
     # Fields that may be at question level but belong in metadata
-    question_level_fields = [
-        "difficulty", "annales_source", "question_type", "choices",
-        "mcq_answer", "answer_explanation", "quality_score",
-        "chunk_match_score", "chunk_match_method", "article_reference",
-        "answer_type", "reasoning_type", "cognitive_level",
+    _question_level_fields = [
+        "difficulty",
+        "annales_source",
+        "question_type",
+        "choices",
+        "mcq_answer",
+        "answer_explanation",
+        "quality_score",
+        "chunk_match_score",
+        "chunk_match_method",
+        "article_reference",
+        "answer_type",
+        "reasoning_type",
+        "cognitive_level",
     ]
 
     # Add fields in standard order
@@ -171,7 +180,9 @@ def migrate_metadata(
     return dict(result)
 
 
-def migrate_question(question: dict[str, Any], report: dict[str, Any]) -> dict[str, Any]:
+def migrate_question(
+    question: dict[str, Any], report: dict[str, Any]
+) -> dict[str, Any]:
     """Migrate a single question to the unified schema."""
     result = OrderedDict()
 
@@ -187,7 +198,9 @@ def migrate_question(question: dict[str, Any], report: dict[str, Any]) -> dict[s
         report["errors"].append(f"{result['id']}: Missing question text")
 
     # 3. expected_answer (map from answer_text if exists)
-    result["expected_answer"] = question.get("expected_answer") or question.get("answer_text", "")
+    result["expected_answer"] = question.get("expected_answer") or question.get(
+        "answer_text", ""
+    )
     if not result["expected_answer"]:
         report["fields_added"]["expected_answer"] += 1
     elif "answer_text" in question and "expected_answer" not in question:
@@ -238,7 +251,9 @@ def migrate_question(question: dict[str, Any], report: dict[str, Any]) -> dict[s
     return dict(result)
 
 
-def migrate_gold_standard(data: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+def migrate_gold_standard(
+    data: dict[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
     """Migrate entire gold standard file to unified schema."""
     report = {
         "timestamp": datetime.now().isoformat(),
@@ -338,9 +353,7 @@ def main() -> int:
         output_path = input_path
         backup_path = input_path.with_suffix(".json.bak")
     else:
-        output_path = input_path.with_name(
-            input_path.stem + "_v7" + input_path.suffix
-        )
+        output_path = input_path.with_name(input_path.stem + "_v7" + input_path.suffix)
 
     # Load input
     print(f"Loading: {input_path}")

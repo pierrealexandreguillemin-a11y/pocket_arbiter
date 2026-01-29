@@ -14,7 +14,6 @@ Standards:
 import json
 from collections import defaultdict
 from datetime import date
-from pathlib import Path
 
 
 def load_gs(path: str) -> dict:
@@ -97,20 +96,37 @@ def audit_gs(gs: dict, name: str, chunks_path: str) -> dict:
 
     ratio = unanswerable / total * 100 if total > 0 else 0
 
-    squad2_cr = ["ENTITY_SWAP", "ANTONYM", "NEGATION", "NUMBER_SWAP", "MUTUAL_EXCLUSION"]
+    squad2_cr = [
+        "ENTITY_SWAP",
+        "ANTONYM",
+        "NEGATION",
+        "NUMBER_SWAP",
+        "MUTUAL_EXCLUSION",
+    ]
     squad2_cr_count = sum(1 for c in squad2_cr if c in hard_types)
 
-    uaeval = ["UNDERSPECIFIED", "FALSE_PRESUPPOSITION", "VOCABULARY_MISMATCH",
-              "OUT_OF_SCOPE", "SAFETY_CONCERNED", "PARTIAL_INFO"]
+    uaeval = [
+        "UNDERSPECIFIED",
+        "FALSE_PRESUPPOSITION",
+        "VOCABULARY_MISMATCH",
+        "OUT_OF_SCOPE",
+        "SAFETY_CONCERNED",
+        "PARTIAL_INFO",
+    ]
     uaeval_count = sum(1 for c in uaeval if c in hard_types)
 
     qa_types = ["FACTUAL", "PROCEDURAL", "LIST", "CONDITIONAL", "DEFINITIONAL"]
     qa_count = sum(1 for t in qa_types if t in answer_types)
 
     bloom = ["REMEMBER", "UNDERSTAND", "APPLY", "ANALYZE"]
-    bloom_count = sum(1 for l in bloom if l in cognitive_levels)
+    bloom_count = sum(1 for level in bloom if level in cognitive_levels)
 
-    reasoning = ["LEXICAL_MATCH", "SINGLE_SENTENCE", "MULTI_SENTENCE", "DOMAIN_KNOWLEDGE"]
+    reasoning = [
+        "LEXICAL_MATCH",
+        "SINGLE_SENTENCE",
+        "MULTI_SENTENCE",
+        "DOMAIN_KNOWLEDGE",
+    ]
     reasoning_count = sum(1 for r in reasoning if r in reasoning_types)
 
     return {
@@ -150,38 +166,52 @@ def print_report(fr: dict, intl: dict) -> bool:
         print(f"{r['name']}")
         print("=" * 70)
 
-        print(f"\n1. METRIQUES GENERALES")
+        print("\n1. METRIQUES GENERALES")
         print(f"   Total questions: {r['total']}")
-        print(f"   Answerable: {r['answerable']} ({r['answerable']/r['total']*100:.1f}%)")
+        print(
+            f"   Answerable: {r['answerable']} ({r['answerable']/r['total']*100:.1f}%)"
+        )
         print(f"   Unanswerable: {r['unanswerable']} ({r['ratio']:.1f}%)")
 
-        print(f"\n2. SQuAD 2.0 (arXiv:1806.03822)")
-        print(f"   Exigence: 25-35% unanswerable")
+        print("\n2. SQuAD 2.0 (arXiv:1806.03822)")
+        print("   Exigence: 25-35% unanswerable")
         print(f"   Resultat: {r['ratio']:.1f}%")
         squad_ok = 25 <= r["ratio"] <= 35
         print(f"   Status: {'CONFORME' if squad_ok else 'NON CONFORME'}")
 
-        print(f"\n3. SQuAD2-CR (arXiv:2004.14004)")
-        print(f"   Exigence: 5/5 categories adversariales")
+        print("\n3. SQuAD2-CR (arXiv:2004.14004)")
+        print("   Exigence: 5/5 categories adversariales")
         print(f"   Resultat: {r['squad2_cr']}/5")
-        for cat in ["ENTITY_SWAP", "ANTONYM", "NEGATION", "NUMBER_SWAP", "MUTUAL_EXCLUSION"]:
+        for cat in [
+            "ENTITY_SWAP",
+            "ANTONYM",
+            "NEGATION",
+            "NUMBER_SWAP",
+            "MUTUAL_EXCLUSION",
+        ]:
             count = r["squad2_cr_details"].get(cat, 0)
             status = "[OK]" if count > 0 else "[--]"
             print(f"     {status} {cat}: {count}")
         print(f"   Status: {'CONFORME' if r['squad2_cr'] >= 5 else 'NON CONFORME'}")
 
-        print(f"\n4. UAEval4RAG (arXiv:2412.12300)")
-        print(f"   Exigence: 6/6 categories (5/6 acceptable)")
+        print("\n4. UAEval4RAG (arXiv:2412.12300)")
+        print("   Exigence: 6/6 categories (5/6 acceptable)")
         print(f"   Resultat: {r['uaeval']}/6")
-        for cat in ["UNDERSPECIFIED", "FALSE_PRESUPPOSITION", "VOCABULARY_MISMATCH",
-                    "OUT_OF_SCOPE", "SAFETY_CONCERNED", "PARTIAL_INFO"]:
+        for cat in [
+            "UNDERSPECIFIED",
+            "FALSE_PRESUPPOSITION",
+            "VOCABULARY_MISMATCH",
+            "OUT_OF_SCOPE",
+            "SAFETY_CONCERNED",
+            "PARTIAL_INFO",
+        ]:
             count = r["uaeval_details"].get(cat, 0)
             status = "[OK]" if count > 0 else "[--]"
             print(f"     {status} {cat}: {count}")
         print(f"   Status: {'CONFORME' if r['uaeval'] >= 5 else 'NON CONFORME'}")
 
-        print(f"\n5. QA TAXONOMY (arXiv:2107.12708)")
-        print(f"   Exigence: 5/5 answer types")
+        print("\n5. QA TAXONOMY (arXiv:2107.12708)")
+        print("   Exigence: 5/5 answer types")
         print(f"   Resultat: {r['qa_types']}/5")
         for t in ["FACTUAL", "PROCEDURAL", "LIST", "CONDITIONAL", "DEFINITIONAL"]:
             count = r["qa_types_details"].get(t, 0)
@@ -189,8 +219,8 @@ def print_report(fr: dict, intl: dict) -> bool:
             print(f"     {status} {t}: {count}")
         print(f"   Status: {'CONFORME' if r['qa_types'] >= 5 else 'NON CONFORME'}")
 
-        print(f"\n6. BLOOM'S TAXONOMY (Anderson 2001)")
-        print(f"   Exigence: 4/4 niveaux cognitifs")
+        print("\n6. BLOOM'S TAXONOMY (Anderson 2001)")
+        print("   Exigence: 4/4 niveaux cognitifs")
         print(f"   Resultat: {r['bloom']}/4")
         for level in ["REMEMBER", "UNDERSTAND", "APPLY", "ANALYZE"]:
             count = r["bloom_details"].get(level, 0)
@@ -198,10 +228,15 @@ def print_report(fr: dict, intl: dict) -> bool:
             print(f"     {status} {level}: {count}")
         print(f"   Status: {'CONFORME' if r['bloom'] >= 4 else 'NON CONFORME'}")
 
-        print(f"\n7. REASONING TYPES (arXiv:2107.12708)")
-        print(f"   Exigence: 4/4 types de raisonnement")
+        print("\n7. REASONING TYPES (arXiv:2107.12708)")
+        print("   Exigence: 4/4 types de raisonnement")
         print(f"   Resultat: {r['reasoning']}/4")
-        for rt in ["LEXICAL_MATCH", "SINGLE_SENTENCE", "MULTI_SENTENCE", "DOMAIN_KNOWLEDGE"]:
+        for rt in [
+            "LEXICAL_MATCH",
+            "SINGLE_SENTENCE",
+            "MULTI_SENTENCE",
+            "DOMAIN_KNOWLEDGE",
+        ]:
             count = r["reasoning_details"].get(rt, 0)
             status = "[OK]" if count > 0 else "[--]"
             print(f"     {status} {rt}: {count}")
@@ -211,30 +246,44 @@ def print_report(fr: dict, intl: dict) -> bool:
     print("CONFORMITE ISO/IEC")
     print("=" * 70)
 
-    print(f"\n8. ISO 42001 - AI Management System")
-    print(f"   A.6.2.2 - Documentation des donnees")
+    print("\n8. ISO 42001 - AI Management System")
+    print("   A.6.2.2 - Documentation des donnees")
     for r in [fr, intl]:
         pct = r["has_metadata"] / r["answerable"] * 100 if r["answerable"] > 0 else 0
-        print(f"     {r['name']}: {r['has_metadata']}/{r['answerable']} ({pct:.0f}%) avec metadata")
+        print(
+            f"     {r['name']}: {r['has_metadata']}/{r['answerable']} ({pct:.0f}%) avec metadata"
+        )
 
-    print(f"   A.6.2.4 - Validation des donnees")
+    print("   A.6.2.4 - Validation des donnees")
     for r in [fr, intl]:
-        pct = r["keywords_validated"] / r["answerable"] * 100 if r["answerable"] > 0 else 0
-        print(f"     {r['name']}: {r['keywords_validated']}/{r['answerable']} ({pct:.0f}%) keywords valides")
+        pct = (
+            r["keywords_validated"] / r["answerable"] * 100
+            if r["answerable"] > 0
+            else 0
+        )
+        print(
+            f"     {r['name']}: {r['keywords_validated']}/{r['answerable']} ({pct:.0f}%) keywords valides"
+        )
 
-    print(f"\n9. ISO 25010 - Software Quality")
-    print(f"   Exactitude fonctionnelle (expected_pages)")
+    print("\n9. ISO 25010 - Software Quality")
+    print("   Exactitude fonctionnelle (expected_pages)")
     for r in [fr, intl]:
-        pct = r["has_expected_pages"] / r["answerable"] * 100 if r["answerable"] > 0 else 0
-        print(f"     {r['name']}: {r['has_expected_pages']}/{r['answerable']} ({pct:.0f}%)")
+        pct = (
+            r["has_expected_pages"] / r["answerable"] * 100
+            if r["answerable"] > 0
+            else 0
+        )
+        print(
+            f"     {r['name']}: {r['has_expected_pages']}/{r['answerable']} ({pct:.0f}%)"
+        )
 
-    print(f"   Completude fonctionnelle (keywords)")
+    print("   Completude fonctionnelle (keywords)")
     for r in [fr, intl]:
         pct = r["has_keywords"] / r["answerable"] * 100 if r["answerable"] > 0 else 0
         print(f"     {r['name']}: {r['has_keywords']}/{r['answerable']} ({pct:.0f}%)")
 
-    print(f"\n10. ISO 29119 - Software Testing")
-    print(f"    Tracabilite (ID unique)")
+    print("\n10. ISO 29119 - Software Testing")
+    print("    Tracabilite (ID unique)")
     for r in [fr, intl]:
         pct = r["has_id"] / r["total"] * 100 if r["total"] > 0 else 0
         print(f"      {r['name']}: {r['has_id']}/{r['total']} ({pct:.0f}%)")
@@ -244,21 +293,20 @@ def print_report(fr: dict, intl: dict) -> bool:
     print("=" * 70)
 
     checks = [
-        ("SQuAD 2.0 ratio (25-35%)",
-         25 <= fr["ratio"] <= 35 and 25 <= intl["ratio"] <= 35),
-        ("SQuAD2-CR (5/5 categories)",
-         fr["squad2_cr"] >= 5 and intl["squad2_cr"] >= 5),
-        ("UAEval4RAG (5/6+ categories)",
-         fr["uaeval"] >= 5 and intl["uaeval"] >= 5),
-        ("QA Taxonomy (5/5 types)",
-         fr["qa_types"] >= 5 and intl["qa_types"] >= 5),
-        ("Bloom's Taxonomy (4/4 levels)",
-         fr["bloom"] >= 4 and intl["bloom"] >= 4),
-        ("Reasoning Types (4/4)",
-         fr["reasoning"] >= 4 and intl["reasoning"] >= 4),
-        ("ISO 42001 A.6.2.4 (validation)",
-         fr["keywords_validated"] >= fr["answerable"] * 0.9 and
-         intl["keywords_validated"] >= intl["answerable"] * 0.4),
+        (
+            "SQuAD 2.0 ratio (25-35%)",
+            25 <= fr["ratio"] <= 35 and 25 <= intl["ratio"] <= 35,
+        ),
+        ("SQuAD2-CR (5/5 categories)", fr["squad2_cr"] >= 5 and intl["squad2_cr"] >= 5),
+        ("UAEval4RAG (5/6+ categories)", fr["uaeval"] >= 5 and intl["uaeval"] >= 5),
+        ("QA Taxonomy (5/5 types)", fr["qa_types"] >= 5 and intl["qa_types"] >= 5),
+        ("Bloom's Taxonomy (4/4 levels)", fr["bloom"] >= 4 and intl["bloom"] >= 4),
+        ("Reasoning Types (4/4)", fr["reasoning"] >= 4 and intl["reasoning"] >= 4),
+        (
+            "ISO 42001 A.6.2.4 (validation)",
+            fr["keywords_validated"] >= fr["answerable"] * 0.9
+            and intl["keywords_validated"] >= intl["answerable"] * 0.4,
+        ),
     ]
 
     all_pass = True

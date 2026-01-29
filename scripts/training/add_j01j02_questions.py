@@ -22,14 +22,18 @@ def main() -> None:
             "expected_pages": [4],
             "category": "jeunes",
             "keywords": ["cadence", "U8", "U10", "départemental", "jeunes"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 3.2.1 J01"
-            }
+                "article_reference": "Article 3.2.1 J01",
+            },
         },
         {
             "id": "FR-J01-002",
@@ -41,14 +45,18 @@ def main() -> None:
             "expected_pages": [4],
             "category": "jeunes",
             "keywords": ["cadence", "U8", "U10", "national", "jeunes", "50 minutes"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 3.2.3 J01"
-            }
+                "article_reference": "Article 3.2.3 J01",
+            },
         },
         {
             "id": "FR-J01-003",
@@ -60,14 +68,18 @@ def main() -> None:
             "expected_pages": [3],
             "category": "jeunes",
             "keywords": ["elo", "qualification", "U12", "jeunes", "office"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 2.6 J01"
-            }
+                "article_reference": "Article 2.6 J01",
+            },
         },
         {
             "id": "FR-J02-001",
@@ -75,18 +87,24 @@ def main() -> None:
             "expected_answer": "8 joueurs et/ou joueuses (Top Jeunes, Nationales 1 et 2) ou 4 joueurs et/ou joueuses (Nationale 3).",
             "is_impossible": False,
             "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent016-child00",
-            "expected_docs": ["J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"],
+            "expected_docs": [
+                "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+            ],
             "expected_pages": [4],
             "category": "jeunes",
             "keywords": ["équipe", "composition", "interclubs", "jeunes", "8 joueurs"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 3.7.a J02"
-            }
+                "article_reference": "Article 3.7.a J02",
+            },
         },
         {
             "id": "FR-J02-002",
@@ -94,18 +112,24 @@ def main() -> None:
             "expected_answer": "1h30 min et 30 secondes par coup pour les échiquiers 1 à 6.",
             "is_impossible": False,
             "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent012-child00",
-            "expected_docs": ["J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"],
+            "expected_docs": [
+                "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+            ],
             "expected_pages": [3],
             "category": "jeunes",
             "keywords": ["cadence", "interclubs", "jeunes", "échiquier", "1h30"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 3.3 J02"
-            }
+                "article_reference": "Article 3.3 J02",
+            },
         },
         {
             "id": "FR-J02-003",
@@ -113,18 +137,31 @@ def main() -> None:
             "expected_answer": "50 min et 10 secondes par coup pour les échiquiers 7 et 8.",
             "is_impossible": False,
             "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent012-child00",
-            "expected_docs": ["J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"],
+            "expected_docs": [
+                "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+            ],
             "expected_pages": [3],
             "category": "jeunes",
-            "keywords": ["cadence", "interclubs", "jeunes", "échiquier 7", "échiquier 8", "50 min"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "keywords": [
+                "cadence",
+                "interclubs",
+                "jeunes",
+                "échiquier 7",
+                "échiquier 8",
+                "50 min",
+            ],
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 3.3 J02"
-            }
+                "article_reference": "Article 3.3 J02",
+            },
         },
         {
             "id": "FR-J02-004",
@@ -132,19 +169,25 @@ def main() -> None:
             "expected_answer": "Par catégorie d'âge décroissante (le plus âgé à l'échiquier 1). L'échiquier 8 peut être placé devant l'échiquier 7 quels que soient les Elo. Un joueur placé après un plus jeune que lui entraîne un forfait administratif.",
             "is_impossible": False,
             "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child01",
-            "expected_docs": ["J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"],
+            "expected_docs": [
+                "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+            ],
             "expected_pages": [4],
             "category": "jeunes",
             "keywords": ["ordre", "échiquier", "âge", "interclubs", "jeunes"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "PROCEDURAL",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "UNDERSTAND",
-                "article_reference": "Article 3.7.c J02"
-            }
-        }
+                "article_reference": "Article 3.7.c J02",
+            },
+        },
     ]
 
     gs["questions"].extend(j01j02_questions)
@@ -157,7 +200,7 @@ def main() -> None:
     with open(gs_path, "w", encoding="utf-8") as f:
         json.dump(gs, f, indent=2, ensure_ascii=False)
 
-    print(f"Questions ajoutées: 7 (3 J01 + 4 J02)")
+    print("Questions ajoutées: 7 (3 J01 + 4 J02)")
     print(f"Total questions: {len(gs['questions'])}")
 
 

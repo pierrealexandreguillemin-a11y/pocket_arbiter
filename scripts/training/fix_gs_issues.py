@@ -66,9 +66,9 @@ def add_squad2cr_questions():
                 "hard_reason": "L'arbitre AUTORISE (pas interdit) les reclamations valides",
                 "corpus_truth": "ANTONYM - Art 9.2: arbitre VERIFIE et ACCEPTE si valide",
                 "test_purpose": "Test detection antonym (SQuAD2-CR)",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-068",
@@ -82,9 +82,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Un joueur doit SIGNER (pas refuser) la feuille",
                 "corpus_truth": "ANTONYM - Art 8.7: les deux joueurs DOIVENT signer",
                 "test_purpose": "Test detection antonym obligation",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-069",
@@ -98,9 +98,9 @@ def add_squad2cr_questions():
                 "hard_reason": "L'arbitre INTERVIENT (pas ignore) sur coup illegal",
                 "corpus_truth": "ANTONYM - Art 7.5: arbitre DOIT intervenir",
                 "test_purpose": "Test detection antonym action",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-070",
@@ -114,9 +114,9 @@ def add_squad2cr_questions():
                 "hard_reason": "La pendule reste ACTIVE (pas desactivee) pendant le jeu",
                 "corpus_truth": "ANTONYM - Art 6: pendule doit fonctionner",
                 "test_purpose": "Test detection antonym etat",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-071",
@@ -130,9 +130,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Spectateurs ne peuvent PAS intervenir (jamais)",
                 "corpus_truth": "ANTONYM - Art 12.7: spectateurs NE DOIVENT PAS intervenir",
                 "test_purpose": "Test detection antonym interdiction",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-072",
@@ -146,9 +146,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Telephone INTERDIT (pas permis) en zone de jeu",
                 "corpus_truth": "ANTONYM - Art 11.3.2: appareils electroniques INTERDITS",
                 "test_purpose": "Test detection antonym interdiction",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-073",
@@ -162,9 +162,9 @@ def add_squad2cr_questions():
                 "hard_reason": "On doit ARRETER (pas continuer) pour reclamation",
                 "corpus_truth": "ANTONYM - Art 7: arreter pendule et appeler arbitre",
                 "test_purpose": "Test detection antonym procedure",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-074",
@@ -178,9 +178,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Offre AVANT le coup, pas apres",
                 "corpus_truth": "ANTONYM - Art 9.1.2: offre en jouant, adversaire decide",
                 "test_purpose": "Test detection antonym sequence",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-075",
@@ -194,9 +194,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Un joueur PEUT toujours refuser (pas d'obligation)",
                 "corpus_truth": "PARTIEL - Art 9.1: adversaire peut accepter OU refuser",
                 "test_purpose": "Test nuance antonym (cas valide)",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-076",
@@ -210,10 +210,10 @@ def add_squad2cr_questions():
                 "hard_reason": "Pieces retirees = CAPTUREES, pas juste retirees",
                 "corpus_truth": "ANTONYM - Sauf promotion (retrait pion) ou irregularite",
                 "test_purpose": "Test detection antonym exception",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
-        }
+            "difficulty": "hard",
+        },
     ]
 
     # NEW NEGATION questions (target ~8-10)
@@ -230,9 +230,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Question correcte - roque impossible si roi a bouge",
                 "corpus_truth": "CORRECT - Art 3.8.2.1.a: roi ne doit pas avoir bouge",
                 "test_purpose": "Test negation valide (SQuAD2-CR)",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-078",
@@ -246,9 +246,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Question correcte - promotion en roi interdite",
                 "corpus_truth": "CORRECT - Art 3.7.5.1: Dame, Tour, Fou, Cavalier uniquement",
                 "test_purpose": "Test negation valide",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-079",
@@ -262,9 +262,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Question correcte - abandon = decision personnelle",
                 "corpus_truth": "CORRECT - Art 5.1.1: abandon par le joueur lui-meme",
                 "test_purpose": "Test negation logique",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-080",
@@ -278,9 +278,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Question correcte - alternance obligatoire",
                 "corpus_truth": "CORRECT - Art 1.1: joueurs jouent alternativement",
                 "test_purpose": "Test negation regle fondamentale",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-081",
@@ -294,9 +294,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Question correcte - pat = nulle, pas victoire",
                 "corpus_truth": "CORRECT - Art 5.2.1: pat = partie nulle",
                 "test_purpose": "Test negation resultat",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-082",
@@ -310,9 +310,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Question correcte - roi ne peut se mettre en echec",
                 "corpus_truth": "CORRECT - Art 3.9: roi ne peut aller en case attaquee",
                 "test_purpose": "Test double negation",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-083",
@@ -326,9 +326,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Faux - on PEUT proposer nulle apres x coups selon reglement",
                 "corpus_truth": "FAUX - Nulles Sofia/x coups = regle tournoi, pas FIDE base",
                 "test_purpose": "Test negation contextuelle",
-                "expected_behavior": "CORRECT_NEGATION"
+                "expected_behavior": "CORRECT_NEGATION",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-084",
@@ -342,10 +342,10 @@ def add_squad2cr_questions():
                 "hard_reason": "Faux - zeitnot possible dans toute cadence",
                 "corpus_truth": "FAUX - Zeitnot = situation, pas dependant de cadence",
                 "test_purpose": "Test negation incorrecte",
-                "expected_behavior": "CORRECT_NEGATION"
+                "expected_behavior": "CORRECT_NEGATION",
             },
-            "difficulty": "hard"
-        }
+            "difficulty": "hard",
+        },
     ]
 
     # NEW MUTUAL_EXCLUSION questions (target 2-3)
@@ -362,9 +362,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Resultats mutuellement exclusifs",
                 "corpus_truth": "EXCLUSION - Art 5: 1-0, 0-1, ou 1/2 mutuellement exclusifs",
                 "test_purpose": "Test exclusion mutuelle (SQuAD2-CR)",
-                "expected_behavior": "REJECT_CONTRADICTION"
+                "expected_behavior": "REJECT_CONTRADICTION",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-086",
@@ -378,9 +378,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Echec + sans coup = mat, pas pat",
                 "corpus_truth": "DISTINCTION - Echec + sans coup = MAT, sans echec = PAT",
                 "test_purpose": "Test exclusion resultat",
-                "expected_behavior": "CLARIFY_DISTINCTION"
+                "expected_behavior": "CLARIFY_DISTINCTION",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "FR-ADV-087",
@@ -394,10 +394,10 @@ def add_squad2cr_questions():
                 "hard_reason": "Position impossible - un seul roi peut etre en echec",
                 "corpus_truth": "EXCLUSION - Position illegale par definition",
                 "test_purpose": "Test exclusion position",
-                "expected_behavior": "REJECT_CONTRADICTION"
+                "expected_behavior": "REJECT_CONTRADICTION",
             },
-            "difficulty": "hard"
-        }
+            "difficulty": "hard",
+        },
     ]
 
     # INTL versions
@@ -414,9 +414,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Arbiter ACCEPTS (not rejects) valid claims",
                 "corpus_truth": "ANTONYM - Art 9.2: arbiter VERIFIES and ACCEPTS if valid",
                 "test_purpose": "Test antonym detection (SQuAD2-CR)",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         },
         {
             "id": "INTL-ADV-017",
@@ -430,10 +430,10 @@ def add_squad2cr_questions():
                 "hard_reason": "Spectators CANNOT intervene (never)",
                 "corpus_truth": "ANTONYM - Art 12.7: spectators MUST NOT interfere",
                 "test_purpose": "Test antonym prohibition",
-                "expected_behavior": "CORRECT_ANTONYM"
+                "expected_behavior": "CORRECT_ANTONYM",
             },
-            "difficulty": "hard"
-        }
+            "difficulty": "hard",
+        },
     ]
 
     intl_negation = [
@@ -449,9 +449,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Correct question - promotion to king forbidden",
                 "corpus_truth": "CORRECT - Art 3.7.5.1: Queen, Rook, Bishop, Knight only",
                 "test_purpose": "Test valid negation (SQuAD2-CR)",
-                "expected_behavior": "ANSWER_CORRECTLY"
+                "expected_behavior": "ANSWER_CORRECTLY",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         }
     ]
 
@@ -468,9 +468,9 @@ def add_squad2cr_questions():
                 "hard_reason": "Mutually exclusive results",
                 "corpus_truth": "EXCLUSION - Art 5: 1-0, 0-1, or 1/2 mutually exclusive",
                 "test_purpose": "Test mutual exclusion (SQuAD2-CR)",
-                "expected_behavior": "REJECT_CONTRADICTION"
+                "expected_behavior": "REJECT_CONTRADICTION",
             },
-            "difficulty": "hard"
+            "difficulty": "hard",
         }
     ]
 
@@ -494,9 +494,9 @@ def add_squad2cr_questions():
     save_json(adv_path, adv)
 
     print("Added SQuAD2-CR categories:")
-    print(f"  ANTONYM: 10 FR + 2 INTL = 12")
-    print(f"  NEGATION: 8 FR + 1 INTL = 9")
-    print(f"  MUTUAL_EXCLUSION: 3 FR + 1 INTL = 4")
+    print("  ANTONYM: 10 FR + 2 INTL = 12")
+    print("  NEGATION: 8 FR + 1 INTL = 9")
+    print("  MUTUAL_EXCLUSION: 3 FR + 1 INTL = 4")
     print(f"\nTotal adversarial: {adv['statistics']['total']}")
 
 

@@ -26,7 +26,9 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def _generate_question_id(session: str, uv: str, num: int, counter: dict[str, int]) -> str:
+def _generate_question_id(
+    session: str, uv: str, num: int, counter: dict[str, int]
+) -> str:
     """Generate unique question ID."""
     # Track global counter for each UV
     key = uv
@@ -41,11 +43,34 @@ def _extract_keywords(text: str) -> list[str]:
 
     # Chess terms
     chess_terms = [
-        "roque", "pat", "échec", "mat", "nulle", "abandon", "forfait",
-        "pendule", "horloge", "temps", "cadence", "partie", "coup",
-        "joueur", "adversaire", "trait", "feuille", "notation",
-        "promotion", "pièce", "case", "échiquier", "position",
-        "illegal", "irrégularité", "article", "règle", "règlement",
+        "roque",
+        "pat",
+        "échec",
+        "mat",
+        "nulle",
+        "abandon",
+        "forfait",
+        "pendule",
+        "horloge",
+        "temps",
+        "cadence",
+        "partie",
+        "coup",
+        "joueur",
+        "adversaire",
+        "trait",
+        "feuille",
+        "notation",
+        "promotion",
+        "pièce",
+        "case",
+        "échiquier",
+        "position",
+        "illegal",
+        "irrégularité",
+        "article",
+        "règle",
+        "règlement",
     ]
 
     text_lower = text.lower()
@@ -63,7 +88,8 @@ def _normalize_category(uv: str, article_ref: str) -> str:
 
     if uv == "UVR":
         if "article" in article_lower and any(
-            c in article_lower for c in ["1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9."]
+            c in article_lower
+            for c in ["1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9."]
         ):
             return "regles_jeu"
         return "regles_jeu"
@@ -212,7 +238,13 @@ def generate_gold_standard(
             "question_type": ["factual", "procedural", "scenario", "comparative"],
             "cognitive_level": ["RECALL", "UNDERSTAND", "APPLY", "ANALYZE"],
             "reasoning_type": ["single-hop", "multi-hop", "temporal"],
-            "answer_type": ["extractive", "abstractive", "yes_no", "list", "multiple_choice"],
+            "answer_type": [
+                "extractive",
+                "abstractive",
+                "yes_no",
+                "list",
+                "multiple_choice",
+            ],
             "references": [
                 "Bloom's Taxonomy for cognitive levels",
                 "RAGAS/BEIR standards for question types",

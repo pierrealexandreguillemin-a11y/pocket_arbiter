@@ -12,6 +12,7 @@ Usage:
     python scripts/pipeline/check_answerability.py
     python scripts/pipeline/check_answerability.py --threshold 0.5 --batch-size 64
 """
+
 import json
 import time
 from pathlib import Path
@@ -21,6 +22,7 @@ import numpy as np
 
 try:
     from sentence_transformers import SentenceTransformer
+
     HAS_ST = True
 except ImportError:
     HAS_ST = False
@@ -31,6 +33,7 @@ except ImportError:
 @dataclass
 class AnswerabilityReport:
     """Answerability check report."""
+
     total_questions: int
     checked: int
     passed: int
@@ -97,7 +100,7 @@ def check_answerability(
     print(f"Checking {len(questions)} questions...")
     print(f"Threshold: {threshold}")
     try:
-        model_name = model.get_config_dict().get('model_name_or_path', 'unknown')
+        model_name = model.get_config_dict().get("model_name_or_path", "unknown")
     except AttributeError:
         model_name = str(type(model).__name__)
     print(f"Model: {model_name}")
@@ -107,13 +110,15 @@ def check_answerability(
     for q in questions:
         chunk_id = q.get("chunk_id")
         if chunk_id and chunk_id in chunks:
-            pairs.append({
-                "question": q["question"],
-                "chunk_text": chunks[chunk_id],
-                "chunk_id": chunk_id,
-                "category": q.get("category", "unknown"),
-                "difficulty": q.get("difficulty", "unknown"),
-            })
+            pairs.append(
+                {
+                    "question": q["question"],
+                    "chunk_text": chunks[chunk_id],
+                    "chunk_id": chunk_id,
+                    "category": q.get("category", "unknown"),
+                    "difficulty": q.get("difficulty", "unknown"),
+                }
+            )
 
     if not pairs:
         print("Error: No valid question-chunk pairs found")
@@ -185,20 +190,22 @@ def print_report(report: AnswerabilityReport, show_failed: int = 10) -> None:
     print("ANSWERABILITY CHECK REPORT")
     print("=" * 60)
 
-    print(f"\nStatistics:")
+    print("\nStatistics:")
     print(f"  Total questions: {report.total_questions}")
     print(f"  Checked: {report.checked}")
     print(f"  Passed: {report.passed}")
     print(f"  Failed: {report.failed}")
     print(f"  Pass rate: {report.pass_rate:.1f}%")
 
-    print(f"\nSimilarity scores:")
+    print("\nSimilarity scores:")
     print(f"  Average: {report.avg_similarity:.3f}")
     print(f"  Min: {report.min_similarity:.3f}")
     print(f"  Max: {report.max_similarity:.3f}")
 
     if report.low_similarity_questions:
-        print(f"\nLowest similarity questions ({min(show_failed, len(report.low_similarity_questions))}):")
+        print(
+            f"\nLowest similarity questions ({min(show_failed, len(report.low_similarity_questions))}):"
+        )
         for i, q in enumerate(report.low_similarity_questions[:show_failed]):
             print(f"\n  [{i+1}] Similarity: {q['similarity']:.3f}")
             print(f"      Category: {q['category']}")
@@ -253,44 +260,41 @@ def main():
     """Main entry point."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Check answerability via embedding similarity")
+    parser = argparse.ArgumentParser(
+        description="Check answerability via embedding similarity"
+    )
     parser.add_argument(
         "--questions",
         default="data/synthetic_triplets/synthetic_triplets_ffe_final.json",
-        help="Path to questions JSON"
+        help="Path to questions JSON",
     )
     parser.add_argument(
-        "--chunks",
-        default="data/chunks/chunks_ffe_v2.json",
-        help="Path to chunks JSON"
+        "--chunks", default="data/chunks/chunks_ffe_v2.json", help="Path to chunks JSON"
     )
     parser.add_argument(
         "--model",
         default="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-        help="Embedding model name"
+        help="Embedding model name",
     )
     parser.add_argument(
         "--threshold",
         type=float,
         default=0.5,
-        help="Minimum similarity threshold (default: 0.5)"
+        help="Minimum similarity threshold (default: 0.5)",
     )
     parser.add_argument(
-        "--batch-size",
-        type=int,
-        default=32,
-        help="Batch size for encoding"
+        "--batch-size", type=int, default=32, help="Batch size for encoding"
     )
     parser.add_argument(
         "--max-questions",
         type=int,
         default=None,
-        help="Limit number of questions (for testing)"
+        help="Limit number of questions (for testing)",
     )
     parser.add_argument(
         "--output",
         default="data/synthetic_triplets/answerability_report.json",
-        help="Output report path"
+        help="Output report path",
     )
 
     args = parser.parse_args()
@@ -310,6 +314,7 @@ def main():
             print(f"Error: Chunks file not found: {args.chunks}")
             print("Looking for chunks...")
             from glob import glob
+
             found = glob("**/chunks*.json", recursive=True)
             if found:
                 print(f"Found: {found[:5]}")

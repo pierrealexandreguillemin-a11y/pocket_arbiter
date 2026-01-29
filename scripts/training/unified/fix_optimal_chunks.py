@@ -23,32 +23,87 @@ DB_PATH = Path("corpus/processed/corpus_mode_b_fr.db")
 def normalize(text: str) -> str:
     """Normalize text for matching."""
     text = text.lower()
-    text = re.sub(r'[àâä]', 'a', text)
-    text = re.sub(r'[éèêë]', 'e', text)
-    text = re.sub(r'[îï]', 'i', text)
-    text = re.sub(r'[ôö]', 'o', text)
-    text = re.sub(r'[ùûü]', 'u', text)
-    text = re.sub(r'[ç]', 'c', text)
+    text = re.sub(r"[àâä]", "a", text)
+    text = re.sub(r"[éèêë]", "e", text)
+    text = re.sub(r"[îï]", "i", text)
+    text = re.sub(r"[ôö]", "o", text)
+    text = re.sub(r"[ùûü]", "u", text)
+    text = re.sub(r"[ç]", "c", text)
     return text
 
 
 def get_keywords(text: str, min_len: int = 3) -> set[str]:
     """Extract significant keywords."""
     stopwords = {
-        'dans', 'pour', 'avec', 'sans', 'cette', 'etre', 'avoir', 'fait',
-        'faire', 'plus', 'moins', 'tout', 'tous', 'peut', 'doit', 'sont',
-        'elle', 'nous', 'vous', 'leur', 'meme', 'autre', 'entre', 'aussi',
-        'article', 'regles', 'regle', 'joueur', 'joueurs', 'partie',
-        'echecs', 'coup', 'coups', 'blanc', 'blancs', 'noir', 'noirs',
-        'une', 'est', 'les', 'des', 'qui', 'que', 'par', 'sur', 'soit',
-        'quel', 'quoi', 'donc', 'mais', 'comme', 'toute', 'cela', 'celle',
-        'celui', 'ceux', 'apres', 'avant', 'cette', 'lors', 'lorsque',
+        "dans",
+        "pour",
+        "avec",
+        "sans",
+        "cette",
+        "etre",
+        "avoir",
+        "fait",
+        "faire",
+        "plus",
+        "moins",
+        "tout",
+        "tous",
+        "peut",
+        "doit",
+        "sont",
+        "elle",
+        "nous",
+        "vous",
+        "leur",
+        "meme",
+        "autre",
+        "entre",
+        "aussi",
+        "article",
+        "regles",
+        "regle",
+        "joueur",
+        "joueurs",
+        "partie",
+        "echecs",
+        "coup",
+        "coups",
+        "blanc",
+        "blancs",
+        "noir",
+        "noirs",
+        "une",
+        "est",
+        "les",
+        "des",
+        "qui",
+        "que",
+        "par",
+        "sur",
+        "soit",
+        "quel",
+        "quoi",
+        "donc",
+        "mais",
+        "comme",
+        "toute",
+        "cela",
+        "celle",
+        "celui",
+        "ceux",
+        "apres",
+        "avant",
+        "cette",
+        "lors",
+        "lorsque",
     }
     words = normalize(text).split()
     return {w for w in words if len(w) >= min_len and w not in stopwords}
 
 
-def score_chunk(chunk_text: str, answer_text: str, article_ref: str, question_text: str = "") -> tuple[float, float, float]:
+def score_chunk(
+    chunk_text: str, answer_text: str, article_ref: str, question_text: str = ""
+) -> tuple[float, float, float]:
     """
     Score a chunk for relevance.
 
@@ -67,7 +122,7 @@ def score_chunk(chunk_text: str, answer_text: str, article_ref: str, question_te
             answer_overlap = matches / len(answer_kw)
 
     # Article number match
-    art_match = re.search(r'(\d+\.?\d*\.?\d*)', article_ref)
+    art_match = re.search(r"(\d+\.?\d*\.?\d*)", article_ref)
     if art_match:
         art_num = art_match.group(1)
         if art_num in chunk_norm:
@@ -113,14 +168,18 @@ def main():
     chunks_by_prefix: dict[str, list[dict]] = defaultdict(list)
     for row in cur:
         prefix = get_doc_prefix(row[2])
-        chunks_by_prefix[prefix].append({
-            "id": row[0],
-            "text": row[1],
-            "source": row[2],
-            "page": row[3],
-        })
+        chunks_by_prefix[prefix].append(
+            {
+                "id": row[0],
+                "text": row[1],
+                "source": row[2],
+                "page": row[3],
+            }
+        )
 
-    print(f"Loaded chunks by prefix: {dict((k, len(v)) for k, v in chunks_by_prefix.items())}")
+    print(
+        f"Loaded chunks by prefix: {dict((k, len(v)) for k, v in chunks_by_prefix.items())}"
+    )
     print(f"Processing {len(gs['questions'])} questions...")
 
     # Stats
@@ -240,7 +299,7 @@ def main():
 
         # Check article
         has_article = False
-        art_match = re.search(r'(\d+\.?\d*\.?\d*)', article_ref)
+        art_match = re.search(r"(\d+\.?\d*\.?\d*)", article_ref)
         if art_match and art_match.group(1) in chunk_text:
             has_article = True
 

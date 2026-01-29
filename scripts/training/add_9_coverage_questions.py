@@ -27,14 +27,18 @@ def main() -> None:
             "expected_pages": [2],
             "category": "medical",
             "keywords": ["medecin", "federal", "nomination", "comite directeur"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 2.2.1 Reglement medical"
-            }
+                "article_reference": "Article 2.2.1 Reglement medical",
+            },
         },
         {
             "id": "FR-FIN-001",
@@ -46,14 +50,18 @@ def main() -> None:
             "expected_pages": [1],
             "category": "administratif",
             "keywords": ["commissaire", "comptes", "certification", "finances"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 2 Reglement Financier"
-            }
+                "article_reference": "Article 2 Reglement Financier",
+            },
         },
         {
             "id": "FR-STAT-001",
@@ -65,14 +73,18 @@ def main() -> None:
             "expected_pages": [2],
             "category": "administratif",
             "keywords": ["siege", "social", "adresse", "Asnieres"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 1.2 Statuts FFE"
-            }
+                "article_reference": "Article 1.2 Statuts FFE",
+            },
         },
         {
             "id": "FR-RI-001",
@@ -84,14 +96,18 @@ def main() -> None:
             "expected_pages": [2],
             "category": "administratif",
             "keywords": ["affiliation", "club", "licencies A", "minimum"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 1.1 Reglement Interieur"
-            }
+                "article_reference": "Article 1.1 Reglement Interieur",
+            },
         },
         {
             "id": "FR-DEL-001",
@@ -102,15 +118,25 @@ def main() -> None:
             "expected_docs": ["Contrat_de_delegation_15032022.pdf"],
             "expected_pages": [5],
             "category": "administratif",
-            "keywords": ["delegation", "specialites", "disciplines", "e-Chess", "contrat"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "keywords": [
+                "delegation",
+                "specialites",
+                "disciplines",
+                "e-Chess",
+                "contrat",
+            ],
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "list",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 1 Contrat de delegation"
-            }
+                "article_reference": "Article 1 Contrat de delegation",
+            },
         },
         {
             "id": "FR-N6BDR-001",
@@ -122,14 +148,18 @@ def main() -> None:
             "expected_pages": [5],
             "category": "regional",
             "keywords": ["equipe", "composition", "N6", "Bouches-du-Rhone"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 3.7 Reglement N6 BDR"
-            }
+                "article_reference": "Article 3.7 Reglement N6 BDR",
+            },
         },
         {
             "id": "FR-IJBDR-001",
@@ -141,14 +171,18 @@ def main() -> None:
             "expected_pages": [2],
             "category": "regional",
             "keywords": ["cadence", "echiquier 4", "interclubs", "jeunes"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 7 Interclubs Jeunes BDR"
-            }
+                "article_reference": "Article 7 Interclubs Jeunes BDR",
+            },
         },
         {
             "id": "FR-N4PACA-001",
@@ -160,14 +194,18 @@ def main() -> None:
             "expected_pages": [1],
             "category": "regional",
             "keywords": ["N4", "groupes", "PACA", "structure"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 1.1 Reglement N4 PACA"
-            }
+                "article_reference": "Article 1.1 Reglement N4 PACA",
+            },
         },
         {
             "id": "FR-REGPACA-001",
@@ -179,14 +217,18 @@ def main() -> None:
             "expected_pages": [2],
             "category": "regional",
             "keywords": ["equipe", "composition", "regionale", "PACA"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 3.7.a Reglement Regionale PACA"
-            }
+                "article_reference": "Article 3.7.a Reglement Regionale PACA",
+            },
         },
         {
             "id": "FR-COMP-001",
@@ -194,18 +236,33 @@ def main() -> None:
             "expected_answer": "Top16/N1/N2/N3 : 8 joueurs. N4 : 8 joueurs (ou 6 si la Ligue le choisit). Regionale PACA : 5 joueurs. Departementale N6 BDR : 4 joueurs.",
             "is_impossible": False,
             "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent004-child00",
-            "expected_docs": ["A02_2025_26_Championnat_de_France_des_Clubs.pdf", "règlement_régionale_2024_2025.pdf", "Interclubs_DepartementalBdr.pdf"],
+            "expected_docs": [
+                "A02_2025_26_Championnat_de_France_des_Clubs.pdf",
+                "règlement_régionale_2024_2025.pdf",
+                "Interclubs_DepartementalBdr.pdf",
+            ],
             "expected_pages": [5, 2, 5],
             "category": "interclubs",
-            "keywords": ["composition", "equipe", "joueurs", "championnat", "national", "regional"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "keywords": [
+                "composition",
+                "equipe",
+                "joueurs",
+                "championnat",
+                "national",
+                "regional",
+            ],
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "list",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "Understand",
-                "article_reference": "Article 3.7.a A02, Article 3.7.a Regionale PACA, Article 3.7 N6 BDR"
-            }
+                "article_reference": "Article 3.7.a A02, Article 3.7.a Regionale PACA, Article 3.7 N6 BDR",
+            },
         },
         {
             "id": "FR-NOYAU-001",
@@ -217,15 +274,19 @@ def main() -> None:
             "expected_pages": [6],
             "category": "interclubs",
             "keywords": ["noyau", "equipe", "50%", "composition", "N1", "N2", "N3"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "extractive",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "Remember",
-                "article_reference": "Article 3.7.f A02"
-            }
-        }
+                "article_reference": "Article 3.7.f A02",
+            },
+        },
     ]
 
     gs["questions"].extend(coverage_questions)

@@ -4,7 +4,6 @@ Tests pour add_expected_chunk_id.py
 ISO Reference: ISO/IEC 29119 - Test coverage >= 80%
 """
 
-import json
 import sqlite3
 import tempfile
 from pathlib import Path

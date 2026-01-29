@@ -21,6 +21,11 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers", "iso_blocking: marks tests as ISO blocking criteria"
     )
+    # Suppress docling internal deprecation for generate_table_images (docling >= 2.68)
+    config.addinivalue_line(
+        "filterwarnings",
+        "ignore:Field `generate_table_images` is deprecated:DeprecationWarning",
+    )
 
 
 @pytest.fixture

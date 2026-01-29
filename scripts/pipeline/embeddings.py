@@ -231,11 +231,15 @@ def embed_documents(
         raise ValueError("documents list cannot be empty")
 
     if titles is not None and len(titles) != len(documents):
-        raise ValueError(f"titles length ({len(titles)}) != documents length ({len(documents)})")
+        raise ValueError(
+            f"titles length ({len(titles)}) != documents length ({len(documents)})"
+        )
 
     # Si titles fournis, utiliser prompts manuels avec titles (meilleure relevance +4%)
     # Source: ai.google.dev/gemma/docs/embeddinggemma - "include titles when available"
-    if titles is not None and is_embeddinggemma_model(getattr(model, "model_card_data", {}).get("base_model", MODEL_ID)):
+    if titles is not None and is_embeddinggemma_model(
+        getattr(model, "model_card_data", {}).get("base_model", MODEL_ID)
+    ):
         docs_with_prompts = []
         for doc, title in zip(documents, titles):
             if title:

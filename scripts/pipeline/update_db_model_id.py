@@ -89,13 +89,15 @@ def main() -> None:
         description="Update database model_id metadata for traceability"
     )
     parser.add_argument(
-        "--db", "-d",
+        "--db",
+        "-d",
         type=Path,
         required=True,
         help="SQLite database to update",
     )
     parser.add_argument(
-        "--model-id", "-m",
+        "--model-id",
+        "-m",
         type=str,
         default=DEFAULT_MODEL_ID,
         help=f"Model ID to set (default: {DEFAULT_MODEL_ID})",

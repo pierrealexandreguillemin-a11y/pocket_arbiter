@@ -24,7 +24,9 @@ if TYPE_CHECKING:
 # bge-reranker-base: Multilingual, plus leger (~200M params)
 # IMPORTANT: ms-marco est EN-only, inutilisable pour corpus FR
 DEFAULT_MODEL = "BAAI/bge-reranker-v2-m3"
-FALLBACK_MODEL = "BAAI/bge-reranker-base"  # Multilingual fallback (pas MS-MARCO EN-only)
+FALLBACK_MODEL = (
+    "BAAI/bge-reranker-base"  # Multilingual fallback (pas MS-MARCO EN-only)
+)
 
 
 def load_reranker(

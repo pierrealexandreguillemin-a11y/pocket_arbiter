@@ -11,6 +11,7 @@ Usage:
     # Full generation FIDE
     python scripts/pipeline/run_cerebras_generation.py --corpus fide
 """
+
 import argparse
 import json
 import os
@@ -81,9 +82,7 @@ def build_prompt(corpus: str, num_questions: int) -> str:
 
     if corpus == "ffe":
         examples = "\n".join(
-            f"- {ex}"
-            for cat in cats.values()
-            for ex in cat["examples"][:2]
+            f"- {ex}" for cat in cats.values() for ex in cat["examples"][:2]
         )
         return f"""Tu es un arbitre d'echecs FFE experimente.
 Genere {num_questions} questions REALISTES basees sur le texte fourni.
@@ -105,9 +104,7 @@ JSON UNIQUEMENT:
 {{"questions": [{{"question": "...", "category": "arbitre_terrain|arbitre_organisateur|question_joueur", "difficulty": "easy|medium|hard"}}]}}"""
     else:
         examples = "\n".join(
-            f"- {ex}"
-            for cat in cats.values()
-            for ex in cat["examples"][:2]
+            f"- {ex}" for cat in cats.values() for ex in cat["examples"][:2]
         )
         return f"""You are an experienced FIDE arbiter.
 Generate {num_questions} REALISTIC questions based on the provided text.

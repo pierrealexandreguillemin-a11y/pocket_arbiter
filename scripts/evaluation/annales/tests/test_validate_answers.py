@@ -98,17 +98,13 @@ class TestBuildArticlePageIndex:
 
     def test_indexes_chapter_pattern(self) -> None:
         """Should index chapter references."""
-        chunks = [
-            {"source": "test.pdf", "text": "Chapitre 8 - Temps", "pages": [20]}
-        ]
+        chunks = [{"source": "test.pdf", "text": "Chapitre 8 - Temps", "pages": [20]}]
         index = build_article_page_index(chunks)
         assert "test.pdf|Ch.8" in index
 
     def test_indexes_preambule(self) -> None:
         """Should index préambule reference."""
-        chunks = [
-            {"source": "test.pdf", "text": "Le Préambule établit", "pages": [1]}
-        ]
+        chunks = [{"source": "test.pdf", "text": "Le Préambule établit", "pages": [1]}]
         index = build_article_page_index(chunks)
         assert "test.pdf|Préambule" in index
 
@@ -258,7 +254,11 @@ class TestR01PatternMatching:
     def test_r01_article_indexed(self) -> None:
         """Should index R01 article pattern."""
         chunks = [
-            {"source": "reglements.pdf", "text": "R01 article 2.5 stipule", "pages": [25]}
+            {
+                "source": "reglements.pdf",
+                "text": "R01 article 2.5 stipule",
+                "pages": [25],
+            }
         ]
         index = build_article_page_index(chunks)
         assert "reglements.pdf|R01.2.5" in index

@@ -36,7 +36,9 @@ logger = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 
 DEFAULT_INPUT = PROJECT_ROOT / "data" / "training" / "unified" / "triplets_train.jsonl"
-DEFAULT_OUTPUT = PROJECT_ROOT / "data" / "training" / "unified" / "validation_report.json"
+DEFAULT_OUTPUT = (
+    PROJECT_ROOT / "data" / "training" / "unified" / "validation_report.json"
+)
 
 # Quality gate thresholds (UNIFIED spec 2.4)
 DEDUP_THRESHOLD = 0.05  # Max 5% duplicates
@@ -99,15 +101,21 @@ def validate_schema(triplets: list[dict]) -> dict[str, Any]:
                 triplet_errors.append(f"Missing required field: {field}")
             elif not isinstance(triplet[field], str):
                 triplet_errors.append(f"Field {field} must be string")
-            elif len(triplet[field]) < TRIPLET_SCHEMA["properties"][field].get("minLength", 0):
+            elif len(triplet[field]) < TRIPLET_SCHEMA["properties"][field].get(
+                "minLength", 0
+            ):
                 triplet_errors.append(f"Field {field} too short")
 
         if triplet_errors:
-            errors.append({
-                "index": i,
-                "question_id": triplet.get("metadata", {}).get("question_id", "unknown"),
-                "errors": triplet_errors,
-            })
+            errors.append(
+                {
+                    "index": i,
+                    "question_id": triplet.get("metadata", {}).get(
+                        "question_id", "unknown"
+                    ),
+                    "errors": triplet_errors,
+                }
+            )
         else:
             valid_count += 1
 
@@ -137,8 +145,12 @@ def check_exact_duplicates(triplets: list[dict]) -> dict[str, Any]:
         positive_hashes[ph].append(i)
 
     # Find duplicates
-    anchor_dups = {h: indices for h, indices in anchor_hashes.items() if len(indices) > 1}
-    positive_dups = {h: indices for h, indices in positive_hashes.items() if len(indices) > 1}
+    anchor_dups = {
+        h: indices for h, indices in anchor_hashes.items() if len(indices) > 1
+    }
+    positive_dups = {
+        h: indices for h, indices in positive_hashes.items() if len(indices) > 1
+    }
 
     total = len(triplets)
     anchor_dup_count = sum(len(v) - 1 for v in anchor_dups.values())
@@ -195,13 +207,19 @@ def check_semantic_duplicates(
                 np.linalg.norm(embeddings[i]) * np.linalg.norm(embeddings[j])
             )
             if sim >= threshold:
-                duplicates.append({
-                    "i": i,
-                    "j": j,
-                    "similarity": round(float(sim), 4),
-                })
+                duplicates.append(
+                    {
+                        "i": i,
+                        "j": j,
+                        "similarity": round(float(sim), 4),
+                    }
+                )
 
-    dup_rate = len(duplicates) / (len(sample) * (len(sample) - 1) / 2) if len(sample) > 1 else 0
+    dup_rate = (
+        len(duplicates) / (len(sample) * (len(sample) - 1) / 2)
+        if len(sample) > 1
+        else 0
+    )
 
     return {
         "checked": True,
@@ -296,13 +314,15 @@ def main() -> None:
         description="Validate training dataset (UNIFIED spec Step 5)"
     )
     parser.add_argument(
-        "--input", "-i",
+        "--input",
+        "-i",
         type=Path,
         default=DEFAULT_INPUT,
         help="Input triplets JSONL",
     )
     parser.add_argument(
-        "--output", "-o",
+        "--output",
+        "-o",
         type=Path,
         default=DEFAULT_OUTPUT,
         help="Output validation report JSON",
@@ -313,7 +333,8 @@ def main() -> None:
         help="Check semantic duplicates (requires embedding model, slower)",
     )
     parser.add_argument(
-        "--verbose", "-v",
+        "--verbose",
+        "-v",
         action="store_true",
     )
     args = parser.parse_args()
@@ -334,7 +355,9 @@ def main() -> None:
     logger.info("Validating schema...")
     schema_result = validate_schema(triplets)
     logger.info(f"  Schema: {'PASS' if schema_result['passed'] else 'FAIL'}")
-    logger.info(f"    Valid: {schema_result['valid_count']}, Errors: {schema_result['error_count']}")
+    logger.info(
+        f"    Valid: {schema_result['valid_count']}, Errors: {schema_result['error_count']}"
+    )
 
     # Exact duplicates
     logger.info("Checking exact duplicates...")
@@ -348,18 +371,25 @@ def main() -> None:
         logger.info("Checking semantic duplicates...")
         try:
             from sentence_transformers import SentenceTransformer
-            model = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized")
+
+            model = SentenceTransformer(
+                "google/embeddinggemma-300m-qat-q4_0-unquantized"
+            )
             semantic_dups = check_semantic_duplicates(triplets, model)
             status = "PASS" if semantic_dups.get("passed", False) else "FAIL"
             logger.info(f"  Semantic dedup: {status}")
-            logger.info(f"    Duplicate rate: {semantic_dups.get('duplicate_rate', 'N/A')}")
+            logger.info(
+                f"    Duplicate rate: {semantic_dups.get('duplicate_rate', 'N/A')}"
+            )
         except Exception as e:
             logger.warning(f"Could not check semantic duplicates: {e}")
 
     # Distribution analysis
     logger.info("Analyzing distribution...")
     distribution = analyze_distribution(triplets)
-    logger.info(f"  Category entropy: {distribution['category_entropy']} (threshold: {ENTROPY_THRESHOLD})")
+    logger.info(
+        f"  Category entropy: {distribution['category_entropy']} (threshold: {ENTROPY_THRESHOLD})"
+    )
     logger.info(f"  Method entropy: {distribution['method_entropy']}")
 
     # DVC lineage
@@ -417,9 +447,15 @@ def main() -> None:
     logger.info("=" * 60)
     logger.info("")
     logger.info("Quality Gates:")
-    logger.info(f"  Gate 5 - Schema:        {'PASS' if report['quality_gates']['gate_5_schema']['passed'] else 'FAIL'}")
-    logger.info(f"  Gate 5 - Deduplication: {'PASS' if report['quality_gates']['gate_5_deduplication']['passed'] else 'FAIL'}")
-    logger.info(f"  Gate 5 - Distribution:  {'PASS' if report['quality_gates']['gate_5_distribution']['passed'] else 'FAIL'}")
+    logger.info(
+        f"  Gate 5 - Schema:        {'PASS' if report['quality_gates']['gate_5_schema']['passed'] else 'FAIL'}"
+    )
+    logger.info(
+        f"  Gate 5 - Deduplication: {'PASS' if report['quality_gates']['gate_5_deduplication']['passed'] else 'FAIL'}"
+    )
+    logger.info(
+        f"  Gate 5 - Distribution:  {'PASS' if report['quality_gates']['gate_5_distribution']['passed'] else 'FAIL'}"
+    )
 
     if not all_passed:
         logger.warning("\nDataset validation FAILED. Review report for details.")

@@ -35,9 +35,16 @@ DIFFICULTY_REASONING = 0.9
 
 # Questions page [3] suspectes (from plan)
 PAGE_3_SUSPECTS = [
-    "FR-ANN-UVC-011", "FR-ANN-UVC-025", "FR-ANN-UVC-028", "FR-ANN-UVO-031",
-    "FR-ANN-UVC-067", "FR-ANN-UVC-073", "FR-ANN-UVC-083", "FR-ANN-UVC-101",
-    "FR-ANN-UVC-130", "FR-ANN-UVC-136"
+    "FR-ANN-UVC-011",
+    "FR-ANN-UVC-025",
+    "FR-ANN-UVC-028",
+    "FR-ANN-UVO-031",
+    "FR-ANN-UVC-067",
+    "FR-ANN-UVC-073",
+    "FR-ANN-UVC-083",
+    "FR-ANN-UVC-101",
+    "FR-ANN-UVC-130",
+    "FR-ANN-UVC-136",
 ]
 
 # Paths
@@ -49,6 +56,7 @@ DOCLING_DIR = Path("corpus/processed/docling_fr")
 @dataclass
 class NormalizationResult:
     """Result of normalizing one question."""
+
     id: str
     chunk_id: Optional[str] = None
     page_verified: Optional[int] = None
@@ -89,7 +97,9 @@ def load_docling_json(doc_name: str) -> Optional[dict]:
     return None
 
 
-def find_page_in_docling(docling: dict, article_ref: str, answer_text: str) -> Optional[int]:
+def find_page_in_docling(
+    docling: dict, article_ref: str, answer_text: str
+) -> Optional[int]:
     """
     Find the correct page in docling JSON by matching article reference and answer.
 
@@ -138,7 +148,9 @@ def find_page_in_docling(docling: dict, article_ref: str, answer_text: str) -> O
     return best_page
 
 
-def find_chunk_for_page(conn: sqlite3.Connection, source: str, page: int) -> Optional[str]:
+def find_chunk_for_page(
+    conn: sqlite3.Connection, source: str, page: int
+) -> Optional[str]:
     """Find the best chunk for a given source and page."""
     # Normalize source name for matching
     source_pattern = source.replace(".pdf", "").split("_")[0]
@@ -147,7 +159,7 @@ def find_chunk_for_page(conn: sqlite3.Connection, source: str, page: int) -> Opt
         """SELECT id, text FROM chunks
            WHERE source LIKE ? AND page = ?
            ORDER BY id LIMIT 5""",
-        (f"%{source_pattern}%", page)
+        (f"%{source_pattern}%", page),
     )
 
     rows = cur.fetchall()
@@ -166,9 +178,15 @@ def classify_retrieval_difficulty(question: dict) -> float:
 
     # Reasoning indicators
     reasoning_patterns = [
-        r"combien", r"calculer", r"quel.*score", r"quelle.*sanction",
-        r"que.*faire", r"comment.*réagir", r"si.*alors",
-        r"exception", r"priorité"
+        r"combien",
+        r"calculer",
+        r"quel.*score",
+        r"quelle.*sanction",
+        r"que.*faire",
+        r"comment.*réagir",
+        r"si.*alors",
+        r"exception",
+        r"priorité",
     ]
 
     for p in reasoning_patterns:
@@ -178,10 +196,7 @@ def classify_retrieval_difficulty(question: dict) -> float:
     return DIFFICULTY_SINGLE_HOP
 
 
-def normalize_question(
-    question: dict,
-    conn: sqlite3.Connection
-) -> NormalizationResult:
+def normalize_question(question: dict, conn: sqlite3.Connection) -> NormalizationResult:
     """
     Normalize a single question:
     1. Verify page against docling
@@ -189,8 +204,7 @@ def normalize_question(
     3. Calculate difficulties
     """
     result = NormalizationResult(
-        id=question["id"],
-        page_original=question.get("expected_pages", [])
+        id=question["id"], page_original=question.get("expected_pages", [])
     )
 
     # Get source document
@@ -235,10 +249,7 @@ def normalize_question(
     return result
 
 
-def process_batch(
-    questions: list[dict],
-    batch_id: int
-) -> list[NormalizationResult]:
+def process_batch(questions: list[dict], batch_id: int) -> list[NormalizationResult]:
     """Process a batch of questions."""
     conn = sqlite3.connect(str(DB_PATH))
     results = []
@@ -268,8 +279,7 @@ def normalize_gold_standard(num_workers: int = 4) -> dict:
     # Split into batches
     batch_size = len(questions) // num_workers + 1
     batches = [
-        questions[i:i + batch_size]
-        for i in range(0, len(questions), batch_size)
+        questions[i : i + batch_size] for i in range(0, len(questions), batch_size)
     ]
 
     # Process in parallel
@@ -288,12 +298,7 @@ def normalize_gold_standard(num_workers: int = 4) -> dict:
     results_lookup = {r.id: r for r in all_results}
 
     # Update gold standard
-    stats = {
-        "chunk_added": 0,
-        "page_corrected": 0,
-        "difficulty_added": 0,
-        "errors": 0
-    }
+    stats = {"chunk_added": 0, "page_corrected": 0, "difficulty_added": 0, "errors": 0}
 
     for q in questions:
         result = results_lookup.get(q["id"])
@@ -347,7 +352,7 @@ def validate_results() -> dict:
         "single_page": 0,
         "with_difficulty_human": 0,
         "with_difficulty_retrieval": 0,
-        "page_3_remaining": 0
+        "page_3_remaining": 0,
     }
 
     for q in gs["questions"]:
@@ -356,8 +361,7 @@ def validate_results() -> dict:
 
             # Verify chunk exists
             cur = conn.execute(
-                "SELECT 1 FROM chunks WHERE id = ?",
-                (q["expected_chunk_id"],)
+                "SELECT 1 FROM chunks WHERE id = ?", (q["expected_chunk_id"],)
             )
             if cur.fetchone():
                 validation["chunk_exists_in_db"] += 1
@@ -416,17 +420,19 @@ if __name__ == "__main__":
     print(f"  chunks exist in DB:     {validation['chunk_exists_in_db']}/{total}")
     print(f"  single page:            {validation['single_page']}/{total}")
     print(f"  difficulty_human:       {validation['with_difficulty_human']}/{total}")
-    print(f"  difficulty_retrieval:   {validation['with_difficulty_retrieval']}/{total}")
+    print(
+        f"  difficulty_retrieval:   {validation['with_difficulty_retrieval']}/{total}"
+    )
     print(f"  page [3] remaining:     {validation['page_3_remaining']}")
     print("=" * 60)
 
     # Check if all criteria met
     all_pass = (
-        validation["with_chunk_id"] == total and
-        validation["chunk_exists_in_db"] == total and
-        validation["single_page"] == total and
-        validation["with_difficulty_human"] == total and
-        validation["with_difficulty_retrieval"] == total
+        validation["with_chunk_id"] == total
+        and validation["chunk_exists_in_db"] == total
+        and validation["single_page"] == total
+        and validation["with_difficulty_human"] == total
+        and validation["with_difficulty_retrieval"] == total
     )
 
     if all_pass:

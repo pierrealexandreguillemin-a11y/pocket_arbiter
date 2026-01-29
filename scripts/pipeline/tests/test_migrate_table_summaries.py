@@ -7,10 +7,7 @@ ISO Reference:
 """
 
 import json
-import tempfile
 from pathlib import Path
-
-import pytest
 
 
 class TestBuildTableToPageMapping:
@@ -46,7 +43,7 @@ class TestBuildTableToPageMapping:
                     "#/tables/0": {"prov": [{"page_no": 5}]},
                     "#/tables/1": {"prov": [{"page_no": 10}]},
                 }
-            }
+            },
         }
         json_file = tmp_path / "test.json"
         json_file.write_text(json.dumps(docling_data), encoding="utf-8")
@@ -69,7 +66,7 @@ class TestBuildTableToPageMapping:
                     {"prov": [{"page_no": 3}]},
                     {"prov": [{"page_no": 7}]},
                 ]
-            }
+            },
         }
         json_file = tmp_path / "doc.json"
         json_file.write_text(json.dumps(docling_data), encoding="utf-8")
@@ -120,9 +117,11 @@ class TestMigrateTableSummaries:
                     "#/tables/0": {"prov": [{"page_no": 5}]},
                     "#/tables/1": {"prov": [{"page_no": 10}]},
                 }
-            }
+            },
         }
-        (docling_dir / "test.json").write_text(json.dumps(docling_data), encoding="utf-8")
+        (docling_dir / "test.json").write_text(
+            json.dumps(docling_data), encoding="utf-8"
+        )
 
         # Migrate
         stats = migrate_table_summaries(tables_file, docling_dir)

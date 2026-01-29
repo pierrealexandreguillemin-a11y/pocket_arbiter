@@ -56,7 +56,7 @@ def main() -> None:
         if count > 0:
             print(f"  {old} -> {mapping[old]}: {count}")
     print(f"Total fixed: {sum(fixed_count.values())}")
-    print(f"Version: 7.2.1")
+    print("Version: 7.2.1")
 
 
 if __name__ == "__main__":

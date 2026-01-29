@@ -30,8 +30,18 @@ class TestFindChunksForPages:
     @pytest.fixture
     def sample_chunks(self) -> list[dict]:
         return [
-            {"id": "c1", "source": "LA-octobre2025.pdf", "pages": [1, 2], "text": "Chunk 1"},
-            {"id": "c2", "source": "LA-octobre2025.pdf", "pages": [3, 4], "text": "Chunk 2"},
+            {
+                "id": "c1",
+                "source": "LA-octobre2025.pdf",
+                "pages": [1, 2],
+                "text": "Chunk 1",
+            },
+            {
+                "id": "c2",
+                "source": "LA-octobre2025.pdf",
+                "pages": [3, 4],
+                "text": "Chunk 2",
+            },
             {"id": "c3", "source": "other.pdf", "pages": [1], "text": "Chunk 3"},
         ]
 

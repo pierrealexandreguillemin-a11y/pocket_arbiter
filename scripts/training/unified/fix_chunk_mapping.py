@@ -29,6 +29,7 @@ DOCLING_DIR = Path("corpus/processed/docling_fr")
 @dataclass
 class ChunkMatch:
     """Result of chunk matching."""
+
     chunk_id: str
     score: float
     method: str
@@ -73,26 +74,66 @@ def load_table_chunks(conn: sqlite3.Connection) -> dict[str, dict]:
 def normalize_text(text: str) -> str:
     """Normalize text for comparison."""
     text = text.lower()
-    text = re.sub(r'[àâä]', 'a', text)
-    text = re.sub(r'[éèêë]', 'e', text)
-    text = re.sub(r'[îï]', 'i', text)
-    text = re.sub(r'[ôö]', 'o', text)
-    text = re.sub(r'[ùûü]', 'u', text)
-    text = re.sub(r'[ç]', 'c', text)
-    text = re.sub(r'[^a-z0-9\s]', ' ', text)
+    text = re.sub(r"[àâä]", "a", text)
+    text = re.sub(r"[éèêë]", "e", text)
+    text = re.sub(r"[îï]", "i", text)
+    text = re.sub(r"[ôö]", "o", text)
+    text = re.sub(r"[ùûü]", "u", text)
+    text = re.sub(r"[ç]", "c", text)
+    text = re.sub(r"[^a-z0-9\s]", " ", text)
     return text
 
 
 def extract_keywords(text: str, min_len: int = 4) -> set[str]:
     """Extract significant keywords from text."""
     stopwords = {
-        "dans", "pour", "avec", "sans", "cette", "etre", "avoir",
-        "fait", "faire", "plus", "moins", "tout", "tous", "toute",
-        "peut", "doit", "sont", "ete", "elle", "nous", "vous",
-        "leur", "leurs", "meme", "autre", "entre", "sous", "aussi",
-        "ainsi", "donc", "alors", "comme", "mais", "avant", "apres",
-        "article", "regles", "regle", "joueur", "joueurs", "joueuse",
-        "partie", "parties", "echecs", "echec", "coup", "coups",
+        "dans",
+        "pour",
+        "avec",
+        "sans",
+        "cette",
+        "etre",
+        "avoir",
+        "fait",
+        "faire",
+        "plus",
+        "moins",
+        "tout",
+        "tous",
+        "toute",
+        "peut",
+        "doit",
+        "sont",
+        "ete",
+        "elle",
+        "nous",
+        "vous",
+        "leur",
+        "leurs",
+        "meme",
+        "autre",
+        "entre",
+        "sous",
+        "aussi",
+        "ainsi",
+        "donc",
+        "alors",
+        "comme",
+        "mais",
+        "avant",
+        "apres",
+        "article",
+        "regles",
+        "regle",
+        "joueur",
+        "joueurs",
+        "joueuse",
+        "partie",
+        "parties",
+        "echecs",
+        "echec",
+        "coup",
+        "coups",
     }
     text = normalize_text(text)
     words = text.split()
@@ -176,12 +217,14 @@ def find_best_chunk(
                 method = "page_match"
 
         if score > 0:
-            candidates.append(ChunkMatch(
-                chunk_id=chunk_id,
-                score=score,
-                method=method,
-                answer_overlap=compute_overlap(answer, chunk_text) if answer else 0,
-            ))
+            candidates.append(
+                ChunkMatch(
+                    chunk_id=chunk_id,
+                    score=score,
+                    method=method,
+                    answer_overlap=compute_overlap(answer, chunk_text) if answer else 0,
+                )
+            )
 
     if not candidates:
         return None
@@ -312,10 +355,14 @@ def fix_all_questions():
     # Document corrections
     doc_corrections = {
         "FR-ANN-UVC-109": {
-            "expected_docs": ["J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"],
+            "expected_docs": [
+                "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+            ],
         },
         "FR-ANN-UVC-128": {
-            "expected_docs": ["J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"],
+            "expected_docs": [
+                "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+            ],
         },
     }
 
@@ -358,7 +405,10 @@ def fix_all_questions():
             expected_pages = q.get("expected_pages", [])
             if expected_pages:
                 for chunk_id, chunk in chunks.items():
-                    if source_prefix in chunk["source"] and chunk["page"] == expected_pages[0]:
+                    if (
+                        source_prefix in chunk["source"]
+                        and chunk["page"] == expected_pages[0]
+                    ):
                         q["expected_chunk_id"] = chunk_id
                         break
                 else:

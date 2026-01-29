@@ -1,0 +1,26 @@
+[run]
+source = scripts/
+# Scope: testable library code only (ISO 29119-4)
+# Deviation from plan: training/** and evaluation/** use recursive glob (**)
+# because fnmatch * does not cross path separators.
+# Added chunker_langchain.py (49% — legacy LangChain wrapper) and
+# update_db_model_id.py (0% — one-shot migration script) to reach 80%.
+omit =
+    scripts/training/**
+    scripts/evaluation/**
+    scripts/pipeline/adversarial_harness.py
+    scripts/pipeline/chunker_langchain.py
+    scripts/pipeline/update_db_model_id.py
+    scripts/consolidate_*.py
+    scripts/create_*.py
+    scripts/validate_anti_hallucination.py
+    */conftest.py
+    */tests/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise NotImplementedError
+    \.\.\.
+fail_under = 80

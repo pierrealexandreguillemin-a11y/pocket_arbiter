@@ -3,7 +3,7 @@
 
 from unittest.mock import patch, MagicMock
 
-from ..setup_dvc import run_command
+from ..setup_dvc import run_command, _step_init_dvc, _step_track_models
 
 
 class TestRunCommand:
@@ -76,6 +76,40 @@ class TestCheckDvcInstalled:
             mock_run.side_effect = [(False, "not found"), (True, "3.0.0")]
             result = setup_module.check_dvc_installed()
             assert result is True
+
+
+class TestStepInitDvc:
+    """Tests for _step_init_dvc function."""
+
+    def test_init_dvc_failure(self, tmp_path, capsys):
+        """Test _step_init_dvc when dvc init fails."""
+        with patch("scripts.iso.setup_dvc.run_command") as mock_run:
+            mock_run.return_value = (False, "error: already initialized")
+            result = _step_init_dvc(tmp_path)
+            assert result is False
+            captured = capsys.readouterr()
+            assert "FAILED" in captured.out
+
+
+class TestStepTrackModels:
+    """Tests for _step_track_models function."""
+
+    def test_track_models_no_dir(self, tmp_path, capsys):
+        """Test _step_track_models when models/ doesn't exist."""
+        _step_track_models(tmp_path)  # models/ does not exist
+        captured = capsys.readouterr()
+        assert "SKIP" in captured.out
+
+    def test_track_models_with_files(self, tmp_path, capsys):
+        """Test _step_track_models with model files present."""
+        models_dir = tmp_path / "models"
+        models_dir.mkdir()
+        (models_dir / "model.gguf").write_text("fake")
+        with patch("scripts.iso.setup_dvc.run_command") as mock_run:
+            mock_run.return_value = (True, "ok")
+            _step_track_models(tmp_path)
+            captured = capsys.readouterr()
+            assert "1 model files" in captured.out
 
 
 class TestMainFunction:

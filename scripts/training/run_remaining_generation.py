@@ -1,12 +1,13 @@
 """Generate questions for remaining chunks only."""
+
 import json
+import os
 import time
 from pathlib import Path
 
 from cerebras.cloud.sdk import Cerebras
 
 MODEL = "llama-3.3-70b"
-API_KEY = "REDACTED_ROTATE_KEY"
 OUTPUT_DIR = Path("data/synthetic_triplets")
 
 
@@ -80,16 +81,22 @@ def generate_questions(client: Cerebras, chunk_text: str, chunk_id: str) -> list
 
 
 def main():
-    client = Cerebras(api_key=API_KEY)
+    api_key = os.environ.get("CEREBRAS_API_KEY")
+    if not api_key:
+        print("Error: CEREBRAS_API_KEY environment variable required")
+        return
+    client = Cerebras(api_key=api_key)
 
     # Load remaining chunks
     remaining = json.load(open(OUTPUT_DIR / "remaining_chunks.json", encoding="utf-8"))
 
     # Load existing questions
-    existing = json.load(open(OUTPUT_DIR / "synthetic_questions_ffe.json", encoding="utf-8"))
+    existing = json.load(
+        open(OUTPUT_DIR / "synthetic_questions_ffe.json", encoding="utf-8")
+    )
 
     print(f"{'='*60}")
-    print(f"GENERATION CHUNKS RESTANTS - FFE")
+    print("GENERATION CHUNKS RESTANTS - FFE")
     print(f"{'='*60}")
     print(f"Questions existantes: {len(existing)}")
     print(f"Chunks restants: {len(remaining)}")
@@ -118,7 +125,9 @@ def main():
 
         # Checkpoint every 50
         if (i + 1) % 50 == 0:
-            with open(OUTPUT_DIR / "synthetic_questions_ffe.json", "w", encoding="utf-8") as f:
+            with open(
+                OUTPUT_DIR / "synthetic_questions_ffe.json", "w", encoding="utf-8"
+            ) as f:
                 json.dump(all_questions, f, ensure_ascii=False, indent=2)
             print(f"  >> Checkpoint: {len(all_questions)} questions")
 
@@ -129,7 +138,7 @@ def main():
 
     new_questions = len(all_questions) - len(existing)
     print(f"\n{'='*60}")
-    print(f"DONE")
+    print("DONE")
     print(f"{'='*60}")
     print(f"Nouvelles questions: {new_questions}")
     print(f"Total questions: {len(all_questions)}")

@@ -84,20 +84,22 @@ def deduplicate_questions(
             report["removed_count"] += len(remove)
             report["kept_ids"].append(keep["id"])
             report["removed_ids"].extend([q["id"] for q in remove])
-            report["duplicates_detail"].append({
-                "question": text[:100],
-                "keep": {
-                    "id": keep["id"],
-                    "reasoning_type": get_reasoning_type(keep),
-                },
-                "remove": [
-                    {
-                        "id": q["id"],
-                        "reasoning_type": get_reasoning_type(q),
-                    }
-                    for q in remove
-                ],
-            })
+            report["duplicates_detail"].append(
+                {
+                    "question": text[:100],
+                    "keep": {
+                        "id": keep["id"],
+                        "reasoning_type": get_reasoning_type(keep),
+                    },
+                    "remove": [
+                        {
+                            "id": q["id"],
+                            "reasoning_type": get_reasoning_type(q),
+                        }
+                        for q in remove
+                    ],
+                }
+            )
 
     report["output_count"] = len(deduplicated)
 
@@ -109,9 +111,7 @@ def deduplicate_questions(
 
 def main() -> int:
     """Main entry point."""
-    parser = argparse.ArgumentParser(
-        description="Deduplicate Gold Standard questions"
-    )
+    parser = argparse.ArgumentParser(description="Deduplicate Gold Standard questions")
     parser.add_argument(
         "--input",
         "-i",
@@ -193,7 +193,9 @@ def main() -> int:
         print(f"  {rt or 'unknown'}: {count}")
     print()
     print("Removed by reasoning_type:")
-    for rt, count in sorted(removed_rt.items(), key=lambda x: -RT_PRIORITY.get(x[0], 0)):
+    for rt, count in sorted(
+        removed_rt.items(), key=lambda x: -RT_PRIORITY.get(x[0], 0)
+    ):
         print(f"  {rt or 'unknown'}: {count}")
 
     if args.dry_run:

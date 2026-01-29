@@ -99,7 +99,9 @@ def upgrade_question_schema(question: dict[str, Any]) -> dict[str, Any]:
         "chapter": article_ref.split(".")[0] if "." in article_ref else "",
         "hard_case": is_hard,
         "hard_type": hard_type,
-        "hard_reason": "" if not is_hard else f"corpus_verified={question.get('corpus_verified')}",
+        "hard_reason": ""
+        if not is_hard
+        else f"corpus_verified={question.get('corpus_verified')}",
         "corpus_truth": answer_text[:200] if answer_text else "",
         "test_purpose": f"Evaluate retrieval for {q_type} question on article {article_ref}",
     }
@@ -154,7 +156,9 @@ def upgrade_gold_standard(gs_data: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Upgrade GS v6 schema to industry standard")
+    parser = argparse.ArgumentParser(
+        description="Upgrade GS v6 schema to industry standard"
+    )
     parser.add_argument(
         "--input",
         type=Path,

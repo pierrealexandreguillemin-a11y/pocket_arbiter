@@ -6,7 +6,7 @@
 ## Bash commands
 
 - `python -m pytest scripts/ -v`: Run all tests
-- `python -m pytest scripts/ --cov=scripts --cov-fail-under=80`: Tests with 80% coverage gate
+- `python -m pytest scripts/ --cov=scripts --cov-config=.coveragerc --cov-fail-under=80`: Tests with 80% coverage gate
 - `python -m pre_commit run --all-files`: Run all quality hooks
 - `python -m ruff check scripts/`: Lint Python code
 - `python -m mypy scripts/`: Type check

@@ -2,9 +2,10 @@
 
 > **Document ID**: SPEC-GS-CONF-001
 > **ISO Reference**: ISO 42001, ISO 25010, ISO 29119
-> **Version**: 2.0
-> **Date**: 2026-01-28
+> **Version**: 2.1
+> **Date**: 2026-01-29
 > **Statut**: Aligne sur PLAN-GS-CONF-001
+> **Note**: Aligne avec GS_CONFORMITY_PLAN_V1.md (CB-05..08 dans §1.1, EX-05/06 reordonne, G3-6 bloquant)
 > **Classification**: Critique
 > **Usage**: One-shot - Mise en conformite GS avant generation triplets
 > **Mots-cles**: conformite, checklist, gold standard, triplets, validation, ISO

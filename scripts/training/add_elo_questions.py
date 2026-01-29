@@ -22,14 +22,18 @@ def main() -> None:
             "expected_pages": [186],
             "category": "classement",
             "keywords": ["elo", "coefficient", "K", "calcul", "gain"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "APPLY",
-                "article_reference": "Article 8.3 Règles Classement FIDE"
-            }
+                "article_reference": "Article 8.3 Règles Classement FIDE",
+            },
         },
         {
             "id": "FR-ELO-002",
@@ -41,14 +45,18 @@ def main() -> None:
             "expected_pages": [185],
             "category": "classement",
             "keywords": ["coefficient", "K", "développement", "jeune", "18 ans"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "APPLY",
-                "article_reference": "Article 8.3.3 Règles Classement FIDE"
-            }
+                "article_reference": "Article 8.3.3 Règles Classement FIDE",
+            },
         },
         {
             "id": "FR-ELO-003",
@@ -60,14 +68,18 @@ def main() -> None:
             "expected_pages": [186],
             "category": "classement",
             "keywords": ["elo", "calcul", "tournoi", "variation", "plusieurs parties"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "APPLY",
-                "article_reference": "Article 8.3 Règles Classement FIDE"
-            }
+                "article_reference": "Article 8.3 Règles Classement FIDE",
+            },
         },
         {
             "id": "FR-ELO-004",
@@ -79,14 +91,18 @@ def main() -> None:
             "expected_pages": [4],
             "category": "classement",
             "keywords": ["elo", "estimé", "premier", "jeune", "U14"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 5 R01 Règles générales"
-            }
+                "article_reference": "Article 5 R01 Règles générales",
+            },
         },
         {
             "id": "FR-ELO-005",
@@ -98,14 +114,18 @@ def main() -> None:
             "expected_pages": [4],
             "category": "classement",
             "keywords": ["elo", "ancien", "reprise", "5 saisons", "estimé"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "PROCEDURAL",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "UNDERSTAND",
-                "article_reference": "Article 5 R01 Règles générales"
-            }
+                "article_reference": "Article 5 R01 Règles générales",
+            },
         },
         {
             "id": "FR-ELO-006",
@@ -117,14 +137,18 @@ def main() -> None:
             "expected_pages": [4],
             "category": "classement",
             "keywords": ["elo", "plancher", "FIDE", "estimé", "1399"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 5 R01 Règles générales"
-            }
+                "article_reference": "Article 5 R01 Règles générales",
+            },
         },
         {
             "id": "FR-ELO-007",
@@ -136,14 +160,18 @@ def main() -> None:
             "expected_pages": [4],
             "category": "classement",
             "keywords": ["elo", "estimé", "standard", "U10", "jeune", "catégorie"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "single-hop",
                 "cognitive_level": "REMEMBER",
-                "article_reference": "Article 5 R01 Règles générales"
-            }
+                "article_reference": "Article 5 R01 Règles générales",
+            },
         },
         {
             "id": "FR-ELO-008",
@@ -155,15 +183,19 @@ def main() -> None:
             "expected_pages": [4],
             "category": "classement",
             "keywords": ["elo", "estimé", "standard", "rapide", "différence", "senior"],
-            "validation": {"status": "PENDING", "method": "manual_creation", "reviewer": "human"},
+            "validation": {
+                "status": "PENDING",
+                "method": "manual_creation",
+                "reviewer": "human",
+            },
             "audit": "",
             "metadata": {
                 "answer_type": "NUMERICAL",
                 "reasoning_type": "multi-hop",
                 "cognitive_level": "ANALYZE",
-                "article_reference": "Article 5 R01 Règles générales"
-            }
-        }
+                "article_reference": "Article 5 R01 Règles générales",
+            },
+        },
     ]
 
     gs["questions"].extend(elo_questions)
@@ -176,7 +208,7 @@ def main() -> None:
     with open(gs_path, "w", encoding="utf-8") as f:
         json.dump(gs, f, indent=2, ensure_ascii=False)
 
-    print(f"Questions ajoutées: 8")
+    print("Questions ajoutées: 8")
     print(f"Total questions: {len(gs['questions'])}")
 
 

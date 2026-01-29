@@ -6,8 +6,6 @@ ISO Reference:
     - ISO/IEC 42001 A.6.2.2 - AI traceability (100% page coverage)
 """
 
-import pytest
-
 
 class TestBuildPageMapFromDocling:
     """Tests for build_page_map_from_docling function."""

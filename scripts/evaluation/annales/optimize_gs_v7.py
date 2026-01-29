@@ -51,18 +51,56 @@ ENCODING_FIXES = {
 
 # Question starters that indicate it should end with ?
 QUESTION_STARTERS_FR = [
-    "que ", "quel", "quelle", "quels", "quelles",
-    "quand", "comment", "pourquoi", "où", "qui",
-    "est-ce", "peut-on", "doit-on", "faut-il",
-    "combien", "lequel", "laquelle", "lesquels",
-    "à qui", "à quoi", "de quoi", "avec quoi",
-    "un joueur", "une équipe", "un arbitre", "un club",
-    "vous êtes", "lors de", "en cas de", "si un",
-    "pour un", "en nationale", "en coupe", "au cours",
-    "l'arbitre", "le joueur", "la partie", "une partie",
-    "dans le cas", "dans un", "suite à", "après",
-    "avant", "pendant", "lorsque", "lorsqu",
-    "il est", "elle est", "c'est", "ce sont",
+    "que ",
+    "quel",
+    "quelle",
+    "quels",
+    "quelles",
+    "quand",
+    "comment",
+    "pourquoi",
+    "où",
+    "qui",
+    "est-ce",
+    "peut-on",
+    "doit-on",
+    "faut-il",
+    "combien",
+    "lequel",
+    "laquelle",
+    "lesquels",
+    "à qui",
+    "à quoi",
+    "de quoi",
+    "avec quoi",
+    "un joueur",
+    "une équipe",
+    "un arbitre",
+    "un club",
+    "vous êtes",
+    "lors de",
+    "en cas de",
+    "si un",
+    "pour un",
+    "en nationale",
+    "en coupe",
+    "au cours",
+    "l'arbitre",
+    "le joueur",
+    "la partie",
+    "une partie",
+    "dans le cas",
+    "dans un",
+    "suite à",
+    "après",
+    "avant",
+    "pendant",
+    "lorsque",
+    "lorsqu",
+    "il est",
+    "elle est",
+    "c'est",
+    "ce sont",
 ]
 
 # Patterns that indicate it's a scenario/question even without question words
@@ -75,7 +113,9 @@ SCENARIO_PATTERNS = [
 ]
 
 
-def normalize_question(question: str, has_mcq_choices: bool = False) -> tuple[str, bool]:
+def normalize_question(
+    question: str, has_mcq_choices: bool = False
+) -> tuple[str, bool]:
     """
     Normalize question format.
     Returns (normalized_question, was_modified).
@@ -114,9 +154,7 @@ def normalize_question(question: str, has_mcq_choices: bool = False) -> tuple[st
 
 
 def infer_question_type(
-    cognitive_level: str | None,
-    answer_type: str | None,
-    reasoning_type: str | None
+    cognitive_level: str | None, answer_type: str | None, reasoning_type: str | None
 ) -> str:
     """Infer question_type from other metadata fields."""
 
@@ -145,10 +183,7 @@ def infer_question_type(
     return "factual"  # Default
 
 
-def infer_reasoning_class(
-    reasoning_type: str | None,
-    question_type: str | None
-) -> str:
+def infer_reasoning_class(reasoning_type: str | None, question_type: str | None) -> str:
     """
     Infer reasoning_class from reasoning_type and question_type.
 
@@ -202,7 +237,7 @@ def optimize_question(question: dict) -> dict:
         inferred_type = infer_question_type(
             metadata.get("cognitive_level"),
             metadata.get("answer_type"),
-            metadata.get("reasoning_type")
+            metadata.get("reasoning_type"),
         )
         metadata["question_type"] = inferred_type
         metadata["question_type_method"] = "inferred"
@@ -211,8 +246,7 @@ def optimize_question(question: dict) -> dict:
     # P0.3: Add reasoning_class (Know Your RAG)
     if "reasoning_class" not in metadata:
         reasoning_class = infer_reasoning_class(
-            metadata.get("reasoning_type"),
-            metadata.get("question_type")
+            metadata.get("reasoning_type"), metadata.get("question_type")
         )
         metadata["reasoning_class"] = reasoning_class
         metadata["reasoning_class_method"] = "inferred"
@@ -249,20 +283,24 @@ def compute_stats(questions: list[dict]) -> dict:
     """Compute statistics for the optimized dataset."""
     stats = {
         "total": len(questions),
-        "with_question_mark": sum(1 for q in questions if q["question"].strip().endswith("?")),
-        "question_type_distribution": dict(Counter(
-            q.get("metadata", {}).get("question_type") for q in questions
-        )),
-        "reasoning_class_distribution": dict(Counter(
-            q.get("metadata", {}).get("reasoning_class") for q in questions
-        )),
-        "reasoning_type_distribution": dict(Counter(
-            q.get("metadata", {}).get("reasoning_type") for q in questions
-        )),
-        "cognitive_level_distribution": dict(Counter(
-            q.get("metadata", {}).get("cognitive_level") for q in questions
-        )),
-        "triplet_ready": sum(1 for q in questions if q.get("metadata", {}).get("triplet_ready")),
+        "with_question_mark": sum(
+            1 for q in questions if q["question"].strip().endswith("?")
+        ),
+        "question_type_distribution": dict(
+            Counter(q.get("metadata", {}).get("question_type") for q in questions)
+        ),
+        "reasoning_class_distribution": dict(
+            Counter(q.get("metadata", {}).get("reasoning_class") for q in questions)
+        ),
+        "reasoning_type_distribution": dict(
+            Counter(q.get("metadata", {}).get("reasoning_type") for q in questions)
+        ),
+        "cognitive_level_distribution": dict(
+            Counter(q.get("metadata", {}).get("cognitive_level") for q in questions)
+        ),
+        "triplet_ready": sum(
+            1 for q in questions if q.get("metadata", {}).get("triplet_ready")
+        ),
     }
     return stats
 
@@ -271,7 +309,9 @@ def main():
     """Main optimization pipeline."""
     input_path = Path("tests/data/gold_standard_annales_fr_v7.json")
     output_path = Path("tests/data/gold_standard_annales_fr_v7.json")  # Overwrite
-    report_path = Path("tests/data/gold_standard_annales_fr_v7_optimization_report.json")
+    report_path = Path(
+        "tests/data/gold_standard_annales_fr_v7_optimization_report.json"
+    )
 
     print(f"Loading {input_path}...")
     with open(input_path, "r", encoding="utf-8") as f:
@@ -283,11 +323,17 @@ def main():
 
     # Pre-optimization stats
     pre_stats = {
-        "questions_without_mark": sum(1 for q in questions if not q["question"].strip().endswith("?")),
-        "question_type_none": sum(1 for q in questions if q.get("metadata", {}).get("question_type") is None),
-        "missing_reasoning_class": sum(1 for q in questions if "reasoning_class" not in q.get("metadata", {})),
+        "questions_without_mark": sum(
+            1 for q in questions if not q["question"].strip().endswith("?")
+        ),
+        "question_type_none": sum(
+            1 for q in questions if q.get("metadata", {}).get("question_type") is None
+        ),
+        "missing_reasoning_class": sum(
+            1 for q in questions if "reasoning_class" not in q.get("metadata", {})
+        ),
     }
-    print(f"\nPre-optimization:")
+    print("\nPre-optimization:")
     print(f"  - Questions without '?': {pre_stats['questions_without_mark']}")
     print(f"  - question_type=None: {pre_stats['question_type_none']}")
     print(f"  - Missing reasoning_class: {pre_stats['missing_reasoning_class']}")
@@ -301,18 +347,19 @@ def main():
         optimized_q, mods = optimize_question(q)
         optimized_questions.append(optimized_q)
         if mods:
-            all_modifications.append({
-                "id": q.get("id"),
-                "modifications": mods
-            })
+            all_modifications.append({"id": q.get("id"), "modifications": mods})
 
     # Post-optimization stats
     post_stats = compute_stats(optimized_questions)
 
-    print(f"\nPost-optimization:")
-    print(f"  - Questions with '?': {post_stats['with_question_mark']}/{post_stats['total']}")
+    print("\nPost-optimization:")
+    print(
+        f"  - Questions with '?': {post_stats['with_question_mark']}/{post_stats['total']}"
+    )
     print(f"  - question_type distribution: {post_stats['question_type_distribution']}")
-    print(f"  - reasoning_class distribution: {post_stats['reasoning_class_distribution']}")
+    print(
+        f"  - reasoning_class distribution: {post_stats['reasoning_class_distribution']}"
+    )
     print(f"  - triplet_ready: {post_stats['triplet_ready']}/{post_stats['total']}")
 
     # Update version and metadata
@@ -340,7 +387,11 @@ def main():
     # Update taxonomy_standards if present
     if "taxonomy_standards" not in data:
         data["taxonomy_standards"] = {}
-    data["taxonomy_standards"]["reasoning_class"] = ["fact_single", "summary", "reasoning"]
+    data["taxonomy_standards"]["reasoning_class"] = [
+        "fact_single",
+        "summary",
+        "reasoning",
+    ]
 
     # Save optimized data
     print(f"\nSaving to {output_path}...")
@@ -356,9 +407,9 @@ def main():
         "post_optimization": post_stats,
         "modifications_count": len(all_modifications),
         "modifications_sample": all_modifications[:10],
-        "modification_types": dict(Counter(
-            mod for item in all_modifications for mod in item["modifications"]
-        )),
+        "modification_types": dict(
+            Counter(mod for item in all_modifications for mod in item["modifications"])
+        ),
     }
 
     print(f"Saving report to {report_path}...")

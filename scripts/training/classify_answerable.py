@@ -86,9 +86,21 @@ def classify_reasoning_type(question: str, has_multi_page: bool) -> str:
 
     # Domain knowledge for chess-specific terms
     chess_terms = [
-        "zeitnot", "roque", "echec", "mat", "pat", "promotion",
-        "prise en passant", "cadence", "elo", "fide", "ffe",
-        "castling", "checkmate", "stalemate", "en passant"
+        "zeitnot",
+        "roque",
+        "echec",
+        "mat",
+        "pat",
+        "promotion",
+        "prise en passant",
+        "cadence",
+        "elo",
+        "fide",
+        "ffe",
+        "castling",
+        "checkmate",
+        "stalemate",
+        "en passant",
     ]
     for term in chess_terms:
         if term in q:
@@ -108,7 +120,10 @@ def classify_reasoning_type(question: str, has_multi_page: bool) -> str:
 def classify_cognitive_level(answer_type: str, reasoning_type: str) -> str:
     """Classify question by Bloom's cognitive level."""
     # Remember: Direct fact recall
-    if answer_type == "FACTUAL" and reasoning_type in ["LEXICAL_MATCH", "SINGLE_SENTENCE"]:
+    if answer_type == "FACTUAL" and reasoning_type in [
+        "LEXICAL_MATCH",
+        "SINGLE_SENTENCE",
+    ]:
         return "REMEMBER"
 
     # Understand: Explain/interpret
@@ -151,7 +166,7 @@ def main():
         "reasoning_type": defaultdict(int),
         "cognitive_level": defaultdict(int),
         "classified": 0,
-        "skipped_unanswerable": 0
+        "skipped_unanswerable": 0,
     }
 
     for gs, name in [(gs_fr, "FR"), (gs_intl, "INTL")]:

@@ -34,7 +34,7 @@
 | `audit_triplets.py` | Analyse statistique | OK |
 | `check_answerability.py` | Verification embedding (EmbeddingGemma) | OK |
 | `filter_weak_questions.py` | Filtrage questions faibles | OK |
-| `test_adversarial.py` | Tests anti-hallucination | OK |
+| `adversarial_harness.py` | Tests anti-hallucination | OK |
 
 ---
 
@@ -97,7 +97,7 @@ Similarity scores:
 ### 4.1 Framework implemente
 
 ```python
-# scripts/pipeline/test_adversarial.py
+# scripts/pipeline/adversarial_harness.py
 # 30 questions pieges reparties en 7 categories:
 # - hors_sujet (6): poker, extraterrestres, etc.
 # - invention (5): demande d'inventer des regles
@@ -190,7 +190,7 @@ Similarity scores:
 - `scripts/pipeline/audit_triplets.py`
 - `scripts/pipeline/check_answerability.py`
 - `scripts/pipeline/filter_weak_questions.py`
-- `scripts/pipeline/test_adversarial.py`
+- `scripts/pipeline/adversarial_harness.py`
 
 ---
 

@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-OPT-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 2.0
-> **Date**: 2026-01-22
+> **Version**: 2.1
+> **Date**: 2026-01-29
 > **Objectif**: Recall@5 >= 90% - **ATTEINT (91.17%)**
 
 ---
@@ -115,10 +115,12 @@ top_k_final = 5      # Return 5 apres reranking
 
 ### Phase 2: Reranking (+20-35%)
 
-**2.1 Ajouter cross-encoder reranking**
+> **Note (2026-01-29)**: Phase 2 (reranking) abandonnee. CrossEncoder bge-reranker-v2-m3 supprime — 600M params chargement VRAM a chaque query, incompatible deploiement mobile (RAM < 500MB). Vector-only (97.06%) > hybrid+rerank. FlagEmbedding supprime de requirements.txt.
+
+**2.1 Ajouter cross-encoder reranking** *(abandonne)*
 
 ```python
-# Nouveau module: scripts/pipeline/reranker.py
+# DEPRECATED - scripts/pipeline/reranker.py SUPPRIME
 from sentence_transformers import CrossEncoder
 
 # Modeles recommandes (multilingual FR support)
@@ -440,7 +442,7 @@ def benchmark_strategies():
 ### GitHub Implementations
 - [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) - Semantic chunking, propositions
 - [jina-ai/late-chunking](https://github.com/jina-ai/late-chunking) - Late chunking reference
-- [FlagOpen/FlagEmbedding](https://github.com/FlagOpen/FlagEmbedding) - BGE rerankers
+- [FlagOpen/FlagEmbedding](https://github.com/FlagOpen/FlagEmbedding) - BGE rerankers *(supprime 2026-01-29 — VRAM incompatible mobile)*
 
 ### Kaggle
 - [Two Stage Retrieval RAG using Rerank](https://www.kaggle.com/code/warcoder/two-stage-retrieval-rag-using-rerank-models)
@@ -455,6 +457,7 @@ def benchmark_strategies():
 | 1.0 | 2026-01-15 | Claude Opus 4.5 | Creation - Recherche + Plan 5 phases |
 | 1.1 | 2026-01-16 | Claude Opus 4.5 | Phase 1+2 complete, recall 75%, statut implementation |
 | 2.0 | 2026-01-22 | Claude Opus 4.5 | **OBJECTIF ATTEINT**: Recall 91.17% > 90% ISO 25010, Gold standard v5.22 (134 questions) |
+| 2.1 | 2026-01-29 | Claude Opus 4.5 | Phase 2 reranking abandonnee (VRAM mobile), FlagEmbedding supprime |
 
 ---
 

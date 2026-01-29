@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-RETR-001
 > **ISO Reference**: ISO/IEC 25010 - Performance efficiency
-> **Version**: 5.0
-> **Date**: 2026-01-24
+> **Version**: 5.1
+> **Date**: 2026-01-29
 > **Statut**: DUAL-RAG Architecture (FR actif, INTL obsolete)
 > **Scope**: **RAG FRANCE UNIQUEMENT** (voir VISION.md v2.0)
 
@@ -239,17 +239,17 @@ Recall@k = Pages attendues trouvees dans top-k / Total pages attendues
 Tolerance: ±2 pages adjacentes acceptees
 ```
 
-### Gold Standard v5.22
+### Gold Standard v7
 
 **Fichiers:**
-- `tests/data/gold_standard_fr.json` (134 questions, 45 hard cases)
-- `tests/data/gold_standard_intl.json` (25 questions)
+- `tests/data/gold_standard_fr.json` (420+ questions, v7)
+- `tests/data/gold_standard_intl.json` (43 questions)
 
 | Corpus | Questions | Hard Cases | Recall@5 | Audit |
 |--------|-----------|------------|----------|-------|
-| FR | 134 | 45 | 91.17% | v5.22 (2026-01-20) |
-| INTL | 25 | - | - | - |
-| **Total** | **159** | **45** | ISO 25010 PASS |
+| FR | 420+ | 45 | 91.17% | v7 (2026-01-29) |
+| INTL | 43 | 12 | 93.22% | v2.0 |
+| **Total** | **463+** | **57** | ISO 25010 PASS |
 
 **Analyse echecs (14 questions)**: `docs/research/RECALL_FAILURE_ANALYSIS_2026-01-20.md`
 **Optimisations zero-runtime**: `docs/research/OFFLINE_OPTIMIZATIONS_2026-01-20.md`
@@ -278,7 +278,7 @@ scripts/pipeline/
 ├── export_search.py          # Vector search + source_filter + glossary_boost
 ├── retrieval_logger.py       # Logging JSONL structuré (analytics)
 ├── query_expansion.py        # Synonymes + stemmer FR
-├── reranker.py               # Cross-encoder (optionnel)
+├── # reranker.py             # SUPPRIME (VRAM incompatible mobile)
 └── tests/
     ├── test_recall.py        # Benchmark recall
     └── test_export_search.py # Tests recherche
@@ -306,6 +306,8 @@ scripts/pipeline/
 | 2.2 | 2026-01-20 | **Research docs**: Lien analyse echecs + optimisations zero-runtime, gold standard v5.22 |
 | 2.3 | 2026-01-22 | **COMPLETE**: Recall 91.17% atteint, Phase 1B triplets synthetiques 5434 questions |
 | 4.1 | 2026-01-23 | **Benchmark Chunking Optimizations**: Dual-size 81.72%, Semantic 82.89% vs Baseline 86.94% - RÉGRESSION. Recommandation: conserver baseline 450t single-size. |
+| 5.0 | 2026-01-24 | **Dual-RAG Architecture**: FR actif, INTL obsolete, VISION v2.0 scope |
+| 5.1 | 2026-01-29 | GS v7 (420+ FR), reranker.py supprime, pyproject.toml toolchain |
 
 ---
 

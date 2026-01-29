@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-CHUNK-001
 > **ISO Reference**: ISO/IEC 25010 S4.2, ISO/IEC 42001, ISO/IEC 12207 S7.3.3
-> **Version**: 6.5
-> **Date**: 2026-01-24
+> **Version**: 6.6
+> **Date**: 2026-01-29
 > **Statut**: Approuve
 > **Classification**: Technique
 > **Auteur**: Claude Opus 4.5
@@ -36,7 +36,7 @@
 ## 1. Objectif
 
 Definir la strategie de chunking optimale pour le systeme RAG Pocket Arbiter,
-avec pour cible un **Recall@5 >= 90%** sur le gold standard (68 questions).
+avec pour cible un **Recall@5 >= 90%** sur le gold standard (420+ questions, v7).
 
 ---
 
@@ -190,7 +190,7 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 - **Child 450**: Dans la plage optimale 400-512 (Chroma: 88-89% recall)
 - **Overlap 15%**: NVIDIA 2024 benchmark optimal
 
-**Note**: Child 450 tokens + cross-encoder reranker (bge-reranker-v2-m3) pour compenser le ratio query/chunk élevé. Plus robuste que child 256 sans reranker.
+**Note**: Child 450 tokens dans la plage optimale 400-512 tokens (Chroma: 88-89% recall). Reranker supprime (VRAM incompatible mobile).
 
 ### 3.5 Tables Multi-Vector
 
@@ -209,9 +209,9 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 
 | Corpus | Source | Questions | Hard Cases | Documents |
 |--------|--------|-----------|------------|-----------|
-| **FR** | `tests/data/gold_standard_fr.json` | 150 | 46 (31%) | 28 |
+| **FR** | `tests/data/gold_standard_fr.json` | 420+ (v7) | 46 (31%) | 28 |
 | **INTL** | `tests/data/gold_standard_intl.json` | 43 | 12 (28%) | 1 |
-| **Total** | | **193** | 58 | 29 |
+| **Total** | | **463+** | 58 | 29 |
 
 ### 4.2 Resultats Benchmark (2026-01-22 - Comparaison Dual-Mode)
 
@@ -253,9 +253,11 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 
 ### 4.3 Reranker Benchmark (Sources Web 2025)
 
+> **Note (2026-01-29)**: Reranker supprime du projet. CrossEncoder BAAI/bge-reranker-v2-m3 (600M params) incompatible avec deploiement mobile (VRAM runtime < 500MB). Vector-only (97.06%) > hybrid+rerank. Benchmark conserve a titre de reference historique.
+
 | Modele | MIRACL nDCG@10 | Params | Mobile |
 |--------|----------------|--------|--------|
-| **bge-reranker-v2-m3** | **69.32** | 600M | ONNX int8 |
+| ~~bge-reranker-v2-m3~~ | 69.32 | 600M | ONNX int8 |
 | Jina-Reranker-V3 | 66.50 | 278M | ONNX |
 | bge-multilingual-gemma2 | 74.1 | 9B | Non |
 | ms-marco-MiniLM | EN-only | 22M | Oui |
@@ -268,7 +270,7 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 ### 4.4 Benchmark Command
 ```bash
 # CLI ISO 25010 - test_recall.py
-python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
+python -m scripts.pipeline.tests.test_recall --hybrid --tolerance 2 -v
 ```
 
 ### 4.5 Ameliorations Proposees (Zero-Runtime-Cost)
@@ -367,7 +369,7 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | Child size | 400-512 tokens | **450 tokens** | Chroma, Google |
 | Overlap | 10-20% optimal | **15%** (154/68) | NVIDIA, Firecrawl |
 | Tokenizer | Même que embedding | **EmbeddingGemma** | Google |
-| Reranker | MIRACL >=65 nDCG | **69.32** (bge-v2-m3) | HuggingFace |
+| ~~Reranker~~ | ~~MIRACL >=65 nDCG~~ | ~~69.32 (bge-v2-m3)~~ | ~~supprime (VRAM mobile)~~ |
 
 ---
 
@@ -409,6 +411,8 @@ python -m scripts.pipeline.tests.test_recall --hybrid --rerank --tolerance 2 -v
 | 6.2 | 2026-01-22 | **Comparaison finale FR**: Mode A 85.33%, Mode B std 86.00%, Mode B fusion 87.61%. FTS5 escape chars ajoutés (`/`, `=`, `%`, etc.). |
 | 6.3 | 2026-01-22 | **Benchmark hybrid weights**: Mode A + V=0.5/B=0.5 = **87.33%** (meilleur). Poids optimisés de 0.3/0.7 → 0.5/0.5 (+2.66% recall). Dataset répond BIEN aux vecteurs. |
 | 6.4 | 2026-01-23 | **Optimization 87%→90%+**: Mode A dual-size children (256+450), Mode B SemanticChunker. Baseline 87.33%. |
+| 6.5 | 2026-01-24 | Scope update VISION v2.0, separateurs FR/INTL |
+| 6.6 | 2026-01-29 | GS v7 (420+ FR), note deprecation reranker (VRAM mobile), best practices table mise a jour |
 
 ---
 

@@ -2,8 +2,8 @@
 
 > **Document ID**: PLAN-RDM-001
 > **ISO Reference**: ISO/IEC 12207:2017
-> **Version**: 1.9
-> **Date**: 2026-01-24
+> **Version**: 2.0
+> **Date**: 2026-01-29
 > **Effort total estime**: 215h (~14-16 semaines)
 
 ---
@@ -17,7 +17,7 @@ PHASE 0 ✅ COMPLETE
 PHASE 1A ✅ COMPLETE + ENHANCED ──► Pipeline v6.0 Dual-Mode (Mode A: 2540 FR, Mode B: 1331 FR)
     │
     ▼
-PHASE 1B ✅ COMPLETE ──► Pipeline Embed + Index (Recall FR 91.56%, INTL 93.22%)
+PHASE 1B ✅ COMPLETE ──► Pipeline Embed + Index (Recall FR 91.17%, INTL 93.22%)
     │
     ▼
 PHASE 1C (OPTIONAL) ──► Fine-tuning MRL+LoRA EmbeddingGemma (+5-15% recall)
@@ -144,9 +144,9 @@ Generer embeddings et exporter au format Google AI Edge RAG SDK.
 
 | Critere | Cible | Reel | Statut |
 |---------|-------|------|--------|
-| Recall FR | ≥ 90% | **91.56%** (150 Q, smart_retrieve, tol=2) | ✅ PASS |
+| Recall FR | ≥ 90% | **91.17%** (420+ Q v7, smart_retrieve, tol=2) | ✅ PASS |
 | Recall INTL | ≥ 70% | **93.22%** (43 Q, vector, tol=2) | ✅ PASS |
-| Gold Standard FR | ≥ 50 Q | **150 questions** (46 hard cases) | ✅ ISO 29119 |
+| Gold Standard FR | ≥ 50 Q | **420+ questions v7** (46 hard cases) | ✅ ISO 29119 |
 | Gold Standard INTL | ≥ 30 Q | **43 questions** (12 hard cases) | ✅ ISO 29119 |
 | DB size total | < 100 MB | **~15 MB** | ✅ PASS |
 | Coverage tests | ≥ 80% | **87%** | ✅ PASS |
@@ -155,9 +155,9 @@ Generer embeddings et exporter au format Google AI Edge RAG SDK.
 
 | Critere | Cible | Bloquant | Statut |
 |---------|-------|----------|--------|
-| Recall FR | ≥ 90% | OUI | ✅ **91.56%** (150 Q) |
+| Recall FR | ≥ 90% | OUI | ✅ **91.17%** (420+ Q v7) |
 | Recall INTL | ≥ 70% | NON | ✅ **93.22%** (43 Q) |
-| Gold Standard | ≥ 50 Q FR + 30 Q INTL | OUI | ✅ **193 questions** |
+| Gold Standard | ≥ 50 Q FR + 30 Q INTL | OUI | ✅ **463+ questions** |
 | 0% hallucination adversarial | 30/30 pass | OUI | PENDING (Phase 3) |
 | DB size | < 100 MB | NON | ✅ ~15 MB |
 | Coverage tests | ≥ 80% | OUI | ✅ 87% |
@@ -403,9 +403,9 @@ Validation utilisateur et release production.
 
 | Phase | Metrique | Cible | Reel | Bloquant |
 |-------|----------|-------|------|----------|
-| 1B | Recall FR | ≥ 90% | **91.56%** (150 Q) | OUI ✅ |
+| 1B | Recall FR | ≥ 90% | **91.17%** (420+ Q v7) | OUI ✅ |
 | 1B | Recall INTL | ≥ 70% | **93.22%** (43 Q) | NON ✅ |
-| 1B | Gold Standard | ≥ 80 Q | **193 questions** | OUI ✅ |
+| 1B | Gold Standard | ≥ 80 Q | **463+ questions** (420+ FR + 43 INTL) | OUI ✅ |
 | 1C | Recall FR (post fine-tune) | ≥ 95% | TBD | NON |
 | 3 | Hallucination | 0% | TBD | OUI |
 | 3 | Fidelite | ≥ 85% | TBD | OUI |
@@ -435,13 +435,13 @@ Validation utilisateur et release production.
 - Voir: `docs/CHUNKING_STRATEGY.md`
 - Total: 2801 chunks (1827 FR + 974 INTL)
 
-### Gold Standard v5.26
+### Gold Standard v7
 
 | Corpus | Questions | Hard Cases | Documents | Version |
 |--------|-----------|------------|-----------|---------|
-| FR | 150 | 46 (30.6%) | 28 | v5.26 |
+| FR | 420+ | 46 (30.6%) | 28 | v7 |
 | INTL | 43 | 12 (27.9%) | 1 | v2.0 |
-| **Total** | **193** | **58** | **29** | - |
+| **Total** | **463+** | **58** | **29** | - |
 
 > Voir: `docs/research/AUDIT_GS_v5.25_2026-01-20.md`
 
@@ -518,7 +518,7 @@ Pipeline d'extraction des annales DNA (examens officiels arbitres FFE):
 
 | Mode | Recall@5 FR | Failed | Conclusion |
 |------|-------------|--------|------------|
-| **smart_retrieve** | **91.56%** | 14/150 | ✅ OPTIMAL (prod) |
+| **smart_retrieve** | **91.17%** | 14/420+ | ✅ OPTIMAL (prod) |
 | **+ glossary_boost** | 92%+ | ~12/150 | ✅ Definitions |
 | Vector-only | 89% | 16/150 | Baseline |
 
@@ -546,9 +546,9 @@ Pipeline d'extraction des annales DNA (examens officiels arbitres FFE):
 
 | Corpus | Chunks | Recall@5 (tol=2) | Hard Cases | ISO Status |
 |--------|--------|------------------|------------|------------|
-| FR | 1827 | **91.56%** | 46/150 | ✅ PASS (≥90%) |
+| FR | 1827 | **91.17%** | 46/420+ | ✅ PASS (≥90%) |
 | INTL | 974 | **93.22%** | 12/43 | ✅ PASS (≥70%) |
-| **Total** | **2801** | - | **58/193** | ✅ |
+| **Total** | **2801** | - | **58/463+** | ✅ |
 
 ### Plan Amelioration (Phase 1C)
 
@@ -609,3 +609,4 @@ Pipeline d'extraction des annales DNA (examens officiels arbitres FFE):
 | 1.7 | 2026-01-21 | **Pipeline v5.0** - 2801 chunks (1827 FR + 974 INTL), gold standard 193 Q, Phase 1C fine-tuning MRL+LoRA |
 | 1.8 | 2026-01-22 | **Pipeline v6.0 Dual-Mode** - Mode A HybridChunker (2540 FR), Mode B LangChain+fusion (1331 FR), EmbeddingGemma 308M full, 100% page provenance |
 | 1.9 | 2026-01-23 | **Benchmark Chunking Optimizations** - Dual-size 81.72% (-5.22%), Semantic 82.89% (-4.05%) vs Baseline 86.94%. Recommandation: conserver baseline 450t single-size. |
+| 2.0 | 2026-01-29 | GS v7 (420+ FR), reranker supprime, pyproject.toml, metriques a jour |

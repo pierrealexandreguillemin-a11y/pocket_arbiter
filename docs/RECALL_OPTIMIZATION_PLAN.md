@@ -297,7 +297,7 @@ python -m pytest scripts/pipeline/tests/test_recall.py \
     -k "test_recall_fr_above_80" -v
 ```
 
-### 5.2 Nouveau module reranker.py
+### 5.2 Nouveau module reranker.py *(SUPPRIME 2026-01-29 — VRAM incompatible mobile)*
 
 ```python
 """

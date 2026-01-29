@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 2.5
+> **Version**: 2.6
 > **Date**: 2026-01-29
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -62,11 +62,11 @@ pocket_arbiter/
 
 | ID | Document | Description | Statut |
 |----|----------|-------------|--------|
-| SPEC-VIS-001 | [VISION.md](VISION.md) | Vision et objectifs du projet | Draft |
+| SPEC-VIS-001 | [VISION.md](VISION.md) | Vision et objectifs du projet v2.1 | En cours |
 | SPEC-ARCH-001 | [ARCHITECTURE.md](ARCHITECTURE.md) | Architecture technique | Draft |
 | SPEC-REQ-001 | [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) | Exigences qualite ISO 25010 | En cours |
-| SPEC-CHUNK-001 | [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) | Strategie chunking Parent-Child v6.0 | Approuve |
-| SPEC-RETR-001 | [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) | Pipeline retrieval v4.0 dual-mode | Approuve |
+| SPEC-CHUNK-001 | [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) | Strategie chunking Parent-Child v6.6 | Approuve |
+| SPEC-RETR-001 | [RETRIEVAL_PIPELINE.md](RETRIEVAL_PIPELINE.md) | Pipeline retrieval v5.1 dual-mode | Approuve |
 | SPEC-SCH-001 | [CHUNK_SCHEMA.md](CHUNK_SCHEMA.md) | Schema JSON chunks v2.1 | Approuve |
 
 ### 2.3 Intelligence artificielle
@@ -83,7 +83,7 @@ pocket_arbiter/
 
 | ID | Document | Description | Statut |
 |----|----------|-------------|--------|
-| TEST-PLAN-001 | [TEST_PLAN.md](TEST_PLAN.md) | Plan de tests ISO 29119 | Draft |
+| TEST-PLAN-001 | [TEST_PLAN.md](TEST_PLAN.md) | Plan de tests ISO 29119 v1.1 | Approuve |
 | SPEC-GS-001 | [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) | Specification Gold Standard | Approuve |
 | **SPEC-GS-CONF-001** | [specs/GS_CONFORMITY_CHECKLIST.md](specs/GS_CONFORMITY_CHECKLIST.md) | **Checklist conformite GS (one-shot)** | **Approuve** |
 | **PLAN-GS-CONF-001** | [plans/GS_CONFORMITY_PLAN_V1.md](plans/GS_CONFORMITY_PLAN_V1.md) | **Plan mise en conformite GS + hard negatives hybride Claude+EmbeddingGemma** | **En cours** |
@@ -304,6 +304,7 @@ pocket_arbiter/
 | 2.3 | 2026-01-29 | Claude Opus 4.5 | Audit 25 findings: fix securite API key, rename test_adversarial, .coveragerc + pre-commit hook coverage bloquant, corrections plan gates (imports, numbering, CB-05..08, EX-05/06, G3-6 bloquant, S5 note). Lessons learned §11. |
 | 2.4 | 2026-01-29 | Claude Opus 4.5 | Self-audit: ISO_STANDARDS_REFERENCE v2.8 (metriques reelles), fix dead code _batch_size, ruff C901 per-file noqa, pyproject.toml ruff config, pip-audit + types-requests. |
 | 2.5 | 2026-01-29 | Claude Opus 4.5 | ISO-enforcing: pyproject.toml (ruff E/W/F/I/UP/B/C901/S/SIM + mypy strict iso/pipeline), fix SQL injection S608, 170 auto-fixes ruff, type annotations iso/, pre-commit hooks aligned. |
+| 2.6 | 2026-01-29 | Claude Opus 4.5 | **MAJ 12 documents**: metriques ISO (696 tests, 83.47% cov, seuil 80%), deprecation reranker (6 docs), GS v7 (420+ FR), registre DOC_CONTROL synchronise, toolchain pyproject.toml |
 
 ---
 

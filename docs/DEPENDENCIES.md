@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-DEP-001
 > **ISO Reference**: ISO/IEC 12207 S7.3.3 - Configuration Management
-> **Version**: 1.0
-> **Date**: 2026-01-19
+> **Version**: 1.1
+> **Date**: 2026-01-29
 > **Statut**: Approuve
 > **Classification**: Technique
 
@@ -184,6 +184,7 @@ Toutes les versions specifiees sont les **latest stable** au 2026-01-19:
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-19 | Creation initiale avec justifications recherche |
+| 1.1 | 2026-01-29 | Suppression FlagEmbedding (reranker abandonne), toolchain pyproject.toml |
 
 ---
 

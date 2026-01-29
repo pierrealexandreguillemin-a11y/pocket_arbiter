@@ -1,0 +1,147 @@
+# =============================================================================
+# Pocket Arbiter - Project Configuration
+# =============================================================================
+#
+# ISO STANDARDS ENFORCEMENT:
+# - ISO/IEC 5055:2021    Code Quality (ruff, mypy)
+# - ISO/IEC 25010:2023   Maintainability (C901 complexity)
+# - ISO/IEC 29119:2022   Testing (pytest, coverage)
+# - ISO/IEC 27001:2022   Security (bandit rules via ruff)
+#
+# =============================================================================
+
+[project]
+name = "pocket-arbiter"
+version = "2.0.0"
+description = "RAG mobile pour arbitres d'echecs"
+requires-python = ">=3.10"
+
+# =============================================================================
+# RUFF — ISO 5055 + ISO 25010 (Lint + Complexity)
+# =============================================================================
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.ruff.lint]
+# Rules enforced:
+# E/W   = pycodestyle (style)
+# F     = pyflakes (bugs)
+# I     = isort (import order)
+# UP    = pyupgrade (modernize syntax)
+# B     = flake8-bugbear (common bugs)
+# C901  = mccabe complexity (ISO 25010)
+# S     = flake8-bandit (security, ISO 27001)
+# SIM   = flake8-simplify (simplification)
+# T20   = flake8-print (no print in library code)
+select = ["E", "W", "F", "I", "UP", "B", "C901", "S", "SIM"]
+
+# Complexity threshold: ISO 25010 maintainability
+# Functions above 10 are flagged (xenon grade B = 11-20)
+mccabe.max-complexity = 10
+
+# Rules to ignore globally
+ignore = [
+    "S101",   # assert used in tests (pytest pattern)
+    "S603",   # subprocess call (needed for DVC/git commands)
+    "S607",   # partial executable path (needed for system commands)
+    "S108",   # hardcoded temp directory (used in tests)
+    "E501",   # line too long (handled by formatter)
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Training scripts: one-off data preparation, complex by nature
+# These are excluded from .coveragerc scope (not library code)
+# S311=random ok (ML shuffle, not crypto), S324=MD5 ok (dedup hash, not security)
+# S608 false positives on "?" placeholder queries (safe parameterized SQL)
+"scripts/training/**" = ["C901", "SIM", "B", "S311", "S324", "S608"]
+# Evaluation scripts: one-off analysis, complex by nature
+"scripts/evaluation/**" = ["C901", "SIM", "B", "S311"]
+# Obsolete code: kept for reference only
+"scripts/pipeline/_obsolete/**" = ["C901", "B"]
+# CLI harness: not library code
+"scripts/pipeline/adversarial_harness.py" = ["C901"]
+# One-off scripts at scripts/ root
+"scripts/consolidate_*.py" = ["C901", "SIM", "B"]
+"scripts/create_*.py" = ["C901", "SIM", "B"]
+"scripts/validate_anti_hallucination.py" = ["C901", "SIM", "B"]
+# Tests: assert is fine, complex mock setups
+"**/tests/**" = ["S101", "SIM117"]
+"**/conftest.py" = ["S101"]
+
+# =============================================================================
+# MYPY — ISO 5055 (Type Safety)
+# =============================================================================
+[tool.mypy]
+python_version = "3.10"
+warn_unused_configs = true
+# Gradual typing: strict for core modules, lenient for one-off scripts
+ignore_missing_imports = true
+explicit_package_bases = true
+exclude = [
+    "scripts/training/",
+    "scripts/evaluation/",
+    "scripts/pipeline/_obsolete/",
+    "scripts/pipeline/adversarial_harness\\.py",
+    "scripts/pipeline/chunker_langchain\\.py",
+    "scripts/consolidate_",
+    "scripts/create_",
+    "scripts/validate_anti_hallucination\\.py",
+]
+
+# Strict typing for ISO module (100% coverage target)
+[[tool.mypy.overrides]]
+module = "scripts.iso.*"
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+strict_equality = true
+
+# Strict typing for pipeline core
+[[tool.mypy.overrides]]
+module = "scripts.pipeline.*"
+disallow_untyped_defs = false
+check_untyped_defs = true
+
+# =============================================================================
+# PYTEST — ISO 29119 (Testing)
+# =============================================================================
+[tool.pytest.ini_options]
+testpaths = ["scripts"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests requiring external resources",
+]
+
+# =============================================================================
+# COVERAGE — ISO 29119 (Test Coverage)
+# =============================================================================
+# Note: Primary config in .coveragerc (used by pre-commit hook)
+# This section mirrors .coveragerc for tools that read pyproject.toml
+[tool.coverage.run]
+source = ["scripts/"]
+omit = [
+    "scripts/training/**",
+    "scripts/evaluation/**",
+    "scripts/pipeline/adversarial_harness.py",
+    "scripts/pipeline/chunker_langchain.py",
+    "scripts/pipeline/update_db_model_id.py",
+    "scripts/consolidate_*.py",
+    "scripts/create_*.py",
+    "scripts/validate_anti_hallucination.py",
+    "*/conftest.py",
+    "*/tests/*",
+]
+
+[tool.coverage.report]
+fail_under = 80
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.",
+    "raise NotImplementedError",
+    "\\.\\.\\.",
+]

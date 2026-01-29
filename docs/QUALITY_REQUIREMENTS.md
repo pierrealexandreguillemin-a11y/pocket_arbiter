@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-REQ-001
 > **ISO Reference**: ISO/IEC 25010:2023 - Modele de qualite produit
-> **Version**: 1.1
-> **Date**: 2026-01-18
+> **Version**: 1.3
+> **Date**: 2026-01-29
 > **Statut**: En cours
 > **Classification**: Interne
 > **Auteur**: Equipe projet
@@ -273,7 +273,7 @@ Ce document définit les exigences qualité du projet selon les 9 caractéristiq
 |----|----------|-------|---------------------|
 | MO-01 | Temps ajout nouveau corpus | < 1 jour | Test procédure |
 | MO-02 | Temps changement modèle LLM | < 1 jour | Test procédure |
-| MO-03 | Couverture tests unitaires | ≥ 60% | Rapport coverage |
+| MO-03 | Couverture tests unitaires | ≥ 80% | Rapport coverage |
 
 #### 2.7.5 Testabilité
 
@@ -457,3 +457,4 @@ Ce document définit les exigences qualité du projet selon les 9 caractéristiq
 | 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Creation initiale |
 | 1.1 | 2026-01-18 | Claude Opus 4.5 | FA-01 cible recall 90%, chunking v3 strategy |
 | 1.2 | 2026-01-24 | Claude Opus 4.5 | **Ajout Section 4**: Training Data Quality - minima Gold Standard (TD-01 a TD-05), Triplets (TT-01 a TT-05), Benchmarks (TB-01 a TB-05 avec MMTEB pour INTL), Synthetic (TS-01 a TS-05), DVC (TV-01 a TV-04). Standards: MTEB, MMTEB, BEIR, NV-Embed-v2, SoftDedup, RAGen |
+| 1.3 | 2026-01-29 | Claude Opus 4.5 | Seuil coverage MO-03 60%→80%, aligne avec .coveragerc et pyproject.toml |

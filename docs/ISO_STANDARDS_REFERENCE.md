@@ -2,7 +2,7 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.8
+> **Version**: 2.9
 > **Date**: 2026-01-29
 > **Statut**: Approuve
 > **Classification**: Interne
@@ -87,7 +87,7 @@ pocket_arbiter/
 ├── prompts/          # LLM prompts (versioned)
 ├── tests/            # Test data and reports
 ├── .iso/             # ISO configuration
-└── .githooks/        # Git hooks
+└── .pre-commit-config.yaml  # Pre-commit hooks
 ```
 
 **Phase Gates**:
@@ -125,17 +125,17 @@ pocket_arbiter/
 | `tests/data/adversarial.json` | Hallucination test cases |
 
 **Coverage Requirements**:
-- Minimum: 60%
-- Target: 80%
+- Minimum: 80%
+- Target: 90%
 - Critical paths: 100%
 
 **Test Automation**:
 ```bash
 # Run all tests
-pytest scripts/iso/ -v
+python -m pytest scripts/ -v
 
 # With coverage
-pytest scripts/iso/ --cov=scripts/iso --cov-fail-under=60
+python -m pytest scripts/ --cov=scripts --cov-config=.coveragerc --cov-fail-under=80
 
 # Specific phase validation
 python scripts/iso/validate_project.py --phase 1 --gates
@@ -194,26 +194,26 @@ python scripts/iso/validate_project.py --phase 1 --gates
 ## 2. Enforcement Mechanisms
 
 ### 2.1 Pre-commit Hooks
-Location: `.githooks/pre-commit.py`
+Location: `.pre-commit-config.yaml` (pre-commit framework)
 
-| Check | Blocking | Description |
-|-------|----------|-------------|
-| Critical TODOs | Yes | No CRITICAL/URGENT markers |
-| Secrets | Yes | No hardcoded passwords/keys |
-| JSON validity | Yes | All JSON files parse correctly |
-| ISO documentation | Yes | Required docs exist |
-| AI safety | Yes | No dangerous AI patterns |
-| Python syntax | Yes | All .py files compile |
+| Hook | Blocking | Description |
+|------|----------|-------------|
+| gitleaks | Yes | No secrets in commits (ISO 27001) |
+| ruff check | Yes | Lint Python (E, W, F, I, UP, B, C901, S, SIM) |
+| ruff format | Yes | Auto-format Python (88 chars) |
+| mypy | Yes | Type checking strict (iso + pipeline) |
+| pytest-quick | Yes | Smoke tests on staged files |
+| xenon | Yes | Cyclomatic complexity <= B |
 
 ### 2.2 Commit Message Hook
-Location: `.githooks/commit-msg.py`
+Location: `.pre-commit-config.yaml` (commit-msg hook)
 
-Format: `[type] Description`
+Format: `type(scope): Description`
 
 Valid types: `feat`, `fix`, `test`, `docs`, `refactor`, `perf`, `chore`
 
 Requirements:
-- Minimum 15 characters
+- Conventional commit format
 - No WIP on main branch
 - Co-Authored-By required (traceability)
 
@@ -264,7 +264,7 @@ Location: `.github/workflows/ci.yml`
 - [ ] Response time < 5s
 
 ### Phase 4: Quality & Optimization
-- [ ] Test coverage >= 60%
+- [ ] Test coverage >= 80%
 - [ ] No critical lint warnings
 - [ ] Performance benchmarks met
 - [ ] Accessibility verified
@@ -342,8 +342,8 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 ### Metrics Tracked
 | Metric | Target | Current | ISO Reference |
 |--------|--------|---------|---------------|
-| Test Pass Rate | 100% | **99.86%** (712/713, 1 skip TDD) | ISO 29119 |
-| Code Coverage | 80% | **82.44%** (.coveragerc scoped) | ISO 25010 |
+| Test Pass Rate | 100% | **99.86%** (696/697, 1 skip TDD) | ISO 29119 |
+| Code Coverage | 80% | **83.47%** (.coveragerc scoped) | ISO 25010 |
 | ISO Module Coverage | 95% | **99.30%** (125 tests) | ISO 29119 |
 | Lint Warnings (ruff) | 0 | **0** | ISO 25010 |
 | Complexity C901 > 10 | 0 (scoped) | **0** (pyproject.toml per-file-ignores) | ISO 25010 |
@@ -360,7 +360,7 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 
 > **Note**: Metriques mises a jour 2026-01-29.
 > - Gold standard v7 unified schema (SQuAD 2.0 + BEIR + ISO 42001)
-> - Coverage 82.44% avec `.coveragerc` (scope: pipeline + iso modules)
+> - Coverage 83.47% avec `.coveragerc` (scope: pipeline + iso modules)
 > - C901/mypy scoped via `pyproject.toml`: pipeline + iso = 0 erreurs
 > - 29 fonctions C901 > 10 exemptees (training/evaluation one-off scripts)
 > - Ruff rules: E, W, F, I, UP, B, C901, S, SIM (ISO-enforcing)
@@ -486,6 +486,7 @@ Contrainte Android mid-range: **RAM < 500MB**, **100% offline**, **latence < 5s*
 | 2.6 | 2026-01-20 | Claude Opus 4.5 | **Normalisation ISO**: FR 150 Q (91.56%), INTL 43 Q (93.22%), 2218 chunks total, tables INTL 74 summaries |
 | 2.7 | 2026-01-20 | Claude Opus 4.5 | **Pipeline v5.0**: chunker.py (MarkdownHeaderTextSplitter), 2801 chunks (1827 FR + 974 INTL), sections 99.9%+ |
 | 2.8 | 2026-01-29 | Claude Opus 4.5 | **Audit 25+8 findings**: metriques corrigees (712 tests, 82.44% coverage, 103 mypy, 29 C901). Secret purge filter-repo. ruff + .coveragerc + pre-commit enforcing. GS v7 (420+ FR). |
+| 2.9 | 2026-01-29 | Claude Opus 4.5 | **MAJ documentaire ISO**: metriques (696 tests, 83.47% cov), hooks .githooks→pre-commit framework, seuil coverage 60→80%, commandes pytest alignees pyproject.toml |
 
 ---
 

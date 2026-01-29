@@ -2,9 +2,9 @@
 
 > **Document ID**: TEST-PLAN-001
 > **ISO Reference**: ISO/IEC 29119:2021 - Tests logiciels
-> **Version**: 1.0
-> **Date**: 2026-01-11
-> **Statut**: Draft
+> **Version**: 1.1
+> **Date**: 2026-01-29
+> **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Equipe projet
 > **Mots-cles**: tests, validation, verification, qualite, CI/CD, hallucination, retrieval
@@ -81,7 +81,7 @@ Ce document définit la stratégie, les processus et la documentation de test po
 #### Critères de sortie (pour valider une phase)
 - [ ] 100% tests planifiés exécutés
 - [ ] 0 bug critique ouvert
-- [ ] Couverture code ≥ 60%
+- [ ] Couverture code ≥ 80%
 - [ ] Tous critères DoD respectés
 
 ---
@@ -165,8 +165,8 @@ Ce document définit la stratégie, les processus et la documentation de test po
 
 | ID | Test | Dataset | Critère succès |
 |----|------|---------|----------------|
-| P2-R01 | Recall@5 corpus FR | 25 questions gold | ≥ 80% |
-| P2-R02 | Recall@5 corpus INTL | 25 questions gold | ≥ 80% |
+| P2-R01 | Recall@5 corpus FR | 420+ questions gold (v7) | ≥ 80% |
+| P2-R02 | Recall@5 corpus INTL | 43 questions gold | ≥ 80% |
 | P2-R03 | Precision@3 | 50 questions | ≥ 70% |
 | P2-R04 | Questions edge cases | 10 questions limites | Pas de crash |
 
@@ -295,7 +295,7 @@ Ce document définit la stratégie, les processus et la documentation de test po
 
 ### 4.1 Questions gold standard (test set)
 
-#### Corpus FR (25 questions)
+#### Corpus FR (420+ questions, v7)
 
 ```yaml
 questions_fr:
@@ -317,7 +317,7 @@ questions_fr:
   # ... 22 questions supplémentaires
 ```
 
-#### Corpus INTL (25 questions)
+#### Corpus INTL (43 questions)
 
 ```yaml
 questions_intl:
@@ -357,8 +357,8 @@ adversarial_questions:
 
 | Fichier | Contenu | Usage |
 |---------|---------|-------|
-| `tests/data/gold_standard_fr.json` | 134 questions FR avec expected_pages | Tests recall |
-| `tests/data/gold_standard_intl.json` | 25 questions INTL avec expected_pages | Tests recall |
+| `tests/data/gold_standard_fr.json` | 420+ questions FR v7 avec expected_pages | Tests recall |
+| `tests/data/gold_standard_intl.json` | 43 questions INTL avec expected_pages | Tests recall |
 | `tests/data/adversarial.json` | 30 questions pièges | Tests hallucination |
 | `tests/data/eval_template.csv` | Template évaluation humaine | Tests fidélité |
 
@@ -383,6 +383,25 @@ steps:
   - ui_tests (emulator)
   - retrieval_tests
   - hallucination_tests
+```
+
+**Configuration pytest** (`pyproject.toml`):
+```toml
+[tool.pytest.ini_options]
+testpaths = ["scripts"]
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["scripts"]
+
+[tool.coverage.report]
+fail_under = 80
+```
+
+**Commande de test** :
+```bash
+python -m pytest scripts/ --cov=scripts --cov-config=.coveragerc --cov-fail-under=80
 ```
 
 ### 5.2 Devices physiques
@@ -483,3 +502,4 @@ Duration: 12m 34s
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Création initiale |
+| 1.1 | 2026-01-29 | Claude Opus 4.5 | Seuils coverage 60→80%, GS v7 (420+ FR, 43 INTL), config pyproject.toml, status Draft→Approuve |

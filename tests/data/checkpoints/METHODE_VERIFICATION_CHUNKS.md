@@ -470,3 +470,26 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Findings metadata**: 3 UV FAUX (idx 329 open→rules, 332 open→rules, 333 tournament→rules)
 - **Duplicate**: idx 321/327 = both jun2021 UVR Q21, same artref, same chunk (pipeline duplication)
 - **Cumul**: 340/420 verifiees (81%), 266 WRONG chunks + 3 textes + 141 metadata corriges.
+
+### Batch 18 (Q340-Q359) — tournament:002-021, session dec2024
+- **Resultat**: 1/20 OK — 19 WRONG_SECTION
+- **Session**: dec2024 UVT Q3-Q29 (20Q) — toutes questions tournament management
+- **OK**: idx 347 (Art 6.7+commentaire parent171-child00)
+- **Findings chunks**:
+  - 3 Ch 3.5 Swiss C.04.3 Neerlandais: idx 342/343/350 (parent190/349/350→parent359=C.04.3)
+  - 3 Ch 5.5 Bareme arbitres: idx 357/358/359 (parent177/176/176→parent522=Ch 5.5)
+  - 2 R03 Art 2.3: idx 340/341 (parent010/014→parent007=Art 2.3 Droits inscription)
+  - 2 Ch 4.2 Departages cumulatif: idx 352/353 (parent118/127→parent436=Art 6.5 Cumulatif)
+  - 1 Art 6.9 child: idx 345 (parent171-child00→child02)
+  - 1 Art 7.3: idx 346 (parent176=Art 7.5.5→parent174=Art 7.1-7.4)
+  - 1 Dutch D. Transpositions: idx 344 (parent348=Exempts→parent380=D. Transpositions)
+  - 1 Annexe D.2.10: idx 348 (parent198→parent200=D.2.10)
+  - 1 C.04.2 D.8: idx 349 (parent349→parent357=C.04.2 section D rules, D.8 not found explicitly)
+  - 1 Ch 4.5 Violence: idx 351 (parent190=FIDE Annexe A→parent484=Ch 4.5 Violence)
+  - 1 Ch 4.3 Partage prix: idx 354 (parent161=Art 3.10→parent470=Ch 4.3)
+  - 1 Rating K coefficient: idx 355 (parent174=FIDE Art 7.1→parent546=Rating 8.3.3)
+  - 1 Rating art 8.3: idx 356 (parent176=FIDE Art 7.5.5→parent545=Rating 8.3)
+- **New chapter mappings**: parent351-393=Ch 3.5 Swiss (p120-135), parent426-436=Ch 4.2 Departages (p146-149), parent470=Ch 4.3 Prix (p157), parent484=Ch 4.5 Violence (p163), parent522=Ch 5.5 Bareme (p178), parent545-546=Ch 6.1 Rating 8.3 (p185)
+- **Root cause**: Pipeline systematically mapped tournament chapter artrefs to FIDE Laws section chunks
+- **Findings metadata**: 10 UV FAUX (clubs→tournament to match ID prefix)
+- **Cumul**: 360/420 verifiees (86%), 285 WRONG chunks + 3 textes + 151 metadata corriges.

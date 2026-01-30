@@ -22173,7 +22173,7 @@
       "question": "Une joueuse aveugle souhaite s'inscrire sur place au tournoi, elle présente une carte de mobilisation inclusion de personne en situation de handicap. L'organisateur lui indique que le tarif d'inscription sur place est de 80 €, trouvant cela injuste elle sollicite votre aide. Que dites-vous ?",
       "expected_answer": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte de mobilisation inclusion de personne en situation de handicap. Cette question a eu un faible taux de réussite, cette règle est encore récente mais marquée très clairement dans les règlements.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent010-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -22238,7 +22238,7 @@
       "question": "Avant le tournoi, l'organisateur avait cru comprendre que l'inscription était gratuite pour certaines personnes tant qu'elles s'inscrivaient 48 h en avance. Parmi les propositions suivantes, qui doit obligatoirement payer l'inscription ?",
       "expected_answer": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi. Les maîtres FIDE ne sont pas dans cette liste.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p003-parent014-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -22302,12 +22302,12 @@
       "question": "Pour obtenir un titre d'arbitre fédéral, quelle condition administrative parmi les suivantes n'est pas nécessaire ?",
       "expected_answer": "Faire sa demande de titre auprès de la direction des titres. LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 - Délivrance des titres d'arbitres fédéraux - 7.1. Critères administratifs : Avoir possédé, à un moment donné, un classement Elo (lent ou rapide, national ou F.I.D.E.).",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
+      "expected_chunk_id": "LA-octobre2025.pdf-p125-parent359-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        57
+        125
       ],
       "category": "tournoi",
       "keywords": [
@@ -22330,7 +22330,7 @@
         "difficulty": 0.17,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 7,
           "success_rate": 0.83
         },
@@ -22366,12 +22366,12 @@
       "question": "- a) Il est U12 et devra jouer en U14 à partir de son anniversaire. Pour la saison 2024-2025, un joueur a pris sa licence le 30/09/2024, il est né le 03/01/2011. Quelle est sa catégorie d'âge ?",
       "expected_answer": "Eviter d'être flotteur montant deux fois de suite est classée comme le critère N°13 Eviter d'être flotteur descendant deux fois de suite est classée comme le critère N°12 Ne pas affronter deux fois le même adversaire est le critère N°1 Avoir sa couleur préférentielle est le critère N°11",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p119-parent349-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p125-parent359-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        125
       ],
       "category": "tournoi",
       "keywords": [
@@ -22394,7 +22394,7 @@
         "difficulty": 0.37,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 10,
           "success_rate": 0.63
         },
@@ -22432,12 +22432,12 @@
       "question": "Voici plusieurs tentatives de transpositions afin de déterminer leur appariement. Dans quel ordre un ordinateur devrait effectuer ces tentatives ? Lors d'une ronde vous avez 6 joueurs dans un même niveau de points homogène : joueur A (1428) , joueur B (1614) , joueur C (1547) , joueur D (1213), joueur E (1439), joueur F (1613). | Tentative Alpha | Tentative Alpha | Tentative Beta | Tentative Beta | Tentative Gamma | Tentative Gamma | Tentative Delta | Tentative Delta | Tentative Omega | |-------------------|-------------------|------------------|------------------|-------------------|-------------------|-------------------|-------------------|-------------------| | S1 | S2 | S1 | S2 | S1 | S2 | S1 | S2 | S1 | | B | A | B | A | B | E | B | D | B | | F | D | F | E | F | A | F | E | F | | C | E | C | D | C | D | C | A | C |",
       "expected_answer": "Le joueur, joueuse ou équipe qui n'est pas présent à la fin du temps de retard autorisé.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p119-parent348-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p129-parent380-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        129
       ],
       "category": "tournoi",
       "keywords": [
@@ -22496,7 +22496,7 @@
       "question": "Pour un tournoi, le montant de l'inscription est fixé à 30 € pour les adultes et 15 € pour les jeunes. L'inscription est majorée à 40 € pour les adultes s'inscrivant à la dernière minute et 20 € pour les jeunes. Le jour du tournoi, une personne adulte handicapée se présente. Quelle somme doit-elle régler ?",
       "expected_answer": "Elle doit payer 30 €.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child02",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -22528,7 +22528,7 @@
         "difficulty": 0.28,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 13,
           "success_rate": 0.72
         },
@@ -22564,7 +22564,7 @@
       "question": "Un organisateur décide de découper son tournoi en deux phases distinctes au cours de deux périodes de l'année sportive sur la base de deux homologations différentes. La première phase consiste en un tournoi à la cadence 30 min (+5 s/coup) et la deuxième phase à la cadence 50 min (+10 s/coup). Un joueur se présente à la première phase avec une licence B. Peut-il participer à l'ensemble du tournoi ?",
       "expected_answer": "Il en a le droit à la condition de prendre la licence A pour la deuxième phase.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -22594,7 +22594,7 @@
         "difficulty": 0.07,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 14,
           "success_rate": 0.93
         },
@@ -22697,7 +22697,7 @@
       "question": "- a) L'assistance peut signaler à Mme Kiapavu que son adversaire a perdu au temps. Mme Kiapavu dispose d'une assistante en raison de son handicap. Son adversaire s'inquiète de cette personne en plus autour de l'échiquier et demande ce qu'elle a le droit de faire. Parmi les propositions suivantes, laquelle est fausse ?",
       "expected_answer": "Un club peut avoir deux équipes en Nationale 1.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent198-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p061-parent200-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -22763,12 +22763,12 @@
       "question": "Juste avant le démarrage de la ronde N°6, Rayane RAMDANI vient vous voir pour indiquer qu'il y a une erreur de résultat. Elle avait gagné à la ronde N°5. Cette affirmation est confirmée par son adversaire.",
       "expected_answer": "Arbitre jeune. A02 - 2.4 Arbitres.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p119-parent349-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p124-parent357-child01",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        124
       ],
       "category": "tournoi",
       "keywords": [
@@ -22828,12 +22828,12 @@
       "question": "Juste avant la ronde N°7, l'un des joueurs de la table 2 vient vous voir pour porter réclamation contre l'appariement. Il estime qu'il aurait dû jouer à la 1 re table contre le leader du tournoi car il a un meilleur Elo que l'adversaire choisi. Quel critère prioritaire a été pris en compte pour expliquer l'appariement ?",
       "expected_answer": "Pauline P. a une préférence noire absolue tandis Francis D. a une préférence noire faible et Nicolas N. a une préférence blanche faible. Pauline POPE vient du niveau à 5 pts, dans le niveau inférieur (4,5 points) elle a deux adversaires possibles : DELBOE Francis et NIDAM Nicolas. Elle ne les a pas affrontés précédemment. Il est vérifié que Nicolas N. n'a pas été flotteur montant aux deux rondes précédentes. En raison du classement Elo, on a d'abord tenté l'appariement de Pauline P. contre Francis D. Pauline P. et Nicolas N. sont compatibles au niveau des préférences couleurs et il n'y a pas de blocage flotteur. Au final l'appariement contre Francis D. a été refusé dans un 1 er temps par un blocage couleur (les deux veulent les noirs). On pourrait indiquer que Francis D. a déjà été flotteur descendant à la ronde N°5 mais le critère des couleurs préférentielles est prioritaire.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p119-parent350-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p125-parent359-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        125
       ],
       "category": "tournoi",
       "keywords": [
@@ -22893,12 +22893,12 @@
       "question": "- a) Vous prenez en compte qu'elle abandonne la partie, la victoire revient à son adversaire. Vous précisez que, malgré votre soutien, vous n'avez pas l'autorité pour intervenir davantage dans ce type de situation. Pendant la ronde N°7, la partie est commencée depuis presque 2 h 00. Hajjar HUREZ vient vous voir accompagnée d'autres joueurs. Sa partie est encore en cours mais elle indique que son adversaire n'arrête pas de lui faire des allusions racistes et sexuelles depuis que la partie a commencé. Les joueurs qui l'accompagnent confirment qu'ils ont tout entendu. Hajjar HUREZ vous indique qu'elle ne se sent pas capable de continuer la partie . Que faites-vous ?",
       "expected_answer": "15 : 15.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p163-parent484-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        55
+        163
       ],
       "category": "tournoi",
       "keywords": [
@@ -22958,12 +22958,12 @@
       "question": "Une joueuse vous demande pour son départage à combien s'élève son cumulatif. Elle rappelle le déroulement de son tournoi : R1 : Victoire ; R2 : Match nul ; R3 : Match nul ; R4 : Défaite ; R5 : Victoire ; R6 : Défaite ; R7 : Victoire Quel est son cumulatif ?",
       "expected_answer": "L'arbitre de la rencontre.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p026-parent118-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p148-parent436-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        27
+        148
       ],
       "category": "tournoi",
       "keywords": [
@@ -23025,12 +23025,12 @@
       "question": "En Nationale 3, une équipe lors de la ronde 4, veut faire jouer des joueurs ayant participé aux rondes précédentes. Chaque joueur non cité n'ayant joué aucune ronde. Dans quel cas parmi les répartitions suivantes l'équipe sera-t-elle en infraction ?",
       "expected_answer": "2 joueurs ayant joué la ronde 1 et 1 joueur ayant joué la ronde 3. A02 - 3.7 Composition des équipes - 3.7.f) Noyau de l'équipe : en N1, N2 et N3, chaque équipe doit aligner à chaque ronde au moins 50 % de personnes (appelé noyau) inscrites sur le PV ayant déjà participé au moins une fois pour le compte de cette équipe depuis le début de la saison (sauf pour la ronde 1).",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p028-parent127-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p148-parent436-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        27
+        148
       ],
       "category": "tournoi",
       "keywords": [
@@ -23053,7 +23053,7 @@
         "difficulty": 0.16,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 22,
           "success_rate": 0.84
         },
@@ -23082,12 +23082,12 @@
       "question": "En coupe Loubatière, combien d'équipes se qualifient pour la phase 3 en cas de présence de 13 équipes en phase 2, le quota de 10 % de joueuses étant atteint ?",
       "expected_answer": "Au système Hort, il faut calculer la moyenne entre les deux : (230+150)÷2=190 €",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p157-parent470-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        41
+        157
       ],
       "category": "tournoi",
       "keywords": [
@@ -23110,7 +23110,7 @@
         "difficulty": 0.12,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 23,
           "success_rate": 0.88
         },
@@ -23146,12 +23146,12 @@
       "question": "Pauline POPE qui est pupille vous interroge sur le coefficient K, elle vous informe qu'elle a joué 50 parties en rapide le mois dernier. Quel est le coefficient qui a été utilisé pour le calcul de son nouvel Elo rapide ?",
       "expected_answer": "Echiquier 2 : blancs ; Echiquier 3 : blancs.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent546-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        48
+        185
       ],
       "category": "tournoi",
       "keywords": [
@@ -23212,12 +23212,12 @@
       "question": "- a) 00 : 50. En coupe de France, l'équipe de « équipe\\_en\\_retard » arrive en retard et le capitaine donne sa composition à 14 : 10. Un joueur manque encore et n'arrive qu'à 14 : 40. Qu'indiquera sa pendule au démarrage ?",
       "expected_answer": "01 : 30. R01 et C01 - 3. Forfaits : Définitions. 3.1. Principes généraux. 3.1.2. Retard autorisé : le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. En coupe de France, aucun délai de forfait n'est indiqué. Le retard autorisé est donc de 30 min. Les pendules devraient indiquer 01:30. Comme la feuille de match est donnée avec 10 min de retard, à 14 h 15, chacune indique 01:20. Le joueur se présente avec 25 min de retard. Sa pendule indique donc 00:55.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        50
+        185
       ],
       "category": "tournoi",
       "keywords": [
@@ -23243,7 +23243,7 @@
         "difficulty": 0.21,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 26,
           "success_rate": 0.79
         },
@@ -23281,12 +23281,12 @@
       "question": "En coupe de France, quelle est l'amende pour forfait à régler pour une équipe forfait au 4 e tour alors que le 1 er tour est un 128 e de finale ?",
       "expected_answer": "400 €. C01 - 3.8. Forfaits sportifs : Sauf événement exceptionnel dûment justifié reconnu par la Direction de la Coupe de France, tout forfait d'une équipe entraîne une amende pour le club de : ▪ 50 € jusqu'en 64e de finale ▪ 100 € en 32e de finale ▪ 200 € en 16e de finale. Le 4 e tour est un 16 e de finale",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child02",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        49
+        178
       ],
       "category": "tournoi",
       "keywords": [
@@ -23310,7 +23310,7 @@
         "difficulty": 0.16,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 27,
           "success_rate": 0.84
         },
@@ -23339,12 +23339,12 @@
       "question": "En demi-finale de la coupe de France, comment sont départagées deux équipes ayant des scores identiques ? a) L'équipe gagnante est celle ayant gagné sur l'échiquier n° 1 ou, en cas de nullité sur cet échiquier, l'équipe ayant gagné sur l'échiquier n° 2 ou, en cas de nullité sur les 2 premiers échiquiers, l'équipe ayant gagné sur l'échiquier n° 3.",
       "expected_answer": "FFÉ checs D irection N ationale de l' A rbitrage - Session d'examen de décembre 2024 - Annales - Page 59 sur 62",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        49
+        178
       ],
       "category": "tournoi",
       "keywords": [
@@ -23368,7 +23368,7 @@
         "difficulty": 0.67,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 28,
           "success_rate": 0.33
         },
@@ -23397,12 +23397,12 @@
       "question": "- a) 1836-2010-2152. En 1 ère phase de la coupe de la parité, laquelle de ces équipes ne peut participer à la compétition sur la base des classements Elo de ses joueurs ci-dessous, pour une équipe de 3 joueurs ?",
       "expected_answer": "Pour un arbitre principal en cadence lente : les journées à une ronde sont indemnisées entre 60 et 85 € Les journées à deux rondes sont indemnisées entre 70 et 100 € Le minimum est donc 1×60 +3×70=270 € Le maximum est 1×85+3×100=385 €",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        49
+        178
       ],
       "category": "tournoi",
       "keywords": [
@@ -23426,7 +23426,7 @@
         "difficulty": 0.19,
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 29,
           "success_rate": 0.81
         },

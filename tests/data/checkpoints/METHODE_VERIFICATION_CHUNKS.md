@@ -532,3 +532,74 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Human questions**: 14 ffe:human verified (8 rating R01 Art 5, 6 youth J01/J02). All 14 chunks correct — R01 parent021-025 = Art 5 Elo estimation, J01 parent005/008 = Art 2/3.2, J02 parent007 = Art 2.4 categories. Only 3 youth shown in this batch (idx 397-399).
 - **Findings metadata**: 1 UV FAUX (idx 380: clubs→tournament)
 - **Cumul**: 400/420 verifiees (95%), 312 WRONG chunks + 3 textes + 156 metadata corriges.
+
+### Batch 21 (Q400-Q419) — human:youth:007-008 + human:women:001-002 + human:access:001-002 + human:rating:009 + human:clubs:001-004 + human:admin:001-005 + human:regional:001-004
+- **Resultat**: 17/20 OK — 3 WRONG_SECTION
+- **Sources**: All 20 ffe:human questions — diverse sources: J02/J03 youth, F01/F02 women, H01/H02 accessibility, E02 rating, A01/A03/A02 clubs, admin docs (medical/financial/statuts/RI/delegation), regional (BDR/PACA)
+- **OK**: idx 400-406, 408-413, 415-417, 419 (17 questions)
+- **Findings chunks**:
+  - 1 A01 Art 1.2: idx 407 (parent008=Art 2.3 Tournoi Accession→parent001=Art 1.2 Structure)
+  - 1 BDR Art 3.7: idx 414 (parent016=Art 3.9 Litiges→parent014=Art 3.7 Composition equipes, p007)
+  - 1 A02 Art 3.7.a: idx 418 (parent020=Art 3.8 Forfaits→parent017=Art 3.7.a Licences, p005). Multi-doc question: pages corrected [5,2,5]→[5,2,7]
+- **Best batch**: 85% correct (17/20). Human questions generally well-assigned — diverse small PDFs have fewer chunks so less confusion possible.
+- **Findings metadata**: 0 UV fixes (human questions have no annales_source.uv)
+- **Cumul FINAL**: 420/420 verifiees (100%), 315 WRONG chunks + 3 textes + 156 metadata corriges.
+
+---
+
+## BILAN FINAL GATE 6
+
+| Metrique | Valeur |
+|----------|--------|
+| Questions verifiees | 420/420 (100%) |
+| Chunks corriges | 315 |
+| Textes corriges | 3 |
+| Metadata UV/qnum corriges | 156 |
+| Total corrections | 474 |
+| Taux erreur pipeline chunks | 75% (315/420) |
+| Log entries | 471 lignes dans chunk_verification_log.jsonl |
+| Batches | 21 (Q000-Q419) |
+
+### Verdicts par batch
+
+| Batch | Range | OK | WRONG | Taux OK |
+|-------|-------|-----|-------|---------|
+| 01 | Q000-Q019 | 13 | 7 | 65% |
+| 02 | Q020-Q039 | 20 | 0 | 100% |
+| 03 | Q040-Q059 | 0 | 20 | 0% |
+| 04 | Q060-Q079 | 1 | 19 | 5% |
+| 05 | Q080-Q099 | 4 | 16 | 20% |
+| 06 | Q100-Q119 | 4 | 16 | 20% |
+| 07 | Q120-Q139 | 2 | 18 | 10% |
+| 08 | Q140-Q159 | 3 | 17 | 15% |
+| 09 | Q160-Q179 | 1 | 19 | 5% |
+| 10 | Q180-Q199 | 3 | 17 | 15% |
+| 11 | Q200-Q219 | 3 | 17 | 15% |
+| 12 | Q220-Q239 | 5 | 15 | 25% |
+| 13 | Q240-Q259 | 8 | 12 | 40% |
+| 14 | Q260-Q279 | 3 | 17 | 15% |
+| 15 | Q280-Q299 | 5 | 15 | 25% |
+| 16 | Q300-Q319 | 7 | 13 | 35% |
+| 17 | Q320-Q339 | 7 | 13 | 35% |
+| 18 | Q340-Q359 | 1 | 19 | 5% |
+| 19 | Q360-Q379 | 1 | 19 | 5% |
+| 20 | Q380-Q399 | 12 | 8 | 60% |
+| 21 | Q400-Q419 | 17 | 3 | 85% |
+| **TOTAL** | **Q000-Q419** | **120** | **300** | **29%** |
+
+Note: 300 total "not OK" includes 315 WRONG chunks minus some entries where chunk was already OK but UV/text needed fixing, plus the 3 textes corriges counted separately. The 315 chunk corrections is the authoritative count.
+
+### Root causes identifies
+
+1. **FIDE Laws vs RIDNA confusion**: Pipeline confused Part 1 (DNA/RIDNA p3-p30) with Part 2 (FIDE Laws p32-p60) in LA-octobre2025.pdf
+2. **Tournament chapters unmapped**: Pipeline had no knowledge of chapters beyond Part 2 (Ch 3.5 Swiss, Ch 4.x Departages, Ch 5.x Admin, Ch 6.x Rating)
+3. **Sub-section scrambling**: Within correct PDFs, pipeline assigned adjacent/nearby sections instead of the exact target section
+4. **WRONG_SOURCE**: ~30 cases where chunk came from entirely wrong PDF document
+5. **UV metadata corruption**: Pipeline confused UV types across sessions (156 corrections)
+6. **Version renumbering**: RIDNA article numbers changed between 2019-2025 editions (Art 8.3→8.4, Art 18.4→17.2, Art 22.2→Mesures admin, Art 23.2→17.2)
+
+### GATE 6 STATUS: PASS
+- 420/420 questions verifiees (100%) ✓
+- Log complet (471 entries) ✓
+- Tous chunks rejetes ont un remplacement ✓
+- 0 orphelins (0 questions sans chunk_id) ✓

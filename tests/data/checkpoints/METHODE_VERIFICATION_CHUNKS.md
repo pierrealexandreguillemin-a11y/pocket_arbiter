@@ -517,3 +517,18 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **New mappings**: parent031=Ch 1.3 RI DNA (p012), parent225=Art 6.5 absence (p074), parent363=A.4 Flotteurs (p125), parent365=A.6 Couleurs (p125), parent385=E. Attribution couleurs (p130), parent464=Art 14 (p153), parent465=Score ajuste (p137), parent491/492=Ch 5.2 (p166-168), parent511=Ch 5.4 (p172)
 - **Findings metadata**: 4 UV FAUX (1 open→tournament, 3 clubs→tournament)
 - **Cumul**: 380/420 verifiees (90%), 304 WRONG chunks + 3 textes + 155 metadata corriges.
+
+### Batch 20 (Q380-Q399) — tournament:042-050 + human:rating:001-008 + human:youth:001-003, sessions jun2025 + human
+- **Resultat**: 12/20 OK — 8 WRONG_SECTION
+- **Sessions**: jun2025 UVT Q14-Q30 (6Q annales tournament) + ffe:human rating (8Q) + ffe:human youth (6Q, 3 in this batch)
+- **OK**: idx 387 (Art 8.3 parent545), idx 389-396 (R01 Art 5 parent021-025 rating), idx 397-399 (J01/J02 youth parent005/008/007)
+- **Findings chunks**:
+  - 2 Art 8.3 rating: idx 386/388 (parent552=Elo calc example→parent545=Art 8.3 rating article, p185)
+  - 2 C.11 quality criteria: idx 384/385 (parent350=Swiss interest→parent379=Quality criteria C.5-C.14, p128)
+  - 2 E. Attribution couleurs: idx 382/383 (parent350/351→parent385=E. Couleurs, p130)
+  - 1 Art 6.5 absence: idx 380 (parent118=DNA sanctions→parent225=Art 6.5 absence, p074)
+  - 1 C.04.2 D.8: idx 381 (parent352=Note preliminaire→parent357=C.04.2 section D rules, p124)
+- **C.11 ambiguity**: Two different "C.11" in LA book — algebraic notation pion promotion (p060, parent195) vs Dutch pairing quality criterion (p128, parent379). Swiss system context clearly needs pairing criterion.
+- **Human questions**: 14 ffe:human verified (8 rating R01 Art 5, 6 youth J01/J02). All 14 chunks correct — R01 parent021-025 = Art 5 Elo estimation, J01 parent005/008 = Art 2/3.2, J02 parent007 = Art 2.4 categories. Only 3 youth shown in this batch (idx 397-399).
+- **Findings metadata**: 1 UV FAUX (idx 380: clubs→tournament)
+- **Cumul**: 400/420 verifiees (95%), 312 WRONG chunks + 3 textes + 156 metadata corriges.

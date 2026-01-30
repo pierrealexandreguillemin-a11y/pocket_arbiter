@@ -24703,12 +24703,12 @@
       "question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante. Quel est le niveau minimum requis ?",
       "expected_answer": "Ici, l'absence était prévisible (la question indique « prévu depuis longtemps »). Cette absence aurait donc du être signalée avant l'appariement de la ronde 5. Ce comportement très gênant doit être sanctionné. Ce joueur est donc exclu du tournoi.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p026-parent118-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p074-parent225-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        27
+        74
       ],
       "category": "tournoi",
       "keywords": [
@@ -24733,7 +24733,7 @@
         "difficulty": 0.36,
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 14,
           "success_rate": 0.64
         },
@@ -24769,12 +24769,12 @@
       "question": "15 minutes avant le début de la ronde 5, les 2 joueurs de la table 9 de la ronde 4 viennent vous voir. Ils se sont tous les deux trompés et vous disent que ce sont les blancs qui ont gagné, contrairement à ce qu'indique le résultat. Vous vérifier les feuilles : les deux feuilles sont signées par les 2 joueurs. Une des feuilles n'indique aucun résultat et l'autre feuille indique clairement la victoire des noirs. En voyant ça, les deux joueurs reconnaissent qu'ils se sont trompés. Ils confirment la victoire des blancs. Quelle est votre décision ?",
       "expected_answer": "Dans le cas où un résultat erroné a été enregistré, si le signalement intervient après la fin de la ronde suivante, la correction aura lieu après le tournoi et uniquement dans le cadre du calcul du classement Elo du joueur.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p121-parent352-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p124-parent357-child01",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        124
       ],
       "category": "tournoi",
       "keywords": [
@@ -24837,12 +24837,12 @@
       "question": "Attribution des couleurs (1) Joueur A : Elo 2000 - Score 3 points - Historique des couleurs : NBNB Joueur B : Elo 1975 - Score 3 points - Historique des couleurs : NBNB Joueur C : Elo 1820 - Score 2,5 points - Historique des couleurs : NBBN Joueur D : Elo 1750 - Score 2 points - Historique des couleurs : BNBN ``` Les appariements de la ronde 5 font jouer A contre B et C contre D. Quels joueurs auront les blancs ? a) Joueur A et joueur C. b) Joueur A et joueur D. c) Joueur B et joueur C. d) Joueur B et joueur D. ``` LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 Paragraphe E : couleurs ``` - Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique. - Les joueurs A et B ont exactement le même historique donc la même préférence couleur (noir faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4). Les 2 joueurs ont le même nombre de points donc le plus fort est celui qui a le plus fort ELO. Le joueur A aura donc sa couleur préférentielle : les noirs. Le joueur B aura donc les blancs. On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. ```",
       "expected_answer": "``` - Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique. - Les joueurs A et B ont exactement le même historique donc la même préférence couleur (noir faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4). Les 2 joueurs ont le même nombre de points donc le plus fort est celui qui a le plus fort ELO. Le joueur A aura donc sa couleur préférentielle : les noirs. Le joueur B aura donc les blancs. On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. ```",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p119-parent350-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p130-parent385-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        130
       ],
       "category": "tournoi",
       "keywords": [
@@ -24907,12 +24907,12 @@
       "question": "Attribution des couleurs (2) ``` ``` Joueur E : Elo 1850 - Score 3 points - Historique des couleurs : N_NB* Joueur F : Elo 2000 - Score 3 points - Historique des couleurs : BNBN ``` ``` Joueur G : Elo 1810 - Score 4,5 points - Historique des couleurs : BNBN Joueur H : Elo 1940 - Score 4 points - Historique des couleurs : BNBN FFÉ checs D irection N ationale de l' A rbitrage - Session d'examen de juin 2025 - Annales - Page 69 sur 72 ``` donc pour le prochaine ronde, (* Dans l'historique des couleurs, \\_ signifie que le joueur a gagné par forfait) Les appariements de la ronde 5 font jouer E contre F et G contre H. Quels joueurs auront les blancs ?",
       "expected_answer": "- Le joueur E a une préférence couleur « blanc fort » (différence de 1). Le joueur F a une préférence couleur « blanc faible » (même nombre de fois les blancs et les noirs, on alterne si possible). Dans ce cas, on applique la règle E2 donc le joueur E aura les blancs (préférence couleur plus forte) - Les joueurs F et H ont exactement le même historique donc la même préférence couleur (blanc faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4), mais attention le plus fort au sens de A2. Comme les 2 joueurs n'ont pas le même score, le plus fort ici est le G. C'est donc ce joueur G qui aura les blancs. .",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p120-parent351-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p130-parent385-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        130
       ],
       "category": "tournoi",
       "keywords": [
@@ -24967,12 +24967,12 @@
       "question": "Appariement d'un groupe de points (1) 6 joueurs ont 3 points (numéro d'appariement et préférence couleur (avec force) de chacun d'eux : ``` 5n, 12b, 16n, 17(n), 19b, 25N « Déjà joué » parmi ces joueurs : 17 contre 5 et 17 contre 16. (b) et (n) : Préférences faibles b et n : Préférences fortes B et N : Préférences absolues ``` Quel sera l'appariement des 3 tables pour ces 6 joueurs ? ``` a) 17 - 5, 12 - 25 et 19 - 16 b) 19 - 5, 12 - 17 et 16 - 25 c) 19 - 5, 12 - 16 et 17 - 25 d) 12 - 5, 19 - 16 et 17 - 25 ```",
       "expected_answer": "2 joueurs ont une couleur préférentiel « Blanc » - 4 joueurs ont une couleur préférentiel « noir ». Un des joueurs ayant la couleur préférentiel « noir » aura donc les blancs. L'article C11 indique : « Minimiser le nombre de personnes qui n'ont pas leur préférence couleur forte satisfaite ». Un seul de ces 4 joueurs est en préférence faible (le 17). Si possible, c'est donc ce joueur qui Mais attention, tous les joueurs ayant « noir » comme préférence couleur ne l'ont pas avec le même niveau de préférence (1 absolu, 2 forts, 1 faible). n'aura pas les noirs. | S1 | S2 | Essais d'appariement. | |------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| | 5n | 17(n) | 5-17 : Déjà joué. | | 12b | 19(b) | 5-19 : OK. | | 16n | 25N | 12-17 : semble OK, mais dans ce cas, le joueur 17 aurait les noirs. Comme indiqué ci-dessus, on veut que le joueur 17 ait finalement les blancs (si on acceptait ça, on forcerait un joueur ayant une préférence noir plus forte). Donc on refuse. 12-25 : OK 16-17 : Déjà joué. On doit donc casser 12-25. | | S1 | S2 | Essais d'appariement. | |-------|-------|---------------------------------------------------------------------------------------------| | 5n | 16n | 5-16 : Semble OK, mais comme expliqué ci-dessus, on veut forcer le 17, pas un autre joueur. | | 12b | 19(b) | 5-19 : OK. | | 17(n) | 25N | 12-16 : OK | | | | 17-25 : Blocage couleur, mais on forcerai la couleur du 17, c'est ce qu'on veut donc OK. |",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p119-parent350-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p128-parent379-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        128
       ],
       "category": "tournoi",
       "keywords": [
@@ -25027,12 +25027,12 @@
       "question": "Appariement d'un groupe de points (2) 5 joueurs ont 0 points (il n'y a donc aucun « déjà joué »). Voilà leurs numéros d'appariements et leur préférence couleur (préférence faible pour tous donc) : 10(b), 12(b), 14(b), 18(b), 21(n) Quel sera l'appariement des 2 dernières tables et qui sera exempt ? ``` a) 10 - 14, 12 - 18 et 21 exempt. b) 10 - 14, 12 - 21 et 18 exempt. c) 10 - 18, 12 - 21 et 14 exempt. d) 10 - 21, 12 - 14 et 18 exempt. e) 10 - 12, 14 - 18 et 21 exempt. ``` N'oubliez pas de rendre 2 fichiers : ce questionnaire et la boule PAPI. Votre boule PAPI doit être renommée avec votre numéro d'anonymat (Exemple : XB02.papi ).",
       "expected_answer": "``` 4 joueurs ont une préférence blanc et 1 joueur une préférence noir. On aura donc une table perturbée en forçant un des joueur ayant une préférence blanc. | S1 | S2 | Essais d'appariement. | |---------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------| | 10 (b) 12 (b) | 14 (b) 18 (b) 21 (n) | 10 - 14 : Blocage couleur, mais on aura une table perturbée donc OK ; 12 - 18 : Blocage couleur et on a déjà utilisée notre table perturbée donc NON. 12 - 21 : OK. | PAPI 1 : Identifiants FIDE des 14 joueurs réels de ce tournoi fictif : AROUSSTAMIAN → 45178593 BUATHIER → 26067900 DAKSH JAIN → 25969269 DUSHYANT SHARMA → 25065130 HORN → 01303716 JANEV → 02900360 LAUTIER → 00600016 LEHACI → 01234765 SHARVAANICA A S → 33419531 SHUVALOVA → 24171760 TOKTOMUSHEV → 14176726 TRAVAILLOUX → 26075296 VAPILLON → 20609868 ZIENKIEWICZ → 45116768 PAPI 2 : Saisie correcte de la liste des joueurs fictifs (toutes infos disponibles). : Elsa MIGNOT, fille, née le 02/04/2008. ELO estimé : 1299 Clémence DENET, fille, née le 08/08/2008. ELO estimé : 1299 Eva BARBIE, fille, née le 01/01/1999. ELO estimé : 1399 Vincent BARDET, garçon, né le 04/04/2004. ELO estimé : 1399 Youpi POP (garçon, né 01/04/2013). ELO estimé : 1299 Marcel BIPOP (garçon, né le 05/05/2010). ELO estimé : 1299 Line COURVITE (fille, née le 31/12/1970). ELO estimé : 1399 PAPI 3 : Saisie correcte des informations du tournoi (nombre de rondes, départages, prix). Il fallait aussi penser à indiquer la table fixe de BUATHIER pour avoir ce point. Attention : certains candidats ont inscrit le prix « Senior+ » dans la catégorie « Vétéran ». Ce n'est pas la même chose. Il n'y avait pas de vétéran dans le tournoi. Cette erreur a probablement engendré des erreurs à la question 18 (en plus d'être pénalisée ici). PAPI 4 : Saisie correcte des résultats de chaque ronde. PAPI 5 : Les appariements manuels se font clic droit puis « désapparier ». Ensuite clic droit sur le joueur à « apparier blanc » puis clic droit sur le joueur à « apparier noir ».",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p119-parent350-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p128-parent379-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        120
+        128
       ],
       "category": "tournoi",
       "keywords": [
@@ -25094,12 +25094,12 @@
       "question": "Un joueur classé 1923 avec K=20 bat un adversaire classé 1812. Combien de points Elo gagne-t-il ?",
       "expected_answer": "7 points. Différence +111 → score théorique 0.65. Score réel 1. Gain = (1 - 0.65) × 20 = 7",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p186-parent552-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        186
+        185
       ],
       "category": "classement",
       "keywords": [
@@ -25176,12 +25176,12 @@
       "question": "Un joueur classé 1923 (K=20) joue 5 parties : victoire vs 1812, défaite vs 2148, nulle vs 2515, victoire vs 1413, défaite vs 2109. Score total 2.5/5. Combien de points gagne-t-il ?",
       "expected_answer": "7,4 points (arrondi à 7). Score théorique total = 2,13. Score réel = 2,5. Différence = 0,37. Gain = 0,37 × 20 = 7,4 pts.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p186-parent552-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent545-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        186
+        185
       ],
       "category": "classement",
       "keywords": [

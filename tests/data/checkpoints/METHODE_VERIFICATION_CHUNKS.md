@@ -493,3 +493,27 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Root cause**: Pipeline systematically mapped tournament chapter artrefs to FIDE Laws section chunks
 - **Findings metadata**: 10 UV FAUX (clubs→tournament to match ID prefix)
 - **Cumul**: 360/420 verifiees (86%), 285 WRONG chunks + 3 textes + 151 metadata corriges.
+
+### Batch 19 (Q360-Q379) — tournament:022-041, sessions dec2023 + jun2025
+- **Resultat**: 1/20 OK — 19 WRONG_SECTION
+- **Sessions**: dec2023 UVT Q3-Q30 (13Q) + jun2025 UVT Q3-Q13 (7Q)
+- **OK**: idx 363 (Art 7.5.5 parent176)
+- **Findings chunks**:
+  - 3 Ch 5.2 Obligations admin: idx 360/361/362 (parent154=PREAMBULE→parent492=Ch 5.2, p166)
+  - 2 Swiss D. Transpositions: idx 365/368 (p014/p015 RIDNA→parent380=D. Transpositions, p129)
+  - 2 Art 14 Departages: idx 370 (→parent464=Art 14 definitions, p153), idx 371 (→parent465=Score ajuste, p137)
+  - 1 Art 7.5.5: idx 364 (parent191=Annexe A→parent176=Art 7.5.5)
+  - 1 C.04.3 A.6 Couleurs: idx 366 (parent352→parent365=A.6, p125)
+  - 1 E. Attribution couleurs: idx 367 (p015 RIDNA→parent385=E. Couleurs, p130)
+  - 1 Ch 1.3 RI DNA: idx 369 (parent277=Art 10 online→parent031=Ch 1.3, p012)
+  - 1 Ch 5.2 Droits homologation: idx 372 (parent534=Reglements→parent491=Ch 5.2, p168)
+  - 1 Ch 5.4 Rapport technique: idx 373 (parent161=FIDE Art 3.10→parent511=Ch 5.4, p172)
+  - 1 R03 Art 2.3: idx 374 (parent014→parent007=Art 2.3)
+  - 1 Art 6.5 absence: idx 375 (parent118=DNA→parent225=Art 6.5 absence, p074)
+  - 1 C.04.3 A.4 Flotteurs: idx 376 (parent350→parent363=A.4, p125)
+  - 1 Art 6.7.2 commentaire: idx 377 (parent267=Art 10 online page bug→parent170=Art 6.7 comm, p045)
+  - 1 Art 7.5: idx 378 (parent176=7.5.5→parent175=7.5 section)
+  - 1 Art 7.5.5: idx 379 (parent177=Art 8→parent176=Art 7.5.5)
+- **New mappings**: parent031=Ch 1.3 RI DNA (p012), parent225=Art 6.5 absence (p074), parent363=A.4 Flotteurs (p125), parent365=A.6 Couleurs (p125), parent385=E. Attribution couleurs (p130), parent464=Art 14 (p153), parent465=Score ajuste (p137), parent491/492=Ch 5.2 (p166-168), parent511=Ch 5.4 (p172)
+- **Findings metadata**: 4 UV FAUX (1 open→tournament, 3 clubs→tournament)
+- **Cumul**: 380/420 verifiees (90%), 304 WRONG chunks + 3 textes + 155 metadata corriges.

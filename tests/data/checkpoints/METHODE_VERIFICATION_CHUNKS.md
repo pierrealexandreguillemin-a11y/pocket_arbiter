@@ -450,3 +450,23 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **New findings**: parent166=Art 6.1 (p044), parent187=Art 12.1 (p055). RIDNA old 22.2 = parent113 Mesures administratives.
 - **Findings metadata**: 0 UV fixes needed (all already correct as rules)
 - **Cumul**: 320/420 verifiees (76%), 253 WRONG chunks + 3 textes + 138 metadata corriges.
+
+### Batch 17 (Q320-Q339) — rules:088-106 + tournament:001, sessions jun2021 + dec2022 + jun2025 + dec2021 + dec2024
+- **Resultat**: 7/20 OK — 13 WRONG_SECTION
+- **Sessions**: jun2021 UVR Q3-21 (11Q) + dec2022 UVR Q2-Q6 (5Q) + jun2025 UVR Q16-30 (3Q) + dec2021 UVR Q15 (1Q)
+- **OK**: idx 320 (Art 4.7.3 parent163-child01), idx 321 (Art 1.3 parent155), idx 325 (Art 6.2.3 parent168), idx 327 (Art 1.3 parent155 dup 321), idx 328 (Art 11.3.3 parent184), idx 335 (Art 9.1 parent179), idx 336 (Art 5.1.1 parent165)
+- **Findings chunks**:
+  - 3 Art 6.9: idx 326/329/333 (parent173=Art 6.10→parent171-child02=Art 6.9)
+  - 2 Art 7.5 child: idx 322/331 (parent175-child01→child00)
+  - 1 Art 7.5 from Art 7.5.5: idx 324 (parent176→parent175)
+  - 1 Art 7.6: idx 330 (parent178=Art 8.5→parent176=Art 7.5.5+7.6)
+  - 1 Art 6.4: idx 323 (parent168=Art 6.2→parent169-child02=Art 6.4)
+  - 1 Art 5.1.2: idx 334 (parent168=Art 6.2→parent165=Art 5)
+  - 1 Art 12.9: idx 337 (parent185=Art 11→parent189-child01=Art 12.9)
+  - 1 Art 9.2: idx 338 (parent185=Art 11→parent180=Art 9.2)
+  - 1 RIDNA 22.2: idx 332 (parent473=AFO→parent113=RIDNA Mesures admin)
+  - 1 Ch 3.5 Swiss: idx 339 (p016 RIDNA→p120 parent351=Ch 3.5 Swiss Haley)
+- **New findings**: parent176=Art 7.5.5+7.6 (p049), parent189-child01=Art 12.9 (p055), parent351=Ch 3.5 Systeme suisse (p120).
+- **Findings metadata**: 3 UV FAUX (idx 329 open→rules, 332 open→rules, 333 tournament→rules)
+- **Duplicate**: idx 321/327 = both jun2021 UVR Q21, same artref, same chunk (pipeline duplication)
+- **Cumul**: 340/420 verifiees (81%), 266 WRONG chunks + 3 textes + 141 metadata corriges.

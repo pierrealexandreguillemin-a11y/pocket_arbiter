@@ -246,3 +246,19 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Findings questions**: Plusieurs textes GS proviennent d'autres UV (idx 42 delai appel mais choix = noms, idx 47 phases mais reponse = secretariat). Correction requiert re-extraction pipeline (etapes 2-4 du plan).
 - **Pattern**: Pipeline chunk assignment completement casse pour cette plage. RIDNA sections confondues avec FIDE Laws et autres chapitres LA.
 - **Cumul**: 60/420 verifiees (14%), 43 WRONG chunks + 3 textes + 30 metadata corriges.
+
+### Batch 04 (Q060-Q079) — clubs:061-080, sessions jun2024 + jun2025
+- **Resultat**: 1/20 OK — 18 WRONG_SECTION + 1 WRONG_SOURCE
+- **Sessions**: jun2024 UVC Q13-30 (16 questions) + jun2025 UVC Q1-5 (4 questions)
+- **Findings chunks**:
+  - Seul idx 63 (A02 1.2 Deroulement) correct
+  - 3 R03 WRONG_SECTION: idx 60-62 (2.2.1/2.2.2 → 2.3/2.5)
+  - 6 A02 WRONG_SECTION: idx 64-67, 69 (wrong sub-sections within 3.x)
+  - 1 A02 WRONG_SOURCE: idx 68 (LA pairing criteria → A02 3.6.e Elo)
+  - 2 J01 WRONG_SECTION: idx 70 (3.2.1→2.), idx 71 (3.3→3.2.2)
+  - 4 C01 WRONG_SECTION: idx 72-75 (various wrong sections)
+  - 3 LA RIDNA WRONG_SECTION: idx 76-78 (FIDE Laws → RIDNA sections)
+  - 1 R01 WRONG_SECTION: idx 79 (3.1.2→2.3.1)
+- **Findings metadata**: 7 UV FAUX (rules/open → clubs), 1 artref corrupt (idx 60: texte au lieu d'article)
+- **Pattern**: Meme pattern que batch 03 — chunks assignes aux mauvaises sections systematiquement. RIDNA/FIDE confusion continue.
+- **Cumul**: 80/420 verifiees (19%), 62 WRONG chunks + 3 textes + 38 metadata corriges.

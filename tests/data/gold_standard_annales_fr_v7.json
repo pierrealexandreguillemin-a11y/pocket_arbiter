@@ -3850,7 +3850,7 @@
       "question": "Pour un tournoi, le montant de l'inscription est fixé à 20 € pour tout le monde, l'inscription est majorée à 30 € pour les personnes s'inscrivant à la dernière minute. Le jour du tournoi vous acceptez l'inscription d'une joueuse aveugle. L'organisateur est e nnuyé car elle ne comprend pas pourquoi elle devrait payer plus cher son inscription et si elle ne peut pas bénéficier d'un geste en raison de son handicap. Que lui répondez-vous ?",
       "expected_answer": "Commentaire de correction : Le faible taux de réussite à cette question peut s'expliquer par le fait que cette règle est récente. Nous invitons les candidats à s'assurer qu'ils possèdent bien la dernière mise à jour des règlements fédéraux.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent003-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -3875,11 +3875,11 @@
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
         "cognitive_level": "Remember",
-        "article_reference": "règle est la même pour tout le monde, elle doit payer 30 €.",
+        "article_reference": "R03 - 2.3 Droits d'inscriptions",
         "difficulty": 0.19,
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 13,
           "success_rate": 0.81
         },
@@ -3910,7 +3910,7 @@
       "question": "Avant même que vous ayez publié les résultats de la ronde 3 et lancé les appariements de la ronde 4, Gauthier vient vous voir et vous indique qu'il a gagné et que le score de sa partie est erroné. Vous faites venir son adversaire qui vous confirme le fait. Que décidez-vous ? Modifiez la boule PAPI en conséquence.",
       "expected_answer": "Je modifie immédiatement le score et leur attribue un match nul. LA - Règles de compétition -Article 8.7. : A la fin de la partie, les deux adversaires doivent indiquer le résultat de la partie en signant les deux feuilles de partie ou en validant le résultat sur leurs feuilles de p artie électroniques. Même s'il est incorrect, le résultat est maintenu, à moins que l'arbitre en décide autrement. Dans ce cas l'évidence prime et ni les résultats, ni les ap pariements n'ont été publiés.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -3970,7 +3970,7 @@
       "question": "Votre club organise un tournoi en cadence rapide. Vous êtes chargé de vous occuper des inscriptions. Le papa d'un joueur vous appelle trois jours avant pour inscrire son fils et précise qu'il ne doit pas payer l'inscription vu qu'il est champion de France petits -poussins en titre. Que répondez-vous ?",
       "expected_answer": "Commentaire de correction : Cette question est très fréquemment posée aux examens et présente une situation très courante en tournoi, le faible taux de réussite indique que les candidats et candidates ne travaillent pas suffisamment les annales.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -4004,7 +4004,7 @@
         "difficulty": 0.11,
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 15,
           "success_rate": 0.89
         },
@@ -4097,12 +4097,12 @@
       "question": "Pour un match de nationale 2, l'arbitre est obligatoire. Quelle est la sanction encourue par le club fautif si le match se joue sans arbitre ?",
       "expected_answer": "3 LA C.04.3 Le système néerlandais A.4 Flotteurs a. : Un flotteur descendant est un joueur qui reste non apparié dans son niveau de points et que l'on déplace alors dans le niveau de points suivant. Dans le niveau de destination, ces joueurs sont appelés « flotteurs descendants » (FD en abrégé)",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        2
+        3
       ],
       "category": "interclubs",
       "keywords": [
@@ -4125,7 +4125,7 @@
         "difficulty": 0.56,
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 17,
           "success_rate": 0.44
         },
@@ -4161,7 +4161,7 @@
       "question": "Gauthier vient vous voir car il ne comprend pas la couleur jouée à la ronde 7 du tournoi qu'il a joué précédemment. Ci -dessous figure son historique couleur de ce tournoi. Quelle est sa préférence couleur à la ronde 7 évoquée ? | | R1 | R2 | R3 | R4 | R5 | R6 | |--------|------|------|------|------|------|------| | Joueur | N | N | B | B | N | B |",
       "expected_answer": "Il a les noirs à la ronde 7 il a une préférence couleur noire faible au vu de son historique couleur. LA Chapitre 3.5 : Les règles du système suisse : A.6.d - Différences de couleurs et préférences de couleur - C.04.3 Le système néerlandais.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent013-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -4189,7 +4189,7 @@
         "difficulty": 0.26,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 18,
           "success_rate": 0.74
         },
@@ -4220,7 +4220,7 @@
       "question": "Le tournoi a pris du retard par rapport à l'horaire initialement prévu pour la remise des prix prévu e. Tristan arrive à sa table avec 10 min de retard. Son adversaire, très fair-play, vous propose de remettre les pendules au commencement du temps de la ronde soit avec 15 min (+5s) chacun. Que décidez-vous ?",
       "expected_answer": "Je déclare son adversaire vainqueur pour dépassement du délai de forfait.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -4250,7 +4250,7 @@
         "difficulty": 0.14,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 19,
           "success_rate": 0.86
         },
@@ -4286,7 +4286,7 @@
       "question": "Au cours de l'appariement de cette ronde, quel critère absolu peut être ignoré ?",
       "expected_answer": "Un joueur qui a gagné par forfait dans le tournoi peut être 'exempt'.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -4314,7 +4314,7 @@
         "difficulty": 0.11,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 20,
           "success_rate": 0.89
         },
@@ -4350,12 +4350,12 @@
       "question": "Voici les compositions en classements Elo de quatre équipes d'un même club. Laquelle ne recevra pas de sanction administrative en prenant en compte les critères sur le Elo ? | Echiquier | Equipe 1 - En N2 | Equipe 2 - En N2 | Equipe 3 - En N3 | Equipe 4 - En N4 | |-------------|--------------------|--------------------|--------------------|--------------------| | 2526 | 2328 | 2212 | 2428 | N°1 | | 2439 | 2219 | 1957 | 1932 | N°2 | | 2469 | 1928 | 2068 | 1915 | N°3 | | 2487 | 1947 | 2022 | 1908 | N°4 | | 2328 | 1956 | 2014 | 1812 | N°5 | | 2429 | 1962 | 2007 | 1765 | N°6 | | 2237 | 1974 | 2000 | 1642 | N°7 | | 2118 | 2028 | 1990 | 1199 | N°8 |",
       "expected_answer": "L'équipe N°2.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p128-parent377-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        129
+        5
       ],
       "category": "competitions",
       "keywords": [
@@ -4411,12 +4411,12 @@
       "question": "Une ligue souhaite organiser sa nationale 4 en faisant s'affronter des équipes de 6 joueurs. Dans ce cas, quelle est la règle qui s'applique sur les nombres de personnes mutées dans une équipe ?",
       "expected_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale au bureau fédéral de la FFE . LA TITRE VI : Charte de l'arbitrage et mesures administratives -17 : En particulier, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satis faisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridiq ue.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child02",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent017-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        6
+        5
       ],
       "category": "interclubs",
       "keywords": [
@@ -4470,12 +4470,12 @@
       "question": "Pour le championnat de France des jeunes, quelles sont les catégories d'âges pour lesquelles il n'y a pas de phase qualificative ?",
       "expected_answer": "3,5",
       "is_impossible": false,
-      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent018-child00",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
       "expected_docs": [
         "J01_2025_26_Championnat_de_France_Jeunes.pdf"
       ],
       "expected_pages": [
-        4
+        1
       ],
       "category": "competitions",
       "keywords": [
@@ -4534,7 +4534,7 @@
       "question": "Pendant les qualifications des zones interdépartementales, quelle est la cadence minimale pour les grandes catégories ?",
       "expected_answer": "350 €",
       "is_impossible": false,
-      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent021-child00",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent019-child00",
       "expected_docs": [
         "J01_2025_26_Championnat_de_France_Jeunes.pdf"
       ],
@@ -4593,7 +4593,7 @@
       "question": "Un club que vous connaissez vient d'accéder à la nationale 2 pour la saison prochaine . Le président du club a cru entendre qu'ils auront l ' obligation de participer à la coupe de France. Que lui répondez-vous ?",
       "expected_answer": "10 €",
       "is_impossible": false,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent008-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p001-parent002-child00",
       "expected_docs": [
         "C01_2025_26_Coupe_de_France.pdf"
       ],
@@ -4657,12 +4657,12 @@
       "question": "Lors d'un match de coupe de France entre MONEQUIPE et l' EQUIPEDAILLEURS, le club de MONEQUIPE a obtenu les résultats suivants : 1 er échiquier : Victoire 2 ème échiquier : Victoire 3 ème échiquier : Victoire 4 ème échiquier : Défaite par forfait. Quel est le score final ?",
       "expected_answer": "53,15 €",
       "is_impossible": false,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent023-child00",
       "expected_docs": [
         "C01_2025_26_Coupe_de_France.pdf"
       ],
       "expected_pages": [
-        2
+        5
       ],
       "category": "competitions",
       "keywords": [
@@ -4725,12 +4725,12 @@
       "question": "Vous appartenez au club de MONEQUIPE et on vous a nommé capitaine du match de 32 ème de finale de coupe de France affiché sur la forme LESAUTRES vs MONEQUIPE. Les joueurs de MONEQUIPE vous demandent avec quelles couleurs ils vont jouer. Quelle est la bonne réponse ?",
       "expected_answer": "Au directeur national de l'arbitrage.",
       "is_impossible": false,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent020-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00",
       "expected_docs": [
         "C01_2025_26_Coupe_de_France.pdf"
       ],
       "expected_pages": [
-        4
+        3
       ],
       "category": "competitions",
       "keywords": [
@@ -4791,7 +4791,7 @@
       "question": "Un match de 16 ème de Finale de coupe de France se termine sur le score de 2-2. Comment déterminer l'équipe qui se qualifie en 8 ème de finale ?",
       "expected_answer": "Le règlement intérieur.",
       "is_impossible": false,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent022-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
       "expected_docs": [
         "C01_2025_26_Coupe_de_France.pdf"
       ],
@@ -4855,12 +4855,12 @@
       "question": "Pour obtenir le titre d'Arbitre Fédéral Club, certaines conditions administratives sont nécessaires. Parmi les suivantes, laquelle est erronée ?",
       "expected_answer": "Avoir pour la saison sportive en cours un classement Elo (lent ou rapide, national ou F.I.D.E.).",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent069-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        48
+        18
       ],
       "category": "competitions",
       "keywords": [
@@ -4913,12 +4913,12 @@
       "question": "Dans une partie en 12min+3s/coup, un parent vous sollicite. Sa fille a les noirs et a proposé plusieurs fois la nulle, son adversaire refuse. Ils jouent depuis un moment sans réelle avancée. Il affirme que la position actuelle s'est produite plusieurs fois. <!-- image -->",
       "expected_answer": "Il doit obligatoirement suivre un stage d'arbitre fédéral club (SC) dans sa totalité.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p028-parent123-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        27
+        17
       ],
       "category": "competitions",
       "keywords": [
@@ -4975,12 +4975,12 @@
       "question": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 20min+10s/coup, les deux adversaires ont joué plusieurs coups (8 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
       "expected_answer": "Excepté le TOP 16, arbitrer une rencontre du championnat de France des clubs mixte. LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.4. Arbitres Fédéraux de Club (AFC) Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p054-parent185-child01",
+      "expected_chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        55
+        23
       ],
       "category": "competitions",
       "keywords": [
@@ -5043,7 +5043,7 @@
       "question": "<!-- image --> Vous arbitrez la partie ci-contre, vous voyez le joueur qui a les noirs prendre le pion d4 avec son cavalier en c6. Alors qu'il n'a pas encore d'appuyé sur sa pendule, il se rend compte qu'il laisse son roi en échec et veut reprendre son coup. Quelle est la seule suite correcte ?",
       "expected_answer": "Une prise de licence dans un autre club entre le 1er et le 30 septembre équivaut à une demande de transfert qui exonère de la faire.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],

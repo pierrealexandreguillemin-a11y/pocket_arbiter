@@ -398,3 +398,20 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **dec2024 UVR total** (Q1-Q27): 13 OK, 14 WRONG of 27 entries = 48% correct. Better than UVC/UVO.
 - **Findings metadata**: 3 UV FAUX (clubs → rules for dec2023), 1 artref FAUX (idx 254: Art 7.5→A.5.2 per Grille)
 - **Cumul**: 260/420 verifiees (62%), 208 WRONG chunks + 3 textes + 121 metadata corriges.
+
+### Batch 14 (Q260-Q279) — rules:028-047, sessions dec2023 + jun2024
+- **Resultat**: 3/20 OK — 17 WRONG_SECTION
+- **Sessions**: dec2023 UVR Q7-Q20 (14Q) + jun2024 UVR Q2-Q7 (6Q)
+- **OK**: idx 262 (Art 11.2.3.3 parent185), idx 267 (Art 7.5.5 parent176), idx 270 (Art 4.4.3 parent163)
+- **Findings chunks**:
+  - 4 Art 5/7 confusions: idx 260/279 (Art 5.2.2 parent163/185→parent165), idx 264 (Art 5.1.2 parent185→parent165), idx 274 (Art 7.2.1 parent176→parent174)
+  - 3 Art 7 internal: idx 271 (Art 7.4.1 parent173→parent174), idx 276 (Art 7.3 parent176→parent174), idx 278 (Art 7.5.5 parent174→parent176)
+  - 3 Art 6 internal: idx 263 (Art 6.8 p028 RIDNA→parent171), idx 265 (Art 6.11.4 parent171→parent173), idx 266 (Art 6.9 parent174→parent171)
+  - 2 Art 9: idx 272/273 (Art 9.2 parent177→parent180)
+  - 2 Annexe A: idx 268 (A.3 child00→child02), idx 269 (A.5.2 parent190→parent191)
+  - 1 Annexe A.5: idx 275 (parent189→parent191)
+  - 1 Annexe D: idx 261 (parent188=Art 12→parent198=Annexe D)
+  - 1 Art 4.4: idx 277 (parent162=4.2→parent163=4.4)
+- **Comprehensive FIDE Laws parent mapping completed**: parent162=Art4.2, 163=Art4.4-4.7, 164=Art4.9, 165=Art5, 169=Art6.3(page bug), 170=Art6.7 commentary, 171=Art6.7-6.9, 173=Art6.10-6.11, 174=Art7.1-7.4, 175=Art7.5, 176=Art7.5.5, 177=Art8, 179=Art9, 180=Art9.2, 181=Art9.4-9.6, 183=Art11, 185=Art11(span), 188=Art12.2, 189=Art12, 190=Annexe A.1-4, 191=Annexe A.5+, 198=Annexe D
+- **Findings metadata**: 12 UV FAUX (clubs → rules, dec2023 pipeline error)
+- **Cumul**: 280/420 verifiees (67%), 225 WRONG chunks + 3 textes + 133 metadata corriges.

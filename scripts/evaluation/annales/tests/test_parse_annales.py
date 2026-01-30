@@ -264,6 +264,53 @@ class TestExtractQuestionsFromMarkdown:
         assert questions[0]["num"] == 1
         assert questions[1]["num"] == 2
 
+    def test_skip_commentary_blocks(self) -> None:
+        """Bug 3: Should skip commentary/annulled question blocks."""
+        markdown = """
+## Question 1 : Real question?
+
+- a) A
+- b) B
+
+## Question 2 : 45% des candidats ont répondu correctement
+
+## Question 3 : Another real question?
+
+- a) X
+- b) Y
+"""
+        questions = _extract_all_questions_from_markdown(markdown)
+        nums = [q["num"] for q in questions]
+        assert 1 in nums
+        assert 2 not in nums  # Commentary block skipped
+        assert 3 in nums
+
+    def test_stop_at_corrige_section(self) -> None:
+        """Bug 2: Should stop question extraction at Corrigé section."""
+        markdown = """
+## Question 1 : What is this?
+
+- a) A
+- b) B
+
+## Corrigé détaillé
+
+This is the correction section, not a question.
+"""
+        questions = _extract_all_questions_from_markdown(markdown)
+        assert len(questions) == 1
+        assert "Corrigé" not in questions[0]["text"]
+
+    def test_no_truncation_without_choices(self) -> None:
+        """Bug 1: Should not truncate question text at 200 chars."""
+        long_text = "A " * 150  # 300 chars, well over 200
+        markdown = f"""
+## Question 1 : {long_text}
+"""
+        questions = _extract_all_questions_from_markdown(markdown)
+        assert len(questions) == 1
+        assert len(questions[0]["text"]) > 200
+
 
 class TestGroupQuestionsBySequence:
     """Tests for question grouping by UV sequence."""

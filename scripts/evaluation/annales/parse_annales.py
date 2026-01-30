@@ -89,9 +89,17 @@ COMPARATIVE_KEYWORDS = [
 ]
 
 # Full question block pattern (## Question N : text + choices until next question)
-# Stop at: next Question N, or UV section headers, but NOT at ## Réponses or ## Cadence
+# Stop at: next Question N, UV headers, Corrigé/Fin/Grille sections, % stats
 QUESTION_BLOCK_PATTERN = re.compile(
-    r"(?:^|\n)(?:##\s*)?Question\s+(\d+)\s*:\s*(.+?)(?=(?:\n(?:##\s*)?Question\s+\d+\s*:)|(?:\n##\s+UV)|(?:\n##\s+Partie\s+[A-Z])|$)",
+    r"(?:^|\n)(?:##\s*)?Question\s+(\d+)\s*:\s*(.+?)"
+    r"(?=(?:\n(?:##\s*)?Question\s+\d+\s*:)"
+    r"|(?:\n##\s+UV)"
+    r"|(?:\n##\s+Partie\s+[A-Z])"
+    r"|(?:\n##\s*Corrig)"
+    r"|(?:\n##\s*Fin)"
+    r"|(?:\n##\s*Grille)"
+    r"|(?:\n[0-9]+\s*%\s*de\s*bonnes)"
+    r"|$)",
     re.DOTALL | re.IGNORECASE,
 )
 
@@ -436,17 +444,30 @@ def _extract_all_questions_from_markdown(markdown: str) -> list[dict[str, Any]]:
     """
     questions = []
 
+    # Patterns indicating commentary/annulled blocks (not real questions)
+    commentary_patterns = re.compile(
+        r"^\s*(?:\d+\s*%\s*des\s*candidats"
+        r"|Il\s+s[''']agissait"
+        r"|pas\s+[eé]t[eé]\s+comptabilis[eé]e)",
+        re.IGNORECASE,
+    )
+
     # Extract each question block
     for match in QUESTION_BLOCK_PATTERN.finditer(markdown):
         q_num = int(match.group(1))
         q_content = match.group(2)
+
+        # Skip commentary/annulled blocks
+        if commentary_patterns.search(q_content.strip()):
+            logger.info(f"Skipping commentary/annulled block: Question {q_num}")
+            continue
 
         # Extract question text (before first choice)
         q_text_match = re.search(r"^(.+?)(?=\n\s*-\s*[a-d]\))", q_content, re.DOTALL)
         q_text = (
             _clean_text(q_text_match.group(1))
             if q_text_match
-            else _clean_text(q_content[:200])
+            else _clean_text(q_content)
         )
 
         # Extract choices from content

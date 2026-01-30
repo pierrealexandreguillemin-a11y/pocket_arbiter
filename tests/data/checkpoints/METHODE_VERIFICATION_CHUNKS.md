@@ -380,3 +380,21 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Findings metadata**: 5 UV FAUX (clubs → open), 1 artref FAUX (idx 232 broken → fixed)
 - **dec2024 UVR**: First batch of rules/FIDE Laws questions. 5/7 chunks correct (71%) — much better than UVC/UVO averages.
 - **Cumul**: 240/420 verifiees (57%), 196 WRONG chunks + 3 textes + 117 metadata corriges.
+
+### Batch 13 (Q240-Q259) — rules:008-027, sessions dec2024 + dec2023
+- **Resultat**: 8/20 OK — 12 WRONG_SECTION
+- **Sessions**: dec2024 UVR Q8-Q27 (16Q, dont 4 duplicates Q5-Q8) + dec2023 UVR Q3-Q6 (4Q)
+- **OK**: idx 240 (Art 5.1.2 parent165), idx 245 (Art 5.1.1 dup), idx 246 (Art 5.1.2 dup), idx 247 (Art 5.1.2/7.5.1 dup), idx 249 (Art 9.1.2.3 parent179), idx 250 (Art 9.2.1 parent179), idx 251 (Art 9.5.3 parent181-child00), idx 255 (Commentaire A.5.3 parent191-child01)
+- **Findings chunks**:
+  - 4 Annexe A: idx 243/253 (A.5.1.1 parent190→parent191), idx 254 (A.5.2 parent190→parent191), idx 256 (A.5.1.2 parent190→parent191)
+  - 3 Art 8 notation: idx 242/248 (parent169=Art 6.3→parent177=Art 8), idx 258 (parent142=charte→parent177)
+  - 1 Art 6.9: idx 241 (parent170-child01→parent171-child02 = Art 6.9 time forfeit)
+  - 1 Art 4.3.3: idx 244 (parent162-child00→child01, duplicate Q5)
+  - 1 Art 9.6.2: idx 252 (parent181-child00→child01 = Art 9.6)
+  - 1 Art 4.2.1: idx 257 (parent164=4.9→parent162=Art 4, dec2023)
+  - 1 Art 5.2.1: idx 259 (parent185=Art 11→parent165-child01=Art 5.2.1, dec2023)
+- **New chunk knowledge**: Annexe A split: parent190=A.1-A.4, parent191=A.5+. Art 6.9 at parent171-child02. Art 8 at parent177 (p033, pipeline page bug). Art 4.9 at parent164.
+- **Duplicates**: 4 entries (idx 244-247) are duplicates of Q5-Q8 dec2024 UVR (idx 237-240 in batch 12). Pipeline created duplicate GS entries.
+- **dec2024 UVR total** (Q1-Q27): 13 OK, 14 WRONG of 27 entries = 48% correct. Better than UVC/UVO.
+- **Findings metadata**: 3 UV FAUX (clubs → rules for dec2023), 1 artref FAUX (idx 254: Art 7.5→A.5.2 per Grille)
+- **Cumul**: 260/420 verifiees (62%), 208 WRONG chunks + 3 textes + 121 metadata corriges.

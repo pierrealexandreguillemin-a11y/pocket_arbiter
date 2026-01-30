@@ -271,3 +271,26 @@
 {"batch": 12, "type": "uv_fix", "indices": [220, 221, 226, 229, 230], "fix": "clubs->open", "count": 5}
 {"batch": 12, "type": "artref_fix", "idx": 232, "old": "LA ------------------------------------------", "new": "Gestion homologation des tournois - Chapitre 5.2 du LA"}
 {"batch": 12, "type": "summary", "total": 20, "ok": 5, "wrong_section": 15, "wrong_source": 0, "no_match": 0, "chunk_fixes": 15, "uv_fixes": 5, "artref_fixes": 1}
+{"batch": 13, "idx": 240, "id": "ffe:annales:rules:008", "verdict": "OK", "chunk_id": "LA-p043-parent165-child00", "note": "Art 5.1.2 et 7.5.1: parent165=Art 5 correct"}
+{"batch": 13, "idx": 241, "id": "ffe:annales:rules:009", "verdict": "WRONG_SECTION", "old_chunk": "LA-p046-parent170-child01", "new_chunk": "LA-p046-parent171-child02", "note": "Art 6.9 time forfeit: was parent170 clock commentary, now parent171-child02=Art 6.9"}
+{"batch": 13, "idx": 242, "id": "ffe:annales:rules:010", "verdict": "WRONG_SECTION", "old_chunk": "LA-p033-parent169-child00", "new_chunk": "LA-p033-parent177-child00", "note": "Art 8.1.3 notation: was parent169=Art 6.3, now parent177=Art 8"}
+{"batch": 13, "idx": 243, "id": "ffe:annales:rules:011", "verdict": "WRONG_SECTION", "old_chunk": "LA-p056-parent190-child00", "new_chunk": "LA-p056-parent191-child00", "note": "Art A.5.1.1 Annexe A: was parent190=A.1, now parent191=A.5"}
+{"batch": 13, "idx": 244, "id": "ffe:annales:rules:012", "verdict": "WRONG_SECTION", "old_chunk": "LA-p041-parent162-child00", "new_chunk": "LA-p041-parent162-child01", "note": "Art 4.3.3 DUPLICATE Q5: was child00=4.2.1, now child01=4.3.3"}
+{"batch": 13, "idx": 245, "id": "ffe:annales:rules:013", "verdict": "OK", "chunk_id": "LA-p043-parent165-child00", "note": "Art 5.1.1 DUPLICATE Q6: parent165=Art 5 correct"}
+{"batch": 13, "idx": 246, "id": "ffe:annales:rules:014", "verdict": "OK", "chunk_id": "LA-p043-parent165-child00", "note": "Art 5.1.2 DUPLICATE Q7: parent165=Art 5 correct"}
+{"batch": 13, "idx": 247, "id": "ffe:annales:rules:015", "verdict": "OK", "chunk_id": "LA-p043-parent165-child00", "note": "Art 5.1.2/7.5.1 DUPLICATE Q8: parent165=Art 5 correct"}
+{"batch": 13, "idx": 248, "id": "ffe:annales:rules:016", "verdict": "WRONG_SECTION", "old_chunk": "LA-p033-parent169-child00", "new_chunk": "LA-p033-parent177-child00", "note": "Art 8.1 notation: was parent169=Art 6.3, now parent177=Art 8"}
+{"batch": 13, "idx": 249, "id": "ffe:annales:rules:017", "verdict": "OK", "chunk_id": "LA-p051-parent179-child00", "note": "Art 9.1.2.3/9.5.1: parent179=Art 9 correct"}
+{"batch": 13, "idx": 250, "id": "ffe:annales:rules:018", "verdict": "OK", "chunk_id": "LA-p051-parent179-child00", "note": "Art 9.2.1: parent179=Art 9 correct"}
+{"batch": 13, "idx": 251, "id": "ffe:annales:rules:019", "verdict": "OK", "chunk_id": "LA-p052-parent181-child00", "note": "Art 9.5.3: parent181-child00 covers 9.4-9.5 correct"}
+{"batch": 13, "idx": 252, "id": "ffe:annales:rules:020", "verdict": "WRONG_SECTION", "old_chunk": "LA-p052-parent181-child00", "new_chunk": "LA-p052-parent181-child01", "note": "Art 9.6.2: was child00=9.4-9.5, now child01=9.6"}
+{"batch": 13, "idx": 253, "id": "ffe:annales:rules:021", "verdict": "WRONG_SECTION", "old_chunk": "LA-p056-parent190-child02", "new_chunk": "LA-p056-parent191-child00", "note": "Art A.5.1.1: was parent190=A.3-A.4, now parent191=A.5"}
+{"batch": 13, "idx": 254, "id": "ffe:annales:rules:022", "verdict": "WRONG_SECTION", "old_chunk": "LA-p056-parent190-child00", "new_chunk": "LA-p056-parent191-child00", "note": "Grille=Art A.5.2 Annexe A: was parent190=A.1, now parent191=A.5; artref fixed from Art 7.5"}
+{"batch": 13, "idx": 255, "id": "ffe:annales:rules:023", "verdict": "OK", "chunk_id": "LA-p057-parent191-child01", "note": "Commentaire Art A.5.3: parent191=Annexe A.5 correct"}
+{"batch": 13, "idx": 256, "id": "ffe:annales:rules:024", "verdict": "WRONG_SECTION", "old_chunk": "LA-p056-parent190-child01", "new_chunk": "LA-p056-parent191-child00", "note": "Art A.5.1.2 (dec2023): was parent190=A.2, now parent191=A.5"}
+{"batch": 13, "idx": 257, "id": "ffe:annales:rules:025", "verdict": "WRONG_SECTION", "old_chunk": "LA-p042-parent164-child00", "new_chunk": "LA-p041-parent162-child00", "note": "Art 4.2.1/4.3.1 (dec2023): was parent164=4.9 disability, now parent162=Art 4"}
+{"batch": 13, "idx": 258, "id": "ffe:annales:rules:026", "verdict": "WRONG_SECTION", "old_chunk": "LA-p033-parent142-child00", "new_chunk": "LA-p033-parent177-child00", "note": "Art 8.1.1/8.4/A.2 (dec2023): was parent142=charte, now parent177=Art 8"}
+{"batch": 13, "idx": 259, "id": "ffe:annales:rules:027", "verdict": "WRONG_SECTION", "old_chunk": "LA-p043-parent185-child02", "new_chunk": "LA-p043-parent165-child01", "note": "Art 5.2.1 (dec2023): was parent185=Art 11, now parent165-child01=Art 5.2.1"}
+{"batch": 13, "type": "uv_fix", "indices": [257, 258, 259], "fix": "clubs->rules", "count": 3}
+{"batch": 13, "type": "artref_fix", "idx": 254, "old": "Art 7.5.1-7.5.4", "new": "Article A.5.2 Annexe A"}
+{"batch": 13, "type": "summary", "total": 20, "ok": 8, "wrong_section": 12, "wrong_source": 0, "no_match": 0, "chunk_fixes": 12, "uv_fixes": 3, "artref_fixes": 1, "note": "4 duplicates (idx 244-247 = Q5-Q8 dec2024). dec2024 UVR overall: 13/20 OK (65%). Annexe A parent190=A.1-A.4, parent191=A.5+"}

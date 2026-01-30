@@ -415,3 +415,20 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Comprehensive FIDE Laws parent mapping completed**: parent162=Art4.2, 163=Art4.4-4.7, 164=Art4.9, 165=Art5, 169=Art6.3(page bug), 170=Art6.7 commentary, 171=Art6.7-6.9, 173=Art6.10-6.11, 174=Art7.1-7.4, 175=Art7.5, 176=Art7.5.5, 177=Art8, 179=Art9, 180=Art9.2, 181=Art9.4-9.6, 183=Art11, 185=Art11(span), 188=Art12.2, 189=Art12, 190=Annexe A.1-4, 191=Annexe A.5+, 198=Annexe D
 - **Findings metadata**: 12 UV FAUX (clubs → rules, dec2023 pipeline error)
 - **Cumul**: 280/420 verifiees (67%), 225 WRONG chunks + 3 textes + 133 metadata corriges.
+
+### Batch 15 (Q280-Q299) — rules:048-067, sessions jun2024 + jun2025
+- **Resultat**: 5/20 OK — 15 WRONG_SECTION
+- **Sessions**: jun2024 UVR Q8-Q20 (13Q) + jun2025 UVR Q1-Q15 (7Q)
+- **OK**: idx 283 (Art 5.1.2 parent165), idx 285 (Art 6.2.3 parent167), idx 292 (Art 8 parent177), idx 293 (Art 9.1.2.2 parent179), idx 299 (Art 3.10.3 parent160)
+- **Findings chunks**:
+  - 3 Art 5/11 confusions: idx 280/281 (Art 5 parent185→parent165), idx 289 (Art 6.2 parent185→parent167)
+  - 3 Art 7.5: idx 284/290/296 (parent174/176→parent175=Art 7.5)
+  - 2 Art 6.8 FIDE Ethics vs Laws: idx 286/288 (parent131=FIDE Ethics→parent171=Art 6.8)
+  - 2 Annexe A: idx 282/298 (parent190→parent191=A.5)
+  - 2 Art 9.6: idx 291/294 (parent179/181-child00→parent181-child01=Art 9.6)
+  - 1 Art 6.9: idx 287 (parent173→parent171-child02)
+  - 1 Art 7.3: idx 295 (parent174-child01→child00)
+  - 1 Art 3: idx 297 (parent159=3.7.3→parent157=Art 3 general)
+- **New finding**: parent131 at p029 is FIDE Ethics Code (NOT FIDE Laws Art 6.8). Pipeline confused Ethics section with Laws section.
+- **Findings metadata**: 5 UV FAUX (clubs → rules)
+- **Cumul**: 300/420 verifiees (71%), 240 WRONG chunks + 3 textes + 138 metadata corriges.

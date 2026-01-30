@@ -208,3 +208,27 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 | Chunks valides | Tout chunk rejete a un remplacement ou flag requires_context |
 | Pas d'orphelins | 0 question sans chunk_id ET sans flag requires_context |
 | Tracabilite | Chaque verdict justifie (article_ref vs chunk content) |
+
+---
+
+## AVANCEMENT
+
+### Batch 01 (Q000-Q019) — clubs:001-020, session dec2024
+- **Commit**: `154063a`
+- **Resultat**: 13 OK / 7 WRONG_SECTION corriges
+- **Findings**: Chunks LA pointaient vers FIDE Laws (Part 2) au lieu de DNA (Part 1). Sections 8.1 Materiel, 6.2 Arbitres inactifs, 7.1 Criteres titres, 9.1 Jury appel, 7.4 Etrangers FIDE identifiees comme bons chunks. R01 3.2 forfait et A02 3.8 forfaits aussi corriges.
+- **Pattern**: LA-octobre2025.pdf a 1085 chunks couvrant Part 1 (DNA, p3-p30) et Part 2 (FIDE Laws, p32+). Les chunks originaux etaient assignes a la mauvaise partie du document.
+
+### Batch 02 (Q020-Q039) — clubs:021-040, sessions dec2024 + dec2023
+- **Commit initial**: `6cfb6fc` (chunks corriges par section-name matching)
+- **Re-verification Docling**: FAITE — chaque question comparee au Corrige detaille
+- **Resultat chunks**: 20/20 OK (chunk <-> artref alignement correct)
+- **Resultat questions**: 17/20 completes, 3 textes FAUX corriges
+- **Findings chunks**: A02 sous-sections, R03 WRONG_SOURCE, RIDNA/FIDE confusion
+- **Findings questions**:
+  - clubs:030 (idx 29): texte GS="agrement FIDE AFO1" FAUX → corrige: "Qui designe le DRA?"
+  - clubs:032 (idx 31): texte GS="Cxg5 coup illegal" FAUX → corrige: "Concernant l'entente entre Clubs"
+  - clubs:037 (idx 36): texte GS="roi en echec" FAUX → corrige: "laquelle est vraie?" (arbitre roles)
+- **Findings metadata**: 12 UV metadata FAUX (rules/open → clubs), 1 qnum FAUX (6→8)
+- **Pattern**: Pipeline parse_annales.py confondait les UV (dec2023 UVC Q1-20 classes comme rules/open). Textes de 3 questions assignes depuis UVR/UVO/UVT au lieu de UVC.
+- **Cumul**: 40/420 verifiees (10%), 23 WRONG chunks + 3 textes + 13 metadata corriges.

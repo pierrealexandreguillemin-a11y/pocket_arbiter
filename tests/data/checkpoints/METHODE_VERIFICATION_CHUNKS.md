@@ -363,3 +363,20 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **RIDNA version gap**: Art 18.4 referenced in jun2021 exam does not exist in 2025 LA (RIDNA ends at Art 17). Pages 27-29 contain FIDE Ethics Code. Best approximation: FIDE Laws Art 18 Role Arbitre.
 - **Findings metadata**: 10 UV FAUX (clubs/rules → open), 1 qnum FAUX (idx 204: 17→20)
 - **Cumul**: 220/420 verifiees (52%), 181 WRONG chunks + 3 textes + 111 metadata corriges.
+
+### Batch 12 (Q220-Q239) — open:052-064 + rules:001-007, sessions jun2021 + dec2024
+- **Resultat**: 5/20 OK — 15 WRONG_SECTION
+- **Sessions**: jun2021 UVO Q8-Q20 (13Q) + dec2024 UVR Q1-Q7 (7Q)
+- **OK**: idx 234 (Art 3.7.3.5 promotion parent159-child01), idx 235 (Art 3.10.3 parent160), idx 236 (Art 4.2.1/4.3.1 parent162-child00), idx 238 (Art 5.1.1 parent165), idx 239 (Art 5.1.2 parent165)
+- **Findings chunks**:
+  - 6 LA Part 2 chapters WRONG_SECTION: idx 224-225 (Sonneborn-Berger p017/p018→p151), idx 226 (adversaire virtuel p017→p155), idx 229 (Droits homologation p036→p168), idx 230 (Systeme Hort p034→p158), idx 231 (Bareme p036→p178)
+  - 3 LA FIDE Laws WRONG_SECTION: idx 222 (Art 12.9 p036→p055), idx 233 (Art 1.3 p028→p036), idx 237 (Art 4.3.3 child00→child01)
+  - 2 LA RIDNA WRONG_SECTION: idx 223 (old Art 23.2 = new 17.2 p011→p025), idx 228 (Art 8.24 p015→p185)
+  - 2 LA FIDE rating WRONG_SECTION: idx 227 (Art 5.1 p015→p183), idx 232 (Gestion homologation p036→p168)
+  - 1 R03 WRONG_SECTION: idx 220 (Art 2.3 parent002→parent007)
+  - 1 R01 WRONG_SECTION: idx 221 (Art 3.1.2 parent029→parent011)
+- **RIDNA old-to-new renumbering**: Art 23.2 (2021) = 17.2 Mesures administratives (2025). Old Ch 5.1 Departages = new Ch 4.2. Old Ch 5.2 Bareme = new Ch 5.5. Old Ch 5.3 Hort = new Ch 4.3.
+- **New chunk knowledge**: Art 12.9 sanctions = p055-parent189-child01/child02. Art 1 = p036-parent155-child00. Adversaire fictif = p155-parent466-child01. Art 5 rating = p183-parent537.
+- **Findings metadata**: 5 UV FAUX (clubs → open), 1 artref FAUX (idx 232 broken → fixed)
+- **dec2024 UVR**: First batch of rules/FIDE Laws questions. 5/7 chunks correct (71%) — much better than UVC/UVO averages.
+- **Cumul**: 240/420 verifiees (57%), 196 WRONG chunks + 3 textes + 117 metadata corriges.

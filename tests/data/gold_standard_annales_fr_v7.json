@@ -5105,7 +5105,7 @@
       "question": "Un joueur est en train de noter sa partie, il lui reste moins de 5 minutes à la pendule. Dans quel cas a-t-il l'obligation de noter jusqu'au bout ?",
       "expected_answer": "Elle est U14 F.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -5135,7 +5135,7 @@
         "difficulty": 0.11,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 6,
           "success_rate": 0.89
         },
@@ -5171,7 +5171,7 @@
       "question": "Lors d'un match par équipe, le capitaine de l'équipe A vient protester. Un des joueurs de l'équipe B a annoncé « échecs et mat ». Le coéquipier du capitaine l'a cru et a arrêté de lui-même la pendule en reconnaissant sa défaite devant vous. Le capitaine se plaint du fait qu'il n'y avait pas du tout échec et mat et que son coéquipier a été induit en erreur.",
       "expected_answer": "Il est de 30 minutes.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent013-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -5202,7 +5202,7 @@
         "difficulty": 0.21,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 7,
           "success_rate": 0.79
         },
@@ -5270,7 +5270,7 @@
         "difficulty": 0.74,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 8,
           "success_rate": 0.26
         },
@@ -5306,12 +5306,12 @@
       "question": "Lors d'une partie, un joueur a touché un cavalier avec l'intention de le déplacer. Il change finalement d'avis. Vous lui avez rappelé la règle après réclamation de son adversaire. Il refuse catégoriquement de déplacer son cavalier malgré vos avertissements et joue une autre pièce. Quelle est votre décision ?",
       "expected_answer": "16.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent000-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        9
       ],
       "category": "interclubs",
       "keywords": [
@@ -5334,11 +5334,11 @@
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
         "cognitive_level": "Apply",
-        "article_reference": "Article 1.1. La Nationale 3 est composée de 16 groupes de 10 équipes.",
+        "article_reference": "A02 - Le Championnat de France des Clubs - Article 1.1.",
         "difficulty": 0.13,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 9,
           "success_rate": 0.87
         },
@@ -5376,12 +5376,12 @@
       "question": "Une partie vient de se terminer. Les blancs ont fait échec et mat. Juste avant de serrer la main de leur adversaire, les noirs voient que le drapeau des blancs était tombé et exigent le gain au temps car un spectateur confirme que cela s'était produit avant l'échec et mat. Vous n'étiez pas devant la partie.",
       "expected_answer": "Le mercredi.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent011-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
       "expected_pages": [
-        1
+        4
       ],
       "category": "regles_ffe",
       "keywords": [
@@ -5408,7 +5408,7 @@
         "difficulty": 0.51,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 10,
           "success_rate": 0.49
         },
@@ -5446,7 +5446,7 @@
       "question": "Lors d'un tournoi, vous observez que la montre d'un joueur s'allume. Il s'agit d'une montre connectée qui a juste affiché le rappel d'une réunion de famille. Le joueur vous montre qu'elle n'émet aucun bruit et qu'elle est déconnectée de tout autre appareil. Son adversaire veut continuer la partie. Quelle est votre décision ?",
       "expected_answer": "Une sanction financière.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent028-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -5476,7 +5476,7 @@
         "difficulty": 0.21,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 11,
           "success_rate": 0.79
         },
@@ -5512,7 +5512,7 @@
       "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence. Quel est le délai de régularisation pour le club ?",
       "expected_answer": "Cela doit être effectué au plus tard 7 jours après la fin du tournoi.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent005-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -5577,7 +5577,7 @@
       "question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante. Quel est le niveau minimum requis ?",
       "expected_answer": "Un arbitre fédéral Jeune.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -5639,7 +5639,7 @@
       "question": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe trois minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive cinquante minutes après le lancement des parties. Sa pendule indique 0h28 minutes. Qu'allez-vous faire en tant qu'arbitre ?",
       "expected_answer": "Vous réglez sa pendule à 0h30 minutes et la partie se déroule normalement.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -5701,7 +5701,7 @@
       "question": "A la cadence 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour avoir achevé un coup illégal. Devant vous, ils jouent un coup qui laisse leur roi en échec et appuient sur leur pendule. Avant même que vous n'interveniez les blancs jouent à leur tour et appuient sur la pendule. Quelle est votre intervention ?",
       "expected_answer": "L'heure prévue de la rencontre.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent014-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -5732,7 +5732,7 @@
         "difficulty": 0.12,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 17,
           "success_rate": 0.88
         },
@@ -5800,7 +5800,7 @@
         "difficulty": 0.25,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 18,
           "success_rate": 0.75
         },
@@ -5836,7 +5836,7 @@
       "question": "Voici des exemples de rappels à l'ordre à des joueurs. Lequel s'appuie sur l'article 4.2.1 des règles du jeu ?",
       "expected_answer": "Si le club hôte ne peut assurer la mission d'arbitrage, les deux clubs devront s'entendre pour trouver un arbitre. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les clubs seront sanctionnés d'une amende de 75 € chacun.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent014-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -5866,7 +5866,7 @@
         "difficulty": 0.25,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 19,
           "success_rate": 0.75
         },
@@ -5902,7 +5902,7 @@
       "question": "En Championnat de France des clubs, des personnes mutées peuvent faire partie d'une équipe. Excepté pour les divisions comportant un maximum de six personnes par équipes, quel est le nombre maximum de mutés ?",
       "expected_answer": "3.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent019-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -5970,7 +5970,7 @@
       "question": "Lors d'une rencontre de N2 hors ronde 1, le procès-verbal de la rencontre indique qu'une équipe s'est déplacée avec seulement six personnes. Pour cette rencontre, combien de personnes au maximum n'ayant pas déjà participé pour le compte de cette équipe depuis le début de la saison sportive peuvent participer ?",
       "expected_answer": "3.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent017-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -6035,7 +6035,7 @@
       "question": "Vous observez la finale suivante. Vous constatez que les blancs au trait viennent d'épuiser tout leur temps. Ils ont la main sur leur tour et regarde fixement la dernière ligne de l'échiquier. Quelle est votre intervention ?",
       "expected_answer": "22h.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p008-parent025-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -6065,7 +6065,7 @@
         "difficulty": 0.16,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 22,
           "success_rate": 0.84
         },
@@ -6199,7 +6199,7 @@
         "difficulty": 0.32,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 24,
           "success_rate": 0.68
         },
@@ -6235,7 +6235,7 @@
       "question": "Lorsqu'un litige technique survient en cours de partie du championnat de France des clubs, celle-ci doit toujours être poursuivie, en appliquant les directives de l'arbitre. Un appel des décisions de l'arbitre peut être interjeté. Le ou la capitaine de l'équipe plaignante formule alors sa réclamation par écrit. L'arbitre et le ou la capitaine de l'équipe adverse rédigent aussi chacun un rapport donnant leur version des faits. Tous ces documents sont transmis à la direction du groupe. Qui assure cette transmission ?",
       "expected_answer": "L'arbitre de la rencontre.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -6301,7 +6301,7 @@
       "question": "Lors d'une partie en cadence standard que vous observez, une joueuse - qui n'a encore commis aucune irrégularité - pousse un pion sur la dernière ligne, le retire, appuie sur la pendule puis pose un cavalier sur la case de promotion. Quelle proposition est correcte ?",
       "expected_answer": "La personne doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage de sa Ligue.",
       "is_impossible": false,
-      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent012-child00",
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
       "expected_docs": [
         "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
       ],
@@ -6333,7 +6333,7 @@
         "difficulty": 0.45,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 26,
           "success_rate": 0.55
         },
@@ -6369,7 +6369,7 @@
       "question": "En coupe Jean-Claude Loubatière, l'arbitre de la phase départementale peut-il être joueur ?",
       "expected_answer": "Oui si le nombre d'équipes n'excède pas 5.",
       "is_impossible": false,
-      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p003-parent012-child01",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
       "expected_docs": [
         "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
       ],

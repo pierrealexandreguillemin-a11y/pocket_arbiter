@@ -262,3 +262,16 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Findings metadata**: 7 UV FAUX (rules/open → clubs), 1 artref corrupt (idx 60: texte au lieu d'article)
 - **Pattern**: Meme pattern que batch 03 — chunks assignes aux mauvaises sections systematiquement. RIDNA/FIDE confusion continue.
 - **Cumul**: 80/420 verifiees (19%), 62 WRONG chunks + 3 textes + 38 metadata corriges.
+
+### Batch 05 (Q080-Q099) — clubs:081-100, session jun2025
+- **Resultat**: 4/20 OK — 16 WRONG_SECTION
+- **Session**: jun2025 UVC Q6-27 (20 questions, Q3/Q12/Q16 absentes du GS)
+- **OK**: idx 82 (R03 2.2.2), idx 90 (A02 2.5), idx 95 (A02 3.11), idx 96 (A02 3.7.d)
+- **Findings chunks**:
+  - 3 R01 WRONG_SECTION: idx 80 (3.1.2→2.4), idx 81 (3.2.1→3.1.2), idx 84 (3.1.2→4), idx 85 (9→8)
+  - 1 R03 WRONG_SECTION: idx 86 (2.2.2→2.5)
+  - 8 A02 WRONG_SECTION: idx 83 (2.6→1.1), idx 87 (4.1→2.4), idx 88 (3.6.d→3.6.a), idx 89 (3.3→3.6.d), idx 91 (3.3→2.6), idx 92 (3.6.d→3.7.g), idx 93 (3.7.a→3.7.f), idx 94 (4.1→3.11), idx 97 (3.7.f→3.9)
+  - 1 J02 WRONG_SECTION: idx 98 (3.3→2.5)
+  - 1 C03 WRONG_SECTION: idx 99 (3.7→2.5)
+- **Findings metadata**: 12 UV FAUX (rules → clubs), 1 artref corrupt (idx 83)
+- **Cumul**: 100/420 verifiees (24%), 78 WRONG chunks + 3 textes + 51 metadata corriges.

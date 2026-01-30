@@ -432,3 +432,21 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **New finding**: parent131 at p029 is FIDE Ethics Code (NOT FIDE Laws Art 6.8). Pipeline confused Ethics section with Laws section.
 - **Findings metadata**: 5 UV FAUX (clubs → rules)
 - **Cumul**: 300/420 verifiees (71%), 240 WRONG chunks + 3 textes + 138 metadata corriges.
+
+### Batch 16 (Q300-Q319) — rules:068-087, sessions jun2025 + dec2021 + dec2022 + jun2021
+- **Resultat**: 7/20 OK — 13 WRONG_SECTION
+- **Sessions**: jun2025 UVR Q16,27,30 (3Q) + dec2021 UVR Q15 (1Q) + dec2022 UVR Q2-Q6 (5Q) + jun2021 UVR Q3-Q19 (11Q)
+- **OK**: idx 302 (Art 7.5 parent175), idx 303 (Art 9.4 parent181), idx 304 (Art 6.2.3 parent168), idx 305 (Art 4.5 parent163), idx 310 (Art 6.4 parent169-child02), idx 312 (Art 6.4 parent169-child02), idx 313 (Art 11.3.3 parent184)
+- **Findings chunks**:
+  - 4 Art 7.5 confusions: idx 307/314/317 (parent176=7.5.5→parent175=7.5), idx 309 (parent175-child01→child00)
+  - 2 Annexe A: idx 300 (parent191→parent190-child02=A.3), idx 306 (p016 RIDNA→parent190-child02=A.4)
+  - 1 Art 7.5 from Art 4.4: idx 301 (parent163=Art4.4→parent175=Art 7.5)
+  - 1 Art 3.10: idx 308 (parent161=examples→parent160=Art 3.10)
+  - 1 Art 7.2.1 from RIDNA: idx 311 (p025 RIDNA→parent174=Art 7.1-7.4)
+  - 1 Art 6.2: idx 315 (parent166=Art 6.1→parent168=Art 6.2)
+  - 1 Art 12.1: idx 316 (parent191=Annexe A→parent187=Art 12.1)
+  - 1 RIDNA 22.2: idx 318 (parent188=Art 12.2→parent113=RIDNA Mesures admin)
+  - 1 Art 8: idx 319 (parent177-child02→child00=Art 8 main)
+- **New findings**: parent166=Art 6.1 (p044), parent187=Art 12.1 (p055). RIDNA old 22.2 = parent113 Mesures administratives.
+- **Findings metadata**: 0 UV fixes needed (all already correct as rules)
+- **Cumul**: 320/420 verifiees (76%), 253 WRONG chunks + 3 textes + 138 metadata corriges.

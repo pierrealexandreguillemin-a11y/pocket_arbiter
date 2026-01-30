@@ -275,3 +275,19 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
   - 1 C03 WRONG_SECTION: idx 99 (3.7→2.5)
 - **Findings metadata**: 12 UV FAUX (rules → clubs), 1 artref corrupt (idx 83)
 - **Cumul**: 100/420 verifiees (24%), 78 WRONG chunks + 3 textes + 51 metadata corriges.
+
+### Batch 06 (Q100-Q119) — clubs:101-120, sessions jun2025 + dec2021 + dec2022
+- **Resultat**: 4/20 OK — 11 WRONG_SECTION + 4 WRONG_SOURCE + 1 NO_MATCH
+- **Sessions**: jun2025 UVC Q28-29 (2Q) + dec2021 UVC Q1-22 (17Q) + dec2022 UVC Q1 (1Q)
+- **OK**: idx 101 (C01 2.5), idx 108 (A02 4.1), idx 114 (LA Art 19), idx 116 (J02 2.5)
+- **Findings chunks**:
+  - 8 A02 WRONG_SECTION: idx 102-107, 109-110 (A02 sub-sections 3.x confused)
+  - 3 A02→J02 WRONG_SOURCE: idx 111-113 (A02 chunks for J02 3.7.b/c artrefs, duplicate qnum=12)
+  - 1 LA→C01 WRONG_SOURCE: idx 118 (LA Preambule → C01 3.2 Couleurs)
+  - 1 C03 WRONG_SECTION: idx 100 (3.1→1.2)
+  - 1 LA WRONG_SECTION: idx 117 (Art 19→Art 18.5)
+  - 1 C01 WRONG_SECTION: idx 119 (2.6→2.3.b)
+  - 1 NO_MATCH: idx 115 (Guide arbitrage international Art 1.1 — document absent du corpus)
+- **Findings metadata**: 11 UV FAUX (rules → clubs)
+- **Anomalie**: idx 111-113 ont tous qnum=12 (3 questions identiques — erreur pipeline)
+- **Cumul**: 120/420 verifiees (29%), 93 WRONG chunks + 3 textes + 62 metadata corriges.

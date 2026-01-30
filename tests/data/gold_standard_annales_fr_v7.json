@@ -6434,7 +6434,7 @@
       "question": "Vous observez une partie avec une finale Roi+Dame pour les blancs contre Roi pour les noirs. Les blancs jouent un coup qui provoque le pat, annoncent l'échec et mat et appuient sur la pendule. Les noirs indiquent alors qu'ils abandonnent. Quel est le résultat ?",
       "expected_answer": "4.",
       "is_impossible": false,
-      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent008-child00",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00",
       "expected_docs": [
         "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
       ],
@@ -6466,7 +6466,7 @@
         "difficulty": 0.35,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 28,
           "success_rate": 0.65
         },
@@ -6533,7 +6533,7 @@
         "difficulty": 0.18,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 29,
           "success_rate": 0.82
         },
@@ -6569,12 +6569,12 @@
       "question": "Cadence : 1h30 / 40 coups + 30 min + 30 sec. par coups (cadence des interclubs). La ronde a débuté à 14h15. A 17h54, les 2 joueurs ont joué 39 coups chacun (cf. les feuilles de partie) et la pendule indique : BLANC : 0 : 29 NOIR : 0 : 32 Le conducteur des noirs vous appelle et réclame le gain au temps. Question : Quelle est votre décision ?",
       "expected_answer": "Championnat de France des clubs, Article 3.7.e.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        6
       ],
       "category": "competitions",
       "keywords": [
@@ -6638,12 +6638,12 @@
       "question": "Voilà les compositions de l'équipe d'un club lors des 2 premières journées du championnat de Nationale 3. Ronde 1 : Ronde 2 : 1. Fabien, 2210 1. Fabien, 2210 2. Antoine, 2050 2. Antoine, 2050 3. Arnaud, 1911 3. Benoit, 1930 4. Philippe, 1850 4. Sylvain, 1802 5. Laurent, 1720 5. Jean-François, 1620 6. Elsa, 1420 6. Gérard, 1610 7. Sandrine, 1410 7. Benjamin, 1290 8. Xavier, 1350 8. Xavier, 1350 Que pouvez-vous dire de la composition d'équipe lors de la ronde 2 en terme de conformité avec le règlement des interclubs ?",
       "expected_answer": "Si la partie n'affecte pas les tables devant, il n'y a aucun problème à remettre les pièces à leur place.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        6
       ],
       "category": "competitions",
       "keywords": [
@@ -6668,7 +6668,7 @@
         "difficulty": 0.71,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 2,
           "success_rate": 0.29
         },
@@ -6706,12 +6706,12 @@
       "question": "Benoît a joué les 3 premières journées d'interclubs avec l'équipe 3 en N4. Ensuite, il a joué 2 fois en équipe 2 en N3 et 1 fois avec l'équipe 1 en N2. Peut-il jouer la 7ème et dernière ronde avec l'équipe 3 de son club en N4 ? A. NON.",
       "expected_answer": "Vous interdisez le joueur de roquer de ce côté.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent012-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        6
       ],
       "category": "competitions",
       "keywords": [
@@ -6736,7 +6736,7 @@
         "difficulty": 0.37,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 3,
           "success_rate": 0.63
         },
@@ -6774,12 +6774,12 @@
       "question": "Un club a 2 équipes (équipes 1 et 2) engagées en N4. Un joueur a déjà joué les 2 premières rondes en équipe 2. Peut-il remplacer un joueur absent en équipe 1 lors de la ronde 3 ?",
       "expected_answer": "Championnat de France des clubs, Article 3.7.d.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        6
       ],
       "category": "competitions",
       "keywords": [
@@ -6805,7 +6805,7 @@
         "difficulty": 0.43,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 4,
           "success_rate": 0.57
         },
@@ -6842,12 +6842,12 @@
       "question": "Voilà une équipe présentée en Nationale 2 : 1. Hugo, Catégorie : CadM, ELO : 2311 2. Charles, Catégorie : SenM, ELO : 2411 3. Louis, Catégorie : SenM, ELO : 2105 4. Teddy, Catégorie : SenM, ELO : 1821 5. Mathis, Catégorie : SenM, ELO : 1877 6. Esteban, Catégorie : SenM, ELO : 1932 7. Anthony, Catégorie : SenM, ELO : 1757 8. Ezio, Catégorie : JunM, ELO : 1634 Sur l'échiquier, les 8 joueurs ont gagné leur partie. L'équipe adverse a une composition conforme au règlement. Quel sera le score final du match une fois que les forfaits administratifs et sanctions auront été appliqués ? A. 8-0",
       "expected_answer": "Championnat de France des clubs, Articles 3.6 et 3.7.i",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        5
       ],
       "category": "competitions",
       "keywords": [
@@ -6871,7 +6871,7 @@
         "difficulty": 0.95,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 5,
           "success_rate": 0.05
         },
@@ -6902,12 +6902,12 @@
       "question": "Cadence KO : 1h30 pour les 40 premiers coups puis une demi-heure supplémentaire pour le reste de la partie. Durant la première période, un joueur en zeitnot joue très rapidement et ne note pas depuis plusieurs coups. Selon la feuille de partie de son adversaire, ils ont dépassé la première période depuis un certain nombre de coups. Quelle est la bonne façon d'agir du joueur ?",
       "expected_answer": "Si l'adversaire a sa feuille de partie complète, l'arbitre n'a pas à intervenir.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent014-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        5
       ],
       "category": "competitions",
       "keywords": [
@@ -6996,7 +6996,7 @@
         "difficulty": 0.73,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 7,
           "success_rate": 0.27
         },
@@ -7033,12 +7033,12 @@
       "question": "Lors d'un match de Nationale 3, un capitaine vous donne sa composition d'équipe 2mn avant l'heure prévue pour le début de la rencontre. Un joueur de l'équipe arrive 50mn après le lancement des parties. Sa pendule indique 0 : 27mn. Qu'elle doit être votre action ?",
       "expected_answer": "Vous refusez car c'est vous qui décidez de l'emplacement de la pendule et de l'échiquier. C'est aux joueurs de s'adapter.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent013-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        5
       ],
       "category": "competitions",
       "keywords": [
@@ -7063,7 +7063,7 @@
         "difficulty": 0.36,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 9,
           "success_rate": 0.64
         },
@@ -7103,12 +7103,12 @@
       "question": "Position après le coup 39 noir. Les derniers coups de la feuille sont : Le conducteur des noirs a joué son coup, puis sur son temps demande la nulle par répétition de coups (même position après le coup noir 39, 41 et 43) (C'est la position du diagramme) Quelle est votre décision ?",
       "expected_answer": "Championnat de France des clubs, Article 3.6.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
       "expected_pages": [
-        4
+        5
       ],
       "category": "competitions",
       "keywords": [
@@ -7173,12 +7173,12 @@
       "question": "Nous sommes en décembre 2021. Voilà la composition d'une équipe de N1 jeunes. 1. Hugo, né le 05/02/2006, ELO : 1900 2. Charles, né le 11/04/2006, ELO : 2050 3. Louis, né le 08/08/2008, ELO : 1820 4. Teddy, né le 24/04/2009, ELO : 1800 5. Mathis, né le 05/04/2010, ELO : 1450 6. Esteban, né le 15/06/2010, ELO : 1240 7. Anthony, né le 05/12/2012, ELO : 1010 8. Ezio, né le 05/04/2013, ELO : Non classé Que pouvez-vous dire de cette composition d'équipe en termes de conformité avec le règlement des interclubs jeunes ?",
       "expected_answer": "Vrai.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent017-child00",
       "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
       ],
       "expected_pages": [
-        5
+        4
       ],
       "category": "competitions",
       "keywords": [
@@ -7202,7 +7202,7 @@
         "difficulty": 0.5,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 12,
           "success_rate": 0.5
         },
@@ -7238,12 +7238,12 @@
       "question": "Nous sommes en décembre 2021. Voilà la composition d'une équipe de N1 jeunes. 1. Hugo, né le 05/02/2006, ELO : 2010 2. Charles, né le 11/04/2007, ELO : 1840 3. Elodie, née le 08/12/2011, ELO : 1820 4. Teddy, né le 24/04/2008, ELO : 1600 5. Mathis, né le 05/01/2011, ELO : 1427 6. Esteban, né le 03/01/2011, ELO : 1440 7. Anthony, né le 05/12/2012, ELO : 1050 8. Marie, née le 05/04/2013, ELO : 1010 Que pouvez-vous dire de cette composition d'équipe en termes de conformité avec le règlement des interclubs jeunes ?",
       "expected_answer": "14h30",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child00",
       "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
       ],
       "expected_pages": [
-        5
+        4
       ],
       "category": "competitions",
       "keywords": [
@@ -7270,7 +7270,7 @@
         "difficulty": 0.63,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 12,
           "success_rate": 0.37
         },
@@ -7308,12 +7308,12 @@
       "question": "Nous sommes en décembre 2021. Voilà la composition d'une équipe de N1 jeunes. 1. Mila, née le 05/02/2006, ELO : 1250 2. Charles, né le 11/04/2008, ELO : 1900 3. Louise, née le 08/08/2008, ELO : 1750 4. Teddy, né le 24/04/2008, ELO : 1700 5. Mathis, né le 05/04/2010, ELO : 1450 6. Esteban, né le 15/06/2010, ELO : 1240 7. Anthony, né le 05/12/2013, ELO : 1040 8. Iléa, née le 05/04/2012, ELO : 1420 Que pouvez-vous dire de cette composition d'équipe en termes de conformité avec le règlement des interclubs jeunes ?",
       "expected_answer": "On peut toujours noter son coup avant de le jouer.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent014-child00",
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent017-child00",
       "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
       ],
       "expected_pages": [
-        5
+        4
       ],
       "category": "competitions",
       "keywords": [
@@ -7340,7 +7340,7 @@
         "difficulty": 0.67,
         "annales_source": {
           "session": "dec2021",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 12,
           "success_rate": 0.33
         },
@@ -7588,7 +7588,7 @@
       "question": "Lors du championnat de France petit-poussins, le conducteur des blancs joue son pion sur la 8ème rangée puis appuie sur la pendule avant de remplacer son pion. Il a déjà fait un coup irrégulier plus tôt dans la partie. Si on remplace le pion par une dame (ce qui est l'intention du jeune joueur), le roi noir est mat (mat du couloir). Quel est le résultat de la partie ?",
       "expected_answer": "Nulle.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p093-parent277-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p093-parent276-child01",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -7650,12 +7650,12 @@
       "question": "Est-on obligé de noter la « prise en passant » sur sa feuille de partie ? a) Oui. b) Non. Annexe C : La notation algébrique - C.13 des règles du jeu 68% de bonnes réponses Les questions 23C à 25C sont pour les candidats au titre d'arbitre de Club. QUESTION 23C : Cadence 5mn ko. Vous arbitrez ce blitz. Un joueur à qui il reste moins de deux minutes pour terminer sa partie vous demande d'appliquer la directive III, à savoir l'ajout d'un incrément de 5 secondes par coup pour les deux joueurs. Que faites-vous ?",
       "expected_answer": "Vous donnez un avertissement aux deux joueurs pour vous avoir appelé. Art 9.1.2.3 des règles du jeu Une réclamation de nulle au titre de 9.2 ou 9.3 sera assimilée à une offre de nulle. Les noirs ont tout loisirs d'accepter la nulle ou pas. 62% de bonnes réponses Les questions 23J à 25J sont pour les candidats au titre d'arbitre Jeune. QUESTION 23J : Si un joueur au trait touche délibérément sa tour et ensuite son roi, peut-il roquer de ce côté si c'est légal ?",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p056-parent190-child01",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "C01_2025_26_Coupe_de_France.pdf"
       ],
       "expected_pages": [
-        56
+        3
       ],
       "category": "competitions",
       "keywords": [
@@ -7723,7 +7723,7 @@
       "question": "Vous êtes appelé à une table où les blancs au trait vous montrent que les noirs sont tombés. Sur l'échiquier la position est telle que les blancs sont mat. Les joueurs ont constaté la chute du drapeau après le mat. Quelle est votre décision ?",
       "expected_answer": "Gain Blanc.",
       "is_impossible": false,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent011-child00",
+      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent008-child00",
       "expected_docs": [
         "C01_2025_26_Coupe_de_France.pdf"
       ],

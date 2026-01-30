@@ -346,3 +346,20 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **New LA chapter knowledge**: Full mapping of Part 2 chapters to page numbers (4.2-6.2). Annexe A at p056.
 - **Findings metadata**: 5 UV FAUX (1 rules→open, 4 clubs→open)
 - **Cumul**: 200/420 verifiees (48%), 164 WRONG chunks + 3 textes + 100 metadata corriges.
+
+### Batch 11 (Q200-Q219) — open:032-051, sessions jun2025 + dec2019 + jun2021
+- **Resultat**: 3/20 OK — 14 WRONG_SECTION + 2 WRONG_SOURCE + 1 NO_MATCH
+- **Sessions**: jun2025 UVO Q16-Q20 (5Q) + dec2019 UVO (8Q) + jun2021 UVO Q1-Q7 (7Q)
+- **OK**: idx 202 (C04 Art 1.2), idx 212 (FIDE Art 9.2.2 parent179-child01), idx 214 (FIDE Art 11.2.1 parent183)
+- **Findings chunks**:
+  - 5 LA FIDE Laws WRONG_SECTION: idx 205 (Art 7.5 p041→p048-parent175), idx 210 (Art 6.7 parent173→parent171), idx 211 (Art 5 parent185→parent165), idx 213 (Art 9.3 parent181→parent179), idx 215 (Art 7.5 parent174→parent175)
+  - 4 LA Part 2 chapters: idx 200 (Ch 6.1 Cadence p015→p182), idx 201 (Ch 6.1 Art 2 p016→p036-parent534), idx 204 (Ch 5.4 Rapport p017→p172), idx 209 (Ch 4.2 Departages p049→p146)
+  - 2 LA RIDNA WRONG_SECTION: idx 216 (Art 3.1 p010→p014-parent041), idx 217 (Art 11 Examens p010→p022-parent095)
+  - 1 C04 WRONG_SECTION: idx 203 (Art 4.3 parent026=4.4→parent024=4.3.a)
+  - 1 R03 WRONG_SECTION: idx 219 (Art 2.3 parent006=2.2.3→parent007=2.3)
+  - 2 WRONG_SOURCE: idx 207-208 (LA→J01 Art 2.6 Qualifications d'office, parent012)
+  - 1 NO_MATCH: idx 218 (RIDNA Art 18.4 — RIDNA ends at Art 17 in 2025, used FIDE Art 18 as best match p092-parent275)
+- **FIDE Laws page mapping**: Art 5=p043-parent165, Art 6.7=p046-parent171, Art 7.5=p048-parent175, Art 9=p051-parent179, Art 11=p053-parent183, Art 18=p092-parent275
+- **RIDNA version gap**: Art 18.4 referenced in jun2021 exam does not exist in 2025 LA (RIDNA ends at Art 17). Pages 27-29 contain FIDE Ethics Code. Best approximation: FIDE Laws Art 18 Role Arbitre.
+- **Findings metadata**: 10 UV FAUX (clubs/rules → open), 1 qnum FAUX (idx 204: 17→20)
+- **Cumul**: 220/420 verifiees (52%), 181 WRONG chunks + 3 textes + 111 metadata corriges.

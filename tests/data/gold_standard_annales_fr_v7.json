@@ -13008,12 +13008,12 @@
       "question": "Lors d'une rencontre du championnat de France des Clubs, les feuilles de composition des équipes sont transcrites sur la feuille de match. Cette dernière comporte pour chaque joueur/joueuse le nom, pr",
       "expected_answer": "Il doit préciser que son tournoi est réservé aux joueurs et joueuses ayant un classement Elo strictement inférieur à 1800.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p182-parent533-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        15
+        183
       ],
       "category": "open",
       "keywords": [
@@ -13039,7 +13039,7 @@
         "difficulty": 0.11,
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 16,
           "success_rate": 0.89
         },
@@ -13075,12 +13075,12 @@
       "question": "En tant qu'arbitre en chef d'un tournoi en cadence rapide homologué pour le elo FIDE, vous avez la responsabilité d'établir le règlement intérieur du tournoi avec l'organisateur. Parmi les propositions suivantes, indiquer celle qui est fausse. ?",
       "expected_answer": "Vous avez le droit en concertation avec l'organisateur d'indiquer que certaines règles du jeu ne seront pas appliquées.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent055-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p036-parent534-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        15
+        37
       ],
       "category": "open",
       "keywords": [
@@ -13203,12 +13203,12 @@
       "question": "Vous êtes responsable d'un groupe de la coupe de la parité de 7 équipes dont la phase a été appariée au « Molter ». A la fin de cette phase, deux équipes ont obtenu le même nombre de points de match. Qu'utilisez-vous en priorité pour les départager ?",
       "expected_answer": "Le Berlin.",
       "is_impossible": false,
-      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p004-parent026-child00",
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p004-parent024-child00",
       "expected_docs": [
         "C04_2025_26_Coupe_de_la_parité.pdf"
       ],
       "expected_pages": [
-        4
+        5
       ],
       "category": "open",
       "keywords": [
@@ -13267,12 +13267,12 @@
       "question": "En Championnat de France des clubs, des personnes mutées peuvent faire partie d'une équipe. Excepté pour les divisions comportant un maximum de six personnes par équipes, quel est le nombre maximum de mutés ?",
       "expected_answer": "Sept jours. Fin du sujet de l'UVO",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        17
+        173
       ],
       "category": "open",
       "keywords": [
@@ -13295,8 +13295,8 @@
         "difficulty": 0.02,
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
-          "question_num": 17,
+          "uv": "open",
+          "question_num": 20,
           "success_rate": 0.98
         },
         "question_type": "factual",
@@ -13331,12 +13331,12 @@
       "question": "Cadence : 1h 30 minutes plus 30 secondes par coup. Dans cette position, les Blancs jouent 0-0 et appuient sur la pendule. Les Noirs appellent l'arbitre et disent que le coup est illégal car leur t",
       "expected_answer": "Le roque est légal, la partie continue.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        40
+        49
       ],
       "category": "open",
       "keywords": [
@@ -13398,12 +13398,12 @@
       "question": "Dans le tableau suivant, tournoi minime, le classement des 2 joueurs est indiqué. (F = Elo FIDE, N = Elo National, E = Elo estimé) Pour chacune des tables, indiquer : - -« Aucun » si la partie ne sera pas comptabilisée pour le classement FIDE. - -« Pour un seul joueur » si la partie sera comptabilisée pour un seul des deux joueurs. - -« Pour les deux joueurs » si la partie sera comptabilisée pour les deux joueurs. Remarque : on considère que la partie compte pour le classement FIDE du joueur si le joueur a déjà un classement et que celui si va bouger ou si le joueur n'a pas encore de classement et que cette partie peut être prise en compte pour son entrée dans le classement. | Table | Joueur Blanc | Joueur Noir | Prise en compte pour le ELO FIDE ? | |---------|----------------|---------------|--------------------------------------| | 1 | 1804 F | 1647 F | Aucun | | 2 | 1756 F | 1590 N | Aucun | | 3 | 1532 F | 1778 F | Aucun | | 4 | 1199 E | 1537 F | Pour un seul joueur | | 5 | 1468 F | 1595 F | Pour les deux joueurs | | 6 | 1339 F | 1650 N | Pour un seul joueur | | 7 | 1445 F | 1280 N | Pour un seul joueur | | 8 | 1260 N | 1199 E | Aucun | Justification : La cadence est de 50 min + 10 secondes par coup donc pour qu'une partie soit prise en compte, aucun des 2 joueurs ne doit avoir un classement FIDE supérieur à 1600. (Chapitre 6.1 du L.A., Le classement de la FIDE, article 1). Et « Pour les joueurs classés, seules les parties contre des joueurs classés sont comptabilisées. » (Chapitre 6.1 du L.A., Le classement de la FIDE, article 6.32).",
       "expected_answer": "Les Noirs doivent jouer un coup légal avec leur cavalier en d5.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p182-parent533-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        41
+        183
       ],
       "category": "open",
       "keywords": [
@@ -13429,7 +13429,7 @@
         "difficulty": 0.16,
         "annales_source": {
           "session": "dec2019",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 2,
           "success_rate": 0.84
         },
@@ -13465,12 +13465,12 @@
       "question": "Sachant que ces championnats attribueront les titres de champions départementaux de chacune des catégories, le comité départemental est-il autorisé à refuser la participation des qualifiés d'office pour le prochain championnat de France jeunes pour ne pas perturber les résultats des qualifications ? (Article 2.6 du championnat de France des Jeunes, Livre de la Fédération). En effet : « ... Si les phases qualificatives se jouent en même temps qu'un championnat départemental ou de zone interdépartementale, les qualifiés d'office ont le droit de participer. » Et donc : ne se déroulent pas en même temps que le championnat départemental (donc si elles n'attribuent pas de Un comité peut refuser la participation des qualifiés d'office seulement si les qualifications départementales titre de champion du département et que le titre est attribué lors d'une autre compétition).",
       "expected_answer": "Un comité peut refuser la participation des qualifiés d'office seulement si les qualifications départementales titre de champion du département et que le titre est attribué lors d'une autre compétition).",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child02",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
       ],
       "expected_pages": [
-        48
+        4
       ],
       "category": "open",
       "keywords": [
@@ -13536,12 +13536,12 @@
       "question": "Salomé (Elo FIDE 1235) a participé au championnat de France U12F de la saison précédente. Elle a terminé 9ème avec 6 points. Elle est encore U12F cette saison. Est-elle qualifiée d'office pour le prochain championnat de France Jeunes ? OUI : Elle a marqué 6 points lors du championnat de l'année précédente et elle ne change pas de catégorie. Livre de la Fédération - Règlement du championnat de France des Jeunes - Article 2.6 : Qualifiés d'office",
       "expected_answer": "L'arbitre pénalise les Blancs pour leur coup illégal.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "expected_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf"
       ],
       "expected_pages": [
-        49
+        4
       ],
       "category": "open",
       "keywords": [
@@ -13598,12 +13598,12 @@
       "question": "A la ronde 5, l'adversaire d'Antoine qui a 3 points sur 4 est forfait. Antoine vous demande quel score sera compté pour lui à cette ronde, pour le calcul de son Buchholz à la fin du tournoi ? La formule est donnée au début de l'article 2.2 du chapitre 5.1 du livre de l'arbitre (les départages). San = SJR + (1 - SfJR) + 0.5 x (n - R) avec : n = nombre de rondes réalisées Dans notre cas n = 5 San = San = score ajusté de l'adversaire virtuel après la ronde n SJR = score du joueur avant la ronde R. Dans notre cas SJR = 3 SfJR = score du joueur à la ronde R : (0 si il perd par forfait, 1 si il gagne par forfait) Dans notre cas SfJR = 1. R = ronde où le forfait a eu lieu. Dans notre cas R= 5. Donc pour notre joueur, son adversaire virtuel aura un score ajusté de : San = 3 + (1 - 1) + 0,5 x (5 - 3) = 4 points",
       "expected_answer": "L'arbitre intervient. | L'arbitre donne 2min supplémentaires aux Noirs. | L'arbitre enlève 30s aux Blancs.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p146-parent426-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        49
+        147
       ],
       "category": "open",
       "keywords": [
@@ -13629,7 +13629,7 @@
         "difficulty": 0.74,
         "annales_source": {
           "session": "dec2019",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 5,
           "success_rate": 0.26
         },
@@ -13667,7 +13667,7 @@
       "question": "A cette ronde, Sylvain se présente à sa table, 5 minutes après le lancement de la ronde. Maxence son adversaire réclame le gain du point par forfait, comme indiqué dans l'article 6.7.1 des règles du jeu (livre de l'arbitre). Le règlement intérieur du tournoi n'indique rien sur ce point. Comment pouvez-vous justifier que le joueur légèrement en retard a quand même le droit de jouer ? Livre de la Fédération - Règlement Compétitions Homologuées - Article 2.2.3 Retard autorisé : Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le R.I. du tournoi prévoit autre chose. B - Calculs des prix : La liste des prix ainsi que le début du classement est indiqué ci-dessous. Avec ces éléments, calculer les différents prix. | Liste des prix : | Liste des prix : | Début du classement | Début du classement | Début du classement | Début du classement | |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------|--------------------------------------| | Prix au classement général : 1er 350 € 2ème 250 € 3ème 200 € 4ème 120 € 5ème 70 € 6ème 50 € | Prix par catégorie : Prix Cadets/Juniors : 1er : 125 € 2ème : 60 € Prix Benjamins/Minimes 1er : 125 € 2ème : 60 € Prix féminins : 1er : 90 € 2ème : 40 € | Place 1er 2ème 3ème 4ème 5ème 6ème 7ème 8ème 9ème | Nom Paul Noa Alice Lucas Johan Nathan Manon Elsa Sylvain | Catégorie SenM CadM SenF SenM JunM BenM CadF CadF SenM | Points 7,5 7,5 7 7 7 6,5 6,5 6,5 6,5 | | Prix au général attribués au système HORT. Prix par catégorie attribués à la place, après départage des éventuels ex-æquo. Les prix ne sont pas cumulables. le plus élevé auquel il a droit. | Chaque joueur reçoit le prix | 10ème 11ème 12ème 13ème 14ème | Clémence Antoine Benoit Cécile Céline | CadF CadM SenM BenF BenF | 6 6 6 6 6 |",
       "expected_answer": "Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le R.I. du tournoi prévoit autre chose. B - Calculs des prix : La liste des prix ainsi que le début du classement est indiqué ci-dessous. Avec ces éléments, calculer les différents prix. | Liste des prix : | Liste des prix : | Début du classement | Début du classement | Début du classement | Début du classement | |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------|--------------------------------------| | Prix au classement général : 1er 350 € 2ème 250 € 3ème 200 € 4ème 120 € 5ème 70 € 6ème 50 € | Prix par catégorie : Prix Cadets/Juniors : 1er : 125 € 2ème : 60 € Prix Benjamins/Minimes 1er : 125 € 2ème : 60 € Prix féminins : 1er : 90 € 2ème : 40 € | Place 1er 2ème 3ème 4ème 5ème 6ème 7ème 8ème 9ème | Nom Paul Noa Alice Lucas Johan Nathan Manon Elsa Sylvain | Catégorie SenM CadM SenF SenM JunM BenM CadF CadF SenM | Points 7,5 7,5 7 7 7 6,5 6,5 6,5 6,5 | | Prix au général attribués au système HORT. Prix par catégorie attribués à la place, après départage des éventuels ex-æquo. Les prix ne sont pas cumulables. le plus élevé auquel il a droit. | Chaque joueur reçoit le prix | 10ème 11ème 12ème 13ème 14ème | Clémence Antoine Benoit Cécile Céline | CadF CadM SenM BenF BenF | 6 6 6 6 6 |",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -13697,7 +13697,7 @@
         "difficulty": 0.26,
         "annales_source": {
           "session": "dec2019",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 6,
           "success_rate": 0.74
         },
@@ -13734,12 +13734,12 @@
       "question": "Dans une partie en cadence 90 minutes pour 40 coups, puis 30 minutes pour le reste de la partie, avec addition de 30 secondes par coup, les joueurs appellent l'arbitre. Sur la feuille de partie des Bl",
       "expected_answer": "La position finale est reconstituée si nécessaire et la partie continue en présence de l'arbitre.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent185-child02",
+      "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        43
+        44
       ],
       "category": "open",
       "keywords": [
@@ -13766,7 +13766,7 @@
         "difficulty": 0.08,
         "annales_source": {
           "session": "dec2019",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 4,
           "success_rate": 0.92
         },
@@ -13876,7 +13876,7 @@
       "question": "Dans une finale roi et dame contre roi, en cadence lente avec incrément de 30 secondes, un jeune a beaucoup de mal à conclure. Vous vous trouvez à côté de la partie et vous comptez les coups. 50 coups",
       "expected_answer": "Tant que les joueurs ne demandent rien, vous ne bougez pas. Art.9.3 seulement sur demande du joueur. | Vous attendez patiemment pour appliquer l'article 9.6.b. L'arbitre doit intervenir et arrêter la partie, déclarant la partie nulle.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p052-parent181-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -13906,7 +13906,7 @@
         "difficulty": 0.4,
         "annales_source": {
           "session": "dec2019",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 17,
           "success_rate": 0.6
         },
@@ -13965,7 +13965,7 @@
         "difficulty": 0.22,
         "annales_source": {
           "session": "dec2019",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 18,
           "success_rate": 0.78
         },
@@ -14004,7 +14004,7 @@
       "question": "Cadence : 90 minutes plus 30 secondes par coup. Les Noirs demandent la nulle pour une triple répétition. Après examen, la demande s'avère incorrecte. Voilà ce qu'indique la pendule au moment de la d",
       "expected_answer": "Blancs : 37 : 45 et 22 coups Noirs : 32 : 12 et 21 coups",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent174-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -14035,7 +14035,7 @@
         "difficulty": 0.14,
         "annales_source": {
           "session": "dec2019",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 20,
           "success_rate": 0.86
         },
@@ -14073,12 +14073,12 @@
       "question": "Cadence : 15 min + 3''/coup. C'est la dernière partie d'une ronde d'un tournoi rapide. Vous (arbitre) vous trouvez donc à côté de la table de jeu. Le conducteur des blancs, au trait, arrête la pen",
       "expected_answer": "Le Président Fédéral.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent024-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p014-parent041-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        10
+        15
       ],
       "category": "open",
       "keywords": [
@@ -14140,12 +14140,12 @@
       "question": "Cadence : 90 min + 30''/coup. Le conducteur des blancs joue Tc1+, le note, puis arrête la pendule en vous indiquant qu'avec le coup qu'il vient de jouer, la position est identique pour la 3ème foi",
       "expected_answer": "Sur l'aspect pratique, il faut obtenir une Attestation de Stage Pratique favorable. Corrigé : Il faut deux ASP favorables. Cf. article 11 RIDNA du LA",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p022-parent095-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        10
+        23
       ],
       "category": "open",
       "keywords": [
@@ -14207,12 +14207,12 @@
       "question": "En tant qu'Arbitre Fédéral Open de niveau 1 agréé FIDE, vous recevez plusieurs propositions d'arbitrages. Dans la liste suivante, une proposition devra attendre que vous obteniez un titre supérieur pour l'arbitrer. Laquelle ?",
       "expected_answer": "Une demi-finale de la coupe de France.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent024-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p092-parent275-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        10
+        93
       ],
       "category": "open",
       "keywords": [
@@ -14275,12 +14275,12 @@
       "question": "Vous êtes l'arbitre du tournoi homologué rapide FIDE de votre club. Une semaine avant le tournoi, votre président a reçu des demandes d'inscriptions de la part de: - Trois Grands-Maîtres (GM), - Deux Maîtres internationaux (MI), - Un GM par correspondance (ICCF) membre de la FFE, - Quatre membres de l'équipe de France jeunes. Tous lui ont demandé la gratuité des droits d'inscriptions. Il vous demande conseil sur la gratuité. Qui est concerné ?",
       "expected_answer": "Personne.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
       "expected_pages": [
-        2
+        3
       ],
       "category": "open",
       "keywords": [
@@ -14306,7 +14306,7 @@
         "difficulty": 0.37,
         "annales_source": {
           "session": "jun2021",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 7,
           "success_rate": 0.63
         },

@@ -291,3 +291,15 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Findings metadata**: 11 UV FAUX (rules → clubs)
 - **Anomalie**: idx 111-113 ont tous qnum=12 (3 questions identiques — erreur pipeline)
 - **Cumul**: 120/420 verifiees (29%), 93 WRONG chunks + 3 textes + 62 metadata corriges.
+
+### Batch 07 (Q120-Q139) — clubs:121-140, sessions jun2022 + jun2023
+- **Resultat**: 2/20 OK — 15 WRONG_SECTION + 3 WRONG_SOURCE
+- **Sessions**: jun2022 UVC Q1-22 (19Q) + jun2023 UVC Q1 (1Q)
+- **OK**: idx 121 (R01 1.4 → 1. Licences), idx 135 (A02 2.5)
+- **Findings chunks**:
+  - 8 R01 WRONG_SECTION: idx 120-129 spans R01/R03, all wrong sub-sections
+  - 3 WRONG_SOURCE: idx 124 (LA→R01), idx 134 (LA→A02), idx 136 (LA→R01)
+  - RIDNA art 3.2 (2021) = 3.7 Dir Reglements (2025) — version renumbering
+  - RIDNA art 8.3 = AFJ (Arbitre Federal Jeune)
+- **Findings metadata**: 7 UV FAUX (rules/open → clubs)
+- **Cumul**: 140/420 verifiees (33%), 111 WRONG chunks + 3 textes + 69 metadata corriges.

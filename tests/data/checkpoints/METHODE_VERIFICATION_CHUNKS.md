@@ -320,3 +320,15 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Anomalies**: idx 159 qnum=12 is 3rd duplicate in this session. Art 1.3 C01 not in jun2023 UVC Grille (20 questions). Possible orphan or mislabeled.
 - **Pattern**: A02 sub-sections particularly scrambled — pipeline assigned adjacent/nearby sections instead of correct ones (154↔153 swapped!).
 - **Cumul**: 160/420 verifiees (38%), 128 WRONG chunks + 3 textes + 85 metadata corriges.
+
+### Batch 09 (Q160-Q179) — clubs:161-169 + open:001-011, sessions jun2023 + dec2024
+- **Resultat**: 1/20 OK — 12 WRONG_SECTION + 7 WRONG_SOURCE
+- **Sessions**: jun2023 UVC Q22-Q30 (9Q) + dec2024 UVO Q1-Q11 (11Q)
+- **OK**: idx 178 (R03 Art 2.5 parent009)
+- **Findings chunks**:
+  - Part 1 (jun2023 UVC Q22-Q30): 6 WRONG_SOURCE (LA→H01/C03/C04/F01), 3 WRONG_SECTION (C03/C04/R02 sub-sections)
+  - Part 2 (dec2024 UVO Q1-Q11): 5 RIDNA WRONG_SECTION (p026-p055 → p017-p023), 3 LA FIDE WRONG_SECTION (p036/p050 → p167/p182/p185), 1 R03 WRONG_SECTION (parent000→parent007), 1 WRONG_SOURCE (LA→F01)
+- **RIDNA version renumbering**: old 8.4 AFO (dec2024 exam) = new 8.5 AFO (2025 LA). AFC inserted at new 8.4.
+- **New chunk knowledge**: LA FIDE rating regs at p182-p185, Homologation at p167. H01 has 2 chunks (p001). C04 45 chunks. F01 38 chunks.
+- **Findings metadata**: 7 UV FAUX (open → clubs for jun2023 UVC), 3 qnum FAUX (idx 159: 12→21, idx 162: 12→24, idx 163: 12→25)
+- **Cumul**: 180/420 verifiees (43%), 147 WRONG chunks + 3 textes + 95 metadata corriges.

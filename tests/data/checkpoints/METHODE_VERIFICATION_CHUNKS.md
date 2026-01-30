@@ -303,3 +303,20 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
   - RIDNA art 8.3 = AFJ (Arbitre Federal Jeune)
 - **Findings metadata**: 7 UV FAUX (rules/open → clubs)
 - **Cumul**: 140/420 verifiees (33%), 111 WRONG chunks + 3 textes + 69 metadata corriges.
+
+### Batch 08 (Q140-Q159) — clubs:141-160, session jun2023
+- **Resultat**: 3/20 OK — 13 WRONG_SECTION + 4 WRONG_SOURCE
+- **Session**: jun2023 UVC Q2-Q20 (19Q) + 1 anomalous qnum=12 duplicate
+- **OK**: idx 143 (R01 Art 1.4 → 1. Licences), idx 146 (R01 Art 8 → 8. Capitaines), idx 156 (A02 Art 3.8 → 3.8 Forfaits)
+- **Findings chunks**:
+  - 2 LA RIDNA WRONG_SECTION: idx 140 (p037 FIDE→p014 RIDNA 3.1), idx 141 (p033 FIDE→p018 RIDNA 8.1)
+  - 1 RD WRONG_SECTION: idx 142 (p005 Art 12→p001 Art 2)
+  - 2 R01 WRONG_SECTION: idx 144 (3.3.1→2.4), idx 145 (3.2.1→5. Elo)
+  - 8 A02 WRONG_SECTION: idx 148 (3.4→3.6.a), idx 149 (3.8→3.7.c), idx 150 (3.8→3.6.a), idx 151 (2.1.b→1.1), idx 152 (2.1.a→1.2), idx 153 (3.2→2.5), idx 154 (2.5→2.6), idx 155 (3.6.d→3.7.g)
+  - 1 WRONG_SOURCE LA→R03: idx 147 (LA p215→R03 2.2.2)
+  - 1 WRONG_SOURCE LA→J02: idx 157 (LA p086→J02 3.7.b)
+  - 2 WRONG_SOURCE LA→C01: idx 158 (LA p037→C01 3.2), idx 159 (LA p028→C01 1.3)
+- **Findings metadata**: 15 UV FAUX (14 open + 1 tournament → clubs), 1 qnum FAUX (idx 151: 12→13 per Grille)
+- **Anomalies**: idx 159 qnum=12 is 3rd duplicate in this session. Art 1.3 C01 not in jun2023 UVC Grille (20 questions). Possible orphan or mislabeled.
+- **Pattern**: A02 sub-sections particularly scrambled — pipeline assigned adjacent/nearby sections instead of correct ones (154↔153 swapped!).
+- **Cumul**: 160/420 verifiees (38%), 128 WRONG chunks + 3 textes + 85 metadata corriges.

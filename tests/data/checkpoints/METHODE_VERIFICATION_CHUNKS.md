@@ -232,3 +232,17 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **Findings metadata**: 12 UV metadata FAUX (rules/open → clubs), 1 qnum FAUX (6→8)
 - **Pattern**: Pipeline parse_annales.py confondait les UV (dec2023 UVC Q1-20 classes comme rules/open). Textes de 3 questions assignes depuis UVR/UVO/UVT au lieu de UVC.
 - **Cumul**: 40/420 verifiees (10%), 23 WRONG chunks + 3 textes + 13 metadata corriges.
+
+### Batch 03 (Q040-Q059) — clubs:041-060, sessions dec2023 + jun2024
+- **Resultat**: 0/20 OK — 16 WRONG_SECTION + 4 WRONG_SOURCE (catastrophic)
+- **Sessions**: dec2023 UVC Q18-29 (8 questions) + jun2024 UVC Q1-12 (12 questions)
+- **Findings chunks**:
+  - ALL 20 chunks wrong. Pipeline assignment completely broken for this range.
+  - 4 WRONG_SOURCE: idx 44-45 (LA→C03), idx 46 (A02→F01), idx 47 (LA→F02)
+  - 4 WRONG_SECTION A02/R02: idx 40 (A02 2.6→3.11), idx 41 (A02 3.3→3.8), idx 42 (R02 sect.6→Art 1), idx 43 (R02 sect.3→Art 4)
+  - 8 WRONG_SECTION LA RIDNA: idx 48-55 — RIDNA sections confused with FIDE Laws and other LA chapters
+  - 4 WRONG_SECTION R01: idx 56 (3.2.1→2.2), idx 57 (2.2→2.4), idx 58 (3.2.1→3.1.3), idx 59 (3.3.3→2.2)
+- **Findings metadata**: 16 UV FAUX (open/rules → clubs), 1 qnum FAUX (idx 55: 7→8)
+- **Findings questions**: Plusieurs textes GS proviennent d'autres UV (idx 42 delai appel mais choix = noms, idx 47 phases mais reponse = secretariat). Correction requiert re-extraction pipeline (etapes 2-4 du plan).
+- **Pattern**: Pipeline chunk assignment completement casse pour cette plage. RIDNA sections confondues avec FIDE Laws et autres chapitres LA.
+- **Cumul**: 60/420 verifiees (14%), 43 WRONG chunks + 3 textes + 30 metadata corriges.

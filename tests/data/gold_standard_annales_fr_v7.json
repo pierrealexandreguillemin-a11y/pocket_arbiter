@@ -2576,7 +2576,7 @@
       "question": "Un joueur vient vous voir pour vous décrire la situation qu'il a vu lors d'un tournoi auquel il participait. Ci-dessous l'historique des couleurs de deux de ses amis. Si le joueur A et le joueur B se rencontrent à la ronde 7 quelle sera respectivement la couleur de chacun ? | | R1 | R2 | R3 | R4 | R5 | R6 | |---------------------|------|------|------|------|------|------| | Joueur A (Elo=1752) | B | N | N | B | N | B | | Joueur B (Elo=1732) | N | N | B | B | N | B |",
       "expected_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2604,7 +2604,7 @@
         "difficulty": 0.08,
         "annales_source": {
           "session": "dec2023",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 18,
           "success_rate": 0.92
         },
@@ -2635,7 +2635,7 @@
       "question": "Les membres de l'équipe de N3 de votre club ne souhaitent pas se déplacer pour le dernier match de la saison. Si l'équipe déclare forfait, le club sera sanctionné par une amende. Quel est le montant de l'amende ?",
       "expected_answer": "Sauf événement exceptionnel dûment justifié reconnu par la direction de groupe, tout forfait d'une équipe sera sanctionné par l'amende suivante : 1 500 € en Top 16, 750 € en N1, 400 € en N2, 300 € en N3. Cette amende sera doublée si le forfait a lieu à la dernière ronde.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent014-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2665,7 +2665,7 @@
         "difficulty": 0.42,
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 19,
           "success_rate": 0.58
         },
@@ -2701,7 +2701,7 @@
       "question": "En cours de partie, face à une décision de l'arbitre en cours de jeu, les joueurs et joueuses ne peuvent qu'obtempérer. Ils peuvent interjeter appel oralement dans l'instant, mais dès que possible leur capitaine formulera et présentera une réclamation à l'arbitre. A compter de la date de réception de la décision contestée, et sous peine d'irrecevabilité, un appel auprès de la commission d'appels sportifs doit être formulé par voie postale sous un certain délai. Lequel ?",
       "expected_answer": "Paul et Hector.",
       "is_impossible": false,
-      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent006-child00",
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent001-child00",
       "expected_docs": [
         "R02_2025_26_Regles_generales_Annexes.pdf"
       ],
@@ -2760,7 +2760,7 @@
       "question": "<!-- image --> | Ronde 5 | Ronde 5 | |----------------|-----------| | Echiquier N°1 | X - X | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 1 - 0 | | Echiquier N°5 | X - X | | Echiquier N°6 | 0 - 1 | | Echiquier N°7 | X - X | | Echiquier N°8 | 1 - 0 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | | Quelle suite doit être donnée au forfait de Serge à cette dernière ronde ?",
       "expected_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale.",
       "is_impossible": false,
-      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00",
+      "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent004-child00",
       "expected_docs": [
         "R02_2025_26_Regles_generales_Annexes.pdf"
       ],
@@ -2788,7 +2788,7 @@
         "difficulty": 0.13,
         "annales_source": {
           "session": "dec2023",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 22,
           "success_rate": 0.87
         },
@@ -2818,12 +2818,12 @@
       "question": "En coupe « Jean-Claude Loubatière », lors de la phase départementale, 17 équipes complètes sont présentes. Sur le total des participants et participantes, il y a sept femmes. Combien d'équipes seront qualifiées pour le tour suivant ?",
       "expected_answer": "Avec 17 équipes, il y a déjà 5 équipes qualifiées (4x4&lt; 17 &lt;4x5). La présence des sept joueuses est supérieure à 10% de l'effectif total qui est de 68 (17x4). Il y a donc une équipe qualifiée supplémentaire.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p036-parent154-child01",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
       ],
       "expected_pages": [
-        36
+        1
       ],
       "category": "competitions",
       "keywords": [
@@ -2877,12 +2877,12 @@
       "question": "En coupe « Jean-Claude Loubatière », quelle affirmation suivante est vraie concernant l'arbitre de la rencontre ?",
       "expected_answer": "Il n'aura pas encore de Elo rapide Fide car son score n'est pas suffisant.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p079-parent239-child00",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
       ],
       "expected_pages": [
-        78
+        2
       ],
       "category": "competitions",
       "keywords": [
@@ -2942,9 +2942,9 @@
       "question": "Quel est le montant total des indemnités que devrait verser l'organisateur à l'arbitre ?",
       "expected_answer": "85 €",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
+      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
       "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
       ],
       "expected_pages": [
         1
@@ -2970,7 +2970,7 @@
         "difficulty": 0.08,
         "annales_source": {
           "session": "dec2023",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 28,
           "success_rate": 0.92
         },
@@ -3006,12 +3006,12 @@
       "question": "Combien de phases comporte le Championnat de France individuel féminin de parties rapides ?",
       "expected_answer": "Au secrétariat fédéral et au Directeur des tournois et Titres de la DNA.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p035-parent152-child00",
+      "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf"
       ],
       "expected_pages": [
-        36
+        1
       ],
       "category": "competitions",
       "keywords": [
@@ -3071,12 +3071,12 @@
       "question": "Afin de pouvoir arbitrer les tournois homologués par la FIDE, vous avez dû en tant qu'AFO titré régler un droit appelé l'agré ment FIDE. Quel est le montant de cet agrément ?",
       "expected_answer": "20 €",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p011-parent026-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent069-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        11
+        18
       ],
       "category": "competitions",
       "keywords": [
@@ -3103,7 +3103,7 @@
         "difficulty": 0.22,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 1,
           "success_rate": 0.78
         },
@@ -3139,12 +3139,12 @@
       "question": "Quelle mission n'est pas de la respon sabilité de la direction des règlements ?",
       "expected_answer": "LA -RIDNA -II. ORGANISATION ET ADMINISTRATION -3.2 Direction des règlements",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p009-parent014-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        10
+        15
       ],
       "category": "competitions",
       "keywords": [
@@ -3171,7 +3171,7 @@
         "difficulty": 0.18,
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 2,
           "success_rate": 0.82
         },
@@ -3207,7 +3207,7 @@
       "question": "Le tournoi ayant lieu le 15 juin, quelle était la date limite pour faire la demande d'homologation ?",
       "expected_answer": "Le 31 mai.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent065-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -3237,7 +3237,7 @@
         "difficulty": 0.06,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 3,
           "success_rate": 0.94
         },
@@ -3273,12 +3273,12 @@
       "question": "Avant le commencement du tournoi, vous avez des obligations administratives. Quelle proposition parmi les suivantes n 'est pas une des missions de l'arbitre ?",
       "expected_answer": "S'assurer que le tournoi est homologué. LA 5.2 Préparation d'un tournoi : Dans l'ordre l'arbitre principal d'un tournoi doit :S'assurer que le tournoi est homologué ; Rédiger un règlement intérieur pour le tournoi qui devra être diffusé sur le site fédéral avant la tenue du tournoi. S'assure r que tous les joueurs participants au tournoi sont en règle envers la FFE et effectuer toutes les démarches d'enquêtes pour les forfaits non justifiés et les procédures disciplinaires. Interdire aux joueurs suspendus la participation à tout événement se déroulant en lien avec la FFE. La licence B suffit.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p014-parent039-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        13
+        17
       ],
       "category": "competitions",
       "keywords": [
@@ -3301,7 +3301,7 @@
         "difficulty": 0.18,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 4,
           "success_rate": 0.82
         },
@@ -3330,7 +3330,7 @@
       "question": "Au cours du pointage, un adulte, grand maître, se présente à l'organisateur. Il souhaite participer. L'organisateur vous dema nde votre avis concernant le montant de son inscription. Quelle somme lui indiquez-vous ?",
       "expected_answer": "30 €",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p022-parent092-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -3358,7 +3358,7 @@
         "difficulty": 0.08,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 5,
           "success_rate": 0.92
         },
@@ -3394,7 +3394,7 @@
       "question": "Comme tout arbitre consciencieux, vous vérifiez que la liste des joueurs est dans le bon ordre d 'appariement. Quelle est le numéro d'appariement de Tristan ?",
       "expected_answer": "Commentaire de correction : Beaucoup de candidats ont choisi la réponse C), ce choix est raisonnable cependant le confort des joueurs reste une des obligations de l'arbitre alors qu'en aucun cas l'organisateur ne peut imposer la mise en place du matériel aux arbitres.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p009-parent017-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p009-parent015-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -3422,7 +3422,7 @@
         "difficulty": 0.27,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 6,
           "success_rate": 0.73
         },
@@ -3458,12 +3458,12 @@
       "question": "Pendant que vous rentrez les scores et que les joueurs analysent le début de leur partie, le joueur conduisant les blancs à la table numéro 5 indique qu'il pense qu'un coup illégal a été effectué au 12 e coup de leur partie. Son adversaire est d'accord avec cette affirmation. Quelle est votre décision ?",
       "expected_answer": "Vous modifiez le score en accordant la victoire aux blancs.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent074-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p165-parent487-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        17
+        165
       ],
       "category": "competitions",
       "keywords": [
@@ -3490,7 +3490,7 @@
         "difficulty": 0.05,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 7,
           "success_rate": 0.95
         },
@@ -3526,12 +3526,12 @@
       "question": "Dans le cadre de la gestion d'un match du championnat de France des clubs que vous arbitrez en tant qu'AFC, quelle mission n'est pas de votre respon sabilité ?",
       "expected_answer": "Partie B - Connaissance des règles de la FFE",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent068-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p165-parent487-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        17
+        165
       ],
       "category": "competitions",
       "keywords": [
@@ -3558,8 +3558,8 @@
         "difficulty": 0.31,
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
-          "question_num": 7,
+          "uv": "clubs",
+          "question_num": 8,
           "success_rate": 0.69
         },
         "question_type": "factual",
@@ -3589,7 +3589,7 @@
       "question": "Un joueur a pris sa licence dans votre club le 13 décembre 2023, l'an dernier il a participé uniquement à la coupe de la pari té avec son précédent club. Il souhaite aussi jouer dans un championnat par équipes cette année. Que répondez-vous ?",
       "expected_answer": "R01 -1. Licences et R01 -2.2 Mutations La Coupe de la Parité est une compétition par équipe donc le joueur a bien le statut de muté. Les licences des joueurs et joueuses mutés doivent être prise au plus tard le 30 novembre de la saison.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent013-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -3620,7 +3620,7 @@
         "difficulty": 0.51,
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 9,
           "success_rate": 0.49
         },
@@ -3656,7 +3656,7 @@
       "question": "Pour la saison 2023-2024 : Un jeune joueur prend sa licence le 12/02/2024, il est né le 26/01/2012. Quelle est sa catégorie d'âge ?",
       "expected_answer": "3",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -3684,7 +3684,7 @@
         "difficulty": 0.3,
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 10,
           "success_rate": 0.7
         },
@@ -3720,7 +3720,7 @@
       "question": "Une fois l'appariement réalisé, Rosana vous indique qu'elle ne comprend pas pourquoi elle ne joue pas contre Joelle comme elle s'y attendait. Que lui répondez-vous ?",
       "expected_answer": "A cause d'un 'blocage' couleur sans table perturbée. LA 3.5 Règles du système suisse -C11 - Critères de qualité. - C.04.3 Le système néerlandais Vous lancez la ronde 2 Entrez les résultats de la ronde 2 : | R2 | R2 | |-------|-------| | Table | Score | | 1 | 1/2 | | 2 | 1-0 | | 3 | 0-1 | | 4 | 1-0 | | 5 | 0-1 | | 6 | 1/2 | | 7 | 1/2 | | 8 | 0-1 | | 9 | 1-0 | | 10 | 0-1 | Une fois la ronde terminée, Isabelle vient vous voir et vous indique qu'elle a bien gagné mais en jouant sa partie avec les b lancs. Corrigez l'erreur dans PAPI.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent013-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent012-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -3748,7 +3748,7 @@
         "difficulty": 0.16,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 11,
           "success_rate": 0.84
         },
@@ -3786,7 +3786,7 @@
       "question": "Au cours de l'appariement de la ronde 3, dans le groupe à 1,5 points , pour quelle raison l'appariement Didier -Béatrice n'a -t-il pas été conservé ?",
       "expected_answer": "A cause d'un blocage couleur.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent018-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -3814,7 +3814,7 @@
         "difficulty": 0.22,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 12,
           "success_rate": 0.78
         },

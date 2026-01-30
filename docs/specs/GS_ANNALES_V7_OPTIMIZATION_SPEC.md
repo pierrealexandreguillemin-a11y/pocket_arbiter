@@ -20,17 +20,24 @@
 | `gold_standard_fr.json` | **DEPRECATED** | Legacy (remplace par adversarial_questions.json) | 318 |
 | `adversarial_questions.json` | **ACTIF** | Evaluation adversariale | 105 |
 
-### 0.2 Etat Actuel v7.4.7 (2026-01-26)
+### 0.2 Etat Actuel v7.7 (2026-01-30)
 
 | Metrique | Valeur | Cible Industrie | Status |
 |----------|--------|-----------------|--------|
-| Questions totales | 420 | >= 400 | ✅ OK |
-| Questions avec "?" | ~95% | 100% | ✅ OK |
-| question_type complete | 100% | 100% | ✅ OK |
-| reasoning_class complete | 100% | 100% | ✅ OK |
+| Questions totales | 420 (386 annales + 34 human) | >= 400 | ✅ OK |
+| Questions avec "?" | 78.8% (331/420) | 100% | ⚠️ Phase 0 |
+| question_type complete | 100% (420/420) | 100% | ✅ OK |
+| reasoning_class complete | 100% (420/420) | 100% | ✅ OK |
 | Diversity (4 classes) | 4 classes | 4 classes | ✅ OK |
 | requires_context | 42 | - | ✅ Marquées |
 | Hard negatives | Non generés | 100% | ❌ TODO |
+| ## in question/answer | **0/0** | 0/0 | ✅ OK |
+| Ref-only answers | **0** | 0 | ✅ OK |
+| Empty answers | **0** | 0 | ✅ OK |
+| expected_chunk_id valid | **420/420** (106 optimised) | 100% | ✅ OK |
+| Dirty mcq_answer | **0** | 0 | ✅ OK |
+| keywords populated | **420/420** | 100% | ✅ OK |
+| triplet_ready | **388/420** | 100% | ⚠️ 32 short Q/A |
 
 **Distribution reasoning_class (Know Your RAG):**
 | Classe | Count | % | Cible | Status |
@@ -46,6 +53,14 @@
 | Score humain | 100% | 100% | ✅ RÉFÉRENCE |
 | Stricte (keyword) | 66.9% | 80% | ⚠️ Inadapté pour summary |
 | Assouplie (RAG) | 82.8% | 80% | ✅ OK |
+
+**Data Quality Pipeline (2026-01-30):**
+| Script | Action | Gate |
+|--------|--------|------|
+| `reextract_from_docling.py` | Re-extract 386 Q+A from docling JSON | GATE 3 PASS |
+| `patch_gs_from_reextraction.py` | Patch GS: Q text, answers, choices, mcq, article_ref | GATE 4 PASS |
+| `verify_gs_metadata.py` | Validate + auto-populate metadata schema | GATE 5 PASS |
+| chunk_id scoring | 106 chunk_ids swapped to better-scoring alternatives | GATE 6 automated |
 
 ---
 
@@ -462,6 +477,7 @@ def validate_for_triplets(question: dict) -> tuple[bool, list[str]]:
 | Version | Date | Changements |
 |---------|------|-------------|
 | 1.0 | 2026-01-25 | Creation - Standards industrie pour optimisation GS v7 |
+| 1.1 | 2026-01-30 | Etat v7.7: 0 fusion, 0 ref-only, 0 dirty mcq, 106 chunk_ids optimises, 3 scripts pipeline (reextract/patch/verify), 59+76+55 tests (87%+89%+81% coverage) |
 
 ---
 

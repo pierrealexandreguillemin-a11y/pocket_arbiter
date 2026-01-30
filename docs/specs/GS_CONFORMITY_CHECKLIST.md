@@ -302,15 +302,18 @@ else:
 
 ---
 
-## 5. Etat Actuel GS v7.6 (audit 2026-01-28)
+## 5. Etat Actuel GS v7.7 (audit 2026-01-30)
+
+> **Changements v7.6→v7.7**: Re-extraction Q+A depuis docling (386 annales), patch GS,
+> verification metadata, 106 chunk_ids optimises. 0 fusion, 0 ref-only, 0 empty, 0 dirty mcq.
 
 ### 5.1 Criteres Bloquants
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
 | CB-01 chunk_match_score=100 | 100% testables | 2.9% (12/420) | **FAIL** | Phase 0 |
-| CB-02 expected_chunk_id | 100% | 100% | PASS | - |
-| CB-03 expected_chunk_id non-null | 100% testables | 100% | PASS | - |
+| CB-02 expected_chunk_id | 100% | **100% (420/420, 106 optimised)** | **PASS** | - |
+| CB-03 expected_chunk_id non-null | 100% testables | 100% | **PASS** | - |
 | CB-04 by_design | 100% | **0%** (0/420) | **FAIL** | Phase 0 |
 | CB-09 requires_context_reason | 100% rc | 54.3% (50/92) | **FAIL** | Phase 1 |
 
@@ -318,21 +321,35 @@ else:
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
-| F-01 question finit par ? | 100% | 71.7% (301/420) | **FAIL** | Phase 0 |
-| F-02 anchor >= 10 chars | 100% | 100% (420/420) | PASS | - |
-| F-03 positive >= 50 chars | 100% | 100% (420/420) | PASS | - |
-| F-04 expected_answer > 5 chars | 100% | 92.4% (388/420) | **FAIL** | Phase 1 |
+| F-01 question finit par ? | 100% | 78.8% (331/420) | **FAIL** | Phase 0 |
+| F-02 anchor >= 10 chars | 100% | 100% (420/420) | **PASS** | - |
+| F-03 positive >= 50 chars | 100% | 100% (420/420) | **PASS** | - |
+| F-04 expected_answer > 5 chars | 100% | 92.6% (389/420) | **FAIL** | Phase 1 |
 
-### 5.3 Criteres Metadonnees
+### 5.3 Criteres Qualite Donnees (NEW v7.7)
+
+| Critere | Seuil | Actuel | Status | Source |
+|---------|-------|--------|--------|--------|
+| Zero ## fusion (question) | 0 | **0** | **PASS** | patch_gs GATE 4 |
+| Zero ## fusion (answer) | 0 | **0** | **PASS** | patch_gs GATE 4 |
+| Zero empty answer | 0 | **0** | **PASS** | patch_gs GATE 4 |
+| Zero ref-only answer | 0 | **0** | **PASS** | patch_gs GATE 4 |
+| Zero dirty mcq_answer | 0 | **0** | **PASS** | patch_gs mcq cleanup |
+| keywords populated | 100% | **100% (420/420)** | **PASS** | verify_gs GATE 5 |
+| question_type populated | 100% | **100% (420/420)** | **PASS** | verify_gs GATE 5 |
+| reasoning_class populated | 100% | **100% (420/420)** | **PASS** | verify_gs GATE 5 |
+| Schema metadata valid | 0 errors | **0** | **PASS** | verify_gs GATE 5 |
+
+### 5.4 Criteres Metadonnees
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
 | M-01 difficulty present | 100% | 91.9% (386/420) | **FAIL** | Phase 1 |
 | M-02 difficulty in [0,1] | 100% | 91.9% (386/420) | **FAIL** | Phase 1 |
-| M-03 cognitive_level | 100% | 100% (420/420) | PASS | - |
-| M-04 category | 100% | 100% (420/420) | PASS | - |
+| M-03 cognitive_level | 100% | 100% (420/420) | **PASS** | - |
+| M-04 category | 100% | 100% (420/420) | **PASS** | - |
 
-### 5.4 Criteres Triplets
+### 5.5 Criteres Triplets
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
@@ -340,7 +357,7 @@ else:
 | QA-01 deduplication | cosine < 0.95 | Non verifie | **AUDIT** | Phase 2 |
 | QA-02 anchor independence | cosine < 0.9 | Non verifie | **AUDIT** | Phase 2 |
 
-### 5.5 Criteres Export
+### 5.6 Criteres Export
 
 | Critere | Actuel | Phase |
 |---------|--------|-------|
@@ -351,17 +368,18 @@ else:
 | EX-05 DVC tracking | Non configure | Phase 3 |
 | EX-06 Composition report | Non genere | Phase 3 |
 
-### 5.6 Resume
+### 5.7 Resume
 
 | Phase | FAIL | PASS | AUDIT | Acteur |
 |-------|:----:|:----:|:-----:|--------|
+| Pre-Phase 0 (data quality) | 0 | **9** | 0 | Python (reextract+patch+verify) |
 | Phase 0 | 3 (CB-01, CB-04, F-01) | 3 | 0 | LLM |
 | Phase 1 | 3 (CB-09, M-01, F-04) | 2 | 0 | LLM + Python |
 | Phase 2 | 1 (CT-01) | 0 | 2 | EmbeddingGemma + LLM |
 | Phase 3 | 0 | 0 | 0 | Python (6 exports) |
-| **Total** | **7** | **5** | **2** | |
+| **Total** | **7** | **14** | **2** | |
 
-**Verdict: GS v7.6 NON CONFORME - 7 criteres FAIL, 2 AUDIT requis.**
+**Verdict: GS v7.7 — 9 criteres qualite donnees PASS (NEW), 7 criteres FAIL restants (Phases 0-2), 2 AUDIT requis.**
 
 ---
 
@@ -541,6 +559,7 @@ OPTION C (Hybride): Claude Phase 0 + Gemini Phase 2A
 |---------|------|-------------|
 | 1.0 | 2026-01-26 | Creation - Consolidation requirements ISO + industrie |
 | 2.0 | 2026-01-28 | Alignement sur PLAN-GS-CONF-001: ajout criteres F-01..04, M-01..04, QA-01..02, EX-01..06; checklist actionnable par phase; audit complet v7.6; matrice acteurs; evaluation Claude/Gemini/Mistral |
+| 2.1 | 2026-01-30 | Audit v7.7: 9 criteres qualite donnees PASS (0 fusion, 0 ref-only, 0 empty, 0 dirty mcq, 420/420 chunk_ids valid + 106 optimised, metadata schema 0 errors). Pipeline: reextract_from_docling + patch_gs + verify_gs_metadata |
 
 ---
 

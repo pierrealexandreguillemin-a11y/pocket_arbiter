@@ -101,45 +101,53 @@ Ce document definit le schema JSON pour les chunks de texte utilises dans le pip
 
 ## 3. Format ID des chunks
 
-### 3.1 Structure
+### 3.1 Structure (Mode B — Production)
 
 ```
-{CORPUS}-{DOC_NUM}-{PAGE}-{SEQ}
-   │        │       │      │
-   │        │       │      └── Sequence dans la page (00-99)
-   │        │       └───────── Numero de page (001-999)
-   │        └───────────────── Numero document (001-999)
-   └────────────────────────── Corpus: FR ou INTL
+{SOURCE_PDF}-p{PAGE:03d}-parent{ID}-child{IDX:02d}
+     │           │          │           │
+     │           │          │           └── Index enfant dans le parent (00-99)
+     │           │          └────────────── ID parent séquentiel (000-999)
+     │           └───────────────────────── Page PDF (zero-padded 3 digits)
+     └───────────────────────────────────── Nom fichier PDF source
 ```
 
 ### 3.2 Exemples
 
 | ID | Description |
 |----|-------------|
-| `FR-001-015-01` | Corpus FR, doc 1, page 15, chunk 1 |
-| `FR-001-015-02` | Corpus FR, doc 1, page 15, chunk 2 |
-| `INTL-001-042-03` | Corpus INTL, doc 1, page 42, chunk 3 |
+| `LA-octobre2025.pdf-p041-parent162-child01` | LA doc, page 41, parent 162, child 1 |
+| `R01_2025_26_Regles_generales.pdf-p005-parent027-child01` | Regles generales, page 5 |
+| `A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00` | Champ. clubs, page 4 |
+
+### 3.3 Hiérarchie Parent-Child
+
+```
+Parent (1024 tokens, contexte riche pour LLM)
+├── Child 00 (450 tokens, pour embedding/search)
+├── Child 01 (450 tokens, pour embedding/search)
+└── Child 02 (450 tokens, optionnel)
+```
+
+Avg ~1.3 children per parent. 1857 chunks FR (Mode B production).
 
 ---
 
-## 4. Exemple complet
+## 4. Exemple complet (Mode B)
 
 ```json
 {
-  "id": "FR-001-015-01",
-  "text": "Article 4.1 - Le toucher-jouer\n\nLorsqu'un joueur ayant le trait touche deliberement sur l'echiquier, avec l'intention de jouer ou de prendre:\n- une ou plusieurs de ses propres pieces, il doit jouer la premiere piece touchee qui peut etre jouee, ou\n- une ou plusieurs pieces de son adversaire, il doit prendre la premiere piece touchee qui peut etre prise.",
+  "id": "LA-octobre2025.pdf-p041-parent162-child01",
+  "text": "## Article 4 L'exécution du déplacement\n\n4.1 Chaque coup doit être exécuté d'une seule main...",
   "source": "LA-octobre2025.pdf",
-  "page": 15,
-  "tokens": 78,
-  "metadata": {
-    "section": "Regles du jeu - Toucher-jouer",
-    "corpus": "fr",
-    "extraction_date": "2026-01-14",
-    "version": "1.0",
-    "article": "4.1",
-    "prev_chunk_id": null,
-    "next_chunk_id": "FR-001-015-02"
-  }
+  "page": 41,
+  "pages": [41],
+  "section": "Article 4 L'exécution du déplacement",
+  "article_num": "4.1",
+  "parent_id": "LA-octobre2025.pdf-p041-parent162",
+  "tokens": 333,
+  "corpus": "fr",
+  "chunk_type": "child"
 }
 ```
 
@@ -169,10 +177,12 @@ Chaque fichier de corpus est un JSON array de chunks:
 
 ### 5.2 Fichiers attendus
 
-| Fichier | Description | Chunks estimes |
-|---------|-------------|----------------|
-| `corpus/processed/chunks_fr.json` | Chunks corpus FR (FFE) | ~500 |
-| `corpus/processed/chunks_intl.json` | Chunks corpus INTL (FIDE) | ~100 |
+| Fichier | Description | Chunks | Status |
+|---------|-------------|--------|--------|
+| `corpus/processed/chunks_mode_b_fr.json` | Chunks corpus FR Mode B (prod) | **1857** | ACTIF |
+| `corpus/processed/chunks_mode_b_intl.json` | Chunks corpus INTL Mode B | 866 | ACTIF |
+| `corpus/processed/chunks_fr.json` | Legacy chunks FR | 2558 | DEPRECATED |
+| `corpus/processed/chunks_intl.json` | Legacy chunks INTL | 1020 | DEPRECATED |
 
 ---
 
@@ -253,6 +263,7 @@ def validate_chunks(chunks_file: str, schema_file: str) -> bool:
 
 | Version | Date | Changements |
 |---------|------|-------------|
+| 2.2 | 2026-01-30 | ID format: source-based (not FR-001-015-01), exemples Mode B, fichiers prod vs deprecated, 1857 chunks FR |
 | 2.1 | 2026-01-22 | Tokenizer: tiktoken → EmbeddingGemma, page coverage 100% |
 | 2.0 | 2026-01-20 | Parent-Child architecture, table_summary type |
 | 1.0 | 2026-01-14 | Creation initiale |

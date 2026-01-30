@@ -209,9 +209,9 @@ CHILD_CHUNK_OVERLAP = 68    # NVIDIA: 15% optimal
 
 | Corpus | Source | Questions | Hard Cases | Documents |
 |--------|--------|-----------|------------|-----------|
-| **FR** | `tests/data/gold_standard_fr.json` | 420+ (v7) | 46 (31%) | 28 |
+| **FR** | `tests/data/gold_standard_annales_fr_v7.json` | **420** (v7.7, 386 annales + 34 human) | 46 (31%) | 28 |
 | **INTL** | `tests/data/gold_standard_intl.json` | 43 | 12 (28%) | 1 |
-| **Total** | | **463+** | 58 | 29 |
+| **Total** | | **463** | 58 | 29 |
 
 ### 4.2 Resultats Benchmark (2026-01-22 - Comparaison Dual-Mode)
 
@@ -413,6 +413,7 @@ python -m scripts.pipeline.tests.test_recall --hybrid --tolerance 2 -v
 | 6.4 | 2026-01-23 | **Optimization 87%→90%+**: Mode A dual-size children (256+450), Mode B SemanticChunker. Baseline 87.33%. |
 | 6.5 | 2026-01-24 | Scope update VISION v2.0, separateurs FR/INTL |
 | 6.6 | 2026-01-29 | GS v7 (420+ FR), note deprecation reranker (VRAM mobile), best practices table mise a jour |
+| 6.7 | 2026-01-30 | GS v7.7: 420 FR (386 annales + 34 human), expected_chunk_id 420/420 valid (106 optimised), fichier gold_standard_annales_fr_v7.json |
 
 ---
 

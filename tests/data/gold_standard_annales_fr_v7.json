@@ -11706,12 +11706,12 @@
       "question": "Vous êtes l'arbitre principal d'une phase départementale de la Coupe Jean-Claude Loubatière. Cette compétition fédérale est ouverte aux licencié(e)s selon leur classement ELO. Parmi la liste suivante, quel joueur ou quelle joueuse ne pourra pas participer ?",
       "expected_answer": "Un joueur classé 1850 alors que le mois précédent son classement était supérieur à 1800.",
       "is_impossible": false,
-      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent000-child00",
+      "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p003-parent012-child00",
       "expected_docs": [
         "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
       ],
       "expected_pages": [
-        1
+        4
       ],
       "category": "open",
       "keywords": [
@@ -11765,12 +11765,12 @@
       "question": "Lors d'un tournoi homologué, l'arbitre principal a l'obligation d'afficher certaines informations avant la première ronde. Parmi les documents suivants, lequel n'est pas obligatoire ?",
       "expected_answer": "La liste des prix.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p033-parent507-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p010-parent508-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        33
+        11
       ],
       "category": "open",
       "keywords": [
@@ -11897,12 +11897,12 @@
       "question": "Lors d'un tournoi homologué, suite à un forfait déclaré, vous devez en tant qu'arbitre principal envoyer au joueur le formulaire d'enquête pour forfait non justifié. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à cette demande, à qui allez-vous le signaler ?",
       "expected_answer": "A la Direction Juridique de la DNA.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p009-parent017-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p025-parent113-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        10
+        26
       ],
       "category": "open",
       "keywords": [
@@ -11962,12 +11962,12 @@
       "question": "Quel est le délai d'envoi de la sauvegarde PAPI ? Concernant le gestion de la fin d'un tournoi, l'arbitre doit envoyer la sauvegarde Papi sur le site Fédéral et cocher la case 'Tournoi terminé' dans la page de gestion du tournoi.",
       "expected_answer": "Le jour même.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        41
+        173
       ],
       "category": "open",
       "keywords": [
@@ -12026,12 +12026,12 @@
       "question": "Vous arbitrez en tant qu'arbitre principal (AFO1) un open à cadence lente homologué FIDE. La demande d'homologation a été faite dans les temps. Le tournoi compte 100 participants. Les inscriptions enregistrées avant majoration se décomposent en 40 adultes au tarif unitaire de 50 € et 45 jeunes à 25 €. Sur place, 15 joueurs se sont inscrits : 10 adultes au tarif de 60 € et 5 jeunes à 30 €. L'organisateur souhaite connaître le montant des droits d'homologation. Quel est le montant ?",
       "expected_answer": "272,50 €",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p168-parent502-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        36
+        169
       ],
       "category": "open",
       "keywords": [
@@ -12091,12 +12091,12 @@
       "question": "Vous arbitrez un tournoi en cadence Blitz homologué pour le Elo FIDE en 9 rondes sur une seule journée. Il y a deux arbitres : une arbitre principale et un arbitre adjoint. Quels sont les montants maximum de leurs indemnités d'arbitrage (sans les frais supplémentaires) ?",
       "expected_answer": "100 € pour l'arbitre principale et 75 € pour l'arbitre adjoint.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        49
+        180
       ],
       "category": "open",
       "keywords": [
@@ -12155,12 +12155,12 @@
       "question": "| NUMÉRO | JOUEURS | ELO | SCORE | RONDE 1 | RONDE 2 | RONDE 3 | RONDE 4 | RONDE 5 | |----------|-----------|-------|---------|-----------|-----------|-----------|-----------|-----------| | 4 | PIERRE | 2050 | 3,5 | + N 12 | = | + B 13 | = B 3 | + N 1 | | 1 | ALAIN | 2200 | 3,5 | + B 9 | = N 13 | = B 2 | + N 15 | = B 4 | | 3 | ALBERT | 2100 | 3,5 | = B 11 | + N 6 | + B 8 | = N 4 | = B 2 | | 12 | JEAN | 1650 | 2 | - B 4 | EXE | > 14 | | | | 13 | PAUL | 1650 | 1,5 | + N 5 | = B 1 | - N 4 | - N 8 | - B 14 | Lors d'un tournoi homologué en cinq rondes que vous arbitrez, le joueur Pierre vient vous voir car il n'arrive pas à calculer la valeur de son Buchholz tronqué. Pour rappel, lors d'un tournoi jusqu'à sept rondes, une partie est tronquée dans le cas du Buchholz tronqué. En utilisant les règles actuelles de la FIDE, quelle est cette valeur?",
       "expected_answer": "11,5",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p047-parent172-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p149-parent438-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        48
+        150
       ],
       "category": "open",
       "keywords": [
@@ -12223,12 +12223,12 @@
       "question": "Vous arbitrez un tournoi à cadence lente homologués FIDE. Ci-après le tableau du classement général où les prix sont attribués au système Hort. Dans le règlement intérieur, il est indiqué qu'un prix ne pourra pas être inférieur au prix de l'inscription de 40 €. | | PRIX ANNONCES | JOUEURS | POINTS | |------|-----------------|-----------|----------| | 1er | 600 € | ALBERT | 6 | | 2ème | 500 € | ALAIN | 6 | | 3ème | 400 € | JEREMY | 5,5 | | 4ème | 300 € | CLAUDE | 5,5 | | 5ème | 200 € | CORALIE | 5 | | 6ème | 100 € | ETIENNE | 5 | | 7ème | 0 € | FABIENNE | 5 | | 8ème | 0 € | JEAN | 5 |",
       "expected_answer": "7.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p040-parent159-child01",
+      "expected_chunk_id": "LA-octobre2025.pdf-p158-parent473-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        41
+        159
       ],
       "category": "open",
       "keywords": [
@@ -12292,12 +12292,12 @@
       "question": "Les arbitres fédéraux d'open ont la compétence pour arbitrer certaines compétitions. Quelle compétition, parmi les suivantes, ne peut pas être arbitrée par un arbitre fédéral d'open de niveau 1 ?",
       "expected_answer": "Le championnat de France des jeunes en tant qu'arbitre en chef.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p055-parent188-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p023-parent103-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        55
+        24
       ],
       "category": "open",
       "keywords": [
@@ -12357,12 +12357,12 @@
       "question": "Un arbitre fédéral n'a pas suivi de formation continue durant une période de six ans à compter de son dernier stage. S'il souhaite être actif à nouveau, quelle sera son obligation ?",
       "expected_answer": "Avoir obtenu l'agrément FIDE.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p020-parent085-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent065-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        19
+        18
       ],
       "category": "open",
       "keywords": [
@@ -12385,7 +12385,7 @@
         "difficulty": 0.2,
         "annales_source": {
           "session": "jun2025",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 2,
           "success_rate": 0.8
         },
@@ -12421,12 +12421,12 @@
       "question": "Un arbitre AFO1 inactif, a effectué son dernier stage en avril 2014. S'il veut redevenir actif il doit :",
       "expected_answer": "Suivre une formation d'arbitre de club et valider à nouveau l'UVR.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p027-parent120-child01",
+      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        27
+        18
       ],
       "category": "open",
       "keywords": [
@@ -12486,12 +12486,12 @@
       "question": "Dans les tournois rapides et blitz homologués FIDE, quelle est respectivement le nombre de rondes maximum par jour ?",
       "expected_answer": "15 pour les tournois rapides et 30 pour ceux en blitz.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p013-parent033-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p187-parent557-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        13
+        188
       ],
       "category": "open",
       "keywords": [
@@ -12553,12 +12553,12 @@
       "question": "Vous arbitrez un tournoi à cadence lente homologué FIDE. Un joueur dont c'est la première compétition obtient les résultats ci-dessous. | ALBERT | 1640 N | |----------|----------| | BERNARD | 1424 F | | CHARLES | 1489 F | | DANIEL | 1600 F | | EMILE | 1882 F | | FRANÇOIS | 1778 F | | GASTON | 1902 F | Quel sera son premier classement FIDE ?",
       "expected_answer": "1709",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "expected_chunk_id": "LA-octobre2025.pdf-p185-parent544-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        50
+        186
       ],
       "category": "open",
       "keywords": [
@@ -12619,12 +12619,12 @@
       "question": "Vous arbitrez un blitz en 15 rondes homologué FIDE. Le tournoi a enregistré 70 participants pré inscrits, dont 5 joueurs titrés adultes (GM et MI). Les inscriptions enregistrées avant majoration se décomposent en 45 adultes au tarif unitaire de 10 € et 20 jeunes à 5 €. Sur place, 25 joueurs supplémentaires se sont inscrits : 10 adultes au tarif de 15 € et 15 enfants à 10 €. Quels sont les droits d'homologation de ce tournoi ?",
       "expected_answer": "60,75 €.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p036-parent153-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p168-parent491-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        36
+        169
       ],
       "category": "open",
       "keywords": [
@@ -12684,12 +12684,12 @@
       "question": "Le capitaine d'équipe de votre club vous a demandé en début de saison combien de groupes figuraient en N3 dans le championnat interclubs 2024-2025.",
       "expected_answer": "Au Directeur National de l'Arbitrage.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        41
+        173
       ],
       "category": "open",
       "keywords": [
@@ -12713,7 +12713,7 @@
         "difficulty": 0.38,
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 9,
           "success_rate": 0.62
         },
@@ -12749,12 +12749,12 @@
       "question": "Une rencontre entre deux équipes du championnat de France des clubs a lieu un samedi. Après vérification et contrôle des résultats par les équipes et le directeur de groupe, à partir de quel jour les résultats de cette rencontre seront-ils homologués temporairement ?",
       "expected_answer": "Vous vous abstenez de tout commentaire sur les compositions d'équipes même s'il est évident qu'une 5. équipe devrait avoir une sanction administrative. Celle-ci est de la responsabilité du directeur du groupe.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent055-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p165-parent487-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
       "expected_pages": [
-        17
+        166
       ],
       "category": "open",
       "keywords": [
@@ -12779,7 +12779,7 @@
         "difficulty": 0.25,
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 10,
           "success_rate": 0.75
         },
@@ -12836,7 +12836,7 @@
         "difficulty": 0.03,
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 12,
           "success_rate": 0.97
         },
@@ -12874,12 +12874,12 @@
       "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser",
       "expected_answer": "Les échiquiers 7 et 8 peuvent être placés dans n'importe quel ordre.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p086-parent256-child01",
+      "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child00",
       "expected_docs": [
-        "LA-octobre2025.pdf"
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
       ],
       "expected_pages": [
-        86
+        5
       ],
       "category": "open",
       "keywords": [
@@ -12902,7 +12902,7 @@
         "difficulty": 0.46,
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "open",
           "question_num": 13,
           "success_rate": 0.54
         },

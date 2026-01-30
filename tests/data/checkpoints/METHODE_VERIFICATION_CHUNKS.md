@@ -332,3 +332,17 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 - **New chunk knowledge**: LA FIDE rating regs at p182-p185, Homologation at p167. H01 has 2 chunks (p001). C04 45 chunks. F01 38 chunks.
 - **Findings metadata**: 7 UV FAUX (open → clubs for jun2023 UVC), 3 qnum FAUX (idx 159: 12→21, idx 162: 12→24, idx 163: 12→25)
 - **Cumul**: 180/420 verifiees (43%), 147 WRONG chunks + 3 textes + 95 metadata corriges.
+
+### Batch 10 (Q180-Q199) — open:012-031, sessions dec2024 + jun2025
+- **Resultat**: 3/20 OK — 15 WRONG_SECTION + 1 WRONG_SOURCE + 1 NO_MATCH
+- **Sessions**: dec2024 UVO Q12-Q20 (9Q) + jun2025 UVO Q1-Q14 (11Q)
+- **OK**: idx 182 (R01 Art 3.2.1 Forfait ≈ Art 3), idx 197 (LA Annexe A p056), idx 199 (R03 Art 2.3)
+- **Findings chunks**:
+  - Massive LA WRONG_SECTION: pipeline assigned early pages (p009-p055) instead of correct Part 2 chapters (p146-p187)
+  - 9 LA Part 2 chapters: Ch 4.2=p146, 4.3=p157, 5.1=p165, 5.2=p168, 5.3=p010(parent508), 5.4=p172, 5.5=p178-179, 6.2=p187, RIDNA Art 17=p025
+  - 2 RIDNA: idx 189 (12.3 AFO p055→p023), idx 191 (6.2 p027→p017)
+  - 1 WRONG_SOURCE: idx 198 (LA→J02 Art 3.7.c)
+  - 1 NO_MATCH: idx 190 (Guide Intl Art 2 absent corpus, best match RIDNA 6.3)
+- **New LA chapter knowledge**: Full mapping of Part 2 chapters to page numbers (4.2-6.2). Annexe A at p056.
+- **Findings metadata**: 5 UV FAUX (1 rules→open, 4 clubs→open)
+- **Cumul**: 200/420 verifiees (48%), 164 WRONG chunks + 3 textes + 100 metadata corriges.

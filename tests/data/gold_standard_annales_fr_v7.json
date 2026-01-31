@@ -1803,7 +1803,8 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_question": "En 1ère phase de la coupe de la parité, laquelle de ces équipes ne peut participer à la compétition sur la base des classements Elo de ses joueurs ci-dessous, pour une équipe de 3 joueurs ?",
-        "original_answer": "1742-1987-2272."
+        "original_answer": "1742-1987-2272.",
+        "requires_context_reason": "Question references a classification table from the scenario"
       },
       "legacy_id": "FR-ANN-UVC-028"
     },
@@ -2066,7 +2067,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_question": "Vous êtes arbitre-adjoint lors de la phase départementale de la Coupe Jean-Claude Loubatière. Quel en est le délai de forfait ?",
-        "original_answer": "9 et 12."
+        "original_answer": "9 et 12.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-034"
     },
@@ -2129,7 +2131,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_question": "Concernant l'entente entre Clubs :",
-        "original_answer": "Partie nulle. <!-- image --> ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription."
+        "original_answer": "Partie nulle. <!-- image --> ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-035"
     },
@@ -2194,7 +2197,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Vous êtes arbitre-adjoint lors de la phase départementale du Championnat de France des écoles comptant pour le classement rapide FFE. Combien de coups illégaux achevés feront perdre la partie ?",
-        "original_answer": "3."
+        "original_answer": "3.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-036"
     },
@@ -2730,7 +2734,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Un joueur vient vous voir pour vous décrire la situation qu'il a vu lors d'un tournoi auquel il participait. Ci-dessous l'historique des couleurs de deux de ses amis. Si le joueur A et le joueur B se rencontrent à la ronde 7 quelle sera respectivement la couleur de chacun ? | | R1 | R2 | R3 | R4 | R5 | R6 | |---------------------|------|------|------|------|------|------| | Joueur A (Elo=1752) | B | N | N | B | N | B | | Joueur B (Elo=1732) | N | N | B | B | N | B |",
-        "original_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3"
+        "original_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
+        "requires_context_reason": "Question requires color allocation history from previous rounds"
       },
       "legacy_id": "FR-ANN-UVC-046"
     },
@@ -2859,7 +2864,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "En cours de partie, face à une décision de l'arbitre en cours de jeu, les joueurs et joueuses ne peuvent qu'obtempérer. Ils peuvent interjeter appel oralement dans l'instant, mais dès que possible leur capitaine formulera et présentera une réclamation à l'arbitre. A compter de la date de réception de la décision contestée, et sous peine d'irrecevabilité, un appel auprès de la commission d'appels sportifs doit être formulé par voie postale sous un certain délai. Lequel ?",
-        "original_answer": "Paul et Hector."
+        "original_answer": "Paul et Hector.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-049"
     },
@@ -2921,7 +2927,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "<!-- image --> | Ronde 5 | Ronde 5 | |----------------|-----------| | Echiquier N°1 | X - X | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 1 - 0 | | Echiquier N°5 | X - X | | Echiquier N°6 | 0 - 1 | | Echiquier N°7 | X - X | | Echiquier N°8 | 1 - 0 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | | Quelle suite doit être donnée au forfait de Serge à cette dernière ronde ?",
-        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale."
+        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale.",
+        "requires_context_reason": "Question references a chess diagram or image not available in text form"
       },
       "legacy_id": "FR-ANN-UVC-050"
     },
@@ -2982,7 +2989,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_question": "En coupe « Jean-Claude Loubatière », lors de la phase départementale, 17 équipes complètes sont présentes. Sur le total des participants et participantes, il y a sept femmes. Combien d'équipes seront qualifiées pour le tour suivant ?",
-        "original_answer": "Les 70 € du prix de la catégorie 1000 - 1699."
+        "original_answer": "Les 70 € du prix de la catégorie 1000 - 1699.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-053"
     },
@@ -3716,7 +3724,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_question": "Dans le cadre de la gestion d'un match du championnat de France des clubs que vous arbitrez en tant qu'AFC, quelle mission n'est pas de votre respon sabilité ?",
-        "original_answer": "14, sans préférence couleur. LA C.04.2.B - Ordre initial et D.5 -préférence couleur : Avant la première ronde, les joueurs sont rangés selon l'ordre suivant : a. Leur force (classement Elo) ; b. Leur titre FIDE. (G.M., M.I., G.M.F., M.F., M.I.F., C.M. (candidat maître), M.F.F., C.M.F. (candidat maître féminin) puis les non-titrés. c. Alphabétiquement (à moins que ce critère n'ait été au préalable remplacé par un autre). Seules les parties jouées comptent dans les situations où l'historique des couleurs est à prendre en compte."
+        "original_answer": "14, sans préférence couleur. LA C.04.2.B - Ordre initial et D.5 -préférence couleur : Avant la première ronde, les joueurs sont rangés selon l'ordre suivant : a. Leur force (classement Elo) ; b. Leur titre FIDE. (G.M., M.I., G.M.F., M.F., M.I.F., C.M. (candidat maître), M.F.F., C.M.F. (candidat maître féminin) puis les non-titrés. c. Alphabétiquement (à moins que ce critère n'ait été au préalable remplacé par un autre). Seules les parties jouées comptent dans les situations où l'historique des couleurs est à prendre en compte.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-064"
     },
@@ -4048,7 +4057,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_question": "Pour un tournoi, le montant de l'inscription est fixé à 20 € pour tout le monde, l'inscription est majorée à 30 € pour les personnes s'inscrivant à la dernière minute. Le jour du tournoi vous acceptez l'inscription d'une joueuse aveugle. L'organisateur est e nnuyé car elle ne comprend pas pourquoi elle devrait payer plus cher son inscription et si elle ne peut pas bénéficier d'un geste en raison de son handicap. Que lui répondez-vous ?",
-        "original_answer": "Cécile et Gauthier."
+        "original_answer": "Cécile et Gauthier.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-069"
     },
@@ -4110,7 +4120,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Avant même que vous ayez publié les résultats de la ronde 3 et lancé les appariements de la ronde 4, Gauthier vient vous voir et vous indique qu'il a gagné et que le score de sa partie est erroné. Vous faites venir son adversaire qui vous confirme le fait. Que décidez-vous ? Modifiez la boule PAPI en conséquence.",
-        "original_answer": "Je modifie immédiatement le score et leur attribue un match nul. LA - Règles de compétition -Article 8.7. : A la fin de la partie, les deux adversaires doivent indiquer le résultat de la partie en signant les deux feuilles de partie ou en validant le résultat sur leurs feuilles de p artie électroniques. Même s'il est incorrect, le résultat est maintenu, à moins que l'arbitre en décide autrement. Dans ce cas l'évidence prime et ni les résultats, ni les ap pariements n'ont été publiés."
+        "original_answer": "Je modifie immédiatement le score et leur attribue un match nul. LA - Règles de compétition -Article 8.7. : A la fin de la partie, les deux adversaires doivent indiquer le résultat de la partie en signant les deux feuilles de partie ou en validant le résultat sur leurs feuilles de p artie électroniques. Même s'il est incorrect, le résultat est maintenu, à moins que l'arbitre en décide autrement. Dans ce cas l'évidence prime et ni les résultats, ni les ap pariements n'ont été publiés.",
+        "requires_context_reason": "Question requires game results from previous rounds in the scenario"
       },
       "legacy_id": "FR-ANN-UVC-070"
     },
@@ -4368,7 +4379,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Gauthier vient vous voir car il ne comprend pas la couleur jouée à la ronde 7 du tournoi qu'il a joué précédemment. Ci -dessous figure son historique couleur de ce tournoi. Quelle est sa préférence couleur à la ronde 7 évoquée ? | | R1 | R2 | R3 | R4 | R5 | R6 | |--------|------|------|------|------|------|------| | Joueur | N | N | B | B | N | B |",
-        "original_answer": "Il a les noirs à la ronde 7 il a une préférence couleur noire faible au vu de son historique couleur. LA Chapitre 3.5 : Les règles du système suisse : A.6.d - Différences de couleurs et préférences de couleur - C.04.3 Le système néerlandais."
+        "original_answer": "Il a les noirs à la ronde 7 il a une préférence couleur noire faible au vu de son historique couleur. LA Chapitre 3.5 : Les règles du système suisse : A.6.d - Différences de couleurs et préférences de couleur - C.04.3 Le système néerlandais.",
+        "requires_context_reason": "Question requires color allocation history from previous rounds"
       },
       "legacy_id": "FR-ANN-UVC-074"
     },
@@ -4627,7 +4639,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Une ligue souhaite organiser sa nationale 4 en faisant s'affronter des équipes de 6 joueurs. Dans ce cas, quelle est la règle qui s'applique sur les nombres de personnes mutées dans une équipe ?",
-        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale au bureau fédéral de la FFE . LA TITRE VI : Charte de l'arbitrage et mesures administratives -17 : En particulier, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satis faisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridiq ue."
+        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale au bureau fédéral de la FFE . LA TITRE VI : Charte de l'arbitrage et mesures administratives -17 : En particulier, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satis faisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridiq ue.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-078"
     },
@@ -4755,7 +4768,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Pendant les qualifications des zones interdépartementales, quelle est la cadence minimale pour les grandes catégories ?",
-        "original_answer": "350 €"
+        "original_answer": "350 €",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-080"
     },
@@ -5151,7 +5165,8 @@
         ],
         "answer_source": "choice",
         "original_question": "Dans une partie en 12min+3s/coup, un parent vous sollicite. Sa fille a les noirs et a proposé plusieurs fois la nulle, son adversaire refuse. Ils jouent depuis un moment sans réelle avancée. Il affirme que la position actuelle s'est produite plusieurs fois. <!-- image -->",
-        "original_answer": "Vous rappelez à l'ordre le joueur qui a les blancs à l'ordre en lui indiquant qu'il est obligé d'accepter la nulle car il n'a plus le matériel pour mater suivant l'article 6.9."
+        "original_answer": "Vous rappelez à l'ordre le joueur qui a les blancs à l'ordre en lui indiquant qu'il est obligé d'accepter la nulle car il n'a plus le matériel pour mater suivant l'article 6.9.",
+        "requires_context_reason": "Question references a chess diagram or image not available in text form"
       },
       "legacy_id": "FR-ANN-UVC-086"
     },
@@ -5287,7 +5302,8 @@
         ],
         "answer_source": "explanation",
         "original_question": "<!-- image --> Vous arbitrez la partie ci-contre, vous voyez le joueur qui a les noirs prendre le pion d4 avec son cavalier en c6. Alors qu'il n'a pas encore d'appuyé sur sa pendule, il se rend compte qu'il laisse son roi en échec et veut reprendre son coup. Quelle est la seule suite correcte ?",
-        "original_answer": "Les noirs ont l'obligation de jouer l'autre cavalier."
+        "original_answer": "Les noirs ont l'obligation de jouer l'autre cavalier.",
+        "requires_context_reason": "Question references a chess diagram or image not available in text form"
       },
       "legacy_id": "FR-ANN-UVC-088"
     },
@@ -5839,7 +5855,8 @@
         "answer_source": "choice",
         "original_question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante. Quel est le niveau minimum requis ?",
         "original_answer": "Un arbitre fédéral Jeune.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-097"
     },
@@ -5903,7 +5920,8 @@
         "extraction_flags": [],
         "answer_source": "choice",
         "original_question": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe trois minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive cinquante minutes après le lancement des parties. Sa pendule indique 0h28 minutes. Qu'allez-vous faire en tant qu'arbitre ?",
-        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. <!-- image --> <!-- image --> <!-- image -->"
+        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. <!-- image --> <!-- image --> <!-- image -->",
+        "requires_context_reason": "Question references a specific team composition listed in the scenario"
       },
       "legacy_id": "FR-ANN-UVC-098"
     },
@@ -8205,7 +8223,8 @@
         "answer_source": "existing",
         "original_question": "Les joueurs doivent être titulaires d'une licence A valable pour la saison en cours pour toute compétition se jouant à une cadence :",
         "original_answer": "Les Noirs peuvent prendre le fou.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVC-133"
     },
@@ -8271,7 +8290,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Vous êtes arbitre adjoint sur un open à cadence lente. La position suivante survient sur un échiquier : Après 26. Fxb4+, les Noirs répondent par TxTe4. Les Blancs arrêtent la pendule et signalent à leur adversaire que c'est un coup illégal et qu'ils doivent jouer maintenant un coup légal avec la Tc4. Les Noirs sont tellement déçus sur le coup qu'ils disent à voix haute « Alors j'abandonne ! ». Tous les joueurs l'entendent et vous aussi. C'est alors qu'un joueur sur un échiquier voisin dit aux Noirs « Capture juste le fou ! » et ensuite les Noirs « alors je n'abandonne pas ! ». Que faites-vous ? <!-- image --> <!-- image -->",
-        "original_answer": "Les Blancs ont gagné la partie."
+        "original_answer": "Les Blancs ont gagné la partie.",
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVC-134"
     },
@@ -8676,7 +8696,8 @@
         "answer_source": "existing",
         "original_question": "Cadence 15 minutes KO. L'article A.4 s'applique. Dans la position suivante, les Noirs au trait vous appellent pour vous signaler que le fou et cavalier des Blancs à l'aile roi sont mal placés et n'ont pas encore bougé. Tous les coups joués sont achevés. Quelle est votre réponse ?",
         "original_answer": "40 jours avant le tournoi.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVC-140"
     },
@@ -9211,7 +9232,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "A 13h55, l'équipe adverse arrive, elle comporte 9 personnes. Vous apprenez en lisant la feuille de match adverse, que la personne qui ne jouera pas est le capitaine de l'équipe. Devez-vous accepter cette situation ?",
-        "original_answer": "Oui, c'est autorisé."
+        "original_answer": "Oui, c'est autorisé.",
+        "requires_context_reason": "Question requires understanding of the specific competition scenario described"
       },
       "legacy_id": "FR-ANN-UVC-148"
     },
@@ -9276,7 +9298,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Dans une partie en cadence 90 minutes pour 40 coups, puis 30 minutes pour le reste de la partie, avec addition de 30 secondes par coup dès le premier coup, les Blancs ont le trait pour leur 40 e coup et leur drapeau tombe dans la position suivante. Quelle doit être la décision de l'arbitre ?",
-        "original_answer": "15h15."
+        "original_answer": "15h15.",
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVC-149"
     },
@@ -11455,7 +11478,8 @@
         "answer_source": "choice",
         "original_question": "Pour obtenir le titre d'arbitre fédéral, certains critères administratifs sont nécessaires. Parmi les propositions ci-dessous laquelle est incorrecte ?",
         "original_answer": "Pour les personnes seulement à partir de 18 ans, avoir participé à un stage de sensibilisation contre les violences sexistes et sexuelles.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVO-020"
     },
@@ -11726,7 +11750,8 @@
         "answer_source": "choice",
         "original_question": "Chaque arbitre titré doit participer à un stage de formation continue pour mettre à niveau ses connaissances. Cela permet de prolonger la période de validité de la licence d'arbitre. Parmi les propositions ci-dessous laquelle est correcte ?",
         "original_answer": "Sans formation pendant dix ans à compter de son dernier stage, un arbitre devra suivre un stage entier de premier niveau et passer l'examen UVR.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVO-024"
     },
@@ -16313,7 +16338,8 @@
         "answer_source": "choice",
         "original_question": "Cadence 2h KO. Le conducteur des noirs vient d'abandonner au 55e coup. Avant de signer les feuilles de partie, les deux joueurs se lancent dans l'analyse. Au cours de cette analyse, les deux joueurs s'aperçoivent que les blancs ont joué un coup illégal 6 coups avant la fin de la partie. Le conducteur des noirs demande que la partie soit reprise à la dernière position légale connue. Que faites-vous ?",
         "original_answer": "La partie est terminée donc vous validez le résultat : les blancs ont gagné.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVR-030"
     },
@@ -18160,7 +18186,8 @@
         "answer_source": "explanation",
         "original_question": "A la cinquième et dernière ronde d'un tournoi, la joueuse classée 85 e et qui souhaiterait devenir arbitre vous demande des explications concernant la grille américaine. En particulier, elle souhaite comprendre le fonctionnement du Buchholz. Il lui manque pour comprendre le classement le score ajusté de la ronde 2 pour laquelle elle a été exemptée : <!-- image --> Quelle valeur lui indiquez-vous comme score ajusté correspondant ?",
         "original_answer": "1",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a chess diagram or image not available in text form"
       },
       "legacy_id": "FR-ANN-UVR-060"
     },
@@ -18224,7 +18251,8 @@
         ],
         "answer_source": "explanation",
         "original_question": "Vous arbitrez un tournoi à cadence lente homologué FIDE. Ci-après figure le parcours d'un joueur issu de sa fiche dont c'est la première compétition d'échecs. Quel sera son premier classement ELO FIDE ? <!-- image -->",
-        "original_answer": "1197"
+        "original_answer": "1197",
+        "requires_context_reason": "Question references specific player results/rating data from the scenario"
       },
       "legacy_id": "FR-ANN-UVR-061"
     },
@@ -18358,7 +18386,8 @@
         ],
         "answer_source": "explanation",
         "original_question": "Après échanges avec l'organisateur, la liste des prix au classement général du tournoi que vous arbitrez est fixée : 1 er : 300 € 2 e : 200 € 3 e : 100 € Au classement général, les prix sont distribués au système Hort. <!-- image --> A partir du classement ci-dessus, quel prix sera gagné par Jeremy ROGANOVA ?",
-        "original_answer": "200 €."
+        "original_answer": "200 €.",
+        "requires_context_reason": "Question references a chess diagram or image not available in text form"
       },
       "legacy_id": "FR-ANN-UVR-063"
     },
@@ -20125,7 +20154,8 @@
         ],
         "answer_source": "choice",
         "original_question": "<!-- image -->",
-        "original_answer": "Les noirs ont l'obligation de jouer le coup exd4."
+        "original_answer": "Les noirs ont l'obligation de jouer le coup exd4.",
+        "requires_context_reason": "Question references a chess diagram or image not available in text form"
       },
       "legacy_id": "FR-ANN-UVR-090"
     },
@@ -20188,7 +20218,8 @@
         "answer_source": "choice",
         "original_question": "Dans la position suivante, le trait est aux noirs, quelle proposition est vraie ?",
         "original_answer": "Les noirs ne peuvent pas prendre le cavalier.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVR-096"
     },
@@ -20254,7 +20285,8 @@
         ],
         "answer_source": "choice",
         "original_question": "<!-- image --> <!-- image --> <!-- image --> Vous arbitrez un tournoi en cadence 5 min +3s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. La pendule semble indiquer que le trait est aux blancs. Quelle proposition est vraie ?",
-        "original_answer": "Il y a une irrégularité apparente, si les blancs jouent sans réclamer alors vous 4. n'interviendrez pas pour le moment."
+        "original_answer": "Il y a une irrégularité apparente, si les blancs jouent sans réclamer alors vous 4. n'interviendrez pas pour le moment.",
+        "requires_context_reason": "Question references a chess diagram or image not available in text form"
       },
       "legacy_id": "FR-ANN-UVR-098"
     },
@@ -20320,7 +20352,8 @@
         ],
         "answer_source": "choice",
         "original_question": "Vous arbitrez un tournoi en cadence 60 min +30s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. Le trait est aux noirs et ils n'ont pas encore joué. Quelle proposition est",
-        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. Règles du jeu - Article 3.10.3 On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité."
+        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. Règles du jeu - Article 3.10.3 On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité.",
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVR-099"
     },
@@ -20647,7 +20680,8 @@
         "answer_source": "existing",
         "original_question": "L'une des affirmations ci-dessous n'est pas un coup illégal ou considéré comme illégal. Laquelle ?",
         "original_answer": "Jouer un coup d'une main et appuyer sur la pendule de l'autre",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVR-126"
     },
@@ -20712,7 +20746,8 @@
         "answer_source": "existing",
         "original_question": "Dans la position suivante, les Noirs au trait touchent le Fb5 : Quelle proposition correspond à un coup légal ?",
         "original_answer": "Les Noirs peuvent déplacer une tour.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVR-127"
     },
@@ -22646,7 +22681,8 @@
         "answer_source": "choice",
         "original_question": "Vous êtes arbitre adjoint sur un open à cadence lente. La position suivante survient sur un échiquier : Après 26. Fxb4+, les Noirs répondent par TxTe4. Les Blancs arrêtent la pendule et signalent à leur adversaire que c'est un coup illégal et qu'ils doivent jouer maintenant un coup légal avec la Tc4. Les Noirs sont tellement déçus sur le coup qu'ils disent à voix haute « Alors j'abandonne ! ». Tous les joueurs l'entendent et vous aussi. C'est alors qu'un joueur sur un échiquier voisin dit aux Noirs « Capture juste le fou ! » et ensuite les Noirs « alors je n'abandonne pas ! ». Que faites-vous ? <!-- image -->",
         "original_answer": "Les Blancs ont gagné la partie.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVR-164"
     },
@@ -24304,7 +24340,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_question": "- a) 1836-2010-2152. En 1 ère phase de la coupe de la parité, laquelle de ces équipes ne peut participer à la compétition sur la base des classements Elo de ses joueurs ci-dessous, pour une équipe de 3 joueurs ?",
-        "original_answer": "1742-1987-2272."
+        "original_answer": "1742-1987-2272.",
+        "requires_context_reason": "Question references a classification table from the scenario"
       },
       "legacy_id": "FR-ANN-UVT-028"
     },
@@ -24565,7 +24602,8 @@
         "answer_source": "explanation",
         "original_question": "Dans la position ci-dessous les blancs jouent Cxg5 et appuient sur la pendule. C'est leur 2 ème coup illégal validé. Quelle est votre décision ? <!-- image -->",
         "original_answer": "Partie nulle. ## LA : Article 7.5.5 des règles du jeu Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. Le roi blanc est en échec. Le seul moyen de parer cet échec est Cxf4 qui mate immédiatement le roi noir. Les noirs ne pouvant gagner, la nulle est déclarée. ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question references a specific chess position on the board"
       },
       "legacy_id": "FR-ANN-UVT-036"
     },
@@ -24758,7 +24796,8 @@
         "answer_source": "existing",
         "original_question": "Pour cette ronde 4, quelles sont les couleurs demandées respectivement par Pauline et Ignace ?",
         "original_answer": "Noir absolu et Blanc absolu. LA : Chap. 3.5 : Les règles du système suisse C.04.3 - A6 : Différences de couleurs et préférences couleurs ## Historique couleur de Pauline : .BB Historique couleur d'Ignace : BNN La différence de couleurs d'un joueur est une valeur qui s'obtient en soustrayant au nombre de parties jouées avec les Blancs le nombre de parties jouées avec les Noirs par ce même joueur. La préférence de couleur est la couleur que le joueur devrait idéalement recevoir pour la partie suivante. Elle peut être déterminée pour chaque joueur qui a joué au moins une partie. - a. Une préférence de couleur est absolue quand la différence de couleurs est supérieure à +1 ou inférieure à -1, ou quand un joueur a joué avec la même couleur lors des deux rondes précédentes. La préférence est blanche quand la différence de couleurs est plus petite que -1 ou quand les deux dernières parties ont été jouées avec les Noirs. La préférence est noire quand la différence de couleurs est plus grande que +1 ou quand les deux dernières parties ont été jouées avec les Blancs. - b. Une préférence de couleur est forte quand la différence de couleurs d'un joueur est +1 (préférence noire) ou -1 (préférence blancs). - c. Une préférence de couleur est faible quand la différence de couleurs d'un joueur est nulle, la préférence étant de la couleur opposée à celle de la couleur allouée lors de la partie précédente. - d. Les joueurs qui n'ont joué aucune partie n'ont pas de préférence couleur (leur adversaire se voit accorder leur préférence de couleur). Ce qui entraîne une préférence noire absolue pour Pauline et une préférence blanche absolue pour Ignace.",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question requires color allocation history from previous rounds"
       },
       "legacy_id": "FR-ANN-UVT-042"
     },
@@ -24820,7 +24859,8 @@
         "answer_source": "existing",
         "original_question": "Un joueur vient vous voir pour vous décrire la situation qu'il a vue lors d'un tournoi auquel il participait. Ci-dessous l'historique des couleurs de deux de ses amis. Si le joueur A et le joueur B se rencontrent à la ronde 7 quelle sera respectivement la couleur de chacun ? | | R1 | R2 | R3 | R4 | R5 | R6 | |---------------------|------|------|------|------|------|------| | Joueur A (Elo=1752) | B | N | N | B | N | B | | Joueur B (Elo=1732) | N | N | B | B | N | B |",
         "original_answer": "Le joueur A aura les blancs car on a inversé les couleurs de la ronde N°3",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question requires color allocation history from previous rounds"
       },
       "legacy_id": "FR-ANN-UVT-044"
     },
@@ -25003,7 +25043,8 @@
         "answer_source": "explanation",
         "original_question": "Quel est le score ajusté respectivement de Pauline et François ?",
         "original_answer": "2,5 et 3 LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté Pauline : 0,5 + 0,5 + 1 + 0,5 = 2,5 François : 1 + 0,5 + 0,5 + 0,5 + 0,5 = 3",
-        "by_design": true
+        "by_design": true,
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVT-047"
     },
@@ -25199,7 +25240,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_question": "Le rapport technique doit contenir certains documents. Dans la liste ci-dessous quel est le document qu'il est inutile d'envoyer à la Directrice des Tournoi et Titres ?",
-        "original_answer": "Paiements des droits d'homologation. LA : Chap. 5.4 : Rapport technique de fin de tournoi ------------------------------------------ Fin du corrigé de l'UVT ## Informations de contact <!-- image --> Directeur de l'Education des arbitres : Rachid Heddache direc.educ.dna@gmail.com <!-- image --> N'hésitez pas à contacter la DNA en cas de question ou de remarque sur l'édition de ces annales."
+        "original_answer": "Paiements des droits d'homologation. LA : Chap. 5.4 : Rapport technique de fin de tournoi ------------------------------------------ Fin du corrigé de l'UVT ## Informations de contact <!-- image --> Directeur de l'Education des arbitres : Rachid Heddache direc.educ.dna@gmail.com <!-- image --> N'hésitez pas à contacter la DNA en cas de question ou de remarque sur l'édition de ces annales.",
+        "requires_context_reason": "Question requires specific contextual information from the exam scenario"
       },
       "legacy_id": "FR-ANN-UVT-053"
     },
@@ -26048,7 +26090,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Un joueur classé 1923 avec K=20 bat un adversaire classé 1812. Combien de points Elo gagne-t-il ?",
         "original_answer": "7 points. Différence +111 → score théorique 0.65. Score réel 1. Gain = (1 - 0.65) × 20 = 7",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.55
       },
       "legacy_id": "FR-ELO-001"
     },
@@ -26092,7 +26135,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Un joueur de 17 ans classé 2250 joue sa 25ème partie officielle. Quel est son coefficient K ?",
         "original_answer": "K=40. Moins de 18 ans ET classement < 2300 → K=40 jusqu'à fin de l'année de ses 18 ans.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.55
       },
       "legacy_id": "FR-ELO-002"
     },
@@ -26135,7 +26179,8 @@
         "chunk_match_score": 80,
         "chunk_match_method": "answer_in_chunk",
         "original_question": "Un joueur classé 1923 (K=20) joue 5 parties : victoire vs 1812, défaite vs 2148, nulle vs 2515, victoire vs 1413, défaite vs 2109. Score total 2.5/5. Combien de points gagne-t-il ?",
-        "original_answer": "7,4 points (arrondi à 7). Score théorique total = 2,13. Score réel = 2,5. Différence = 0,37. Gain = 0,37 × 20 = 7,4 pts."
+        "original_answer": "7,4 points (arrondi à 7). Score théorique total = 2,13. Score réel = 2,5. Différence = 0,37. Gain = 0,37 × 20 = 7,4 pts.",
+        "difficulty": 0.55
       },
       "legacy_id": "FR-ELO-003"
     },
@@ -26186,7 +26231,8 @@
         },
         "original_question": "Un joueur U14 prend sa première licence FFE. Quel Elo estimé standard lui sera attribué ?",
         "original_answer": "1299. Les U20, U18, U16, U14, U12, U10 et U8 reçoivent un Elo estimé standard de 1299.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-ELO-004"
     },
@@ -26230,7 +26276,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Un joueur reprend la compétition après 7 ans d'arrêt. Son ancien Elo était 1650. Que se passe-t-il ?",
         "original_answer": "Il récupère normalement son ancien Elo (1650). Mais son club peut demander à la FFE un Elo estimé différent avec pièces justificatives, car l'ancien Elo a plus de 5 saisons.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.4
       },
       "legacy_id": "FR-ELO-005"
     },
@@ -26273,7 +26320,8 @@
         "chunk_match_score": 80,
         "chunk_match_method": "answer_in_chunk",
         "original_question": "Un joueur senior dont l'Elo descend à 1350 (sous le plancher FIDE). Quel Elo lui sera attribué ?",
-        "original_answer": "1399 obligatoirement. Un joueur dont l'Elo descend en dessous du plancher FIDE aura un Elo estimé à 1399 quel que soit son âge."
+        "original_answer": "1399 obligatoirement. Un joueur dont l'Elo descend en dessous du plancher FIDE aura un Elo estimé à 1399 quel que soit son âge.",
+        "difficulty": 0.3
       },
       "legacy_id": "FR-ELO-006"
     },
@@ -26325,7 +26373,8 @@
         },
         "original_question": "Un joueur U10 prend sa première licence FFE. Quel Elo estimé standard lui sera attribué ?",
         "original_answer": "1299. En Elo Standard : 1299 pour tous les jeunes (U20, U18, U16, U14, U12, U10, U8), 1399 pour les vétérans, seniors plus et seniors.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-ELO-007"
     },
@@ -26377,7 +26426,8 @@
         },
         "original_question": "Un senior prend sa première licence FFE. Quelle est la différence entre son Elo estimé standard et son Elo estimé rapide ?",
         "original_answer": "200 points. Elo standard = 1399, Elo rapide = 1199. Différence = 1399 - 1199 = 200 points.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.7
       },
       "legacy_id": "FR-ELO-008"
     },
@@ -26421,7 +26471,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelle est la cadence minimum pour les U8 et U10 lors des qualifications départementales du Championnat de France Jeunes ?",
         "original_answer": "Minimum 15 min + 5 sec/coup pour les catégories U8, U8F, U10, U10F.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-J01-001"
     },
@@ -26465,7 +26516,8 @@
         "chunk_match_score": 80,
         "chunk_match_method": "answer_in_chunk",
         "original_question": "Quelle est la cadence pour les U8 et U10 lors du tournoi national du Championnat de France Jeunes ?",
-        "original_answer": "50 minutes pour toute la partie avec ajout de 10 sec/coup."
+        "original_answer": "50 minutes pour toute la partie avec ajout de 10 sec/coup.",
+        "difficulty": 0.3
       },
       "legacy_id": "FR-J01-002"
     },
@@ -26509,7 +26561,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quel Elo minimum doit atteindre un joueur U12 pour être qualifié d'office au Championnat de France Jeunes ?",
         "original_answer": "1900 pour les U12, 1700 pour les U12F.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-J01-003"
     },
@@ -26560,7 +26613,8 @@
         },
         "original_question": "Combien de joueurs composent une équipe en Top Jeunes et Nationale 1 du Championnat Interclubs Jeunes ?",
         "original_answer": "8 joueurs et/ou joueuses (Top Jeunes, Nationales 1 et 2) ou 4 joueurs et/ou joueuses (Nationale 3).",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-J02-001"
     },
@@ -26604,7 +26658,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelle est la cadence pour les échiquiers 1 à 6 en Top Jeunes et Nationale 1 du Championnat Interclubs Jeunes ?",
         "original_answer": "1h30 min et 30 secondes par coup pour les échiquiers 1 à 6.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-J02-002"
     },
@@ -26649,7 +26704,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelle est la cadence pour les échiquiers 7 et 8 en Interclubs Jeunes Top Jeunes et N1 ?",
         "original_answer": "50 min et 10 secondes par coup pour les échiquiers 7 et 8.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-J02-003"
     },
@@ -26692,7 +26748,8 @@
         "chunk_match_score": 80,
         "chunk_match_method": "answer_in_chunk",
         "original_question": "Comment sont ordonnés les joueurs sur les échiquiers en Interclubs Jeunes ?",
-        "original_answer": "Par catégorie d'âge décroissante (le plus âgé à l'échiquier 1). L'échiquier 8 peut être placé devant l'échiquier 7 quels que soient les Elo. Un joueur placé après un plus jeune que lui entraîne un forfait administratif."
+        "original_answer": "Par catégorie d'âge décroissante (le plus âgé à l'échiquier 1). L'échiquier 8 peut être placé devant l'échiquier 7 quels que soient les Elo. Un joueur placé après un plus jeune que lui entraîne un forfait administratif.",
+        "difficulty": 0.4
       },
       "legacy_id": "FR-J02-004"
     },
@@ -26735,7 +26792,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelle est la cadence de jeu lors de la phase departementale du Championnat de France scolaire ?",
         "original_answer": "15 min KO ou 12 min + 3 s par coup. Les appariements sont faits au systeme Suisse en 5 rondes minimum.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-J03-001"
     },
@@ -26779,7 +26837,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Combien de divisions comporte le Championnat de France Feminin des Clubs ?",
         "original_answer": "3 divisions : Top 12F (12 equipes), Nationale 1 feminine (4 groupes de 8 equipes), et Nationale 2 feminine.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-F01-001"
     },
@@ -26823,7 +26882,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Combien de joueuses se qualifient pour la finale du Championnat individuel feminin rapides si 25 joueuses participent a la phase ZID ?",
         "original_answer": "3 joueuses. Pour 21 a 30 participantes, 3 joueuses se qualifient.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.55
       },
       "legacy_id": "FR-F02-001"
     },
@@ -26865,7 +26925,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Un joueur peut-il refuser de jouer contre un adversaire en raison de son handicap ?",
         "original_answer": "Non. Personne n'a le droit de refuser de jouer avec une personne contre laquelle elle a ete appariee correctement, notamment si sa raison est fondee sur un handicap de l'adversaire.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.4
       },
       "legacy_id": "FR-H01-001"
     },
@@ -26907,7 +26968,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Que se passe-t-il si une equipe recoit dans des locaux inaccessibles alors qu'un joueur adverse est handicape ?",
         "original_answer": "La rencontre sera deplacee dans un local accessible propose par l'equipe accueillante, sinon par le comite departemental, et a defaut par la Ligue. L'equipe fautive perdra la partie concernee si le principe n'est pas respecte.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.4
       },
       "legacy_id": "FR-H02-001"
     },
@@ -26950,7 +27012,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelle est la regle de compatibilite appliquee pour le calcul de l'Elo Rapide ?",
         "original_answer": "+-320 points. Le seuil d'entree au Rapide est de 7 parties compatibles et le plancher est de 800.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-E02-001"
     },
@@ -26993,7 +27056,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Combien de tournois constituent le Championnat de France individuel ?",
         "original_answer": "10 tournois : National, National Feminin, Accession Roger FERRY, Veterans, Seniors Plus, Open A, Open B, Open C, Open D et Open E.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-A01-001"
     },
@@ -27037,7 +27101,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelles sont les categories par moyenne Elo au Championnat de France des Clubs rapides ?",
         "original_answer": "3 categories : Categorie A (moyenne > 2000), Categorie B (moyenne > 1700), Categorie C (moyenne <= 1700).",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-A03-001"
     },
@@ -27080,7 +27145,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Qui nomme le medecin federal de la FFE ?",
         "original_answer": "Le comite directeur de la FFE parmi les membres pris en son sein. Il doit etre obligatoirement docteur en medecine et licencie a la FFE.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-MED-001"
     },
@@ -27125,7 +27191,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Qui certifie la sincerite des comptes de la FFE chaque annee ?",
         "original_answer": "Le commissaire aux comptes certifie tous les ans la sincerite des comptes, du resultat, et de la situation patrimoniale de la federation.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-FIN-001"
     },
@@ -27167,7 +27234,8 @@
         "chunk_match_score": 80,
         "chunk_match_method": "answer_in_chunk",
         "original_question": "Quelle est l'adresse du siege social de la FFE ?",
-        "original_answer": "Chateau d'Asnieres - 6, rue de l'Eglise - 92 600 Asnieres-sur-Seine. Il peut etre transfere dans ce departement par simple decision du comite directeur."
+        "original_answer": "Chateau d'Asnieres - 6, rue de l'Eglise - 92 600 Asnieres-sur-Seine. Il peut etre transfere dans ce departement par simple decision du comite directeur.",
+        "difficulty": 0.3
       },
       "legacy_id": "FR-STAT-001"
     },
@@ -27210,7 +27278,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Combien de licencies A minimum sont necessaires pour l'affiliation d'un club a la FFE ?",
         "original_answer": "L'affiliation d'une association ne vaut que si elle compte au moins 5 licencies A.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-RI-001"
     },
@@ -27254,7 +27323,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelles formes de jeu d'echecs sont reconnues dans le contrat de delegation de la FFE avec l'Etat ?",
         "original_answer": "Cinq specialites : Classique, Rapide, Blitz, Chess960 et e-Chess.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-DEL-001"
     },
@@ -27297,7 +27367,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Combien de joueurs composent une equipe en Nationale VI departementale des Bouches-du-Rhone ?",
         "original_answer": "4 joueurs qui possedent une licence A et affilies a un club des Bouches-du-Rhone.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-N6BDR-001"
     },
@@ -27347,7 +27418,8 @@
         },
         "original_question": "Quelle est la cadence pour l'echiquier 4 en Interclubs Jeunes des Bouches-du-Rhone ?",
         "original_answer": "50 minutes + 10 secondes par coup.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-IJBDR-001"
     },
@@ -27390,7 +27462,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Combien de groupes de Nationale 4 sont crees en ligue PACA et de combien d'equipes chacun ?",
         "original_answer": "5 groupes de 8 equipes chacun. La ligue dispose de 5 accessions en N3.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-N4PACA-001"
     },
@@ -27433,7 +27506,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Combien de joueurs composent une equipe en Regionale de la ligue PACA ?",
         "original_answer": "5 joueurs licencies A.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-REGPACA-001"
     },
@@ -27482,7 +27556,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quel est le nombre de joueurs par equipe selon le niveau de championnat : Top16, N1-N3, N4, Regionale PACA et Departementale BDR ?",
         "original_answer": "Top16/N1/N2/N3 : 8 joueurs. N4 : 8 joueurs (ou 6 si la Ligue le choisit). Regionale PACA : 5 joueurs. Departementale N6 BDR : 4 joueurs.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.4
       },
       "legacy_id": "FR-COMP-001"
     },
@@ -27529,7 +27604,8 @@
         "chunk_match_method": "by_design_anchor",
         "original_question": "Quelle est la regle du noyau pour les equipes en N1, N2, N3 et N4 ?",
         "original_answer": "Chaque equipe doit aligner a chaque ronde au moins 50% de personnes ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison (sauf ronde 1). En cas d'infraction, forfait administratif sur l'echiquier hors noyau et tous ceux qui le suivent.",
-        "by_design": true
+        "by_design": true,
+        "difficulty": 0.3
       },
       "legacy_id": "FR-NOYAU-001"
     }

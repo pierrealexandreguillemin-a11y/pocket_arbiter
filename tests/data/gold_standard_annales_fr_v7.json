@@ -2807,7 +2807,7 @@
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "requires_context": true,
-        "extraction_flags": [],
+        "extraction_flags": ["image_dependent"],
         "answer_explanation": null,
         "answer_source": "existing"
       },
@@ -4965,7 +4965,7 @@
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "requires_context": true,
-        "extraction_flags": [],
+        "extraction_flags": ["image_dependent"],
         "answer_source": "choice"
       },
       "legacy_id": "FR-ANN-UVC-086"
@@ -5095,7 +5095,7 @@
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "requires_context": true,
-        "extraction_flags": [],
+        "extraction_flags": ["image_dependent"],
         "answer_source": "explanation"
       },
       "legacy_id": "FR-ANN-UVC-088"
@@ -7970,7 +7970,8 @@
         "triplet_ready": true,
         "requires_context": true,
         "extraction_flags": [
-          "no_choices"
+          "no_choices",
+          "image_dependent"
         ],
         "answer_explanation": null,
         "answer_source": "existing"
@@ -17526,7 +17527,7 @@
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "requires_context": true,
-        "extraction_flags": [],
+        "extraction_flags": ["image_dependent"],
         "answer_source": "explanation"
       },
       "legacy_id": "FR-ANN-UVR-060"
@@ -17716,7 +17717,7 @@
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "requires_context": true,
-        "extraction_flags": [],
+        "extraction_flags": ["image_dependent"],
         "answer_source": "explanation"
       },
       "legacy_id": "FR-ANN-UVR-063"

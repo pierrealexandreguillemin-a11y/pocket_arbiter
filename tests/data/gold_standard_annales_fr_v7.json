@@ -4040,7 +4040,7 @@
     {
       "id": "ffe:annales:clubs:064:604e61af",
       "question": "Avant l'appariement de la ronde 4, Isabelle a eu comme couleur BBN et Frédéric BNB. Quelles sont les préférences couleurs avant l'appariement de la ronde 4 d'Isabelle et de Frédéric ?",
-      "expected_answer": "B faible et N forte.",
+      "expected_answer": "N forte et N forte.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
       "expected_docs": [
@@ -4070,7 +4070,7 @@
         "difficulty": 0.05,
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "tournament",
           "question_num": 16,
           "success_rate": 0.95
         },
@@ -4079,9 +4079,9 @@
           "A": "B absolue et N Forte.",
           "B": "B faible et N forte.",
           "C": "N forte et N faible.",
-          "D": "N forte et N forte. 3.5 Règles du système suisse C.04.3 Le système néerlandais A.6 Différences de couleurs et préférences de couleur. a. Une préférence de couleur est absolue quand la différence de couleurs est supérieure à +1 ou inférieure à -1, ou quand un joueur a joué avec la même couleur lors des deux rondes précédentes. La préférence est blanche quand la différence de couleurs est plus petite que -1 ou quand les deux dernières parties ont été jouées avec les Noirs. La préférence est noire quand la différence de couleurs est plus grande que +1 ou quand les deux dernières parties ont été jouées avec les Blancs. b. Une préférence de couleur est forte quand la différence de couleurs d'un joueur est +1 (préférence noire) ou -1 (préférence blancs). c. Une préférence de couleur est faible quand la différence de couleurs d'un joueur est nulle, la préférence étant de la couleur opposée à celle de la couleur allouée lors de la partie précédente. ## Appariez la ronde 4"
+          "D": "N forte et N forte."
         },
-        "mcq_answer": "B",
+        "mcq_answer": "D",
         "quality_score": 0.5,
         "chunk_match_score": 20,
         "chunk_match_method": "doc_page_semantic",
@@ -6572,8 +6572,8 @@
     },
     {
       "id": "ffe:annales:clubs:103:0c4c35b1",
-      "question": "Cadence : 1h30 / 40 coups + 30 min + 30 sec. par coups (cadence des interclubs). La ronde a débuté à 14h15. A 17h54, les 2 joueurs ont joué 39 coups chacun (cf. les feuilles de partie) et la pendule indique : BLANC : 0 : 29 NOIR : 0 : 32 Le conducteur des noirs vous appelle et réclame le gain au temps. Question : Quelle est votre décision ?",
-      "expected_answer": "Championnat de France des clubs, Article 3.7.e.",
+      "question": "Lors du 2ème week-end d interclubs, l équipe 1 du club joue en N3 la ronde 2 le samedi et la ronde 3 le dimanche. L équipe 2 du club joue seulement le dimanche, la ronde 2. Un joueur qui joue le samedi dans l équipe 1 peut-il jouer en équipe 2 le dimanche ?",
+      "expected_answer": "OUI à condition qu'il n'ait pas du tout joué lors de la première journée des interclubs.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
@@ -6613,9 +6613,10 @@
         },
         "question_type": "factual",
         "choices": {
-          "A": "Gain noir au temps.",
-          "B": "Les blancs ont du temps, la partie continue sans ajustement des pendules.",
-          "C": "Les blancs ont du temps, la partie continue en ajoutant 2 minutes aux blancs suite à la demande injustifiée des noirs. ## Art 6.3.1 des règles du jeu Il est évident que la pendule a basculé en 2 ème période et que les joueurs ont bénéficié des 30 mn supplémentaires. Elle indique moins de 30mn pour les blancs. Les 40 coups n'ayant pas été joués dans le temps imparti les noirs gagnent au temps. ## 62% de bonnes réponses"
+          "A": "NON car on ne peut pas jouer 2 fois une ronde 2.",
+          "B": "OUI, au 2ème week-end, un joueur ne peut pas encore être grillé donc il peut jouer dans l'équipe 2.",
+          "C": "OUI à condition d'avoir joué la ronde 1 avec l'équipe 2, pas avec l'équipe 1.",
+          "D": "OUI à condition qu'il n'ait pas du tout joué lors de la première journée des interclubs."
         },
         "mcq_answer": "D",
         "quality_score": 1.0,
@@ -6778,7 +6779,7 @@
     {
       "id": "ffe:annales:clubs:106:55bf9872",
       "question": "Un club a 2 équipes (équipes 1 et 2) engagées en N4. Un joueur a déjà joué les 2 premières rondes en équipe 2. Peut-il remplacer un joueur absent en équipe 1 lors de la ronde 3 ?",
-      "expected_answer": "Championnat de France des clubs, Article 3.7.d.",
+      "expected_answer": "Dans ce cas, ce joueur ne peut pas jouer en équipe 1 même si elle joue dans un autre groupe.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
@@ -6817,9 +6818,10 @@
         },
         "question_type": "scenario",
         "choices": {
-          "A": "Le mat prévaut avant qu'un drapeau ne tombe mais pas après.",
-          "B": "Les deux drapeaux sont tombés, donc la partie est nulle.",
-          "C": "Le joueur qui est tombé en premier suivant l'indication de la pendule perd la partie. d) Si le coup qui a généré la position de mat était un coup légal, la partie est gagnée par le joueur qui a maté son adversaire. ## Annexe A - A4.3. des règles du jeu L'adversaire n'ayant pas arrêté la pendule pour vous faire constater la chute du drapeau et que rien ne nous dit que le mat a eu lieu après sa chute, ce dernier est validé et met fin à la partie. ## 53% de bonnes réponses"
+          "A": "OUI, un joueur peut toujours monter en équipe 1.",
+          "B": "OUI parce qu'il n'a pas encore fait 3 matchs avec son équipe.",
+          "C": "Il peut changer d'équipe seulement si les 2 équipes jouent dans des groupes différents, pas si elles jouent dans le même groupe.",
+          "D": "Dans ce cas, ce joueur ne peut pas jouer en équipe 1 même si elle joue dans un autre groupe."
         },
         "mcq_answer": "D",
         "quality_score": 1.0,
@@ -6846,7 +6848,7 @@
     {
       "id": "ffe:annales:clubs:107:269c2c6a",
       "question": "Voilà une équipe présentée en Nationale 2 : 1. Hugo, Catégorie : CadM, ELO : 2311 2. Charles, Catégorie : SenM, ELO : 2411 3. Louis, Catégorie : SenM, ELO : 2105 4. Teddy, Catégorie : SenM, ELO : 1821 5. Mathis, Catégorie : SenM, ELO : 1877 6. Esteban, Catégorie : SenM, ELO : 1932 7. Anthony, Catégorie : SenM, ELO : 1757 8. Ezio, Catégorie : JunM, ELO : 1634 Sur l'échiquier, les 8 joueurs ont gagné leur partie. L'équipe adverse a une composition conforme au règlement. Quel sera le score final du match une fois que les forfaits administratifs et sanctions auront été appliqués ? A. 8-0",
-      "expected_answer": "Championnat de France des clubs, Articles 3.6 et 3.7.i",
+      "expected_answer": "5-2",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
@@ -6883,10 +6885,12 @@
         },
         "question_type": "scenario",
         "choices": {
-          "A": "S'il écoute de la musique classique qui ne dérange personne, vous l'autorisez.",
-          "B": "Selon l'article 11.1, vous ne pouvez pas écouter de musique en jouant.",
-          "C": "Cela ne peut pas être autorisé.",
-          "D": "Si l'adversaire est d'accord, vous l'autorisez. Art 11.3.2.1 des règles du jeu 83% de bonnes réponses"
+          "A": "8-0",
+          "B": "7-1",
+          "C": "6-1",
+          "D": "6-2",
+          "E": "5-2",
+          "F": "5-3"
         },
         "mcq_answer": "E",
         "answer_explanation": null,
@@ -7107,7 +7111,7 @@
     {
       "id": "ffe:annales:clubs:111:99da52c3",
       "question": "Position après le coup 39 noir. Les derniers coups de la feuille sont : Le conducteur des noirs a joué son coup, puis sur son temps demande la nulle par répétition de coups (même position après le coup noir 39, 41 et 43) (C'est la position du diagramme) Quelle est votre décision ?",
-      "expected_answer": "Championnat de France des clubs, Article 3.6.",
+      "expected_answer": "Vous ne démarrez pas les pendules, vous les ajusterez avant le début de la ronde.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
@@ -7147,8 +7151,9 @@
         },
         "question_type": "factual",
         "choices": {
-          "A": "Demande de nulle acceptée.",
-          "B": "Demande de nulle refusée . Art 9.2.1.1 des règles du jeu Pour réclamer la nulle on ne doit pas jouer le coup qui à priori fait nul sur l'échiquier. On doit le noter sur sa feuille de partie, arrêter la pendule et appeler l'arbitre pour lui signifier que le coup noté et qui sera donc joué sera une 3ème répétition de position... 64% de bonnes réponses"
+          "A": "Vous appuyez sur les pendules des joueurs ayant les noirs de l'équipe absente et vous demandez aux joueurs présents ayant les blancs de patienter.",
+          "B": "Vous lancez toutes les pendules, en faisant découler le temps des joueurs absents, sans que les joueurs présents ayant les blancs ne commencent à jouer.",
+          "C": "Vous ne démarrez pas les pendules, vous les ajusterez avant le début de la ronde."
         },
         "mcq_answer": "C",
         "quality_score": 1.0,
@@ -7382,7 +7387,7 @@
     {
       "id": "ffe:annales:clubs:115:d5304484",
       "question": "Un joueur est au trait en l'absence de son adversaire vient vous voir car il a l'intention de positionner une de ces pièces au centre de sa case. Doit-on faire appliquer l'article 4.3.1 des règles du jeu ?",
-      "expected_answer": "RI de la DNA, Article 19.",
+      "expected_answer": "Seulement en cas de dérogation de son DRA.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p093-parent277-child00",
       "expected_docs": [
@@ -7422,9 +7427,12 @@
         },
         "question_type": "scenario",
         "choices": {
-          "A": "Non, puisqu'il vous a prévenu.",
-          "B": "Oui, puisqu'il n'a pas dit « j'adoube » ou quoi que ce soit du genre avant de le faire.",
-          "C": "Non, sauf si l'adversaire le demande. Art 4.2.1 des règles du jeu En l'absence de l'adversaire il est normal de s'adresser à l'arbitre. Le terme « j'adoube » n'est pas obligatoirement à utiliser. On doit prévenir de n'importe quelle façon avant de toucher une ou plusieurs pièces. 80% de bonnes réponses"
+          "A": "Seulement dans le cas d'un tournoi interne.",
+          "B": "Seulement dans le cadre d'un tournoi scolaire.",
+          "C": "Seulement dans le cas d'un open homologué FFE, non FIDE.",
+          "D": "Seulement en cas de dérogation de son DRA.",
+          "E": "Seulement en cas de dérogation du directeur des titres de la DNA.",
+          "F": "Jamais"
         },
         "mcq_answer": "D",
         "quality_score": 0.5,
@@ -7522,7 +7530,7 @@
     {
       "id": "ffe:annales:clubs:117:b7ece81e",
       "question": "Vous observez un joueur toucher le roi en e1 de sa main droite puis de la main gauche sa tour en a1. Il effectue le grand-roque mettant son adversaire échec et mat. Vous n'êtes pas intervenu à cette table depuis le début de la partie. Quelle est votre réaction ?",
-      "expected_answer": "Championnat de France interclubs jeunes, Article 2.5.",
+      "expected_answer": "Licencié A ayant eu l'accord de son DRA.",
       "is_impossible": false,
       "expected_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
       "expected_docs": [
@@ -7562,10 +7570,11 @@
         },
         "question_type": "scenario",
         "choices": {
-          "A": "Vous intervenez en interdisant au joueur de roquer de ce côté.",
-          "B": "Vous appliquez l'article 7.5.5 pour coup illégal.",
-          "C": "Vous autorisez le roque de ce côté, mais vous sanctionnez le joueur blanc selon l'article 12.9.",
-          "D": "Vous entérinez le mat. ## Art 7.5.1 des règles du jeu Le mat est intervenu sur un coup illégal (roquer à 2 mains). On peut sanctionner en ajoutant 2 minutes à son adversaire. Ensuite obliger le joueur à jouer son Roi puisque c'est la pièce touchée en premier. Il fait le grand roque et mate son adversaire. Beaucoup ont coché la réponse « b » mais c'est bien par la « d » que cette partie se finira. La question étant peut-être ambigüe j'ai été magnanime. 30% de bonnes réponses"
+          "A": "AFC.",
+          "B": "AFJ.",
+          "C": "Arbitre stagiaire.",
+          "D": "Arbitre candidat.",
+          "E": "Licencié A ayant eu l'accord de son DRA."
         },
         "mcq_answer": "E",
         "quality_score": 1.0,
@@ -7921,7 +7930,7 @@
     {
       "id": "ffe:annales:clubs:123:c0abb635",
       "question": "Vous êtes arbitre adjoint sur un open à cadence lente. La position suivante survient sur un échiquier : Après 26. Fxb4+, les Noirs répondent par TxTe4. Les Blancs arrêtent la pendule et signalent à leur adversaire que c'est un coup illégal et qu'ils doivent jouer maintenant un coup légal avec la Tc4. Les Noirs sont tellement déçus sur le coup qu'ils disent à voix haute « Alors j'abandonne ! ». Tous les joueurs l'entendent et vous aussi. C'est alors qu'un joueur sur un échiquier voisin dit aux Noirs « Capture juste le fou ! » et ensuite les Noirs « alors je n'abandonne pas ! ». Que faites-vous ? <!-- image --> <!-- image -->",
-      "expected_answer": "R.01 : Règles générales pour les compétitions fédérales, art. 2.3.1.",
+      "expected_answer": "Les Blancs ont gagné la partie.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
       "expected_docs": [
@@ -7965,7 +7974,7 @@
           "B": "Les Blancs ont gagné la partie.",
           "C": "Les Noirs peuvent jouer un coup légal, prendre ou interposer avec la pièce touchée."
         },
-        "mcq_answer": "D",
+        "mcq_answer": "B",
         "quality_score": 1.0,
         "chunk_match_score": 80,
         "chunk_match_method": "answer_in_chunk",
@@ -13367,7 +13376,7 @@
         "difficulty": 0.03,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 1,
           "success_rate": 0.97
         },
@@ -13434,7 +13443,7 @@
         "difficulty": 0.16,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 2,
           "success_rate": 0.84
         },
@@ -13502,7 +13511,7 @@
         "difficulty": 0.45,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 3,
           "success_rate": 0.55
         },
@@ -13573,7 +13582,7 @@
         "difficulty": 0.52,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 4,
           "success_rate": 0.48
         },
@@ -13634,7 +13643,7 @@
         "difficulty": 0.74,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 5,
           "success_rate": 0.26
         },
@@ -13702,7 +13711,7 @@
         "difficulty": 0.26,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 6,
           "success_rate": 0.74
         },
@@ -13771,7 +13780,7 @@
         "difficulty": 0.08,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 4,
           "success_rate": 0.92
         },
@@ -13841,7 +13850,7 @@
         "difficulty": 0.61,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 10,
           "success_rate": 0.39
         },
@@ -13911,7 +13920,7 @@
         "difficulty": 0.4,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 17,
           "success_rate": 0.6
         },
@@ -13970,7 +13979,7 @@
         "difficulty": 0.22,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 18,
           "success_rate": 0.78
         },
@@ -14040,7 +14049,7 @@
         "difficulty": 0.14,
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 20,
           "success_rate": 0.86
         },

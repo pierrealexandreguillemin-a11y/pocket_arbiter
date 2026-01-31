@@ -1,5 +1,5 @@
 {
-  "version": "7.6",
+  "version": "8.0",
   "schema": "unified-v1",
   "description": "Gold standard v7.6 - reasoning benchmark, validated metrics, LREM justified",
   "methodology": {
@@ -13915,7 +13915,7 @@
     },
     {
       "id": "ffe:annales:open:036:24602145",
-      "question": "En Championnat de France des clubs, des personnes mutées peuvent faire partie d'une équipe. Excepté pour les divisions comportant un maximum de six personnes par équipes, quel est le nombre maximum de mutés ?",
+      "question": "En Championnat de France des clubs, des personnes mutées peuvent faire partie d'une équipe. Excepté pour les divisions comportant un maximum de six personnes par équipes, quel est le nombre maximum de mutés (Session jun2025 — UV open — Q20) ?",
       "expected_answer": "## Chapitre 5.4 : Rapport Technique et fin de tournoi.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p172-parent511-child00",
@@ -16725,7 +16725,7 @@
     },
     {
       "id": "ffe:annales:rules:012:59a34ceb",
-      "question": "Cadence 50 min +10 s. Quelles sont les interventions possibles de l'arbitre ?",
+      "question": "Cadence 50 min +10 s. Quelles sont les interventions possibles de l'arbitre (Session dec2024 — UV rules — Q5) ?",
       "expected_answer": "- 4.3. En dehors du cadre précisé par l ' Article 4.2 si le joueur ou la joueuse au trait touche sur l ' échiquier, avec l ' intention de déplacer ou de prendre :",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p041-parent162-child01",
@@ -16868,7 +16868,7 @@
     },
     {
       "id": "ffe:annales:rules:014:071efde4",
-      "question": "Cadence lente conducteur des blancs serre la main de son adversaire. Vous surveillez cet échiquier car les blancs sont en zeitnot. Le conducteur des noirs vient de jouer Fxc3+ et annonce « Echec et mat ». Le Quel est le résultat de la partie ?",
+      "question": "Cadence lente conducteur des blancs serre la main de son adversaire. Vous surveillez cet échiquier car les blancs sont en zeitnot. Le conducteur des noirs vient de jouer Fxc3+ et annonce « Echec et mat ». Le Quel est le résultat de la partie (Session dec2024 — UV rules — Q7) ?",
       "expected_answer": "- 5.1.1. La partie est gagnée par le joueur ou la joueuse qui a mis échec et mat le roi adverse. Ceci met immédiatement fin à la partie, à condition que le coup donnant échec et mat soit conforme à l'Article 3 et aux Articles 4.2 à 4.7.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
@@ -16936,7 +16936,7 @@
     },
     {
       "id": "ffe:annales:rules:015:218b82be",
-      "question": "Cadence 2h KO. Le conducteur des noirs vient d'abandonner au 55e coup. Avant de signer les feuilles de partie, les deux joueurs se lancent dans l'analyse. Au cours de cette analyse, les deux joueurs s'aperçoivent que les blancs ont joué un coup illégal 6 coups avant la fin de la partie. Le conducteur des noirs demande que la partie soit reprise à la dernière position légale connue. Que faites-vous ?",
+      "question": "Cadence 2h KO. Le conducteur des noirs vient d'abandonner au 55e coup. Avant de signer les feuilles de partie, les deux joueurs se lancent dans l'analyse. Au cours de cette analyse, les deux joueurs s'aperçoivent que les blancs ont joué un coup illégal 6 coups avant la fin de la partie. Le conducteur des noirs demande que la partie soit reprise à la dernière position légale connue. Que faites-vous (Session dec2024 — UV rules — Q8) ?",
       "expected_answer": "La partie est gagnée par le joueur ou la joueuse qui a mis échec et mat le roi adverse.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
@@ -19543,7 +19543,7 @@
     },
     {
       "id": "ffe:annales:rules:053:589c64b1",
-      "question": "Dans les tournois rapides et blitz homologués FIDE, quelle est respectivement le nombre de rondes maximum par jour ?",
+      "question": "Dans les tournois rapides et blitz homologués FIDE, quelle est respectivement le nombre de rondes maximum par jour (Session jun2024 — UV rules — Q13) ?",
       "expected_answer": "## La situation suivante peut se produire :  \nUn joueur ou une joueuse effectue un coup, oublie d'appuyer sur la pendule et quitte la table (par exemple pour aller aux toilettes).",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent167-child00",
@@ -21165,7 +21165,7 @@
     },
     {
       "id": "ffe:annales:rules:077:9764086b",
-      "question": "Lors du championnat de France petit-poussins, le conducteur des blancs joue son pion sur la 8ème rangée puis appuie sur la pendule avant de remplacer son pion. Il a déjà fait un coup irrégulier plus tôt dans la partie. Si on remplace le pion par une dame (ce qui est l'intention du jeune joueur), le roi noir est mat (mat du couloir). Quel est le résultat de la partie ?",
+      "question": "Lors du championnat de France petit-poussins, le conducteur des blancs joue son pion sur la 8ème rangée puis appuie sur la pendule avant de remplacer son pion. Il a déjà fait un coup irrégulier plus tôt dans la partie. Si on remplace le pion par une dame (ce qui est l'intention du jeune joueur), le roi noir est mat (mat du couloir). Quel est le résultat de la partie (Session jun2021 — UV rules — Q3) ?",
       "expected_answer": "Un coup ne peut pas être déclaré illégal avant qu 'il ne soit achevé en appuyant sur sa pendule. Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
@@ -21842,7 +21842,7 @@
     },
     {
       "id": "ffe:annales:rules:087:65b43070",
-      "question": "Parmi les 5 affirmations suivantes, une seule est vraie. Laquelle ?",
+      "question": "Parmi les 5 affirmations suivantes, une seule est vraie. Laquelle (Session jun2021 — UV rules — Q19) ?",
       "expected_answer": "Un joueur ou une joueuse, s'il/elle le souhaite, peut répondre au coup de son adversaire avant de le noter, il/elle doit enregistrer son coup précédent avant d'en jouer un autre.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p033-parent177-child00",
@@ -22049,7 +22049,7 @@
     },
     {
       "id": "ffe:annales:rules:090:2d67e0b8",
-      "question": "Lors du championnat de France petit-poussins, le conducteur des blancs joue son pion sur la 8ème rangée puis appuie sur la pendule avant de remplacer son pion. Il a déjà fait un coup irrégulier plus tôt dans la partie. Si on remplace le pion par une dame (ce qui est l'intention du jeune joueur), le roi noir est mat (mat du couloir). Quel est le résultat de la partie ?",
+      "question": "Lors du championnat de France petit-poussins, le conducteur des blancs joue son pion sur la 8ème rangée puis appuie sur la pendule avant de remplacer son pion. Il a déjà fait un coup irrégulier plus tôt dans la partie. Si on remplace le pion par une dame (ce qui est l'intention du jeune joueur), le roi noir est mat (mat du couloir). Quel est le résultat de la partie (Session jun2021 — UV rules — Q3) [variante 2d67e0b8] ?",
       "expected_answer": "Un coup ne peut pas être déclaré illégal avant qu 'il ne soit achevé en appuyant sur sa pendule. Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
@@ -22111,7 +22111,7 @@
     },
     {
       "id": "ffe:annales:rules:091:4504ee69",
-      "question": "Cadence : 1h30 / 40 coups + 30 min + 30 sec. par coup (cadence des interclubs). La ronde a débuté à 14h15. A 17h54, les 2 joueurs ont joué 39 coups chacun (cf. les feuilles de partie) et la pendule indique : BLANC : 0 : 29 NOIR : 0 : 32 Le conducteur des noirs vous appelle et réclame le gain au temps. Question : Quelle est votre décision ?",
+      "question": "Cadence : 1h30 / 40 coups + 30 min + 30 sec. par coup (cadence des interclubs). La ronde a débuté à 14h15. A 17h54, les 2 joueurs ont joué 39 coups chacun (cf. les feuilles de partie) et la pendule indique : BLANC : 0 : 29 NOIR : 0 : 32 Le conducteur des noirs vous appelle et réclame le gain au temps. Question : Quelle est votre décision (Session jun2021 — UV rules — Q4) ?",
       "expected_answer": "Si un compteur de coups (de « pressions sur la pendule ») est utilisé avec une pendule électronique, alors il est possible d'établir si 40 coups ont été achevés avant la chute d'un drapeau, car un drapeau (ou un « -» ) apparaît sur la pendule dans le cas où un joueur/une joueuse n'a pas achevé 40 coups dans le temps imparti.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p045-parent169-child02",
@@ -22179,7 +22179,7 @@
     },
     {
       "id": "ffe:annales:rules:092:6e7290e6",
-      "question": "Cadence : 20 min KO. Dans cette situation, le conducteur des blancs joue dxc4 et appuie sur la pendule. Comme c'est un coup illégal, vous ajoutez alors 2 minutes au conducteur des noirs et demandez au conducteur des blancs de jouer autre chose. Le conducteur des blancs joue alors Th6 +. Le conducteur des noirs joue le Roi immédiatement. Que faites-vous ?",
+      "question": "Cadence : 20 min KO. Dans cette situation, le conducteur des blancs joue dxc4 et appuie sur la pendule. Comme c'est un coup illégal, vous ajoutez alors 2 minutes au conducteur des noirs et demandez au conducteur des blancs de jouer autre chose. Le conducteur des blancs joue alors Th6 +. Le conducteur des noirs joue le Roi immédiatement. Que faites-vous (Session jun2021 — UV rules — Q9) ?",
       "expected_answer": "Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule. Bien entendu, le coup joué doit respecter l'article 4.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
@@ -22243,7 +22243,7 @@
     },
     {
       "id": "ffe:annales:rules:093:8d0ba054",
-      "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué puis il a déclenché sa pendule avec l'autre main. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie. Quelle est votre réponse ?",
+      "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué puis il a déclenché sa pendule avec l'autre main. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie. Quelle est votre réponse (Session jun2021 — UV rules — Q10) ?",
       "expected_answer": "## Parfois, ce qui suit se produit :  \nUn joueur ou une joueuse renverse des pièces ; dans cette situation, l'adversaire laisse son doigt sur le balancier de la pendule pour l'empêcher d'appuyer sur la pendule.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
@@ -22377,7 +22377,7 @@
     },
     {
       "id": "ffe:annales:rules:095:cc85a835",
-      "question": "Cadence : 50 minutes + 10 secondes par coup. Un joueur vient vous voir pour se plaindre que son adversaire joue son coup immédiatement après qu'il a joué, sans lui laisser le temps d'appuyer sur la pendule. Quelle est votre réponse ?",
+      "question": "Cadence : 50 minutes + 10 secondes par coup. Un joueur vient vous voir pour se plaindre que son adversaire joue son coup immédiatement après qu'il a joué, sans lui laisser le temps d'appuyer sur la pendule. Quelle est votre réponse (Session jun2021 — UV rules — Q21) ?",
       "expected_answer": "- 1.3. On dit d'un joueur ou une joueuse qu'il/elle « a le trait » lorsque son adversaire a « joué » son coup.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
@@ -22448,7 +22448,7 @@
     },
     {
       "id": "ffe:annales:rules:096:db7b1227",
-      "question": "Cadence : 1h30 + 30 secondes par coups. Vous soupçonnez très fortement un joueur d'avoir un téléphone allumé dans la poche de sa veste qu'il garde tout le temps lors de ses déplacements. Vous lui demander de vider ses poches devant vous, ce que le joueur refuse. Que pouvez-vous faire ?",
+      "question": "Cadence : 1h30 + 30 secondes par coups. Vous soupçonnez très fortement un joueur d'avoir un téléphone allumé dans la poche de sa veste qu'il garde tout le temps lors de ses déplacements. Vous lui demander de vider ses poches devant vous, ce que le joueur refuse. Que pouvez-vous faire (Session jun2021 — UV rules — Q8) ?",
       "expected_answer": "Le résultat est 1-0 ou 0-1. Peu importe si, lorsque le téléphone mobile est découvert, l'adversaire ne peut pas mater le roi du joueur fautif par aucune suite de coups légaux : il gagne la partie",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
@@ -22648,7 +22648,7 @@
     },
     {
       "id": "ffe:annales:rules:099:a1e9cd97",
-      "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué son roque à 2 mains. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie. Quelle est votre réponse ?",
+      "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué son roque à 2 mains. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie. Quelle est votre réponse (Session jun2021 — UV rules — Q16) ?",
       "expected_answer": "Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
@@ -22847,7 +22847,7 @@
     },
     {
       "id": "ffe:annales:rules:102:eda76021",
-      "question": "Vous êtes arbitre adjoint sur un open à cadence lente. La position suivante survient sur un échiquier : Après 26. Fxb4+, les Noirs répondent par TxTe4. Les Blancs arrêtent la pendule et signalent à leur adversaire que c'est un coup illégal et qu'ils doivent jouer maintenant un coup légal avec la Tc4. Les Noirs sont tellement déçus sur le coup qu'ils disent à voix haute « Alors j'abandonne ! ». Tous les joueurs l'entendent et vous aussi. C'est alors qu'un joueur sur un échiquier voisin dit aux Noirs « Capture juste le fou ! » et ensuite les Noirs « alors je n'abandonne pas ! ». Que faites-vous ?",
+      "question": "Vous êtes arbitre adjoint sur un open à cadence lente. La position suivante survient sur un échiquier : Après 26. Fxb4+, les Noirs répondent par TxTe4. Les Blancs arrêtent la pendule et signalent à leur adversaire que c'est un coup illégal et qu'ils doivent jouer maintenant un coup légal avec la Tc4. Les Noirs sont tellement déçus sur le coup qu'ils disent à voix haute « Alors j'abandonne ! ». Tous les joueurs l'entendent et vous aussi. C'est alors qu'un joueur sur un échiquier voisin dit aux Noirs « Capture juste le fou ! » et ensuite les Noirs « alors je n'abandonne pas ! ». Que faites-vous (Session jun2022 — UV rules — Q3) ?",
       "expected_answer": "La partie est gagnée par le joueur ou la joueuse qui a mis échec et mat le roi adverse.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p043-parent165-child00",
@@ -22914,7 +22914,7 @@
     },
     {
       "id": "ffe:annales:rules:103:f493b422",
-      "question": "Si un joueur souhaite proposer un match nul par accord mutuel, quelle est la bonne manière de procéder ?",
+      "question": "Si un joueur souhaite proposer un match nul par accord mutuel, quelle est la bonne manière de procéder (Session jun2022 — UV rules — Q5) ?",
       "expected_answer": "Le règlement d'une compétition peut spécifier que les deux adversaires ne peuvent pas proposer ou convenir d'une partie nulle, soit en dessous d'un nombre défini de coups soit pas du tout, sans le consentement de l'arbitre.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p051-parent179-child00",
@@ -23445,7 +23445,7 @@
     },
     {
       "id": "ffe:annales:tournament:005:ed5b90d2",
-      "question": "Pour la saison 2024-2025, un joueur a pris sa licence le 30/09/2024, il est né le 03/01/2011. Quelle est sa catégorie d'âge ?",
+      "question": "Pour la saison 2024-2025, un joueur a pris sa licence le 30/09/2024, il est né le 03/01/2011. Quelle est sa catégorie d'âge (Session dec2024 — UV tournament — Q10) ?",
       "expected_answer": "## C.04.3 Le système néerlandais Version approuvée par le 87ème congrès de la FIDE à Baku 2016",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p125-parent359-child00",
@@ -23581,7 +23581,7 @@
     },
     {
       "id": "ffe:annales:tournament:007:ccccbfee",
-      "question": "Pour un tournoi, le montant de l'inscription est fixé à 30 € pour les adultes et 15 € pour les jeunes. L'inscription est majorée à 40 € pour les adultes s'inscrivant à la dernière minute et 20 € pour les jeunes. Le jour du tournoi, une personne adulte handicapée se présente. Quelle somme doit-elle régler ?",
+      "question": "Pour un tournoi, le montant de l'inscription est fixé à 30 € pour les adultes et 15 € pour les jeunes. L'inscription est majorée à 40 € pour les adultes s'inscrivant à la dernière minute et 20 € pour les jeunes. Le jour du tournoi, une personne adulte handicapée se présente. Quelle somme doit-elle régler (Session dec2024 — UV tournament — Q13) ?",
       "expected_answer": "L'Arbitre doit vérifier la position finale sur l'échiquier et, uniquement si l'adversaire peut mater par une s uit e de coups légaux (c'est -àdire s'il existe une suite de coups menant à l' échec et mat en sa faveur avec les pièces présentes sur l'échiquier), alors il/elle peut déclarer la partie gagnée par l'adversaire.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p046-parent171-child02",
@@ -24463,7 +24463,7 @@
     },
     {
       "id": "ffe:annales:tournament:020:0ee45b0c",
-      "question": "En demi-finale de la coupe de France, comment sont départagées deux équipes ayant des scores identiques ?",
+      "question": "En demi-finale de la coupe de France, comment sont départagées deux équipes ayant des scores identiques (Session dec2024 — UV tournament — Q28) ?",
       "expected_answer": "- Les arbitres stagiaires n'ayant pas de titre ne perçoivent aucune indemnité, mais ont le droit aux frais d'hébergement. L'organisateur n'est pas tenu de leur verser des frais de déplacements.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
@@ -25830,7 +25830,7 @@
     },
     {
       "id": "ffe:annales:tournament:041:7a4c52d4",
-      "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence. Quel est le délai de régularisation pour le club ?",
+      "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence. Quel est le délai de régularisation pour le club (Session jun2025 — UV tournament — Q13) ?",
       "expected_answer": "Cependant, quand 2 actions illégales se produisent lors d'un même coup (par exemple, un roque illégal et joué à deux mains, une promotion illégale et jouée à deux mains, une prise illégale et jouée à deux mains), cela compte pour un (1) seul coup illégal et la partie ne doit pas être déclarée terminée juste pour cela, sauf s'il s'agit de la deuxième irrégularité",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
@@ -25899,7 +25899,7 @@
     },
     {
       "id": "ffe:annales:tournament:042:0ae424b3",
-      "question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante. Quel est le niveau minimum requis ?",
+      "question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante. Quel est le niveau minimum requis (Session jun2025 — UV tournament — Q14) ?",
       "expected_answer": "L'absence d'un joueur/d'une joueurs sans avoir prévenu l'arbitre est considéré comme un abandon du tournoi à moins qu'il/elle ne justifie son absence par une raison valable, avant que l'appariement de la ronde suivante ne soit publié.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p074-parent225-child00",

@@ -11,6 +11,7 @@ omit =
     scripts/pipeline/adversarial_harness.py
     scripts/pipeline/chunker_langchain.py
     scripts/pipeline/update_db_model_id.py
+    scripts/p[0-9]_*.py
     scripts/consolidate_*.py
     scripts/create_*.py
     scripts/validate_anti_hallucination.py

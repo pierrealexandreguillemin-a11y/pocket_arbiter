@@ -52,8 +52,8 @@ build/
 # =============================================================================
 
 # PDF sources (à gérer via Git LFS ou séparément)
-# corpus/fr/*.pdf
-# corpus/intl/*.pdf
+corpus/fr/**/*.pdf
+corpus/intl/**/*.pdf
 
 # Generated indexes (trop volumineux pour Git)
 *.index

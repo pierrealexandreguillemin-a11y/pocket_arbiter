@@ -209,15 +209,74 @@ class TestSyntheticRecall:
 # =============================================================================
 
 
-def main():  # noqa: C901
-    """
-    CLI benchmark recall - ISO 25010 S4.2.
+def _build_corpora(corpus_choice: str) -> list[tuple[str, Path, Path]]:
+    """Build list of (name, db_path, questions_file) based on CLI choice."""
+    corpora: list[tuple[str, Path, Path]] = []
+    if corpus_choice in ["fr", "both"]:
+        corpora.append(
+            (
+                "FR",
+                CORPUS_DIR / "corpus_mode_b_fr.db",
+                DATA_DIR / "gold_standard_fr.json",
+            )
+        )
+    if corpus_choice in ["intl", "both"]:
+        corpora.append(
+            (
+                "INTL",
+                CORPUS_DIR / "corpus_mode_a_intl.db",
+                DATA_DIR / "gold_standard_intl.json",
+            )
+        )
+    return corpora
 
-    Usage:
-        python -m scripts.pipeline.tests.test_recall
-        python -m scripts.pipeline.tests.test_recall --corpus intl
-        python -m scripts.pipeline.tests.test_recall --hybrid
-    """
+
+def _run_single_benchmark(
+    name: str,
+    db_path: Path,
+    questions_file: Path,
+    model: object,
+    args: object,
+) -> bool | None:
+    """Run benchmark on a single corpus. Returns True/False for pass/fail, None if skipped."""
+    if not db_path.exists():
+        print(f"\n[SKIP] {name}: DB not found {db_path}")
+        return None
+    if not questions_file.exists():
+        print(f"\n[SKIP] {name}: Questions not found {questions_file}")
+        return None
+
+    print(f"\n=== {name} ===")
+    result = benchmark_recall(
+        db_path,
+        questions_file,
+        model,
+        top_k=args.top_k,
+        use_hybrid=args.hybrid,
+        tolerance=args.tolerance,
+    )
+
+    recall_pct = result["recall_percent"]
+    iso_pass = recall_pct >= 80
+
+    print(f"Recall@{args.top_k}: {recall_pct:.2f}%")
+    print(f"ISO 25010 (>=80%): {'PASS' if iso_pass else 'FAIL'}")
+    print(f"Target (>=90%): {'PASS' if recall_pct >= 90 else 'FAIL'}")
+    print(
+        f"Questions: {result['total_questions']}, Failed: {len(result['failed_questions'])}"
+    )
+
+    if args.verbose and result["failed_questions"]:
+        for q in result["failed_questions"]:
+            print(
+                f"  {q['id']}: {q['recall'] * 100:.0f}% - expected {q['expected_pages']}, got {q['retrieved_pages']}"
+            )
+
+    return iso_pass
+
+
+def main() -> int:
+    """CLI benchmark recall - ISO 25010 S4.2."""
     import argparse
 
     parser = argparse.ArgumentParser(description="Benchmark Recall ISO 25010")
@@ -228,78 +287,23 @@ def main():  # noqa: C901
     parser.add_argument("--verbose", "-v", action="store_true")
     args = parser.parse_args()
 
-    # Load models ONCE
     from scripts.pipeline.embeddings import MODEL_ID, load_embedding_model
 
     print(f"Loading embedding model: {MODEL_ID}")
     model = load_embedding_model(MODEL_ID)
 
-    # Define corpora
-    corpora = []
-    if args.corpus in ["fr", "both"]:
-        corpora.append(
-            (
-                "FR",
-                CORPUS_DIR / "corpus_mode_b_fr.db",
-                DATA_DIR / "gold_standard_fr.json",
-            )
-        )
-    if args.corpus in ["intl", "both"]:
-        # INTL: corpus_mode_a_intl.db (mode_b INTL obsolete, a reconstruire)
-        corpora.append(
-            (
-                "INTL",
-                CORPUS_DIR / "corpus_mode_a_intl.db",
-                DATA_DIR / "gold_standard_intl.json",
-            )
-        )
+    corpora = _build_corpora(args.corpus)
 
-    # Run benchmarks
     print("\n" + "=" * 60)
     print("BENCHMARK RECALL - ISO 25010 S4.2")
     print("=" * 60)
 
     all_pass = True
     for name, db_path, questions_file in corpora:
-        if not db_path.exists():
-            print(f"\n[SKIP] {name}: DB not found {db_path}")
-            continue
-        if not questions_file.exists():
-            print(f"\n[SKIP] {name}: Questions not found {questions_file}")
-            continue
-
-        print(f"\n=== {name} ===")
-        result = benchmark_recall(
-            db_path,
-            questions_file,
-            model,
-            top_k=args.top_k,
-            use_hybrid=args.hybrid,
-            tolerance=args.tolerance,
-        )
-
-        recall_pct = result["recall_percent"]
-        iso_pass = recall_pct >= 80
-        target_pass = recall_pct >= 90
-
-        print(f"Recall@{args.top_k}: {recall_pct:.2f}%")
-        print(f"ISO 25010 (>=80%): {'PASS' if iso_pass else 'FAIL'}")
-        print(f"Target (>=90%): {'PASS' if target_pass else 'FAIL'}")
-        print(
-            f"Questions: {result['total_questions']}, Failed: {len(result['failed_questions'])}"
-        )
-
-        if not iso_pass:
+        passed = _run_single_benchmark(name, db_path, questions_file, model, args)
+        if passed is False:
             all_pass = False
 
-        if args.verbose and result["failed_questions"]:
-            print("\nFailed questions:")
-            for q in result["failed_questions"]:
-                print(
-                    f"  {q['id']}: {q['recall'] * 100:.0f}% - expected {q['expected_pages']}, got {q['retrieved_pages']}"
-                )
-
-    # Final result
     print("\n" + "=" * 60)
     print(f"RESULT: {'ALL PASS' if all_pass else 'FAIL'}")
     print("=" * 60)

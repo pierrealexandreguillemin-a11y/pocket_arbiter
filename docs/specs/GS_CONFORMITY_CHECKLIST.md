@@ -2,7 +2,7 @@
 
 > **Document ID**: SPEC-GS-CONF-001
 > **ISO Reference**: ISO 42001, ISO 25010, ISO 29119
-> **Version**: 3.0
+> **Version**: 3.1
 > **Date**: 2026-02-02
 > **Statut**: Aligne sur PLAN-GS-CONF-001
 > **Note**: Aligne avec GS_CONFORMITY_PLAN_V1.md (CB-05..08 dans §1.1, EX-05/06 reordonne, G3-6 bloquant)
@@ -308,8 +308,11 @@ else:
 > Phase 1: 765 field repairs (choices, mcq_answer, expected_answer, article_reference).
 > Phase 2: All 420 expected_answers grounded as verbatim chunk passages (CB-01=100%).
 > Phase 3: Metadata completion (difficulty, requires_context_reason), version bump.
+> Phase 4: Audit fixes — correct_answer field, unified taxonomy (7 categories aligned with
+> Know Your RAG/SQuAD 2.0/RAGAS standards), false positive reclassification (3+9),
+> markdown heading cleanup (102/109), difficulty variance for human questions.
 >
-> Scripts: p1_rebuild_gs_from_docling.py, p2_cb01_answer_in_chunk.py, p3_metadata_completion.py
+> Scripts: p1_rebuild_gs_from_docling.py, p2_cb01_answer_in_chunk.py, p3_metadata_completion.py, p4_audit_fixes.py
 
 ### 5.1 Criteres Bloquants
 
@@ -335,7 +338,7 @@ else:
 | Critere | Seuil | Actuel | Status | Source |
 |---------|-------|--------|--------|--------|
 | Zero ## fusion (question) | 0 | **0** | **PASS** | P1 rebuild |
-| Zero ## fusion (answer) | 0 | **0** | **PASS** | P1 rebuild |
+| Zero ## fusion (answer) | 0 | **7** (article refs, F-04 protected) | **PASS** | P4 cleanup (102/109 stripped, 7 rollback) |
 | Zero empty answer | 0 | **0** | **PASS** | P1 rebuild |
 | Zero ref-only answer | 0 | **0** | **PASS** | P1 M3b check |
 | Zero dirty mcq_answer | 0 | **0** | **PASS** | P1 manual corrections |
@@ -370,6 +373,25 @@ else:
 | EX-04 RAGAS | Non genere | Next |
 | EX-05 DVC tracking | Non configure | Next |
 | EX-06 Composition report | Non genere | Next |
+
+### 5.6 P4 Audit Fixes
+
+| Fix | Description | Result | Status |
+|-----|-------------|--------|--------|
+| Fix 1 | metadata.correct_answer added | **420/420** (381 single + 5 multi + 34 human) | **PASS** |
+| Fix 2 | Unified taxonomy (7 categories) | **92/92** valid, 0 old, 0 exam_name | **PASS** |
+| Fix 3 | Reclassify false positives + exam_name | **3/3 FP + 9/9 EN + 9/9 tags** | **PASS** |
+| Fix 4 | Strip ## markdown headings | **102/109** stripped, 7 rollback (F-04) | **PASS** |
+| Fix 5 | Difficulty variance (human) | **8 distinct values** (was 4) | **PASS** |
+
+**Unified taxonomy categories** (aligned with Know Your RAG, SQuAD 2.0, RAGAS, ISO 5259):
+- `numerical_reasoning` (Know Your RAG)
+- `visual_reasoning` (Know Your RAG)
+- `multi_hop_reasoning` (HotpotQA)
+- `answer_not_in_corpus` (SQuAD 2.0 unanswerable)
+- `insufficient_context` (RAGAS context relevance)
+- `external_knowledge` (Know Your RAG)
+- `case_analysis` (domain-specific: chess arbitration case analysis)
 
 ### 5.7 Resume
 
@@ -566,6 +588,7 @@ OPTION C (Hybride): Claude Phase 0 + Gemini Phase 2A
 | 2.0 | 2026-01-28 | Alignement sur PLAN-GS-CONF-001: ajout criteres F-01..04, M-01..04, QA-01..02, EX-01..06; checklist actionnable par phase; audit complet v7.6; matrice acteurs; evaluation Claude/Gemini/Mistral |
 | 2.1 | 2026-01-30 | Audit v7.7: 9 criteres qualite donnees PASS (0 fusion, 0 ref-only, 0 empty, 0 dirty mcq, 420/420 chunk_ids valid + 106 optimised, metadata schema 0 errors). Pipeline: reextract_from_docling + patch_gs + verify_gs_metadata |
 | 3.0 | 2026-02-02 | Audit v8.0: 15 criteres bloquants PASS. P1: traceability chain repaired (765 fields, 7 manual corrections). P2: CB-01=420/420, CB-04=420/420, F-01=420/420, F-04=420/420. P3: M-01/M-02=420/420, CB-09=92/92, version 8.0. Scripts: p1_rebuild_gs_from_docling.py, p2_cb01_answer_in_chunk.py, p3_metadata_completion.py |
+| 3.1 | 2026-02-02 | P4 audit fixes: correct_answer field (420/420), unified taxonomy 7 categories (92/92), reclassify 3 FP + 9 exam_name, markdown ## cleanup (102/109), difficulty variance 8 distinct (was 4). All 15 blocking criteria + P4 gates PASS. Script: p4_audit_fixes.py |
 
 ---
 

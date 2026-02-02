@@ -561,6 +561,54 @@ def _is_definition_query(query_text: str) -> bool:
     return any(pattern in query_lower for pattern in DEFINITION_QUERY_PATTERNS)
 
 
+def _detect_source_filter(query_lower: str) -> str | None:
+    """Detect source filter from smart_retrieve patterns."""
+    for keyword, source in SOURCE_FILTER_PATTERNS.items():
+        if keyword in query_lower:
+            return source
+    return None
+
+
+def _find_matched_pattern(query_lower: str) -> str | None:
+    """Find the first matching definition pattern for logging."""
+    for pattern in DEFINITION_QUERY_PATTERNS:
+        if pattern in query_lower:
+            return pattern
+    return None
+
+
+def _retrieve_with_fallback(
+    db_path: Path,
+    query_embedding: np.ndarray,
+    top_k: int,
+    source_filter: str | None,
+    glossary_boost: float | None,
+    apply_boost: bool,
+) -> tuple[list[dict], int, bool]:
+    """Retrieve results with glossary fallback. Returns (results, glossary_hits, fallback)."""
+    fetch_k = top_k * 2 if apply_boost else top_k
+    results = retrieve_similar(
+        db_path,
+        query_embedding,
+        top_k=fetch_k,
+        source_filter=source_filter,
+        glossary_boost=glossary_boost,
+    )
+    glossary_hits = sum(1 for r in results if r.get("is_glossary", False))
+
+    if apply_boost and glossary_hits == 0 and len(results) > 0:
+        results = retrieve_similar(
+            db_path,
+            query_embedding,
+            top_k=top_k,
+            source_filter=source_filter,
+            glossary_boost=None,
+        )
+        return results[:top_k], glossary_hits, True
+
+    return results[:top_k], glossary_hits, False
+
+
 def retrieve_with_glossary_boost(
     db_path: Path,
     query_embedding: np.ndarray,
@@ -600,60 +648,25 @@ def retrieve_with_glossary_boost(
         >>> # Boost force (toutes queries)
         >>> results = retrieve_with_glossary_boost(db, emb, "roque", auto_detect=False)
     """
-    # Detect source filter from smart_retrieve patterns
     query_lower = query_text.lower()
-    selected_filter = None
-    for keyword, source in SOURCE_FILTER_PATTERNS.items():
-        if keyword in query_lower:
-            selected_filter = source
-            break
-
-    # Determine if glossary boost should be applied
+    selected_filter = _detect_source_filter(query_lower)
     is_definition = _is_definition_query(query_text)
     apply_boost = not auto_detect or is_definition
 
-    # Detect matched pattern for logging
-    matched_pattern = None
-    if is_definition:
-        for pattern in DEFINITION_QUERY_PATTERNS:
-            if pattern in query_lower:
-                matched_pattern = pattern
-                break
-
-    # Retrieve with optional glossary boost (fetch larger pool for potential fallback)
-    fetch_k = top_k * 2 if apply_boost else top_k
-    results = retrieve_similar(
+    results, glossary_hits, fallback_used = _retrieve_with_fallback(
         db_path,
         query_embedding,
-        top_k=fetch_k,
-        source_filter=selected_filter,
-        glossary_boost=boost_factor if apply_boost else None,
+        top_k,
+        selected_filter,
+        boost_factor if apply_boost else None,
+        apply_boost,
     )
 
-    # Count glossary hits in results
-    glossary_hits = sum(1 for r in results if r.get("is_glossary", False))
-    fallback_used = False
-
-    # Fallback: if boost active but no glossary chunks returned -> retry without boost
-    if apply_boost and glossary_hits == 0 and len(results) > 0:
-        fallback_used = True
-        results = retrieve_similar(
-            db_path,
-            query_embedding,
-            top_k=top_k,
-            source_filter=selected_filter,
-            glossary_boost=None,
-        )
-
-    # Truncate to top_k
-    results = results[:top_k]
-
-    # Add metadata flags to results
     for result in results:
         result["boost_applied"] = apply_boost and not fallback_used
         result["fallback_used"] = fallback_used
 
-    # Structured logging (JSONL file for analytics)
+    matched_pattern = _find_matched_pattern(query_lower) if is_definition else None
     log_retrieval(
         query=query_text,
         is_definition=is_definition,

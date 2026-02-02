@@ -209,7 +209,7 @@ class TestSyntheticRecall:
 # =============================================================================
 
 
-def main():
+def main():  # noqa: C901
     """
     CLI benchmark recall - ISO 25010 S4.2.
 

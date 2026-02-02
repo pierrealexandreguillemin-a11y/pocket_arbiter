@@ -116,6 +116,57 @@ def _validate_chunk(chunk: dict) -> None:
         raise ValueError(f"Chunk missing required fields: {missing}")
 
 
+def _insert_metadata(
+    cursor: sqlite3.Cursor,
+    embedding_dim: int,
+    total_chunks: int,
+    model_id: str | None,
+) -> None:
+    """Insert metadata rows into the database."""
+    for key, value in [
+        ("schema_version", SCHEMA_VERSION),
+        ("embedding_dim", str(embedding_dim)),
+        ("total_chunks", str(total_chunks)),
+    ]:
+        cursor.execute("INSERT INTO metadata (key, value) VALUES (?, ?)", (key, value))
+    if model_id:
+        cursor.execute(
+            "INSERT INTO metadata (key, value) VALUES (?, ?)",
+            ("model_id", model_id),
+        )
+
+
+def _insert_chunks(
+    cursor: sqlite3.Cursor,
+    chunks: list[dict],
+    embeddings: np.ndarray,
+) -> None:
+    """Insert chunk rows with embeddings into the database."""
+    core_fields = {"id", "text", "source", "page", "tokens"}
+    for chunk, embedding in zip(chunks, embeddings, strict=True):
+        _validate_chunk(chunk)
+        metadata = {
+            k: v for k, v in chunk.items() if k not in core_fields and v is not None
+        }
+        if "metadata" in chunk and isinstance(chunk["metadata"], dict):
+            metadata.update(chunk["metadata"])
+        cursor.execute(
+            """
+            INSERT INTO chunks (id, text, source, page, tokens, metadata, embedding)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                chunk["id"],
+                chunk["text"],
+                chunk["source"],
+                chunk["page"],
+                chunk["tokens"],
+                json.dumps(metadata),
+                embedding_to_blob(embedding),
+            ),
+        )
+
+
 def create_vector_db(
     db_path: Path,
     chunks: list[dict],
@@ -159,59 +210,10 @@ def create_vector_db(
 
     try:
         cursor.executescript(_get_schema_sql())
-
-        cursor.execute(
-            "INSERT INTO metadata (key, value) VALUES (?, ?)",
-            ("schema_version", SCHEMA_VERSION),
-        )
-        cursor.execute(
-            "INSERT INTO metadata (key, value) VALUES (?, ?)",
-            ("embedding_dim", str(embedding_dim)),
-        )
-        cursor.execute(
-            "INSERT INTO metadata (key, value) VALUES (?, ?)",
-            ("total_chunks", str(len(chunks))),
-        )
-        # ISO 42001 A.6.2.2 - Model traceability for fallback strategy
-        if model_id:
-            cursor.execute(
-                "INSERT INTO metadata (key, value) VALUES (?, ?)",
-                ("model_id", model_id),
-            )
-
-        for chunk, embedding in zip(chunks, embeddings, strict=True):
-            _validate_chunk(chunk)
-
-            # Build metadata from all non-core fields (ISO 42001 traceability)
-            core_fields = {"id", "text", "source", "page", "tokens"}
-            metadata = {
-                k: v for k, v in chunk.items() if k not in core_fields and v is not None
-            }
-            # Merge with existing metadata if present
-            if "metadata" in chunk and isinstance(chunk["metadata"], dict):
-                metadata.update(chunk["metadata"])
-            metadata_json = json.dumps(metadata)
-            embedding_blob = embedding_to_blob(embedding)
-
-            cursor.execute(
-                """
-                INSERT INTO chunks (id, text, source, page, tokens, metadata, embedding)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-                """,
-                (
-                    chunk["id"],
-                    chunk["text"],
-                    chunk["source"],
-                    chunk["page"],
-                    chunk["tokens"],
-                    metadata_json,
-                    embedding_blob,
-                ),
-            )
-
+        _insert_metadata(cursor, embedding_dim, len(chunks), model_id)
+        _insert_chunks(cursor, chunks, embeddings)
         conn.commit()
         logger.info(f"Inserted {len(chunks)} chunks into database")
-
     finally:
         conn.close()
 

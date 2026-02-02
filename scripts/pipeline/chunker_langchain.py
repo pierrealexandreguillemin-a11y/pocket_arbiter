@@ -165,6 +165,26 @@ def _search_in_ordered_texts(
     return 0
 
 
+def _try_direct_segment_match(text_norm: str, text_to_page: dict[str, int]) -> int:
+    """Strategy 1: Direct segment matching at multiple lengths."""
+    for length in [150, 100, 80, 60, 40, 30]:
+        if len(text_norm) >= length:
+            page = _match_snippet_to_page(text_norm[:length], text_to_page)
+            if page > 0:
+                return page
+
+    # Try from middle of chunk too
+    if len(text_norm) >= 80:
+        mid_start = len(text_norm) // 3
+        page = _match_snippet_to_page(
+            text_norm[mid_start : mid_start + 60], text_to_page
+        )
+        if page > 0:
+            return page
+
+    return 0
+
+
 def find_page_from_map(
     text: str,
     text_to_page: dict[str, int],
@@ -194,20 +214,9 @@ def find_page_from_map(
 
     # Strategy 1: Direct segment matching (multiple lengths)
     if text_to_page and len(text_norm) >= 20:
-        for length in [150, 100, 80, 60, 40, 30]:
-            if len(text_norm) >= length:
-                snippet = text_norm[:length]
-                page = _match_snippet_to_page(snippet, text_to_page)
-                if page > 0:
-                    return page
-
-        # Try from middle of chunk too
-        if len(text_norm) >= 80:
-            mid_start = len(text_norm) // 3
-            mid_snippet = text_norm[mid_start : mid_start + 60]
-            page = _match_snippet_to_page(mid_snippet, text_to_page)
-            if page > 0:
-                return page
+        page = _try_direct_segment_match(text_norm, text_to_page)
+        if page > 0:
+            return page
 
     # Strategy 2: Search in ordered texts
     if ordered_texts and len(text_norm) >= 25:
@@ -216,11 +225,10 @@ def find_page_from_map(
             return page
 
     # Strategy 3: Context propagation (sequential document assumption)
-    # ISO 42001: Must have page >= 1, use previous chunk's page
     if prev_page > 0:
         return prev_page
 
-    # Fallback: first page if nothing else works (should rarely happen)
+    # Fallback: first page if nothing else works
     return 1
 
 

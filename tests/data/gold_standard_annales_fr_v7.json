@@ -1,5 +1,5 @@
 {
-  "version": "7.6",
+  "version": "8.0",
   "schema": "unified-v1",
   "description": "Gold standard v7.6 - reasoning benchmark, validated metrics, LREM justified",
   "methodology": {
@@ -1757,7 +1757,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "choice",
-        "original_answer": "1742-1987-2272."
+        "original_answer": "1742-1987-2272.",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVC-028"
     },
@@ -2015,7 +2016,8 @@
         "context_reason": "name:Daniela",
         "extraction_flags": [],
         "answer_source": "explanation",
-        "original_answer": "9 et 12."
+        "original_answer": "9 et 12.",
+        "requires_context_reason": "requires_specific_context"
       },
       "legacy_id": "FR-ANN-UVC-034"
     },
@@ -2077,7 +2079,8 @@
         "context_reason": "ci-dessous",
         "extraction_flags": [],
         "answer_source": "explanation",
-        "original_answer": "Partie nulle. <!-- image --> ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription."
+        "original_answer": "Partie nulle. <!-- image --> ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
+        "requires_context_reason": "requires_competition_context"
       },
       "legacy_id": "FR-ANN-UVC-035"
     },
@@ -2141,7 +2144,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "3."
+        "original_answer": "3.",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVC-036"
     },
@@ -2667,7 +2671,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3"
+        "original_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVC-046"
     },
@@ -2794,7 +2799,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Paul et Hector."
+        "original_answer": "Paul et Hector.",
+        "requires_context_reason": "requires_specific_context"
       },
       "legacy_id": "FR-ANN-UVC-049"
     },
@@ -2855,7 +2861,8 @@
         ],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale."
+        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale.",
+        "requires_context_reason": "requires_external_data"
       },
       "legacy_id": "FR-ANN-UVC-050"
     },
@@ -2915,7 +2922,8 @@
         "context_reason": "name:Paul",
         "extraction_flags": [],
         "answer_source": "explanation",
-        "original_answer": "Les 70 € du prix de la catégorie 1000 - 1699."
+        "original_answer": "Les 70 € du prix de la catégorie 1000 - 1699.",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVC-053"
     },
@@ -3638,7 +3646,8 @@
         "context_reason": "name:Andreina",
         "extraction_flags": [],
         "answer_source": "explanation",
-        "original_answer": "14, sans préférence couleur. LA C.04.2.B - Ordre initial et D.5 -préférence couleur : Avant la première ronde, les joueurs sont rangés selon l'ordre suivant : a. Leur force (classement Elo) ; b. Leur titre FIDE. (G.M., M.I., G.M.F., M.F., M.I.F., C.M. (candidat maître), M.F.F., C.M.F. (candidat maître féminin) puis les non-titrés. c. Alphabétiquement (à moins que ce critère n'ait été au préalable remplacé par un autre). Seules les parties jouées comptent dans les situations où l'historique des couleurs est à prendre en compte."
+        "original_answer": "14, sans préférence couleur. LA C.04.2.B - Ordre initial et D.5 -préférence couleur : Avant la première ronde, les joueurs sont rangés selon l'ordre suivant : a. Leur force (classement Elo) ; b. Leur titre FIDE. (G.M., M.I., G.M.F., M.F., M.I.F., C.M. (candidat maître), M.F.F., C.M.F. (candidat maître féminin) puis les non-titrés. c. Alphabétiquement (à moins que ce critère n'ait été au préalable remplacé par un autre). Seules les parties jouées comptent dans les situations où l'historique des couleurs est à prendre en compte.",
+        "requires_context_reason": "requires_cross_reference"
       },
       "legacy_id": "FR-ANN-UVC-064"
     },
@@ -3964,7 +3973,8 @@
         "context_reason": "answer_contains_exam_name",
         "extraction_flags": [],
         "answer_source": "explanation",
-        "original_answer": "Cécile et Gauthier."
+        "original_answer": "Cécile et Gauthier.",
+        "requires_context_reason": "chunk_insufficient_context"
       },
       "legacy_id": "FR-ANN-UVC-069"
     },
@@ -4025,7 +4035,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Je modifie immédiatement le score et leur attribue un match nul. LA - Règles de compétition -Article 8.7. : A la fin de la partie, les deux adversaires doivent indiquer le résultat de la partie en signant les deux feuilles de partie ou en validant le résultat sur leurs feuilles de p artie électroniques. Même s'il est incorrect, le résultat est maintenu, à moins que l'arbitre en décide autrement. Dans ce cas l'évidence prime et ni les résultats, ni les ap pariements n'ont été publiés."
+        "original_answer": "Je modifie immédiatement le score et leur attribue un match nul. LA - Règles de compétition -Article 8.7. : A la fin de la partie, les deux adversaires doivent indiquer le résultat de la partie en signant les deux feuilles de partie ou en validant le résultat sur leurs feuilles de p artie électroniques. Même s'il est incorrect, le résultat est maintenu, à moins que l'arbitre en décide autrement. Dans ce cas l'évidence prime et ni les résultats, ni les ap pariements n'ont été publiés.",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVC-070"
     },
@@ -4279,7 +4290,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Il a les noirs à la ronde 7 il a une préférence couleur noire faible au vu de son historique couleur. LA Chapitre 3.5 : Les règles du système suisse : A.6.d - Différences de couleurs et préférences de couleur - C.04.3 Le système néerlandais."
+        "original_answer": "Il a les noirs à la ronde 7 il a une préférence couleur noire faible au vu de son historique couleur. LA Chapitre 3.5 : Les règles du système suisse : A.6.d - Différences de couleurs et préférences de couleur - C.04.3 Le système néerlandais.",
+        "requires_context_reason": "chunk_insufficient_context"
       },
       "legacy_id": "FR-ANN-UVC-074"
     },
@@ -4533,7 +4545,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale au bureau fédéral de la FFE . LA TITRE VI : Charte de l'arbitrage et mesures administratives -17 : En particulier, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satis faisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridiq ue."
+        "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale au bureau fédéral de la FFE . LA TITRE VI : Charte de l'arbitrage et mesures administratives -17 : En particulier, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satis faisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridiq ue.",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVC-078"
     },
@@ -4658,7 +4671,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "350 €"
+        "original_answer": "350 €",
+        "requires_context_reason": "requires_external_data"
       },
       "legacy_id": "FR-ANN-UVC-080"
     },
@@ -5048,7 +5062,8 @@
           "image_dependent"
         ],
         "answer_source": "choice",
-        "original_answer": "Vous rappelez à l'ordre le joueur qui a les blancs à l'ordre en lui indiquant qu'il est obligé d'accepter la nulle car il n'a plus le matériel pour mater suivant l'article 6.9."
+        "original_answer": "Vous rappelez à l'ordre le joueur qui a les blancs à l'ordre en lui indiquant qu'il est obligé d'accepter la nulle car il n'a plus le matériel pour mater suivant l'article 6.9.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVC-086"
     },
@@ -5182,7 +5197,8 @@
           "image_dependent"
         ],
         "answer_source": "explanation",
-        "original_answer": "Les noirs ont l'obligation de jouer l'autre cavalier."
+        "original_answer": "Les noirs ont l'obligation de jouer l'autre cavalier.",
+        "requires_context_reason": "requires_external_data"
       },
       "legacy_id": "FR-ANN-UVC-088"
     },
@@ -5724,7 +5740,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "choice",
-        "original_answer": "Un arbitre fédéral Jeune."
+        "original_answer": "Un arbitre fédéral Jeune.",
+        "requires_context_reason": "requires_competition_context"
       },
       "legacy_id": "FR-ANN-UVC-097"
     },
@@ -5787,7 +5804,8 @@
         "context_reason": "position suivante",
         "extraction_flags": [],
         "answer_source": "choice",
-        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. <!-- image --> <!-- image --> <!-- image -->"
+        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. <!-- image --> <!-- image --> <!-- image -->",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVC-098"
     },
@@ -8012,7 +8030,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Les Noirs peuvent prendre le fou."
+        "original_answer": "Les Noirs peuvent prendre le fou.",
+        "requires_context_reason": "requires_specific_context"
       },
       "legacy_id": "FR-ANN-UVC-133"
     },
@@ -8077,7 +8096,8 @@
         ],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "R.01 : Règles générales pour les compétitions fédérales, art. 2.3.1."
+        "original_answer": "R.01 : Règles générales pour les compétitions fédérales, art. 2.3.1.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVC-134"
     },
@@ -8471,7 +8491,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "40 jours avant le tournoi."
+        "original_answer": "40 jours avant le tournoi.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVC-140"
     },
@@ -8993,7 +9014,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Oui, c'est autorisé."
+        "original_answer": "Oui, c'est autorisé.",
+        "requires_context_reason": "requires_competition_context"
       },
       "legacy_id": "FR-ANN-UVC-148"
     },
@@ -9057,7 +9079,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "15h15."
+        "original_answer": "15h15.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVC-149"
     },
@@ -11198,7 +11221,8 @@
         "context_reason": "ci-dessous",
         "extraction_flags": [],
         "answer_source": "choice",
-        "original_answer": "Pour les personnes seulement à partir de 18 ans, avoir participé à un stage de sensibilisation contre les violences sexistes et sexuelles."
+        "original_answer": "Pour les personnes seulement à partir de 18 ans, avoir participé à un stage de sensibilisation contre les violences sexistes et sexuelles.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVO-020"
     },
@@ -11462,7 +11486,8 @@
         "context_reason": "ci-dessous",
         "extraction_flags": [],
         "answer_source": "choice",
-        "original_answer": "Sans formation pendant dix ans à compter de son dernier stage, un arbitre devra suivre un stage entier de premier niveau et passer l'examen UVR."
+        "original_answer": "Sans formation pendant dix ans à compter de son dernier stage, un arbitre devra suivre un stage entier de premier niveau et passer l'examen UVR.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVO-024"
     },
@@ -15931,7 +15956,8 @@
         ],
         "answer_explanation": null,
         "answer_source": "choice",
-        "original_answer": "La partie est terminée donc vous validez le résultat : les blancs ont gagné."
+        "original_answer": "La partie est terminée donc vous validez le résultat : les blancs ont gagné.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVR-030"
     },
@@ -17743,7 +17769,8 @@
           "image_dependent"
         ],
         "answer_source": "explanation",
-        "original_answer": "1"
+        "original_answer": "1",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVR-060"
     },
@@ -17806,7 +17833,8 @@
           "image_dependent"
         ],
         "answer_source": "explanation",
-        "original_answer": "1197"
+        "original_answer": "1197",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVR-061"
     },
@@ -17938,7 +17966,8 @@
           "image_dependent"
         ],
         "answer_source": "explanation",
-        "original_answer": "200 €."
+        "original_answer": "200 €.",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVR-063"
     },
@@ -19667,7 +19696,8 @@
           "image_dependent"
         ],
         "answer_source": "choice",
-        "original_answer": "Les noirs ont l'obligation de jouer le coup exd4."
+        "original_answer": "Les noirs ont l'obligation de jouer le coup exd4.",
+        "requires_context_reason": "requires_external_data"
       },
       "legacy_id": "FR-ANN-UVR-090"
     },
@@ -19728,7 +19758,8 @@
         "context_reason": "position suivante",
         "extraction_flags": [],
         "answer_source": "choice",
-        "original_answer": "Les noirs ne peuvent pas prendre le cavalier."
+        "original_answer": "Les noirs ne peuvent pas prendre le cavalier.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVR-096"
     },
@@ -19793,7 +19824,8 @@
           "image_dependent"
         ],
         "answer_source": "choice",
-        "original_answer": "Il y a une irrégularité apparente, si les blancs jouent sans réclamer alors vous 4. n'interviendrez pas pour le moment."
+        "original_answer": "Il y a une irrégularité apparente, si les blancs jouent sans réclamer alors vous 4. n'interviendrez pas pour le moment.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVR-098"
     },
@@ -19858,7 +19890,8 @@
           "image_dependent"
         ],
         "answer_source": "choice",
-        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. Règles du jeu - Article 3.10.3 On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité."
+        "original_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité. Règles du jeu - Article 3.10.3 On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVR-099"
     },
@@ -20175,7 +20208,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Jouer un coup d'une main et appuyer sur la pendule de l'autre"
+        "original_answer": "Jouer un coup d'une main et appuyer sur la pendule de l'autre",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVR-126"
     },
@@ -20238,7 +20272,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Les Noirs peuvent déplacer une tour."
+        "original_answer": "Les Noirs peuvent déplacer une tour.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVR-127"
     },
@@ -22132,7 +22167,8 @@
           "image_dependent"
         ],
         "answer_source": "choice",
-        "original_answer": "Les Blancs ont gagné la partie."
+        "original_answer": "Les Blancs ont gagné la partie.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVR-164"
     },
@@ -23755,7 +23791,8 @@
         "context_reason": "ci-dessous",
         "extraction_flags": [],
         "answer_source": "explanation",
-        "original_answer": "1742-1987-2272."
+        "original_answer": "1742-1987-2272.",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVT-028"
     },
@@ -24010,7 +24047,8 @@
           "image_dependent"
         ],
         "answer_source": "explanation",
-        "original_answer": "Partie nulle. ## LA : Article 7.5.5 des règles du jeu Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. Le roi blanc est en échec. Le seul moyen de parer cet échec est Cxf4 qui mate immédiatement le roi noir. Les noirs ne pouvant gagner, la nulle est déclarée. ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription."
+        "original_answer": "Partie nulle. ## LA : Article 7.5.5 des règles du jeu Après l'application de l'Article 7.5.1, 7.5.2, 7.5.3 ou 7.5.4, pour le premier coup illégal achevé par un joueur ou une joueuse, l'arbitre donne deux minutes supplémentaires à son adversaire ; pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. Le roi blanc est en échec. Le seul moyen de parer cet échec est Cxf4 qui mate immédiatement le roi noir. Les noirs ne pouvant gagner, la nulle est déclarée. ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
+        "requires_context_reason": "requires_position_diagram"
       },
       "legacy_id": "FR-ANN-UVT-036"
     },
@@ -24197,7 +24235,8 @@
         "context_reason": "name:Paul",
         "extraction_flags": [],
         "answer_source": "existing",
-        "original_answer": "Noir absolu et Blanc absolu. LA : Chap. 3.5 : Les règles du système suisse C.04.3 - A6 : Différences de couleurs et préférences couleurs ## Historique couleur de Pauline : .BB Historique couleur d'Ignace : BNN La différence de couleurs d'un joueur est une valeur qui s'obtient en soustrayant au nombre de parties jouées avec les Blancs le nombre de parties jouées avec les Noirs par ce même joueur. La préférence de couleur est la couleur que le joueur devrait idéalement recevoir pour la partie suivante. Elle peut être déterminée pour chaque joueur qui a joué au moins une partie. - a. Une préférence de couleur est absolue quand la différence de couleurs est supérieure à +1 ou inférieure à -1, ou quand un joueur a joué avec la même couleur lors des deux rondes précédentes. La préférence est blanche quand la différence de couleurs est plus petite que -1 ou quand les deux dernières parties ont été jouées avec les Noirs. La préférence est noire quand la différence de couleurs est plus grande que +1 ou quand les deux dernières parties ont été jouées avec les Blancs. - b. Une préférence de couleur est forte quand la différence de couleurs d'un joueur est +1 (préférence noire) ou -1 (préférence blancs). - c. Une préférence de couleur est faible quand la différence de couleurs d'un joueur est nulle, la préférence étant de la couleur opposée à celle de la couleur allouée lors de la partie précédente. - d. Les joueurs qui n'ont joué aucune partie n'ont pas de préférence couleur (leur adversaire se voit accorder leur préférence de couleur). Ce qui entraîne une préférence noire absolue pour Pauline et une préférence blanche absolue pour Ignace."
+        "original_answer": "Noir absolu et Blanc absolu. LA : Chap. 3.5 : Les règles du système suisse C.04.3 - A6 : Différences de couleurs et préférences couleurs ## Historique couleur de Pauline : .BB Historique couleur d'Ignace : BNN La différence de couleurs d'un joueur est une valeur qui s'obtient en soustrayant au nombre de parties jouées avec les Blancs le nombre de parties jouées avec les Noirs par ce même joueur. La préférence de couleur est la couleur que le joueur devrait idéalement recevoir pour la partie suivante. Elle peut être déterminée pour chaque joueur qui a joué au moins une partie. - a. Une préférence de couleur est absolue quand la différence de couleurs est supérieure à +1 ou inférieure à -1, ou quand un joueur a joué avec la même couleur lors des deux rondes précédentes. La préférence est blanche quand la différence de couleurs est plus petite que -1 ou quand les deux dernières parties ont été jouées avec les Noirs. La préférence est noire quand la différence de couleurs est plus grande que +1 ou quand les deux dernières parties ont été jouées avec les Blancs. - b. Une préférence de couleur est forte quand la différence de couleurs d'un joueur est +1 (préférence noire) ou -1 (préférence blancs). - c. Une préférence de couleur est faible quand la différence de couleurs d'un joueur est nulle, la préférence étant de la couleur opposée à celle de la couleur allouée lors de la partie précédente. - d. Les joueurs qui n'ont joué aucune partie n'ont pas de préférence couleur (leur adversaire se voit accorder leur préférence de couleur). Ce qui entraîne une préférence noire absolue pour Pauline et une préférence blanche absolue pour Ignace.",
+        "requires_context_reason": "chunk_insufficient_context"
       },
       "legacy_id": "FR-ANN-UVT-042"
     },
@@ -24257,7 +24296,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Le joueur A aura les blancs car on a inversé les couleurs de la ronde N°3"
+        "original_answer": "Le joueur A aura les blancs car on a inversé les couleurs de la ronde N°3",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVT-044"
     },
@@ -24435,7 +24475,8 @@
         "context_reason": "name:Paul",
         "extraction_flags": [],
         "answer_source": "explanation",
-        "original_answer": "2,5 et 3 LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté Pauline : 0,5 + 0,5 + 1 + 0,5 = 2,5 François : 1 + 0,5 + 0,5 + 0,5 + 0,5 = 3"
+        "original_answer": "2,5 et 3 LA : Chap. 4.2 : Les systèmes de départages : Article 14 Gestion des rondes non jouées et score ajusté Pauline : 0,5 + 0,5 + 1 + 0,5 = 2,5 François : 1 + 0,5 + 0,5 + 0,5 + 0,5 = 3",
+        "requires_context_reason": "requires_calculation"
       },
       "legacy_id": "FR-ANN-UVT-047"
     },
@@ -24627,7 +24668,8 @@
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
-        "original_answer": "Paiements des droits d'homologation. LA : Chap. 5.4 : Rapport technique de fin de tournoi ------------------------------------------ Fin du corrigé de l'UVT ## Informations de contact <!-- image --> Directeur de l'Education des arbitres : Rachid Heddache direc.educ.dna@gmail.com <!-- image --> N'hésitez pas à contacter la DNA en cas de question ou de remarque sur l'édition de ces annales."
+        "original_answer": "Paiements des droits d'homologation. LA : Chap. 5.4 : Rapport technique de fin de tournoi ------------------------------------------ Fin du corrigé de l'UVT ## Informations de contact <!-- image --> Directeur de l'Education des arbitres : Rachid Heddache direc.educ.dna@gmail.com <!-- image --> N'hésitez pas à contacter la DNA en cas de question ou de remarque sur l'édition de ces annales.",
+        "requires_context_reason": "chunk_insufficient_context"
       },
       "legacy_id": "FR-ANN-UVT-053"
     },
@@ -25447,7 +25489,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "7 points. Différence +111 → score théorique 0.65. Score réel 1. Gain = (1 - 0.65) × 20 = 7"
+        "original_answer": "7 points. Différence +111 → score théorique 0.65. Score réel 1. Gain = (1 - 0.65) × 20 = 7",
+        "difficulty": 0.55
       },
       "legacy_id": "FR-ELO-001"
     },
@@ -25489,7 +25532,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "K=40. Moins de 18 ans ET classement < 2300 → K=40 jusqu'à fin de l'année de ses 18 ans."
+        "original_answer": "K=40. Moins de 18 ans ET classement < 2300 → K=40 jusqu'à fin de l'année de ses 18 ans.",
+        "difficulty": 0.55
       },
       "legacy_id": "FR-ELO-002"
     },
@@ -25531,7 +25575,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "7,4 points (arrondi à 7). Score théorique total = 2,13. Score réel = 2,5. Différence = 0,37. Gain = 0,37 × 20 = 7,4 pts."
+        "original_answer": "7,4 points (arrondi à 7). Score théorique total = 2,13. Score réel = 2,5. Différence = 0,37. Gain = 0,37 × 20 = 7,4 pts.",
+        "difficulty": 0.55
       },
       "legacy_id": "FR-ELO-003"
     },
@@ -25580,7 +25625,8 @@
           "new_score": 0.6836,
           "reason": "better_match_found_delta_0.099"
         },
-        "original_answer": "1299. Les U20, U18, U16, U14, U12, U10 et U8 reçoivent un Elo estimé standard de 1299."
+        "original_answer": "1299. Les U20, U18, U16, U14, U12, U10 et U8 reçoivent un Elo estimé standard de 1299.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-ELO-004"
     },
@@ -25622,7 +25668,8 @@
         "triplet_ready": true,
         "chunk_match_score": 60,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Il récupère normalement son ancien Elo (1650). Mais son club peut demander à la FFE un Elo estimé différent avec pièces justificatives, car l'ancien Elo a plus de 5 saisons."
+        "original_answer": "Il récupère normalement son ancien Elo (1650). Mais son club peut demander à la FFE un Elo estimé différent avec pièces justificatives, car l'ancien Elo a plus de 5 saisons.",
+        "difficulty": 0.4
       },
       "legacy_id": "FR-ELO-005"
     },
@@ -25664,7 +25711,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "1399 obligatoirement. Un joueur dont l'Elo descend en dessous du plancher FIDE aura un Elo estimé à 1399 quel que soit son âge."
+        "original_answer": "1399 obligatoirement. Un joueur dont l'Elo descend en dessous du plancher FIDE aura un Elo estimé à 1399 quel que soit son âge.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-ELO-006"
     },
@@ -25714,7 +25762,8 @@
           "new_score": 0.6902,
           "reason": "better_match_found_delta_0.075"
         },
-        "original_answer": "1299. En Elo Standard : 1299 pour tous les jeunes (U20, U18, U16, U14, U12, U10, U8), 1399 pour les vétérans, seniors plus et seniors."
+        "original_answer": "1299. En Elo Standard : 1299 pour tous les jeunes (U20, U18, U16, U14, U12, U10, U8), 1399 pour les vétérans, seniors plus et seniors.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-ELO-007"
     },
@@ -25764,7 +25813,8 @@
           "new_score": 0.6527,
           "reason": "current_rank_28_too_low"
         },
-        "original_answer": "200 points. Elo standard = 1399, Elo rapide = 1199. Différence = 1399 - 1199 = 200 points."
+        "original_answer": "200 points. Elo standard = 1399, Elo rapide = 1199. Différence = 1399 - 1199 = 200 points.",
+        "difficulty": 0.7
       },
       "legacy_id": "FR-ELO-008"
     },
@@ -25806,7 +25856,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Minimum 15 min + 5 sec/coup pour les catégories U8, U8F, U10, U10F."
+        "original_answer": "Minimum 15 min + 5 sec/coup pour les catégories U8, U8F, U10, U10F.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-J01-001"
     },
@@ -25849,7 +25900,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "50 minutes pour toute la partie avec ajout de 10 sec/coup."
+        "original_answer": "50 minutes pour toute la partie avec ajout de 10 sec/coup.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-J01-002"
     },
@@ -25891,7 +25943,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "1900 pour les U12, 1700 pour les U12F."
+        "original_answer": "1900 pour les U12, 1700 pour les U12F.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-J01-003"
     },
@@ -25940,7 +25993,8 @@
           "new_score": 0.6997,
           "reason": "better_match_found_delta_0.129"
         },
-        "original_answer": "8 joueurs et/ou joueuses (Top Jeunes, Nationales 1 et 2) ou 4 joueurs et/ou joueuses (Nationale 3)."
+        "original_answer": "8 joueurs et/ou joueuses (Top Jeunes, Nationales 1 et 2) ou 4 joueurs et/ou joueuses (Nationale 3).",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-J02-001"
     },
@@ -25982,7 +26036,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "1h30 min et 30 secondes par coup pour les échiquiers 1 à 6."
+        "original_answer": "1h30 min et 30 secondes par coup pour les échiquiers 1 à 6.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-J02-002"
     },
@@ -26025,7 +26080,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "50 min et 10 secondes par coup pour les échiquiers 7 et 8."
+        "original_answer": "50 min et 10 secondes par coup pour les échiquiers 7 et 8.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-J02-003"
     },
@@ -26067,7 +26123,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Par catégorie d'âge décroissante (le plus âgé à l'échiquier 1). L'échiquier 8 peut être placé devant l'échiquier 7 quels que soient les Elo. Un joueur placé après un plus jeune que lui entraîne un forfait administratif."
+        "original_answer": "Par catégorie d'âge décroissante (le plus âgé à l'échiquier 1). L'échiquier 8 peut être placé devant l'échiquier 7 quels que soient les Elo. Un joueur placé après un plus jeune que lui entraîne un forfait administratif.",
+        "difficulty": 0.4
       },
       "legacy_id": "FR-J02-004"
     },
@@ -26108,7 +26165,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "15 min KO ou 12 min + 3 s par coup. Les appariements sont faits au systeme Suisse en 5 rondes minimum."
+        "original_answer": "15 min KO ou 12 min + 3 s par coup. Les appariements sont faits au systeme Suisse en 5 rondes minimum.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-J03-001"
     },
@@ -26150,7 +26208,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "3 divisions : Top 12F (12 equipes), Nationale 1 feminine (4 groupes de 8 equipes), et Nationale 2 feminine."
+        "original_answer": "3 divisions : Top 12F (12 equipes), Nationale 1 feminine (4 groupes de 8 equipes), et Nationale 2 feminine.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-F01-001"
     },
@@ -26192,7 +26251,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "3 joueuses. Pour 21 a 30 participantes, 3 joueuses se qualifient."
+        "original_answer": "3 joueuses. Pour 21 a 30 participantes, 3 joueuses se qualifient.",
+        "difficulty": 0.55
       },
       "legacy_id": "FR-F02-001"
     },
@@ -26232,7 +26292,8 @@
         "triplet_ready": true,
         "chunk_match_score": 60,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Non. Personne n'a le droit de refuser de jouer avec une personne contre laquelle elle a ete appariee correctement, notamment si sa raison est fondee sur un handicap de l'adversaire."
+        "original_answer": "Non. Personne n'a le droit de refuser de jouer avec une personne contre laquelle elle a ete appariee correctement, notamment si sa raison est fondee sur un handicap de l'adversaire.",
+        "difficulty": 0.4
       },
       "legacy_id": "FR-H01-001"
     },
@@ -26272,7 +26333,8 @@
         "triplet_ready": true,
         "chunk_match_score": 70,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "La rencontre sera deplacee dans un local accessible propose par l'equipe accueillante, sinon par le comite departemental, et a defaut par la Ligue. L'equipe fautive perdra la partie concernee si le principe n'est pas respecte."
+        "original_answer": "La rencontre sera deplacee dans un local accessible propose par l'equipe accueillante, sinon par le comite departemental, et a defaut par la Ligue. L'equipe fautive perdra la partie concernee si le principe n'est pas respecte.",
+        "difficulty": 0.4
       },
       "legacy_id": "FR-H02-001"
     },
@@ -26313,7 +26375,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "+-320 points. Le seuil d'entree au Rapide est de 7 parties compatibles et le plancher est de 800."
+        "original_answer": "+-320 points. Le seuil d'entree au Rapide est de 7 parties compatibles et le plancher est de 800.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-E02-001"
     },
@@ -26354,7 +26417,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "10 tournois : National, National Feminin, Accession Roger FERRY, Veterans, Seniors Plus, Open A, Open B, Open C, Open D et Open E."
+        "original_answer": "10 tournois : National, National Feminin, Accession Roger FERRY, Veterans, Seniors Plus, Open A, Open B, Open C, Open D et Open E.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-A01-001"
     },
@@ -26396,7 +26460,8 @@
         "triplet_ready": true,
         "chunk_match_score": 77,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "3 categories : Categorie A (moyenne > 2000), Categorie B (moyenne > 1700), Categorie C (moyenne <= 1700)."
+        "original_answer": "3 categories : Categorie A (moyenne > 2000), Categorie B (moyenne > 1700), Categorie C (moyenne <= 1700).",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-A03-001"
     },
@@ -26437,7 +26502,8 @@
         "triplet_ready": true,
         "chunk_match_score": 76,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Le comite directeur de la FFE parmi les membres pris en son sein. Il doit etre obligatoirement docteur en medecine et licencie a la FFE."
+        "original_answer": "Le comite directeur de la FFE parmi les membres pris en son sein. Il doit etre obligatoirement docteur en medecine et licencie a la FFE.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-MED-001"
     },
@@ -26480,7 +26546,8 @@
         "requires_context_reason": "failure_analysis",
         "chunk_match_score": 49,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Le commissaire aux comptes certifie tous les ans la sincerite des comptes, du resultat, et de la situation patrimoniale de la federation."
+        "original_answer": "Le commissaire aux comptes certifie tous les ans la sincerite des comptes, du resultat, et de la situation patrimoniale de la federation.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-FIN-001"
     },
@@ -26521,7 +26588,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Chateau d'Asnieres - 6, rue de l'Eglise - 92 600 Asnieres-sur-Seine. Il peut etre transfere dans ce departement par simple decision du comite directeur."
+        "original_answer": "Chateau d'Asnieres - 6, rue de l'Eglise - 92 600 Asnieres-sur-Seine. Il peut etre transfere dans ce departement par simple decision du comite directeur.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-STAT-001"
     },
@@ -26562,7 +26630,8 @@
         "triplet_ready": true,
         "chunk_match_score": 58,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "L'affiliation d'une association ne vaut que si elle compte au moins 5 licencies A."
+        "original_answer": "L'affiliation d'une association ne vaut que si elle compte au moins 5 licencies A.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-RI-001"
     },
@@ -26604,7 +26673,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Cinq specialites : Classique, Rapide, Blitz, Chess960 et e-Chess."
+        "original_answer": "Cinq specialites : Classique, Rapide, Blitz, Chess960 et e-Chess.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-DEL-001"
     },
@@ -26645,7 +26715,8 @@
         "triplet_ready": true,
         "chunk_match_score": 28,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "4 joueurs qui possedent une licence A et affilies a un club des Bouches-du-Rhone."
+        "original_answer": "4 joueurs qui possedent une licence A et affilies a un club des Bouches-du-Rhone.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-N6BDR-001"
     },
@@ -26693,7 +26764,8 @@
           "new_score": 0.5841,
           "reason": "better_match_found_delta_0.076"
         },
-        "original_answer": "50 minutes + 10 secondes par coup."
+        "original_answer": "50 minutes + 10 secondes par coup.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-IJBDR-001"
     },
@@ -26734,7 +26806,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "5 groupes de 8 equipes chacun. La ligue dispose de 5 accessions en N3."
+        "original_answer": "5 groupes de 8 equipes chacun. La ligue dispose de 5 accessions en N3.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-N4PACA-001"
     },
@@ -26775,7 +26848,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "5 joueurs licencies A."
+        "original_answer": "5 joueurs licencies A.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-REGPACA-001"
     },
@@ -26822,7 +26896,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Top16/N1/N2/N3 : 8 joueurs. N4 : 8 joueurs (ou 6 si la Ligue le choisit). Regionale PACA : 5 joueurs. Departementale N6 BDR : 4 joueurs."
+        "original_answer": "Top16/N1/N2/N3 : 8 joueurs. N4 : 8 joueurs (ou 6 si la Ligue le choisit). Regionale PACA : 5 joueurs. Departementale N6 BDR : 4 joueurs.",
+        "difficulty": 0.4
       },
       "legacy_id": "FR-COMP-001"
     },
@@ -26867,7 +26942,8 @@
         "triplet_ready": true,
         "chunk_match_score": 80,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Chaque equipe doit aligner a chaque ronde au moins 50% de personnes ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison (sauf ronde 1). En cas d'infraction, forfait administratif sur l'echiquier hors noyau et tous ceux qui le suivent."
+        "original_answer": "Chaque equipe doit aligner a chaque ronde au moins 50% de personnes ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison (sauf ronde 1). En cas d'infraction, forfait administratif sur l'echiquier hors noyau et tous ceux qui le suivent.",
+        "difficulty": 0.25
       },
       "legacy_id": "FR-NOYAU-001"
     }

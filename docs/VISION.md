@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-VIS-001
 > **ISO Reference**: ISO/IEC 12207:2017 - Processus du cycle de vie logiciel
-> **Version**: 2.1
-> **Date**: 2026-01-29
+> **Version**: 2.2
+> **Date**: 2026-02-02
 > **Statut**: En cours
 > **Classification**: Interne
 > **Auteur**: Equipe projet
@@ -40,7 +40,7 @@ Application mobile Android 100% offline permettant aux arbitres d'échecs d'inte
 │  │ - Cadences FR specifiques   │    │ - Regles universelles       │        │
 │  ├─────────────────────────────┤    ├─────────────────────────────┤        │
 │  │ Status: OPERATIONNEL        │    │ Status: A CONSTRUIRE        │        │
-│  │ ├── GS FR v7.0 ✓            │    │ ├── GS INTL v2.1 obsolete   │        │
+│  │ ├── GS FR v8.0 ✓            │    │ ├── GS INTL v2.1 obsolete   │        │
 │  │ ├── Chunking LangChain ✓    │    │ ├── Corpus incomplet        │        │
 │  │ ├── EmbeddingGemma 330M ✓   │    │ ├── Chunking a refaire      │        │
 │  │ └── chunk_id mapping TODO   │    │ └── Embeddings a refaire    │        │
@@ -228,6 +228,7 @@ Le projet est "Done" quand :
 | 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Création initiale |
 | 2.0 | 2026-01-24 | Claude Opus 4.5 | **EVOLUTION MAJEURE**: Architecture Dual-RAG (FR + INTL separes). Cause: pollution mutuelle des corpus due a specificite metier et scopes differents. Status: RAG FR operationnel (GS v6.7.0, chunking LangChain, EmbeddingGemma 330M), RAG INTL a construire (corpus incomplet, GS/chunking/embeddings obsoletes) |
 | 2.1 | 2026-01-29 | Claude Opus 4.5 | GS FR v6.7.0→v7.0, reranker supprime (VRAM incompatible mobile) |
+| 2.2 | 2026-02-02 | Claude Opus 4.5 | GS FR v7.0→v8.0 (P4 audit fixes: correct_answer, unified taxonomy, markdown cleanup, difficulty variance) |
 
 ---
 

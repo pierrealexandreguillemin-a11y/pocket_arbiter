@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-REF-001
 > **ISO Reference**: ISO 9001, ISO 12207, ISO 25010, ISO 29119, ISO 42001, ISO 82045, ISO 999, ISO 15489
-> **Version**: 2.9
-> **Date**: 2026-01-29
+> **Version**: 3.0
+> **Date**: 2026-02-02
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -120,7 +120,7 @@ pocket_arbiter/
 **Test Data**:
 | File | Purpose |
 |------|---------|
-| `tests/data/gold_standard_fr.json` | French regulation questions (150 Q, 46 hard) |
+| `tests/data/gold_standard_annales_fr_v7.json` | French regulation questions (420 Q, GS v8.0) |
 | `tests/data/gold_standard_intl.json` | FIDE questions (43 Q, 12 hard) |
 | `tests/data/adversarial.json` | Hallucination test cases |
 
@@ -193,31 +193,46 @@ python scripts/iso/validate_project.py --phase 1 --gates
 
 ## 2. Enforcement Mechanisms
 
-### 2.1 Pre-commit Hooks
+### 2.1 Pre-commit Hooks (Stage: pre-commit)
 Location: `.pre-commit-config.yaml` (pre-commit framework)
 
-| Hook | Blocking | Description |
-|------|----------|-------------|
-| gitleaks | Yes | No secrets in commits (ISO 27001) |
-| ruff check | Yes | Lint Python (E, W, F, I, UP, B, C901, S, SIM) |
-| ruff format | Yes | Auto-format Python (88 chars) |
-| mypy | Yes | Type checking strict (iso + pipeline) |
-| pytest-quick | Yes | Smoke tests on staged files |
-| xenon | Yes | Cyclomatic complexity <= B |
+| Hook | ISO Standard | Blocking | Description |
+|------|-------------|----------|-------------|
+| gitleaks | ISO 27001 A.9 | Yes | Secrets detection (CWE-798) |
+| ruff check | ISO 5055 | Yes | Lint + security analysis (E, W, F, I, UP, B, C901, S, SIM) |
+| ruff format | ISO 5055 | Yes | Code formatting (88 chars) |
+| mypy | ISO 5055 | Yes | Static type checking (iso + pipeline core) |
+| check-yaml/json/toml | ISO 25012 | Yes | Config file validation |
+| check-added-large-files | ISO 27001 | Yes | Large file detection (>1MB) |
+| check-merge-conflict | ISO 12207 | Yes | Clean merge state |
+| debug-statements | ISO 5055 | Yes | No debug code in commits |
+| end-of-file-fixer | ISO 5055 | Yes | EOF normalization |
+| trailing-whitespace | ISO 5055 | Yes | Whitespace cleanup |
+| pytest-quick | ISO 29119 | Yes | Quick test gate (iso + pipeline tests) |
 
-### 2.2 Commit Message Hook
-Location: `.pre-commit-config.yaml` (commit-msg hook)
+### 2.2 Commit Message Hook (Stage: commit-msg)
+Location: `.pre-commit-config.yaml` (commitizen)
 
 Format: `type(scope): Description`
 
 Valid types: `feat`, `fix`, `test`, `docs`, `refactor`, `perf`, `chore`
 
 Requirements:
-- Conventional commit format
+- Conventional commit format (ISO 15289 traceability)
 - No WIP on main branch
-- Co-Authored-By required (traceability)
+- Co-Authored-By required (ISO 42001 AI traceability)
 
-### 2.3 CI/CD Pipeline
+### 2.3 Pre-push Hooks (Stage: pre-push)
+Location: `.pre-commit-config.yaml`
+
+| Hook | ISO Standard | Blocking | Description |
+|------|-------------|----------|-------------|
+| pytest-cov | ISO 29119 | Yes | Coverage >= 80% (`.coveragerc` scoped) |
+| xenon-pipeline | ISO 25010 | Yes | Cyclomatic complexity <= B (pipeline/) |
+| xenon-iso | ISO 25010 | Yes | Cyclomatic complexity <= B (iso/) |
+| pip-audit | ISO 27001 | Yes | Dependency CVE audit (--strict) |
+
+### 2.4 CI/CD Pipeline
 Location: `.github/workflows/ci.yml`
 
 | Job | Dependencies | Blocking |
@@ -342,15 +357,15 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 ### Metrics Tracked
 | Metric | Target | Current | ISO Reference |
 |--------|--------|---------|---------------|
-| Test Pass Rate | 100% | **99.86%** (696/697, 1 skip TDD) | ISO 29119 |
-| Code Coverage | 80% | **83.47%** (.coveragerc scoped) | ISO 25010 |
+| Test Pass Rate | 100% | **99.89%** (889/890, 1 skip TDD) | ISO 29119 |
+| Code Coverage | 80% | **83.57%** (.coveragerc scoped) | ISO 25010 |
 | ISO Module Coverage | 95% | **99.30%** (125 tests) | ISO 29119 |
 | Lint Warnings (ruff) | 0 | **0** | ISO 25010 |
-| Complexity C901 > 10 | 0 (scoped) | **0** (pyproject.toml per-file-ignores) | ISO 25010 |
+| Complexity C901 > 10 | 0 (scoped) | **0** (xenon rank B enforced pre-push) | ISO 25010 |
 | Mypy Errors | 0 (scoped) | **0** (iso + pipeline core, pyproject.toml) | ISO 5055 |
 | Retrieval Recall FR | 90% | **100.00%** (smart_retrieve, tol=2) | ISO 25010 |
 | Retrieval Recall INTL | 70% | **93.22%** (vector, tol=2) | ISO 25010 |
-| Gold Standard | >= 50 questions | **420+ FR (v7) + 43 INTL** | ISO 29119 |
+| Gold Standard | >= 50 questions | **420 FR (v8.0) + 43 INTL** | ISO 29119 |
 | Corpus Coverage | 100% | **29 docs** (28 FR + 1 INTL) | ISO 25010 |
 | Hallucination Rate | 0% | TBD | ISO 42001 |
 | Response Latency | < 5s | TBD | ISO 25010 |
@@ -358,11 +373,11 @@ INDEX.md (DOC-IDX-001) - Index principal ISO 999
 | Docs indexes | 100% | 100% | ISO 999 |
 | Secrets in code | 0 | **0** (gitleaks + filter-repo) | ISO 27001 |
 
-> **Note**: Metriques mises a jour 2026-01-29.
-> - Gold standard v7 unified schema (SQuAD 2.0 + BEIR + ISO 42001)
-> - Coverage 83.47% avec `.coveragerc` (scope: pipeline + iso modules)
+> **Note**: Metriques mises a jour 2026-02-02.
+> - Gold standard v8.0: P4 audit fixes (correct_answer, unified taxonomy, markdown cleanup, difficulty variance)
+> - Coverage 83.57% avec `.coveragerc` (scope: pipeline + iso modules, P0-P4 scripts excluded)
 > - C901/mypy scoped via `pyproject.toml`: pipeline + iso = 0 erreurs
-> - 29 fonctions C901 > 10 exemptees (training/evaluation one-off scripts)
+> - Xenon rank B enforced pre-push (pipeline + iso), `_obsolete/` deleted
 > - Ruff rules: E, W, F, I, UP, B, C901, S, SIM (ISO-enforcing)
 > - SQL injection fix (S608): export_validation.py parameterized query
 > - Voir: `docs/CHUNKING_STRATEGY.md`
@@ -377,8 +392,9 @@ corpus/*.pdf --> Docling ML --> chunker --> embeddings --> corpus_*.db
 | Module | Role | ISO Reference |
 |--------|------|---------------|
 | `extract_docling.py` | Extraction PDF ML | ISO 12207, 42001 |
-| `chunker.py` | MarkdownHeader + Parent 1024/Child 450, 15% overlap | ISO 25010 |
+| `chunker_langchain.py` | MarkdownHeader + Parent 1024/Child 450, 15% overlap | ISO 25010 |
 | `table_multivector.py` | Tables + LLM summaries | ISO 42001 |
+| `export_sdk.py` | SQLite vector store export | ISO 25010, 42001 |
 | `export_search.py` | Hybrid BM25+Vector+RRF + glossary boost | ISO 25010, 42001 |
 | `query_expansion.py` | Snowball FR + synonymes | ISO 25010 |
 
@@ -487,6 +503,7 @@ Contrainte Android mid-range: **RAM < 500MB**, **100% offline**, **latence < 5s*
 | 2.7 | 2026-01-20 | Claude Opus 4.5 | **Pipeline v5.0**: chunker.py (MarkdownHeaderTextSplitter), 2801 chunks (1827 FR + 974 INTL), sections 99.9%+ |
 | 2.8 | 2026-01-29 | Claude Opus 4.5 | **Audit 25+8 findings**: metriques corrigees (712 tests, 82.44% coverage, 103 mypy, 29 C901). Secret purge filter-repo. ruff + .coveragerc + pre-commit enforcing. GS v7 (420+ FR). |
 | 2.9 | 2026-01-29 | Claude Opus 4.5 | **MAJ documentaire ISO**: metriques (696 tests, 83.47% cov), hooks .githooks→pre-commit framework, seuil coverage 60→80%, commandes pytest alignees pyproject.toml |
+| 3.0 | 2026-02-02 | Claude Opus 4.5 | **GS v8.0 + P4 audit**: 889 tests, 83.57% cov, GS 420 FR (v8.0 P4 fixes), xenon rank B enforced pre-push, `_obsolete/` deleted, hooks documentation expanded (3 stages: pre-commit/commit-msg/pre-push) |
 
 ---
 

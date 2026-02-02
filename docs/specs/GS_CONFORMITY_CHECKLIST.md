@@ -489,7 +489,7 @@ OPTION C (Hybride): Claude Phase 0 + Gemini Phase 2A
 | [UNIFIED_TRAINING_DATA_SPEC.md](UNIFIED_TRAINING_DATA_SPEC.md) | S1.3-1.4 | Validation BY DESIGN, context-grounded | Methode validation |
 | [UNIFIED_TRAINING_DATA_SPEC.md](UNIFIED_TRAINING_DATA_SPEC.md) | S2.4 | Quality Gates par etape | Pipeline qualite |
 | [UNIFIED_TRAINING_DATA_SPEC.md](UNIFIED_TRAINING_DATA_SPEC.md) | S3 | Specs detaillees par etape | Implementation |
-| [GOLD_STANDARD_SPECIFICATION.md](../GOLD_STANDARD_SPECIFICATION.md) | S1.3 | Metriques GS v7.6 | Etat actuel |
+| [GOLD_STANDARD_SPECIFICATION.md](../GOLD_STANDARD_SPECIFICATION.md) | S1.3 | Metriques GS v8.0 | Etat actuel |
 | [GOLD_STANDARD_SPECIFICATION.md](../GOLD_STANDARD_SPECIFICATION.md) | S10 | Standards industrie (MTEB, BEIR) | Benchmarks |
 | [AI_POLICY.md](../AI_POLICY.md) | S3-4 | Controles ISO 42001, anti-hallucination | Gouvernance IA |
 | [ISO_STANDARDS_REFERENCE.md](../ISO_STANDARDS_REFERENCE.md) | S1.2 | ISO 42001 details | Conformite ISO |

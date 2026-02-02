@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.7
-> **Date**: 2026-01-26
+> **Version**: 1.8
+> **Date**: 2026-02-02
 > **Statut**: Approuve
 > **Classification**: Qualite
 > **Auteur**: Claude Opus 4.5
@@ -25,8 +25,8 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 │     (CE DOCUMENT)               │    │     (DOCUMENT SEPARE A CREER)   │
 ├─────────────────────────────────┤    ├─────────────────────────────────┤
 │ Status: ACTIF                   │    │ Status: OBSOLETE                │
-│ GS FR v5.30: 318 questions      │    │ GS INTL v2.1: 93 questions      │
-│ GS FR Annales v6.7.0: 477 Q     │    │ --> A REFAIRE from scratch      │
+│ GS FR v8.0: 420 questions       │    │ GS INTL v2.1: 93 questions      │
+│ GS FR Annales unified           │    │ --> A REFAIRE from scratch      │
 │ Corpus: 29 docs FFE             │    │ Corpus: INCOMPLET               │
 │ Chunking: LangChain ✓           │    │ Chunking: OBSOLETE              │
 │ Embeddings: EmbeddingGemma ✓    │    │ Embeddings: OBSOLETE            │
@@ -39,9 +39,8 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 
 | Gold Standard | Questions | Status | Database |
 |---------------|-----------|--------|----------|
-| GS FR v5.30 | 318 (213 answerable + 105 adversarial) | Actif | corpus_mode_b_fr.db |
-| GS FR Annales v6.7.0 | 477 (examens officiels DNA) | Actif | corpus_mode_b_fr.db |
-| **Total FR** | **795** | **ACTIF** | **SEPARE** |
+| GS FR Annales v8.0 | 420 (386 annales + 34 human) | Actif | corpus_mode_b_fr.db |
+| **Total FR** | **420** | **ACTIF** | **SEPARE** |
 
 **HORS PERIMETRE** (document separe a creer):
 
@@ -49,7 +48,7 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 |---------------|-----------|--------|--------|
 | ~~GS INTL v2.1~~ | ~~93~~ | OBSOLETE | A refaire apres completion corpus FIDE |
 
-### 1.3 Gold Standard FR Annales v7.6 (2026-01-26)
+### 1.3 Gold Standard FR Annales v8.0 (2026-02-02)
 
 | Metrique | Valeur | Status |
 |----------|--------|--------|
@@ -61,7 +60,7 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 | Chunks alignes | 420/420 (100%) | ✅ |
 | **Score humain** | **100%** | ✅ REFERENCE |
 
-**Note importante v7.6**: Ce GS est un benchmark de **RAISONNEMENT**, pas de retrieval RAG classique.
+**Note importante v8.0**: Ce GS est un benchmark de **RAISONNEMENT**, pas de retrieval RAG classique.
 Les reponses annales sont des reformulations, calculs et inferences, pas des extractions directes.
 Le score humain de 100% confirme que toutes les reponses sont derivables du corpus.
 
@@ -79,7 +78,7 @@ Le score humain de 100% confirme que toutes les reponses sont derivables du corp
 | arithmetic | 12 | 3% | Calcul/inference |
 | reasoning | 6 | 1% | Multi-hop reasoning |
 
-> **Justification scientifique v7.6 (recherches web 2026-01-26)**:
+> **Justification scientifique (recherches web 2026-01-26)**:
 > - LREM (Alibaba arXiv:2510.14321): Reasoning training = **+19.2% Q&A performance**
 > - Know Your RAG (COLING 2025 arXiv:2411.19710): 95% datasets generes = fact_single (trap a eviter)
 > - Notre distribution 57% summary = **AVANTAGE DELIBERE** pour fine-tuning on-device
@@ -138,7 +137,7 @@ Chaque question ANSWERABLE contient:
 - `id`: Identifiant unique (FR-Q001, INTL-Q001)
 - `expected_docs`: Documents source
 - `expected_pages`: Pages source verifiees
-- `expected_chunk_id`: ID chunk Mode B (provenance exacte) **NOUVEAU v5.30**
+- `expected_chunk_id`: ID chunk Mode B (provenance exacte) **(depuis v5.30)**
 - `validation.status`: Statut de validation
 - `audit`: Date d'ajout/modification
 
@@ -161,7 +160,7 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 | **5** | FALSE_PREMISE | Question basee sur premisse fausse | Rejection appropriee |
 | **6** | OUT_OF_SCOPE | Hors perimetre corpus | Graceful failure |
 
-### 4.2 Distribution Cible vs Actuelle (v5.30)
+### 4.2 Distribution Cible vs Actuelle (v8.0)
 
 | Categorie | % Cible | Actuel FR | Status |
 |-----------|---------|-----------|--------|
@@ -297,16 +296,16 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 | **Tolerance** | +/- 2 pages adjacentes | Accepte | Oui |
 | **Coverage** | Questions / Categories | 100% | 13/13 |
 
-### 6.2 Etat Actuel (2026-01-23)
+### 6.2 Etat Actuel (2026-02-02)
 
-| Corpus | Version | Questions | Unanswerable | chunk_id | Status |
-|--------|---------|-----------|--------------|----------|--------|
-| FR | v5.30 | 318 | 105 (33%) | 227/227 | ⚠️ VALIDATION SEMANTIQUE REQUISE |
-| INTL | v2.1 | 93 | 26 (28%) | 67/67 | ⚠️ VALIDATION SEMANTIQUE REQUISE |
-| **Total** | | **411** | 131 (32%) | 294 | **ISO PARTIEL** |
+| Corpus | Version | Questions | requires_context | chunk_id | Status |
+|--------|---------|-----------|-----------------|----------|--------|
+| FR | v8.0 | 420 | 92 (22%) | 420/420 | ✅ CB-01 PASS (verbatim 100%) |
+| INTL | v2.1 | 93 | 26 (28%) | 67/67 | ⚠️ OBSOLETE — a reconstruire |
+| **Total** | | **513** | 118 | 487 | **FR: ISO CONFORME** |
 
-> **Note**: Les 294 `expected_chunk_id` ont ete assignes par matching keywords.
-> Validation semantique (verification que le chunk repond a la question) non effectuee.
+> **Note FR v8.0**: Les 420 `expected_chunk_id` sont valides par verification verbatim (CB-01=100%).
+> P4 audit fixes appliques: correct_answer, unified taxonomy, markdown cleanup, difficulty variance.
 
 ---
 
@@ -387,27 +386,27 @@ python -m scripts.pipeline.tests.test_recall --coverage
 
 | Metrique | Minimum | Standard Industrie | Actuel | Status |
 |----------|---------|-------------------|--------|--------|
-| Taille GS total | >= 200 | BEIR (300-50k) | 888 | ✅ |
-| Questions adversariales | 25-30% | SQuAD 2.0 (33%) | 32% | ✅ |
-| Couverture categories | >= 80% | BEIR diversity | 100% | ✅ |
+| Taille GS total | >= 200 | BEIR (300-50k) | 420 FR | ✅ |
+| Questions adversariales | 25-30% | SQuAD 2.0 (33%) | 22% (92 rc) | ⚠️ A COMPLETER |
+| Couverture categories | >= 80% | BEIR diversity | 100% (13 cat) | ✅ |
 | Deduplication | < 5% sim | SoftDedup | TBD | ⚠️ A VERIFIER |
 
 ### 10.2 Qualite Semantique
 
 | Metrique | Minimum | Standard Industrie | Actuel | Status |
 |----------|---------|-------------------|--------|--------|
-| Context-grounded | 100% | RAGen, Source2Synth | 0% | ❌ REQUIS |
+| Context-grounded | 100% | RAGen, Source2Synth | **100%** (CB-04 BY DESIGN) | ✅ |
 | Validation humaine | 100% GS | Industrie | 100% | ✅ |
-| expected_chunk_id | 100% answerable | ISO 42001 A.6.2.2 | 87% | ⚠️ |
+| expected_chunk_id | 100% answerable | ISO 42001 A.6.2.2 | **100%** (420/420) | ✅ |
 
 ### 10.3 Actions Requises
 
 | Action | Priorite | Standard | Status |
 |--------|----------|----------|--------|
-| Reformulation BY DESIGN | P0 | RAGen | ❌ Non fait |
-| Deduplication SemHash | P1 | SoftDedup | ❌ Non fait |
-| Mapping chunk_id 100% | P1 | ISO 42001 | ⚠️ 87% |
-| MMTEB evaluation INTL | P2 | MMTEB | ❌ Non fait |
+| Reformulation BY DESIGN | P0 | RAGen | ✅ FAIT (P2 manual_by_design) |
+| Deduplication SemHash | P1 | SoftDedup | ⚠️ A verifier |
+| Mapping chunk_id 100% | P1 | ISO 42001 | ✅ FAIT (420/420) |
+| MMTEB evaluation INTL | P2 | MMTEB | ❌ INTL obsolete |
 
 ### 10.4 Benchmarks Cibles
 
@@ -466,4 +465,4 @@ python -m scripts.pipeline.tests.test_recall --coverage
 ---
 
 *Ce document remplace gold_standard_status_v1.md et les audits 2026-01-19/20.*
-*Derniere mise a jour: 2026-01-26 - GS Annales v7.6 (metriques corrigees, justification scientifique reasoning)*
+*Derniere mise a jour: 2026-02-02 - GS Annales v8.0 (P4 audit fixes, 15 criteres bloquants PASS)*

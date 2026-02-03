@@ -2029,13 +2029,10 @@
         "arbitrage"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "manual_llm_as_judge",
-        "reviewer": "claude_opus_4.5",
-        "answer_current": true,
-        "verified_date": "2026-02-03",
-        "pages_verified": true,
-        "batch": "batch_003"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[SMART_FIX] Article 3.2 du RIDNA.: LA-octobre2025.pdf-p038-parent157-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.20) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p003-parent000-child00 -> LA-octobre2025.pdf-p207-parent619-child02 (current_rank_430_too_low) [BATCH_003] manual audit 2026-02-03T14:20:12.366903",
       "metadata": {
@@ -2098,13 +2095,10 @@
         "fide"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "manual_llm_as_judge",
-        "reviewer": "claude_opus_4.5",
-        "answer_current": true,
-        "verified_date": "2026-02-03",
-        "pages_verified": true,
-        "batch": "batch_003"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p006-parent [BATCH_003] manual audit 2026-02-03T14:20:12.366909",
       "metadata": {
@@ -2167,13 +2161,10 @@
         "forfait"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0) [CTX] name:Daniela",
       "metadata": {
@@ -2233,13 +2224,10 @@
         "position"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[CTX] ci-dessous",
       "metadata": {
@@ -2366,13 +2354,10 @@
         "position"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[RECLASS] fact_single -> arithmetic | [QAT] LA-octobre2025.pdf-p078-parent238-child00 -> LA-octobre2025.pdf-p129-parent382-child00 (current_rank_709_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2442,13 +2427,10 @@
         "ffe"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[SMART_FIX] Article 3.6.d du A02 - Championnat de France des clubs.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.17) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00 -> LA-octobre2025.pdf-p127-parent370-child00 (current_rank_247_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2516,15 +2498,10 @@
         "partie"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004",
-        "iso42001_note": "Self-audit: removed clock adjustment statement not in chunk",
-        "metadata_fix": "Batch 004: reasoning_type, cognitive_level, question_type corrected"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p060-parent -> LA-octobre2025.pdf-p128-parent",
       "metadata": {
@@ -2588,13 +2565,10 @@
         "coup"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": " | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 -> LA-octobre2025.pdf-p049-parent176-child00 (current_rank_1333_too_low) | [MARK] requires_context:answer_not_found",
       "metadata": {
@@ -2661,13 +2635,10 @@
         "adversaire"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> A03_2025_26_Championnat_de_Fra",
       "metadata": {
@@ -2729,13 +2700,10 @@
         "joueur"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[P4:0.8] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00 -> LA-octobre2025.pdf-p125-parent363-child00 (score:0.85, src:global_search)",
       "metadata": {
@@ -2790,13 +2758,10 @@
         "joueur"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p125-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2858,13 +2823,10 @@
         "joueur"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:global_search) [CTX] ci-dessous",
       "metadata": {
@@ -2924,13 +2886,10 @@
         "forfait"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p126-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2992,13 +2951,10 @@
         "adversaire"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[CTX] answer_name",
       "metadata": {
@@ -3056,13 +3012,10 @@
         "forfait"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[P4:0.8] R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.83, src:global_search) [CTX] marked requires_context",
       "metadata": {
@@ -3122,13 +3075,10 @@
         "tour"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[P1:0.95] LA-octobre2025.pdf-p036-parent155-child00 -> LA-octobre2025.pdf-p139-parent409-child00 (score:1.00, src:same_doc) [CTX] name:Paul",
       "metadata": {
@@ -3187,13 +3137,10 @@
         "arbitre"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (current_rank_547_too_low)",
       "metadata": {
@@ -3256,14 +3203,10 @@
         "arbitre"
       ],
       "validation": {
-        "status": "FAILED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005",
-        "failure_reason": "Question corrompue: choices (2,3,4,5) incompatibles avec question sur indemnités (euros). original_answer=85€ mais MCQ answer=3. Nécessite revue manuelle du PDF source annales dec2023 Q28."
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p178-parent",
       "metadata": {
@@ -3325,13 +3268,10 @@
         "pion"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p005-parent",
       "metadata": {
@@ -3397,13 +3337,10 @@
         "fide"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
@@ -3469,13 +3406,10 @@
         "suivre"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "005"
+        "status": "NEEDS_REAUDIT",
+        "method": "sincerity_audit",
+        "date": "2026-02-03",
+        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p020-parent -> LA-octobre2025.pdf-p168-parent",
       "metadata": {
@@ -3523,9 +3457,9 @@
     {
       "id": "ffe:annales:clubs:051:e52e76d4",
       "question": "Le tournoi ayant lieu le 15 juin, quelle était la date limite pour faire la demande d'homologation ?",
-      "expected_answer": "4.1.1. Rôle  \nLes superviseurs et superviseures sont des arbitres fédéraux expérimentés",
+      "expected_answer": "Pour les Tournois FIDE : 15 jours avant le debut du tournoi. Tournoi le 15 juin - 15 jours = 31 mai.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p167-parent498-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -3540,17 +3474,15 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03"
       },
       "audit": "[PROCRUSTES] J03_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
         "answer_type": "multiple_choice",
-        "reasoning_type": "multi-hop",
-        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Apply",
         "article_reference": "LA :RIDNA - II. Organisation Et Administration - 4.1 Les superviseurs et superviseuses.",
         "difficulty": 0.06,
         "annales_source": {
@@ -3559,7 +3491,7 @@
           "question_num": 3,
           "success_rate": 0.94
         },
-        "question_type": "factual",
+        "question_type": "scenario",
         "choices": {
           "A": "C'est ainsi que l'on appelle les arbitres qui remplissent les A.S.P.",
           "B": "C'est un nom donné à l'arbitre en chef d'un tournoi.",
@@ -3570,7 +3502,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
+        "reasoning_class": "arithmetic",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "qat_revalidation": {
@@ -3584,7 +3516,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Le 31 mai.",
-        "correct_answer": "Ce sont des arbitres fédéraux expérimentés ayant l'autorité pour intervenir sur n'importe quel tournoi avec vocation d'assister et conseiller les autres arbitres."
+        "correct_answer": "Ce sont des arbitres fédéraux expérimentés ayant l'autorité pour intervenir sur n'importe quel tournoi avec vocation d'assister et conseiller les autres arbitres.",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-059"
     },
@@ -3605,12 +3538,11 @@
         "position"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[P2:0.9] LA-octobre2025.pdf-p013-parent033-child00 -> LA-octobre2025.pdf-p166-parent492-child00 (score:0.93, src:same_doc)",
       "metadata": {
@@ -3664,12 +3596,11 @@
         "arbitrage"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
@@ -3730,12 +3661,11 @@
         "joueur"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p131-parent -> LA-octobre2025.pdf-p131-parent",
       "metadata": {
@@ -3800,12 +3730,11 @@
         "adversaire"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p122-parent -> A02_2025_26_Championnat_de_Fra",
       "metadata": {
@@ -3870,12 +3799,11 @@
         "pion"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[SMART_FIX] LA :Chapitre 5.1 Gestion d'un match: LA-octobre2025.pdf-p017-parent059-child0 -> LA-octobre2025.pdf-p165-parent000-child0 (score:0.10) [CTX] name:Andreina",
       "metadata": {
@@ -3935,12 +3863,11 @@
         "pion"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[PROCRUSTES] H02_2025_26_Joueurs_a_mobilite -> LA-octobre2025.pdf-p125-parent",
       "metadata": {
@@ -4001,12 +3928,11 @@
         "position"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p138-parent -> LA-octobre2025.pdf-p109-parent",
       "metadata": {
@@ -4067,12 +3993,11 @@
         "appariement"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[SMART_FIX] R01 - 3.1.3 Forfait administratif: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.12) | [QAT] R01_2025_26_Regles_generales.pdf-p002-parent006-child00 -> LA-octobre2025.pdf-p122-parent353-child01 (current_rank_1104_too_low) | [MARK] requires_context:answer_not_found",
       "metadata": {
@@ -4135,12 +4060,11 @@
         "appariement"
       ],
       "validation": {
-        "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "status": "NEEDS_REVIEW",
+        "method": "manual_llm_audit",
+        "batch": "006",
+        "date": "2026-02-03",
+        "note": "MCQ choices misaligned with question - original_answer differs from correct_answer"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p133-parent -> LA-octobre2025.pdf-p130-parent",
       "metadata": {

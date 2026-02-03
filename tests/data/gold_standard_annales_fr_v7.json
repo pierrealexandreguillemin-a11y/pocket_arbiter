@@ -2863,7 +2863,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005"
       },
       "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:global_search) [CTX] ci-dessous",
       "metadata": {
@@ -2899,16 +2900,17 @@
         "answer_source": "existing",
         "original_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
         "requires_context_reason": "numerical_reasoning",
-        "correct_answer": "25 €."
+        "correct_answer": "25 €.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-046"
     },
     {
       "id": "ffe:annales:clubs:042:fb1e75b1",
       "question": "Les membres de l'équipe de N3 de votre club ne souhaitent pas se déplacer pour le dernier match de la saison. Si l'équipe déclare forfait, le club sera sanctionné par une amende. Quel est le montant de l'amende ?",
-      "expected_answer": "En Top 16, chaque forfait individuel sera sanctionné d'une amende de 300 €. En N1, chaque forfait individuel sera sanctionné d'une amende de 200 €.  \nEn N2 et N3, chaque forfait individuel, à partir du 4 e dans la même équipe et dans la même saison, sera sanctionné d'une amende de 100 €.",
+      "expected_answer": "Tout forfait d'une équipe sera sanctionné par l'amende suivante: 300 € en N3. Cette amende sera doublée si le forfait a lieu à la dernière ronde. Donc: 300 € × 2 = 600 €.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent020-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2927,7 +2929,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p126-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2967,7 +2970,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_answer": "9.",
-        "correct_answer": "600 €."
+        "correct_answer": "600 €.",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-047"
     },
@@ -2993,7 +2997,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": false
+        "pages_verified": false,
+        "batch": "005"
       },
       "audit": "[CTX] answer_name",
       "metadata": {
@@ -3029,14 +3034,15 @@
         "answer_source": "existing",
         "original_answer": "Paul et Hector.",
         "requires_context_reason": "insufficient_context",
-        "correct_answer": "10 jours."
+        "correct_answer": "10 jours.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-049"
     },
     {
       "id": "ffe:annales:clubs:044:606adbcd",
-      "question": "<!-- image --> | Ronde 5 | Ronde 5 | |----------------|-----------| | Echiquier N°1 | X - X | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 1 - 0 | | Echiquier N°5 | X - X | | Echiquier N°6 | 0 - 1 | | Echiquier N°7 | X - X | | Echiquier N°8 | 1 - 0 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | | Quelle suite doit être donnée au forfait de Serge à cette dernière ronde ?",
-      "expected_answer": "4. Conservation des documents  \nLa personne responsable de la rencontre est tenue de conserver les feuilles de parties et le ou les procès-verbaux au moins 6 mois. En cas de réclamations, elle devra le ou les transmettre à la direction de la compétition.",
+      "question": "Suite à un forfait lors de la dernière ronde, quelle obligation a la personne responsable de la rencontre concernant les documents ?",
+      "expected_answer": "La personne responsable de la rencontre est tenue de conserver les feuilles de parties et le ou les procès-verbaux au moins 6 mois. En cas de réclamations, elle devra le ou les transmettre à la direction de la compétition.",
       "is_impossible": false,
       "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent004-child00",
       "expected_docs": [
@@ -3055,7 +3061,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": false
+        "pages_verified": false,
+        "batch": "005"
       },
       "audit": "[P4:0.8] R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.83, src:global_search) [CTX] marked requires_context",
       "metadata": {
@@ -3092,14 +3099,16 @@
         "answer_source": "existing",
         "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale.",
         "requires_context_reason": "external_knowledge",
-        "correct_answer": "Elle doit le garder au moins six mois."
+        "correct_answer": "Elle doit le garder au moins six mois.",
+        "original_question": "<!-- image --> | Ronde 5...",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-050"
     },
     {
       "id": "ffe:annales:clubs:045:5e077c7c",
       "question": "En coupe « Jean-Claude Loubatière », lors de la phase départementale, 17 équipes complètes sont présentes. Sur le total des participants et participantes, il y a sept femmes. Combien d'équipes seront qualifiées pour le tour suivant ?",
-      "expected_answer": "1.2. Déroulement de la Coupe  \nLa Coupe est ouverte aux équipes de clubs et se déroule suivant quatre phases : départementale, phase 2, phase 3 et finale.  \nAu cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant :",
+      "expected_answer": "Avec 17 équipes: selon la règle 1 équipe pour 1-4, 2 équipes pour 5-8, etc., on a 4×4=16 < 17 < 4×5=20, donc 5 équipes qualifiées de base. Mais avec 7 joueuses supplémentaires (17-10=7), au moins 6 équipes peuvent être qualifiées.",
       "is_impossible": false,
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00",
       "expected_docs": [
@@ -3118,7 +3127,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005"
       },
       "audit": "[P1:0.95] LA-octobre2025.pdf-p036-parent155-child00 -> LA-octobre2025.pdf-p139-parent409-child00 (score:1.00, src:same_doc) [CTX] name:Paul",
       "metadata": {
@@ -3145,7 +3155,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "arithmetic",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "requires_context": true,
@@ -3154,13 +3164,14 @@
         "answer_source": "explanation",
         "original_answer": "Les 70 € du prix de la catégorie 1000 - 1699.",
         "requires_context_reason": "numerical_reasoning",
-        "correct_answer": "6."
+        "correct_answer": "6.",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-053"
     },
     {
       "id": "ffe:annales:clubs:046:15a0bc61",
-      "question": "En coupe « Jean-Claude Loubatière », quelle affirmation suivante est vraie concernant l'arbitre de la rencontre ?",
+      "question": "En Coupe Jean-Claude Loubatière, quelle est la règle concernant l'arbitre joueur à partir de la phase 2 ?",
       "expected_answer": "Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse.",
       "is_impossible": false,
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
@@ -3181,7 +3192,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005"
       },
       "audit": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (current_rank_547_too_low)",
       "metadata": {
@@ -3221,7 +3233,9 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Il n'aura pas encore de Elo rapide Fide car son score n'est pas suffisant.",
-        "correct_answer": "Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse."
+        "correct_answer": "Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse.",
+        "original_question": "En coupe « Jean-Claude Loubatière », quelle affirmation suivante est vraie concernant l'arbitre de la rencontre ?",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-054"
     },
@@ -3242,12 +3256,14 @@
         "arbitre"
       ],
       "validation": {
-        "status": "VALIDATED",
+        "status": "FAILED",
         "method": "annales_official",
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005",
+        "failure_reason": "Question corrompue: choices (2,3,4,5) incompatibles avec question sur indemnités (euros). original_answer=85€ mais MCQ answer=3. Nécessite revue manuelle du PDF source annales dec2023 Q28."
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p178-parent",
       "metadata": {
@@ -3294,7 +3310,7 @@
     {
       "id": "ffe:annales:clubs:048:52bb444c",
       "question": "Combien de phases comporte le Championnat de France individuel féminin de parties rapides ?",
-      "expected_answer": "- Les deux premières classées dans chacune des catégories féminines du championnat de France Jeunes de la saison en cours. Si elles sont déjà qualifiées, les places reviennent aux suivantes ;",
+      "expected_answer": "2 phases: une phase zone interdépartementale (ZID) et une finale.",
       "is_impossible": false,
       "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
       "expected_docs": [
@@ -3314,7 +3330,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005"
       },
       "audit": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p005-parent",
       "metadata": {
@@ -3354,7 +3371,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Au secrétariat fédéral et au Directeur des tournois et Titres de la DNA.",
-        "correct_answer": "2."
+        "correct_answer": "2.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-056"
     },
@@ -3384,7 +3402,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
@@ -3424,14 +3443,15 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "20 €",
-        "correct_answer": "Avoir un classement Elo strictement supérieur à 1300."
+        "correct_answer": "Avoir un classement Elo strictement supérieur à 1300.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-057"
     },
     {
       "id": "ffe:annales:clubs:050:df445310",
-      "question": "Quelle mission n'est pas de la respon sabilité de la direction des règlements ?",
-      "expected_answer": "3.7. La Direction des Règlements",
+      "question": "Quelle mission n'est PAS de la responsabilité de la Direction des Règlements ?",
+      "expected_answer": "Le suivi des mesures administratives de la D.N.A. n'est pas mentionné parmi les missions de la Direction des Règlements. Ses missions sont: veille réglementaire, mise à jour du Livre de l'Arbitre, animation du pôle règlement.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
       "expected_docs": [
@@ -3454,7 +3474,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "005"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p020-parent -> LA-octobre2025.pdf-p168-parent",
       "metadata": {
@@ -3494,7 +3515,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_answer": "Faire sa demande auprès de la commission d'homologation.",
-        "correct_answer": "Le suivi des mesures administratives de la D.N.A."
+        "correct_answer": "Le suivi des mesures administratives de la D.N.A.",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-058"
     },

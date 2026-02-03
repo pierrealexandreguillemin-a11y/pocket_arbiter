@@ -98,6 +98,9 @@ d) Commit avec message normalisé
 |--------|-------------|----------|
 | **HALLUCINATION MCQ** | Q36: "ajuste sa pendule à 30 min" venait de la réponse MCQ, PAS du chunk! | MÊME erreur que Q13 batch 002 - NE JAMAIS copier les valeurs MCQ sans vérifier dans chunk |
 | **Réponse sans calcul** | Q39: Question "Combien..." mais réponse sans le nombre 3 | Si question demande un nombre, TOUJOURS inclure le calcul ET le résultat |
+| **Mauvais article dans chunk** | Q36: Mappé vers 3.8 (forfait 60 min) au lieu de 3.6.a (pendule retard) | Un même chunk peut contenir plusieurs règles - chercher l'article EXACT qui répond à la question |
+| **Problème arithmétique composé** | Q36: Liste en retard (11 min) + joueur en retard (50 min) = 61 min, plafonné à 60 min | Pour questions interclubs avec retard, vérifier article 3.6.a sur le plafonnement à 1h |
+| **Metadata answer_explanation** | Q36: La règle était dans metadata.answer_explanation | Toujours vérifier les champs metadata (answer_explanation, correct_answer) pour comprendre la logique |
 
 ## Métriques de qualité
 

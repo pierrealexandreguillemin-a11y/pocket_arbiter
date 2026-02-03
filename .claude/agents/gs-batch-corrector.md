@@ -77,6 +77,13 @@ d) Commit avec message normalisé
 | **Erreur logique** | Q19: Oublié que N3 > N4, donc 2 matchs N3 comptent comme "plus forts" | Vérifier la logique complète, pas juste les cas évidents |
 | **Mapping indirect** | Q20: Chunk disait "60 min retard" mais pas "heure officielle" | Si le chunk référence une autre règle (ex: "voir art. 3.1.1"), trouver et vérifier ce chunk |
 
+### Batch 003
+| Erreur | Description | Solution |
+|--------|-------------|----------|
+| Mapping cross-competition | Q28: Chunk de Coupe de France pour question sur Coupe de la Parité | Vérifier que le chunk est de la BONNE compétition |
+| Logique complexe non maitrisée | Q22: Règle du noyau mal expliquée | Si logique pas claire, citer le chunk sans inventer d'explication |
+| Valeurs des choices | Q27: Elo dans expected viennent des choices | OK si la question DEMANDE de vérifier ces valeurs contre une règle du chunk |
+
 ## Métriques de qualité
 
 Après chaque batch, vérifier:

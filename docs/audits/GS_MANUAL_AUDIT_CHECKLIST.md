@@ -35,16 +35,16 @@
 | 18 | ffe:annales:clubs:018:d470292e | [x] | [x] | 11/11 | PASS | 002 |
 | 19 | ffe:annales:clubs:019:4d3a9bf8 | [x] | [x] | 11/11 | PASS | 002 |
 | 20 | ffe:annales:clubs:020:c41e0ed8 | [x] | [x] | 11/11 | PASS | 002 |
-| 21 | ffe:annales:clubs:021:820fd267 | [ ] | [ ] | 0/11 | PENDING | - |
-| 22 | ffe:annales:clubs:022:24508717 | [ ] | [ ] | 0/11 | PENDING | - |
-| 23 | ffe:annales:clubs:023:c8d17a34 | [ ] | [ ] | 0/11 | PENDING | - |
-| 24 | ffe:annales:clubs:024:1a5a6b69 | [ ] | [ ] | 0/11 | PENDING | - |
-| 25 | ffe:annales:clubs:025:32ae9180 | [ ] | [ ] | 0/11 | PENDING | - |
-| 26 | ffe:annales:clubs:026:13307982 | [ ] | [ ] | 0/11 | PENDING | - |
-| 27 | ffe:annales:clubs:027:dfac5c0c | [ ] | [ ] | 0/11 | PENDING | - |
-| 28 | ffe:annales:clubs:028:c3671008 | [ ] | [ ] | 0/11 | PENDING | - |
-| 29 | ffe:annales:clubs:029:f547eb51 | [ ] | [ ] | 0/11 | PENDING | - |
-| 30 | ffe:annales:clubs:030:fb3301cf | [ ] | [ ] | 0/11 | PENDING | - |
+| 21 | ffe:annales:clubs:021:820fd267 | [x] | [x] | 11/11 | PASS | 003 |
+| 22 | ffe:annales:clubs:022:24508717 | [x] | [x] | 11/11 | PASS | 003 |
+| 23 | ffe:annales:clubs:023:c8d17a34 | [x] | [x] | 11/11 | PASS | 003 |
+| 24 | ffe:annales:clubs:024:1a5a6b69 | [x] | [x] | 11/11 | PASS | 003 |
+| 25 | ffe:annales:clubs:025:32ae9180 | [x] | [x] | 11/11 | PASS | 003 |
+| 26 | ffe:annales:clubs:026:13307982 | [x] | [x] | 11/11 | PASS | 003 |
+| 27 | ffe:annales:clubs:027:dfac5c0c | [x] | [x] | 11/11 | PASS | 003 |
+| 28 | ffe:annales:clubs:028:c3671008 | [x] | [x] | 11/11 | PASS | 003 |
+| 29 | ffe:annales:clubs:029:f547eb51 | [x] | [x] | 11/11 | PASS | 003 |
+| 30 | ffe:annales:clubs:030:fb3301cf | [x] | [x] | 11/11 | PASS | 003 |
 | 31 | ffe:annales:clubs:031:1246fc88 | [ ] | [ ] | 0/11 | PENDING | - |
 | 32 | ffe:annales:clubs:032:6dce6031 | [ ] | [ ] | 0/11 | PENDING | - |
 | 33 | ffe:annales:clubs:033:31688840 | [ ] | [ ] | 0/11 | PENDING | - |

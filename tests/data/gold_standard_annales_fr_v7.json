@@ -137,6 +137,17 @@
         ],
         "reviewer": "self_audit"
       }
+    },
+    "batch_003_audit": {
+      "date": "2026-02-03T14:20:12.366911",
+      "method": "manual_llm_as_judge",
+      "model": "claude-opus-4-5-20251101",
+      "questions_processed": 10,
+      "mapping_corrections": 1,
+      "reformulations": 10,
+      "reasoning_class_fixes": 3,
+      "requires_inference_added": 5,
+      "quality_gates": "G1-G11 all PASS"
     }
   },
   "coverage": {
@@ -1473,8 +1484,8 @@
     },
     {
       "id": "ffe:annales:clubs:021:820fd267",
-      "question": "Lors d'une rencontre de championnat de France des clubs, en cas de litige technique formulé par un capitaine d'équipe, quelle personne parmi les suivantes est censée envoyer des documents au directeur de groupe ?",
-      "expected_answer": "3.9 Litiges techniques  \nLorsqu'un litige technique survient en cours de partie, celle-ci doit toujours être poursuivie, en appliquant les directives de l'arbitre.",
+      "question": "En cas de litige technique en championnat de France des clubs, qui transmet les documents au directeur de groupe ?",
+      "expected_answer": "Tous les documents (reclamation ecrite du capitaine plaignant, rapports de l'arbitre et du capitaine adverse) sont transmis avec le proces-verbal du match a la direction du groupe par l'arbitre.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
       "expected_docs": [
@@ -1490,13 +1501,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p033-parent",
+      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p033-parent [BATCH_003] manual audit 2026-02-03T14:20:12.366812",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -1534,14 +1546,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "L'arbitre de la rencontre.",
-        "correct_answer": "L'arbitre de la rencontre."
+        "correct_answer": "L'arbitre de la rencontre.",
+        "original_question": "Lors d'une rencontre de championnat de France des clubs, en cas de litige technique formulé par un capitaine d'équipe, quelle personne parmi les suivantes est censée envoyer des documents au directeur de groupe ?"
       },
       "legacy_id": "FR-ANN-UVC-021"
     },
     {
       "id": "ffe:annales:clubs:022:24508717",
-      "question": "En Nationale 3, une équipe, lors de la ronde 4, veut faire jouer des joueurs ayant participé aux rondes précédentes, les autres membres de l'équipe n'ayant joué aucune ronde. Dans quel cas parmi les répartitions suivantes l'équipe sera-t-elle en infraction ?",
-      "expected_answer": "- 3.7.f) Noyau de l'équipe : en N1, N2 et N3, chaque équipe doit aligner à chaque ronde au moins 50% de personnes (appelé noyau) inscrites sur le PV ayant déjà participé au moins une fois pour le compte de cette équipe depuis le début de la saison (sauf pour la ronde 1).",
+      "question": "En Nationale 3, quelle composition d'equipe pour la ronde 4 serait en infraction avec la regle du noyau ?",
+      "expected_answer": "En N1, N2 et N3, chaque equipe doit aligner a chaque ronde au moins 50% de personnes inscrites sur le PV ayant deja participe au moins une fois pour le compte de cette equipe depuis le debut de la saison. L'option D (2 joueurs ronde 1 + 1 joueur ronde 3) constitue une infraction selon cette regle.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
       "expected_docs": [
@@ -1556,13 +1569,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] règlement_régionale_2024_2025. -> C01_2025_26_Coupe_de_France.pd",
+      "audit": "[PROCRUSTES] règlement_régionale_2024_2025. -> C01_2025_26_Coupe_de_France.pd [BATCH_003] manual audit 2026-02-03T14:20:12.366837 [ISO42001_FIX] logique simplifiee, citation chunk",
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
@@ -1580,8 +1594,8 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
-        "reasoning_class_method": "inferred",
+        "reasoning_class": "arithmetic",
+        "reasoning_class_method": "manual_audit",
         "triplet_ready": true,
         "choices": {
           "A": "2 joueurs ayant joué la ronde 2 et 2 autres joueurs ayant joué la ronde 3.",
@@ -1593,14 +1607,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "2 joueurs ayant joué la ronde 1 et 1 joueur ayant joué la ronde 3.",
-        "correct_answer": "2 joueurs ayant joué la ronde 1 et 1 joueur ayant joué la ronde 3."
+        "correct_answer": "2 joueurs ayant joué la ronde 1 et 1 joueur ayant joué la ronde 3.",
+        "original_question": "En Nationale 3, une équipe, lors de la ronde 4, veut faire jouer des joueurs ayant participé aux rondes précédentes, les autres membres de l'équipe n'ayant joué aucune ronde. Dans quel cas parmi les répartitions suivantes l'équipe sera-t-elle en infraction ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-022"
     },
     {
       "id": "ffe:annales:clubs:023:c8d17a34",
-      "question": "En coupe Loubatière, lors de la phase 2, 9 équipes sont inscrites. Quel sera le système d'appariement à utiliser ?",
-      "expected_answer": "- Un sous-groupe de 3 équipes qui sera apparié au système Molter indiqué au § 3.",
+      "question": "Quel systeme d'appariement utiliser pour 9 equipes en phase 2 de la coupe Loubatiere ?",
+      "expected_answer": "Le groupe est scinde en 2 sous-groupes : un sous-groupe de 3 equipes apparie au systeme Molter, et un sous-groupe compose des autres equipes (6) appariees au systeme Suisse.",
       "is_impossible": false,
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p006-parent031-child00",
       "expected_docs": [
@@ -1615,13 +1631,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] C03_2025_26_Coupe_Jean_Claude_ -> C03_2025_26_Coupe_Jean_Claude_",
+      "audit": "[PROCRUSTES] C03_2025_26_Coupe_Jean_Claude_ -> C03_2025_26_Coupe_Jean_Claude_ [BATCH_003] manual audit 2026-02-03T14:20:12.366847",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "multi-hop",
@@ -1659,14 +1676,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Un sous-groupe de 3 équipes au système Molter et un sous-groupe de 6 équipes au système Suisse.",
-        "correct_answer": "Un sous-groupe de 3 équipes au système Molter et un sous-groupe de 6 équipes au système Suisse."
+        "correct_answer": "Un sous-groupe de 3 équipes au système Molter et un sous-groupe de 6 équipes au système Suisse.",
+        "original_question": "En coupe Loubatière, lors de la phase 2, 9 équipes sont inscrites. Quel sera le système d'appariement à utiliser ?"
       },
       "legacy_id": "FR-ANN-UVC-024"
     },
     {
       "id": "ffe:annales:clubs:024:1a5a6b69",
-      "question": "En coupe de France, le tirage au sort a attribué les noirs au 1er échiquier de l'équipe A. Quelles sont les couleurs attribuées aux échiquiers 2 et 3 suivants des joueurs de la même équipe ? ``` a) Echiquier 2 : blancs ; Echiquier 3 : noirs. b) Echiquier 2 : blancs ; Echiquier 3 : blancs. c) Echiquier 2 : noirs ; Echiquier 3 : blancs. d) Echiquier 2 : noirs ; Echiquier 3 : noirs. ``` ?",
-      "expected_answer": "La première équipe nommée a les Blancs aux échiquiers 1 et 4 et les Noirs sur les échiquiers 2 et 3.",
+      "question": "En Coupe de France, si l'equipe A a les noirs au 1er echiquier, quelles couleurs a-t-elle aux echiquiers 2 et 3 ?",
+      "expected_answer": "La premiere equipe nommee a les Blancs aux echiquiers 1 et 4 et les Noirs sur les echiquiers 2 et 3. Si l'equipe A a les noirs a l'echiquier 1, elle n'est pas la premiere nommee, donc elle a les couleurs inversees : Blancs aux echiquiers 2 et 3.",
       "is_impossible": false,
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p003-parent013-child00",
       "expected_docs": [
@@ -1683,13 +1701,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p130-parent",
+      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p130-parent [BATCH_003] manual audit 2026-02-03T14:20:12.366854",
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
@@ -1720,14 +1739,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Echiquier 2 : blancs ; Echiquier 3 : blancs.",
-        "correct_answer": "Echiquier 2 : blancs ; Echiquier 3 : blancs."
+        "correct_answer": "Echiquier 2 : blancs ; Echiquier 3 : blancs.",
+        "original_question": "En coupe de France, le tirage au sort a attribué les noirs au 1er échiquier de l'équipe A. Quelles sont les couleurs attribuées aux échiquiers 2 et 3 suivants des joueurs de la même équipe ? ``` a) Echiquier 2 : blancs ; Echiquier 3 : noirs. b) Echiquier 2 : blancs ; Echiquier 3 : blancs. c) Echiquier 2 : noirs ; Echiquier 3 : blancs. d) Echiquier 2 : noirs ; Echiquier 3 : noirs. ``` ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-025"
     },
     {
       "id": "ffe:annales:clubs:025:32ae9180",
-      "question": "En coupe de France, quelle est l'amende pour forfait à régler pour une équipe forfait au 4e tour alors que le 1er tour est un 128e de finale ?",
-      "expected_answer": "- 200 € en 16 e de finale",
+      "question": "Quelle amende pour forfait au 4e tour si le 1er tour est un 128e de finale ?",
+      "expected_answer": "Les amendes sont: 50 euros jusqu'en 64e, 100 euros en 32e, 200 euros en 16e. Si le 1er tour est un 128e, alors: tour 1 = 128e, tour 2 = 64e, tour 3 = 32e, tour 4 = 16e. L'amende est de 200 euros.",
       "is_impossible": false,
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p004-parent019-child00",
       "expected_docs": [
@@ -1743,13 +1764,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p178-parent",
+      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p178-parent [BATCH_003] manual audit 2026-02-03T14:20:12.366862",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1773,21 +1795,23 @@
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "fact_single",
-        "reasoning_class_method": "inferred",
+        "reasoning_class": "arithmetic",
+        "reasoning_class_method": "manual_audit",
         "triplet_ready": true,
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "200 €.",
-        "correct_answer": "200 €."
+        "correct_answer": "200 €.",
+        "original_question": "En coupe de France, quelle est l'amende pour forfait à régler pour une équipe forfait au 4e tour alors que le 1er tour est un 128e de finale ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-026"
     },
     {
       "id": "ffe:annales:clubs:026:13307982",
-      "question": "En demi-finale de la coupe de France, comment sont départagées deux équipes ayant des scores identiques ?",
-      "expected_answer": "En cas d'égalité de points lors des demi-finales et la finale, un match à la cadence de 15mn + 5 secondes par joueur/joueuse est organisé, avec couleurs inversées.",
+      "question": "Comment sont departagees deux equipes a egalite en demi-finale de Coupe de France ?",
+      "expected_answer": "En cas d'egalite de points lors des demi-finales et la finale, un match a la cadence de 15mn + 5 secondes par joueur/joueuse est organise, avec couleurs inversees.",
       "is_impossible": false,
       "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
       "expected_docs": [
@@ -1802,13 +1826,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "verified_date": "2026-02-03",
+        "pages_verified": false,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] J01_2025_26_Championnat_de_Fra -> J01_2025_26_Championnat_de_Fra",
+      "audit": "[PROCRUSTES] J01_2025_26_Championnat_de_Fra -> J01_2025_26_Championnat_de_Fra [BATCH_003] manual audit 2026-02-03T14:20:12.366868",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1846,14 +1871,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Un match à la cadence de 15 min + 5 secondes par joueur/joueuse est organisé, avec couleurs inversées.",
-        "correct_answer": "Un match à la cadence de 15 min + 5 secondes par joueur/joueuse est organisé, avec couleurs inversées."
+        "correct_answer": "Un match à la cadence de 15 min + 5 secondes par joueur/joueuse est organisé, avec couleurs inversées.",
+        "original_question": "En demi-finale de la coupe de France, comment sont départagées deux équipes ayant des scores identiques ?"
       },
       "legacy_id": "FR-ANN-UVC-027"
     },
     {
       "id": "ffe:annales:clubs:027:dfac5c0c",
-      "question": "En 1ère phase de la coupe de la parité, laquelle de ces équipes ne peut participer à la compétition sur la base des classements Elo de ses joueurs ci-dessous, pour une équipe de 3 joueurs ?",
-      "expected_answer": "Le cumul des classements Elo, estimés ou réels de l'équipe, doit être inférieur ou égal à 8000. S'il n'y a que 3 membres dans l'équipe, il doit être inférieur à 6000.  \nUne équipe qualifiée peut dépasser la limite de 8000 points Elo uniquement si elle est composée des mêmes membres ayant participé à une même phase précédente",
+      "question": "Quelle equipe de 3 joueurs depasse le plafond Elo de la Coupe de la parite ?",
+      "expected_answer": "Le cumul des classements Elo doit etre inferieur a 6000 pour une equipe de 3 membres. Calcul: A) 1836+2010+2152=5998 OK, B) 1590+2123+2281=5994 OK, C) 1742+1987+2272=6001 depasse 6000, D) 1952+2010+2032=5994 OK. L'equipe C depasse le plafond.",
       "is_impossible": false,
       "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p003-parent013-child00",
       "expected_docs": [
@@ -1869,13 +1895,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[CTX] ci-dessous",
+      "audit": "[CTX] ci-dessous [BATCH_003] manual audit 2026-02-03T14:20:12.366875",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1899,8 +1926,8 @@
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "fact_single",
-        "reasoning_class_method": "inferred",
+        "reasoning_class": "arithmetic",
+        "reasoning_class_method": "manual_audit",
         "triplet_ready": true,
         "requires_context": true,
         "context_reason": "ci-dessous",
@@ -1909,18 +1936,20 @@
         "answer_source": "choice",
         "original_answer": "1742-1987-2272.",
         "requires_context_reason": "numerical_reasoning",
-        "correct_answer": "1742-1987-2272."
+        "correct_answer": "1742-1987-2272.",
+        "original_question": "En 1ère phase de la coupe de la parité, laquelle de ces équipes ne peut participer à la compétition sur la base des classements Elo de ses joueurs ci-dessous, pour une équipe de 3 joueurs ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-028"
     },
     {
       "id": "ffe:annales:clubs:028:c3671008",
-      "question": "En coupe de la parité, quelle proposition parmi les suivantes n'est pas réglementaire ?",
-      "expected_answer": "Points de match  \nLe gain du match est attribué à l'équipe totalisant plus de points de parties que l'équipe adverse.",
+      "question": "Quelle proposition sur le systeme de points en Coupe de la parite n'est pas reglementaire ?",
+      "expected_answer": "Au systeme Suisse ou toutes rondes, un match gagne est compte 3 points, un match nul 2 points, un match perdu 1 point, un match perdu par forfait 0 point. La proposition D est incorrecte car elle dit 'perdu 0 point' alors que le reglement dit 'perdu 1 point'.",
       "is_impossible": false,
-      "expected_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",
+      "expected_chunk_id": "C04_2025_26_Coupe_de_la_parité.pdf-p004-parent022-child00",
       "expected_docs": [
-        "C01_2025_26_Coupe_de_France.pdf"
+        "C04_2025_26_Coupe_de_la_parité.pdf"
       ],
       "expected_pages": [
         5
@@ -1932,13 +1961,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "verified_date": "2026-02-03",
+        "pages_verified": false,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] F01_2025_26_Championnat_de_Fra -> C04_2025_26_Coupe_de_la_parité",
+      "audit": "[PROCRUSTES] F01_2025_26_Championnat_de_Fra -> C04_2025_26_Coupe_de_la_parité [BATCH_003] mapping fix: C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00 -> C04_2025_26_Coupe_de_la_parité.pdf-p004-parent022-child00",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1976,14 +2006,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Au système suisse, un match gagné est compté 3 points, un match nul 2 points, un match perdu 0 point. F édération F rançaise de s É checs -",
-        "correct_answer": "Au système suisse, un match gagné est compté 3 points, un match nul 2 points, un match perdu 0 point."
+        "correct_answer": "Au système suisse, un match gagné est compté 3 points, un match nul 2 points, un match perdu 0 point.",
+        "original_question": "En coupe de la parité, quelle proposition parmi les suivantes n'est pas réglementaire ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-029"
     },
     {
       "id": "ffe:annales:clubs:029:f547eb51",
-      "question": "Qui nomme les superviseurs ou superviseuses à la DNA ?",
-      "expected_answer": "- Nomme les superviseurs et superviseures, il effectue lui aussi des visites de supervision.",
+      "question": "Qui nomme les superviseurs a la DNA ?",
+      "expected_answer": "Le Directeur National ou la Directrice Nationale de l'Arbitrage nomme les superviseurs et superviseures.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p227-parent042-child00",
       "expected_docs": [
@@ -1998,13 +2030,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[SMART_FIX] Article 3.2 du RIDNA.: LA-octobre2025.pdf-p038-parent157-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.20) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p003-parent000-child00 -> LA-octobre2025.pdf-p207-parent619-child02 (current_rank_430_too_low)",
+      "audit": "[SMART_FIX] Article 3.2 du RIDNA.: LA-octobre2025.pdf-p038-parent157-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.20) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p003-parent000-child00 -> LA-octobre2025.pdf-p207-parent619-child02 (current_rank_430_too_low) [BATCH_003] manual audit 2026-02-03T14:20:12.366903",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -2042,14 +2075,15 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Minimum du grade AFC possédant l'agrément FIDE.",
-        "correct_answer": "Le Directeur ou la Directrice National de l'Arbitrage."
+        "correct_answer": "Le Directeur ou la Directrice National de l'Arbitrage.",
+        "original_question": "Qui nomme les superviseurs ou superviseuses à la DNA ?"
       },
       "legacy_id": "FR-ANN-UVC-030"
     },
     {
       "id": "ffe:annales:clubs:030:fb3301cf",
-      "question": "Qui désigne le Directeur ou la Directrice Régionale de l'Arbitrage (DRA) ?",
-      "expected_answer": "5.1.1. Le Directeur Régional ou la Directrice Régionale de l'arbitrage.  \nLe Président ou la Présidente de la ligue de la Ligue désigne une personne pour diriger la D.R.A. Cette nomination doit être approuvée par le Comité Directeur de la Ligue.",
+      "question": "Qui designe le Directeur Regional de l'Arbitrage (DRA) ?",
+      "expected_answer": "Le President ou la Presidente de la Ligue designe une personne pour diriger la DRA. Cette nomination doit etre approuvee par le Comite Directeur de la Ligue.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent060-child00",
       "expected_docs": [
@@ -2065,13 +2099,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
-      "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p006-parent",
+      "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p006-parent [BATCH_003] manual audit 2026-02-03T14:20:12.366909",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -2109,7 +2144,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Envoi d'un courriel de demande d'agrément au Directeur de la DNA et paiement de 40€ auprès de la FFE.",
-        "correct_answer": "Le Président ou la Présidente de la Ligue."
+        "correct_answer": "Le Président ou la Présidente de la Ligue.",
+        "original_question": "Qui désigne le Directeur ou la Directrice Régionale de l'Arbitrage (DRA) ?"
       },
       "legacy_id": "FR-ANN-UVC-031"
     },

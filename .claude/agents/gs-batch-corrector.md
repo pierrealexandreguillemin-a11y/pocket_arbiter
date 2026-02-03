@@ -93,6 +93,12 @@ d) Commit avec message normalisé
 | Mapping délai vs nationalité | Q34: Chunk sur nationalité FIDE au lieu de délai 7 jours | Questions similaires (même doc R03) mais sujets différents |
 | Expected_answer incompatible | Q35, Q36, Q38: Expected_answer ne répondait pas à la question | TOUJOURS vérifier que expected_answer répond à la question posée |
 
+### Batch 004 - Self-Audit (CRITICAL)
+| Erreur | Description | Solution |
+|--------|-------------|----------|
+| **HALLUCINATION MCQ** | Q36: "ajuste sa pendule à 30 min" venait de la réponse MCQ, PAS du chunk! | MÊME erreur que Q13 batch 002 - NE JAMAIS copier les valeurs MCQ sans vérifier dans chunk |
+| **Réponse sans calcul** | Q39: Question "Combien..." mais réponse sans le nombre 3 | Si question demande un nombre, TOUJOURS inclure le calcul ET le résultat |
+
 ## Métriques de qualité
 
 Après chaque batch, vérifier:

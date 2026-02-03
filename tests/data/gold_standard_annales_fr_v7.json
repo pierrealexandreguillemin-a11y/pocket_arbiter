@@ -2499,7 +2499,7 @@
     {
       "id": "ffe:annales:clubs:036:ec8fdbb4",
       "question": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe 4 minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive 50 minutes après le lancement des parties. Sa pendule indique 0h29 minutes. Quelle doit être votre action ?",
-      "expected_answer": "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Le joueur arrivant 50 minutes après le lancement peut jouer car il est dans le délai. L'arbitre ajuste sa pendule à 30 minutes.",
+      "expected_answer": "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Le joueur arrivant 50 minutes après le lancement des parties peut jouer car il est dans le délai de forfait.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "expected_docs": [
@@ -2522,7 +2522,8 @@
         "answer_current": true,
         "verified_date": "2026-01-24",
         "pages_verified": true,
-        "batch": "004"
+        "batch": "004",
+        "iso42001_note": "Self-audit: removed clock adjustment statement not in chunk"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p060-parent -> LA-octobre2025.pdf-p128-parent",
       "metadata": {
@@ -2713,7 +2714,7 @@
     {
       "id": "ffe:annales:clubs:039:3f520ce2",
       "question": "Lors d'une rencontre de N2, le procès-verbal de la rencontre indique qu'une équipe compte seulement six personnes. Combien de personnes ayant déjà participé au moins une fois pour le compte de cette équipe depuis le début de la saison sportive (sauf pour la ronde 1) peuvent participer ?",
-      "expected_answer": "- 3.7.f) Noyau de l'équipe : en N1, N2 et N3, chaque équipe doit aligner à chaque ronde au moins 50% de personnes (appelé noyau) inscrites sur le PV ayant déjà participé au moins une fois pour le compte de cette équipe depuis le début de la saison (sauf pour la ronde 1). En cas d'infraction, en suivant l'ordre des échiquiers, on sanctionne par forfait administratif l'échiquier hors noyau qui ne respecte pas la règle des 50 % et tous ceux qui le suivent, qu'ils soient en infraction ou non.",
+      "expected_answer": "50% de 6 personnes = 3 personnes minimum du noyau. La règle 3.7.f) dit: en N1, N2 et N3, chaque équipe doit aligner à chaque ronde au moins 50% de personnes (appelé noyau) inscrites sur le PV ayant déjà participé au moins une fois pour le compte de cette équipe depuis le début de la saison.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child02",
       "expected_docs": [

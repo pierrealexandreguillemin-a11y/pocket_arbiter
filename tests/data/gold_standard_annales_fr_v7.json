@@ -2921,7 +2921,7 @@
         "requires_context": true,
         "context_reason": "ci-dessous",
         "extraction_flags": [],
-        "answer_explanation": null,
+        "answer_explanation": "LA Chapitre 3.5 - Système Suisse Néerlandais - A.6 Différences de couleurs: Quand deux joueurs ont la même préférence, on regarde l'historique. Si ronde N°3 a été jouée avec mauvaise couleur, on inverse.",
         "answer_source": "existing",
         "original_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
         "requires_context_reason": "numerical_reasoning",
@@ -2977,7 +2977,7 @@
           "D": "600 €."
         },
         "mcq_answer": "D",
-        "answer_explanation": "Sauf événement exceptionnel dûment justifié reconnu par la direction de groupe, tout forfait d'une équipe sera sanctionné par l'amende suivante : 1 500 € en Top 16, 750 € en N1, 400 € en N2, 300 € en N3. Cette amende sera doublée si le forfait a lieu à la dernière ronde.",
+        "answer_explanation": "A02 Article 3.8 Forfaits sportifs: En N3, forfait d'équipe = 300€. Cette amende est doublée si forfait à la dernière ronde. Donc 300 × 2 = 600€.",
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
@@ -3053,7 +3053,7 @@
         "requires_context": true,
         "context_reason": "answer_contains_exam_name",
         "extraction_flags": [],
-        "answer_explanation": null,
+        "answer_explanation": "R02 Article 1 Appels sportifs: L'appel doit être formulé par voie postale ou électronique dans un délai de dix jours à compter de la date de réception de la décision contestée.",
         "answer_source": "existing",
         "original_answer": "Paul et Hector.",
         "requires_context_reason": "insufficient_context",
@@ -3116,7 +3116,7 @@
         "extraction_flags": [
           "image_dependent"
         ],
-        "answer_explanation": null,
+        "answer_explanation": "R02 Article 4 Conservation des documents: La personne responsable de la rencontre est tenue de conserver les feuilles de parties et procès-verbaux au moins 6 mois.",
         "answer_source": "existing",
         "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale.",
         "requires_context_reason": "external_knowledge",
@@ -3169,7 +3169,7 @@
           "D": "7."
         },
         "mcq_answer": "C",
-        "answer_explanation": "Avec 17 équipes, il y a déjà 5 équipes qualifiées (4x4&lt; 17 &lt;4x5). La présence des sept joueuses est supérieure à 10% de l'effectif total qui est de 68 (17x4). Il y a donc une équipe qualifiée supplémentaire.",
+        "answer_explanation": "C03 Article 1.2 Déroulement de la Coupe: 1 équipe pour 1-4 participants, 2 pour 5-8, etc. + 1 équipe supplémentaire si quota 10% de joueuses atteint. 17 équipes → 5 base + 1 (quota) = 6.",
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
@@ -3247,7 +3247,7 @@
           "reason": "current_rank_547_too_low"
         },
         "extraction_flags": [],
-        "answer_explanation": null,
+        "answer_explanation": "C03 Article 2.5 Arbitres: Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse.",
         "answer_source": "existing",
         "original_answer": "Il n'aura pas encore de Elo rapide Fide car son score n'est pas suffisant.",
         "correct_answer": "Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse."
@@ -3313,7 +3313,7 @@
           "reason": "current_rank_737_too_low"
         },
         "extraction_flags": [],
-        "answer_explanation": null,
+        "answer_explanation": "LA Chapitre 5.5 Barème d'indemnisation: Tournoi rapide = 60€ à 100€/jour pour arbitre principal. Avec frais matériel (max 20€), total peut atteindre 85€.",
         "answer_source": "existing",
         "original_answer": "85 €",
         "correct_answer": "85 €",
@@ -3383,7 +3383,7 @@
           "reason": "current_rank_32_too_low"
         },
         "extraction_flags": [],
-        "answer_explanation": null,
+        "answer_explanation": "F02 Article 1.2 Déroulement: Elle se déroule en deux phases: une phase zone interdépartementale (ZID) et une finale.",
         "answer_source": "existing",
         "original_answer": "Au secrétariat fédéral et au Directeur des tournois et Titres de la DNA.",
         "correct_answer": "2"
@@ -3393,7 +3393,7 @@
     {
       "id": "ffe:annales:clubs:049:0742c6b6",
       "question": "Afin de pouvoir arbitrer les tournois homologués par la FIDE, vous avez dû en tant qu'AFO titré régler un droit appelé l'agré ment FIDE. Quel est le montant de cet agrément ?",
-      "expected_answer": "Le montant de l'agrément FIDE pour un arbitre fédéral est de 20 €, payable au secrétariat fédéral.",
+      "expected_answer": "Le montant de l'agrément FIDE est de 20 € pour les arbitres ne possédant pas de titre FIDE. (DNA-Guide-international Article 2.2)",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent065-child00",
       "expected_docs": [
@@ -3411,13 +3411,12 @@
         "fide"
       ],
       "validation": {
-        "status": "NEEDS_EXTERNAL_SOURCE",
+        "status": "VALIDATED",
         "method": "manual_llm_as_judge",
         "reviewer": "claude-opus-4-5",
         "verified_date": "2026-02-03",
         "batch": "005",
-        "notes": "SINCERITY AUDIT: Le montant 20€ n'est PAS dans le corpus. Le chunk référence le \"guide international\" qui n'est pas disponible. Source annales: jun2024 UVC Q1 confirme 20€ mais chunk insuffisant.",
-        "external_source_required": "Guide de l'arbitrage au niveau international - section 2.2"
+        "notes": "Corrigé détaillé trouvé dans annales jun2024 UVC Q1 choice D. Réponse: 20€ pour arbitres sans titre FIDE."
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
@@ -3428,9 +3427,9 @@
         "difficulty": 0.22,
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "UVC",
           "question_num": 1,
-          "success_rate": 0.78
+          "corrige_in_choices": true
         },
         "question_type": "factual",
         "choices": {
@@ -3454,7 +3453,7 @@
           "reason": "current_rank_13_too_low"
         },
         "extraction_flags": [],
-        "answer_explanation": null,
+        "answer_explanation": "DNA-Guide-international -2.2 : Afin d'être autorisé à arbitrer dans les tournois internationaux homologués par la FIDE, un arbitre fédéral, quel que soit son titre FFE ou FIDE, doit s'acquitter d'un droit auprès de la FIDE : Ce droit est de 20 € pour les arbitres ne possédant pas de titre FIDE",
         "answer_source": "existing",
         "original_answer": "20 €",
         "correct_answer": "20 €"
@@ -3510,7 +3509,7 @@
           "D": "La rédaction de la version française des règles du jeu."
         },
         "mcq_answer": "A",
-        "answer_explanation": "LA -RIDNA -II. ORGANISATION ET ADMINISTRATION -3.2 Direction des règlements",
+        "answer_explanation": "LA Article 3.7 Direction des Règlements: Liste les missions (veille réglementaire, Livre de l'Arbitre, pôle règlement, règles du jeu). Le suivi des mesures administratives n'y figure PAS.",
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",

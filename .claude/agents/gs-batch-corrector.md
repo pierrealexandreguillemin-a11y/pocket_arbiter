@@ -52,6 +52,48 @@ c) Mettre à jour checklist
 d) Commit avec message normalisé
 ```
 
+## Règle CRITIQUE: Corrigés Détaillés = Source de Vérité
+
+### Principe
+
+**TOUJOURS extraire `metadata.answer_explanation` depuis les corrigés détaillés des annales.**
+
+Les annales FFE contiennent des "corrigés détaillés" qui expliquent POURQUOI la réponse est correcte, avec références aux articles. Ces explications sont souvent:
+- Dans un choice (généralement le dernier)
+- Dans un champ `article_reference` ou `explanation`
+- Après le texte de la question
+
+### Procédure OBLIGATOIRE pour chaque question
+
+```
+1. Trouver la question source dans parsed_Annales-*.json
+2. Lire TOUS les choices (pas juste la réponse correcte)
+3. Extraire l'explication/référence article
+4. Renseigner metadata.answer_explanation (CHAMP OBLIGATOIRE)
+5. Utiliser cette explication pour valider le mapping chunk
+```
+
+### Exemple
+
+```python
+# Annales jun2024 UVC Q1
+choices = {
+    'D': '80 € DNA-Guide-international -2.2 : Afin d\'être autorisé...'
+    #         ↑ CORRIGÉ DÉTAILLÉ CACHÉ DANS LE CHOICE!
+}
+
+# → metadata.answer_explanation = "DNA-Guide-international -2.2 : ..."
+```
+
+### Champ answer_explanation
+
+- **Obligatoire**: Oui (ISO 42001 traçabilité)
+- **Source**: Corrigés détaillés annales FFE
+- **Contenu**: Article + explication officielle
+- **Utilité**: Vérifier que expected_answer correspond à la règle officielle
+
+---
+
 ## Erreurs à éviter (Lessons Learned)
 
 ### Batch 001

@@ -2340,7 +2340,7 @@
     {
       "id": "ffe:annales:clubs:034:625be40b",
       "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celuici s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence. Quel est le délai de régularisation pour le club ?",
-      "expected_answer": "Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence au plus tard 7 jours après la fin du tournoi. Passé le délai de 7 jours, la FFE régularisera la situation.",
+      "expected_answer": "Les joueuses et joueurs non licencies A en debut de tournoi devront prendre cette licence dans le club organisateur. Regulariser la prise de licence au plus tard 7 jours apres la fin du tournoi.",
       "is_impossible": false,
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent010-child00",
       "expected_docs": [
@@ -2354,11 +2354,10 @@
         "position"
       ],
       "validation": {
-        "status": "NEEDS_REVIEW",
+        "status": "VALIDATED",
         "method": "manual_pdf_verification",
         "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Alignment unclear, needs PDF verification"
+        "date": "2026-02-03"
       },
       "audit": "[RECLASS] fact_single -> arithmetic | [QAT] LA-octobre2025.pdf-p078-parent238-child00 -> LA-octobre2025.pdf-p129-parent382-child00 (current_rank_709_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2409,9 +2408,9 @@
     {
       "id": "ffe:annales:clubs:035:f5891e65",
       "question": "Pour jouer un match par équipe en championnat de France des Clubs, les joueurs et joueuses doivent être titulaires d'une licence A valable pour la saison en cours. Au plus tard, quand la prise de licence doit-elle être effectuée ?",
-      "expected_answer": "Pour jouer un match par équipes, les joueurs et joueuses doivent être licenciés au plus tard à l'heure prévue du début de la rencontre.",
+      "expected_answer": "Article 3.6.d: L'heure limite de prise de licence pour un joueur participant a une rencontre est l'heure prevue du debut de la rencontre.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2428,11 +2427,10 @@
         "ffe"
       ],
       "validation": {
-        "status": "NEEDS_REVIEW",
+        "status": "VALIDATED",
         "method": "manual_pdf_verification",
         "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Alignment unclear, needs PDF verification"
+        "date": "2026-02-03"
       },
       "audit": "[SMART_FIX] Article 3.6.d du A02 - Championnat de France des clubs.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.17) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00 -> LA-octobre2025.pdf-p127-parent370-child00 (current_rank_247_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2623,7 +2621,7 @@
     {
       "id": "ffe:annales:clubs:038:269442e5",
       "question": "Lors d'une rencontre du championnat de France des Clubs, les feuilles de composition des équipes sont transcrites sur la feuille de match. Cette dernière comporte pour chaque joueur le nom, le prénom, le code fédéral, le classement Elo ainsi qu'un espace pour les éléments de la validité de la licence. Lors de l'établissement de la feuille de match, qui contrôle les éléments de la validité de la licence des joueurs ?",
-      "expected_answer": "3.6.c) Contrôle des licences : l'arbitre transcrit sur la feuille de match les feuilles de composition remises par les capitaines des équipes, contrôle les licences à l'aide du site fédéral et, le cas échéant, indique sur le PV l'absence de licence A.",
+      "expected_answer": "Article 3.6.c: L'arbitre de la rencontre transcrit et controle les licences.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
       "expected_docs": [
@@ -2639,11 +2637,10 @@
         "adversaire"
       ],
       "validation": {
-        "status": "NEEDS_REVIEW",
+        "status": "VALIDATED",
         "method": "manual_pdf_verification",
         "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Alignment unclear, needs PDF verification"
+        "date": "2026-02-03"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> A03_2025_26_Championnat_de_Fra",
       "metadata": {

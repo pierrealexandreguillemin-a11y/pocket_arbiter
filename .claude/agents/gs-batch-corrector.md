@@ -102,6 +102,13 @@ d) Commit avec message normalisé
 | **Problème arithmétique composé** | Q36: Liste en retard (11 min) + joueur en retard (50 min) = 61 min, plafonné à 60 min | Pour questions interclubs avec retard, vérifier article 3.6.a sur le plafonnement à 1h |
 | **Metadata answer_explanation** | Q36: La règle était dans metadata.answer_explanation | Toujours vérifier les champs metadata (answer_explanation, correct_answer) pour comprendre la logique |
 
+### Batch 005
+| Erreur | Description | Solution |
+|--------|-------------|----------|
+| **Forfait doublé dernière ronde** | Q42: 300€ en N3 doublé si dernière ronde = 600€ | Toujours vérifier si "dernière ronde" mentionnée - amende x2 |
+| **Question corrompue** | Q47: Question demande euros, choices sont des nombres (2,3,4,5) | Marquer FAILED plutôt que deviner - besoin revue PDF source |
+| **Réponse numérique manquante** | Q48: "Combien de phases" mais réponse sans le chiffre | Si question "combien", inclure le nombre dans expected_answer |
+
 ## Métriques de qualité
 
 Après chaque batch, vérifier:

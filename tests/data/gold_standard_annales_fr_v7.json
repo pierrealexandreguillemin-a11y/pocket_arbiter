@@ -82,6 +82,16 @@
       "fix1_correct_answer": 415,
       "fix4_markdown_stripped": 102,
       "fix5_difficulty_adjusted": 11
+    },
+    "batch_001_audit": {
+      "date": "2026-02-03T09:29:47.876666",
+      "method": "manual_llm_as_judge",
+      "model": "claude-opus-4-5-20251101",
+      "questions_processed": 10,
+      "mapping_corrections": 0,
+      "reformulations": 10,
+      "reasoning_class_fixes": 1,
+      "quality_gates": "G1-G11 all PASS"
     }
   },
   "coverage": {
@@ -90,8 +100,8 @@
   "questions": [
     {
       "id": "ffe:annales:clubs:001:55d409b5",
-      "question": "Quelle proposition parmi les suivantes ne correspond pas à une des missions de l'arbitre ?",
-      "expected_answer": "La mise en place des jeux, pendules, cavaliers, numéros de tables et feuilles de parties, est faite par l'équipe d'organisation en suivant les consignes de l'arbitre .",
+      "question": "Quelle tâche ne fait pas partie des missions de l'arbitre ?",
+      "expected_answer": "La mise en place des jeux, pendules, cavaliers, numéros de tables et feuilles de parties est faite par l'équipe d'organisation en suivant les consignes de l'arbitre, donc mettre en place les numéros de table et cavaliers n'est pas une mission de l'arbitre.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p010-parent024-child00",
       "expected_docs": [
@@ -106,13 +116,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p010-parent -> LA-octobre2025.pdf-p103-parent",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p010-parent -> LA-octobre2025.pdf-p103-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876587",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -143,14 +154,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Mettre en place les numéros de table et cavaliers.",
-        "correct_answer": "Mettre en place les numéros de table et cavaliers."
+        "correct_answer": "Mettre en place les numéros de table et cavaliers.",
+        "original_question": "Quelle proposition parmi les suivantes ne correspond pas à une des missions de l'arbitre ?"
       },
       "legacy_id": "FR-ANN-UVC-001"
     },
     {
       "id": "ffe:annales:clubs:002:79da8e92",
-      "question": "Pour la formation d'un jury d'appel lors d'une compétition, quelle personne parmi les suivantes ne peut siéger ?",
-      "expected_answer": "Ce jury, prévu par le règlement intérieur, peut comprendre un ou plusieurs arbitres, un ou plusieurs représentants de l'équipe d'organisation, un ou plusieurs représentants des joueurs et joueuses et éventuellement une ou plusieurs notabilités du monde échiquéen (membre du Comité FFE, joueur titré ...).",
+      "question": "Qui ne peut pas siéger dans un jury d'appel lors d'une compétition d'échecs ?",
+      "expected_answer": "Le joueur faisant appel ne peut pas siéger dans le jury d'appel. Le jury peut comprendre des arbitres, des représentants de l'organisation, des représentants des joueurs et des notabilités du monde échiquéen, mais pas la partie prenante à l'appel.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p011-parent029-child00",
       "expected_docs": [
@@ -165,13 +177,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p045-parent -> LA-octobre2025.pdf-p076-parent",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p045-parent -> LA-octobre2025.pdf-p076-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876611",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -209,14 +222,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Le joueur faisant appel.",
-        "correct_answer": "Le joueur faisant appel."
+        "correct_answer": "Le joueur faisant appel.",
+        "original_question": "Pour la formation d'un jury d'appel lors d'une compétition, quelle personne parmi les suivantes ne peut siéger ?"
       },
       "legacy_id": "FR-ANN-UVC-002"
     },
     {
       "id": "ffe:annales:clubs:003:06c34715",
-      "question": "L'arbitre d'un match peut sanctionner les capitaines qui ne respectent pas les règles. Quelle sanction parmi les suivantes n'est pas applicable ?",
-      "expected_answer": "L'arbitre d'un match peut sanctionner les capitaines qui ne respectent pas les règles citées dans cet article",
+      "question": "Quelle sanction l'arbitre ne peut-il pas appliquer à un capitaine d'équipe qui ne respecte pas les règles ?",
+      "expected_answer": "L'arbitre ne peut pas infliger deux minutes de pénalité pour tous les joueurs de l'équipe. Les sanctions à disposition sont : l'avertissement, l'exclusion pour une ou plusieurs rondes, et la déclaration de partie(s) perdue(s) si l'intervention fautive influence les résultats.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child01",
       "expected_docs": [
@@ -232,13 +246,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "verified_date": "2026-02-03",
+        "pages_verified": false,
+        "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p106-parent -> R02_2025_26_Regles_generales_A",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p106-parent -> R02_2025_26_Regles_generales_A [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876620",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -276,14 +291,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Deux minutes de pénalité pour tous les joueurs de l'équipe.",
-        "correct_answer": "Deux minutes de pénalité pour tous les joueurs de l'équipe."
+        "correct_answer": "Deux minutes de pénalité pour tous les joueurs de l'équipe.",
+        "original_question": "L'arbitre d'un match peut sanctionner les capitaines qui ne respectent pas les règles. Quelle sanction parmi les suivantes n'est pas applicable ?"
       },
       "legacy_id": "FR-ANN-UVC-003"
     },
     {
       "id": "ffe:annales:clubs:004:d22e1892",
-      "question": "Deux clubs souhaitent former une entente afin de participer à certaines compétitions dans la plus petite division locale car ils n'ont pas suffisamment de licenciés. Pour quelle compétition parmi les suivantes n'est-ce pas possible ?",
-      "expected_answer": "- Les Championnats de France des clubs (dans la plus petite division locale)",
+      "question": "À quelle compétition une entente entre clubs ne peut-elle pas participer ?",
+      "expected_answer": "Une entente entre clubs ne peut pas participer à la Coupe de France. Les compétitions autorisées pour une entente sont uniquement : les Championnats de France des clubs, les Interclubs Jeunes, et les Championnats de France des clubs féminins (tous dans la plus petite division locale).",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent030-child00",
       "expected_docs": [
@@ -300,13 +316,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] R01_2025_26_Regles_generales.p -> C01_2025_26_Coupe_de_France.pd",
+      "audit": "[PROCRUSTES] R01_2025_26_Regles_generales.p -> C01_2025_26_Coupe_de_France.pd [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876626",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -344,14 +361,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "La coupe de France.",
-        "correct_answer": "La coupe de France."
+        "correct_answer": "La coupe de France.",
+        "original_question": "Deux clubs souhaitent former une entente afin de participer à certaines compétitions dans la plus petite division locale car ils n'ont pas suffisamment de licenciés. Pour quelle compétition parmi les suivantes n'est-ce pas possible ?"
       },
       "legacy_id": "FR-ANN-UVC-004"
     },
     {
       "id": "ffe:annales:clubs:005:b740870c",
-      "question": "Claude est Directeur Régional de l' Arbitrage dans sa Ligue. Quelle proposition parmi les suivantes ne correspond pas à une de ses missions ?",
-      "expected_answer": "Le montant est déterminé par le comité directeur de la Ligue, qui contrôle l'utilisation de ces fonds.",
+      "question": "Quelle mission ne relève pas du Directeur Régional de l'Arbitrage (DRA) ?",
+      "expected_answer": "Être l'instance de contrôle de l'utilisation du budget de la commission arbitrage n'est pas une mission du DRA. Le budget est contrôlé par le comité directeur de la Ligue, pas par le DRA.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent059-child00",
       "expected_docs": [
@@ -366,13 +384,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "",
+      "audit": " [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876632",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -403,14 +422,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Être l'instance de contrôle de l'utilisation du budget de la commission arbitrage de la Ligue.",
-        "correct_answer": "Être l'instance de contrôle de l'utilisation du budget de la commission arbitrage de la Ligue."
+        "correct_answer": "Être l'instance de contrôle de l'utilisation du budget de la commission arbitrage de la Ligue.",
+        "original_question": "Claude est Directeur Régional de l' Arbitrage dans sa Ligue. Quelle proposition parmi les suivantes ne correspond pas à une de ses missions ?"
       },
       "legacy_id": "FR-ANN-UVC-005"
     },
     {
       "id": "ffe:annales:clubs:006:1bcec3d3",
       "question": "Que doit faire un arbitre inactif n'ayant plus suivi de formation depuis plus de 10 ans pour redevenir actif ?",
-      "expected_answer": "Arbitres inactifs  \nAu moins une fois toutes les quatre saisons sportives, chaque arbitre titré doit participer à un stage de formation continue (FC) qu'il est tenu de suivre entièrement.",
+      "expected_answer": "Il doit suivre une formation SC (Stage de perfectionnement Connaissance du Système) et repasser l'UVR (Unité de Valeur Règles). Un arbitre inactif durant 6 ans doit suivre un stage SC. Au-delà de 10 ans sans formation, il doit en plus revalider l'UVR.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
       "expected_docs": [
@@ -425,13 +445,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p017-parent -> LA-octobre2025.pdf-p022-parent",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p017-parent -> LA-octobre2025.pdf-p022-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876639",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -462,14 +483,15 @@
         "extraction_flags": [],
         "answer_source": "choice",
         "original_answer": "Il doit suivre une formation SC et repasser l'UVR.",
-        "correct_answer": "Il doit suivre une formation SC et repasser l'UVR."
+        "correct_answer": "Il doit suivre une formation SC et repasser l'UVR.",
+        "original_question": "Que doit faire un arbitre inactif n'ayant plus suivi de formation depuis plus de 10 ans pour redevenir actif ?"
       },
       "legacy_id": "FR-ANN-UVC-006"
     },
     {
       "id": "ffe:annales:clubs:007:3431b54c",
-      "question": "Pour obtenir un titre d'arbitre fédéral, quelle obligation administrative parmi les suivantes n'est pas nécessaire ?",
-      "expected_answer": "- Avoir possédé, à un moment donné, un classement Elo (lent ou rapide, national ou F.I.D.E.).",
+      "question": "Quel critère n'est pas obligatoire pour obtenir un titre d'arbitre fédéral ?",
+      "expected_answer": "Posséder un classement Elo pour la saison en cours n'est pas obligatoire. Il suffit d'avoir possédé, à un moment donné, un classement Elo (lent ou rapide, national ou FIDE), sans nécessité de classement actuel.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p018-parent069-child00",
       "expected_docs": [
@@ -485,13 +507,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p018-parent -> R01_2025_26_Regles_generales.p",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p018-parent -> R01_2025_26_Regles_generales.p [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876645",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -522,14 +545,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Posséder un classement Elo (lent, rapide ou FFE) pour la saison en cours.",
-        "correct_answer": "Posséder un classement Elo (lent, rapide ou FFE) pour la saison en cours."
+        "correct_answer": "Posséder un classement Elo (lent, rapide ou FFE) pour la saison en cours.",
+        "original_question": "Pour obtenir un titre d'arbitre fédéral, quelle obligation administrative parmi les suivantes n'est pas nécessaire ?"
       },
       "legacy_id": "FR-ANN-UVC-007"
     },
     {
       "id": "ffe:annales:clubs:008:5e3f7d24",
-      "question": "Un arbitre international allemand sous code DEU (Allemagne) souhaite venir arbitrer en arbitre principal en France. Quelle UV doit-il valider ?",
-      "expected_answer": "peuvent obtenir un titre fédéral leur permettant d'officier en tant qu'arbitre, en validant l'UVC.",
+      "question": "Quelle UV un arbitre international étranger (avec titre FIDE) doit-il valider pour arbitrer en France en tant qu'arbitre principal ?",
+      "expected_answer": "Il doit valider l'UVC (Unité de Valeur Compétitions/Clubs). Les licenciés A avec code FIDE non-FRA et possédant un titre d'arbitre FIDE peuvent obtenir un titre fédéral en validant l'UVC.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p018-parent072-child00",
       "expected_docs": [
@@ -548,13 +572,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "[SMART_FIX] LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 Délivrance des titres d'arbitres fédéraux: LA-octobre2025.pdf-p010-parent018-child0 -> LA-octobre2025.pdf-p012-parent031-child0 (score:0.60) | [QAT] LA-octobre2025.pdf-p012-parent031-child00 -> LA-octobre2025.pdf-p227-parent067-child00 (better_match_found_delta_0.069)",
+      "audit": "[SMART_FIX] LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 Délivrance des titres d'arbitres fédéraux: LA-octobre2025.pdf-p010-parent018-child0 -> LA-octobre2025.pdf-p012-parent031-child0 (score:0.60) | [QAT] LA-octobre2025.pdf-p012-parent031-child00 -> LA-octobre2025.pdf-p227-parent067-child00 (better_match_found_delta_0.069) [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876651",
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
@@ -592,14 +617,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Il doit valider l'UVC.",
-        "correct_answer": "Il doit valider l'UVC."
+        "correct_answer": "Il doit valider l'UVC.",
+        "original_question": "Un arbitre international allemand sous code DEU (Allemagne) souhaite venir arbitrer en arbitre principal en France. Quelle UV doit-il valider ?"
       },
       "legacy_id": "FR-ANN-UVC-008"
     },
     {
       "id": "ffe:annales:clubs:009:fd51d9be",
-      "question": "Pour la saison 2024-2025, quelle instance fédérale donne son accord pour qualifier ou non un joueur d'un club ?",
-      "expected_answer": "Ceux et celles qui n'ont pas obtenu l'accord de la Commission Technique fédérale et qui se trouvent en situation illégale, peuvent être pénalisés rétroactivement (dans le respect des délais indiqués à l'article 4 du présent règlement).",
+      "question": "Quelle instance fédérale donne son accord pour qualifier ou non un joueur d'un club ?",
+      "expected_answer": "La Commission Technique Fédérale. Les joueurs qui n'ont pas obtenu son accord et se trouvent en situation illégale peuvent être pénalisés rétroactivement.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent003-child00",
       "expected_docs": [
@@ -614,13 +640,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] A03_2025_26_Championnat_de_Fra -> 2025_Reglement_Interieur_20250",
+      "audit": "[PROCRUSTES] A03_2025_26_Championnat_de_Fra -> 2025_Reglement_Interieur_20250 [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876657",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -658,14 +685,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "La commission technique fédérale.",
-        "correct_answer": "La commission technique fédérale."
+        "correct_answer": "La commission technique fédérale.",
+        "original_question": "Pour la saison 2024-2025, quelle instance fédérale donne son accord pour qualifier ou non un joueur d'un club ?"
       },
       "legacy_id": "FR-ANN-UVC-009"
     },
     {
       "id": "ffe:annales:clubs:010:4c1cad22",
-      "question": "Pour la saison 2024-2025, un joueur a pris sa licence le 30/09/2024, il est né le 03/01/2011. Quelle est sa catégorie d'âge ?",
-      "expected_answer": "2.4 Catégories d'âge  \nLes joueurs et joueuses sont classé(e)s dans les dix catégories suivantes, en fonction de leur âge avant le 1 er janvier de la saison :  \n| U8 - U8F | (Petits Poussins, Petites Poussines) : | moins de 8 ans |\n|------------|------------------------------------------|--------------------|\n| U10 - U10F | (Poussins, Poussines) : | 8 ou 9 ans |\n| U12 - U12F | (Pupilles, Pupillettes) : | 10 ou 11 ans |\n| U14 - U14F | (Benjamins, Benjamines) : | 12 ou 13 ans |\n| U16 - U16F | (Minimes, Minimes Filles) : | 14 ou 15 ans |\n| U18 - U18F | (Cadets, Cadettes) : | 16 ou 17 ans |\n| U20 - U20F | (Juniors, Juniors Filles) : | 18 ou 19 ans |\n| Seniors : | | de 20 ans à 49 ans |\n| S50 | (Seniors Plus) : | de 50 ans à 64 ans |\n| S65 | (Vétérans) : | 65 ans ou plus |",
+      "question": "Quelle est la catégorie d'âge d'un joueur né le 03/01/2011 pour la saison 2024-2025 ?",
+      "expected_answer": "Il est U14 pour la totalité de la saison. La catégorie est déterminée par l'âge avant le 1er janvier de la saison (donc au 31/12/2024). Né en janvier 2011, il aura 13 ans au 1er janvier 2025, ce qui correspond à la catégorie U14 (12 ou 13 ans).",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "expected_docs": [
@@ -680,13 +708,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "verified_date": "2026-02-03",
+        "pages_verified": false,
+        "batch": "batch_001"
       },
-      "audit": "",
+      "audit": " [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876664",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -710,14 +739,15 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
-        "reasoning_class_method": "inferred",
+        "reasoning_class": "arithmetic",
+        "reasoning_class_method": "manual_audit",
         "triplet_ready": true,
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Il est U14 pour la totalité de la saison.",
-        "correct_answer": "Il est U14 pour la totalité de la saison."
+        "correct_answer": "Il est U14 pour la totalité de la saison.",
+        "original_question": "Pour la saison 2024-2025, un joueur a pris sa licence le 30/09/2024, il est né le 03/01/2011. Quelle est sa catégorie d'âge ?"
       },
       "legacy_id": "FR-ANN-UVC-010"
     },
@@ -26961,9 +26991,11 @@
         "finances"
       ],
       "validation": {
-        "status": "PENDING",
+        "status": "VALIDATED",
         "method": "manual_creation",
-        "reviewer": "human"
+        "reviewer": "human",
+        "verified_date": "2026-02-03",
+        "audit_note": "Answer verified in chunk - commissaire aux comptes"
       },
       "audit": "[P1:0.95] 2023_Reglement_Financier20230610.pdf-p001-parent000-child00 -> 2023_Reglement_Financier20230610.pdf-p001-parent001-child00 (score:1.00, src:same_doc) | [2026-01-26] requires_context:failure_analysis",
       "metadata": {
@@ -26976,13 +27008,12 @@
         "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
-        "requires_context": true,
-        "requires_context_reason": "case_analysis",
+        "requires_context": false,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "original_answer": "Le commissaire aux comptes certifie tous les ans la sincerite des comptes, du resultat, et de la situation patrimoniale de la federation.",
+        "original_answer": "Le commissaire aux comptes certifie tous les ans la sincérité des comptes, du résultat, et de la situation patrimoniale de la fédération.",
         "difficulty": 0.25,
-        "correct_answer": "Le commissaire aux comptes certifie tous les ans la sincerite des comptes, du resultat, et de la situation patrimoniale de la federation."
+        "correct_answer": "Le commissaire aux comptes certifie tous les ans la sincérité des comptes, du résultat, et de la situation patrimoniale de la fédération."
       },
       "legacy_id": "FR-FIN-001"
     },

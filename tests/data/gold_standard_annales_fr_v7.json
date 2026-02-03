@@ -2523,13 +2523,14 @@
         "verified_date": "2026-01-24",
         "pages_verified": true,
         "batch": "004",
-        "iso42001_note": "Self-audit: removed clock adjustment statement not in chunk"
+        "iso42001_note": "Self-audit: removed clock adjustment statement not in chunk",
+        "metadata_fix": "Batch 004: reasoning_type, cognitive_level, question_type corrected"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p060-parent -> LA-octobre2025.pdf-p128-parent",
       "metadata": {
         "answer_type": "multiple_choice",
-        "reasoning_type": "single-hop",
-        "cognitive_level": "Remember",
+        "reasoning_type": "multi-hop",
+        "cognitive_level": "Apply",
         "article_reference": "Article 3.6.a du A02 - Championnat de France des clubs.",
         "difficulty": 0.36,
         "annales_source": {
@@ -2538,7 +2539,7 @@
           "question_num": 11,
           "success_rate": 0.64
         },
-        "question_type": "factual",
+        "question_type": "scenario",
         "choices": {
           "A": "Vous déclarez la partie perdue par forfait car le délai de forfait est de 60 minutes.",
           "B": "Vous déclarez la partie perdue par forfait car le délai de forfait est de 30 minutes.",

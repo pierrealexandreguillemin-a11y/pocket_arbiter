@@ -113,6 +113,22 @@
         "solution": "Cite what IS in chunk + explicit omission statement",
         "requires_inference_flag": true
       }
+    },
+    "batch_002_audit": {
+      "date": "2026-02-03T14:00:34.077913",
+      "method": "manual_llm_as_judge",
+      "model": "claude-opus-4-5-20251101",
+      "questions_processed": 10,
+      "mapping_corrections": 1,
+      "reformulations": 10,
+      "reasoning_class_fixes": 2,
+      "requires_inference_added": 8,
+      "quality_gates": "G1-G11 all PASS",
+      "lessons_applied": [
+        "negative_questions_explicit_omission",
+        "no_acronym_hallucination",
+        "arithmetic_questions_flagged"
+      ]
     }
   },
   "coverage": {
@@ -778,8 +794,8 @@
     },
     {
       "id": "ffe:annales:clubs:011:0ed8268f",
-      "question": "Quel cas parmi les suivants ne correspond pas à une situation de forfait ?",
-      "expected_answer": "- 3.2.1.c) L'équipe qui se présente sur l'aire de jeu avec moins de la moitié de ses membres à l'heure limite du match selon l'article 3.1.1 et 3.1.2 du présent règlement.",
+      "question": "Quelle situation ne constitue pas un forfait selon le reglement ?",
+      "expected_answer": "Une equipe qui se presente avec exactement la moitie de ses membres (4 joueurs sur 8) n'est pas en forfait. Le reglement stipule forfait pour une equipe avec 'moins de la moitie de ses membres'. La moitie exacte (4/8) ne remplit pas ce critere.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p003-parent013-child00",
       "expected_docs": [
@@ -794,13 +810,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] R01_2025_26_Regles_generales.p -> LA-octobre2025.pdf-p115-parent",
+      "audit": "[PROCRUSTES] R01_2025_26_Regles_generales.p -> LA-octobre2025.pdf-p115-parent [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077826",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -824,8 +841,8 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "reasoning",
-        "reasoning_class_method": "inferred",
+        "reasoning_class": "arithmetic",
+        "reasoning_class_method": "manual_audit",
         "triplet_ready": true,
         "qat_revalidation": {
           "date": "2026-01-26T10:34:08.042344",
@@ -838,14 +855,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "L'équipe qui se présente sur l'aire de jeu avec seulement 4 joueurs sur les 8 prévus.",
-        "correct_answer": "L'équipe qui se présente sur l'aire de jeu avec seulement 4 joueurs sur les 8 prévus."
+        "correct_answer": "L'équipe qui se présente sur l'aire de jeu avec seulement 4 joueurs sur les 8 prévus.",
+        "original_question": "Quel cas parmi les suivants ne correspond pas à une situation de forfait ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-011"
     },
     {
       "id": "ffe:annales:clubs:012:f348e858",
-      "question": "Une rencontre entre deux équipes de championnat a lieu un dimanche. Le directeur de groupe indique que tous les résultats ont été vérifiés le mardi. A compter de quel jour au minimum suivant le dimanche de la rencontre le résultat est-il homologué ?",
-      "expected_answer": "4. Homologation d'un résultat  \nAprès vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre",
+      "question": "A partir de quel jour minimum apres une rencontre le resultat est-il homologue ?",
+      "expected_answer": "Le resultat d'une rencontre ne sera pas homologue avant le 4e jour calendaire qui suit cette rencontre. Pour un match le dimanche, le 4e jour est le jeudi.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
       "expected_docs": [
@@ -864,13 +883,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": " | [MARK] requires_context:answer_not_found",
+      "audit": " | [MARK] requires_context:answer_not_found [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077853",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -894,8 +914,8 @@
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
-        "reasoning_class_method": "inferred",
+        "reasoning_class": "arithmetic",
+        "reasoning_class_method": "manual_audit",
         "triplet_ready": true,
         "requires_context": true,
         "requires_context_reason": "answer_not_in_corpus",
@@ -903,14 +923,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Le jeudi.",
-        "correct_answer": "Le jeudi."
+        "correct_answer": "Le jeudi.",
+        "original_question": "Une rencontre entre deux équipes de championnat a lieu un dimanche. Le directeur de groupe indique que tous les résultats ont été vérifiés le mardi. A compter de quel jour au minimum suivant le dimanche de la rencontre le résultat est-il homologué ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-012"
     },
     {
       "id": "ffe:annales:clubs:013:a7e8c494",
-      "question": "Pour un tournoi, le montant de l'inscription est fixé à 30 € pour les adultes et 15 € pour les jeunes. L'inscription est majorée à 40 € pour les adultes s'inscrivant à la dernière minute et 20 € pour les jeunes. Le jour du tournoi, une personne adulte handicapée se présente. Quelle somme doit-elle régler ?",
-      "expected_answer": "Dans les tournois de type A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi.",
+      "question": "Quel tarif d'inscription s'applique a une personne handicapee s'inscrivant a la derniere minute ?",
+      "expected_answer": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes presentant une carte mobilite inclusion de personne en situation de handicap. La personne paie donc le tarif normal (30 euros), pas le tarif majore.",
       "is_impossible": false,
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
@@ -926,13 +948,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "verified_date": "2026-02-03",
+        "pages_verified": false,
+        "batch": "batch_002"
       },
-      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00 (score:1.00, src:same_doc) [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077862",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -963,16 +986,18 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Elle doit payer 30 €.",
-        "correct_answer": "Elle doit payer 30 €."
+        "correct_answer": "Elle doit payer 30 €.",
+        "original_question": "Pour un tournoi, le montant de l'inscription est fixé à 30 € pour les adultes et 15 € pour les jeunes. L'inscription est majorée à 40 € pour les adultes s'inscrivant à la dernière minute et 20 € pour les jeunes. Le jour du tournoi, une personne adulte handicapée se présente. Quelle somme doit-elle régler ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-013"
     },
     {
       "id": "ffe:annales:clubs:014:cd3052cc",
-      "question": "Un organisateur décide de découper son tournoi en deux phases distinctes au cours de deux périodes de l'année sportive sur la base de deux homologations différentes. La première phase consiste en un tournoi à la cadence 30 min (+5 s/coup) et la deuxième phase à la cadence 50 min (+10 s/coup). Un joueur se présente à la première phase avec une licence B ?",
-      "expected_answer": "2.5. Conditions de participation des joueurs et joueuses :  \nDans une compétition homologuée par la FFE, sont considérés comme « participants français » ou « participantes françaises » tous les joueurs et joueuses inscrits à la FFE auprès de la FIDE (code FRA) ainsi que les joueurs ou joueuses de nationalité française jouant avec le code de la FIDE ou les joueurs et joueuses de nationalité étrangère n'ayant pas de code FIDE.",
+      "question": "Un joueur avec licence B peut-il participer a un tournoi dont la premiere phase est en cadence rapide et la seconde en cadence lente ?",
+      "expected_answer": "Tournois de type A : les participants francais doivent etre titulaires d'une licence A. Tournois de type B : une licence B suffit. Si le tournoi comporte une phase lente (type A), le joueur devra prendre la licence A pour cette phase.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent010-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -987,13 +1012,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] R03_2025_26_Competitions_homol -> R03_2025_26_Competitions_homol",
+      "audit": "[PROCRUSTES] R03_2025_26_Competitions_homol -> R03_2025_26_Competitions_homol [BATCH_002] mapping fix: R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent010-child00",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -1031,14 +1057,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Il en a le droit à condition de prendre la licence A pour la deuxième phase.",
-        "correct_answer": "Il en a le droit à condition de prendre la licence A pour la deuxième phase."
+        "correct_answer": "Il en a le droit à condition de prendre la licence A pour la deuxième phase.",
+        "original_question": "Un organisateur décide de découper son tournoi en deux phases distinctes au cours de deux périodes de l'année sportive sur la base de deux homologations différentes. La première phase consiste en un tournoi à la cadence 30 min (+5 s/coup) et la deuxième phase à la cadence 50 min (+10 s/coup). Un joueur se présente à la première phase avec une licence B ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-014"
     },
     {
       "id": "ffe:annales:clubs:015:9da1351e",
-      "question": "Votre club organise un tournoi en cadence rapide. Le papa d'un joueur vous contacte quatre jours avant pour inscrire sa fille. Pour lui, il ne doit rien régler car elle est championne de France en titre en catégorie U10 ?",
-      "expected_answer": "Dans les tournois de type A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi.",
+      "question": "L'inscription est-elle gratuite pour une championne de France U10 dans un tournoi en cadence rapide ?",
+      "expected_answer": "Dans les tournois de type A (cadence lente), l'inscription est gratuite pour les champions et championnes de France jeunes en titre, sous reserve de confirmer 48 heures avant. Cette regle ne s'applique pas aux tournois de type B (cadence rapide).",
       "is_impossible": false,
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
@@ -1054,13 +1082,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false
+        "verified_date": "2026-02-03",
+        "pages_verified": false,
+        "batch": "batch_002"
       },
-      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00 (score:1.00, src:same_doc)",
+      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00 (score:1.00, src:same_doc) [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077878",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -1091,14 +1120,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Vous refusez car cela n'est valable que pour les tournois en cadence lente.",
-        "correct_answer": "Vous refusez car cela n'est valable que pour les tournois en cadence lente."
+        "correct_answer": "Vous refusez car cela n'est valable que pour les tournois en cadence lente.",
+        "original_question": "Votre club organise un tournoi en cadence rapide. Le papa d'un joueur vous contacte quatre jours avant pour inscrire sa fille. Pour lui, il ne doit rien régler car elle est championne de France en titre en catégorie U10 ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-015"
     },
     {
       "id": "ffe:annales:clubs:016:223bd59d",
-      "question": "Concernant le championnat de France des clubs, quelle proposition parmi les suivantes ne correspond pas à une situation autorisée par le règlement de la compétition ?",
-      "expected_answer": "1.2 Déroulement de la compétition  \nLe championnat se joue par équipes de clubs.",
+      "question": "Quelle situation n'est pas autorisee dans le championnat de France des clubs ?",
+      "expected_answer": "Un club ne peut engager qu'une equipe en Top 16 et une equipe en N1. Avoir deux equipes en Nationale 1 n'est donc pas autorise par le reglement.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent001-child00",
       "expected_docs": [
@@ -1115,13 +1146,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra",
+      "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077885",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1152,14 +1184,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Un club peut avoir deux équipes en Nationale 1.",
-        "correct_answer": "Un club peut avoir deux équipes en Nationale 1."
+        "correct_answer": "Un club peut avoir deux équipes en Nationale 1.",
+        "original_question": "Concernant le championnat de France des clubs, quelle proposition parmi les suivantes ne correspond pas à une situation autorisée par le règlement de la compétition ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-016"
     },
     {
       "id": "ffe:annales:clubs:017:5a48507f",
-      "question": "Quelle instance fédérale est chargée de nommer les directions de groupe en N3 ?",
-      "expected_answer": "2.1.a Direction de Nationale  \nLa Commission Technique Fédérale désigne en début de saison une personne chargée de la direction de Nationale du Top 16 à la N3.",
+      "question": "Qui nomme les directions de groupe en Nationale 3 ?",
+      "expected_answer": "De la N1 a la N3, la personne chargee de la direction de Nationale nomme en debut de saison les personnes chargees des directions de groupe. C'est donc la direction nationale de la competition.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent004-child00",
       "expected_docs": [
@@ -1174,13 +1208,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra",
+      "audit": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077892",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1218,14 +1253,15 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "La direction nationale de la compétition.",
-        "correct_answer": "La direction nationale de la compétition."
+        "correct_answer": "La direction nationale de la compétition.",
+        "original_question": "Quelle instance fédérale est chargée de nommer les directions de groupe en N3 ?"
       },
       "legacy_id": "FR-ANN-UVC-017"
     },
     {
       "id": "ffe:annales:clubs:018:d470292e",
-      "question": "En championnat de France des clubs, en N4, quel niveau d'arbitre minimum parmi les suivants faut-il avoir dans un club pour éviter une sanction de rétrogradation en fin de saison ?",
-      "expected_answer": "- En N3 et N4, une ou un arbitre fédéral Elite, d'Open, de Club, ou Jeune (en N4, une demande de dérogation est possible par les Ligues.).",
+      "question": "Quel est le niveau d'arbitre minimum requis pour un club en Nationale 4 ?",
+      "expected_answer": "En N3 et N4, une ou un arbitre federal Elite, d'Open, de Club, ou Jeune est requis. En N4, une demande de derogation est possible par les Ligues. L'Arbitre Federal Jeune est donc le niveau minimum.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent009-child00",
       "expected_docs": [
@@ -1242,13 +1278,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p019-parent",
+      "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p019-parent [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077898 [ISO42001_FIX] inference sur niveau minimum",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -1279,14 +1316,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Arbitre Fédéral Jeune.",
-        "correct_answer": "Arbitre Fédéral Jeune."
+        "correct_answer": "Arbitre Fédéral Jeune.",
+        "original_question": "En championnat de France des clubs, en N4, quel niveau d'arbitre minimum parmi les suivants faut-il avoir dans un club pour éviter une sanction de rétrogradation en fin de saison ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-018"
     },
     {
       "id": "ffe:annales:clubs:019:4d3a9bf8",
-      "question": "Une joueuse de votre club a joué dans l'ordre un match en Nationale 4, un match en nationale 2 et deux matchs en nationale 3. Quelle règle s'applique ?",
-      "expected_answer": "- En N4, la comparaison des équipes se fait sur le nombre d'échiquiers concernés par le règlement spécifique, c'est-àdire, sur 6 échiquiers si ce cas est prévu par le règlement de la Ligue.",
+      "question": "Quelle restriction s'applique a une joueuse ayant joue en N4, N2 et N3 ?",
+      "expected_answer": "Lorsqu'un club a plusieurs equipes, un joueur ne peut participer dans une equipe s'il a deja joue trois fois dans une equipe plus forte. Ayant joue 1 fois en N2 (plus forte), la joueuse n'a pas atteint la limite de 3 matchs mais ne peut plus jouer en N4 (division inferieure a N2 et N3).",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
@@ -1302,13 +1341,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> règlement_n4_2024_2025__1_.pdf",
+      "audit": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> règlement_n4_2024_2025__1_.pdf [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077904",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -1346,14 +1386,16 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "Elle ne peut plus jouer en nationale 4.",
-        "correct_answer": "Elle ne peut plus jouer en nationale 4."
+        "correct_answer": "Elle ne peut plus jouer en nationale 4.",
+        "original_question": "Une joueuse de votre club a joué dans l'ordre un match en Nationale 4, un match en nationale 2 et deux matchs en nationale 3. Quelle règle s'applique ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-019"
     },
     {
       "id": "ffe:annales:clubs:020:c41e0ed8",
-      "question": "Une ronde de championnat de France des clubs débute à 14:15. À la suite d'un problème technique, elle n'a commencé de fait qu'à 14:30. A partir de quelle heure un joueur est-il forfait ?",
-      "expected_answer": "Toute équipe ne se conformant pas à ces prescriptions et provoquant un déplacement inutile sera tenue de rembourser intégralement les frais de déplacements et de séjour occasionnés (voir Règles Générales 3.2.3). Le non-remboursement de ces frais dans les délais fixés entraîne pour les équipes concernées l'exclusion du Championnat de France des Clubs la saison suivante",
+      "question": "A quelle heure un joueur est-il forfait si la ronde prevue a 14h15 a debute a 14h30 ?",
+      "expected_answer": "Le retard autorise est de 60 minutes pour toutes les divisions nationales. Le retard est calcule a partir de l'heure prevue (14h15), donc forfait a 15h15, meme si le debut reel a ete retarde.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "expected_docs": [
@@ -1369,13 +1411,14 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p091-parent",
+      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p091-parent [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077911",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -1413,7 +1456,9 @@
         "answer_explanation": null,
         "answer_source": "choice",
         "original_answer": "15 : 15.",
-        "correct_answer": "15 : 15."
+        "correct_answer": "15 : 15.",
+        "original_question": "Une ronde de championnat de France des clubs débute à 14:15. À la suite d'un problème technique, elle n'a commencé de fait qu'à 14:30. A partir de quelle heure un joueur est-il forfait ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-020"
     },

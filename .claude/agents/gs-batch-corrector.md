@@ -62,6 +62,14 @@ d) Commit avec message normalisé
 | Calcul dans answer | "13 ans donc U14" avec le raisonnement | requires_inference=true, garder les faits du chunk |
 | Overlap insuffisant | Test mot-à-mot à 30% rate les hallucinations | Vérification sémantique manuelle obligatoire |
 
+### Batch 002
+| Erreur | Description | Solution |
+|--------|-------------|----------|
+| Mapping hors-sujet | Q14: chunk parlait de nationalité, pas de licences A/B | Toujours vérifier que le chunk répond à la question |
+| Inference "minimum" | Q18: "Jeune est le minimum" non explicite | requires_inference=true pour conclusions |
+| Calculs temporels | Jours calendaires, heures de forfait | reasoning_class=arithmetic + requires_inference |
+| Tournois bi-phase | Cadences différentes = types différents | Vérifier règles type A vs type B |
+
 ## Métriques de qualité
 
 Après chaque batch, vérifier:

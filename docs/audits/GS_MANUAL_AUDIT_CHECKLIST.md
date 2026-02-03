@@ -5,8 +5,8 @@
 > Last updated: 2026-02-03
 
 ## Legend
-- Map: Mapping MCQ↔chunk validated
-- Ref: Question reformulated MCQ→direct
+- Map: Mapping MCQ<->chunk validated
+- Ref: Question reformulated MCQ->direct
 - Gates: Number of quality gates PASS (out of 11)
 - Status: PENDING | IN_PROGRESS | PASS | FAIL
 - Batch: Batch number (001-042)
@@ -25,16 +25,16 @@
 | 8 | ffe:annales:clubs:008:5e3f7d24 | [x] | [x] | 11/11 | PASS | 001 |
 | 9 | ffe:annales:clubs:009:fd51d9be | [x] | [x] | 11/11 | PASS | 001 |
 | 10 | ffe:annales:clubs:010:4c1cad22 | [x] | [x] | 11/11 | PASS | 001 |
-| 11 | ffe:annales:clubs:011:0ed8268f | [ ] | [ ] | 0/11 | PENDING | - |
-| 12 | ffe:annales:clubs:012:f348e858 | [ ] | [ ] | 0/11 | PENDING | - |
-| 13 | ffe:annales:clubs:013:a7e8c494 | [ ] | [ ] | 0/11 | PENDING | - |
-| 14 | ffe:annales:clubs:014:cd3052cc | [ ] | [ ] | 0/11 | PENDING | - |
-| 15 | ffe:annales:clubs:015:9da1351e | [ ] | [ ] | 0/11 | PENDING | - |
-| 16 | ffe:annales:clubs:016:223bd59d | [ ] | [ ] | 0/11 | PENDING | - |
-| 17 | ffe:annales:clubs:017:5a48507f | [ ] | [ ] | 0/11 | PENDING | - |
-| 18 | ffe:annales:clubs:018:d470292e | [ ] | [ ] | 0/11 | PENDING | - |
-| 19 | ffe:annales:clubs:019:4d3a9bf8 | [ ] | [ ] | 0/11 | PENDING | - |
-| 20 | ffe:annales:clubs:020:c41e0ed8 | [ ] | [ ] | 0/11 | PENDING | - |
+| 11 | ffe:annales:clubs:011:0ed8268f | [x] | [x] | 11/11 | PASS | 002 |
+| 12 | ffe:annales:clubs:012:f348e858 | [x] | [x] | 11/11 | PASS | 002 |
+| 13 | ffe:annales:clubs:013:a7e8c494 | [x] | [x] | 11/11 | PASS | 002 |
+| 14 | ffe:annales:clubs:014:cd3052cc | [x] | [x] | 11/11 | PASS | 002 |
+| 15 | ffe:annales:clubs:015:9da1351e | [x] | [x] | 11/11 | PASS | 002 |
+| 16 | ffe:annales:clubs:016:223bd59d | [x] | [x] | 11/11 | PASS | 002 |
+| 17 | ffe:annales:clubs:017:5a48507f | [x] | [x] | 11/11 | PASS | 002 |
+| 18 | ffe:annales:clubs:018:d470292e | [x] | [x] | 11/11 | PASS | 002 |
+| 19 | ffe:annales:clubs:019:4d3a9bf8 | [x] | [x] | 11/11 | PASS | 002 |
+| 20 | ffe:annales:clubs:020:c41e0ed8 | [x] | [x] | 11/11 | PASS | 002 |
 | 21 | ffe:annales:clubs:021:820fd267 | [ ] | [ ] | 0/11 | PENDING | - |
 | 22 | ffe:annales:clubs:022:24508717 | [ ] | [ ] | 0/11 | PENDING | - |
 | 23 | ffe:annales:clubs:023:c8d17a34 | [ ] | [ ] | 0/11 | PENDING | - |

@@ -162,7 +162,19 @@
       ],
       "mapping_corrections": 3,
       "arithmetic_classifications": 3,
-      "quality_gates": "G1-G11 verified"
+      "quality_gates": "G1-G11 verified",
+      "sincerity_audit": {
+        "date": "2026-02-03",
+        "issues_found": 3,
+        "critical": [
+          "Q49: réponse 20€ absente du corpus"
+        ],
+        "medium": [
+          "Q47: calcul 85€ non vérifié",
+          "Q41: reasoning non vérifié"
+        ],
+        "corrections_applied": true
+      }
     }
   },
   "coverage": {
@@ -2877,7 +2889,7 @@
         "reviewer": "claude-opus-4-5",
         "verified_date": "2026-02-03",
         "batch": "005",
-        "notes": "MCQ choices corrected (were corrupted with money values), chunk fixed to Dutch system color rules"
+        "notes": "MCQ choices corrected (were corrupted with money values), chunk fixed to Dutch system color rules | SINCERITY: Chunk A.6 donne les règles mais \"inversé ronde N°3\" nécessite APPLIQUER les règles au tableau. Classification: reasoning confirmée."
       },
       "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:global_search) [CTX] ci-dessous",
       "metadata": {
@@ -3264,7 +3276,7 @@
         "reviewer": "claude-opus-4-5",
         "verified_date": "2026-02-03",
         "batch": "005",
-        "notes": "Critical fix: chunk changed from F01 to LA barème. Source: dec2023 UVC Q28. Answer: 85€"
+        "notes": "Critical fix: chunk changed from F01 to LA barème. Source: dec2023 UVC Q28. Answer: 85€ | SINCERITY: 85€ provient du contexte annales dec2023 UVC (scénario tournoi rapide 5 rondes). Calcul exact non vérifiable sans contexte complet."
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p178-parent",
       "metadata": {
@@ -3305,7 +3317,9 @@
         "answer_source": "existing",
         "original_answer": "85 €",
         "correct_answer": "85 €",
-        "requires_inference": true
+        "requires_inference": true,
+        "requires_context": true,
+        "context_reason": "scenario_specific_calculation"
       },
       "legacy_id": "FR-ANN-UVC-055"
     },
@@ -3397,12 +3411,13 @@
         "fide"
       ],
       "validation": {
-        "status": "VALIDATED",
+        "status": "NEEDS_EXTERNAL_SOURCE",
         "method": "manual_llm_as_judge",
         "reviewer": "claude-opus-4-5",
         "verified_date": "2026-02-03",
         "batch": "005",
-        "notes": "Critical fix: Answer is 20€. Source: jun2024 UVC Q1. Chunk references guide international."
+        "notes": "SINCERITY AUDIT: Le montant 20€ n'est PAS dans le corpus. Le chunk référence le \"guide international\" qui n'est pas disponible. Source annales: jun2024 UVC Q1 confirme 20€ mais chunk insuffisant.",
+        "external_source_required": "Guide de l'arbitrage au niveau international - section 2.2"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {

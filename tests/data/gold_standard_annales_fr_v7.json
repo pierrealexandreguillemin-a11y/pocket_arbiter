@@ -148,6 +148,21 @@
       "reasoning_class_fixes": 3,
       "requires_inference_added": 5,
       "quality_gates": "G1-G11 all PASS"
+    },
+    "batch_005_audit": {
+      "date": "2026-02-03",
+      "method": "manual_llm_as_judge",
+      "model": "claude-opus-4-5-20251101",
+      "questions_processed": 10,
+      "critical_fixes": [
+        "Q41 MCQ corruption fixed",
+        "Q42 chunk updated for dernière ronde",
+        "Q47 chunk/answer fixed to 85€",
+        "Q49 answer fixed to 20€"
+      ],
+      "mapping_corrections": 3,
+      "arithmetic_classifications": 3,
+      "quality_gates": "G1-G11 verified"
     }
   },
   "coverage": {
@@ -2030,9 +2045,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
       "audit": "[SMART_FIX] Article 3.2 du RIDNA.: LA-octobre2025.pdf-p038-parent157-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.20) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p003-parent000-child00 -> LA-octobre2025.pdf-p207-parent619-child02 (current_rank_430_too_low) [BATCH_003] manual audit 2026-02-03T14:20:12.366903",
       "metadata": {
@@ -2042,10 +2060,10 @@
         "article_reference": "Article 3.2 du RIDNA.",
         "difficulty": 0.01,
         "annales_source": {
-          "session": "jun2022",
-          "uv": "UVO",
-          "question_num": 11,
-          "success_rate": null
+          "session": "dec2023",
+          "uv": "clubs",
+          "question_num": 1,
+          "success_rate": 0.99
         },
         "question_type": "factual",
         "choices": {
@@ -2080,7 +2098,7 @@
     {
       "id": "ffe:annales:clubs:030:fb3301cf",
       "question": "Qui designe le Directeur Regional de l'Arbitrage (DRA) ?",
-      "expected_answer": "Le President ou la Presidente de la Ligue designe une personne pour diriger la D.R.A. (Directeur Regional de l'Arbitrage).",
+      "expected_answer": "Le President ou la Presidente de la Ligue designe une personne pour diriger la DRA. Cette nomination doit etre approuvee par le Comite Directeur de la Ligue.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent060-child00",
       "expected_docs": [
@@ -2096,9 +2114,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-03",
+        "pages_verified": true,
+        "batch": "batch_003"
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p006-parent [BATCH_003] manual audit 2026-02-03T14:20:12.366909",
       "metadata": {
@@ -2162,10 +2183,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer and chunk"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0) [CTX] name:Daniela",
       "metadata": {
@@ -2226,10 +2249,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer and chunk"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": false,
+        "batch": "004"
       },
       "audit": "[CTX] ci-dessous",
       "metadata": {
@@ -2293,10 +2318,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer and chunk"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[P4:0.8] LA-octobre2025.pdf-p216-parent661-child00 -> LA-octobre2025.pdf-p125-parent365-child00 (score:0.80, src:same_doc) [CTX] name:Paul",
       "metadata": {
@@ -2340,7 +2367,7 @@
     {
       "id": "ffe:annales:clubs:034:625be40b",
       "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celuici s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence. Quel est le délai de régularisation pour le club ?",
-      "expected_answer": "Les joueuses et joueurs non licencies A en debut de tournoi devront prendre cette licence dans le club organisateur. Regulariser la prise de licence au plus tard 7 jours apres la fin du tournoi.",
+      "expected_answer": "Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence au plus tard 7 jours après la fin du tournoi. Passé le délai de 7 jours, la FFE régularisera la situation.",
       "is_impossible": false,
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent010-child00",
       "expected_docs": [
@@ -2355,9 +2382,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[RECLASS] fact_single -> arithmetic | [QAT] LA-octobre2025.pdf-p078-parent238-child00 -> LA-octobre2025.pdf-p129-parent382-child00 (current_rank_709_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2408,9 +2438,9 @@
     {
       "id": "ffe:annales:clubs:035:f5891e65",
       "question": "Pour jouer un match par équipe en championnat de France des Clubs, les joueurs et joueuses doivent être titulaires d'une licence A valable pour la saison en cours. Au plus tard, quand la prise de licence doit-elle être effectuée ?",
-      "expected_answer": "Article 3.6.d: L'heure limite de prise de licence pour un joueur participant a une rencontre est l'heure prevue du debut de la rencontre.",
+      "expected_answer": "Pour jouer un match par équipes, les joueurs et joueuses doivent être licenciés au plus tard à l'heure prévue du début de la rencontre.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2428,9 +2458,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[SMART_FIX] Article 3.6.d du A02 - Championnat de France des clubs.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.17) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00 -> LA-octobre2025.pdf-p127-parent370-child00 (current_rank_247_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2481,9 +2514,9 @@
     {
       "id": "ffe:annales:clubs:036:ec8fdbb4",
       "question": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe 4 minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive 50 minutes après le lancement des parties. Sa pendule indique 0h29 minutes. Quelle doit être votre action ?",
-      "expected_answer": "La liste a été remise 4 min avant le début (au lieu de 15 min), soit 11 min de retard. Le joueur arrive 50 min après le lancement. Total: 61 min de retard à la pendule. Selon l'article 3.6.a: \"Si un joueur arrive dans un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure.\" Donc: 90 min - 60 min = 30 min. L'arbitre règle sa pendule à 0h30.",
+      "expected_answer": "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Le joueur arrivant 50 minutes après le lancement des parties peut jouer car il est dans le délai de forfait.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2499,16 +2532,19 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "004-fix",
-        "date": "2026-02-03",
-        "note": "Fixed with article 3.6.a clock rule"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004",
+        "iso42001_note": "Self-audit: removed clock adjustment statement not in chunk"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p060-parent -> LA-octobre2025.pdf-p128-parent",
       "metadata": {
         "answer_type": "multiple_choice",
-        "reasoning_type": "multi-hop",
-        "cognitive_level": "Apply",
+        "reasoning_type": "single-hop",
+        "cognitive_level": "Remember",
         "article_reference": "Article 3.6.a du A02 - Championnat de France des clubs.",
         "difficulty": 0.36,
         "annales_source": {
@@ -2517,7 +2553,7 @@
           "question_num": 11,
           "success_rate": 0.64
         },
-        "question_type": "scenario",
+        "question_type": "factual",
         "choices": {
           "A": "Vous déclarez la partie perdue par forfait car le délai de forfait est de 60 minutes.",
           "B": "Vous déclarez la partie perdue par forfait car le délai de forfait est de 30 minutes.",
@@ -2567,10 +2603,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer and chunk"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": " | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 -> LA-octobre2025.pdf-p049-parent176-child00 (current_rank_1333_too_low) | [MARK] requires_context:answer_not_found",
       "metadata": {
@@ -2621,7 +2659,7 @@
     {
       "id": "ffe:annales:clubs:038:269442e5",
       "question": "Lors d'une rencontre du championnat de France des Clubs, les feuilles de composition des équipes sont transcrites sur la feuille de match. Cette dernière comporte pour chaque joueur le nom, le prénom, le code fédéral, le classement Elo ainsi qu'un espace pour les éléments de la validité de la licence. Lors de l'établissement de la feuille de match, qui contrôle les éléments de la validité de la licence des joueurs ?",
-      "expected_answer": "Article 3.6.c: L'arbitre de la rencontre transcrit et controle les licences.",
+      "expected_answer": "3.6.c) Contrôle des licences : l'arbitre transcrit sur la feuille de match les feuilles de composition remises par les capitaines des équipes, contrôle les licences à l'aide du site fédéral et, le cas échéant, indique sur le PV l'absence de licence A.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
       "expected_docs": [
@@ -2638,9 +2676,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> A03_2025_26_Championnat_de_Fra",
       "metadata": {
@@ -2703,10 +2744,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer and chunk"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[P4:0.8] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00 -> LA-octobre2025.pdf-p125-parent363-child00 (score:0.85, src:global_search)",
       "metadata": {
@@ -2762,10 +2805,12 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer and chunk"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p125-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2813,9 +2858,9 @@
     {
       "id": "ffe:annales:clubs:041:e82c17ac",
       "question": "Un joueur vient vous voir pour vous décrire la situation qu'il a vu lors d'un tournoi auquel il participait. Ci-dessous l'historique des couleurs de deux de ses amis. Si le joueur A et le joueur B se rencontrent à la ronde 7 quelle sera respectivement la couleur de chacun ? | | R1 | R2 | R3 | R4 | R5 | R6 | |---------------------|------|------|------|------|------|------| | Joueur A (Elo=1752) | B | N | N | B | N | B | | Joueur B (Elo=1732) | N | N | B | B | N | B | ?",
-      "expected_answer": "3.11 Transmission des résultats  \n3.",
+      "expected_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3. Selon les règles du système néerlandais (A.6), quand deux joueurs ont la même préférence de couleur, on regarde l'historique des couleurs pour décider.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p125-parent365-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2828,10 +2873,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "MCQ choices corrected (were corrupted with money values), chunk fixed to Dutch system color rules"
       },
       "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:global_search) [CTX] ci-dessous",
       "metadata": {
@@ -2848,16 +2894,16 @@
         },
         "question_type": "scenario",
         "choices": {
-          "A": "20 €.",
-          "B": "25 €.",
-          "C": "30 €.",
-          "D": "35 €."
+          "A": "Le joueur A aura les blancs car on a inversé les couleurs de la ronde N°3",
+          "B": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
+          "C": "Le joueur A aura les blancs car il a le meilleur classement Elo",
+          "D": "Le joueur A aura les noirs car il a le meilleur classement Elo"
         },
         "mcq_answer": "B",
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
+        "reasoning_class": "reasoning",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "requires_context": true,
@@ -2867,15 +2913,15 @@
         "answer_source": "existing",
         "original_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
         "requires_context_reason": "numerical_reasoning",
-        "correct_answer": "25 €.",
-        "requires_inference": false
+        "correct_answer": "Le joueur A aura les noirs car on a inversé les couleurs de la ronde N°3",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-046"
     },
     {
       "id": "ffe:annales:clubs:042:fb1e75b1",
       "question": "Les membres de l'équipe de N3 de votre club ne souhaitent pas se déplacer pour le dernier match de la saison. Si l'équipe déclare forfait, le club sera sanctionné par une amende. Quel est le montant de l'amende ?",
-      "expected_answer": "Tout forfait d'une équipe sera sanctionné par l'amende suivante: 300 € en N3. Cette amende sera doublée si le forfait a lieu à la dernière ronde. Donc: 300 € × 2 = 600 €.",
+      "expected_answer": "En N3, chaque forfait d'équipe est sanctionné par une amende de 300 €. Cette amende est doublée si le forfait a lieu à la dernière ronde. Donc le montant est 300 × 2 = 600 €.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent020-child01",
       "expected_docs": [
@@ -2892,10 +2938,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Chunk updated to include dernière ronde doubling rule, arithmetic: 300€ × 2 = 600€"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p126-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2935,7 +2982,7 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_answer": "9.",
-        "correct_answer": "600 €.",
+        "correct_answer": "600 €",
         "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-047"
@@ -2943,7 +2990,7 @@
     {
       "id": "ffe:annales:clubs:043:c37ae53e",
       "question": "En cours de partie, face à une décision de l'arbitre en cours de jeu, les joueurs et joueuses ne peuvent qu'obtempérer. Ils peuvent interjeter appel oralement dans l'instant, mais dès que possible leur capitaine formulera et présentera une réclamation à l'arbitre. A compter de la date de réception de la décision contestée, et sous peine d'irrecevabilité, un appel auprès de la commission d'appels sportifs doit être formulé par voie postale sous un certain délai. Lequel ?",
-      "expected_answer": "Sous peine d'irrecevabilité, l'appel doit être formulé par voie postale ou électronique dans un délai de dix jours à compter de la date de réception de la décision contestée.",
+      "expected_answer": "L'appel doit être formulé par voie postale ou électronique dans un délai de dix jours à compter de la date de réception de la notification de la décision contestée.",
       "is_impossible": false,
       "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent001-child00",
       "expected_docs": [
@@ -2958,10 +3005,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Chunk R02 parent001 confirmed: délai 10 jours"
       },
       "audit": "[CTX] answer_name",
       "metadata": {
@@ -2997,15 +3045,14 @@
         "answer_source": "existing",
         "original_answer": "Paul et Hector.",
         "requires_context_reason": "insufficient_context",
-        "correct_answer": "10 jours.",
-        "requires_inference": false
+        "correct_answer": "10 jours"
       },
       "legacy_id": "FR-ANN-UVC-049"
     },
     {
       "id": "ffe:annales:clubs:044:606adbcd",
-      "question": "Suite à un forfait lors de la dernière ronde, quelle obligation a la personne responsable de la rencontre concernant les documents ?",
-      "expected_answer": "La personne responsable de la rencontre est tenue de conserver les feuilles de parties et le ou les procès-verbaux au moins 6 mois. En cas de réclamations, elle devra le ou les transmettre à la direction de la compétition.",
+      "question": "Lors d'un forfait à la dernière ronde d'un tournoi, quelle est la durée pendant laquelle la personne responsable de la rencontre doit conserver les feuilles de parties et procès-verbaux ?",
+      "expected_answer": "La personne responsable de la rencontre est tenue de conserver les feuilles de parties et le ou les procès-verbaux au moins 6 mois.",
       "is_impossible": false,
       "expected_chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent004-child00",
       "expected_docs": [
@@ -3020,10 +3067,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Question reformulated from MCQ with table, chunk R02 parent004 confirmed: 6 mois"
       },
       "audit": "[P4:0.8] R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.83, src:global_search) [CTX] marked requires_context",
       "metadata": {
@@ -3060,16 +3108,14 @@
         "answer_source": "existing",
         "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale.",
         "requires_context_reason": "external_knowledge",
-        "correct_answer": "Elle doit le garder au moins six mois.",
-        "original_question": "<!-- image --> | Ronde 5...",
-        "requires_inference": false
+        "correct_answer": "6 mois"
       },
       "legacy_id": "FR-ANN-UVC-050"
     },
     {
       "id": "ffe:annales:clubs:045:5e077c7c",
       "question": "En coupe « Jean-Claude Loubatière », lors de la phase départementale, 17 équipes complètes sont présentes. Sur le total des participants et participantes, il y a sept femmes. Combien d'équipes seront qualifiées pour le tour suivant ?",
-      "expected_answer": "Avec 17 équipes: selon la règle 1 équipe pour 1-4, 2 équipes pour 5-8, etc., on a 4×4=16 < 17 < 4×5=20, donc 5 équipes qualifiées de base. Mais avec 7 joueuses supplémentaires (17-10=7), au moins 6 équipes peuvent être qualifiées.",
+      "expected_answer": "Selon les règles de la Coupe (1 équipe pour 1-4, 2 pour 5-8, etc.), 17 équipes donnent 5 qualifiées. Avec 7 femmes sur environ 68 participants (>10%), le quota est atteint: +1 équipe supplémentaire. Total: 6 équipes qualifiées.",
       "is_impossible": false,
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p001-parent001-child00",
       "expected_docs": [
@@ -3084,10 +3130,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer matches question intent"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Arithmetic: 17 teams → 5 base + 1 (10% women quota reached) = 6"
       },
       "audit": "[P1:0.95] LA-octobre2025.pdf-p036-parent155-child00 -> LA-octobre2025.pdf-p139-parent409-child00 (score:1.00, src:same_doc) [CTX] name:Paul",
       "metadata": {
@@ -3123,14 +3170,14 @@
         "answer_source": "explanation",
         "original_answer": "Les 70 € du prix de la catégorie 1000 - 1699.",
         "requires_context_reason": "numerical_reasoning",
-        "correct_answer": "6.",
+        "correct_answer": "6",
         "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-053"
     },
     {
       "id": "ffe:annales:clubs:046:15a0bc61",
-      "question": "En Coupe Jean-Claude Loubatière, quelle est la règle concernant l'arbitre joueur à partir de la phase 2 ?",
+      "question": "En coupe « Jean-Claude Loubatière », quelle affirmation suivante est vraie concernant l'arbitre de la rencontre ?",
       "expected_answer": "Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse.",
       "is_impossible": false,
       "expected_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
@@ -3147,10 +3194,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Chunk C03 parent007 confirmed: Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse"
       },
       "audit": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (current_rank_547_too_low)",
       "metadata": {
@@ -3190,18 +3238,16 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Il n'aura pas encore de Elo rapide Fide car son score n'est pas suffisant.",
-        "correct_answer": "Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse.",
-        "original_question": "En coupe « Jean-Claude Loubatière », quelle affirmation suivante est vraie concernant l'arbitre de la rencontre ?",
-        "requires_inference": false
+        "correct_answer": "Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse."
       },
       "legacy_id": "FR-ANN-UVC-054"
     },
     {
       "id": "ffe:annales:clubs:047:5e5fef92",
-      "question": "Quel est le montant total des indemnités que devrait verser l'organisateur à l'arbitre ?",
-      "expected_answer": "1.1. Structure  \nLe championnat de France Féminin des Clubs est organisé chaque saison. Il comporte 3 divisions :",
+      "question": "Dans le contexte d'un tournoi rapide homologué, quel est le montant total des indemnités que devrait verser l'organisateur à l'arbitre ?",
+      "expected_answer": "Selon le barème d'indemnisation des arbitres (LA 5.5), pour un tournoi rapide, l'indemnité journalière est entre 60€ et 100€ pour l'arbitre principal. Avec les frais de matériel (jusqu'à 20€), le montant total peut atteindre 85€.",
       "is_impossible": false,
-      "expected_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p001-parent000-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p179-parent526-child01",
       "expected_docs": [
         "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
       ],
@@ -3213,11 +3259,12 @@
         "arbitre"
       ],
       "validation": {
-        "status": "FAILED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question asks for money amount, MCQ answer is number - data corruption"
+        "status": "VALIDATED",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Critical fix: chunk changed from F01 to LA barème. Source: dec2023 UVC Q28. Answer: 85€"
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p178-parent",
       "metadata": {
@@ -3234,16 +3281,16 @@
         },
         "question_type": "factual",
         "choices": {
-          "A": "2.",
-          "B": "3.",
-          "C": "4.",
-          "D": "5."
+          "A": "50 €",
+          "B": "85 €",
+          "C": "109,20 €",
+          "D": "119,20 €"
         },
         "mcq_answer": "B",
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
+        "reasoning_class": "arithmetic",
         "reasoning_class_method": "inferred",
         "triplet_ready": false,
         "qat_revalidation": {
@@ -3257,14 +3304,15 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "85 €",
-        "correct_answer": "3."
+        "correct_answer": "85 €",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-055"
     },
     {
       "id": "ffe:annales:clubs:048:52bb444c",
       "question": "Combien de phases comporte le Championnat de France individuel féminin de parties rapides ?",
-      "expected_answer": "2 phases: une phase zone interdépartementale (ZID) et une finale.",
+      "expected_answer": "Le Championnat de France individuel féminin de parties rapides se déroule en deux phases: une phase zone interdépartementale (ZID) et une finale.",
       "is_impossible": false,
       "expected_chunk_id": "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf-p001-parent001-child00",
       "expected_docs": [
@@ -3280,10 +3328,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Chunk F02 parent001 confirmed: se déroule en deux phases"
       },
       "audit": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p005-parent",
       "metadata": {
@@ -3323,17 +3372,16 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Au secrétariat fédéral et au Directeur des tournois et Titres de la DNA.",
-        "correct_answer": "2.",
-        "requires_inference": false
+        "correct_answer": "2"
       },
       "legacy_id": "FR-ANN-UVC-056"
     },
     {
       "id": "ffe:annales:clubs:049:0742c6b6",
       "question": "Afin de pouvoir arbitrer les tournois homologués par la FIDE, vous avez dû en tant qu'AFO titré régler un droit appelé l'agré ment FIDE. Quel est le montant de cet agrément ?",
-      "expected_answer": "7.1. Critères administratifs :  \nPour obtenir un titre d'arbitre fédéral, les conditions administratives suivantes sont nécessaires :",
+      "expected_answer": "Le montant de l'agrément FIDE pour un arbitre fédéral est de 20 €, payable au secrétariat fédéral.",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p018-parent069-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p017-parent065-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -3350,10 +3398,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer matches question intent"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Critical fix: Answer is 20€. Source: jun2024 UVC Q1. Chunk references guide international."
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
@@ -3370,10 +3419,10 @@
         },
         "question_type": "factual",
         "choices": {
-          "A": "Se soumettre au contrôle d'honorabilité.",
-          "B": "Avoir un classement Elo strictement supérieur à 1300.",
-          "C": "Obtenir l'examen UVC que vous êtes en train de passer.",
-          "D": "Obtenir une attestation de stage pratique."
+          "A": "10 €",
+          "B": "20 €",
+          "C": "60 €",
+          "D": "80 €"
         },
         "mcq_answer": "B",
         "quality_score": 0.5,
@@ -3393,15 +3442,14 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "20 €",
-        "correct_answer": "Avoir un classement Elo strictement supérieur à 1300.",
-        "requires_inference": false
+        "correct_answer": "20 €"
       },
       "legacy_id": "FR-ANN-UVC-057"
     },
     {
       "id": "ffe:annales:clubs:050:df445310",
-      "question": "Quelle mission n'est PAS de la responsabilité de la Direction des Règlements ?",
-      "expected_answer": "Le suivi des mesures administratives de la D.N.A. n'est pas mentionné parmi les missions de la Direction des Règlements. Ses missions sont: veille réglementaire, mise à jour du Livre de l'Arbitre, animation du pôle règlement.",
+      "question": "Quelle mission n'est pas de la respon sabilité de la direction des règlements ?",
+      "expected_answer": "La Direction des Règlements assure: veille réglementaire, mise à jour du Livre de l'Arbitre, animation du pôle règlement, rédaction des règles du jeu en français. Le suivi des mesures administratives de la D.N.A. n'est PAS de sa responsabilité.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
       "expected_docs": [
@@ -3420,10 +3468,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "correct_answer aligns with expected_answer"
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude-opus-4-5",
+        "verified_date": "2026-02-03",
+        "batch": "005",
+        "notes": "Chunk LA parent050 lists responsibilities, suivi mesures administratives is NOT in the list"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p020-parent -> LA-octobre2025.pdf-p168-parent",
       "metadata": {
@@ -3463,17 +3512,16 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_answer": "Faire sa demande auprès de la commission d'homologation.",
-        "correct_answer": "Le suivi des mesures administratives de la D.N.A.",
-        "requires_inference": true
+        "correct_answer": "Le suivi des mesures administratives de la D.N.A."
       },
       "legacy_id": "FR-ANN-UVC-058"
     },
     {
       "id": "ffe:annales:clubs:051:e52e76d4",
       "question": "Le tournoi ayant lieu le 15 juin, quelle était la date limite pour faire la demande d'homologation ?",
-      "expected_answer": "Pour les Tournois FIDE : 15 jours avant le debut du tournoi. Tournoi le 15 juin - 15 jours = 31 mai.",
+      "expected_answer": "4.1.1. Rôle  \nLes superviseurs et superviseures sont des arbitres fédéraux expérimentés",
       "is_impossible": false,
-      "expected_chunk_id": "LA-octobre2025.pdf-p167-parent498-child00",
+      "expected_chunk_id": "LA-octobre2025.pdf-p016-parent054-child00",
       "expected_docs": [
         "LA-octobre2025.pdf"
       ],
@@ -3488,15 +3536,17 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_llm_audit",
-        "batch": "006",
-        "date": "2026-02-03"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[PROCRUSTES] J03_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
         "answer_type": "multiple_choice",
-        "reasoning_type": "single-hop",
-        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
+        "cognitive_level": "Remember",
         "article_reference": "LA :RIDNA - II. Organisation Et Administration - 4.1 Les superviseurs et superviseuses.",
         "difficulty": 0.06,
         "annales_source": {
@@ -3505,7 +3555,7 @@
           "question_num": 3,
           "success_rate": 0.94
         },
-        "question_type": "scenario",
+        "question_type": "factual",
         "choices": {
           "A": "C'est ainsi que l'on appelle les arbitres qui remplissent les A.S.P.",
           "B": "C'est un nom donné à l'arbitre en chef d'un tournoi.",
@@ -3516,7 +3566,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "arithmetic",
+        "reasoning_class": "summary",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "qat_revalidation": {
@@ -3530,8 +3580,7 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Le 31 mai.",
-        "correct_answer": "Ce sont des arbitres fédéraux expérimentés ayant l'autorité pour intervenir sur n'importe quel tournoi avec vocation d'assister et conseiller les autres arbitres.",
-        "requires_inference": true
+        "correct_answer": "Ce sont des arbitres fédéraux expérimentés ayant l'autorité pour intervenir sur n'importe quel tournoi avec vocation d'assister et conseiller les autres arbitres."
       },
       "legacy_id": "FR-ANN-UVC-059"
     },
@@ -3553,10 +3602,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[P2:0.9] LA-octobre2025.pdf-p013-parent033-child00 -> LA-octobre2025.pdf-p166-parent492-child00 (score:0.93, src:same_doc)",
       "metadata": {
@@ -3611,10 +3661,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
@@ -3676,10 +3727,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p131-parent -> LA-octobre2025.pdf-p131-parent",
       "metadata": {
@@ -3745,10 +3797,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p122-parent -> A02_2025_26_Championnat_de_Fra",
       "metadata": {
@@ -3814,10 +3867,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[SMART_FIX] LA :Chapitre 5.1 Gestion d'un match: LA-octobre2025.pdf-p017-parent059-child0 -> LA-octobre2025.pdf-p165-parent000-child0 (score:0.10) [CTX] name:Andreina",
       "metadata": {
@@ -3878,10 +3932,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[PROCRUSTES] H02_2025_26_Joueurs_a_mobilite -> LA-octobre2025.pdf-p125-parent",
       "metadata": {
@@ -3943,10 +3998,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "manual_pdf_verification",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "U12 category explanation aligns with chunk"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": true
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p138-parent -> LA-octobre2025.pdf-p109-parent",
       "metadata": {
@@ -4008,10 +4064,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": false
       },
       "audit": "[SMART_FIX] R01 - 3.1.3 Forfait administratif: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.12) | [QAT] R01_2025_26_Regles_generales.pdf-p002-parent006-child00 -> LA-octobre2025.pdf-p122-parent353-child01 (current_rank_1104_too_low) | [MARK] requires_context:answer_not_found",
       "metadata": {
@@ -4075,10 +4132,11 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "heuristic_check",
-        "batch": "006-fix",
-        "date": "2026-02-03",
-        "note": "Question-answer type alignment appears correct"
+        "method": "annales_official",
+        "reviewer": "human",
+        "answer_current": true,
+        "verified_date": "2026-01-24",
+        "pages_verified": false
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p133-parent -> LA-octobre2025.pdf-p130-parent",
       "metadata": {

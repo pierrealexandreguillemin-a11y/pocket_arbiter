@@ -292,7 +292,7 @@
           11
         ],
         "article_reference": "LA - Chapitre 1.2 : Missions de l'arbitre - A : Auprès de l'échiquier : Art. 3.1",
-        "answer_explanation": "LA - Chapitre 1.2 : Missions de l'arbitre - A : Auprès de l'échiquier : Art. 3.1",
+        "answer_explanation": "LA 9.1 Composition du jury d'appel: Le jury peut comprendre des arbitres, représentants de l'organisation, représentants des joueurs, et notabilités. Le joueur faisant appel N'EST PAS mentionné parmi les personnes pouvant siéger (inférence par omission).",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -301,9 +301,11 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "mat"
+          "jury",
+          "appel",
+          "composition"
         ],
         "difficulty": 0.14,
         "question_type": "scenario",
@@ -319,7 +321,7 @@
         "answer_current": true,
         "verified_date": "2026-02-03",
         "pages_verified": true,
-        "batch": "batch_001"
+        "batch": "Q2"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -331,7 +333,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p045-parent -> LA-octobre2025.pdf-p076-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876611 [ISO42001_FIX] inference par omission explicite",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p045-parent -> LA-octobre2025.pdf-p076-parent [Q2] manual LLM-as-judge audit 2026-02-03 [ISO42001_FIX] inference par omission explicite",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:06.927253",
           "old_chunk_id": "LA-octobre2025.pdf-p045-parent215-child02",

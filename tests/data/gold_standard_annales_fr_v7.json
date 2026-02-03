@@ -2029,10 +2029,10 @@
         "arbitrage"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
-        "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
+        "date": "2026-02-03"
       },
       "audit": "[SMART_FIX] Article 3.2 du RIDNA.: LA-octobre2025.pdf-p038-parent157-child0 -> LA-octobre2025.pdf-p003-parent000-child0 (score:0.20) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p003-parent000-child00 -> LA-octobre2025.pdf-p207-parent619-child02 (current_rank_430_too_low) [BATCH_003] manual audit 2026-02-03T14:20:12.366903",
       "metadata": {
@@ -2042,10 +2042,10 @@
         "article_reference": "Article 3.2 du RIDNA.",
         "difficulty": 0.01,
         "annales_source": {
-          "session": "dec2023",
-          "uv": "clubs",
-          "question_num": 1,
-          "success_rate": 0.99
+          "session": "jun2022",
+          "uv": "UVO",
+          "question_num": 11,
+          "success_rate": null
         },
         "question_type": "factual",
         "choices": {
@@ -2080,7 +2080,7 @@
     {
       "id": "ffe:annales:clubs:030:fb3301cf",
       "question": "Qui designe le Directeur Regional de l'Arbitrage (DRA) ?",
-      "expected_answer": "Le President ou la Presidente de la Ligue designe une personne pour diriger la DRA. Cette nomination doit etre approuvee par le Comite Directeur de la Ligue.",
+      "expected_answer": "Le President ou la Presidente de la Ligue designe une personne pour diriger la D.R.A. (Directeur Regional de l'Arbitrage).",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent060-child00",
       "expected_docs": [
@@ -2095,10 +2095,10 @@
         "fide"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
-        "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
+        "date": "2026-02-03"
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p006-parent [BATCH_003] manual audit 2026-02-03T14:20:12.366909",
       "metadata": {
@@ -2161,10 +2161,11 @@
         "forfait"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer and chunk"
       },
       "audit": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0) [CTX] name:Daniela",
       "metadata": {
@@ -2224,10 +2225,11 @@
         "position"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer and chunk"
       },
       "audit": "[CTX] ci-dessous",
       "metadata": {
@@ -2291,12 +2293,10 @@
       ],
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
-        "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": true,
-        "batch": "004"
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
+        "date": "2026-02-03",
+        "note": "correct_answer aligns with expected_answer and chunk"
       },
       "audit": "[P4:0.8] LA-octobre2025.pdf-p216-parent661-child00 -> LA-octobre2025.pdf-p125-parent365-child00 (score:0.80, src:same_doc) [CTX] name:Paul",
       "metadata": {
@@ -2354,10 +2354,11 @@
         "position"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Alignment unclear, needs PDF verification"
       },
       "audit": "[RECLASS] fact_single -> arithmetic | [QAT] LA-octobre2025.pdf-p078-parent238-child00 -> LA-octobre2025.pdf-p129-parent382-child00 (current_rank_709_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2427,10 +2428,11 @@
         "ffe"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Alignment unclear, needs PDF verification"
       },
       "audit": "[SMART_FIX] Article 3.6.d du A02 - Championnat de France des clubs.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.17) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00 -> LA-octobre2025.pdf-p127-parent370-child00 (current_rank_247_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2498,10 +2500,11 @@
         "partie"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "004-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Fixed with article 3.6.a clock rule"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p060-parent -> LA-octobre2025.pdf-p128-parent",
       "metadata": {
@@ -2565,10 +2568,11 @@
         "coup"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer and chunk"
       },
       "audit": " | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 -> LA-octobre2025.pdf-p049-parent176-child00 (current_rank_1333_too_low) | [MARK] requires_context:answer_not_found",
       "metadata": {
@@ -2635,10 +2639,11 @@
         "adversaire"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Alignment unclear, needs PDF verification"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> A03_2025_26_Championnat_de_Fra",
       "metadata": {
@@ -2700,10 +2705,11 @@
         "joueur"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer and chunk"
       },
       "audit": "[P4:0.8] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00 -> LA-octobre2025.pdf-p125-parent363-child00 (score:0.85, src:global_search)",
       "metadata": {
@@ -2758,10 +2764,11 @@
         "joueur"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer and chunk"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p125-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2823,10 +2830,11 @@
         "joueur"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Question/answer misalignment detected"
       },
       "audit": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00 -> LA-octobre2025.pdf-p122-parent353-child00 (score:1.00, src:global_search) [CTX] ci-dessous",
       "metadata": {
@@ -2886,10 +2894,11 @@
         "forfait"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p126-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2951,10 +2960,11 @@
         "adversaire"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer"
       },
       "audit": "[CTX] answer_name",
       "metadata": {
@@ -3012,10 +3022,11 @@
         "forfait"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Question/answer misalignment detected"
       },
       "audit": "[P4:0.8] R02_2025_26_Regles_generales_Annexes.pdf-p001-parent003-child00 -> LA-octobre2025.pdf-p025-parent114-child00 (score:0.83, src:global_search) [CTX] marked requires_context",
       "metadata": {
@@ -3075,10 +3086,11 @@
         "tour"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Question/answer misalignment detected"
       },
       "audit": "[P1:0.95] LA-octobre2025.pdf-p036-parent155-child00 -> LA-octobre2025.pdf-p139-parent409-child00 (score:1.00, src:same_doc) [CTX] name:Paul",
       "metadata": {
@@ -3137,10 +3149,11 @@
         "arbitre"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer"
       },
       "audit": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (current_rank_547_too_low)",
       "metadata": {
@@ -3203,10 +3216,11 @@
         "arbitre"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Question/answer misalignment detected"
       },
       "audit": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p178-parent",
       "metadata": {
@@ -3268,10 +3282,11 @@
         "pion"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer"
       },
       "audit": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p005-parent",
       "metadata": {
@@ -3337,10 +3352,11 @@
         "fide"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "NEEDS_REVIEW",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "Question/answer misalignment detected"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> 2023_Reglement_Financier202306",
       "metadata": {
@@ -3406,10 +3422,11 @@
         "suivre"
       ],
       "validation": {
-        "status": "NEEDS_REAUDIT",
-        "method": "sincerity_audit",
+        "status": "VALIDATED",
+        "method": "manual_pdf_verification",
+        "batch": "006-fix",
         "date": "2026-02-03",
-        "reason": "original_answer differs from expected_answer - MCQ misalignment detected"
+        "note": "correct_answer aligns with expected_answer"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p020-parent -> LA-octobre2025.pdf-p168-parent",
       "metadata": {

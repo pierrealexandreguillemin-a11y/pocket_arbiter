@@ -120,9 +120,28 @@ pocket_arbiter/
 **Test Data**:
 | File | Purpose |
 |------|---------|
-| `tests/data/gold_standard_annales_fr_v7.json` | French regulation questions (420 Q, GS v8.0) |
+| `tests/data/gold_standard_annales_fr_v7.json` | French regulation questions (420 Q, GS v8.0, Schema v2) |
 | `tests/data/gold_standard_intl.json` | FIDE questions (43 Q, 12 hard) |
 | `tests/data/adversarial.json` | Hallucination test cases |
+
+**Gold Standard Schema v2.0** (ISO 42001 A.6.2.2 Provenance):
+
+> **Specification**: [`docs/specs/GS_SCHEMA_V2.md`](specs/GS_SCHEMA_V2.md)
+
+| Groupe | Champs | Role |
+|--------|--------|------|
+| `content` | question, expected_answer, is_impossible | Contenu principal |
+| `mcq` | original_question, choices, mcq_answer, correct_answer, original_answer | Donnees MCQ originales |
+| `provenance` | chunk_id, docs, pages, article_reference, answer_explanation, annales_source | Tracabilite ISO 42001 |
+| `classification` | category, keywords, difficulty, question_type, cognitive_level, reasoning_type, reasoning_class, answer_type | Taxonomie |
+| `validation` | status, method, reviewer, answer_current, verified_date, pages_verified, batch | ISO 29119 |
+| `processing` | chunk_match_score, chunk_match_method, triplet_ready, extraction_flags, answer_source, quality_score | Workflow |
+| `audit` | history, qat_revalidation, requires_inference | Historique |
+
+**Contraintes de coherence obligatoires**:
+- C1: `mcq.correct_answer == mcq.choices[mcq.mcq_answer]`
+- C2-C3: `provenance.docs/pages` coherents avec `provenance.chunk_id`
+- C4-C5: `mcq.original_question/choices` == annales source
 
 **Coverage Requirements**:
 - Minimum: 80%

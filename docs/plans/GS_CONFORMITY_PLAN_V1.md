@@ -1,8 +1,9 @@
 # Plan: Mise en Conformité GS + Fine-tuning Semantic Bridge
 
-> Date: 2026-01-26
-> Sources: GS_CONFORMITY_CHECKLIST.md, GS_ANNALES_V7_OPTIMIZATION_SPEC.md, TRIPLET_GENERATION_SPEC.md, UNIFIED_TRAINING_DATA_SPEC.md, FINETUNING_RESOURCES.md, FINETUNING_LESSONS.md
+> Date: 2026-01-26 (maj 2026-02-03)
+> Sources: GS_CONFORMITY_CHECKLIST.md, GS_ANNALES_V7_OPTIMIZATION_SPEC.md, TRIPLET_GENERATION_SPEC.md, UNIFIED_TRAINING_DATA_SPEC.md, FINETUNING_RESOURCES.md, FINETUNING_LESSONS.md, **GS_SCHEMA_V2.md**
 > Objectif: GS conforme → Triplets valides → Fine-tune EmbeddingGemma
+> Schema: **v2.0** - 8 groupes fonctionnels (voir [specs/GS_SCHEMA_V2.md](../specs/GS_SCHEMA_V2.md))
 
 ---
 

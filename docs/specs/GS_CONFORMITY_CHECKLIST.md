@@ -26,6 +26,22 @@ negative = hard negative (du corpus)
 
 **Si expected_chunk_id pointe vers un chunk qui NE CONTIENT PAS la reponse, le triplet est FAUX et on entraine le modele sur des donnees incorrectes.**
 
+### 0.1 Schema JSON v2.0
+
+> **Specification**: [`docs/specs/GS_SCHEMA_V2.md`](GS_SCHEMA_V2.md)
+
+Le GS utilise le schema v2.0 organise en 8 groupes fonctionnels:
+
+| Groupe | Role | Champs cles |
+|--------|------|-------------|
+| `content` | Contenu principal | question, expected_answer |
+| `mcq` | Donnees MCQ | choices, mcq_answer, correct_answer |
+| `provenance` | Tracabilite ISO 42001 | chunk_id, article_reference, answer_explanation |
+| `classification` | Taxonomie | difficulty, reasoning_class |
+| `validation` | ISO 29119 | status, batch |
+| `processing` | Workflow | triplet_ready, chunk_match_score |
+| `audit` | Historique | history, requires_inference |
+
 ---
 
 ## 1. Criteres Bloquants (MUST PASS)

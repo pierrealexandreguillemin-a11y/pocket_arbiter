@@ -88,6 +88,7 @@ pocket_arbiter/
 | **SPEC-GS-CONF-001** | [specs/GS_CONFORMITY_CHECKLIST.md](specs/GS_CONFORMITY_CHECKLIST.md) | **Checklist conformite GS (one-shot)** | **Approuve** |
 | **PLAN-GS-CONF-001** | [plans/GS_CONFORMITY_PLAN_V1.md](plans/GS_CONFORMITY_PLAN_V1.md) | **Plan mise en conformite GS + hard negatives hybride Claude+EmbeddingGemma** | **En cours** |
 | SPEC-GS-V6 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v6 pipeline (historique) | Obsolete |
+| **SPEC-GS-SCH-002** | [specs/GS_SCHEMA_V2.md](specs/GS_SCHEMA_V2.md) | **Schema JSON GS v2.0 (8 groupes, 46 champs, ISO 42001)** | **Approuve** |
 | SPEC-GS-OPT | [specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md](specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md) | Optimisation GS v7 pour triplets | En cours |
 | SPEC-ADV-V1 | [specs/ADVERSARIAL_QUESTIONS_STRATEGY.md](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie questions adversariales SQuAD 2.0 | Approuve |
 | SPEC-UTD-001 | [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) | Generation Donnees Unifiees | Draft |
@@ -156,6 +157,7 @@ pocket_arbiter/
 ### G
 - **Gates (phase gates)** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
 - **Gold Standard** : [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md), [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md)
+- **Gold Standard Schema v2** : [specs/GS_SCHEMA_V2.md](specs/GS_SCHEMA_V2.md) (8 groupes: content, mcq, provenance, classification, validation, processing, audit)
 - **Grounding** : [AI_POLICY.md](AI_POLICY.md) Section 3.2
 
 ### H

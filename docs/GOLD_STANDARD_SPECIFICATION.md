@@ -238,34 +238,81 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 
 ## 5. Format des Questions
 
-### 5.1 Schema JSON
+### 5.1 Schema JSON v2.0
+
+> **Specification detaillee**: [`docs/specs/GS_SCHEMA_V2.md`](specs/GS_SCHEMA_V2.md)
+
+Le schema v2.0 organise les 46+ champs en 8 groupes fonctionnels:
 
 ```json
 {
-  "id": "FR-Q{N}",
-  "question": "string - formulation naturelle",
-  "category": "enum[tournoi|arbitrage|regles_jeu|classement|...]",
-  "expected_docs": ["fichier.pdf"],
-  "keywords": ["keyword1", "keyword2"],
-  "expected_pages": [page1, page2],
-  "expected_chunk_id": "source.pdf-p{page}-parent{N}-child{N}",  // NOUVEAU v5.30
-  "metadata": {
-    "type": "enum[definition|regle|arbitrage|edge|admin]",
-    "chapter": "string (ex: 6.1)",
-    "hard_case": "boolean",
-    "hard_type": "enum[ANSWERABLE|PARTIAL_INFO|VOCABULARY_MISMATCH|MULTI_HOP_IMPOSSIBLE|FALSE_PREMISE|OUT_OF_SCOPE]",
-    "hard_reason": "string - explication si hard_case",
-    "corpus_truth": "string - verite terrain verifiee",
-    "test_purpose": "string - objectif du test"
+  "id": "ffe:annales:{uv}:{seq}:{hash}",
+  "legacy_id": "FR-ANN-UV{X}-{N}",
+
+  "content": {
+    "question": "string - finit par ?, >= 10 chars",
+    "expected_answer": "string - > 5 chars, derivable du chunk",
+    "is_impossible": "boolean"
   },
+
+  "mcq": {
+    "original_question": "string - question MCQ originale",
+    "choices": {"A": "...", "B": "...", "C": "...", "D": "..."},
+    "mcq_answer": "string - A/B/C/D",
+    "correct_answer": "string - texte de choices[mcq_answer]",
+    "original_answer": "string - reponse originale annales"
+  },
+
+  "provenance": {
+    "chunk_id": "source.pdf-p{page}-parent{N}-child{N}",
+    "docs": ["fichier.pdf"],
+    "pages": [page],
+    "article_reference": "string - reference article",
+    "answer_explanation": "string - corrige detaille",
+    "annales_source": {
+      "session": "dec2024|dec2023|jun2024|jun2023",
+      "uv": "clubs|regles|organisation|travaux",
+      "question_num": "integer",
+      "success_rate": "float [0,1]"
+    }
+  },
+
+  "classification": {
+    "category": "string",
+    "keywords": ["keyword1", "keyword2"],
+    "difficulty": "float [0,1]",
+    "question_type": "factual|procedural|scenario|comparative",
+    "cognitive_level": "Remember|Understand|Apply|Analyze",
+    "reasoning_type": "single-hop|multi-hop|temporal",
+    "reasoning_class": "fact_single|summary|arithmetic|reasoning",
+    "answer_type": "multiple_choice|extractive|..."
+  },
+
   "validation": {
-    "status": "enum[VALIDATED|HARD_CASE|PENDING|FAILED_RETRIEVAL]",
-    "method": "manual_verification",
-    "recall_actual": "string (ex: 67%)",
-    "audit_note": "string"
+    "status": "VALIDATED|PENDING|NEEDS_REAUDIT",
+    "method": "manual_llm_as_judge|annales_official",
+    "reviewer": "string",
+    "answer_current": "boolean",
+    "verified_date": "YYYY-MM-DD",
+    "pages_verified": "boolean",
+    "batch": "batch_NNN"
   },
-  "difficulty": "enum[easy|medium|hard]",
-  "audit": "added_YYYY-MM-DD"
+
+  "processing": {
+    "chunk_match_score": "integer (100 si manuel)",
+    "chunk_match_method": "manual_by_design|auto",
+    "reasoning_class_method": "inferred|explicit",
+    "triplet_ready": "boolean",
+    "extraction_flags": [],
+    "answer_source": "choice|existing",
+    "quality_score": "float [0,1]"
+  },
+
+  "audit": {
+    "history": "string - historique modifications",
+    "qat_revalidation": "object|null",
+    "requires_inference": "boolean"
+  }
 }
 ```
 

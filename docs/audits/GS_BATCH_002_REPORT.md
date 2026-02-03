@@ -13,12 +13,21 @@
 | Metric | Value |
 |--------|-------|
 | Questions Processed | 10 |
-| Mapping Corrections | 1 (Q14) |
+| Mapping Corrections | 2 (Q14, Q20) |
 | MCQ→Direct Reformulations | 10 |
 | reasoning_class Fixes | 2 (Q11, Q12: arithmetic) |
 | requires_inference Added | 9 |
+| ISO 42001 Corrections | 3 (Q13 hallucination, Q19 logic, Q20 mapping) |
 | Quality Gates PASS | 11/11 (100%) |
-| Status | **PASS** |
+| Status | **PASS avec corrections** |
+
+### Self-Audit Corrections (Post-Commit)
+
+| Q# | Problème | Correction |
+|----|----------|------------|
+| Q13 | "30 euros" = hallucination (montant vient de MCQ, pas du chunk) | Montant supprimé |
+| Q19 | Erreur logique: oublié de compter N3 comme "plus forte que N4" | Calcul corrigé: 1xN2 + 2xN3 = 3 |
+| Q20 | Chunk ne disait pas "heure officielle" | Mapping corrigé vers R01 qui l'explique |
 
 ### Lessons Applied from Batch 001
 

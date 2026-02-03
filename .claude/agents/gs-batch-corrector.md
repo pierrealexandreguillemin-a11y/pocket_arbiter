@@ -70,6 +70,13 @@ d) Commit avec message normalisé
 | Calculs temporels | Jours calendaires, heures de forfait | reasoning_class=arithmetic + requires_inference |
 | Tournois bi-phase | Cadences différentes = types différents | Vérifier règles type A vs type B |
 
+### Batch 002 - Self-Audit (CRITICAL)
+| Erreur | Description | Solution |
+|--------|-------------|----------|
+| **Hallucination montant** | Q13: "30 euros" venait de la question MCQ, PAS du chunk | Ne JAMAIS reprendre des valeurs de la question MCQ sans vérifier qu'elles sont dans le chunk |
+| **Erreur logique** | Q19: Oublié que N3 > N4, donc 2 matchs N3 comptent comme "plus forts" | Vérifier la logique complète, pas juste les cas évidents |
+| **Mapping indirect** | Q20: Chunk disait "60 min retard" mais pas "heure officielle" | Si le chunk référence une autre règle (ex: "voir art. 3.1.1"), trouver et vérifier ce chunk |
+
 ## Métriques de qualité
 
 Après chaque batch, vérifier:

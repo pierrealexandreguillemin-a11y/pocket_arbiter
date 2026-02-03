@@ -128,7 +128,15 @@
         "negative_questions_explicit_omission",
         "no_acronym_hallucination",
         "arithmetic_questions_flagged"
-      ]
+      ],
+      "iso42001_corrections": {
+        "date": "2026-02-03T14:11:51.820884",
+        "corrections": [
+          "Q13: montant 30 euros supprime (hallucination from MCQ)",
+          "Q20: inference heure prevue supprimee (not in chunk)"
+        ],
+        "reviewer": "self_audit"
+      }
     }
   },
   "coverage": {
@@ -932,7 +940,7 @@
     {
       "id": "ffe:annales:clubs:013:a7e8c494",
       "question": "Quel tarif d'inscription s'applique a une personne handicapee s'inscrivant a la derniere minute ?",
-      "expected_answer": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes presentant une carte mobilite inclusion de personne en situation de handicap. La personne paie donc le tarif normal (30 euros), pas le tarif majore.",
+      "expected_answer": "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes presentant une carte mobilite inclusion de personne en situation de handicap. La personne paie donc le tarif normal, pas le tarif majore.",
       "is_impossible": false,
       "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00",
       "expected_docs": [
@@ -955,7 +963,7 @@
         "pages_verified": false,
         "batch": "batch_002"
       },
-      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00 (score:1.00, src:same_doc) [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077862",
+      "audit": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00 (score:1.00, src:same_doc) [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077862 [ISO42001_FIX] montant 30 euros supprime (hallucination - vient de MCQ, pas du chunk)",
       "metadata": {
         "answer_type": "extractive",
         "reasoning_type": "single-hop",
@@ -1325,7 +1333,7 @@
     {
       "id": "ffe:annales:clubs:019:4d3a9bf8",
       "question": "Quelle restriction s'applique a une joueuse ayant joue en N4, N2 et N3 ?",
-      "expected_answer": "Lorsqu'un club a plusieurs equipes, un joueur ne peut participer dans une equipe s'il a deja joue trois fois dans une equipe plus forte. Ayant joue 1 fois en N2 (plus forte), la joueuse n'a pas atteint la limite de 3 matchs mais ne peut plus jouer en N4 (division inferieure a N2 et N3).",
+      "expected_answer": "Lorsqu'un club a plusieurs equipes, un joueur ne peut participer dans une equipe s'il a deja joue trois fois dans une equipe plus forte. La joueuse a joue 1x en N2 et 2x en N3, soit 3 matchs dans des divisions plus fortes que N4. Elle ne peut donc plus jouer en N4.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
       "expected_docs": [
@@ -1348,7 +1356,7 @@
         "pages_verified": true,
         "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> règlement_n4_2024_2025__1_.pdf [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077904",
+      "audit": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> règlement_n4_2024_2025__1_.pdf [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077904 [LOGIC_FIX] correction calcul: 1xN2 + 2xN3 = 3 matchs plus forts que N4",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -1395,14 +1403,14 @@
     {
       "id": "ffe:annales:clubs:020:c41e0ed8",
       "question": "A quelle heure un joueur est-il forfait si la ronde prevue a 14h15 a debute a 14h30 ?",
-      "expected_answer": "Le retard autorise est de 60 minutes pour toutes les divisions nationales. Le retard est calcule a partir de l'heure prevue (14h15), donc forfait a 15h15, meme si le debut reel a ete retarde.",
+      "expected_answer": "Le forfait est constate pour tout joueur ne se presentant pas dans la salle de jeu pendant le temps de retard autorise suivant l'heure officielle du debut de la rencontre. Le retard autorise est de 60 minutes en divisions nationales. Donc pour une ronde prevue a 14h15, forfait a 15h15.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent010-child00",
       "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+        "R01_2025_26_Regles_generales.pdf"
       ],
       "expected_pages": [
-        4
+        2
       ],
       "category": "interclubs",
       "keywords": [
@@ -1418,7 +1426,7 @@
         "pages_verified": true,
         "batch": "batch_002"
       },
-      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p091-parent [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077911",
+      "audit": "[PROCRUSTES] C01_2025_26_Coupe_de_France.pd -> LA-octobre2025.pdf-p091-parent [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077911 [ISO42001_FIX] suppression inference \"heure prevue\" non justifiee [MAPPING_FIX] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00 -> R01_2025_26_Regles_generales.pdf-p002-parent010-child00 (heure officielle explicite)",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -1458,7 +1466,8 @@
         "original_answer": "15 : 15.",
         "correct_answer": "15 : 15.",
         "original_question": "Une ronde de championnat de France des clubs débute à 14:15. À la suite d'un problème technique, elle n'a commencé de fait qu'à 14:30. A partir de quelle heure un joueur est-il forfait ?",
-        "requires_inference": true
+        "requires_inference": true,
+        "requires_context": false
       },
       "legacy_id": "FR-ANN-UVC-020"
     },

@@ -216,7 +216,7 @@
           10
         ],
         "article_reference": "LA - Chapitre 1.2 : Missions de l'arbitre - A : Auprès de l'échiquier : Art. 2.1 et 2.2",
-        "answer_explanation": "LA - Chapitre 1.2 : Missions de l'arbitre - A : Auprès de l'échiquier : Art. 2.1 et 2.2",
+        "answer_explanation": "LA Chapitre 8.1 Matériel: La mise en place des jeux, pendules, cavaliers, numéros de tables et feuilles de parties est faite par l'équipe d'ORGANISATION, pas par l'arbitre. L'arbitre vérifie l'installation et le bon fonctionnement des pendules, mais ne met pas en place le matériel.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -225,9 +225,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "position"
+          "arbitre",
+          "missions",
+          "organisation",
+          "materiel"
         ],
         "difficulty": 0.15,
         "question_type": "factual",
@@ -243,7 +246,7 @@
         "answer_current": true,
         "verified_date": "2026-02-03",
         "pages_verified": true,
-        "batch": "batch_001"
+        "batch": "Q1"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -255,9 +258,9 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p010-parent -> LA-octobre2025.pdf-p103-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876587",
+        "history": "[Q1] 46 fields verified, 8 constraints PASS. Fixes: answer_explanation, category, keywords, batch, requires_inference. 2026-02-03",
         "qat_revalidation": null,
-        "requires_inference": null
+        "requires_inference": false
       }
     },
     {

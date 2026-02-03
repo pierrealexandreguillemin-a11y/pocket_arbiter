@@ -2499,9 +2499,9 @@
     {
       "id": "ffe:annales:clubs:036:ec8fdbb4",
       "question": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe 4 minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive 50 minutes après le lancement des parties. Sa pendule indique 0h29 minutes. Quelle doit être votre action ?",
-      "expected_answer": "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Le joueur arrivant 50 minutes après le lancement des parties peut jouer car il est dans le délai de forfait.",
+      "expected_answer": "La liste a été remise 4 min avant le début (au lieu de 15 min), soit 11 min de retard. Le joueur arrive 50 min après le lancement. Total: 61 min de retard à la pendule. Selon l'article 3.6.a: \"Si un joueur arrive dans un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure.\" Donc: 90 min - 60 min = 30 min. L'arbitre règle sa pendule à 0h30.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],

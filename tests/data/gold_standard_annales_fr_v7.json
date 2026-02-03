@@ -2172,7 +2172,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0) [CTX] name:Daniela",
       "metadata": {
@@ -2208,16 +2209,17 @@
         "answer_source": "explanation",
         "original_answer": "9 et 12.",
         "requires_context_reason": "insufficient_context",
-        "correct_answer": "Il est de 30 minutes."
+        "correct_answer": "Il est de 30 minutes.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-034"
     },
     {
       "id": "ffe:annales:clubs:032:6dce6031",
-      "question": "Concernant l'entente entre Clubs : ?",
-      "expected_answer": "## 11.",
+      "question": "Dans le cadre d'une entente entre clubs, quelle règle s'applique concernant les ententes à trois clubs ?",
+      "expected_answer": "Une entente peut être constituée entre 3 clubs uniquement dans le championnat de France des clubs féminins avec impossibilité de monter en division supérieure pour l'entente correspondante.",
       "is_impossible": false,
-      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent030-child00",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent031-child00",
       "expected_docs": [
         "R01_2025_26_Regles_generales.pdf"
       ],
@@ -2236,7 +2238,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": false
+        "pages_verified": false,
+        "batch": "004"
       },
       "audit": "[CTX] ci-dessous",
       "metadata": {
@@ -2272,7 +2275,9 @@
         "answer_source": "explanation",
         "original_answer": "Partie nulle. <!-- image --> ## Saisissez les résultats de la ronde 1. | Ronde 1 | Ronde 1 | |----------------|-----------| | Echiquier N°1 | 1 - 0 | | Echiquier N°2 | 0 - 1 | | Echiquier N°3 | X - X | | Echiquier N°4 | 0 - 1 | | Echiquier N°5 | 0 - 1 | | Echiquier N°6 | X - X | | Echiquier N°7 | 1 - 0 | | Echiquier N°8 | 0 - 1 | | Echiquier N°9 | 0 - 1 | | Echiquier N°10 | 1 - 0 | François vient vous signaler que pour des raisons familiales il est obligé de quitter le tournoi. L'organisateur vous propose de le remplacer par Pauline une minime du club ayant un Elo rapide FIDE de 1512. Il ne lui fait pas payer les droits d'inscription.",
         "requires_context_reason": "insufficient_context",
-        "correct_answer": "Une entente entre trois clubs est possible uniquement dans le championnat de France des clubs féminins."
+        "correct_answer": "Une entente entre trois clubs est possible uniquement dans le championnat de France des clubs féminins.",
+        "original_question": "Concernant l'entente entre Clubs : ?",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-035"
     },
@@ -2302,7 +2307,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[P4:0.8] LA-octobre2025.pdf-p216-parent661-child00 -> LA-octobre2025.pdf-p125-parent365-child00 (score:0.80, src:same_doc) [CTX] name:Paul",
       "metadata": {
@@ -2338,16 +2344,17 @@
         "answer_source": "existing",
         "original_answer": "3.",
         "requires_context_reason": "numerical_reasoning",
-        "correct_answer": "3."
+        "correct_answer": "3.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-036"
     },
     {
       "id": "ffe:annales:clubs:034:625be40b",
       "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celuici s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence. Quel est le délai de régularisation pour le club ?",
-      "expected_answer": "2.5. Conditions de participation des joueurs et joueuses :  \nDans une compétition homologuée par la FFE, sont considérés comme « participants français » ou « participantes françaises » tous les joueurs et joueuses inscrits à la FFE auprès de la FIDE (code FRA) ainsi que les joueurs ou joueuses de nationalité française jouant avec le code de la FIDE ou les joueurs et joueuses de nationalité étrangère n'ayant pas de code FIDE.",
+      "expected_answer": "Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence au plus tard 7 jours après la fin du tournoi. Passé le délai de 7 jours, la FFE régularisera la situation.",
       "is_impossible": false,
-      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",
+      "expected_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent010-child00",
       "expected_docs": [
         "R03_2025_26_Competitions_homologuees.pdf"
       ],
@@ -2364,7 +2371,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[RECLASS] fact_single -> arithmetic | [QAT] LA-octobre2025.pdf-p078-parent238-child00 -> LA-octobre2025.pdf-p129-parent382-child00 (current_rank_709_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2390,7 +2398,7 @@
         "quality_score": 0.5,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "arithmetic",
+        "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
         "triplet_ready": false,
         "qat_revalidation": {
@@ -2407,16 +2415,17 @@
         "answer_source": "existing",
         "original_answer": "4.",
         "reviewer_tag": "Olivier",
-        "correct_answer": "Au plus tard 7 jours après la fin du tournoi."
+        "correct_answer": "Au plus tard 7 jours après la fin du tournoi.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-037"
     },
     {
       "id": "ffe:annales:clubs:035:f5891e65",
       "question": "Pour jouer un match par équipe en championnat de France des Clubs, les joueurs et joueuses doivent être titulaires d'une licence A valable pour la saison en cours. Au plus tard, quand la prise de licence doit-elle être effectuée ?",
-      "expected_answer": "3.6.b) Echiquiers : toute personne ne jouant pas à l'échiquier qui lui est attribué sur la feuille de composition d'équipe est sanctionnée d'un forfait administratif (voir Règles générales article 3.1.",
+      "expected_answer": "Pour jouer un match par équipes, les joueurs et joueuses doivent être licenciés au plus tard à l'heure prévue du début de la rencontre.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+      "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent002-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2438,7 +2447,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[SMART_FIX] Article 3.6.d du A02 - Championnat de France des clubs.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.17) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00 -> LA-octobre2025.pdf-p127-parent370-child00 (current_rank_247_too_low) | [2026-01-26] requires_context:exam_name(Olivier)",
       "metadata": {
@@ -2481,16 +2491,17 @@
         "answer_source": "explanation",
         "original_answer": "Olivier a un point mais ne peut pas être apparié dans son groupe de point. Il devient flotteur descendant. Il nous faut l'apparier si possible avec le groupe à 1/2 point. Nous avons donc un groupe hétérogène. Olivier sera dans S1 et S2 sera occupé par tous les joueurs ayant 1/2 point. Dans S2 Etienne est celui qui a le numéro d'appariement le plus faible et est donc le premier de S2. Olivier a une préférence noire et Etienne a une préférence blanche. L'appariement entre eux semble correct. Le groupe résiduel pourra être apparié sans problème. L'appariement est maintenu. Etienne devient flotteur montant.",
         "reviewer_tag": "Olivier",
-        "correct_answer": "Au plus tard à l'heure prévue du début de la rencontre."
+        "correct_answer": "Au plus tard à l'heure prévue du début de la rencontre.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-038"
     },
     {
       "id": "ffe:annales:clubs:036:ec8fdbb4",
       "question": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe 4 minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive 50 minutes après le lancement des parties. Sa pendule indique 0h29 minutes. Quelle doit être votre action ?",
-      "expected_answer": "3.6.b) Echiquiers : toute personne ne jouant pas à l'échiquier qui lui est attribué sur la feuille de composition d'équipe est sanctionnée d'un forfait administratif (voir Règles générales article 3.1.3).",
+      "expected_answer": "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Le joueur arrivant 50 minutes après le lancement peut jouer car il est dans le délai. L'arbitre ajuste sa pendule à 30 minutes.",
       "is_impossible": false,
-      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+      "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
       "expected_docs": [
         "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
       ],
@@ -2510,7 +2521,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p060-parent -> LA-octobre2025.pdf-p128-parent",
       "metadata": {
@@ -2537,7 +2549,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "fact_single",
+        "reasoning_class": "arithmetic",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "qat_revalidation": {
@@ -2550,13 +2562,14 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_answer": "Si le niveau actuel est l'avant-dernier : l'ensemble des flotteurs descendants est choisi de manière à achever l'appariement de la ronde. | | Ronde 2 | Ronde 2 | |---------------------------------------------------------------|----------------|-----------| | Saisissez les résultats de la ronde 2 et appariez la ronde 3. | Echiquier N°1 | 0 - 1 | | | Echiquier N°2 | X - X | | | Echiquier N°3 | 0 - 1 | | | Echiquier N°4 | X - X | | | Echiquier N°5 | 1 - 0 | | | Echiquier N°6 | 0 - 1 | | | Echiquier N°7 | 1 - 0 | | | Echiquier N°8 | X - X | | | Echiquier N°9 | X - X | | | Echiquier N°10 | X - X |",
-        "correct_answer": "Vous laissez le joueur prendre place et jouer en réglant sa pendule à 0h30 minutes."
+        "correct_answer": "Vous laissez le joueur prendre place et jouer en réglant sa pendule à 0h30 minutes.",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-039"
     },
     {
       "id": "ffe:annales:clubs:037:4cad3047",
-      "question": "Parmi les propositions ci-dessous laquelle est vraie ?",
+      "question": "Quelle est la règle concernant l'arbitre joueur dans le championnat de France des Clubs en N3 ?",
       "expected_answer": "En N3, l'arbitre d'un seul match ne peut jouer que dans ce même match",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
@@ -2578,7 +2591,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": " | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 -> LA-octobre2025.pdf-p049-parent176-child00 (current_rank_1333_too_low) | [MARK] requires_context:answer_not_found",
       "metadata": {
@@ -2604,7 +2618,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
+        "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "qat_revalidation": {
@@ -2620,14 +2634,16 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Vous faites changer le dernier coup des blancs sans ajouter de temps aux noirs qui n'auraient pas dû jouer.",
-        "correct_answer": "En N3, l'arbitre du match ne peut jouer que dans ce même match."
+        "correct_answer": "En N3, l'arbitre du match ne peut jouer que dans ce même match.",
+        "original_question": "Parmi les propositions ci-dessous laquelle est vraie ?",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-040"
     },
     {
       "id": "ffe:annales:clubs:038:269442e5",
       "question": "Lors d'une rencontre du championnat de France des Clubs, les feuilles de composition des équipes sont transcrites sur la feuille de match. Cette dernière comporte pour chaque joueur le nom, le prénom, le code fédéral, le classement Elo ainsi qu'un espace pour les éléments de la validité de la licence. Lors de l'établissement de la feuille de match, qui contrôle les éléments de la validité de la licence des joueurs ?",
-      "expected_answer": "3.6.b) Echiquiers : toute personne ne jouant pas à l'échiquier qui lui est attribué sur la feuille de composition d'équipe est sanctionnée d'un forfait administratif (voir Règles générales article 3.1.3).",
+      "expected_answer": "3.6.c) Contrôle des licences : l'arbitre transcrit sur la feuille de match les feuilles de composition remises par les capitaines des équipes, contrôle les licences à l'aide du site fédéral et, le cas échéant, indique sur le PV l'absence de licence A.",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
       "expected_docs": [
@@ -2648,7 +2664,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> A03_2025_26_Championnat_de_Fra",
       "metadata": {
@@ -2675,7 +2692,7 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
+        "reasoning_class": "fact_single",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "qat_revalidation": {
@@ -2688,7 +2705,8 @@
         "extraction_flags": [],
         "answer_source": "explanation",
         "original_answer": "Blancs : 6 min et 48 s - Noirs : 5 min et 37 s.",
-        "correct_answer": "L'arbitre de la rencontre."
+        "correct_answer": "L'arbitre de la rencontre.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-041"
     },
@@ -2714,7 +2732,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[P4:0.8] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00 -> LA-octobre2025.pdf-p125-parent363-child00 (score:0.85, src:global_search)",
       "metadata": {
@@ -2740,20 +2759,21 @@
         "quality_score": 1.0,
         "chunk_match_score": 100,
         "chunk_match_method": "manual_by_design",
-        "reasoning_class": "summary",
+        "reasoning_class": "arithmetic",
         "reasoning_class_method": "inferred",
         "triplet_ready": true,
         "extraction_flags": [],
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "Un flotteur descendant est un joueur qui reste non apparié dans son niveau de points et que l'on déplace alors dans le niveau de points immédiatement supérieur.",
-        "correct_answer": "3."
+        "correct_answer": "3.",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-044"
     },
     {
       "id": "ffe:annales:clubs:040:a05251df",
-      "question": "L ors d'un week-end d'interclub en N1, la ronde du samedi à lieu à 16 heures. A la fin de la rencontre, le club responsable doit saisir le procès-verbal sur le site fédéral de la rencontre avant une certaine heure. Quelle est-elle ?",
+      "question": "Lors d'un week-end d'interclub en N1, la ronde du samedi à lieu à 16 heures. A la fin de la rencontre, le club responsable doit saisir le procès-verbal sur le site fédéral de la rencontre avant une certaine heure. Quelle est-elle ?",
       "expected_answer": "23h pour les rencontres du samedi qui débutent à 16h",
       "is_impossible": false,
       "expected_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
@@ -2773,7 +2793,8 @@
         "reviewer": "human",
         "answer_current": true,
         "verified_date": "2026-01-24",
-        "pages_verified": true
+        "pages_verified": true,
+        "batch": "004"
       },
       "audit": "[PROCRUSTES] LA-octobre2025.pdf-p125-parent -> LA-octobre2025.pdf-p103-parent",
       "metadata": {
@@ -2813,7 +2834,8 @@
         "answer_explanation": null,
         "answer_source": "existing",
         "original_answer": "4.",
-        "correct_answer": "23h."
+        "correct_answer": "23h.",
+        "requires_inference": false
       },
       "legacy_id": "FR-ANN-UVC-045"
     },

@@ -84,6 +84,15 @@ d) Commit avec message normalisé
 | Logique complexe non maitrisée | Q22: Règle du noyau mal expliquée | Si logique pas claire, citer le chunk sans inventer d'explication |
 | Valeurs des choices | Q27: Elo dans expected viennent des choices | OK si la question DEMANDE de vérifier ces valeurs contre une règle du chunk |
 
+### Batch 004
+| Erreur | Description | Solution |
+|--------|-------------|----------|
+| Questions tronquées | Q32: Question et réponse incomplètes dans GS original | Toujours vérifier le contenu complet des questions |
+| Forfait 60 min | Q36: Le forfait pour divisions nationales est 60 min, pas 30 min | Vérifier A02 article 3.8 pour les règles spécifiques interclubs |
+| Chunks multi-articles | Q38: Un chunk peut contenir 3.6.b ET 3.6.c | S'assurer de citer le BON article dans expected_answer |
+| Mapping délai vs nationalité | Q34: Chunk sur nationalité FIDE au lieu de délai 7 jours | Questions similaires (même doc R03) mais sujets différents |
+| Expected_answer incompatible | Q35, Q36, Q38: Expected_answer ne répondait pas à la question | TOUJOURS vérifier que expected_answer répond à la question posée |
+
 ## Métriques de qualité
 
 Après chaque batch, vérifier:

@@ -15,9 +15,19 @@
 | Questions Processed | 10 |
 | Mapping Corrections | 0 |
 | MCQ→Direct Reformulations | 10 |
-| reasoning_class Fixes | 1 |
+| reasoning_class Fixes | 1 (Q10: summary→arithmetic) |
+| ISO 42001 Corrections | 5 (Q4, Q6, Q8: hallucinations; Q2, Q3: inférences) |
+| Questions avec inference requise | 4 (Q2, Q3, Q4, Q10) |
 | Quality Gates PASS | 11/11 (100%) |
-| Status | **PASS** |
+| Status | **PASS avec corrections** |
+
+### ISO 42001 Compliance Notes
+
+Les questions négatives ("Quelle option N'EST PAS...") nécessitent une **inférence par omission**:
+- Le chunk liste ce qui EST autorisé/valide
+- La réponse MCQ est l'option qui N'APPARAÎT PAS
+- L'expected_answer cite le chunk + mentionne explicitement l'omission
+- Flag `requires_inference: true` ajouté
 
 ---
 

@@ -91,7 +91,28 @@
       "mapping_corrections": 0,
       "reformulations": 10,
       "reasoning_class_fixes": 1,
-      "quality_gates": "G1-G11 all PASS"
+      "quality_gates": "G1-G11 all PASS",
+      "iso42001_corrections": {
+        "date": "2026-02-03T09:42:30.974809",
+        "corrections": [
+          "Q4: inference par omission -> mention explicite",
+          "Q6: hallucination acronymes SC/UVR supprimee",
+          "Q8: hallucination acronyme UVC supprimee",
+          "Q10: calcul age supprime, faits bruts conserves"
+        ],
+        "reviewer": "self_audit"
+      },
+      "negative_questions_handling": {
+        "date": "2026-02-03T09:43:52.598886",
+        "questions": [
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "pattern": "Questions asking what is NOT valid/allowed",
+        "solution": "Cite what IS in chunk + explicit omission statement",
+        "requires_inference_flag": true
+      }
     }
   },
   "coverage": {
@@ -162,7 +183,7 @@
     {
       "id": "ffe:annales:clubs:002:79da8e92",
       "question": "Qui ne peut pas siéger dans un jury d'appel lors d'une compétition d'échecs ?",
-      "expected_answer": "Le joueur faisant appel ne peut pas siéger dans le jury d'appel. Le jury peut comprendre des arbitres, des représentants de l'organisation, des représentants des joueurs et des notabilités du monde échiquéen, mais pas la partie prenante à l'appel.",
+      "expected_answer": "Le jury d'appel peut comprendre : des arbitres, des representants de l'equipe d'organisation, des representants des joueurs et joueuses, et eventuellement des notabilites du monde echiqueen. Le joueur faisant appel n'est pas mentionne parmi les personnes pouvant sieger.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p011-parent029-child00",
       "expected_docs": [
@@ -184,7 +205,7 @@
         "pages_verified": true,
         "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p045-parent -> LA-octobre2025.pdf-p076-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876611",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p045-parent -> LA-octobre2025.pdf-p076-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876611 [ISO42001_FIX] inference par omission explicite",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -223,14 +244,15 @@
         "answer_source": "choice",
         "original_answer": "Le joueur faisant appel.",
         "correct_answer": "Le joueur faisant appel.",
-        "original_question": "Pour la formation d'un jury d'appel lors d'une compétition, quelle personne parmi les suivantes ne peut siéger ?"
+        "original_question": "Pour la formation d'un jury d'appel lors d'une compétition, quelle personne parmi les suivantes ne peut siéger ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-002"
     },
     {
       "id": "ffe:annales:clubs:003:06c34715",
       "question": "Quelle sanction l'arbitre ne peut-il pas appliquer à un capitaine d'équipe qui ne respecte pas les règles ?",
-      "expected_answer": "L'arbitre ne peut pas infliger deux minutes de pénalité pour tous les joueurs de l'équipe. Les sanctions à disposition sont : l'avertissement, l'exclusion pour une ou plusieurs rondes, et la déclaration de partie(s) perdue(s) si l'intervention fautive influence les résultats.",
+      "expected_answer": "Les sanctions a disposition de l'arbitre pour sanctionner les capitaines sont : l'avertissement, l'exclusion pour une ou plusieurs rondes, et la declaration de partie(s) perdue(s). La penalite de deux minutes pour tous les joueurs n'est pas mentionnee.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child01",
       "expected_docs": [
@@ -253,7 +275,7 @@
         "pages_verified": false,
         "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p106-parent -> R02_2025_26_Regles_generales_A [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876620",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p106-parent -> R02_2025_26_Regles_generales_A [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876620 [ISO42001_FIX] inference par omission explicite",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -292,14 +314,15 @@
         "answer_source": "choice",
         "original_answer": "Deux minutes de pénalité pour tous les joueurs de l'équipe.",
         "correct_answer": "Deux minutes de pénalité pour tous les joueurs de l'équipe.",
-        "original_question": "L'arbitre d'un match peut sanctionner les capitaines qui ne respectent pas les règles. Quelle sanction parmi les suivantes n'est pas applicable ?"
+        "original_question": "L'arbitre d'un match peut sanctionner les capitaines qui ne respectent pas les règles. Quelle sanction parmi les suivantes n'est pas applicable ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-003"
     },
     {
       "id": "ffe:annales:clubs:004:d22e1892",
       "question": "À quelle compétition une entente entre clubs ne peut-elle pas participer ?",
-      "expected_answer": "Une entente entre clubs ne peut pas participer à la Coupe de France. Les compétitions autorisées pour une entente sont uniquement : les Championnats de France des clubs, les Interclubs Jeunes, et les Championnats de France des clubs féminins (tous dans la plus petite division locale).",
+      "expected_answer": "Les competitions autorisees pour une entente sont : les Championnats de France des clubs, les Interclubs Jeunes, et les Championnats de France des clubs feminins (tous dans la plus petite division locale). La Coupe de France n'est pas mentionnee dans cette liste.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent030-child00",
       "expected_docs": [
@@ -323,7 +346,7 @@
         "pages_verified": true,
         "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] R01_2025_26_Regles_generales.p -> C01_2025_26_Coupe_de_France.pd [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876626",
+      "audit": "[PROCRUSTES] R01_2025_26_Regles_generales.p -> C01_2025_26_Coupe_de_France.pd [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876626 [CORRECTION_ISO42001] inference par omission conservee avec mention explicite [ISO42001_FIX] inference par omission explicite",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "single-hop",
@@ -362,7 +385,8 @@
         "answer_source": "choice",
         "original_answer": "La coupe de France.",
         "correct_answer": "La coupe de France.",
-        "original_question": "Deux clubs souhaitent former une entente afin de participer à certaines compétitions dans la plus petite division locale car ils n'ont pas suffisamment de licenciés. Pour quelle compétition parmi les suivantes n'est-ce pas possible ?"
+        "original_question": "Deux clubs souhaitent former une entente afin de participer à certaines compétitions dans la plus petite division locale car ils n'ont pas suffisamment de licenciés. Pour quelle compétition parmi les suivantes n'est-ce pas possible ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-004"
     },
@@ -430,7 +454,7 @@
     {
       "id": "ffe:annales:clubs:006:1bcec3d3",
       "question": "Que doit faire un arbitre inactif n'ayant plus suivi de formation depuis plus de 10 ans pour redevenir actif ?",
-      "expected_answer": "Il doit suivre une formation SC (Stage de perfectionnement Connaissance du Système) et repasser l'UVR (Unité de Valeur Règles). Un arbitre inactif durant 6 ans doit suivre un stage SC. Au-delà de 10 ans sans formation, il doit en plus revalider l'UVR.",
+      "expected_answer": "Un arbitre inactif n'ayant fait aucune formation durant une periode de dix ans sera dans l'obligation de suivre un stage SC et de valider a nouveau l'UVR.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
       "expected_docs": [
@@ -452,7 +476,7 @@
         "pages_verified": true,
         "batch": "batch_001"
       },
-      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p017-parent -> LA-octobre2025.pdf-p022-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876639",
+      "audit": "[PROCRUSTES] LA-octobre2025.pdf-p017-parent -> LA-octobre2025.pdf-p022-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876639 [CORRECTION_ISO42001] suppression significations acronymes hallucinees",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -553,7 +577,7 @@
     {
       "id": "ffe:annales:clubs:008:5e3f7d24",
       "question": "Quelle UV un arbitre international étranger (avec titre FIDE) doit-il valider pour arbitrer en France en tant qu'arbitre principal ?",
-      "expected_answer": "Il doit valider l'UVC (Unité de Valeur Compétitions/Clubs). Les licenciés A avec code FIDE non-FRA et possédant un titre d'arbitre FIDE peuvent obtenir un titre fédéral en validant l'UVC.",
+      "expected_answer": "Il doit valider l'UVC. Les licencies A dont le code FIDE n'est pas FRA et possedant un titre d'arbitre FIDE peuvent obtenir un titre federal leur permettant d'officier en tant qu'arbitre, en validant l'UVC.",
       "is_impossible": false,
       "expected_chunk_id": "LA-octobre2025.pdf-p018-parent072-child00",
       "expected_docs": [
@@ -579,7 +603,7 @@
         "pages_verified": true,
         "batch": "batch_001"
       },
-      "audit": "[SMART_FIX] LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 Délivrance des titres d'arbitres fédéraux: LA-octobre2025.pdf-p010-parent018-child0 -> LA-octobre2025.pdf-p012-parent031-child0 (score:0.60) | [QAT] LA-octobre2025.pdf-p012-parent031-child00 -> LA-octobre2025.pdf-p227-parent067-child00 (better_match_found_delta_0.069) [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876651",
+      "audit": "[SMART_FIX] LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 7 Délivrance des titres d'arbitres fédéraux: LA-octobre2025.pdf-p010-parent018-child0 -> LA-octobre2025.pdf-p012-parent031-child0 (score:0.60) | [QAT] LA-octobre2025.pdf-p012-parent031-child00 -> LA-octobre2025.pdf-p227-parent067-child00 (better_match_found_delta_0.069) [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876651 [CORRECTION_ISO42001] suppression signification UVC hallucinee",
       "metadata": {
         "answer_type": "abstractive",
         "reasoning_type": "multi-hop",
@@ -693,7 +717,7 @@
     {
       "id": "ffe:annales:clubs:010:4c1cad22",
       "question": "Quelle est la catégorie d'âge d'un joueur né le 03/01/2011 pour la saison 2024-2025 ?",
-      "expected_answer": "Il est U14 pour la totalité de la saison. La catégorie est déterminée par l'âge avant le 1er janvier de la saison (donc au 31/12/2024). Né en janvier 2011, il aura 13 ans au 1er janvier 2025, ce qui correspond à la catégorie U14 (12 ou 13 ans).",
+      "expected_answer": "Il est U14 pour la totalite de la saison. Les joueurs sont classes en fonction de leur age avant le 1er janvier de la saison. La categorie U14 correspond a 12 ou 13 ans.",
       "is_impossible": false,
       "expected_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
       "expected_docs": [
@@ -715,7 +739,7 @@
         "pages_verified": false,
         "batch": "batch_001"
       },
-      "audit": " [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876664",
+      "audit": " [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876664 [CORRECTION_ISO42001] calcul supprime, faits du chunk conserves [ISO42001_FIX] calcul arithmetique = inference requise",
       "metadata": {
         "answer_type": "multiple_choice",
         "reasoning_type": "multi-hop",
@@ -747,7 +771,8 @@
         "answer_source": "choice",
         "original_answer": "Il est U14 pour la totalité de la saison.",
         "correct_answer": "Il est U14 pour la totalité de la saison.",
-        "original_question": "Pour la saison 2024-2025, un joueur a pris sa licence le 30/09/2024, il est né le 03/01/2011. Quelle est sa catégorie d'âge ?"
+        "original_question": "Pour la saison 2024-2025, un joueur a pris sa licence le 30/09/2024, il est né le 03/01/2011. Quelle est sa catégorie d'âge ?",
+        "requires_inference": true
       },
       "legacy_id": "FR-ANN-UVC-010"
     },

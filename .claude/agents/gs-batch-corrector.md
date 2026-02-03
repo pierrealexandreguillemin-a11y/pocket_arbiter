@@ -106,8 +106,17 @@ d) Commit avec message normalisé
 | Erreur | Description | Solution |
 |--------|-------------|----------|
 | **Forfait doublé dernière ronde** | Q42: 300€ en N3 doublé si dernière ronde = 600€ | Toujours vérifier si "dernière ronde" mentionnée - amende x2 |
-| **Question corrompue** | Q47: Question demande euros, choices sont des nombres (2,3,4,5) | Marquer FAILED plutôt que deviner - besoin revue PDF source |
+| **MCQ choices corruption** | Q41: Choices montraient des euros (20€-35€) pour une question sur les couleurs | TOUJOURS vérifier que les choices correspondent au sujet de la question |
+| **Chunk thématique incorrect** | Q47: Chunk F01 (championnat féminin) pour question sur indemnités arbitre | Vérifier que le thème du chunk correspond à la question |
 | **Réponse numérique manquante** | Q48: "Combien de phases" mais réponse sans le chiffre | Si question "combien", inclure le nombre dans expected_answer |
+| **Source annales vs GS** | Q49: original_answer (20€) était correct mais MCQ answer était faux | TOUJOURS comparer original_answer vs correct_answer - privilégier original si cohérent |
+
+### Batch 005 - Self-Audit (CRITICAL)
+| Erreur | Description | Solution |
+|--------|-------------|----------|
+| **Metadata.choices corruption** | Q41: Les choices dans metadata ne correspondaient pas à la question | Vérifier que metadata.choices est cohérent avec le texte de la question |
+| **Cross-reference annales** | Q47, Q49: La réponse correcte était dans les annales sources | Toujours croiser avec les fichiers parsed_Annales-*.json pour valider |
+| **Chunk inexistant pour règle** | Q49: Le guide international n'est pas dans le corpus | Documenter quand une règle référencée n'est pas dans le corpus |
 
 ## Métriques de qualité
 

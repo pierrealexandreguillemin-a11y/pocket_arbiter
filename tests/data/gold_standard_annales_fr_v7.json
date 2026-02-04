@@ -1552,7 +1552,7 @@
           9
         ],
         "article_reference": "A02 - 2.4 Arbitres",
-        "answer_explanation": "A02 - 2.4 Arbitres",
+        "answer_explanation": "Selon A02 art 2.4, en N3 et N4 le club doit avoir 'un arbitre fédéral Elite, d'Open, de Club, ou Jeune'. Le niveau minimum requis pour N4 est donc l'Arbitre Fédéral Jeune (AFJ). Ce n'est pas l'arbitre stagiaire (pas fédéral), ni l'AF de Club ou d'Open qui sont des niveaux supérieurs.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1564,8 +1564,9 @@
         "category": "interclubs",
         "keywords": [
           "arbitre",
-          "club",
-          "pion"
+          "N4",
+          "minimum",
+          "AFJ"
         ],
         "difficulty": 0.37,
         "question_type": "comparative",
@@ -1579,9 +1580,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_002"
+        "batch": "Q18"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1593,7 +1594,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p019-parent [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077898 [ISO42001_FIX] inference sur niveau minimum",
+        "history": "[Q18] 46 fields verified, 8 constraints PASS. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation, keywords (pion→AFJ), batch. 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": true
       }

@@ -3062,7 +3062,7 @@
           3
         ],
         "article_reference": "Article 2.5 du A02 - Championnat de France des clubs.",
-        "answer_explanation": "Article 2.5 du A02 - Championnat de France des clubs.",
+        "answer_explanation": "L'article 2.5 du A02 définit les règles d'arbitrage par division. En N1/N2, l'arbitre ne peut pas jouer. En N3, l'arbitre d'un seul match ne peut jouer que dans ce même match (réponse B). En N4, l'arbitre peut jouer et officier dans jusqu'à 2 matchs de N4 et divisions inférieures.",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3073,25 +3073,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "échec",
-          "pendule",
-          "coup"
+          "arbitre-joueur",
+          "N3",
+          "responsable rencontre",
+          "division"
         ],
         "difficulty": 0.22,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "004"
+        "batch": "Q37"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -3143,7 +3144,7 @@
           5
         ],
         "article_reference": "Article 3.6.c du A02 - Championnat de France des clubs.",
-        "answer_explanation": "L'arbitre transcrit sur la feuille de match les feuilles de composition remises par les capitaines des équipes, contrôle les licences à l'aide du site fédéral et le cas échéant, indique sur le PV l'absence de licence A. Après la rencontre, la personne en charge de la direction du groupe contrôle la situation des joueuses et des joueurs (Article 2.1.b)",
+        "answer_explanation": "Selon l'article 3.6.c, c'est l'arbitre de la rencontre (réponse C) qui transcrit les feuilles de composition sur la feuille de match et contrôle les licences via le site fédéral. Il indique le cas échéant l'absence de licence A. Le directeur de groupe contrôle seulement après la rencontre.",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3154,25 +3155,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "pendule",
-          "coup",
-          "adversaire"
+          "licence",
+          "contrôle",
+          "arbitre",
+          "feuille de match"
         ],
         "difficulty": 0.11,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "004"
+        "batch": "Q38"
       },
       "processing": {
         "chunk_match_score": 100,

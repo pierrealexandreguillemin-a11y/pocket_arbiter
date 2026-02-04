@@ -1874,7 +1874,7 @@
           6
         ],
         "article_reference": "A02 - 3.7 Composition des équipes - 3.7.f) Noyau de l'équipe",
-        "answer_explanation": "A02 - 3.7 Composition des équipes - 3.7.f) Noyau de l'équipe",
+        "answer_explanation": "Selon A02 art 3.7.f, en N3 chaque équipe doit aligner 'au moins 50% de personnes ayant déjà participé au moins une fois'. Pour 6 joueurs à la ronde 4, il faut 3 joueurs du noyau. Option D (2 de R1 + 1 de R3 = 3 joueurs) satisfait cette condition. Les autres options n'atteignent pas 50%.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1885,23 +1885,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "joueur"
+          "noyau",
+          "équipe",
+          "50%",
+          "N3"
         ],
         "difficulty": 0.4,
         "question_type": "scenario",
         "cognitive_level": "Apply",
         "reasoning_type": "multi-hop",
         "reasoning_class": "arithmetic",
-        "answer_type": "abstractive"
+        "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_003"
+        "batch": "Q22"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1913,7 +1916,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] règlement_régionale_2024_2025. -> C01_2025_26_Coupe_de_France.pd [BATCH_003] manual audit 2026-02-03T14:20:12.366837 [ISO42001_FIX] logique simplifiee, citation chunk",
+        "history": "[Q22] 46 fields verified, 8 constraints PASS. Chunk DB vérifié art 3.7.f noyau 50%. Annales cross-ref OK. Fix: answer_explanation, keywords, answer_type (abstractive→multiple_choice), batch. 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": true
       }

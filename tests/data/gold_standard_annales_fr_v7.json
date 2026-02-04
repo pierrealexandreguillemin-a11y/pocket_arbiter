@@ -1084,7 +1084,7 @@
           4
         ],
         "article_reference": "R01 - 4. Homologation d'un résultat",
-        "answer_explanation": "R01 - 4. Homologation d'un résultat",
+        "answer_explanation": "Selon R01 article 4, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. Pour un match le dimanche: Jour 1=Lundi, Jour 2=Mardi, Jour 3=Mercredi, Jour 4=Jeudi. Donc le résultat est homologué au minimum le jeudi, même si le directeur de groupe a vérifié les résultats dès le mardi.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1095,11 +1095,10 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
+          "homologation",
           "résultat",
-          "rencontre",
-          "entre",
-          "deux",
-          "équipes"
+          "jour calendaire",
+          "rencontre"
         ],
         "difficulty": 0.36,
         "question_type": "scenario",
@@ -1113,9 +1112,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_002"
+        "batch": "Q12"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1127,7 +1126,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": " | [MARK] requires_context:answer_not_found [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077853",
+        "history": "[Q12] 46 fields verified, 8 constraints PASS. PDF R01 p4 art 4 '4e jour calendaire' vérifié Chrome DevTools. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation, keywords, batch. 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": true
       }

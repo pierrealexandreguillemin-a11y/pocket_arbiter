@@ -7885,25 +7885,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "cadence",
-          "partie",
-          "position"
+          "participation",
+          "même division",
+          "plusieurs équipes",
+          "interdit"
         ],
         "difficulty": 0.32,
         "question_type": "scenario",
         "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q97"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -7915,7 +7916,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p010-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p010-parent [Q97] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:17.301958",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
@@ -7966,25 +7967,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "cadence",
-          "partie",
-          "position"
+          "litige technique",
+          "réclamation",
+          "transmission",
+          "arbitre"
         ],
         "difficulty": 0.18,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q98"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -7996,7 +7998,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p054-parent -> 2024_Statuts20240420.pdf-p012-",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p054-parent -> 2024_Statuts20240420.pdf-p012- [Q98] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:17.410852",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent021-child00",
@@ -8045,29 +8047,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "pendule",
-          "cadence",
-          "partie",
-          "promotion",
-          "case"
+          "arbitre",
+          "N3 jeunes",
+          "licence A",
+          "DRA"
         ],
         "difficulty": 0.45,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q99"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -8079,7 +8080,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p033-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p033-parent [Q99] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:17.583660",
           "old_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",

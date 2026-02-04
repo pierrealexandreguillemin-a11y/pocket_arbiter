@@ -3378,13 +3378,13 @@
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p125-parent365-child00",
         "docs": [
-          "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+          "LA-octobre2025.pdf"
         ],
         "pages": [
-          4
+          125
         ],
-        "article_reference": "Article 3.11.c du A02 - Championnat de France des clubs.",
-        "answer_explanation": "LA Chapitre 3.5 - Système Suisse Néerlandais - A.6 Différences de couleurs: Quand deux joueurs ont la même préférence, on regarde l'historique. Si ronde N°3 a été jouée avec mauvaise couleur, on inverse.",
+        "article_reference": "LA Chapitre 3.5 - Système Suisse Néerlandais - Article A.6",
+        "answer_explanation": "Selon l'article A.6 du système néerlandais, quand deux joueurs ont la même préférence de couleur, on compare leur historique. Joueur A (B-N-N-B-N-B) et B (N-N-B-B-N-B) ont tous deux préférence noire (différence -1). On regarde R3 où A avait N et B avait B. En inversant R3, A avait 'mauvaise' couleur donc A reçoit maintenant les noirs (réponse B).",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3393,9 +3393,12 @@
         }
       },
       "classification": {
-        "category": "interclubs",
+        "category": "appariement",
         "keywords": [
-          "joueur"
+          "couleurs",
+          "préférence",
+          "système néerlandais",
+          "historique"
         ],
         "difficulty": 0.08,
         "question_type": "scenario",
@@ -3407,11 +3410,11 @@
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q41"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -3454,10 +3457,10 @@
           "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
         ],
         "pages": [
-          4
+          7
         ],
         "article_reference": "Article 3.8 du A02 - Championnat de France des clubs.",
-        "answer_explanation": "A02 Article 3.8 Forfaits sportifs: En N3, forfait d'équipe = 300€. Cette amende est doublée si forfait à la dernière ronde. Donc 300 × 2 = 600€.",
+        "answer_explanation": "Selon l'article 3.8 du A02, le forfait d'équipe en N3 est sanctionné de 300€. Mais 'cette amende sera doublée si le forfait a lieu à la dernière ronde'. Calcul: 300€ × 2 = 600€ (réponse D).",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3468,25 +3471,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "mat",
-          "club",
-          "forfait"
+          "forfait équipe",
+          "amende",
+          "N3",
+          "dernière ronde"
         ],
         "difficulty": 0.42,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
         "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q42"
       },
       "processing": {
         "chunk_match_score": 100,

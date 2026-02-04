@@ -1822,7 +1822,7 @@
         "answer_current": true,
         "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "Q20-Q22"
+        "batch": "Q21"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1834,7 +1834,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[Q21] 46 fields verified, 8 constraints PASS. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation, keywords (pion→litige/arbitre), batch. 2026-02-04",
+        "history": "[Q21] Re-audit: requires_inference null→false, batch Q20-Q22→Q21. 2026-02-04. [Q21] 46 fields verified, 8 constraints PASS. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation, keywords (pion→litige/arbitre), batch. 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:09.265403",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
@@ -1842,7 +1842,7 @@
           "new_score": 0.6826,
           "reason": "current_rank_15_too_low"
         },
-        "requires_inference": null
+        "requires_inference": false
       }
     },
     {

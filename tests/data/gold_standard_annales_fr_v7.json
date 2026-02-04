@@ -1394,7 +1394,7 @@
           1
         ],
         "article_reference": "A02 - 1.2 Déroulement de la compétition",
-        "answer_explanation": "A02 - 1.2 Déroulement de la compétition",
+        "answer_explanation": "Selon A02 art 1.2, 'Un club ne peut engager qu'une équipe en Top 16 et une équipe en N1'. Donc avoir deux équipes en Nationale 1 n'est PAS autorisé. Les autres propositions sont correctes: le Top 16 a bien 2 sous-groupes de 8, les 9e et 10e de N2 descendent, et les N1-N4 sont en toutes rondes.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1405,9 +1405,10 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "position",
-          "règle",
-          "règlement"
+          "championnat",
+          "équipe",
+          "club",
+          "N1"
         ],
         "difficulty": 0.16,
         "question_type": "factual",
@@ -1421,9 +1422,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_002"
+        "batch": "Q16"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1435,7 +1436,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077885",
+        "history": "[Q16] 46 fields verified, 8 constraints PASS. PDF A02 p1 art 1.2 'une équipe en N1' vérifié via chunk DB. Annales cross-ref OK. Fix: answer_explanation, keywords, batch. 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": true
       }

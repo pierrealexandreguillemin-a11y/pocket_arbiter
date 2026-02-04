@@ -5458,7 +5458,7 @@
           6
         ],
         "article_reference": "A02 - 3.7.c) Participation dans plusieurs équipes",
-        "answer_explanation": "A02 - 3.7.c) Participation dans plusieurs équipes",
+        "answer_explanation": "L'article 3.7.c) précise les restrictions de participation dans plusieurs équipes du même club. Une joueuse ayant joué en N2 (équipe 1 ou 2) ne peut plus jouer en N4 (réponse B). Elle peut encore jouer en N3 ou au-dessus, mais pas en division inférieure à celle où elle a déjà participé.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5469,25 +5469,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "pendule",
-          "temps",
-          "adversaire"
+          "participation",
+          "plusieurs équipes",
+          "divisions",
+          "nationale"
         ],
         "difficulty": 0.14,
         "question_type": "scenario",
         "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q67"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5539,7 +5540,7 @@
           4
         ],
         "article_reference": "A02 - 3.8 Forfaits sportifs",
-        "answer_explanation": "A02 - 3.8 Forfaits sportifs",
+        "answer_explanation": "L'article 3.8 précise que le retard autorisé est de 60 minutes pour TOUTES les divisions nationales, y compris le Top 16 (réponse B). Ce n'est pas 30 minutes (A), ni avec exception Top 16 sans retard (C), ni avec 30 minutes au Top 16 (D).",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5550,23 +5551,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "appariement"
+          "retard",
+          "forfait",
+          "60 minutes",
+          "divisions nationales"
         ],
         "difficulty": 0.11,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q68"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5627,29 +5631,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "interclubs",
         "keywords": [
-          "cours",
-          "essais",
-          "appariements",
-          "celui",
-          "possible"
+          "composition équipe",
+          "Elo",
+          "sanction",
+          "règle 100 points"
         ],
         "difficulty": 0.16,
         "question_type": "scenario",
-        "cognitive_level": "Apply",
+        "cognitive_level": "Analyze",
         "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q69"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5661,7 +5664,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p133-parent -> LA-octobre2025.pdf-p128-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p133-parent -> LA-octobre2025.pdf-p128-parent [Q69] manual audit 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": null
       }

@@ -4990,7 +4990,7 @@
           2
         ],
         "article_reference": "R03 - 2.3 Droits d'inscriptions",
-        "answer_explanation": "Commentaire de correction : Le faible taux de réussite à cette question peut s'expliquer par le fait que cette règle est récente. Nous invitons les candidats à s'assurer qu'ils possèdent bien la dernière mise à jour des règlements fédéraux.",
+        "answer_explanation": "L'article 2.3 précise que la majoration des prix d'inscription ne s'applique pas aux personnes présentant une 'carte mobilité inclusion' de personne en situation de handicap. Une joueuse aveugle avec cette carte doit payer le tarif normal (20€) et non le tarif majoré (30€), même en s'inscrivant à la dernière minute. La réponse C est donc correcte.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5001,24 +5001,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "partie",
-          "joueur"
+          "inscription",
+          "handicap",
+          "majoration",
+          "carte mobilité"
         ],
         "difficulty": 0.19,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q61"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5064,7 +5066,7 @@
           2
         ],
         "article_reference": "R03 - 2.5 Conditions de participation des joueurs et joueuses",
-        "answer_explanation": "R03 - 2.5 Conditions de participation des joueurs et joueuses",
+        "answer_explanation": "L'article 2.5 autorise la participation d'un joueur sans licence à condition que l'organisateur régularise la prise de licence au plus tard 7 jours APRÈS LA FIN du tournoi (réponse D). Ce n'est pas interdit (A), ni avant la fin du tournoi (B), ni 7 jours après le début (C). Cette pratique courante permet l'inscription sur place.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5075,24 +5077,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "partie",
-          "adversaire"
+          "licence",
+          "régularisation",
+          "participation",
+          "inscription"
         ],
         "difficulty": 0.12,
         "question_type": "scenario",
         "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q62"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5138,7 +5142,7 @@
           2
         ],
         "article_reference": "R03 - 2.3 Droits d'inscriptions",
-        "answer_explanation": "Commentaire de correction : Cette question est très fréquemment posée aux examens et présente une situation très courante en tournoi, le faible taux de réussite indique que les candidats et candidates ne travaillent pas suffisamment les annales.",
+        "answer_explanation": "L'article 2.3 précise que l'inscription gratuite pour les champions de France jeunes en titre ne s'applique qu'aux tournois de TYPE A (cadence lente). Un tournoi rapide n'est pas de type A, donc le champion petits-poussins doit payer comme tout le monde. La réponse D est correcte car la gratuité n'est valable que pour les tournois en cadence lente.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5149,29 +5153,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
+          "inscription gratuite",
+          "champion France",
           "cadence",
-          "joueur",
-          "tournoi",
-          "club",
-          "pion",
-          "roi",
-          "tour"
+          "type A"
         ],
         "difficulty": 0.11,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q63"
       },
       "processing": {
         "chunk_match_score": 100,

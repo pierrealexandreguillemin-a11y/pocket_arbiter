@@ -8860,12 +8860,13 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "interclubs",
         "keywords": [
-          "cadence",
-          "coup",
-          "joueur",
-          "pièce"
+          "N3",
+          "composition",
+          "forfait",
+          "trou échiquier",
+          "-1"
         ],
         "difficulty": 0.73,
         "question_type": "scenario",
@@ -8876,12 +8877,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q109"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -8893,7 +8894,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p066-parent -> LA-octobre2025.pdf-p052-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p066-parent -> LA-octobre2025.pdf-p052-parent [Q109] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:19.052844",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
@@ -8942,11 +8943,13 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "interclubs",
         "keywords": [
+          "N3",
+          "retard",
           "pendule",
-          "joueur",
-          "échiquier"
+          "30min",
+          "composition"
         ],
         "difficulty": 0.36,
         "question_type": "scenario",
@@ -8957,12 +8960,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q110"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -8974,7 +8977,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[SMART_FIX] Championnat de France des clubs, Article 3.6.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.33) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00 -> LA-octobre2025.pdf-p045-parent170-child00 (current_rank_117_too_low) | [MARK] requires_context:answer_not_found",
+        "history": "[SMART_FIX] Championnat de France des clubs, Article 3.6.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.33) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00 -> LA-octobre2025.pdf-p045-parent170-child00 (current_rank_117_too_low) | [MARK] requires_context:answer_not_found [Q110] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:19.191058",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
@@ -9022,29 +9025,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "interclubs",
         "keywords": [
-          "nulle",
-          "temps",
-          "coup",
-          "feuille",
-          "position"
+          "interclubs",
+          "pendule",
+          "démarrage",
+          "composition absente"
         ],
         "difficulty": 0.35,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
         "reasoning_type": "multi-hop",
         "reasoning_class": "summary",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q111"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9056,7 +9058,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00 -> A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 (score:1.00, src:same_doc) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 -> LA-octobre2025.pdf-p051-parent179-child00 (current_rank_179_too_low) | [2026-01-26] requires_context:failure_analysis",
+        "history": "[P1:0.95] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00 -> A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 (score:1.00, src:same_doc) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00 -> LA-octobre2025.pdf-p051-parent179-child00 (current_rank_179_too_low) | [2026-01-26] requires_context:failure_analysis [Q111] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:19.340660",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",

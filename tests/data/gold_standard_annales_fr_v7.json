@@ -1702,14 +1702,14 @@
         "original_answer": "15 : 15."
       },
       "provenance": {
-        "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent010-child00",
+        "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent020-child00",
         "docs": [
-          "R01_2025_26_Regles_generales.pdf"
+          "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
         ],
         "pages": [
-          2
+          4
         ],
-        "article_reference": "R01 - 3.1.1 Forfait sportif",
+        "article_reference": "A02 - 3.8 Forfaits sportifs",
         "answer_explanation": "Selon R01 art 3.1.1, le forfait est constaté pour tout joueur 'ne se présentant pas dans la salle de jeu pendant le temps de retard autorisé suivant l'heure officielle du début de la rencontre'. L'heure officielle est 14h15 (horaire prévu), pas 14h30 (horaire réel). Temps de retard autorisé en interclubs = 1h. Donc forfait à 14h15 + 1h = 15h15.",
         "annales_source": {
           "session": "dec2024",
@@ -1740,7 +1740,7 @@
         "answer_current": true,
         "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "Q20"
+        "batch": "Q20-Q22"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1752,7 +1752,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[Q20] 46 fields verified, 8 constraints PASS. Chunk DB vérifié. Annales cross-ref OK. Fix: article_reference (A02→R01), answer_explanation, keywords, reasoning_class (summary→arithmetic), batch. 2026-02-04",
+        "history": "[Q20] Re-audit: chunk_id R01->A02, article_ref R01-3.1.1->A02-3.8, pages 2->7. Règle 60 min dans A02. 2026-02-04. Précédent: [Q20] 46 fields verified, 8 constraints PASS. Chunk DB vérifié. Annales cross-ref OK. Fix: article_reference (A02→R01), answer_explanation, keywords, reasoning_class (summary→arithmetic), batch. 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:09.151636",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent018-child00",
@@ -1822,7 +1822,7 @@
         "answer_current": true,
         "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "Q21"
+        "batch": "Q20-Q22"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1904,7 +1904,7 @@
         "answer_current": true,
         "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "Q22"
+        "batch": "Q20-Q22"
       },
       "processing": {
         "chunk_match_score": 100,

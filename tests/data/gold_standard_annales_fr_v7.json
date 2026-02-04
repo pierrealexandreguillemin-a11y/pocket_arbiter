@@ -3924,7 +3924,7 @@
           "D": "5."
         },
         "mcq_answer": "A",
-        "correct_answer": "2",
+        "correct_answer": "2.",
         "original_answer": "Au secrétariat fédéral et au Directeur des tournois et Titres de la DNA."
       },
       "provenance": {
@@ -3936,7 +3936,7 @@
           1
         ],
         "article_reference": "Article 1.2 du F02 - Championnat individuel Féminin de parties rapides.",
-        "answer_explanation": "F02 Article 1.2 Déroulement: Elle se déroule en deux phases: une phase zone interdépartementale (ZID) et une finale.",
+        "answer_explanation": "L'article 1.2 du F02 précise que le championnat 'se déroule en deux phases: une phase zone interdépartementale (ZID) et une finale' (réponse A: 2 phases).",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3947,8 +3947,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "partie",
-          "pion"
+          "championnat féminin",
+          "rapide",
+          "phases",
+          "ZID"
         ],
         "difficulty": 0.05,
         "question_type": "factual",
@@ -3960,11 +3962,11 @@
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q48"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4013,10 +4015,10 @@
           "LA-octobre2025.pdf"
         ],
         "pages": [
-          18
+          17
         ],
-        "article_reference": "LA:RIDNA - III.Cursus Fédéral DesArbitres -7.1Critères administratifs et 8.3 L'arbitre Fédéral Club",
-        "answer_explanation": "DNA-Guide-international -2.2 : Afin d'être autorisé à arbitrer dans les tournois internationaux homologués par la FIDE, un arbitre fédéral, quel que soit son titre FFE ou FIDE, doit s'acquitter d'un droit auprès de la FIDE : Ce droit est de 20 € pour les arbitres ne possédant pas de titre FIDE",
+        "article_reference": "DNA-Guide-international - Article 2.2 Montant des droits.",
+        "answer_explanation": "Selon le Guide de l'arbitrage à l'international (art. 2.2), pour être autorisé à arbitrer dans les tournois FIDE, un arbitre fédéral doit s'acquitter d'un droit de 20€ (réponse B) s'il ne possède pas de titre FIDE.",
         "annales_source": {
           "session": "jun2024",
           "uv": "UVC",
@@ -4025,29 +4027,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "arbitre",
-          "tournoi",
-          "roi",
-          "tour",
-          "fide"
+          "agrément FIDE",
+          "droits",
+          "arbitre fédéral",
+          "international"
         ],
         "difficulty": 0.22,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q49"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4108,13 +4109,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "effectuer",
-          "demande",
-          "homologation",
-          "procédure",
-          "suivre"
+          "direction règlements",
+          "missions",
+          "DNA",
+          "responsabilité"
         ],
         "difficulty": 0.18,
         "question_type": "factual",
@@ -4126,11 +4126,11 @@
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q50"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4142,7 +4142,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p020-parent -> LA-octobre2025.pdf-p168-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p020-parent -> LA-octobre2025.pdf-p168-parent [Q50] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:12.024862",
           "old_chunk_id": "LA-octobre2025.pdf-p020-parent085-child01",

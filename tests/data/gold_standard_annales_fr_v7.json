@@ -9837,7 +9837,7 @@
           1
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 1.2.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 1.2.",
+        "answer_explanation": "Selon l'article 1.2 des règles générales, les joueurs doivent être licenciés au plus tard à l'heure prévue du début de la rencontre, ce qui correspond au moment de la remise des compositions d'équipe (réponse D). Les autres options sont incorrectes car elles fixent des dates arbitraires (30 septembre, 30 novembre, veille du match) qui ne correspondent pas au règlement.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -9848,24 +9848,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "joueur",
-          "trait"
+          "licence",
+          "interclubs",
+          "composition équipe",
+          "délai"
         ],
         "difficulty": 0.4,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q121"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9917,7 +9919,7 @@
           1
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 1.4.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 1.4.",
+        "answer_explanation": "L'article 1.4 précise que la licence A est obligatoire pour toute compétition à cadence supérieure ou égale à 60 minutes (ou équivalent en cadence Fischer). La réponse A est correcte car elle inclut à la fois le seuil 'égal à' et la mention de l'équivalent Fischer, contrairement aux autres options qui omettent l'un ou l'autre de ces éléments.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -9928,24 +9930,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coup",
-          "position"
+          "licence A",
+          "cadence",
+          "60 minutes",
+          "Fischer"
         ],
         "difficulty": 0.4,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q122"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9991,7 +9995,7 @@
           2
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 2.3.1.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 2.3.1.",
+        "answer_explanation": "L'article 2.3.1 des règles générales définit la période de trêve estivale durant laquelle certaines compétitions ne peuvent pas avoir lieu. Cette période s'étend du 15 juillet au 30 septembre (réponse D). Les autres options proposent des dates incorrectes pour le début (1er juillet) ou la fin (30 août) de cette période.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -10002,27 +10006,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "abandon",
-          "pendule",
-          "cadence",
-          "coup",
-          "joueur"
+          "trêve estivale",
+          "15 juillet",
+          "30 septembre",
+          "période"
         ],
         "difficulty": 0.4,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q123"
       },
       "processing": {
         "chunk_match_score": 100,

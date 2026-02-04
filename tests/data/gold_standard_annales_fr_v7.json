@@ -10073,7 +10073,7 @@
           2
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 2.4.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 2.4.",
+        "answer_explanation": "Lors d'une reconstitution de partie où un coup illégal est découvert (ici au 30ème coup), la procédure correcte est : 1) Arrêter la reconstitution, 2) Repartir en remplaçant le coup illégal par un coup légal, 3) Estimer au mieux le temps des joueurs à ce moment, 4) Ajouter 2 minutes à l'adversaire du fautif, 5) Appliquer la règle de la pièce touchée (si cavalier touché, coup de cavalier obligatoire). La réponse D est donc correcte car elle inclut tous ces éléments.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -10082,29 +10082,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "mat",
-          "cadence",
-          "partie",
-          "coup",
-          "joueur"
+          "reconstitution",
+          "coup illégal",
+          "pièce touchée",
+          "2 minutes"
         ],
         "difficulty": 0.4,
         "question_type": "scenario",
         "cognitive_level": "Apply",
         "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "reasoning",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q124"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -10156,7 +10155,7 @@
           3
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 3.1.3.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 3.1.3.",
+        "answer_explanation": "Selon l'article 3.1.3, les réclamations concernant le déroulement d'un match ou d'une compétition doivent être adressées au directeur de groupe ou au directeur de compétition (réponse D). L'arbitre du match n'a pas compétence pour traiter ces réclamations qui dépassent le cadre de la partie elle-même.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -10167,24 +10166,25 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "mat",
-          "joueur"
+          "réclamation",
+          "directeur groupe",
+          "directeur compétition"
         ],
         "difficulty": 0.4,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q125"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -10230,7 +10230,7 @@
           4
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
+        "answer_explanation": "L'article 5 des règles générales définit les Elo estimés attribués aux nouveaux joueurs selon leur catégorie d'âge. Pour les joueurs adultes n'ayant jamais eu de classement, l'Elo estimé est de 1099 (réponse C). Les autres valeurs proposées correspondent à d'autres situations ou catégories.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -10239,26 +10239,27 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "classement",
         "keywords": [
-          "pendule",
-          "cadence"
+          "Elo estimé",
+          "nouveau joueur",
+          "1099"
         ],
         "difficulty": 0.4,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q126"
       },
       "processing": {
         "chunk_match_score": 100,

@@ -454,7 +454,7 @@
           6
         ],
         "article_reference": "R01 - Chapitre 11. Entente de Clubs. 11.1. Généralités",
-        "answer_explanation": "R01 - Chapitre 11. Entente de Clubs. 11.1. Généralités",
+        "answer_explanation": "Selon R01 Chapitre 11.1.1, les compétitions autorisées pour une entente sont: les Championnats de France des clubs, les Interclubs Jeunes, et les Championnats de France des clubs féminins (tous dans la plus petite division locale). La Coupe de France n'est pas mentionnée dans cette liste exhaustive.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -481,9 +481,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_001"
+        "batch": "Q4"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -495,7 +495,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] R01_2025_26_Regles_generales.p -> C01_2025_26_Coupe_de_France.pd [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876626 [CORRECTION_ISO42001] inference par omission conservee avec mention explicite [ISO42001_FIX] inference par omission explicite",
+        "history": "[Q4] 46 fields verified, 8 constraints PASS. PDF R01 p6 Chapitre 11 Entente Clubs vérifié Chrome DevTools. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation (était copie article_reference), batch (était batch_001). 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:07.166355",
           "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",

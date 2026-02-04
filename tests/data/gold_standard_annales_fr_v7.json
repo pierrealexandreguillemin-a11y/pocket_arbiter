@@ -10311,7 +10311,7 @@
           4
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 5.",
+        "answer_explanation": "L'article 5 définit que les Elo estimés sont attribués par paliers de 50 points en 50 points selon la catégorie d'âge, à l'exception des U10 et U8 qui reçoivent 1009. Cette graduation par 50 points (réponse B) permet une différenciation fine des niveaux estimés tout en restant simple à appliquer.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -10320,27 +10320,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "classement",
         "keywords": [
-          "cadence",
-          "coup",
-          "notation"
+          "Elo estimé",
+          "50 points",
+          "U10",
+          "U8"
         ],
         "difficulty": 0.4,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q127"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -10392,7 +10393,7 @@
           6
         ],
         "article_reference": "R.01 : Règles générales pour les compétitions fédérales, art. 12.",
-        "answer_explanation": "R.01 : Règles générales pour les compétitions fédérales, art. 12.",
+        "answer_explanation": "L'article 12 des règles générales précise les conditions pour arbitrer des compétitions fédérales. Pour pouvoir arbitrer, il faut avoir un titre fédéral de la FFE (réponse C). Ce n'est pas automatique (pas 'de droit'), il ne suffit pas d'un stage de formation continue, et l'AFO n'est pas le minimum requis - un titre fédéral suffit.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -10401,29 +10402,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "mat",
-          "pendule",
-          "cadence",
-          "partie",
-          "coup"
+          "titre fédéral",
+          "FFE",
+          "arbitrer",
+          "condition"
         ],
         "difficulty": 0.4,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q128"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -10475,7 +10475,7 @@
           2
         ],
         "article_reference": "R.03 : Compétitions homologuées, art. 2.6.",
-        "answer_explanation": "R.03 : Compétitions homologuées, art. 2.6.",
+        "answer_explanation": "L'article 2.6 du règlement des compétitions homologuées stipule que la demande d'homologation d'un tournoi doit être faite 40 jours avant le tournoi (réponse C). Ce délai permet à la FFE de traiter les demandes et d'assurer la bonne organisation administrative des compétitions.",
         "annales_source": {
           "session": "jun2022",
           "uv": "clubs",
@@ -10486,27 +10486,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "cadence",
-          "coup",
-          "trait",
-          "position",
-          "article"
+          "homologation",
+          "tournoi",
+          "40 jours",
+          "délai"
         ],
         "difficulty": 0.4,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q129"
       },
       "processing": {
         "chunk_match_score": 100,

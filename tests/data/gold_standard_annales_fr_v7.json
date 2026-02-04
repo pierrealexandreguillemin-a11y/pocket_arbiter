@@ -1470,7 +1470,7 @@
           2
         ],
         "article_reference": "A02 - 2. Organisation de la compétition - 2.1.a Direction de Nationale",
-        "answer_explanation": "A02 - 2. Organisation de la compétition - 2.1.a Direction de Nationale",
+        "answer_explanation": "Selon A02 art 2.1.a, 'De la N1 à la N3, la personne chargée de la direction de Nationale nomme en début de saison les personnes chargées des directions de groupe'. C'est donc la direction nationale de la compétition (pas le bureau fédéral, la CTF, ni le DTN) qui nomme les directions de groupe en N3.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1481,7 +1481,10 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "arbitrage"
+          "direction",
+          "groupe",
+          "N3",
+          "nomination"
         ],
         "difficulty": 0.46,
         "question_type": "factual",
@@ -1495,9 +1498,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_002"
+        "batch": "Q17"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1509,7 +1512,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077892",
+        "history": "[Q17] 46 fields verified, 8 constraints PASS. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation, keywords, batch. 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:08.792601",
           "old_chunk_id": "2024_Statuts20240420.pdf-p011-parent036-child00",

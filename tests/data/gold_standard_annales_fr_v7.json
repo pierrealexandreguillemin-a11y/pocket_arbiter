@@ -2184,7 +2184,7 @@
           5
         ],
         "article_reference": "C01 - 4.2. Points de match",
-        "answer_explanation": "C01 - 4.2. Points de match",
+        "answer_explanation": "Selon C01 art 4.2, 'En cas d'égalité de points lors des demi-finales et la finale, un match à la cadence de 15mn + 5 secondes par joueur/joueuse est organisé, avec couleurs inversées'. Jusqu'en quarts c'est différent (échiquier 1, puis 2, etc.), mais en demi-finale c'est un match rapide.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -2195,7 +2195,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coup"
+          "demi-finale",
+          "départage",
+          "Coupe France",
+          "15min"
         ],
         "difficulty": 0.3,
         "question_type": "procedural",
@@ -2209,9 +2212,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
-        "pages_verified": false,
-        "batch": "batch_003"
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q26"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -2223,7 +2226,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] J01_2025_26_Championnat_de_Fra -> J01_2025_26_Championnat_de_Fra [BATCH_003] manual audit 2026-02-03T14:20:12.366868",
+        "history": "[Q26] 46 fields verified, 8 constraints PASS. Chunk DB vérifié art 4.2 '15mn+5s couleurs inversées'. Fix: answer_explanation, keywords, pages_verified, batch. 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:09.890125",
           "old_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",

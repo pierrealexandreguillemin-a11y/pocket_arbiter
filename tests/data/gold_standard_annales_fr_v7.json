@@ -6667,26 +6667,26 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "échec",
-          "mat",
-          "pendule",
-          "joueur"
+          "retard autorisé",
+          "forfait",
+          "30 minutes",
+          "Loubatière"
         ],
         "difficulty": 0.21,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q82"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6698,7 +6698,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p194-parent -> LA-octobre2025.pdf-p064-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p194-parent -> LA-octobre2025.pdf-p064-parent [Q82] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:15.367523",
           "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
@@ -6738,7 +6738,7 @@
           2
         ],
         "article_reference": "R03 - Compétitions homologuées - Article 2.2.2. Article 7.5.5 adapté sur les coups illégaux en cadence rapide.",
-        "answer_explanation": "R03 - Compétitions homologuées - Article 2.2.2. Article 7.5.5 adapté sur les coups illégaux en cadence rapide.",
+        "answer_explanation": "En rapide homologué FIDE, la sanction pour coups illégaux est appliquée après le 3ème coup illégal achevé (réponse C=3). La règle FIDE prévoit: 1er coup = avertissement, 2ème = pénalité temps, 3ème = perte de la partie.",
         "annales_source": {
           "session": "jun2025",
           "uv": "clubs",
@@ -6749,27 +6749,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coup",
-          "adversaire",
-          "pièce",
-          "échiquier",
-          "règle"
+          "coup illégal",
+          "rapide FIDE",
+          "sanction",
+          "perte partie"
         ],
         "difficulty": 0.74,
-        "question_type": "procedural",
-        "cognitive_level": "Understand",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q83"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6821,7 +6820,7 @@
           9
         ],
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 1.1.",
-        "answer_explanation": "A02 - Le Championnat de France des Clubs - Article 1.1.",
+        "answer_explanation": "L'article 1.1 définit la structure du Championnat de France des Clubs avec 5 divisions nationales: Top 16 équipes, N1, N2, N3, N4. Réponse C=16 correspond au nombre d'équipes au Top 16 (la plus haute division).",
         "annales_source": {
           "session": "jun2025",
           "uv": "clubs",
@@ -6832,27 +6831,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "mat",
-          "partie",
-          "joueur",
-          "adversaire",
-          "pièce"
+          "championnat clubs",
+          "Top 16",
+          "divisions",
+          "structure"
         ],
         "difficulty": 0.13,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q84"
       },
       "processing": {
         "chunk_match_score": 100,

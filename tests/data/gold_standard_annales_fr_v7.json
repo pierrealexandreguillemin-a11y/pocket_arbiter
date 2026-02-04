@@ -4182,7 +4182,7 @@
           16
         ],
         "article_reference": "LA :RIDNA - II. Organisation Et Administration - 4.1 Les superviseurs et superviseuses.",
-        "answer_explanation": "LA :RIDNA - II. Organisation Et Administration - 4.1 Les superviseurs et superviseuses.",
+        "answer_explanation": "Selon l'article 4.1.1 du RIDNA, les superviseurs sont des 'arbitres fédéraux expérimentés' qui ont l'autorité pour intervenir sur n'importe quel tournoi. Leur rôle est avant tout pédagogique: assister et conseiller les autres arbitres (réponse C). Ce ne sont pas de simples arbitres remplissant l'ASP (A), ni l'arbitre en chef (B), ni des rôles spécialisés comme anti-triche (D).",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4191,27 +4191,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "tournoi",
-          "homologation",
-          "tour"
+          "superviseurs",
+          "rôle",
+          "cadres",
+          "pédagogique"
         ],
         "difficulty": 0.06,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
+        "reasoning_type": "single-hop",
         "reasoning_class": "summary",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q51"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4263,7 +4264,7 @@
           17
         ],
         "article_reference": "LA :RIDNA - II. Organisation Et Administration - 6.2 Arbitres inactifs.",
-        "answer_explanation": "LA :RIDNA - II. Organisation Et Administration - 6.2 Arbitres inactifs.",
+        "answer_explanation": "L'article 6.2 précise les obligations de formation continue (FC tous les 4 ans), de stage AFC tous les 6 ans, et d'arbitrer au moins une fois par saison. La réponse D (formation spécifique d'une journée tous les 4 ans) n'est PAS une obligation réglementaire - c'est une formulation inexacte de la FC qui est un stage, pas une formation d'une journée.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4272,9 +4273,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "position"
+          "obligations",
+          "formation continue",
+          "arbitre inactif",
+          "stage"
         ],
         "difficulty": 0.18,
         "question_type": "factual",
@@ -4285,12 +4289,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q52"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4336,7 +4340,7 @@
           23
         ],
         "article_reference": "LA :RIDNA - V. Classification Des Tournois - 12.4 Arbitres Fédéraux de Club",
-        "answer_explanation": "LA :RIDNA - V. Classification Des Tournois - 12.4 Arbitres Fédéraux de Club",
+        "answer_explanation": "L'article 12.4 du RIDNA précise les compétences d'un Arbitre Fédéral de Club (AFC). Il peut arbitrer les matchs interclubs sauf Nationale 1 (réponse B). Il peut: arbitrer la Coupe de France (sauf finale), gérer les appariements aux championnats jeunes, et former des stagiaires.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4345,25 +4349,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "arbitrage"
+          "AFC",
+          "compétences",
+          "Nationale 1",
+          "classification"
         ],
         "difficulty": 0.08,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
         "reasoning_class": "summary",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q53"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4414,8 +4421,8 @@
         "pages": [
           9
         ],
-        "article_reference": "LA : Chapitre 1.2 Les missions de l'arbitre Articles 2.1 et Article 3",
-        "answer_explanation": "Commentaire de correction : Beaucoup de candidats ont choisi la réponse C), ce choix est raisonnable cependant le confort des joueurs reste une des obligations de l'arbitre alors qu'en aucun cas l'organisateur ne peut imposer la mise en place du matériel aux arbitres.",
+        "article_reference": "LA : Chapitre 1.2 Les missions de l'arbitre - Articles 2 et 3",
+        "answer_explanation": "Selon l'article 2 du LA, la mise en place du matériel (jeux, pendules, cavaliers, numéros de tables) est une obligation de l'ORGANISATEUR, pas de l'arbitre (réponse A). L'arbitre doit vérifier les pendules (B), assurer le confort des joueurs (C), et afficher les résultats (D).",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4424,25 +4431,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "joueur"
+          "missions arbitre",
+          "organisateur",
+          "obligations",
+          "matériel"
         ],
         "difficulty": 0.27,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q54"
       },
       "processing": {
         "chunk_match_score": 100,

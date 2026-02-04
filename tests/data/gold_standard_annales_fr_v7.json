@@ -5698,7 +5698,7 @@
           5
         ],
         "article_reference": "A02 - 3.7.a) et 3.7.g)",
-        "answer_explanation": "A02 - 3.7.a) et 3.7.g)",
+        "answer_explanation": "L'article 3.7.g) précise qu'en N4 à 6 échiquiers, le nombre de personnes mutées autorisées est de 2 (pas 3). La règle est: nombre max de mutés = nombre d'échiquiers / 3, soit 6/3 = 2. Donc la réponse D est correcte. Ce n'est pas fixé par la ligue (B), et 3 mutés (C) dépasserait la limite.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5709,23 +5709,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "forfait"
+          "mutation",
+          "N4",
+          "6 échiquiers",
+          "composition équipe"
         ],
         "difficulty": 0.2,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q70"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5771,7 +5774,7 @@
           1
         ],
         "article_reference": "J01 - 2. Organisation générale",
-        "answer_explanation": "J01 - 2. Organisation générale",
+        "answer_explanation": "L'article 2 précise que les catégories U18/U18F (cadets/cadettes) et U20/U20F (juniors) n'ont pas de phase qualificative pour le championnat de France jeunes (réponse B). Ils accèdent directement au championnat national. Les U16 et en-dessous doivent passer par des qualifications.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5782,7 +5785,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "adversaire"
+          "championnat jeunes",
+          "qualifications",
+          "U18",
+          "U20"
         ],
         "difficulty": 0.23,
         "question_type": "factual",
@@ -5793,12 +5799,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q71"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5850,7 +5856,7 @@
           4
         ],
         "article_reference": "J01 - 3.2.2. Cadence - Qualifications zones interdépartementales.",
-        "answer_explanation": "J01 - 3.2.2. Cadence - Qualifications zones interdépartementales.",
+        "answer_explanation": "L'article 3.2.2 précise que la cadence minimale pour les qualifications zones interdépartementales (grandes catégories) est de 50 min + 10s/coup (réponse B). Ce n'est pas 25 min (A - trop rapide), ni 1h+30s (C), ni la cadence FIDE classique (D).",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5861,7 +5867,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "cadence"
+          "cadence",
+          "qualifications",
+          "zones interdépartementales",
+          "jeunes"
         ],
         "difficulty": 0.19,
         "question_type": "factual",
@@ -5872,12 +5881,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q72"
       },
       "processing": {
         "chunk_match_score": 100,

@@ -4504,7 +4504,7 @@
           165
         ],
         "article_reference": "LA : Chapitre 5.1 Gestion d'un match",
-        "answer_explanation": "LA : Chapitre 5.1 Gestion d'un match",
+        "answer_explanation": "Un forfait administratif (réponse B) est déclaré quand un joueur ne respecte pas les règles administratives (mauvais échiquier, licence invalide). Un forfait sportif (A) concerne l'absence au jeu. Aller aux toilettes avec téléphone éteint (C) n'est pas sanctionnable. La transmission des résultats (D) est faite par le club responsable, pas l'arbitre.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4513,29 +4513,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "interclubs",
         "keywords": [
-          "mat",
-          "partie",
-          "coup",
-          "joueur",
-          "adversaire"
+          "forfait administratif",
+          "forfait sportif",
+          "gestion match",
+          "sanctions"
         ],
         "difficulty": 0.05,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q55"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4587,7 +4586,7 @@
           165
         ],
         "article_reference": "LA :Chapitre 5.1 Gestion d'un match",
-        "answer_explanation": "Partie B - Connaissance des règles de la FFE",
+        "answer_explanation": "Le chapitre 5.1 du LA définit les missions de l'arbitre en match interclubs: vérifier les licences A (A), établir le PV (B), rappeler les règles (C). Informer le club des amendes pour forfaits (D) n'est PAS une mission de l'arbitre - c'est le rôle de la direction de groupe.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4596,13 +4595,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "interclubs",
         "keywords": [
-          "Chapitre 5",
-          "mat",
-          "arbitre",
-          "club",
-          "pion"
+          "missions AFC",
+          "gestion match",
+          "responsabilités",
+          "interclubs"
         ],
         "difficulty": 0.31,
         "question_type": "factual",
@@ -4613,12 +4611,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q56"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4675,26 +4673,26 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "joueur",
+          "mutation",
           "licence",
-          "club",
-          "pion"
+          "délai",
+          "30 novembre"
         ],
         "difficulty": 0.51,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
         "reasoning_type": "multi-hop",
         "reasoning_class": "summary",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q57"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4706,7 +4704,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] H02_2025_26_Joueurs_a_mobilite -> LA-octobre2025.pdf-p125-parent",
+        "history": "[PROCRUSTES] H02_2025_26_Joueurs_a_mobilite -> LA-octobre2025.pdf-p125-parent [Q57] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:12.893554",
           "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent005-child00",

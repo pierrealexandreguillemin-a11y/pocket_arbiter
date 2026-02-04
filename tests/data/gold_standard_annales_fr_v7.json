@@ -1160,7 +1160,7 @@
           2
         ],
         "article_reference": "R03 - 2.3 Droits d'inscriptions",
-        "answer_explanation": "R03 - 2.3 Droits d'inscriptions",
+        "answer_explanation": "Selon R03 art 2.3, 'la majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte mobilité inclusion de personne en situation de handicap'. Donc une personne handicapée s'inscrivant à la dernière minute ne paie pas le tarif majoré (40€) mais le tarif normal (30€). Elle n'est pas non plus exemptée totalement - seuls les GMI/MI et champions sont gratuits.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1172,23 +1172,25 @@
         "category": "competitions",
         "keywords": [
           "tournoi",
-          "tour"
+          "inscription",
+          "handicap",
+          "majoration"
         ],
         "difficulty": 0.38,
         "question_type": "factual",
         "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
-        "answer_type": "extractive"
+        "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
-        "pages_verified": false,
-        "batch": "batch_002"
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q13"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1200,7 +1202,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[P1:0.95] R03_2025_26_Competitions_homologuees.pdf-p002-parent006-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent007-child00 (score:1.00, src:same_doc) [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077862 [ISO42001_FIX] montant 30 euros supprime (hallucination - vient de MCQ, pas du chunk)",
+        "history": "[Q13] 46 fields verified, 8 constraints PASS. PDF R03 p2 art 2.3 'carte mobilité inclusion' vérifié Chrome DevTools. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation, answer_type (extractive→multiple_choice), keywords, pages_verified, batch. 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": true
       }

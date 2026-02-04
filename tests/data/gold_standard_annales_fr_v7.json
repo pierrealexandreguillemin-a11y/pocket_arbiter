@@ -2664,7 +2664,7 @@
           6
         ],
         "article_reference": "Article 11 du R01 - Règles générales.",
-        "answer_explanation": "Des équipes issues d'une entente entre clubs peuvent être autorisées à participer à certaines compétitions de la Fédération Française des Echecs (Article 11.1). L'entente n'est valable que pour une saison. Elle peut être renouvelée sur décision de la Ligue. (Article 11.2.2) Chaque club est limité à une seule entente par compétition et par saison. (Article 11.3.4)",
+        "answer_explanation": "L'article 11.2.3 du R01 précise qu'une entente peut être constituée entre 3 clubs uniquement dans le championnat de France des clubs féminins, avec impossibilité de monter en division supérieure. Les autres réponses sont incorrectes: A) les ententes ne participent pas à toutes les compétitions (art. 11.1), B) l'entente n'est valable qu'une saison (art. 11.2.2), C) un club est limité à une seule entente par compétition (art. 11.3.4).",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -2675,9 +2675,10 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "pendule",
-          "coup",
-          "position"
+          "entente",
+          "clubs",
+          "championnat féminins",
+          "compétitions"
         ],
         "difficulty": 0.2,
         "question_type": "factual",
@@ -2688,12 +2689,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": "004"
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q32"
       },
       "processing": {
         "chunk_match_score": 100,

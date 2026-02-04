@@ -3530,7 +3530,7 @@
           "D": "15 jours."
         },
         "mcq_answer": "C",
-        "correct_answer": "10 jours",
+        "correct_answer": "10 jours.",
         "original_answer": "Paul et Hector."
       },
       "provenance": {
@@ -3542,7 +3542,7 @@
           1
         ],
         "article_reference": "Article 1 du R02 - Règles générales - Annexes.",
-        "answer_explanation": "R02 Article 1 Appels sportifs: L'appel doit être formulé par voie postale ou électronique dans un délai de dix jours à compter de la date de réception de la décision contestée.",
+        "answer_explanation": "L'article 1 du R02 précise que l'appel auprès de la CAS doit être formulé 'dans un délai de dix jours à compter de la date de réception de la notification de la décision contestée' (réponse C). Ce délai s'applique sous peine d'irrecevabilité.",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3551,9 +3551,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "regles_ffe",
         "keywords": [
-          "adversaire"
+          "appel",
+          "délai",
+          "réclamation",
+          "CAS"
         ],
         "difficulty": 0.41,
         "question_type": "factual",
@@ -3565,11 +3568,11 @@
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q43"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -3603,7 +3606,7 @@
           "D": "Elle doit le garder impérativement jusqu'à la fin de la saison sportive."
         },
         "mcq_answer": "C",
-        "correct_answer": "6 mois",
+        "correct_answer": "Elle doit le garder au moins six mois.",
         "original_answer": "Ce forfait doit faire l'objet d'une enquête de la part de l'arbitre. Si le joueur ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre, ce dernier le signale à la commission de discipline fédérale."
       },
       "provenance": {
@@ -3615,7 +3618,7 @@
           1
         ],
         "article_reference": "Article 4 du R02 - Règles générales - Annexes.",
-        "answer_explanation": "R02 Article 4 Conservation des documents: La personne responsable de la rencontre est tenue de conserver les feuilles de parties et procès-verbaux au moins 6 mois.",
+        "answer_explanation": "L'article 4 du R02 précise que 'la personne responsable de la rencontre est tenue de conserver les feuilles de parties et le ou les procès-verbaux au moins 6 mois' (réponse C). En cas de réclamations, elle doit les transmettre à la direction de la compétition.",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3624,9 +3627,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "regles_ffe",
         "keywords": [
-          "forfait"
+          "conservation",
+          "documents",
+          "PV",
+          "délai"
         ],
         "difficulty": 0.13,
         "question_type": "factual",
@@ -3638,11 +3644,11 @@
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q44"
       },
       "processing": {
         "chunk_match_score": 100,

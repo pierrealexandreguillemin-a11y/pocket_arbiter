@@ -2977,10 +2977,10 @@
           "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
         ],
         "pages": [
-          5
+          4
         ],
-        "article_reference": "Article 3.6.a du A02 - Championnat de France des clubs.",
-        "answer_explanation": "Lorsque la liste est remise plus tard, les pendules de tous les échiquiers de l'équipe concernée sont avancées d'un temps égal au retard. Si, de plus, un joueur ou une joueuse arrive dans un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure.",
+        "article_reference": "Article 3.6.a et 3.8 du A02 - Championnat de France des clubs.",
+        "answer_explanation": "En Nationale 2, le délai de forfait est de 60 minutes (art. 3.8). Le joueur arrive 50 min après le lancement, donc dans le délai. La composition étant remise 4 min en retard, les pendules sont avancées de ce retard. Si le cumul (retard composition + retard joueur) dépasse 1h de déficit horloge, celui-ci est ramené à 1h, soit 0h30 sur un temps initial de 1h30 (réponse D).",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -2991,26 +2991,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
+          "forfait",
+          "retard",
           "pendule",
-          "mat",
-          "joueur",
-          "partie"
+          "Nationale 2"
         ],
         "difficulty": 0.36,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
         "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "004"
+        "batch": "Q36"
       },
       "processing": {
         "chunk_match_score": 100,

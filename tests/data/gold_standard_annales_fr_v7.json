@@ -9596,7 +9596,7 @@
           93
         ],
         "article_reference": "RI de la DNA, Article 18.5",
-        "answer_explanation": "RI de la DNA, Article 18.5",
+        "answer_explanation": "Selon l'article 18.5 du RI de la DNA, l'exclusion pour une ou plusieurs rondes est une sanction possible. La question porte sur la division minimale permettant l'application de certaines sanctions par l'arbitre. La réponse B (Nationale 1) est correcte car c'est à partir de ce niveau que l'arbitre peut appliquer certaines sanctions disciplinaires prévues au règlement.",
         "annales_source": {
           "session": "dec2021",
           "uv": "clubs",
@@ -9605,29 +9605,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "mat",
-          "pendule",
-          "partie",
-          "coup",
-          "joueur"
+          "DNA",
+          "sanction",
+          "division",
+          "Nationale 1"
         ],
         "difficulty": 0.31,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q118"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9673,7 +9672,7 @@
           3
         ],
         "article_reference": "Coupe de France, Article 3.2",
-        "answer_explanation": "Coupe de France, Article 3.2",
+        "answer_explanation": "Selon l'article 3.2 de la Coupe de France, la première équipe nommée a les Blancs aux échiquiers 1 et 4 et les Noirs aux échiquiers 2 et 3. À partir des huitièmes de finale, un tirage au sort décide de la couleur. Dans le cas présent, l'équipe de Grandclub étant la première nommée, elle aura les blancs aux échiquiers 1 et 4 (réponse D).",
         "annales_source": {
           "session": "dec2021",
           "uv": "clubs",
@@ -9684,27 +9683,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "cadence",
-          "partie",
-          "coup",
-          "joueur",
-          "feuille"
+          "Coupe France",
+          "couleur",
+          "blancs",
+          "échiquiers 1 et 4"
         ],
         "difficulty": 0.6,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q119"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9755,8 +9753,8 @@
         "pages": [
           2
         ],
-        "article_reference": "C01 - Coupe de France, art 2.3 : horaires en Coupe de France 56,7 (%)",
-        "answer_explanation": "C01 - Coupe de France, art 2.3 : horaires en Coupe de France 56,7 (%)",
+        "article_reference": "C01 - Coupe de France, art 2.3 : horaires en Coupe de France",
+        "answer_explanation": "Selon l'article 2.3.b de la Coupe de France, les matchs débutent à 14h15, mais les clubs peuvent s'entendre pour en avancer l'heure, sous réserve d'obtenir l'accord de la Direction de la Coupe de France. Un club peut exiger de commencer à 10h00 sous certaines conditions (réponse B). Les réponses A, C et D sont incorrectes car elles affirment soit une obligation absolue, soit une autonomie totale des clubs.",
         "annales_source": {
           "session": "dec2022",
           "uv": "clubs",
@@ -9767,25 +9765,27 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coupe",
-          "heure",
-          "rencontre"
+          "Coupe France",
+          "horaire",
+          "14h15",
+          "10h00",
+          "quart finale"
         ],
         "difficulty": 0.4,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q120"
       },
       "processing": {
         "chunk_match_score": 100,

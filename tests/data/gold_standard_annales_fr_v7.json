@@ -9107,26 +9107,29 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "jeunes",
         "keywords": [
-          "pendule",
-          "joueur"
+          "interclubs jeunes",
+          "N1 jeunes",
+          "âge",
+          "composition",
+          "fille facultative"
         ],
         "difficulty": 0.5,
         "question_type": "scenario",
-        "cognitive_level": "Apply",
+        "cognitive_level": "Analyze",
         "reasoning_type": "multi-hop",
         "reasoning_class": "summary",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q112"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9138,7 +9141,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p047-parent -> LA-octobre2025.pdf-p034-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p047-parent -> LA-octobre2025.pdf-p034-parent [Q112] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:19.452590",
           "old_chunk_id": "Contrat_de_delegation_15032022.pdf-p009-parent017-child00",
@@ -9187,29 +9190,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "jeunes",
         "keywords": [
-          "forfait",
-          "joueur",
-          "échiquier",
-          "règle",
-          "règlement"
+          "interclubs jeunes",
+          "N1 jeunes",
+          "ordre âge",
+          "ELO supérieur"
         ],
         "difficulty": 0.63,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
+        "question_type": "scenario",
+        "cognitive_level": "Analyze",
         "reasoning_type": "multi-hop",
         "reasoning_class": "summary",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q113"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9221,7 +9223,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] 2022_Reglement_medical_1908202 -> InterclubsJeunes_PACABdr.pdf-p",
+        "history": "[PROCRUSTES] 2022_Reglement_medical_1908202 -> InterclubsJeunes_PACABdr.pdf-p [Q113] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:19.589574",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p009-parent002-child00",
@@ -9270,29 +9272,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "jeunes",
         "keywords": [
-          "cadence",
-          "partie",
-          "coup",
-          "joueur",
-          "notation"
+          "interclubs jeunes",
+          "N1 jeunes",
+          "ordre âge",
+          "fille facultative"
         ],
         "difficulty": 0.67,
         "question_type": "scenario",
-        "cognitive_level": "Apply",
+        "cognitive_level": "Analyze",
         "reasoning_type": "multi-hop",
         "reasoning_class": "summary",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q114"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9304,7 +9305,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] J03_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p033-parent",
+        "history": "[PROCRUSTES] J03_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p033-parent [Q114] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:19.715257",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent017-child00",

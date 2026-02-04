@@ -534,8 +534,8 @@
         "pages": [
           17
         ],
-        "article_reference": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 5 Les structures régionales et dép. - 5.1. La DRA.",
-        "answer_explanation": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Organisation et administration - Article 5 Les structures régionales et dép. - 5.1. La DRA.",
+        "article_reference": "LA - Chapitre 1.3 : Le règlement intérieur de la D.N.A. - Article 5.1. La DRA",
+        "answer_explanation": "Selon LA Chapitre 1.3 Article 5.1, la DRA travaille avec les membres de la DNA et permet l'échange des pratiques entre les DDA. Le contrôle du budget n'est PAS une mission de la DRA: 'Le montant est déterminé par le comité directeur de la Ligue, qui contrôle l'utilisation de ces fonds.'",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -544,9 +544,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "position"
+          "DRA",
+          "missions",
+          "budget",
+          "ligue"
         ],
         "difficulty": 0.25,
         "question_type": "factual",
@@ -560,9 +563,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_001"
+        "batch": "Q5"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -574,9 +577,9 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": " [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876632",
+        "history": "[Q5] 46 fields verified, 8 constraints PASS. PDF LA p17 Article 5.1 DRA vérifié Chrome DevTools. Chunk DB vérifié. Fix: answer_explanation, category, keywords, batch, requires_inference. 2026-02-04",
         "qat_revalidation": null,
-        "requires_inference": null
+        "requires_inference": true
       }
     },
     {

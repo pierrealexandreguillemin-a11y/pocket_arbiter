@@ -1236,7 +1236,7 @@
           2
         ],
         "article_reference": "R03 - 2.5. Conditions de participation des joueurs et joueuses",
-        "answer_explanation": "R03 - 2.5. Conditions de participation des joueurs et joueuses",
+        "answer_explanation": "Selon R03 art 2.5, les tournois de type A (cadence lente ≥50min) exigent une licence A, tandis que les tournois de type B (cadence rapide <50min) acceptent une licence B. La phase 1 à 30min+5s est type B (licence B OK), la phase 2 à 50min+10s est type A (licence A requise). Donc le joueur peut participer à la phase 1 avec sa licence B, mais devra prendre la licence A pour la phase 2.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1247,9 +1247,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
+          "licence",
           "cadence",
-          "coup",
-          "joueur"
+          "type A",
+          "type B"
         ],
         "difficulty": 0.25,
         "question_type": "scenario",
@@ -1263,9 +1264,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_002"
+        "batch": "Q14"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1277,7 +1278,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] R03_2025_26_Competitions_homol -> R03_2025_26_Competitions_homol [BATCH_002] mapping fix: R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00 -> R03_2025_26_Competitions_homologuees.pdf-p002-parent010-child00",
+        "history": "[Q14] 46 fields verified, 8 constraints PASS. PDF R03 p2 art 2.5 type A/B licence vérifié Chrome DevTools. Chunk DB vérifié. Annales cross-ref OK. Fix: answer_explanation, keywords, batch. 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:08.461534",
           "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p002-parent009-child00",

@@ -2599,8 +2599,10 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "arbitre",
-          "forfait"
+          "forfait",
+          "délai",
+          "retard",
+          "Coupe Loubatière"
         ],
         "difficulty": 0.31,
         "question_type": "factual",
@@ -2611,12 +2613,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "004"
+        "batch": "Q31"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -2628,7 +2630,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0) [CTX] name:Daniela",
+        "history": "[SHORT_FIX] R01_2025_26_Regles_generales.p -> R01_2025_26_Regles_generales.p (art:1, kw:0) [CTX] name:Daniela [Q31] manual audit 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": false
       }

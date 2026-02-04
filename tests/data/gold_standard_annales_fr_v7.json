@@ -6178,7 +6178,7 @@
           5
         ],
         "article_reference": "C01 - 4.2 Points de match",
-        "answer_explanation": "C01 - 4.2 Points de match",
+        "answer_explanation": "L'article 4.2 précise qu'en cas d'égalité 2-2 en Coupe de France, c'est l'équipe dont le 1er échiquier a gagné qui se qualifie (réponse C). Ce n'est pas la somme Elo la plus faible (A), ni la moyenne d'âge (B). Un match de départage rapide (D) n'intervient que si les 4 parties sont nulles.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -6189,23 +6189,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "mat"
+          "coupe France",
+          "départage",
+          "égalité",
+          "1er échiquier"
         ],
         "difficulty": 0.12,
-        "question_type": "comparative",
-        "cognitive_level": "Analyze",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
-        "reasoning_class": "reasoning",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q76"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6266,10 +6269,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "nulle",
-          "position"
+          "arbitre fédéral",
+          "critères administratifs",
+          "Elo",
+          "titre"
         ],
         "difficulty": 0.24,
         "question_type": "factual",
@@ -6280,12 +6285,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q77"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6297,7 +6302,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p051-parent -> LA-octobre2025.pdf-p051-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p051-parent -> LA-octobre2025.pdf-p051-parent [Q77] manual audit 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": null
       }
@@ -6340,13 +6345,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "nulle",
-          "partie",
-          "coup",
-          "adversaire",
-          "position"
+          "arbitre inactif",
+          "formation continue",
+          "stage SC",
+          "réactivation"
         ],
         "difficulty": 0.28,
         "question_type": "factual",
@@ -6357,12 +6361,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q78"
       },
       "processing": {
         "chunk_match_score": 100,

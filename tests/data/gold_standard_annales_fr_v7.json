@@ -9356,29 +9356,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "joueur",
-          "adversaire",
-          "trait",
-          "pièce",
-          "case"
+          "DRA",
+          "dérogation",
+          "DNA",
+          "tournoi homologué"
         ],
         "difficulty": 0.56,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q115"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9390,7 +9389,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p041-parent -> LA-octobre2025.pdf-p093-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p041-parent -> LA-octobre2025.pdf-p093-parent [Q115] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:19.865992",
           "old_chunk_id": "LA-octobre2025.pdf-p093-parent276-child00",
@@ -9430,7 +9429,7 @@
           36
         ],
         "article_reference": "Guide de l'arbitrage à l'international, Article 1.1",
-        "answer_explanation": "Guide de l'arbitrage à l'international, Article 1.1",
+        "answer_explanation": "Selon le Guide de l'arbitrage à l'international, l'agrément FIDE n'est accessible qu'aux arbitres titulaires d'un titre fédéral AFR, AFO ou AFE (et non AFC). L'AFC étant le niveau d'entrée des titres d'arbitre, il ne donne pas accès à l'homologation FIDE des tournois. La réponse D est donc correcte : un AFC ne peut pas obtenir l'agrément FIDE.",
         "annales_source": {
           "session": "dec2021",
           "uv": "clubs",
@@ -9439,28 +9438,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "arbitre",
-          "tournoi",
-          "tour",
-          "fide"
+          "AFC",
+          "agrément FIDE",
+          "titre arbitre",
+          "homologation"
         ],
         "difficulty": 0.36,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q116"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9522,29 +9521,29 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "jeunes",
         "keywords": [
-          "roque",
-          "échec",
-          "mat",
-          "partie",
-          "joueur"
+          "interclubs jeunes",
+          "N3",
+          "titre arbitre",
+          "DRA",
+          "licencié A"
         ],
         "difficulty": 0.57,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q117"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -9556,7 +9555,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra",
+        "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra [Q117] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:20.141513",
           "old_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p007-parent000-child00",

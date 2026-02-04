@@ -7148,7 +7148,7 @@
           9
         ],
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
-        "answer_explanation": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
+        "answer_explanation": "L'article 2.4 précise qu'en N3 et N4, le niveau minimum requis pour l'arbitre est Arbitre Fédéral Jeune (AFJ). Réponse B correcte. Ce n'est pas stagiaire (A - insuffisant), ni AFC (C) ou AFO (D) qui sont supérieurs au minimum requis.",
         "annales_source": {
           "session": "jun2025",
           "uv": "clubs",
@@ -7159,11 +7159,10 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "pendule",
-          "cadence",
-          "coup",
-          "trait",
-          "position"
+          "arbitre",
+          "N3",
+          "obligation",
+          "AFJ"
         ],
         "difficulty": 0.35,
         "question_type": "factual",
@@ -7174,12 +7173,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q88"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -7236,26 +7235,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "cadence",
-          "coup",
-          "trait",
-          "position"
+          "retard",
+          "composition",
+          "pendule",
+          "N2"
         ],
         "difficulty": 0.52,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
-        "reasoning_class": "fact_single",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q89"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -7267,7 +7266,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[CTX] position suivante",
+        "history": "[CTX] position suivante [Q89] manual audit 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": null
       }
@@ -7312,26 +7311,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "échec",
-          "pendule",
-          "cadence",
-          "coup"
+          "licence",
+          "validité",
+          "heure rencontre",
+          "délai"
         ],
         "difficulty": 0.12,
         "question_type": "factual",
         "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q90"
       },
       "processing": {
         "chunk_match_score": 100,

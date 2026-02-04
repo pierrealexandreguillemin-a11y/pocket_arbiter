@@ -620,9 +620,13 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "formation",
         "keywords": [
-          "mat"
+          "arbitre",
+          "inactif",
+          "formation",
+          "UVR",
+          "stage SC"
         ],
         "difficulty": 0.3,
         "question_type": "scenario",
@@ -636,9 +640,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_001"
+        "batch": "Q6"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -650,9 +654,9 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p017-parent -> LA-octobre2025.pdf-p022-parent [BATCH_001] manual LLM-as-judge audit 2026-02-03T09:29:47.876639 [CORRECTION_ISO42001] suppression significations acronymes hallucinees",
+        "history": "[Q6] 46 fields verified, 8 constraints PASS. PDF LA p17 Article 6.2 vérifié (même page que Q5). Chunk DB vérifié. Fix: category, keywords ['mat']→pertinents, batch, requires_inference. 2026-02-04",
         "qat_revalidation": null,
-        "requires_inference": null
+        "requires_inference": false
       }
     },
     {

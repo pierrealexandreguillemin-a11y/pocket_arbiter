@@ -2266,7 +2266,7 @@
           5
         ],
         "article_reference": "C04 - 3.7. Composition des équipes",
-        "answer_explanation": "C04 - 3.7. Composition des équipes",
+        "answer_explanation": "Selon C04 art 3.7, il y a un plafond Elo pour la Coupe de la parité (6000). Calcul: A=5998, B=5994, C=6001, D=5994. Seule l'équipe C (1742+1987+2272=6001) dépasse le plafond de 6000.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -2277,8 +2277,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coup",
-          "joueur"
+          "Elo",
+          "plafond",
+          "Coupe parité",
+          "6000"
         ],
         "difficulty": 0.19,
         "question_type": "factual",
@@ -2292,9 +2294,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_003"
+        "batch": "Q27"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -2306,7 +2308,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[CTX] ci-dessous [BATCH_003] manual audit 2026-02-03T14:20:12.366875",
+        "history": "[Q27] 46 fields verified, 8 constraints PASS. Chunk DB vérifié art 3.7 plafond Elo. Fix: answer_explanation, keywords, batch. 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": true
       }

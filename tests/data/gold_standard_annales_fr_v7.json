@@ -2816,7 +2816,7 @@
           2
         ],
         "article_reference": "Article 2.5 du R03 - Compétitions homologuées.",
-        "answer_explanation": "Article 2.5 du R03 - Compétitions homologuées.",
+        "answer_explanation": "L'article 2.5 du R03 précise que le club organisateur doit régulariser la prise de licence 'au plus tard 7 jours après la fin du tournoi' (réponse D). Passé ce délai, la FFE régularisera elle-même la situation. Ce délai s'applique aux tournois de type A et B pour les joueurs non licenciés en début de tournoi.",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -2827,7 +2827,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "position"
+          "licence",
+          "régularisation",
+          "délai",
+          "club organisateur"
         ],
         "difficulty": 0.24,
         "question_type": "factual",
@@ -2838,12 +2841,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "004"
+        "batch": "Q34"
       },
       "processing": {
         "chunk_match_score": 100,

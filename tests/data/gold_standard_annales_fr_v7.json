@@ -6423,29 +6423,28 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "cadence",
-          "partie",
-          "coup",
-          "joueur",
-          "adversaire"
+          "AFC",
+          "arbitre fédéral club",
+          "compétences",
+          "championnat clubs"
         ],
         "difficulty": 0.24,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q79"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6457,7 +6456,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": " | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> LA-octobre2025.pdf-p048-parent174-child01 (better_match_found_delta_0.071)",
+        "history": " | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> LA-octobre2025.pdf-p048-parent174-child01 (better_match_found_delta_0.071) [Q79] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:15.044066",
           "old_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
@@ -6508,11 +6507,10 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "échec",
-          "pendule",
-          "partie",
-          "coup",
-          "joueur"
+          "transfert",
+          "licence",
+          "changement club",
+          "septembre"
         ],
         "difficulty": 0.21,
         "question_type": "factual",
@@ -6523,12 +6521,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q80"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6542,7 +6540,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[SMART_FIX] R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p001-pa (score:0.25) [CTX] marked requires_context",
+        "history": "[SMART_FIX] R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p001-pa (score:0.25) [CTX] marked requires_context [Q80] manual audit 2026-02-04",
         "qat_revalidation": null,
         "requires_inference": null
       }
@@ -6587,25 +6585,26 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "pendule",
-          "partie",
-          "joueur"
+          "catégorie âge",
+          "U14",
+          "jeunes",
+          "calcul"
         ],
         "difficulty": 0.11,
         "question_type": "scenario",
         "cognitive_level": "Apply",
         "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q81"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6617,7 +6616,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p182-parent",
+        "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p182-parent [Q81] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:15.183066",
           "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",

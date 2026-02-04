@@ -5932,7 +5932,7 @@
           1
         ],
         "article_reference": "C01 - 1.3 Engagements",
-        "answer_explanation": "C01 - 1.3 Engagements",
+        "answer_explanation": "L'article 1.3 précise que seuls les clubs engagés en Top 16 et Nationale 1 DOIVENT s'inscrire en Coupe de France (sous peine d'exclusion). Un club de N2 n'a aucune obligation d'y participer (réponse A). L'obligation ne concerne que les deux plus hautes divisions.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5943,23 +5943,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "club"
+          "coupe France",
+          "engagement",
+          "obligation",
+          "N2"
         ],
         "difficulty": 0.48,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
         "reasoning_type": "single-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q73"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6010,8 +6013,8 @@
         "pages": [
           5
         ],
-        "article_reference": "C01 - Points de partie",
-        "answer_explanation": "C01 - Points de partie",
+        "article_reference": "C01 - 4.1 Points de partie",
+        "answer_explanation": "En Coupe de France: victoire=+1, nulle=0 (non comptabilisée), défaite sur échiquier=0, défaite par forfait=-1. Calcul MONEQUIPE: 3 victoires (+3) et 1 forfait (-1) = 2 points. L'adversaire: 0+0+0+1 (cadeau du forfait) = 1 point. Score final 2-1 (réponse C).",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -6022,27 +6025,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "tournoi",
-          "arbitre",
-          "quelles",
-          "indemnités",
-          "arbitrage"
+          "coupe France",
+          "forfait",
+          "points partie",
+          "calcul score"
         ],
         "difficulty": 0.2,
         "question_type": "scenario",
         "cognitive_level": "Apply",
         "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q74"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6094,7 +6096,7 @@
           3
         ],
         "article_reference": "C01 - 3.2 Couleurs",
-        "answer_explanation": "C01 - 3.2 Couleurs",
+        "answer_explanation": "L'article 3.2 précise que la première équipe nommée (LESAUTRES) a les Blancs aux échiquiers 1 et 4, les Noirs aux 2 et 3. Donc MONEQUIPE (deuxième nommée) a les Noirs aux éch. 1 et 4, les Blancs aux éch. 2 et 3. Réponse C: NOIRS-BLANCS-BLANCS-NOIRS.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -6105,25 +6107,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "mat",
-          "joueur",
-          "club"
+          "coupe France",
+          "couleurs",
+          "échiquiers",
+          "attribution"
         ],
         "difficulty": 0.24,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q75"
       },
       "processing": {
         "chunk_match_score": 100,

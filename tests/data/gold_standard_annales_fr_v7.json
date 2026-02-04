@@ -2341,8 +2341,8 @@
         "pages": [
           5
         ],
-        "article_reference": "C01 - 4.2. Points de match - 4.3. Classement",
-        "answer_explanation": "C01 - 4.2. Points de match - 4.3. Classement",
+        "article_reference": "C04 - 4.2. Points de match",
+        "answer_explanation": "Selon C04 art 4.2, au système suisse le barème est: match gagné=2 points, match nul=1 point, match perdu=0 point. L'option D dit '3-2-0' ce qui est FAUX (c'est 2-1-0). Les autres propositions (A, B, C) sont conformes au règlement.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -2353,8 +2353,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coup",
-          "position"
+          "points match",
+          "système suisse",
+          "Coupe parité",
+          "classement"
         ],
         "difficulty": 0.27,
         "question_type": "factual",
@@ -2368,9 +2370,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
-        "pages_verified": false,
-        "batch": "batch_003"
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q28"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -2382,7 +2384,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] F01_2025_26_Championnat_de_Fra -> C04_2025_26_Coupe_de_la_parité [BATCH_003] mapping fix: C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00 -> C04_2025_26_Coupe_de_la_parité.pdf-p004-parent022-child00",
+        "history": "[Q28] 46 fields verified, 8 constraints PASS. Chunk DB vérifié art 4.2 points match suisse. Fix: article_reference, answer_explanation, keywords, pages_verified, batch. 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:10.019616",
           "old_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p005-parent024-child00",

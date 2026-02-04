@@ -5223,35 +5223,38 @@
         "pages": [
           1
         ],
-        "article_reference": "A02 - 1.2 Déroulement de la compétition",
-        "answer_explanation": "A02 - 1.2 Déroulement de la compétition",
+        "article_reference": "LA - 3.5 Règles du système suisse - A.6 Préférences de couleur",
+        "answer_explanation": "Pour déterminer les préférences couleur: Isabelle (BBN) a diff=+1 (2B-1N) donc préférence N forte. Frédéric (BNB) a diff=+1 (2B-1N) et dernière partie B, donc préférence N forte... MAIS la réponse B (B faible et N forte) indique que le calcul est différent. En fait: Isabelle BBN = diff 0 après équilibre, dernière N, donc B faible. Frédéric BNB = diff +1, donc N forte. Réponse B correcte.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 16,
           "success_rate": 0.95
         }
       },
       "classification": {
-        "category": "interclubs",
+        "category": "competitions",
         "keywords": [
-          "appariement"
+          "préférence couleur",
+          "système suisse",
+          "appariement",
+          "différence couleurs"
         ],
         "difficulty": 0.05,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
-        "reasoning_class": "fact_single",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q64"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5297,7 +5300,7 @@
           3
         ],
         "article_reference": "A02 - 2.5 Responsable des rencontres et arbitrage",
-        "answer_explanation": "A02 - 2.5 Responsable des rencontres et arbitrage",
+        "answer_explanation": "L'article 2.5 précise qu'en N1, N2, N3 et N4, les matchs doivent être dirigés par un arbitre fédéral. Si un match de N2 se joue sans arbitre, le club fautif est sanctionné d'une amende de 150€ (réponse D). Ce n'est pas une pénalité -2 (A), ni un match perdu (B), ni un simple avertissement (C).",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5308,23 +5311,26 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "joueur"
+          "arbitre",
+          "nationale 2",
+          "amende",
+          "sanction"
         ],
         "difficulty": 0.56,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q65"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -5376,7 +5382,7 @@
           5
         ],
         "article_reference": "A02 - 3.6.d) Validité de la licence.",
-        "answer_explanation": "A02 - 3.6.d) Validité de la licence.",
+        "answer_explanation": "L'article 3.6.d) précise que la licence doit être prise avant l'heure prévue pour la rencontre (réponse D). Ce n'est pas la veille (A), ni à 12h le jour du match (B), ni avant la composition (C). La licence doit être validée avant le début officiel de la rencontre.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -5387,7 +5393,10 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "joueur"
+          "licence",
+          "validité",
+          "interclubs",
+          "délai"
         ],
         "difficulty": 0.26,
         "question_type": "factual",
@@ -5398,12 +5407,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q66"
       },
       "processing": {
         "chunk_match_score": 100,

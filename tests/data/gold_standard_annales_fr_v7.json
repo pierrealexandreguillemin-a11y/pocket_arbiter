@@ -1628,7 +1628,7 @@
           6
         ],
         "article_reference": "A02 - 3.7.c) Participation dans plusieurs équipes",
-        "answer_explanation": "A02 - 3.7.c) Participation dans plusieurs équipes",
+        "answer_explanation": "Selon A02 art 3.7.c, un joueur 'ne peut participer dans une équipe s'il a déjà joué trois fois dans une équipe plus forte'. La joueuse a joué 1x en N2 et 2x en N3 (divisions supérieures à N4), soit 3 matchs dans des équipes plus fortes. Elle atteint la limite de 3 et ne peut donc plus jouer en N4.",
         "annales_source": {
           "session": "dec2024",
           "uv": "clubs",
@@ -1639,8 +1639,10 @@
       "classification": {
         "category": "interclubs",
         "keywords": [
-          "mat",
-          "règle"
+          "participation",
+          "équipe",
+          "trois fois",
+          "N4"
         ],
         "difficulty": 0.34,
         "question_type": "scenario",
@@ -1654,9 +1656,9 @@
         "method": "manual_llm_as_judge",
         "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-02-03",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "batch_002"
+        "batch": "Q19"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -1668,7 +1670,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> règlement_n4_2024_2025__1_.pdf [BATCH_002] manual LLM-as-judge audit 2026-02-03T14:00:34.077904 [LOGIC_FIX] correction calcul: 1xN2 + 2xN3 = 3 matchs plus forts que N4",
+        "history": "[Q19] 46 fields verified, 8 constraints PASS. Chunk DB vérifié art 3.7.c 'trois fois équipe plus forte'. Annales cross-ref OK. Fix: answer_explanation, keywords (mat→participation), batch. 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:09.018990",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",

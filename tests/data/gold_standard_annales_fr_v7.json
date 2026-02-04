@@ -3684,7 +3684,7 @@
           "D": "7."
         },
         "mcq_answer": "C",
-        "correct_answer": "6",
+        "correct_answer": "6.",
         "original_answer": "Les 70 € du prix de la catégorie 1000 - 1699."
       },
       "provenance": {
@@ -3696,7 +3696,7 @@
           1
         ],
         "article_reference": "Article 1.2 du C03 - Coupe Jean-Claude Loubatière.",
-        "answer_explanation": "C03 Article 1.2 Déroulement de la Coupe: 1 équipe pour 1-4 participants, 2 pour 5-8, etc. + 1 équipe supplémentaire si quota 10% de joueuses atteint. 17 équipes → 5 base + 1 (quota) = 6.",
+        "answer_explanation": "Selon l'article 1.2 du C03, 17 équipes donnent 5 équipes qualifiées de base. Avec 7 femmes sur ~68 participants (>10%), le quota mixité est atteint, donnant +1 équipe supplémentaire. Total: 6 équipes qualifiées (réponse C).",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3707,23 +3707,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "tour"
+          "Coupe Loubatière",
+          "qualification",
+          "quota mixité",
+          "phase départementale"
         ],
         "difficulty": 0.46,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
         "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q45"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -3780,8 +3783,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "mat",
-          "arbitre"
+          "arbitre-joueur",
+          "Coupe Loubatière",
+          "phase 2",
+          "règle"
         ],
         "difficulty": 0.19,
         "question_type": "factual",
@@ -3793,11 +3798,11 @@
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q46"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -3809,7 +3814,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (current_rank_547_too_low)",
+        "history": "[SMART_FIX] Article 2.5 du C03 - Coupe Jean-Claude Loubatière.: LA-octobre2025.pdf-p078-parent238-child0 -> LA-octobre2025.pdf-p055-parent189-child0 (score:0.17) [RECLASS] fact_single->summary (not extractable) | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> R01_2025_26_Regles_generales.pdf-p004-parent023-child00 (current_rank_547_too_low) [Q46] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:11.596286",
           "old_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
@@ -3843,13 +3848,13 @@
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p179-parent526-child01",
         "docs": [
-          "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf"
+          "LA-octobre2025.pdf"
         ],
         "pages": [
-          1
+          179
         ],
-        "article_reference": "Article 1.1 du F01 - Championnat de France des Clubs Féminin.",
-        "answer_explanation": "LA Chapitre 5.5 Barème d'indemnisation: Tournoi rapide = 60€ à 100€/jour pour arbitre principal. Avec frais matériel (max 20€), total peut atteindre 85€.",
+        "article_reference": "LA Chapitre 5.5 - Barème d'indemnisation des arbitres.",
+        "answer_explanation": "Selon le barème LA 5.5, pour un tournoi rapide homologué, l'indemnité journalière est de 60€ à 100€ pour l'arbitre principal. Avec les frais de matériel (jusqu'à 20€), le total atteint 85€ (réponse B: 65€ base + 20€ matériel).",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -3858,9 +3863,12 @@
         }
       },
       "classification": {
-        "category": "competitions",
+        "category": "arbitrage",
         "keywords": [
-          "arbitre"
+          "indemnités",
+          "barème",
+          "rapide",
+          "organisateur"
         ],
         "difficulty": 0.08,
         "question_type": "factual",
@@ -3872,11 +3880,11 @@
       "validation": {
         "status": "VALIDATED",
         "method": "manual_llm_as_judge",
-        "reviewer": "claude-opus-4-5",
-        "answer_current": null,
-        "verified_date": "2026-02-03",
-        "pages_verified": null,
-        "batch": "005"
+        "reviewer": "claude_opus_4.5",
+        "answer_current": true,
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q47"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -3888,7 +3896,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p178-parent",
+        "history": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p178-parent [Q47] manual audit 2026-02-04 - fixed docs/pages C2/C3",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:11.694671",
           "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p001-parent000-child01",

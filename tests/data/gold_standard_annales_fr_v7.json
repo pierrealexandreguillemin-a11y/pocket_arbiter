@@ -4744,7 +4744,7 @@
           2
         ],
         "article_reference": "R01 - 2. 4. Catégories d'âge",
-        "answer_explanation": "R01 - 2. 4. Catégories d'âge",
+        "answer_explanation": "La catégorie d'âge se détermine selon l'âge au 1er janvier de la saison. Saison 2023-2024 → référence 1er janvier 2023. Né le 26/01/2012, il avait 10 ans au 01/01/2023 (11 ans dans l'année 2023). U12 = 10-11 ans. Donc il est U12 (réponse C). La date de prise de licence ou l'année 2024 ne comptent pas.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4755,23 +4755,26 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "position"
+          "catégorie âge",
+          "U12",
+          "jeunes",
+          "calcul"
         ],
         "difficulty": 0.3,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
         "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q58"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4823,7 +4826,7 @@
           3
         ],
         "article_reference": "R01 - 3.1.3 Forfait administratif",
-        "answer_explanation": "R01 - 3.1.3 Forfait administratif",
+        "answer_explanation": "L'article 3.1.3 définit le forfait administratif: déclaré quand un joueur joue pour son équipe sans être licencié (réponse D). Les autres cas ne sont pas des forfaits administratifs: absence (A) = forfait sportif, malaise (B) = partie non terminée, chute au temps (C) = défaite normale.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4832,25 +4835,28 @@
         }
       },
       "classification": {
-        "category": "regles_ffe",
+        "category": "interclubs",
         "keywords": [
-          "appariement"
+          "forfait administratif",
+          "licence",
+          "sanction",
+          "interclubs"
         ],
         "difficulty": 0.16,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q59"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -4902,7 +4908,7 @@
           2
         ],
         "article_reference": "R01 - 2.2 Mutations",
-        "answer_explanation": "R01 - 2.2 Mutations",
+        "answer_explanation": "L'article 2.2 Mutations définit qu'un joueur est considéré comme muté s'il était licencié la saison précédente dans un autre club ET a participé à une compétition par équipe. La réponse A est correcte car une joueuse qui a changé de club mais n'a PAS joué en équipe la saison précédente n'est pas considérée comme mutée - elle peut donc jouer immédiatement en interclubs. Les autres cas (B=déménagement sans équipe, C=1ère licence, D=a joué en équipe) sont différents.",
         "annales_source": {
           "session": "jun2024",
           "uv": "clubs",
@@ -4911,9 +4917,12 @@
         }
       },
       "classification": {
-        "category": "regles_ffe",
+        "category": "interclubs",
         "keywords": [
-          "appariement"
+          "mutation",
+          "changement club",
+          "interclubs",
+          "éligibilité"
         ],
         "difficulty": 0.22,
         "question_type": "scenario",
@@ -4924,12 +4933,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q60"
       },
       "processing": {
         "chunk_match_score": 100,

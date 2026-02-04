@@ -6913,27 +6913,26 @@
       "classification": {
         "category": "regles_ffe",
         "keywords": [
-          "échec",
-          "mat",
-          "temps",
-          "partie",
-          "adversaire"
+          "homologation",
+          "résultat",
+          "4e jour",
+          "délai"
         ],
         "difficulty": 0.51,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
-        "reasoning_class": "summary",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q85"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -6945,7 +6944,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[SMART_FIX] R01 - Règles Générales - Article 4 Homologation d'un résultat.: R01_2025_26_Regles_generales.pdf-p001-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.07) [RECLASS] fact_single->summary (not extractable) | [QAT] R01_2025_26_Regles_generales.pdf-p002-parent008-child00 -> LA-octobre2025.pdf-p045-parent170-child00 (current_rank_1648_too_low) | [MARK] requires_context:answer_not_found",
+        "history": "[SMART_FIX] R01 - Règles Générales - Article 4 Homologation d'un résultat.: R01_2025_26_Regles_generales.pdf-p001-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.07) [RECLASS] fact_single->summary (not extractable) | [QAT] R01_2025_26_Regles_generales.pdf-p002-parent008-child00 -> LA-octobre2025.pdf-p045-parent170-child00 (current_rank_1648_too_low) | [MARK] requires_context:answer_not_found [Q85] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:15.869618",
           "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
@@ -6994,27 +6993,28 @@
         }
       },
       "classification": {
-        "category": "regles_ffe",
+        "category": "interclubs",
         "keywords": [
-          "partie",
-          "joueur",
-          "adversaire"
+          "capitaine",
+          "sanctions",
+          "intervention fautive",
+          "rôle"
         ],
         "difficulty": 0.21,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q86"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -7026,7 +7026,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": " | [QAT] R01_2025_26_Regles_generales.pdf-p005-parent027-child00 -> LA-octobre2025.pdf-p171-parent510-child00 (current_rank_445_too_low)",
+        "history": " | [QAT] R01_2025_26_Regles_generales.pdf-p005-parent027-child00 -> LA-octobre2025.pdf-p171-parent510-child00 (current_rank_445_too_low) [Q86] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:16.026867",
           "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
@@ -7077,24 +7077,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coup",
-          "position"
+          "licence",
+          "régularisation",
+          "7 jours",
+          "tournoi"
         ],
         "difficulty": 0.27,
         "question_type": "factual",
         "cognitive_level": "Remember",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q87"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -7106,7 +7108,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p040-parent",
+        "history": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p040-parent [Q87] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:16.206844",
           "old_chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent002-child00",

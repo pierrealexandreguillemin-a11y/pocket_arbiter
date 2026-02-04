@@ -17,6 +17,11 @@ prompt="Corriger batch N (questions X-Y)"
 - Read, Edit, Write (fichiers)
 - Bash (DB SQLite, Git)
 - Grep, Glob (recherche)
+- **Chrome DevTools MCP** (lecture PDF sources - OBLIGATOIRE)
+  - `mcp__chrome-devtools__navigate_page` (ouvrir PDF)
+  - `mcp__chrome-devtools__take_screenshot` (visualiser page)
+  - `mcp__chrome-devtools__click` (navigation vignettes)
+  - `mcp__chrome-devtools__fill` + `press_key` (aller à page N)
 
 ## Contexte automatique
 L'agent charge automatiquement:
@@ -52,11 +57,89 @@ c) Mettre à jour checklist
 d) Commit avec message normalisé
 ```
 
+## Règle CRITIQUE: PDF Sources via Chrome DevTools
+
+### Pourquoi Chrome DevTools?
+
+Les fichiers `parsed_Annales-*.json` sont issus de Docling OCR qui a des erreurs d'extraction.
+**OBLIGATION**: Vérifier VISUELLEMENT les PDF sources via Chrome DevTools.
+
+### Workflow PDF (OBLIGATOIRE pour chaque question)
+
+```
+1. Identifier le PDF source:
+   - Annales: corpus/raw/annales/Annales-{Session}-{Year}_{N}.pdf
+   - Règlements: corpus/fr/*.pdf ou corpus/fr/Compétitions/*.pdf
+
+2. Ouvrir dans Chrome:
+   mcp__chrome-devtools__navigate_page(url="file:///C:/Dev/pocket_arbiter/corpus/...")
+
+3. Naviguer vers la page du corrigé détaillé:
+   - mcp__chrome-devtools__take_snapshot() pour voir les vignettes
+   - mcp__chrome-devtools__click(uid="page_N") ou
+   - mcp__chrome-devtools__fill(uid="page_input", value="N") + press_key("Enter")
+
+4. Capturer le contenu:
+   mcp__chrome-devtools__take_screenshot()
+
+5. Vérifier VISUELLEMENT:
+   - Question texte exact
+   - Choices A, B, C, D
+   - Réponse correcte (en vert/gras)
+   - Article reference
+   - Explication détaillée (si présente)
+```
+
+### Fichiers PDF Annales Dec 2024
+
+| PDF | Contenu | Pages |
+|-----|---------|-------|
+| Annales-Decembre-2024_1.pdf | Couverture, stats | 3 |
+| Annales-Decembre-2024_2.pdf | UVR sujet + corrigé | 16 |
+| Annales-Decembre-2024_3.pdf | UVC sujet + corrigé | 12 |
+| Annales-Decembre-2024_5.pdf | UVO, UVT | 21 |
+
+### Mapping UVC Dec 2024
+- Sujet: pages 1-6
+- Grille réponses: page 6
+- **Corrigé détaillé: page 7+**
+
+### ATTENTION: Références Annales Obsolètes
+
+Les annales PDF utilisent parfois des références OBSOLÈTES qui ne correspondent plus
+à la structure actuelle des règlements (ex: LA octobre 2025).
+
+**Exemple découvert:**
+- Annales dit: "LA – Chapitre 1.2 : A. Rôle auprès de l'échiquier : Article 3.1"
+- LA actuel: "LA – Chapitre 1.2 : C. Mission sur les lieux d'un tournoi : Article 9.1"
+
+**Procédure:**
+1. Noter la référence annales
+2. Ouvrir le règlement PDF source (LA, R01, etc.) via Chrome DevTools
+3. Vérifier la structure ACTUELLE
+4. Si différent: utiliser la référence du règlement actuel + noter la divergence
+
+### Structure LA octobre 2025 (vérifiée)
+
+```
+Chapitre 1.2 : Les missions de l'arbitre
+├── Charte de l'Arbitre
+├── A. Mission fédérale (texte, pas d'articles)
+├── B. Mission administrative
+│   └── Articles 1-6
+└── C. Mission sur les lieux d'un tournoi
+    ├── Article 7: Déroulement des parties (7.1, 7.2, 7.3)
+    ├── Article 8: ... (8.1-8.4)
+    └── Article 9: Le jury d'appel (9.1 Composition)
+```
+
+---
+
 ## Règle CRITIQUE: Corrigés Détaillés = Source de Vérité
 
 ### Principe
 
-**TOUJOURS extraire `metadata.answer_explanation` depuis les corrigés détaillés des annales.**
+**TOUJOURS extraire `provenance.answer_explanation` depuis les corrigés détaillés des annales PDF.**
 
 Les annales FFE contiennent des "corrigés détaillés" qui expliquent POURQUOI la réponse est correcte, avec références aux articles. Ces explications sont souvent:
 - Dans un choice (généralement le dernier)
@@ -69,7 +152,7 @@ Les annales FFE contiennent des "corrigés détaillés" qui expliquent POURQUOI 
 1. Trouver la question source dans parsed_Annales-*.json
 2. Lire TOUS les choices (pas juste la réponse correcte)
 3. Extraire l'explication/référence article
-4. Renseigner metadata.answer_explanation (CHAMP OBLIGATOIRE)
+4. Renseigner provenance.answer_explanation (CHAMP OBLIGATOIRE)
 5. Utiliser cette explication pour valider le mapping chunk
 ```
 
@@ -82,7 +165,7 @@ choices = {
     #         ↑ CORRIGÉ DÉTAILLÉ CACHÉ DANS LE CHOICE!
 }
 
-# → metadata.answer_explanation = "DNA-Guide-international -2.2 : ..."
+# → provenance.answer_explanation = "DNA-Guide-international -2.2 : ..."
 ```
 
 ### Champ answer_explanation
@@ -142,7 +225,7 @@ choices = {
 | **Réponse sans calcul** | Q39: Question "Combien..." mais réponse sans le nombre 3 | Si question demande un nombre, TOUJOURS inclure le calcul ET le résultat |
 | **Mauvais article dans chunk** | Q36: Mappé vers 3.8 (forfait 60 min) au lieu de 3.6.a (pendule retard) | Un même chunk peut contenir plusieurs règles - chercher l'article EXACT qui répond à la question |
 | **Problème arithmétique composé** | Q36: Liste en retard (11 min) + joueur en retard (50 min) = 61 min, plafonné à 60 min | Pour questions interclubs avec retard, vérifier article 3.6.a sur le plafonnement à 1h |
-| **Metadata answer_explanation** | Q36: La règle était dans metadata.answer_explanation | Toujours vérifier les champs metadata (answer_explanation, correct_answer) pour comprendre la logique |
+| **Metadata answer_explanation** | Q36: La règle était dans provenance.answer_explanation | Toujours vérifier les champs metadata (answer_explanation, correct_answer) pour comprendre la logique |
 
 ### Batch 005
 | Erreur | Description | Solution |
@@ -167,6 +250,186 @@ Après chaque batch, vérifier:
 - 0 hallucinations (ISO 42001)
 - 11/11 quality gates PASS par question
 - Commit passant tous les hooks
+
+---
+
+## ENFORCEMENT: Méthodologie Rigoureuse (OBLIGATOIRE)
+
+### Règle #1: 1 Question = 1 Commit
+
+**INTERDIT** de grouper plusieurs questions dans un commit.
+Chaque question DOIT avoir son propre commit atomique.
+
+```bash
+# CORRECT
+git commit -m "fix(gs): Q7 — 46 fields verified, 8 constraints PASS"
+git commit -m "fix(gs): Q8 — 46 fields verified, 8 constraints PASS"
+
+# INTERDIT
+git commit -m "fix(gs): Q7-Q8 — ..."  # NON!
+```
+
+### Règle #2: Screenshot PDF OBLIGATOIRE
+
+Pour CHAQUE question, tu DOIS:
+1. Ouvrir le PDF source via Chrome DevTools
+2. Naviguer vers la page du chunk
+3. Prendre un screenshot
+4. Confirmer visuellement le contenu
+
+**INTERDIT** de faire confiance au chunk DB sans vérification visuelle.
+
+```
+✅ "PDF LA p18 vérifié via Chrome DevTools - Article 7.1 confirmé"
+❌ "Chunk DB vérifié" (sans screenshot)
+```
+
+### Règle #3: Grep Annales OBLIGATOIRE
+
+Pour CHAQUE question, tu DOIS vérifier les annales sources:
+
+```bash
+# Vérifier original_question, choices, mcq_answer, success_rate, difficulty
+python -c "
+import json
+with open('data/evaluation/annales/parsed/parsed_Annales-{SESSION}.json') as f:
+    data = json.load(f)
+for unit in data['units']:
+    if unit['uv'] == '{UV}':
+        for q in unit['questions']:
+            if q['num'] == {N}:
+                print(q)
+"
+```
+
+### Règle #4: Checklist 46 Champs AFFICHÉE
+
+Tu DOIS afficher la checklist complète pour CHAQUE question:
+
+```
+## Q{N} - CHECKLIST 46 CHAMPS
+
+### RACINE (2)
+- [ ] id: format ffe:annales:{uv}:{seq}:{hash}
+- [ ] legacy_id: format FR-ANN-UV{X}-{N}
+
+### CONTENT (3)
+- [ ] question: finit par ?, >= 10 chars
+- [ ] expected_answer: > 5 chars, répond à la question
+- [ ] is_impossible: false
+
+### MCQ (5)
+- [ ] original_question: == annales.text (C4)
+- [ ] choices: == annales.choices (C5)
+- [ ] mcq_answer: == annales.correct_answer
+- [ ] correct_answer: == choices[mcq_answer] (C1)
+- [ ] original_answer: cohérent
+
+### PROVENANCE (11)
+- [ ] chunk_id: existe dans DB
+- [ ] docs: cohérent avec chunk_id (C2)
+- [ ] pages: cohérent avec chunk_id (C3)
+- [ ] article_reference: correct, vérifié PDF
+- [ ] answer_explanation: PAS copie de article_reference
+- [ ] annales_source.session: valide
+- [ ] annales_source.uv: valide
+- [ ] annales_source.question_num: correct
+- [ ] annales_source.success_rate: == annales
+
+### CLASSIFICATION (8)
+- [ ] category: pertinent (pas "competitions" pour question arbitrage)
+- [ ] keywords: pertinents (pas ["mat"] ou ["position"] absurdes)
+- [ ] difficulty: == annales, [0,1] (C8)
+- [ ] question_type: factual/procedural/scenario/comparative
+- [ ] cognitive_level: Remember/Understand/Apply/Analyze
+- [ ] reasoning_type: single-hop/multi-hop/temporal
+- [ ] reasoning_class: fact_single/summary/arithmetic/reasoning
+- [ ] answer_type: multiple_choice
+
+### VALIDATION (7)
+- [ ] status: VALIDATED
+- [ ] method: manual_llm_as_judge
+- [ ] reviewer: claude_opus_4.5
+- [ ] answer_current: true
+- [ ] verified_date: date du jour (YYYY-MM-DD)
+- [ ] pages_verified: true
+- [ ] batch: "Q{N}"
+
+### PROCESSING (7)
+- [ ] chunk_match_score: 100
+- [ ] chunk_match_method: manual_by_design
+- [ ] reasoning_class_method: inferred/manual_audit
+- [ ] triplet_ready: true
+- [ ] extraction_flags: []
+- [ ] answer_source: choice/existing
+- [ ] quality_score: [0,1]
+
+### AUDIT (3)
+- [ ] history: trace complète
+- [ ] qat_revalidation: null ou objet
+- [ ] requires_inference: true/false (pas null!)
+```
+
+### Règle #5: Vérification 8 Contraintes EXPLICITE
+
+Tu DOIS vérifier et afficher les 8 contraintes:
+
+```
+## Q{N} - 8 CONTRAINTES
+
+- [ ] C1: correct_answer == choices[mcq_answer]
+      "{correct_answer}" == choices["{mcq_answer}"] ✅/❌
+
+- [ ] C2: docs[0] dans chunk_id
+      "{docs[0]}" dans "{chunk_id}" ✅/❌
+
+- [ ] C3: pages[0] dans chunk_id
+      {pages[0]} dans "{chunk_id}" (p{pages[0]:03d}) ✅/❌
+
+- [ ] C4: original_question == annales.text
+      Comparaison: ✅ identique / ❌ différent
+
+- [ ] C5: choices == annales.choices
+      Comparaison: ✅ identique / ❌ différent
+
+- [ ] C6: question finit par "?"
+      "{question[-1]}" == "?" ✅/❌
+
+- [ ] C7: len(expected_answer) > 5
+      len = {len} > 5 ✅/❌
+
+- [ ] C8: 0 <= difficulty <= 1
+      0 <= {difficulty} <= 1 ✅/❌
+```
+
+### Règle #6: Format Commit Standardisé
+
+```bash
+git commit -m "$(cat <<'EOF'
+fix(gs): Q{N} — 46 fields verified, 8 constraints PASS
+
+- PDF {doc} page {page} vérifié via Chrome DevTools
+- Section "{article}" confirmée visuellement
+- Chunk DB vérifié: {chunk_id}
+- Annales cross-reference: {session} {uv} Q{num} OK
+- Corrections: {liste ou "aucune"}
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+EOF
+)"
+```
+
+### Règle #7: Auto-Audit Obligatoire
+
+Après chaque batch de 10 questions, tu DOIS:
+1. Relire tous les commits
+2. Vérifier que chaque Q a son propre commit
+3. Vérifier que chaque commit mentionne le screenshot PDF
+4. Vérifier que les 8 contraintes sont PASS pour toutes les Q
+
+Si une règle n'a pas été respectée, le signaler IMMÉDIATEMENT.
+
+---
 
 ## Évolution
 

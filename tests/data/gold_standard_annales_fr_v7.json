@@ -8131,24 +8131,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "coup",
-          "position"
+          "Loubatière",
+          "arbitre joueur",
+          "5 équipes",
+          "phase départementale"
         ],
         "difficulty": 0.16,
         "question_type": "factual",
         "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
-        "reasoning_class": "summary",
+        "reasoning_class": "fact_single",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q100"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -8160,7 +8162,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p044-parent -> LA-octobre2025.pdf-p045-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p044-parent -> LA-octobre2025.pdf-p045-parent [Q100] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:17.684986",
           "old_chunk_id": "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00",
@@ -8211,27 +8213,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "pat",
-          "échec",
-          "mat",
-          "abandon",
-          "pendule"
+          "Loubatière",
+          "équipes qualifiées",
+          "10% joueuses",
+          "phase 2"
         ],
         "difficulty": 0.35,
-        "question_type": "factual",
-        "cognitive_level": "Remember",
-        "reasoning_type": "single-hop",
-        "reasoning_class": "fact_single",
+        "question_type": "scenario",
+        "cognitive_level": "Apply",
+        "reasoning_type": "multi-hop",
+        "reasoning_class": "arithmetic",
         "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": null
+        "batch": "Q101"
       },
       "processing": {
         "chunk_match_score": 100,
@@ -8243,7 +8244,7 @@
         "quality_score": 0.5
       },
       "audit": {
-        "history": "[PROCRUSTES] LA-octobre2025.pdf-p122-parent -> LA-octobre2025.pdf-p148-parent",
+        "history": "[PROCRUSTES] LA-octobre2025.pdf-p122-parent -> LA-octobre2025.pdf-p148-parent [Q101] manual audit 2026-02-04",
         "qat_revalidation": {
           "date": "2026-01-26T10:34:17.819149",
           "old_chunk_id": "LA-octobre2025.pdf-p122-parent353-child00",
@@ -8283,7 +8284,7 @@
           2
         ],
         "article_reference": "C01 - Coupe de France - Article 2.5. Arbitres.",
-        "answer_explanation": "À partir des 32ème de finale, l'arbitre ne peut pas jouer et arbitrer.",
+        "answer_explanation": "Selon l'article 2.5 du règlement de la Coupe de France, à partir des 32ème de finale, l'arbitre désigné ne peut pas cumuler les fonctions de joueur et d'arbitre. Cette règle vise à garantir l'impartialité et la disponibilité totale de l'arbitre pour les rencontres des phases finales du tournoi, où les enjeux sportifs sont plus importants.",
         "annales_source": {
           "session": "jun2025",
           "uv": "clubs",
@@ -8294,26 +8295,26 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "forfait",
-          "joueur",
-          "règle",
-          "règlement"
+          "Coupe France",
+          "arbitre",
+          "32e finale",
+          "pas joueur"
         ],
         "difficulty": 0.18,
-        "question_type": "scenario",
-        "cognitive_level": "Apply",
-        "reasoning_type": "multi-hop",
-        "reasoning_class": "summary",
-        "answer_type": "abstractive"
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
+        "answer_type": "multiple_choice"
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
-        "pages_verified": false,
-        "batch": null
+        "verified_date": "2026-02-04",
+        "pages_verified": true,
+        "batch": "Q102"
       },
       "processing": {
         "chunk_match_score": 100,

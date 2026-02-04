@@ -2740,7 +2740,7 @@
           2
         ],
         "article_reference": "Article 2.2.2 du R03 - Compétitions homologuées.",
-        "answer_explanation": "Article 2.2.2 du R03 - Compétitions homologuées.",
+        "answer_explanation": "Pour les compétitions scolaires et catégories U8/U10 des championnats Jeunes, l'article 2.2.2 adapte la règle des coups illégaux: la partie est perdue après le 3e coup illégal achevé (réponse C), contrairement à la règle FIDE standard qui sanctionne au 2e coup. Cette tolérance s'applique uniquement aux tournois comptant pour l'Elo rapide National.",
         "annales_source": {
           "session": "dec2023",
           "uv": "clubs",
@@ -2751,11 +2751,10 @@
       "classification": {
         "category": "competitions",
         "keywords": [
-          "arbitre",
-          "partie",
-          "classement",
-          "pion",
-          "ffe"
+          "coups illégaux",
+          "compétitions scolaires",
+          "rapide",
+          "jeunes"
         ],
         "difficulty": 0.43,
         "question_type": "factual",
@@ -2766,12 +2765,12 @@
       },
       "validation": {
         "status": "VALIDATED",
-        "method": "annales_official",
-        "reviewer": "human",
+        "method": "manual_llm_as_judge",
+        "reviewer": "claude_opus_4.5",
         "answer_current": true,
-        "verified_date": "2026-01-24",
+        "verified_date": "2026-02-04",
         "pages_verified": true,
-        "batch": "004"
+        "batch": "Q33"
       },
       "processing": {
         "chunk_match_score": 100,

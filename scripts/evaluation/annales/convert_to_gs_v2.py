@@ -135,27 +135,26 @@ def validate_input_question(q: dict[str, Any], index: int) -> None:
 def extract_question_text(q: dict[str, Any]) -> tuple[str, list[str]]:
     """Extract question text and explanations from input.
 
-    The first explanation is typically the question/scenario text.
-    Remaining explanations are answer explanations.
-
     Args:
         q: Question dictionary.
 
     Returns:
         Tuple of (question_text, answer_explanations).
     """
-    explanations = q.get("explanations", [])
-    explanations_color = q.get("explanations_color", [])
+    # Use question_text field directly (extracted from Docling)
+    original_question = q.get("question_text", "").strip()
     num = q.get("question_num", 0)
 
-    if explanations:
-        original_question = explanations[0]
-        answer_explanations = list(explanations[1:])
-    else:
+    if not original_question or original_question.startswith("Question"):
+        # Fallback if question_text is just header
         original_question = f"Question {num}"
-        answer_explanations = []
 
-    # Deduplicate color explanations
+    # Explanations are separate from question text
+    explanations = q.get("explanations", [])
+    explanations_color = q.get("explanations_color", [])
+
+    # Combine and deduplicate explanations
+    answer_explanations = list(explanations)
     seen = set(answer_explanations)
     for exp in explanations_color:
         if exp and exp not in seen:

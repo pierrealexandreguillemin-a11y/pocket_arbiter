@@ -1,10 +1,10 @@
 {
   "version": {
     "number": "7.0.0",
-    "date": "2026-02-04",
+    "date": "2026-02-05",
     "schema": "GS_SCHEMA_V2",
     "answer_text_coverage": "110/110 (100%)",
-    "answer_explanation_coverage": "94/110 (85%)",
+    "answer_explanation_coverage": "98/110 (89%)",
     "expected_pages_coverage": "110/110 (100%)",
     "quality_assessed": true,
     "method": "docling_pymupdf_devtools",
@@ -51,8 +51,8 @@
   },
   "statistics": {
     "total_questions": 110,
-    "validated_questions": 103,
-    "with_explanation": 94,
+    "validated_questions": 98,
+    "with_explanation": 98,
     "by_uv": {
       "UVR": 30,
       "UVC": 30,
@@ -60,7 +60,7 @@
       "UVT": 30
     },
     "session": "jun2025",
-    "generation_date": "2026-02-04T23:26:26.725933"
+    "generation_date": "2026-02-05T09:32:46.134308"
   },
   "questions": [
     {
@@ -115,11 +115,11 @@
         "answer_type": "multiple_choice"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "PENDING",
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -130,10 +130,10 @@
         "triplet_ready": false,
         "extraction_flags": [],
         "answer_source": "grille_corrige",
-        "quality_score": 1.0
+        "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -193,7 +193,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -207,7 +207,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -216,12 +216,12 @@
       "id": "ffe:annales:regles:003:e58c4e29",
       "legacy_id": "FR-ANN-UVR-003",
       "content": {
-        "question": "A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur.",
-        "expected_answer": "La partie continue sans modification, vous signalez juste l'information à l'arbitre en chef.. A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur.",
+        "question": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 1h00+30s/coup, les deux adversaires ont joué plusieurs coups (13 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
+        "expected_answer": "La partie continue sans modification, vous signalez juste l'information à l'arbitre en chef.. A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur. A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur.",
+        "original_question": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 1h00+30s/coup, les deux adversaires ont joué plusieurs coups (13 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
         "choices": {
           "A": "Les coups joués sont considérés comme valides, vous obligez juste les joueurs à échanger de place pour continuer la partie dans cette position avec les bonnes couleurs.",
           "B": "La partie continue sans modification, vous signalez juste l'information à l'arbitre en chef.",
@@ -241,7 +241,7 @@
           12
         ],
         "article_reference": "Règles du jeu – article 7.3",
-        "answer_explanation": "A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur.",
+        "answer_explanation": "A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur. A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie où les joueurs se sont trompés de couleur.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -267,7 +267,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -281,7 +281,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -290,12 +290,12 @@
       "id": "ffe:annales:regles:004:db853aed",
       "legacy_id": "FR-ANN-UVR-004",
       "content": {
-        "question": "Si moins de 10 coups ont été joués alors, quelle que soit la cadence, on recommence la partie.",
+        "question": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 20min+10s/coup, les deux adversaires ont joué plusieurs coups (8 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
         "expected_answer": "On recommence la partie depuis la position initiale.. Si moins de 10 coups ont été joués alors, quelle que soit la cadence, on recommence la partie.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Si moins de 10 coups ont été joués alors, quelle que soit la cadence, on recommence la partie.",
+        "original_question": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 20min+10s/coup, les deux adversaires ont joué plusieurs coups (8 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
         "choices": {
           "A": "En partie rapide, la règle est plus sévère et vous déclarez immédiatement que les deux joueurs ont perdu.",
           "B": "Vous arrêtez immédiatement la partie et déclarez le match nul.",
@@ -341,7 +341,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -355,7 +355,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -416,7 +416,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -430,7 +430,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -439,12 +439,12 @@
       "id": "ffe:annales:regles:006:6294c126",
       "legacy_id": "FR-ANN-UVR-006",
       "content": {
-        "question": "La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n'a pas d'incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences.",
-        "expected_answer": "Cadence 30 minutes + 30 secondes par coup.. La   cadence   b)   est   une   cadence   de   jeu   rapide   où   la   notation   n'est   jamais   obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu'au bout. La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n’a pas d’incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences. La  cadence  b)  est  une  cadence  de  jeu  rapide  où  la  notation  n’est  jama",
+        "question": "Un joueur est en train de noter sa partie, il lui reste moins de 5 minutes à la pendule. Dans quel cas a-t-il l'obligation de noter jusqu'au bout ?",
+        "expected_answer": "Cadence 30 minutes + 30 secondes par coup.. La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n'a pas d'incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences. La   cadence   b)   est   une   cadence   de   jeu   rapide   où   la   notation   n'est   jamais   obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu'au bout. La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c)",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n'a pas d'incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences.",
+        "original_question": "Un joueur est en train de noter sa partie, il lui reste moins de 5 minutes à la pendule. Dans quel cas a-t-il l'obligation de noter jusqu'au bout ?",
         "choices": {
           "A": "Cadence 50 minutes +10 secondes par coup",
           "B": "Cadence 15 minutes + 5 secondes par coup.",
@@ -464,7 +464,7 @@
           13
         ],
         "article_reference": "Règles du jeu – Article 6.4 et Annexe A.2",
-        "answer_explanation": "La   cadence   b)   est   une   cadence   de   jeu   rapide   où   la   notation   n'est   jamais   obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu'au bout. La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n’a pas d’incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences. La  cadence  b)  est  une  cadence  de  jeu  rapide  où  la  notation  n’est  jamais  obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu’au bout.",
+        "answer_explanation": "La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n'a pas d'incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences. La   cadence   b)   est   une   cadence   de   jeu   rapide   où   la   notation   n'est   jamais   obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu'au bout. La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n’a pas d’incrément. Il est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences. La  cadence  b)  est  une  cadence  de  jeu  rapide  où  la  notation  n’est  jamais  obligatoire. La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est obligatoire jusqu’au bout.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -491,7 +491,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -505,7 +505,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -566,7 +566,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -580,7 +580,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -637,11 +637,11 @@
         "answer_type": "multiple_choice"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "PENDING",
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -652,10 +652,10 @@
         "triplet_ready": false,
         "extraction_flags": [],
         "answer_source": "grille_corrige",
-        "quality_score": 1.0
+        "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -715,7 +715,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -729,7 +729,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -790,7 +790,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -804,7 +804,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -865,7 +865,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -879,7 +879,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -888,12 +888,12 @@
       "id": "ffe:annales:regles:012:05681681",
       "legacy_id": "FR-ANN-UVR-012",
       "content": {
-        "question": "Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2.",
-        "expected_answer": "Les noirs ne peuvent pas prendre le cavalier.. Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2. .",
+        "question": "Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque.",
+        "expected_answer": "Les noirs ne peuvent pas prendre le cavalier.. Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2. Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2. .",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2.",
+        "original_question": "Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque.",
         "choices": {
           "A": "Les noirs peuvent roquer.",
           "B": "Le roi noir ne peut pas bouger.",
@@ -913,7 +913,7 @@
           15
         ],
         "article_reference": "Règles du jeu – Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque",
-        "answer_explanation": "Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2. .",
+        "answer_explanation": "Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2. Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être pris par le fou en e4 qui est cloué par la dame en g2. .",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -940,7 +940,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -954,7 +954,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1015,7 +1015,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1029,7 +1029,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1038,12 +1038,12 @@
       "id": "ffe:annales:regles:014:b9c61510",
       "legacy_id": "FR-ANN-UVR-014",
       "content": {
-        "question": "a) Il y a une irrégularité apparente, vous intervenez immédiatement.",
-        "expected_answer": ". Le   roi   noir   est   en   échec   alors   que   c'est   aux   blancs   de   jouer.   En   partie Rapide&Blitz, l'arbitre n'intervient sur un coup irrégulier que s'il a vu le coup se jouer devant lui ou si l'un des joueurs lui fait la réclamation. Si l'adversaire joue un coup, on considère qu'il a « accepté l'irrégularité » et la partie continue. Le taux de réussite à cette question est très faible. L'arbitre n'ayant aucune connaissance du passé de la partie, il ne sait pas depuis quand les bl",
+        "question": "Vous arbitrez un tournoi en cadence 5 min +3s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. La pendule semble indiquer que le trait est aux blancs. Quelle proposition est vraie ?",
+        "expected_answer": ". a) Il y a une irrégularité apparente, vous intervenez immédiatement. Le   roi   noir   est   en   échec   alors   que   c'est   aux   blancs   de   jouer.   En   partie Rapide&Blitz, l'arbitre n'intervient sur un coup irrégulier que s'il a vu le coup se jouer devant lui ou si l'un des joueurs lui fait la réclamation. Si l'adversaire joue un coup, on considère qu'il a « accepté l'irrégularité » et la partie continue. Le taux de réussite à cette question est très faible. L'arbitre n'ayant aucune c",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "a) Il y a une irrégularité apparente, vous intervenez immédiatement.",
+        "original_question": "Vous arbitrez un tournoi en cadence 5 min +3s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. La pendule semble indiquer que le trait est aux blancs. Quelle proposition est vraie ?",
         "choices": {
           "A": "Il y a une irrégularité apparente, vous interviendrez uniquement après que les blancs aient joué même si les blancs ne réclament pas.",
           "B": "Il y a une irrégularité apparente, si les blancs jouent sans réclamer alors vous n'interviendrez pas pour le moment."
@@ -1061,7 +1061,7 @@
           15
         ],
         "article_reference": "Règles du jeu – Annexe A.5.2",
-        "answer_explanation": "Le   roi   noir   est   en   échec   alors   que   c'est   aux   blancs   de   jouer.   En   partie Rapide&Blitz, l'arbitre n'intervient sur un coup irrégulier que s'il a vu le coup se jouer devant lui ou si l'un des joueurs lui fait la réclamation. Si l'adversaire joue un coup, on considère qu'il a « accepté l'irrégularité » et la partie continue. Le taux de réussite à cette question est très faible. L'arbitre n'ayant aucune connaissance du passé de la partie, il ne sait pas depuis quand les blancs sont en échecs, quel coup a été effectué et si ce sont vraiment les blancs qui ont le trait (un oubli   d'appui   sur   la   pendule   est   possible).   L'arbitrage   en   partie   rapide   ne   peut   se   faire   qu'avec   la connaissance parfaite du dernier coup joué. . Le  roi  noir  est  en  échec  alors  que  c’est  aux  blancs  de  jouer.  En  partie Rapide&Blitz, l’arbitre n’intervient sur un coup irrégulier que s’il a vu le coup se jouer devant lui ou si l’un des joueurs lui fait la réclamation. Si l’adversaire joue un coup, on considère qu’il a « accepté l’irrégularité » et la partie continue. Le taux de réussite à cette question est très faible. L’arbitre n’ayant aucune connaissance du passé de la partie, il ne sait pas depuis quand les blancs sont en échecs, quel coup a été effectué et si ce sont vraiment les blancs qui ont le trait (un oubli  d’appui  sur  la  pendule  est  possible).  L’arbitrage  en  partie  rapide  ne  peut  se  faire  qu’avec  la connaissance parfaite du dernier coup joué.",
+        "answer_explanation": "a) Il y a une irrégularité apparente, vous intervenez immédiatement. Le   roi   noir   est   en   échec   alors   que   c'est   aux   blancs   de   jouer.   En   partie Rapide&Blitz, l'arbitre n'intervient sur un coup irrégulier que s'il a vu le coup se jouer devant lui ou si l'un des joueurs lui fait la réclamation. Si l'adversaire joue un coup, on considère qu'il a « accepté l'irrégularité » et la partie continue. Le taux de réussite à cette question est très faible. L'arbitre n'ayant aucune connaissance du passé de la partie, il ne sait pas depuis quand les blancs sont en échecs, quel coup a été effectué et si ce sont vraiment les blancs qui ont le trait (un oubli   d'appui   sur   la   pendule   est   possible).   L'arbitrage   en   partie   rapide   ne   peut   se   faire   qu'avec   la connaissance parfaite du dernier coup joué. . Le  roi  noir  est  en  échec  alors  que  c’est  aux  blancs  de  jouer.  En  partie Rapide&Blitz, l’arbitre n’intervient sur un coup irrégulier que s’il a vu le coup se jouer devant lui ou si l’un des joueurs lui fait la réclamation. Si l’adversaire joue un coup, on considère qu’il a « accepté l’irrégularité » et la partie continue. Le taux de réussite à cette question est très faible. L’arbitre n’ayant aucune connaissance du passé de la partie, il ne sait pas depuis quand les blancs sont en échecs, quel coup a été effectué et si ce sont vraiment les blancs qui ont le trait (un oubli  d’appui  sur  la  pendule  est  possible).  L’arbitrage  en  partie  rapide  ne  peut  se  faire  qu’avec  la connaissance parfaite du dernier coup joué.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -1087,7 +1087,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1101,7 +1101,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1110,12 +1110,12 @@
       "id": "ffe:annales:regles:015:7437387b",
       "legacy_id": "FR-ANN-UVR-015",
       "content": {
-        "question": "On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale.",
-        "expected_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité.. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité. .",
+        "question": "Vous arbitrez un tournoi en cadence 60 min +30s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. Le trait est aux noirs et ils n'ont pas encore joué. Quelle proposition est vraie ?",
+        "expected_answer": "La position n'est pas illégale. Vous n'avez pas à intervenir sauf si la feuille partie vous prouve qu'il y a eu une irrégularité.. On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité. .",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale.",
+        "original_question": "Vous arbitrez un tournoi en cadence 60 min +30s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. Le trait est aux noirs et ils n'ont pas encore joué. Quelle proposition est vraie ?",
         "choices": {
           "A": "La position est illégale, vous intervenez immédiatement.",
           "B": "La position est illégale, vous interviendrez uniquement après que noirs aient joué même si personne ne réclame.",
@@ -1135,7 +1135,7 @@
           15
         ],
         "article_reference": "Règles du jeu – Article 3.10.3",
-        "answer_explanation": "Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité. .",
+        "answer_explanation": "On peut s'étonner que le roi noir soit sur la case d8 mais il est possible de trouver une suite de coups légaux amenant à cette situation. La position est considérée comme légale. Elle est toutefois douteuse et l'arbitre peut aller consulter les feuilles de parties pour vérifier s'il n'y a vraiment pas eu d'irrégularité. .",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -1162,7 +1162,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1176,7 +1176,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1236,7 +1236,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1250,7 +1250,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1310,7 +1310,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1324,7 +1324,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1333,12 +1333,12 @@
       "id": "ffe:annales:regles:018:abc379ed",
       "legacy_id": "FR-ANN-UVR-018",
       "content": {
-        "question": "Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l'arbitre.",
-        "expected_answer": "Il est autorisé, dans ce cas particulier, de noter son coup en avance sur sa feuille de partie sans le jouer afin de réclamer la nulle.. e Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l’arbitre.",
+        "question": "Une joueuse demande des informations concernant la réclamation de nulle selon « la règle des 50 coups ». Quelle proposition est vraie ?",
+        "expected_answer": "Il est autorisé, dans ce cas particulier, de noter son coup en avance sur sa feuille de partie sans le jouer afin de réclamer la nulle.. Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l'arbitre. e Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l’arbitre.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l'arbitre.",
+        "original_question": "Une joueuse demande des informations concernant la réclamation de nulle selon « la règle des 50 coups ». Quelle proposition est vraie ?",
         "choices": {
           "A": "Elle a le droit de faire cette réclamation juste après avoir joué son coup.",
           "B": "L'arbitre peut intervenir de lui-même sans demande des joueurs pour déclarer le match nul s'il a observé les 50 coups.",
@@ -1358,7 +1358,7 @@
           16
         ],
         "article_reference": "Règles du jeu – article 9.3.1",
-        "answer_explanation": "e Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l’arbitre.",
+        "answer_explanation": "Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l'arbitre. e Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire sa demande à l’arbitre.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -1384,7 +1384,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1398,7 +1398,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1407,12 +1407,12 @@
       "id": "ffe:annales:regles:019:c3ab2585",
       "legacy_id": "FR-ANN-UVR-019",
       "content": {
-        "question": "Seul le joueur au trait a le droit d'adouber.",
-        "expected_answer": "Une joueuse n'a pas le droit d'adouber les pièces quand c'est à son adversaire de jouer.. e Seul le joueur au trait a le droit d’adouber.",
+        "question": "Voici des exemples de rappels à l'ordre à des joueurs. Lequel s'appuie sur l'article 4.2.1 des règles du jeu ?",
+        "expected_answer": "Une joueuse n'a pas le droit d'adouber les pièces quand c'est à son adversaire de jouer.. Seul le joueur au trait a le droit d'adouber. e Seul le joueur au trait a le droit d’adouber.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Seul le joueur au trait a le droit d'adouber.",
+        "original_question": "Voici des exemples de rappels à l'ordre à des joueurs. Lequel s'appuie sur l'article 4.2.1 des règles du jeu ?",
         "choices": {
           "A": "Un joueur n'a pas le droit de cacher sa feuille de partie à l'arbitre.",
           "B": "Une joueuse a fait maladroitement tomber une pièce, elle doit la remettre en place avant d'appuyer sur sa pendule.",
@@ -1432,7 +1432,7 @@
           16
         ],
         "article_reference": "Règles du jeu – article 4.2.1",
-        "answer_explanation": "e Seul le joueur au trait a le droit d’adouber.",
+        "answer_explanation": "Seul le joueur au trait a le droit d'adouber. e Seul le joueur au trait a le droit d’adouber.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -1458,7 +1458,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1472,7 +1472,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1532,7 +1532,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1546,7 +1546,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1555,12 +1555,12 @@
       "id": "ffe:annales:regles:021:bae465d0",
       "legacy_id": "FR-ANN-UVR-021",
       "content": {
-        "question": "Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
-        "expected_answer": "Cadence Blitz. Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
+        "question": "Vous arbitrez un tournoi en cadence 7 min + 3 secondes par coup. De quel type de cadence s'agit-t-il ?",
+        "expected_answer": "Cadence Blitz. Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min. Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
+        "original_question": "Vous arbitrez un tournoi en cadence 7 min + 3 secondes par coup. De quel type de cadence s'agit-t-il ?",
         "choices": {
           "A": "Cadence Standard",
           "B": "Cadence Rapide",
@@ -1579,7 +1579,7 @@
           17
         ],
         "article_reference": "Règles du jeu – Annexe B.1",
-        "answer_explanation": "Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
+        "answer_explanation": "Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min. Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure ou égale à 10 min.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -1605,7 +1605,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1619,7 +1619,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1628,12 +1628,12 @@
       "id": "ffe:annales:regles:022:8513badc",
       "legacy_id": "FR-ANN-UVR-022",
       "content": {
-        "question": "Les blancs n'ont pas posé l'échec et mat sur l'échiquier avant l'intervention de l'arbitre,   c'est   trop   tard.   Par   contre   on   peut   s'apercevoir   que   les   noirs   ne peuvent pas non plus mater avec le matériel présent sur l'échiquier.",
-        "expected_answer": "Vous déclarez la partie nulle.. Les blancs n’ont pas posé l’échec et mat sur l’échiquier avant l’intervention de l’arbitre, c’est trop tard. Par contre on peut s’apercevoir que les noirs ne peuvent pas non plus mater avec le matériel présent sur l’échiquier. On déclare donc le match nul.",
+        "question": "Vous observez la finale suivante. Vous constatez que les blancs au trait viennent d'épuiser tout leur temps. Ils ont la main sur leur tour et regarde fixement la dernière ligne de l'échiquier. Quelle est votre intervention ?",
+        "expected_answer": "Vous déclarez la partie nulle.. Les blancs n'ont pas posé l'échec et mat sur l'échiquier avant l'intervention de l'arbitre,   c'est   trop   tard.   Par   contre   on   peut   s'apercevoir   que   les   noirs   ne peuvent pas non plus mater avec le matériel présent sur l'échiquier. Les blancs n’ont pas posé l’échec et mat sur l’échiquier avant l’intervention de l’arbitre, c’est trop tard. Par contre on peut s’apercevoir que les noirs ne peuvent pas non plus mater avec le matériel présent sur l’échiquier. On déclare donc le mat",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Les blancs n'ont pas posé l'échec et mat sur l'échiquier avant l'intervention de l'arbitre,   c'est   trop   tard.   Par   contre   on   peut   s'apercevoir   que   les   noirs   ne peuvent pas non plus mater avec le matériel présent sur l'échiquier.",
+        "original_question": "Vous observez la finale suivante. Vous constatez que les blancs au trait viennent d'épuiser tout leur temps. Ils ont la main sur leur tour et regarde fixement la dernière ligne de l'échiquier. Quelle est votre intervention ?",
         "choices": {
           "A": "Vous accordez immédiatement la victoire aux noirs.",
           "B": "Vous déclarez la partie nulle.",
@@ -1653,7 +1653,7 @@
           17
         ],
         "article_reference": "Règles du jeu – article 6.9",
-        "answer_explanation": "Les blancs n’ont pas posé l’échec et mat sur l’échiquier avant l’intervention de l’arbitre, c’est trop tard. Par contre on peut s’apercevoir que les noirs ne peuvent pas non plus mater avec le matériel présent sur l’échiquier. On déclare donc le match nul.",
+        "answer_explanation": "Les blancs n'ont pas posé l'échec et mat sur l'échiquier avant l'intervention de l'arbitre,   c'est   trop   tard.   Par   contre   on   peut   s'apercevoir   que   les   noirs   ne peuvent pas non plus mater avec le matériel présent sur l'échiquier. Les blancs n’ont pas posé l’échec et mat sur l’échiquier avant l’intervention de l’arbitre, c’est trop tard. Par contre on peut s’apercevoir que les noirs ne peuvent pas non plus mater avec le matériel présent sur l’échiquier. On déclare donc le match nul.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -1679,7 +1679,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1693,7 +1693,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1753,7 +1753,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1767,7 +1767,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1823,11 +1823,11 @@
         "answer_type": "multiple_choice"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "PENDING",
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1838,10 +1838,10 @@
         "triplet_ready": false,
         "extraction_flags": [],
         "answer_source": "grille_corrige",
-        "quality_score": 1.0
+        "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1901,7 +1901,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1915,7 +1915,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -1974,7 +1974,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -1988,7 +1988,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2048,7 +2048,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2062,7 +2062,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2071,12 +2071,12 @@
       "id": "ffe:annales:regles:028:c59ba9df",
       "legacy_id": "FR-ANN-UVR-028",
       "content": {
-        "question": "Il est considéré que le pat met immédiatement fin à la partie, il s'est produit avant l'abandon du joueur par conséquent l'arbitre doit déclarer le match nul.",
-        "expected_answer": "Match nul. Il est considéré que le pat met immédiatement fin à la partie, il s’est produit avant l’abandon du joueur par conséquent l’arbitre doit déclarer le match nul.",
+        "question": "Vous observez une partie avec une finale Roi+Dame pour les blancs contre Roi pour les noirs.",
+        "expected_answer": "Match nul. Il est considéré que le pat met immédiatement fin à la partie, il s'est produit avant l'abandon du joueur par conséquent l'arbitre doit déclarer le match nul. Il est considéré que le pat met immédiatement fin à la partie, il s’est produit avant l’abandon du joueur par conséquent l’arbitre doit déclarer le match nul.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Il est considéré que le pat met immédiatement fin à la partie, il s'est produit avant l'abandon du joueur par conséquent l'arbitre doit déclarer le match nul.",
+        "original_question": "Vous observez une partie avec une finale Roi+Dame pour les blancs contre Roi pour les noirs.",
         "choices": {
           "A": "Victoire pour les blancs",
           "B": "Victoire pour les noirs",
@@ -2095,7 +2095,7 @@
           18
         ],
         "article_reference": "Règles du jeu – article 5.2.3",
-        "answer_explanation": "Il est considéré que le pat met immédiatement fin à la partie, il s’est produit avant l’abandon du joueur par conséquent l’arbitre doit déclarer le match nul.",
+        "answer_explanation": "Il est considéré que le pat met immédiatement fin à la partie, il s'est produit avant l'abandon du joueur par conséquent l'arbitre doit déclarer le match nul. Il est considéré que le pat met immédiatement fin à la partie, il s’est produit avant l’abandon du joueur par conséquent l’arbitre doit déclarer le match nul.",
         "annales_source": {
           "session": "jun2025",
           "uv": "r",
@@ -2121,7 +2121,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2135,7 +2135,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2195,7 +2195,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2209,7 +2209,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2269,7 +2269,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2283,7 +2283,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2346,7 +2346,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2360,7 +2360,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2369,12 +2369,12 @@
       "id": "ffe:annales:clubs:002:ab1f9120",
       "legacy_id": "FR-ANN-UVC-002",
       "content": {
-        "question": "S'il souhaite être actif à nouveau, quelle sera son obligation ?",
-        "expected_answer": "Il doit suivre une formation SC et repasser l'UVR.. Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage Club (SC). A l'issue de celui-ci, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue, celui-ci sera dans l’obligation de suivre un stage Club (SC). A l’issue de celui-ci, son titre d’arbitre est réactivé.",
+        "question": "Un arbitre fédéral n'a pas suivi de formation continue durant une période de six ans à compter de son dernier stage.",
+        "expected_answer": "Il doit suivre une formation SC et repasser l'UVR.. S'il souhaite être actif à nouveau, quelle sera son obligation ? Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage Club (SC). A l'issue de celui-ci, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue, celui-ci sera dans l’obligation de suivre un stage Club (SC). A l’issue de celui-ci, son",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "S'il souhaite être actif à nouveau, quelle sera son obligation ?",
+        "original_question": "Un arbitre fédéral n'a pas suivi de formation continue durant une période de six ans à compter de son dernier stage.",
         "choices": {
           "A": "Il doit suivre une formation continue.",
           "B": "Il doit obligatoirement suivre un stage d'arbitre fédéral club (SC) dans sa totalité.",
@@ -2394,7 +2394,7 @@
           27
         ],
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs",
-        "answer_explanation": "Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage Club (SC). A l'issue de celui-ci, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue, celui-ci sera dans l’obligation de suivre un stage Club (SC). A l’issue de celui-ci, son titre d’arbitre est réactivé.",
+        "answer_explanation": "S'il souhaite être actif à nouveau, quelle sera son obligation ? Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage Club (SC). A l'issue de celui-ci, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue, celui-ci sera dans l’obligation de suivre un stage Club (SC). A l’issue de celui-ci, son titre d’arbitre est réactivé.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -2423,7 +2423,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2437,7 +2437,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2446,12 +2446,12 @@
       "id": "ffe:annales:clubs:003:12b96760",
       "legacy_id": "FR-ANN-UVC-003",
       "content": {
-        "question": "Question 3",
+        "question": "Une fois toutes les conditions remplies pour l'obtention d'un titre d'arbitre fédéral, à quelle personne de la DNA faut-il faire sa demande de titre ?",
         "expected_answer": "Le Directeur ou la Directrice des Titres.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Question 3",
+        "original_question": "Une fois toutes les conditions remplies pour l'obtention d'un titre d'arbitre fédéral, à quelle personne de la DNA faut-il faire sa demande de titre ?",
         "choices": {
           "A": "Le Directeur ou la Directrice Nationale de l'Arbitrage.",
           "B": "Le Directeur ou la Directrice des Titres.",
@@ -2497,7 +2497,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2511,7 +2511,7 @@
         "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2520,12 +2520,12 @@
       "id": "ffe:annales:clubs:004:8ce850d8",
       "legacy_id": "FR-ANN-UVC-004",
       "content": {
-        "question": "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division.",
-        "expected_answer": "Arbitrer un quart de finale de Coupe de France.. Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l’arbitrage en chef de la plus haute division.",
+        "question": "Une fois le titre d'Arbitre Fédéral Club obtenu, quelle mission peut-on vous confier ?",
+        "expected_answer": "Arbitrer un quart de finale de Coupe de France.. Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division. Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l’arbitrage en chef de la plus haute division.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division.",
+        "original_question": "Une fois le titre d'Arbitre Fédéral Club obtenu, quelle mission peut-on vous confier ?",
         "choices": {
           "A": "Délivrer des Attestations de Stage Pratique (ASP).",
           "B": "Arbitrer un quart de finale de Coupe de France.",
@@ -2545,7 +2545,7 @@
           27
         ],
         "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.4. Arbitres Fédéraux de Club",
-        "answer_explanation": "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l’arbitrage en chef de la plus haute division.",
+        "answer_explanation": "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division. Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l’arbitrage en chef de la plus haute division.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -2574,7 +2574,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2588,7 +2588,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2648,7 +2648,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2662,7 +2662,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2718,7 +2718,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2732,7 +2732,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2741,12 +2741,12 @@
       "id": "ffe:annales:clubs:007:72496aff",
       "legacy_id": "FR-ANN-UVC-007",
       "content": {
-        "question": "Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
-        "expected_answer": "Il est de 30 minutes.. Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
+        "question": "Vous êtes arbitre-adjoint lors de la phase départementale de la Coupe Jean-Claude Loubatière.",
+        "expected_answer": "Il est de 30 minutes.. Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes. Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
+        "original_question": "Vous êtes arbitre-adjoint lors de la phase départementale de la Coupe Jean-Claude Loubatière.",
         "choices": {
           "A": "Il est décidé par l'arbitre.",
           "B": "Il est de 0 minute.",
@@ -2766,7 +2766,7 @@
           28
         ],
         "article_reference": "R01 - Règles Générales - Article 3.1.2. Retard autorisé",
-        "answer_explanation": "Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
+        "answer_explanation": "Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes. Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -2793,7 +2793,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2807,7 +2807,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2816,12 +2816,12 @@
       "id": "ffe:annales:clubs:008:0f827d63",
       "legacy_id": "FR-ANN-UVC-008",
       "content": {
-        "question": "Combien de coups illégaux achevés feront perdre la partie ?",
-        "expected_answer": "3.",
+        "question": "Vous êtes arbitre-adjoint de la catégorie U10 des qualifications départementales du Championnat de France Jeunes comptant pour le classement rapide FFE.",
+        "expected_answer": "3.. Combien de coups illégaux achevés feront perdre la partie ?",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Combien de coups illégaux achevés feront perdre la partie ?",
+        "original_question": "Vous êtes arbitre-adjoint de la catégorie U10 des qualifications départementales du Championnat de France Jeunes comptant pour le classement rapide FFE.",
         "choices": {
           "A": "1.",
           "B": "2.",
@@ -2841,7 +2841,7 @@
           28
         ],
         "article_reference": "R03 - Compétitions homologuées - Article 2.2.2. Article 7.5.5 adapté sur les coups illégaux en cadence rapide",
-        "answer_explanation": "",
+        "answer_explanation": "Combien de coups illégaux achevés feront perdre la partie ?",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -2868,7 +2868,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2882,7 +2882,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2891,12 +2891,12 @@
       "id": "ffe:annales:clubs:009:d222584b",
       "legacy_id": "FR-ANN-UVC-009",
       "content": {
-        "question": "d) 18. A02 - Le Championnat de France des Clubs - Article 1.1. La Nationale 3 est composée de 16 groupes de 10 équipes.",
-        "expected_answer": "16.",
+        "question": "Le capitaine d'équipe de votre club vous a demandé en début de saison combien de groupes figuraient en N3 dans le championnat interclubs 2024-2025.",
+        "expected_answer": "16.. d) 18. A02 - Le Championnat de France des Clubs - Article 1.1. La Nationale 3 est composée de 16 groupes de 10 équipes.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "d) 18. A02 - Le Championnat de France des Clubs - Article 1.1. La Nationale 3 est composée de 16 groupes de 10 équipes.",
+        "original_question": "Le capitaine d'équipe de votre club vous a demandé en début de saison combien de groupes figuraient en N3 dans le championnat interclubs 2024-2025.",
         "choices": {
           "A": "12.",
           "B": "14.",
@@ -2915,7 +2915,7 @@
           28
         ],
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 1.1",
-        "answer_explanation": "",
+        "answer_explanation": "d) 18. A02 - Le Championnat de France des Clubs - Article 1.1. La Nationale 3 est composée de 16 groupes de 10 équipes.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -2942,7 +2942,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -2956,7 +2956,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -2965,12 +2965,12 @@
       "id": "ffe:annales:clubs:010:35bfb62a",
       "legacy_id": "FR-ANN-UVC-010",
       "content": {
-        "question": "Après vérification et contrôle des résultats par les équipes et le directeur de groupe, à partir de quel jour les résultats de cette rencontre seront-ils homologués temporairement ?",
-        "expected_answer": "Le mercredi.. Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours. Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour cal",
+        "question": "Une rencontre entre deux équipes du championnat de France des clubs a lieu un samedi.",
+        "expected_answer": "Le mercredi.. Après vérification et contrôle des résultats par les équipes et le directeur de groupe, à partir de quel jour les résultats de cette rencontre seront-ils homologués temporairement ? Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Après vérification et contrôle des résultats par les équipes et le directeur de groupe, à partir de quel jour les résultats de cette rencontre seront-ils homologués temporairement ?",
+        "original_question": "Une rencontre entre deux équipes du championnat de France des clubs a lieu un samedi.",
         "choices": {
           "A": "Le lundi.",
           "B": "Le mardi.",
@@ -2990,7 +2990,7 @@
           29
         ],
         "article_reference": "R01 - Règles Générales - Article 4 Homologation d'un résultat",
-        "answer_explanation": "Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours. Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours.",
+        "answer_explanation": "Après vérification et contrôle des résultats par les équipes et le directeur de groupe, à partir de quel jour les résultats de cette rencontre seront-ils homologués temporairement ? Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours. Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -3017,7 +3017,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3031,7 +3031,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3040,12 +3040,12 @@
       "id": "ffe:annales:clubs:011:9a070e5a",
       "legacy_id": "FR-ANN-UVC-011",
       "content": {
-        "question": "Parmi les propositions suivantes, quelle sanction n'est pas applicable ?",
-        "expected_answer": "Une sanction financière.. L'arbitre d'un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à leur rôle. Les options à disposition de l'arbitre pour sanctionner sont l'avertissement, l'exclusion pour une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l'intervention fautive du capitaine exerce une influence sur les résultats des parties concernées. L’arbitre d’un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à",
+        "question": "Vous arbitrez une rencontre de Nationale 3. Avant la rencontre, vous rappelez aux capitaines leurs obligations durant la partie ainsi que vos options à votre disposition pour les sanctionner en cas de nonrespect des règles liées à leur rôle.",
+        "expected_answer": "Une sanction financière.. Parmi les propositions suivantes, quelle sanction n'est pas applicable ? L'arbitre d'un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à leur rôle. Les options à disposition de l'arbitre pour sanctionner sont l'avertissement, l'exclusion pour une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l'intervention fautive du capitaine exerce une influence sur les résultats des parties concernées. L’arbitre d’un match peut déso",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Parmi les propositions suivantes, quelle sanction n'est pas applicable ?",
+        "original_question": "Vous arbitrez une rencontre de Nationale 3. Avant la rencontre, vous rappelez aux capitaines leurs obligations durant la partie ainsi que vos options à votre disposition pour les sanctionner en cas de nonrespect des règles liées à leur rôle.",
         "choices": {
           "A": "La déclaration de la partie perdue (ou de plusieurs parties) si l'intervention fautive du capitaine exerce une influence sur les résultats des parties concernées.",
           "B": "L'avertissement.",
@@ -3065,7 +3065,7 @@
           29
         ],
         "article_reference": "R01 - Règles Générales - Article 8 Le rôle des capitaines",
-        "answer_explanation": "L'arbitre d'un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à leur rôle. Les options à disposition de l'arbitre pour sanctionner sont l'avertissement, l'exclusion pour une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l'intervention fautive du capitaine exerce une influence sur les résultats des parties concernées. L’arbitre d’un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à leur rôle. Les options à disposition de l’arbitre pour sanctionner sont l’avertissement, l’exclusion pour une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l’intervention fautive du capitaine exerce une influence sur les résultats des parties concernées.",
+        "answer_explanation": "Parmi les propositions suivantes, quelle sanction n'est pas applicable ? L'arbitre d'un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à leur rôle. Les options à disposition de l'arbitre pour sanctionner sont l'avertissement, l'exclusion pour une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l'intervention fautive du capitaine exerce une influence sur les résultats des parties concernées. L’arbitre d’un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à leur rôle. Les options à disposition de l’arbitre pour sanctionner sont l’avertissement, l’exclusion pour une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l’intervention fautive du capitaine exerce une influence sur les résultats des parties concernées.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -3092,7 +3092,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3106,7 +3106,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3115,12 +3115,12 @@
       "id": "ffe:annales:clubs:012:11a5ed9b",
       "legacy_id": "FR-ANN-UVC-012",
       "content": {
-        "question": "A partir de quelle heure un joueur est-il forfait ?",
-        "expected_answer": ". Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Ce délai commence à l’heure stipulée du début de la rencontre à savoir 14h15.",
+        "question": "Vous êtes l'arbitre de la rencontre de l'équipe de votre club évoluant en N3. Le jour du match, un peu avant l'arrivée de l'équipe adverse, vous constatez un problème électrique conduisant à une trop faible luminosité dans la salle de jeu. Après avoir trouvé une solution, vous lancez la ronde avec un léger retard de 10 minutes.",
+        "expected_answer": ". A partir de quelle heure un joueur est-il forfait ? Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Ce délai commence à l’heure stipulée du début de la rencontre à savoir 14h15.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "A partir de quelle heure un joueur est-il forfait ?",
+        "original_question": "Vous êtes l'arbitre de la rencontre de l'équipe de votre club évoluant en N3. Le jour du match, un peu avant l'arrivée de l'équipe adverse, vous constatez un problème électrique conduisant à une trop faible luminosité dans la salle de jeu. Après avoir trouvé une solution, vous lancez la ronde avec un léger retard de 10 minutes.",
         "choices": {},
         "mcq_answer": "C",
         "correct_answer": "",
@@ -3135,7 +3135,7 @@
           29
         ],
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.8 Forfaits sportifs",
-        "answer_explanation": "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Ce délai commence à l’heure stipulée du début de la rencontre à savoir 14h15.",
+        "answer_explanation": "A partir de quelle heure un joueur est-il forfait ? Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Ce délai commence à l’heure stipulée du début de la rencontre à savoir 14h15.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -3162,7 +3162,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3176,7 +3176,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3185,12 +3185,12 @@
       "id": "ffe:annales:clubs:013:6da01915",
       "legacy_id": "FR-ANN-UVC-013",
       "content": {
-        "question": "Question 13",
+        "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise",
         "expected_answer": "Cela doit être effectué au plus tard 7 jours après la fin du tournoi.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Question 13",
+        "original_question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise",
         "choices": {
           "A": "Cela doit être effectué avant la fin du tournoi.",
           "B": "Cela doit être effectué au plus tard le lendemain de la fin du tournoi.",
@@ -3237,7 +3237,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3251,7 +3251,7 @@
         "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3260,12 +3260,12 @@
       "id": "ffe:annales:clubs:014:23605ffd",
       "legacy_id": "FR-ANN-UVC-014",
       "content": {
-        "question": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
-        "expected_answer": "Un arbitre fédéral Jeune.",
+        "question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante.",
+        "expected_answer": "Un arbitre fédéral Jeune.. A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
+        "original_question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante.",
         "choices": {
           "A": "Un arbitre stagiaire.",
           "B": "Un arbitre fédéral Jeune.",
@@ -3285,7 +3285,7 @@
           30
         ],
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres",
-        "answer_explanation": "",
+        "answer_explanation": "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -3312,7 +3312,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3326,7 +3326,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3387,7 +3387,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3401,7 +3401,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3462,7 +3462,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3476,7 +3476,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3537,7 +3537,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3551,7 +3551,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3612,7 +3612,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3626,7 +3626,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3635,12 +3635,12 @@
       "id": "ffe:annales:clubs:019:5884e5d0",
       "legacy_id": "FR-ANN-UVC-019",
       "content": {
-        "question": "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel.",
-        "expected_answer": "Si le club hôte ne peut assurer la mission d'arbitrage, les deux clubs devront s'entendre pour trouver un arbitre. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les clubs seront sanctionnés d'une amende de 75 € chacun.. Exception pour le cas de l'obligation d'un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s'entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d'une amende de 75 € chacun. Exception pour le cas de l’obligation d’un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alor",
+        "question": "Une rencontre de N2 a lieu à mi-distance entre deux équipes visiteuses.",
+        "expected_answer": "Si le club hôte ne peut assurer la mission d'arbitrage, les deux clubs devront s'entendre pour trouver un arbitre. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les clubs seront sanctionnés d'une amende de 75 € chacun.. A02 - Le Championnat de France des Clubs - Article 2.6 Matériel. Exception pour le cas de l'obligation d'un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s'entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d'une amende de 75 € chacun. Exception pour le cas de l’obligation d’un arbitre non-jou",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel.",
+        "original_question": "Une rencontre de N2 a lieu à mi-distance entre deux équipes visiteuses.",
         "choices": {
           "A": "Les missions de fourniture de matériel, d'arbitrage et de transmission des résultats de la rencontre ne peuvent pas être partagées entre les deux équipes.",
           "B": "L'équipe ayant les blancs sur les échiquiers pairs contacte le club organisateur afin que ce dernier confirme qu'il pourra assumer la mission du matériel, d'arbitrage et de transmission des résultats.",
@@ -3660,7 +3660,7 @@
           31
         ],
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel",
-        "answer_explanation": "Exception pour le cas de l'obligation d'un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s'entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d'une amende de 75 € chacun. Exception pour le cas de l’obligation d’un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s’entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d’infraction pour défaut d’arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d’une amende de 75 € chacun.",
+        "answer_explanation": "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel. Exception pour le cas de l'obligation d'un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s'entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d'une amende de 75 € chacun. Exception pour le cas de l’obligation d’un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s’entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d’infraction pour défaut d’arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d’une amende de 75 € chacun.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -3687,7 +3687,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3701,7 +3701,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3762,7 +3762,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3776,7 +3776,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3832,7 +3832,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3846,7 +3846,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3902,7 +3902,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3916,7 +3916,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -3977,7 +3977,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -3991,7 +3991,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4000,12 +4000,12 @@
       "id": "ffe:annales:clubs:024:26c7194e",
       "legacy_id": "FR-ANN-UVC-024",
       "content": {
-        "question": "Peut-il remplacer un joueur absent en équipe 1 lors de la ronde 3 ?",
-        "expected_answer": "Oui, parce qu'il n'a pas encore joué trois parties avec l'équipe 2.. avoir joué moins de (n) matchs dans le championnat. A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division. Lorsqu'un club a plusieurs équipes engagées dans une même division, la participation d'un joueur ou d'une joueuse à plusieurs équipes d'une même division est interdite y compris d'éventuels barrages.",
+        "question": "Un club possède deux équipes engagées en N3.",
+        "expected_answer": "Oui, parce qu'il n'a pas encore joué trois parties avec l'équipe 2.. Peut-il remplacer un joueur absent en équipe 1 lors de la ronde 3 ? avoir joué moins de (n) matchs dans le championnat. A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division. Lorsqu'un club a plusieurs équipes engagées dans une même division, la participation d'un joueur ou d'une joueuse à plusieurs équipes d'une même division est interdite y compris d'éventuels barrages.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Peut-il remplacer un joueur absent en équipe 1 lors de la ronde 3 ?",
+        "original_question": "Un club possède deux équipes engagées en N3.",
         "choices": {
           "A": "Oui, un joueur peut toujours monter en équipe 1.",
           "B": "Oui, parce qu'il n'a pas encore joué trois parties avec l'équipe 2.",
@@ -4025,7 +4025,7 @@
           32
         ],
         "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division",
-        "answer_explanation": "avoir joué moins de (n) matchs dans le championnat. A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division. Lorsqu'un club a plusieurs équipes engagées dans une même division, la participation d'un joueur ou d'une joueuse à plusieurs équipes d'une même division est interdite y compris d'éventuels barrages.",
+        "answer_explanation": "Peut-il remplacer un joueur absent en équipe 1 lors de la ronde 3 ? avoir joué moins de (n) matchs dans le championnat. A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division. Lorsqu'un club a plusieurs équipes engagées dans une même division, la participation d'un joueur ou d'une joueuse à plusieurs équipes d'une même division est interdite y compris d'éventuels barrages.",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -4052,7 +4052,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4066,7 +4066,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4127,7 +4127,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4141,7 +4141,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4202,7 +4202,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4216,7 +4216,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4272,7 +4272,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4286,7 +4286,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4295,12 +4295,12 @@
       "id": "ffe:annales:clubs:028:22a322e1",
       "legacy_id": "FR-ANN-UVC-028",
       "content": {
-        "question": "Combien d'équipes seront qualifiées pour le tour suivant ?",
-        "expected_answer": ". La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l'effectif. Au cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant 1 équipe pour 1 à 4 équipes participant, 2 équipes pour 5 à 8 équipes participantes, etc. ainsi qu'1 équipe supplémentaire si le quota de 10 % de joueuses est atteint dans la phase concernée. Cela fait donc 4 équipes qualifiées. La compétition se jouant par équipe d",
+        "question": "Vous êtes arbitre adjoint d'une phase 2 de la coupe Jean-Claude Loubatière où participent 12 équipes dont 5 joueuses.",
+        "expected_answer": ". Combien d'équipes seront qualifiées pour le tour suivant ? La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l'effectif. Au cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant 1 équipe pour 1 à 4 équipes participant, 2 équipes pour 5 à 8 équipes participantes, etc. ainsi qu'1 équipe supplémentaire si le quota de 10 % de joueuses est atteint dans la phase concernée. Cela fait donc ",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Combien d'équipes seront qualifiées pour le tour suivant ?",
+        "original_question": "Vous êtes arbitre adjoint d'une phase 2 de la coupe Jean-Claude Loubatière où participent 12 équipes dont 5 joueuses.",
         "choices": {},
         "mcq_answer": "B",
         "correct_answer": "",
@@ -4315,7 +4315,7 @@
           33
         ],
         "article_reference": "C03 - Coupe Jean-Claude Loubatière - Article 1.2. Déroulement de la Coupe",
-        "answer_explanation": "La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l'effectif. Au cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant 1 équipe pour 1 à 4 équipes participant, 2 équipes pour 5 à 8 équipes participantes, etc. ainsi qu'1 équipe supplémentaire si le quota de 10 % de joueuses est atteint dans la phase concernée. Cela fait donc 4 équipes qualifiées. La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l’effectif. Au cours de la phase départementale, et de la phase 2, se",
+        "answer_explanation": "Combien d'équipes seront qualifiées pour le tour suivant ? La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l'effectif. Au cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant 1 équipe pour 1 à 4 équipes participant, 2 équipes pour 5 à 8 équipes participantes, etc. ainsi qu'1 équipe supplémentaire si le quota de 10 % de joueuses est atteint dans la phase concernée. Cela fait donc 4 équipes qualifiées. La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l’effectif. Au cours de la phase départementale, et de la phase 2, se",
         "annales_source": {
           "session": "jun2025",
           "uv": "c",
@@ -4342,7 +4342,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4356,7 +4356,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4418,7 +4418,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4432,7 +4432,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4494,7 +4494,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4508,7 +4508,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4517,12 +4517,12 @@
       "id": "ffe:annales:organisation:001:738e5510",
       "legacy_id": "FR-ANN-UVO-001",
       "content": {
-        "question": "Quelle compétition parmi les suivantes ne peut pas être arbitrée par un arbitre fédéral d'open de",
-        "expected_answer": "Le championnat de France des jeunes en tant qu'arbitre en chef.. Coupes Fédérales et Coupe de France jusqu'en finale. Coupes Fédérales et Coupe de France jusqu’en finale.",
+        "question": "Les arbitres fédéraux d'open ont la compétence pour arbitrer certaines compétitions.",
+        "expected_answer": "Le championnat de France des jeunes en tant qu'arbitre en chef.. Quelle compétition parmi les suivantes ne peut pas être arbitrée par un arbitre fédéral d'open de Coupes Fédérales et Coupe de France jusqu'en finale. Coupes Fédérales et Coupe de France jusqu’en finale.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Quelle compétition parmi les suivantes ne peut pas être arbitrée par un arbitre fédéral d'open de",
+        "original_question": "Les arbitres fédéraux d'open ont la compétence pour arbitrer certaines compétitions.",
         "choices": {
           "A": "La finale de la coupe de la parité.",
           "B": "Un open à normes en tant qu'adjoint.",
@@ -4542,7 +4542,7 @@
           41
         ],
         "article_reference": "LA RIDNA - Article 12.3",
-        "answer_explanation": "Coupes Fédérales et Coupe de France jusqu'en finale. Coupes Fédérales et Coupe de France jusqu’en finale.",
+        "answer_explanation": "Quelle compétition parmi les suivantes ne peut pas être arbitrée par un arbitre fédéral d'open de Coupes Fédérales et Coupe de France jusqu'en finale. Coupes Fédérales et Coupe de France jusqu’en finale.",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -4571,7 +4571,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4585,7 +4585,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4647,7 +4647,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4661,7 +4661,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4670,12 +4670,12 @@
       "id": "ffe:annales:organisation:003:2be6c393",
       "legacy_id": "FR-ANN-UVO-003",
       "content": {
-        "question": "Combien de temps avant le début du tournoi, cette demande doit-elle être faite ?",
-        "expected_answer": "15 jours.. LA 5.2 Préparation d'un tournoi - Homologation des Tournois Article 2.6 : Les demandes d'homologation doivent se faire dans les délais selon la nature du tournoi : Pour les tournois FIDE 15 jours avant le début du tournoi. Les demandes d’homologation doivent se faire dans les délais selon la nature du tournoi :",
+        "question": "Un organisateur souhaite vous faire arbitrer le tournoi rapide de son club. Il souhaite qu'il soit homologué FIDE et vous charge de faire la demande d'homologation en ligne.",
+        "expected_answer": "15 jours.. Combien de temps avant le début du tournoi, cette demande doit-elle être faite ? LA 5.2 Préparation d'un tournoi - Homologation des Tournois Article 2.6 : Les demandes d'homologation doivent se faire dans les délais selon la nature du tournoi : Pour les tournois FIDE 15 jours avant le début du tournoi. Les demandes d’homologation doivent se faire dans les délais selon la nature du tournoi :",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Combien de temps avant le début du tournoi, cette demande doit-elle être faite ?",
+        "original_question": "Un organisateur souhaite vous faire arbitrer le tournoi rapide de son club. Il souhaite qu'il soit homologué FIDE et vous charge de faire la demande d'homologation en ligne.",
         "choices": {
           "A": "7 jours.",
           "B": "10 jours.",
@@ -4695,7 +4695,7 @@
           41
         ],
         "article_reference": "LA 5.2 Préparation d'un tournoi R03 Compétition homologuées - Article 2.6",
-        "answer_explanation": "LA 5.2 Préparation d'un tournoi - Homologation des Tournois Article 2.6 : Les demandes d'homologation doivent se faire dans les délais selon la nature du tournoi : Pour les tournois FIDE 15 jours avant le début du tournoi. Les demandes d’homologation doivent se faire dans les délais selon la nature du tournoi :",
+        "answer_explanation": "Combien de temps avant le début du tournoi, cette demande doit-elle être faite ? LA 5.2 Préparation d'un tournoi - Homologation des Tournois Article 2.6 : Les demandes d'homologation doivent se faire dans les délais selon la nature du tournoi : Pour les tournois FIDE 15 jours avant le début du tournoi. Les demandes d’homologation doivent se faire dans les délais selon la nature du tournoi :",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -4723,7 +4723,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4737,7 +4737,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4746,12 +4746,12 @@
       "id": "ffe:annales:organisation:004:6bd6ab88",
       "legacy_id": "FR-ANN-UVO-004",
       "content": {
-        "question": "S'il veut redevenir actif il doit :",
-        "expected_answer": "Suivre une formation d'arbitre de club et valider à nouveau l'UVR.. Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage SC. Un arbitre inactif n'ayant fait aucune formation durant une période de dix ans sera en plus dans l'obligation de valider à nouveau l'UVR. A l'issue de satisfaire ces deux conditions, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue, ",
+        "question": "Un arbitre AFO1 inactif, a effectué son dernier stage en avril 2014.",
+        "expected_answer": "Suivre une formation d'arbitre de club et valider à nouveau l'UVR.. S'il veut redevenir actif il doit : Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage SC. Un arbitre inactif n'ayant fait aucune formation durant une période de dix ans sera en plus dans l'obligation de valider à nouveau l'UVR. A l'issue de satisfaire ces deux conditions, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "S'il veut redevenir actif il doit :",
+        "original_question": "Un arbitre AFO1 inactif, a effectué son dernier stage en avril 2014.",
         "choices": {
           "A": "Suivre une formation continue avant le 31 août 2025.",
           "B": "Suivre une formation d'arbitre d'open, avant le 31 août 2025.",
@@ -4771,7 +4771,7 @@
           42
         ],
         "article_reference": "RI DNA, article 6.2",
-        "answer_explanation": "Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage SC. Un arbitre inactif n'ayant fait aucune formation durant une période de dix ans sera en plus dans l'obligation de valider à nouveau l'UVR. A l'issue de satisfaire ces deux conditions, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue, celui-ci sera dans l’obligation de suivre un stage SC. Un arbitre inactif n’ayant fait aucune formation durant une période de dix ans sera en plus dans l’obligation de valider à nouveau l’UVR. A l’issue de satisfaire ces deux conditions, son titre d’arbitre est réactivé.",
+        "answer_explanation": "S'il veut redevenir actif il doit : Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage SC. Un arbitre inactif n'ayant fait aucune formation durant une période de dix ans sera en plus dans l'obligation de valider à nouveau l'UVR. A l'issue de satisfaire ces deux conditions, son titre d'arbitre est réactivé. Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue, celui-ci sera dans l’obligation de suivre un stage SC. Un arbitre inactif n’ayant fait aucune formation durant une période de dix ans sera en plus dans l’obligation de valider à nouveau l’UVR. A l’issue de satisfaire ces deux conditions, son titre d’arbitre est réactivé.",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -4797,7 +4797,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4811,7 +4811,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4882,7 +4882,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -4896,7 +4896,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4951,7 +4951,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": false,
         "batch": "jun2025_extraction"
       },
@@ -4965,7 +4965,7 @@
         "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -4974,12 +4974,12 @@
       "id": "ffe:annales:organisation:007:0dd35219",
       "legacy_id": "FR-ANN-UVO-007",
       "content": {
-        "question": "Ru est le classement du joueur sans classement Fide.",
-        "expected_answer": "1709. Ra (moyenne des adversaires classés Fide) : Ra = (1424+1489+1600+1882+1778+1902+1800+1800) /8 = 1709,375 arrondis à 1709. Il réalise 4 points sur 8. Son score étant de 50% il n'a aucun malus ni bonus, son premier classement Ru sera donc 1709.",
+        "question": "Un joueur dont c'est la première compétition obtient les résultats ci-dessous.",
+        "expected_answer": "1709. Ru est le classement du joueur sans classement Fide. Ra (moyenne des adversaires classés Fide) : Ra = (1424+1489+1600+1882+1778+1902+1800+1800) /8 = 1709,375 arrondis à 1709. Il réalise 4 points sur 8. Son score étant de 50% il n'a aucun malus ni bonus, son premier classement Ru sera donc 1709.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Ru est le classement du joueur sans classement Fide.",
+        "original_question": "Un joueur dont c'est la première compétition obtient les résultats ci-dessous.",
         "choices": {
           "A": "1679",
           "B": "1701",
@@ -4999,7 +4999,7 @@
           42
         ],
         "article_reference": "LA Chapitre 6.1 Le classement standard de la FIDE - article 8.2 p 184 et exemple p 185",
-        "answer_explanation": "Ra (moyenne des adversaires classés Fide) : Ra = (1424+1489+1600+1882+1778+1902+1800+1800) /8 = 1709,375 arrondis à 1709. Il réalise 4 points sur 8. Son score étant de 50% il n'a aucun malus ni bonus, son premier classement Ru sera donc 1709.",
+        "answer_explanation": "Ru est le classement du joueur sans classement Fide. Ra (moyenne des adversaires classés Fide) : Ra = (1424+1489+1600+1882+1778+1902+1800+1800) /8 = 1709,375 arrondis à 1709. Il réalise 4 points sur 8. Son score étant de 50% il n'a aucun malus ni bonus, son premier classement Ru sera donc 1709.",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -5028,7 +5028,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5042,7 +5042,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5051,12 +5051,12 @@
       "id": "ffe:annales:organisation:008:a1ccddd7",
       "legacy_id": "FR-ANN-UVO-008",
       "content": {
-        "question": "Les inscriptions enregistrées avant majoration se décomposent en 45 adultes au tarif unitaire de 10 € et 20 jeunes à 5 €.",
-        "expected_answer": "60,75 €. Sur place, 25 joueurs supplémentaires se sont inscrits : 10 adultes au tarif de 15 € et 15 enfants à 10 €. Quels sont les droits d'homologation de ce tournoi ? On ne tient donc pas compte des titrés ni de la majoration du tarif pour les inscriptions sur place ! Montant retenu des inscriptions : (45+10=55) adultes à 10 € et (20+15=35) jeunes à 5 € : (55*10) + (35*5) = 725 €. Les droits d'homologation sont donc de 60,75 €. Les droits d'homologations comportent une part fixe de 10 euros pour les To",
+        "question": "Vous arbitrez un blitz en 15 rondes homologué FIDE.",
+        "expected_answer": "60,75 €. Les inscriptions enregistrées avant majoration se décomposent en 45 adultes au tarif unitaire de 10 € et 20 jeunes à 5 €. Sur place, 25 joueurs supplémentaires se sont inscrits : 10 adultes au tarif de 15 € et 15 enfants à 10 €. Quels sont les droits d'homologation de ce tournoi ? On ne tient donc pas compte des titrés ni de la majoration du tarif pour les inscriptions sur place ! Montant retenu des inscriptions : (45+10=55) adultes à 10 € et (20+15=35) jeunes à 5 € : (55*10) + (35*5) = 725 €. L",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Les inscriptions enregistrées avant majoration se décomposent en 45 adultes au tarif unitaire de 10 € et 20 jeunes à 5 €.",
+        "original_question": "Vous arbitrez un blitz en 15 rondes homologué FIDE.",
         "choices": {
           "A": "50,75 €",
           "B": "60,75 €",
@@ -5076,7 +5076,7 @@
           43
         ],
         "article_reference": "LA 5.4 - Rapport Technique et fin de tournoi",
-        "answer_explanation": "Sur place, 25 joueurs supplémentaires se sont inscrits : 10 adultes au tarif de 15 € et 15 enfants à 10 €. Quels sont les droits d'homologation de ce tournoi ? On ne tient donc pas compte des titrés ni de la majoration du tarif pour les inscriptions sur place ! Montant retenu des inscriptions : (45+10=55) adultes à 10 € et (20+15=35) jeunes à 5 € : (55*10) + (35*5) = 725 €. Les droits d'homologation sont donc de 60,75 €. Les droits d'homologations comportent une part fixe de 10 euros pour les Tournois à cadence lente, rapide ou blitz FIDE et d’une part variable égale à 7 % des droits d'inscriptions annoncés adultes et jeunes (hors MI et GM). Montant retenu des inscriptions : (45+10=55) adultes à 10 € et (20+15=35) jeunes à 5 € : (55*10) + (35*5) = 725 €. Calcul des droits : 725 × 7 % + 10 = 60,75 €.",
+        "answer_explanation": "Les inscriptions enregistrées avant majoration se décomposent en 45 adultes au tarif unitaire de 10 € et 20 jeunes à 5 €. Sur place, 25 joueurs supplémentaires se sont inscrits : 10 adultes au tarif de 15 € et 15 enfants à 10 €. Quels sont les droits d'homologation de ce tournoi ? On ne tient donc pas compte des titrés ni de la majoration du tarif pour les inscriptions sur place ! Montant retenu des inscriptions : (45+10=55) adultes à 10 € et (20+15=35) jeunes à 5 € : (55*10) + (35*5) = 725 €. Les droits d'homologation sont donc de 60,75 €. Les droits d'homologations comportent une part fixe de 10 euros pour les Tournois à cadence lente, rapide ou blitz FIDE et d’une part variable égale à 7 % des droits d'inscriptions annoncés adultes et jeunes (hors MI et GM). Montant retenu des inscriptions : (45+10=55) adultes à 10 € et (20+15=35) jeunes à 5 € : (55*10) + (35*5) = 725 €. Calcul des droits : 725 × 7 % + 10 = 60,75 €.",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -5103,7 +5103,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5117,7 +5117,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5178,7 +5178,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5192,7 +5192,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5201,12 +5201,12 @@
       "id": "ffe:annales:organisation:010:48cfbf3b",
       "legacy_id": "FR-ANN-UVO-010",
       "content": {
-        "question": "➢ L'arbitre s'assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la",
-        "expected_answer": "Vous vous abstenez de tout commentaire sur les compositions d'équipes même s'il est évident qu'une équipe devrait avoir une sanction administrative. Celle-ci est de la responsabilité du directeur du groupe.. rencontre : échiquiers, pendules, feuilles de parties… L'arbitre a la responsabilité de régler correctement les pendules. ➢ L’arbitre s’assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la",
+        "question": "Vous arbitrez simultanément trois rencontres du championnat de France des clubs. Quelle est parmi les réponses ci-dessous celle qui est vraie ?",
+        "expected_answer": "Vous vous abstenez de tout commentaire sur les compositions d'équipes même s'il est évident qu'une équipe devrait avoir une sanction administrative. Celle-ci est de la responsabilité du directeur du groupe.. ➢ L'arbitre s'assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la rencontre : échiquiers, pendules, feuilles de parties… L'arbitre a la responsabilité de régler correctement les pendules. ➢ L’arbitre s’assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "➢ L'arbitre s'assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la",
+        "original_question": "Vous arbitrez simultanément trois rencontres du championnat de France des clubs. Quelle est parmi les réponses ci-dessous celle qui est vraie ?",
         "choices": {
           "A": "Vous êtes responsable de la mise en place et de la quantité suffisante de matériel pour assurer la rencontre.",
           "B": "Vous remplissez à la vue de tous la feuille de match au fur et à mesure de la réception des compositions d'équipes.",
@@ -5228,7 +5228,7 @@
           43
         ],
         "article_reference": "LA 5.1 - Gestion d'un match – Avant Match p 165",
-        "answer_explanation": "rencontre : échiquiers, pendules, feuilles de parties… L'arbitre a la responsabilité de régler correctement les pendules. ➢ L’arbitre s’assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la",
+        "answer_explanation": "➢ L'arbitre s'assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la rencontre : échiquiers, pendules, feuilles de parties… L'arbitre a la responsabilité de régler correctement les pendules. ➢ L’arbitre s’assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -5255,7 +5255,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5269,7 +5269,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5331,7 +5331,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5345,7 +5345,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5406,7 +5406,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5420,7 +5420,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5481,7 +5481,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5495,7 +5495,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5504,12 +5504,12 @@
       "id": "ffe:annales:organisation:014:b335b742",
       "legacy_id": "FR-ANN-UVO-014",
       "content": {
-        "question": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'équipe de France",
-        "expected_answer": "Tous les titrés.. Jeunes, les champions de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve qu'ils aient prévenu l'organisateur au moins 48 heures avant le début du tournoi. La gratuité s'applique donc en cadence lente/standard (tournois A), non aux tournois rapides/blitz (tournois B). Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l’équipe de France",
+        "question": "Vous êtes l'arbitre du tournoi homologué rapide FIDE de votre club. Quinze jours avant le tournoi, votre président reçoit des demandes d'inscriptions de la part d'un GM, d'un MI, d'un GM par correspondance (ICCF) membre de la FFE et de deux membres de l'équipe de France jeunes. Qui est concerné par la gratuité des droits d'inscriptions ?",
+        "expected_answer": "Tous les titrés.. Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'équipe de France Jeunes, les champions de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve qu'ils aient prévenu l'organisateur au moins 48 heures avant le début du tournoi. La gratuité s'applique donc en cadence lente/standard (tournois A), non aux tournois rapides/blitz (tournois B). Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, le",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'équipe de France",
+        "original_question": "Vous êtes l'arbitre du tournoi homologué rapide FIDE de votre club. Quinze jours avant le tournoi, votre président reçoit des demandes d'inscriptions de la part d'un GM, d'un MI, d'un GM par correspondance (ICCF) membre de la FFE et de deux membres de l'équipe de France jeunes. Qui est concerné par la gratuité des droits d'inscriptions ?",
         "choices": {
           "A": "Tous les joueurs.",
           "B": "Tous les titrés.",
@@ -5529,7 +5529,7 @@
           44
         ],
         "article_reference": "R03 Compétitions homologuées - Article 2.3 Droits d'inscriptions",
-        "answer_explanation": "Jeunes, les champions de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve qu'ils aient prévenu l'organisateur au moins 48 heures avant le début du tournoi. La gratuité s'applique donc en cadence lente/standard (tournois A), non aux tournois rapides/blitz (tournois B). Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l’équipe de France",
+        "answer_explanation": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'équipe de France Jeunes, les champions de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve qu'ils aient prévenu l'organisateur au moins 48 heures avant le début du tournoi. La gratuité s'applique donc en cadence lente/standard (tournois A), non aux tournois rapides/blitz (tournois B). Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l’équipe de France",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -5556,7 +5556,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5570,7 +5570,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5631,7 +5631,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5645,7 +5645,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5654,12 +5654,12 @@
       "id": "ffe:annales:organisation:016:70750147",
       "legacy_id": "FR-ANN-UVO-016",
       "content": {
-        "question": "Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
-        "expected_answer": "Il doit préciser que son tournoi est réservé aux joueurs et joueuses ayant un classement Elo strictement inférieur à 1800.. Information rappelée dans la partie 5.2 préparation d’un tournoi paragraphe Homologation . Quand, lors d’une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d’un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
+        "question": "Un organisateur souhaite organiser un open homologué FIDE tournoi en cadence 50 min +10s/coup. Quelle information parmi les suivantes devrez-vous lui fournir ?",
+        "expected_answer": "Il doit préciser que son tournoi est réservé aux joueurs et joueuses ayant un classement Elo strictement inférieur à 1800.. Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo. Information rappelée dans la partie 5.2 préparation d’un tournoi paragraphe Homologation . Quand, lors d’une partie, les deux adversaires p",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
+        "original_question": "Un organisateur souhaite organiser un open homologué FIDE tournoi en cadence 50 min +10s/coup. Quelle information parmi les suivantes devrez-vous lui fournir ?",
         "choices": {
           "A": "Le montant des droits d'homologation dépend de la cadence choisie.",
           "B": "Cette cadence est considérée comme une cadence de jeu rapide.",
@@ -5679,7 +5679,7 @@
           45
         ],
         "article_reference": "LA – 6.1 Le classement standard de la FIDE Article 1 : Cadence de jeu - page 183 - R03 2. Conditions d'homologation",
-        "answer_explanation": "Information rappelée dans la partie 5.2 préparation d’un tournoi paragraphe Homologation . Quand, lors d’une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d’un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
+        "answer_explanation": "Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo. Information rappelée dans la partie 5.2 préparation d’un tournoi paragraphe Homologation . Quand, lors d’une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d’un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -5708,7 +5708,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5722,7 +5722,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5784,7 +5784,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5798,7 +5798,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5858,7 +5858,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5872,7 +5872,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -5881,12 +5881,12 @@
       "id": "ffe:annales:organisation:019:bd3bfa94",
       "legacy_id": "FR-ANN-UVO-019",
       "content": {
-        "question": "Le classement est fait aux points de parties, avec départage au Berlin, et enfin au bénéfice de l'équipe ayant la",
-        "expected_answer": "Le Berlin.. moyenne la plus basse des derniers Elo publiés (au prorata des participations). Le classement est fait aux points de parties, avec départage au Berlin, et enfin au bénéfice de l'équipe ayant la",
+        "question": "Vous êtes responsable d'un groupe de la coupe de la parité de 7 équipes dont la phase a été appariée au « Molter ». A la fin de cette phase, deux équipes ont obtenu le même nombre de points de match.",
+        "expected_answer": "Le Berlin.. Le classement est fait aux points de parties, avec départage au Berlin, et enfin au bénéfice de l'équipe ayant la moyenne la plus basse des derniers Elo publiés (au prorata des participations).",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Le classement est fait aux points de parties, avec départage au Berlin, et enfin au bénéfice de l'équipe ayant la",
+        "original_question": "Vous êtes responsable d'un groupe de la coupe de la parité de 7 équipes dont la phase a été appariée au « Molter ». A la fin de cette phase, deux équipes ont obtenu le même nombre de points de match.",
         "choices": {
           "A": "Le résultat de la confrontation directe entre ces deux équipes.",
           "B": "La moyenne Elo la plus basse.",
@@ -5906,7 +5906,7 @@
           46
         ],
         "article_reference": "C04 Coupe de la parité – 4.3 Classement",
-        "answer_explanation": "moyenne la plus basse des derniers Elo publiés (au prorata des participations). Le classement est fait aux points de parties, avec départage au Berlin, et enfin au bénéfice de l'équipe ayant la",
+        "answer_explanation": "Le classement est fait aux points de parties, avec départage au Berlin, et enfin au bénéfice de l'équipe ayant la moyenne la plus basse des derniers Elo publiés (au prorata des participations).",
         "annales_source": {
           "session": "jun2025",
           "uv": "o",
@@ -5932,7 +5932,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -5946,7 +5946,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -6007,7 +6007,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6021,7 +6021,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": false
       }
@@ -6030,12 +6030,12 @@
       "id": "ffe:annales:travaux:001:f4de60a2",
       "legacy_id": "FR-ANN-UVT-001",
       "content": {
-        "question": "Question 1",
+        "question": "L.A. Chap. 5.2, paragraphe « homologation des tournois »., partie « procédure ».",
         "expected_answer": "Remplir le formulaire de demande en ligne depuis son compte FFE.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "Question 1",
+        "original_question": "L.A. Chap. 5.2, paragraphe « homologation des tournois »., partie « procédure ».",
         "choices": {
           "A": "Envoyer le formulaire trouvé sur le site de la DNA à Erick MOURET, le délégué ELO de la FFE.",
           "B": "Envoyer le formulaire trouvé sur le site de la DNA au délégué ELO de la ligue du lieu du tournoi.",
@@ -6083,7 +6083,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6097,7 +6097,7 @@
         "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6165,7 +6165,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6179,7 +6179,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6240,7 +6240,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6254,7 +6254,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6315,7 +6315,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6329,7 +6329,7 @@
         "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6390,7 +6390,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6404,7 +6404,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6468,7 +6468,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6482,7 +6482,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6491,12 +6491,12 @@
       "id": "ffe:annales:travaux:007:0c470ba6",
       "legacy_id": "FR-ANN-UVT-007",
       "content": {
-        "question": "« Dans le cas où une partie avec couleurs inversées finirait par des moyens normaux (par mat, pat, abandon, nulle par accord mutuel - si autorisée), avant que dix (10) coups ne soient achevés, le résultat de la partie est maintenu. » Le point 8 du C.04.2 du chapitre 3.5 (règles du Système Suisse) indique que l'information des couleurs inversées doit être prise en compte pour les prochains appariements.",
-        "expected_answer": "",
+        "question": "Les 2 joueurs de la table 9 viennent vous rendre les feuilles de parties.",
+        "expected_answer": ". « Dans le cas où une partie avec couleurs inversées finirait par des moyens normaux (par mat, pat, abandon, nulle par accord mutuel - si autorisée), avant que dix (10) coups ne soient achevés, le résultat de la partie est maintenu. » Le point 8 du C.04.2 du chapitre 3.5 (règles du Système Suisse) indique que l'information des couleurs inversées doit être prise en compte pour les prochains appariements.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "« Dans le cas où une partie avec couleurs inversées finirait par des moyens normaux (par mat, pat, abandon, nulle par accord mutuel - si autorisée), avant que dix (10) coups ne soient achevés, le résultat de la partie est maintenu. » Le point 8 du C.04.2 du chapitre 3.5 (règles du Système Suisse) indique que l'information des couleurs inversées doit être prise en compte pour les prochains appariements.",
+        "original_question": "Les 2 joueurs de la table 9 viennent vous rendre les feuilles de parties.",
         "choices": {
           "A": "Comme la partie a moins de 10 coups, vous annulez cette partie et vous demandez aux 2 joueurs de refaire une partie avec les bonnes couleurs.",
           "B": "Vous indiquez un double forfait car les deux joueurs sont fautifs.",
@@ -6515,7 +6515,7 @@
           60
         ],
         "article_reference": "LA – Article 7.3 des règles du jeu",
-        "answer_explanation": "",
+        "answer_explanation": "« Dans le cas où une partie avec couleurs inversées finirait par des moyens normaux (par mat, pat, abandon, nulle par accord mutuel - si autorisée), avant que dix (10) coups ne soient achevés, le résultat de la partie est maintenu. » Le point 8 du C.04.2 du chapitre 3.5 (règles du Système Suisse) indique que l'information des couleurs inversées doit être prise en compte pour les prochains appariements.",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -6544,7 +6544,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6558,7 +6558,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6620,7 +6620,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6634,7 +6634,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6696,7 +6696,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6710,7 +6710,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6719,12 +6719,12 @@
       "id": "ffe:annales:travaux:010:c85a77cc",
       "legacy_id": "FR-ANN-UVT-010",
       "content": {
-        "question": "b) NON  parce que les prix par catégorie ELO peuvent avoir une tranche maximal de 500 points ELO. « Moins de 2000 » signifie donc « entre 1500 et 2000 ».",
-        "expected_answer": ". c) NON parce que Marcel BIPOP est non classé. Les prix par catégories ELO sont réservé aux joueurs ayant déjà un classement. Dans ce tournoi, l'organisateur a prévu un prix spécial pour les non classé pour lequel il est en course. Si la grille des prix ne prévoit pas de prix pour les non-classés, il faut indiquer dans le RI s'ils sont éligibles aux prix de la dernière catégorie ELO ou non. Par défaut, ils ne le sont pas (PAPI ne prend pas en compte les nonclassés pour les prix par catégorie Elo.",
+        "question": "a)",
+        "expected_answer": ". b) NON  parce que les prix par catégorie ELO peuvent avoir une tranche maximal de 500 points ELO. « Moins de 2000 » signifie donc « entre 1500 et 2000 ». c) NON parce que Marcel BIPOP est non classé. Les prix par catégories ELO sont réservé aux joueurs ayant déjà un classement. Dans ce tournoi, l'organisateur a prévu un prix spécial pour les non classé pour lequel il est en course. Si la grille des prix ne prévoit pas de prix pour les non-classés, il faut indiquer dans le RI s'ils sont éligibles",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "b) NON  parce que les prix par catégorie ELO peuvent avoir une tranche maximal de 500 points ELO. « Moins de 2000 » signifie donc « entre 1500 et 2000 ».",
+        "original_question": "a)",
         "choices": {},
         "mcq_answer": "C",
         "correct_answer": "",
@@ -6739,7 +6739,7 @@
           62
         ],
         "article_reference": "Voir dans la partie 3 de l'UV, prix pour les non classés",
-        "answer_explanation": "c) NON parce que Marcel BIPOP est non classé. Les prix par catégories ELO sont réservé aux joueurs ayant déjà un classement. Dans ce tournoi, l'organisateur a prévu un prix spécial pour les non classé pour lequel il est en course. Si la grille des prix ne prévoit pas de prix pour les non-classés, il faut indiquer dans le RI s'ils sont éligibles aux prix de la dernière catégorie ELO ou non. Par défaut, ils ne le sont pas (PAPI ne prend pas en compte les nonclassés pour les prix par catégorie Elo. Attention donc lors de la remise des prix si vous souhaitez intégrer les non-classés dans la dernière catégorie ELO). Voir la partie 1 de l'UV : Un prix est prévu pour les non-classé. Les non-classé ne sont donc pas éligibles aux prix par catégories ELO qui concernent ceux qui ont un classement.",
+        "answer_explanation": "b) NON  parce que les prix par catégorie ELO peuvent avoir une tranche maximal de 500 points ELO. « Moins de 2000 » signifie donc « entre 1500 et 2000 ». c) NON parce que Marcel BIPOP est non classé. Les prix par catégories ELO sont réservé aux joueurs ayant déjà un classement. Dans ce tournoi, l'organisateur a prévu un prix spécial pour les non classé pour lequel il est en course. Si la grille des prix ne prévoit pas de prix pour les non-classés, il faut indiquer dans le RI s'ils sont éligibles aux prix de la dernière catégorie ELO ou non. Par défaut, ils ne le sont pas (PAPI ne prend pas en compte les nonclassés pour les prix par catégorie Elo. Attention donc lors de la remise des prix si vous souhaitez intégrer les non-classés dans la dernière catégorie ELO). Voir la partie 1 de l'UV : Un prix est prévu pour les non-classé. Les non-classé ne sont donc pas éligibles aux prix par catégories ELO qui concernent ceux qui ont un classement.",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -6766,7 +6766,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6780,7 +6780,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6842,7 +6842,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6856,7 +6856,7 @@
         "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6920,7 +6920,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -6934,7 +6934,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -6996,7 +6996,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7010,7 +7010,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7071,7 +7071,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7085,7 +7085,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7094,12 +7094,12 @@
       "id": "ffe:annales:travaux:015:d9a77032",
       "legacy_id": "FR-ANN-UVT-015",
       "content": {
-        "question": "En voyant ça, les deux joueurs reconnaissent qu'ils se sont trompés. Ils confirment la victoire des blancs.",
-        "expected_answer": "La ronde 5 se déroulera avec les appariements déjà publiés puis vous corrigerez le résultat avant les appariements de la ronde 6.. Dans le cas où un résultat erroné a été enregistré, si le signalement intervient après la fin de la ronde suivante, la correction aura lieu après le tournoi et uniquement dans le cadre du calcul du classement Elo du joueur.",
+        "question": "Vous vérifier les feuilles : les deux feuilles sont signées par les 2 joueurs. Une des feuilles n'indique aucun résultat et l'autre feuille indique clairement la victoire des noirs.",
+        "expected_answer": "La ronde 5 se déroulera avec les appariements déjà publiés puis vous corrigerez le résultat avant les appariements de la ronde 6.. En voyant ça, les deux joueurs reconnaissent qu'ils se sont trompés. Ils confirment la victoire des blancs. Dans le cas où un résultat erroné a été enregistré, si le signalement intervient après la fin de la ronde suivante, la correction aura lieu après le tournoi et uniquement dans le cadre du calcul du classement Elo du joueur.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "En voyant ça, les deux joueurs reconnaissent qu'ils se sont trompés. Ils confirment la victoire des blancs.",
+        "original_question": "Vous vérifier les feuilles : les deux feuilles sont signées par les 2 joueurs. Une des feuilles n'indique aucun résultat et l'autre feuille indique clairement la victoire des noirs.",
         "choices": {
           "A": "Comme les 2 feuilles ont été signées, vous maintenez le résultat.",
           "B": "La ronde 5 se déroulera avec les appariements déjà publiés puis vous corrigerez le résultat avant les appariements de la ronde 6.",
@@ -7119,7 +7119,7 @@
           64
         ],
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse – Partie C.04.2 Paragraphe D.8",
-        "answer_explanation": "Dans le cas où un résultat erroné a été enregistré, si le signalement intervient après la fin de la ronde suivante, la correction aura lieu après le tournoi et uniquement dans le cadre du calcul du classement Elo du joueur.",
+        "answer_explanation": "En voyant ça, les deux joueurs reconnaissent qu'ils se sont trompés. Ils confirment la victoire des blancs. Dans le cas où un résultat erroné a été enregistré, si le signalement intervient après la fin de la ronde suivante, la correction aura lieu après le tournoi et uniquement dans le cadre du calcul du classement Elo du joueur.",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -7148,7 +7148,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7162,7 +7162,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7223,7 +7223,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7237,7 +7237,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7301,7 +7301,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7315,7 +7315,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7371,7 +7371,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7385,7 +7385,7 @@
         "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7444,11 +7444,11 @@
         "answer_type": "multiple_choice"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "PENDING",
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7459,10 +7459,10 @@
         "triplet_ready": false,
         "extraction_flags": [],
         "answer_source": "grille_corrige",
-        "quality_score": 1.0
+        "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7519,11 +7519,11 @@
         "answer_type": "multiple_choice"
       },
       "validation": {
-        "status": "VALIDATED",
+        "status": "PENDING",
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7534,10 +7534,10 @@
         "triplet_ready": false,
         "extraction_flags": [],
         "answer_source": "grille_corrige",
-        "quality_score": 1.0
+        "quality_score": 0.8
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7546,12 +7546,12 @@
       "id": "ffe:annales:travaux:021:7ae43ee4",
       "legacy_id": "FR-ANN-UVT-021",
       "content": {
-        "question": "A.S. SHARVAANICA a un gain estimé indiqué de 6,34 points, mais attention, ceci est calculé sur la base d'un",
-        "expected_answer": "Environ 25 points. On regarde les estimations données par PAPI :. coefficient 10. Il s'agit d'une jeune joueuse donc son coefficient est de 40. Son gain sera donc d'environ : 6,34 x 4 = 25,36 points.",
+        "question": "coefficient 10. Il s'agit d'une jeune joueuse donc son coefficient est de 40. Son gain sera donc d'environ : 6,34 x 4 = 25,36 points.",
+        "expected_answer": "Environ 25 points. On regarde les estimations données par PAPI :. A.S. SHARVAANICA a un gain estimé indiqué de 6,34 points, mais attention, ceci est calculé sur la base d'un",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "A.S. SHARVAANICA a un gain estimé indiqué de 6,34 points, mais attention, ceci est calculé sur la base d'un",
+        "original_question": "coefficient 10. Il s'agit d'une jeune joueuse donc son coefficient est de 40. Son gain sera donc d'environ : 6,34 x 4 = 25,36 points.",
         "choices": {
           "A": "Environ 6 points.",
           "B": "Environ 12 points.",
@@ -7571,7 +7571,7 @@
           67
         ],
         "article_reference": "Manipulation de PAPI ou chapitre système de classement FIDE (LA chapitre 6.1)",
-        "answer_explanation": "coefficient 10. Il s'agit d'une jeune joueuse donc son coefficient est de 40. Son gain sera donc d'environ : 6,34 x 4 = 25,36 points.",
+        "answer_explanation": "A.S. SHARVAANICA a un gain estimé indiqué de 6,34 points, mais attention, ceci est calculé sur la base d'un",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -7600,7 +7600,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7614,7 +7614,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7678,7 +7678,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7692,7 +7692,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7701,12 +7701,12 @@
       "id": "ffe:annales:travaux:023:7bea9ab9",
       "legacy_id": "FR-ANN-UVT-023",
       "content": {
-        "question": "20 km x 2 (aller-retour) x 5 jours = 200 km (nous sommes bien dans le cas moins de 110 km aller). 200 km x 0,32 € = 64 €.",
-        "expected_answer": "84 €. -",
+        "question": "d) 64 €",
+        "expected_answer": "84 €. 20 km x 2 (aller-retour) x 5 jours = 200 km (nous sommes bien dans le cas moins de 110 km aller). 200 km x 0,32 € = 64 €. -",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "20 km x 2 (aller-retour) x 5 jours = 200 km (nous sommes bien dans le cas moins de 110 km aller). 200 km x 0,32 € = 64 €.",
+        "original_question": "d) 64 €",
         "choices": {
           "A": "13 €",
           "B": "32 €",
@@ -7726,7 +7726,7 @@
           68
         ],
         "article_reference": "LA. Chapitre 5.5 Indemnisation – Paragraphe 2 : frais de déplacements",
-        "answer_explanation": "-",
+        "answer_explanation": "20 km x 2 (aller-retour) x 5 jours = 200 km (nous sommes bien dans le cas moins de 110 km aller). 200 km x 0,32 € = 64 €. -",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -7755,7 +7755,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7769,7 +7769,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7778,12 +7778,12 @@
       "id": "ffe:annales:travaux:024:d747fe18",
       "legacy_id": "FR-ANN-UVT-024",
       "content": {
-        "question": "2 jours à double ronde donc 100 € maximum pour ces journées. 3 jours à simple rondes donc 85 € maximum pour ces journées. (2 x 100 €) + (3 x 85 €) = 455 €.",
-        "expected_answer": ". Notre tournoi fictif est maintenant terminé. Il reste 6 questions qui ne concernent plus ce tournoi mais des questions générales sur le système Suisse ou les départages. -",
+        "question": "d) 455 €",
+        "expected_answer": ". 2 jours à double ronde donc 100 € maximum pour ces journées. 3 jours à simple rondes donc 85 € maximum pour ces journées. (2 x 100 €) + (3 x 85 €) = 455 €. Notre tournoi fictif est maintenant terminé. Il reste 6 questions qui ne concernent plus ce tournoi mais des questions générales sur le système Suisse ou les départages. -",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "2 jours à double ronde donc 100 € maximum pour ces journées. 3 jours à simple rondes donc 85 € maximum pour ces journées. (2 x 100 €) + (3 x 85 €) = 455 €.",
+        "original_question": "d) 455 €",
         "choices": {
           "A": "250 €",
           "B": "355 €",
@@ -7802,7 +7802,7 @@
           68
         ],
         "article_reference": "LA. Chapitre 5.5 Indemnisation – Paragraphe 4 : Indemnités",
-        "answer_explanation": "Notre tournoi fictif est maintenant terminé. Il reste 6 questions qui ne concernent plus ce tournoi mais des questions générales sur le système Suisse ou les départages. -",
+        "answer_explanation": "2 jours à double ronde donc 100 € maximum pour ces journées. 3 jours à simple rondes donc 85 € maximum pour ces journées. (2 x 100 €) + (3 x 85 €) = 455 €. Notre tournoi fictif est maintenant terminé. Il reste 6 questions qui ne concernent plus ce tournoi mais des questions générales sur le système Suisse ou les départages. -",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -7831,7 +7831,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7845,7 +7845,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7854,12 +7854,12 @@
       "id": "ffe:annales:travaux:025:1c1b1498",
       "legacy_id": "FR-ANN-UVT-025",
       "content": {
-        "question": "→ Ce manque d'information profite aux candidats : les réponses A et F ont été comptées comme justes.",
-        "expected_answer": "Buchholz-Médian.. ֍ : Ensuite, il manquait une information pour choisir entre A ou F : - Si tous les précédents adversaires des 2 joueurs de la table 1 avaient un classement, alors : Si au moins un des adversaires précédents des 2 joueurs de la table 1 était non classé, alors → Ce manque d'information profite aux candidats : les réponses A et F ont été comptées comme justes.",
+        "question": "a) Performance.",
+        "expected_answer": "Buchholz-Médian.. → Ce manque d'information profite aux candidats : les réponses A et F ont été comptées comme justes. ֍ : Ensuite, il manquait une information pour choisir entre A ou F : - Si tous les précédents adversaires des 2 joueurs de la table 1 avaient un classement, alors : Si au moins un des adversaires précédents des 2 joueurs de la table 1 était non classé, alors",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "→ Ce manque d'information profite aux candidats : les réponses A et F ont été comptées comme justes.",
+        "original_question": "a) Performance.",
         "choices": {
           "A": "Buchholz-Médian.",
           "B": "Sonneborn-Berger.",
@@ -7884,7 +7884,7 @@
           69
         ],
         "article_reference": "LA chapitre 4.2 : Départages",
-        "answer_explanation": "֍ : Ensuite, il manquait une information pour choisir entre A ou F : - Si tous les précédents adversaires des 2 joueurs de la table 1 avaient un classement, alors : Si au moins un des adversaires précédents des 2 joueurs de la table 1 était non classé, alors → Ce manque d'information profite aux candidats : les réponses A et F ont été comptées comme justes.",
+        "answer_explanation": "→ Ce manque d'information profite aux candidats : les réponses A et F ont été comptées comme justes. ֍ : Ensuite, il manquait une information pour choisir entre A ou F : - Si tous les précédents adversaires des 2 joueurs de la table 1 avaient un classement, alors : Si au moins un des adversaires précédents des 2 joueurs de la table 1 était non classé, alors",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -7912,7 +7912,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -7926,7 +7926,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -7935,12 +7935,12 @@
       "id": "ffe:annales:travaux:026:698a6370",
       "legacy_id": "FR-ANN-UVT-026",
       "content": {
-        "question": "- Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique.",
-        "expected_answer": ". On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. Le joueur B aura donc les blancs. donc pour le prochaine ronde, le joueur D aura les blancs.",
+        "question": "Les appariements de la ronde 5 font jouer A contre B et C contre D.",
+        "expected_answer": ". - Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique. On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. Le joueur B aura donc les blancs. donc pour le prochaine ronde, le joueur D aura les blancs.",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "- Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique.",
+        "original_question": "Les appariements de la ronde 5 font jouer A contre B et C contre D.",
         "choices": {
           "A": "Les joueurs A et B ont exactement le même historique donc la même préférence couleur (noir faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4). Les 2 joueurs ont le même nombre de points donc le plus fort est celui qui a le plus fort ELO. Le joueur A aura donc sa couleur préférentielle : les noirs. Le joueur B aura donc les blancs."
         },
@@ -7957,7 +7957,7 @@
           69
         ],
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse – Partie C.04.3 Paragraphe E : couleurs",
-        "answer_explanation": "On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. Le joueur B aura donc les blancs. donc pour le prochaine ronde, le joueur D aura les blancs.",
+        "answer_explanation": "- Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique. On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. Le joueur B aura donc les blancs. donc pour le prochaine ronde, le joueur D aura les blancs.",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -7986,7 +7986,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -8000,7 +8000,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -8009,12 +8009,12 @@
       "id": "ffe:annales:travaux:027:4500578f",
       "legacy_id": "FR-ANN-UVT-027",
       "content": {
-        "question": "(* Dans l'historique des couleurs, _ signifie que le joueur a gagné par forfait)",
-        "expected_answer": "Joueur E et joueur G.. Le joueur F a une préférence couleur « blanc faible » (même nombre de fois les blancs et les noirs, on alterne si possible). Dans ce cas, on applique la règle E2 donc le joueur E aura les blancs (préférence couleur plus forte)",
+        "question": "donc pour le prochaine ronde,",
+        "expected_answer": "Joueur E et joueur G.. (* Dans l'historique des couleurs, _ signifie que le joueur a gagné par forfait) Le joueur F a une préférence couleur « blanc faible » (même nombre de fois les blancs et les noirs, on alterne si possible). Dans ce cas, on applique la règle E2 donc le joueur E aura les blancs (préférence couleur plus forte)",
         "is_impossible": false
       },
       "mcq": {
-        "original_question": "(* Dans l'historique des couleurs, _ signifie que le joueur a gagné par forfait)",
+        "original_question": "donc pour le prochaine ronde,",
         "choices": {
           "A": "Joueur E et joueur G.",
           "B": "Joueur E et joueur H.",
@@ -8036,7 +8036,7 @@
           69
         ],
         "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse – Partie C.04.3 Paragraphe E : couleurs",
-        "answer_explanation": "Le joueur F a une préférence couleur « blanc faible » (même nombre de fois les blancs et les noirs, on alterne si possible). Dans ce cas, on applique la règle E2 donc le joueur E aura les blancs (préférence couleur plus forte)",
+        "answer_explanation": "(* Dans l'historique des couleurs, _ signifie que le joueur a gagné par forfait) Le joueur F a une préférence couleur « blanc faible » (même nombre de fois les blancs et les noirs, on alterne si possible). Dans ce cas, on applique la règle E2 donc le joueur E aura les blancs (préférence couleur plus forte)",
         "annales_source": {
           "session": "jun2025",
           "uv": "t",
@@ -8065,7 +8065,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -8079,7 +8079,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -8143,7 +8143,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -8157,7 +8157,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -8217,7 +8217,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -8231,7 +8231,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }
@@ -8289,7 +8289,7 @@
         "method": "annales_official",
         "reviewer": "ffe_dna",
         "answer_current": true,
-        "verified_date": "2026-02-04",
+        "verified_date": "2026-02-05",
         "pages_verified": true,
         "batch": "jun2025_extraction"
       },
@@ -8303,7 +8303,7 @@
         "quality_score": 1.0
       },
       "audit": {
-        "history": "[JUN2025] Extracted from Annales 2026-02-04",
+        "history": "[JUN2025] Extracted from Annales 2026-02-05",
         "qat_revalidation": null,
         "requires_inference": true
       }

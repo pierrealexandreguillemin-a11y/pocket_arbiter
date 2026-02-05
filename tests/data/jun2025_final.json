@@ -8,7 +8,7 @@
     "pymupdf_color"
   ],
   "total_questions": 110,
-  "questions_with_explanations": 103,
+  "questions_with_explanations": 98,
   "questions": [
     {
       "uv": "UVR",
@@ -18,7 +18,7 @@
       "success_rate": 0.82,
       "grille_page": 11,
       "corrige_page": 12,
-      "question_text": "Question 1   :",
+      "question_text": "On vous interroge concernant l'offre de nulle, quelle proposition est vraie ?",
       "choices": [
         "Un joueur qui veut proposer la nulle doit le faire obligatoirement avant de toucher une pièce.",
         "Un joueur n'a pas le droit de proposer la nulle plus de trois fois par partie.",
@@ -34,10 +34,8 @@
         "A"
       ],
       "explanations_color": [],
-      "explanations": [
-        "On vous interroge concernant l'offre de nulle, quelle proposition est vraie ?"
-      ],
-      "has_explanation": true
+      "explanations": [],
+      "has_explanation": false
     },
     {
       "uv": "UVR",
@@ -47,7 +45,7 @@
       "success_rate": 0.4,
       "grille_page": 11,
       "corrige_page": 12,
-      "question_text": "Question 2   :",
+      "question_text": "Dans une partie en 12min+3s/coup, un parent vous sollicite. Sa fille a les noirs et a proposé plusieurs fois la nulle, son adversaire refuse. Ils jouent depuis un moment sans réelle avancée. Il affirme que la position actuelle s'est produite plusieurs fois.",
       "choices": [
         "Vous commencez à compter les coups effectués pour appliquer l'article 9.6.2",
         "Vous sollicitez une reconstitution de la partie pour voir s'il est possible d'appliquer l'article 9.2",
@@ -74,7 +72,6 @@
         "situation."
       ],
       "explanations": [
-        "Dans une partie en 12min+3s/coup, un parent vous sollicite. Sa fille a les noirs et a proposé plusieurs fois la nulle, son adversaire refuse. Ils jouent depuis un moment sans réelle avancée. Il affirme que la position actuelle s'est produite plusieurs fois.",
         "L'article 9.2 ne peut pas s'appliquer si ce n'est pas la joueuse qui réclame.",
         "L'article 6.9 ne peut pas s'appliquer car nous ne sommes pas dans le cas d'un joueur qui n'a plus de temps.",
         "L'article 5.2.2 ne peut pas s'appliquer, un échec et mat est possible donc ce n'est pas une position morte. Même si les blancs ne peuvent plus gagner et qu'il est « surprenant » qu'ils refusent la nulle, l'arbitre n'a pas de possibilité d'intervention et n'a que le seul choix de compter les coups pour déclarer la nulle une fois que 75 auront été joués par les deux joueurs. Le taux de réussite à cette question est très faible, la présence des numéros d'article dans la question permettait de vérifier qu'ils ne correspondaient pas à la situation.",
@@ -99,7 +96,7 @@
       "success_rate": 0.81,
       "grille_page": 11,
       "corrige_page": 12,
-      "question_text": "Question 3   :",
+      "question_text": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 1h00+30s/coup, les deux adversaires ont joué plusieurs coups (13 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
       "choices": [
         "Les coups joués sont considérés comme valides, vous obligez juste les joueurs à échanger de place pour continuer la partie dans cette position avec les bonnes couleurs.",
         "La partie continue sans modification, vous signalez juste l'information à l'arbitre en chef.",
@@ -139,7 +136,7 @@
       "success_rate": 0.86,
       "grille_page": 11,
       "corrige_page": 13,
-      "question_text": "Question 4   :",
+      "question_text": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 20min+10s/coup, les deux adversaires ont joué plusieurs coups (8 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
       "choices": [
         "En partie rapide, la règle est plus sévère et vous déclarez immédiatement que les deux joueurs ont perdu.",
         "Vous arrêtez immédiatement la partie et déclarez le match nul.",
@@ -168,7 +165,7 @@
       "success_rate": 0.63,
       "grille_page": 11,
       "corrige_page": 13,
-      "question_text": "Question 5   :",
+      "question_text": "Vous arbitrez la partie ci-contre, vous voyez le joueur qui a les noirs prendre le pion d4 avec son cavalier en c6.   Alors qu'il n'a pas encore d'appuyé sur sa pendule, il se rend compte qu'il laisse son roi en échec et veut reprendre son coup. Quelle est la seule suite correcte ?",
       "choices": [
         "Vous sanctionnez les noirs car ils ont achevé un coup illégal.",
         "Les noirs ont l'obligation de jouer l'autre cavalier.",
@@ -190,7 +187,6 @@
         "l’obligation de joueur exd4"
       ],
       "explanations": [
-        "Vous arbitrez la partie ci-contre, vous voyez le joueur qui a les noirs prendre le pion d4 avec son cavalier en c6.   Alors qu'il n'a pas encore d'appuyé sur sa pendule, il se rend compte qu'il laisse son roi en échec et veut reprendre son coup. Quelle est la seule suite correcte ?",
         "N'ayant pas appuyé sur leur pendule, le coup n'est pas achevé et le joueur est autorisé à se corriger. Le cavalier touché ne dispose d'aucun coup légal donc il n'est pas obligatoire de le déplacer. Par contre le pion d4 qui a été touché peut être pris (uniquement avec le pion e5) par conséquent les noirs ont l'obligation de joueur exd4",
         "N’ayant pas appuyé sur leur pendule, le coup n’est pas achevé et le joueur est autorisé à se corriger. Le",
         "cavalier touché ne dispose d’aucun coup légal donc il n’est pas obligatoire de le déplacer. Par contre le",
@@ -207,7 +203,7 @@
       "success_rate": 0.74,
       "grille_page": 11,
       "corrige_page": 13,
-      "question_text": "Question 6   :",
+      "question_text": "Un joueur est en train de noter sa partie, il lui reste moins de 5 minutes à la pendule. Dans quel cas a-t-il l'obligation de noter jusqu'au bout ?",
       "choices": [
         "Cadence 50 minutes +10 secondes par coup",
         "Cadence 15 minutes + 5 secondes par coup.",
@@ -248,7 +244,7 @@
       "success_rate": 0.87,
       "grille_page": 11,
       "corrige_page": 13,
-      "question_text": "Question 7   :",
+      "question_text": "Lors d'un match par équipe, le capitaine de l'équipe A vient protester. Un des joueurs de l'équipe B a annoncé « échecs et mat ». Le coéquipier du capitaine l'a cru et a arrêté de lui-même la pendule en reconnaissant sa défaite devant vous. Le capitaine se plaint du fait qu'il n'y avait pas du tout échec et mat et que son coéquipier a été induit en erreur.",
       "choices": [
         "Vous signalez au capitaine qu'il n'a aucun droit de réclamation.",
         "Vous déclarez la partie perdue pour l'équipe B car il y a eu une fausse annonce d'échec et mat.",
@@ -275,7 +271,6 @@
         "vérifier le mat par lui-même."
       ],
       "explanations": [
-        "Lors d'un match par équipe, le capitaine de l'équipe A vient protester. Un des joueurs de l'équipe B a annoncé « échecs et mat ». Le coéquipier du capitaine l'a cru et a arrêté de lui-même la pendule en reconnaissant sa défaite devant vous. Le capitaine se plaint du fait qu'il n'y avait pas du tout échec et mat et que son coéquipier a été induit en erreur.",
         "Le fait que l'adversaire reconnaisse la défaite est assimilé à un abandon. Il était de sa responsabilité de vérifier le mat par lui-même.",
         "Le fait que l’adversaire reconnaisse la défaite est assimilé à un abandon. Il était de sa responsabilité de",
         "vérifier le mat par lui-même."
@@ -290,7 +285,7 @@
       "success_rate": 0.74,
       "grille_page": 11,
       "corrige_page": 14,
-      "question_text": "Question 8   :",
+      "question_text": "Dans le cadre d'un tournoi, un enfant malvoyant utilise un échiquier secondaire avec des pièces à tiges s'encastrant dans des ouvertures de fixation. Un assistant réalise les coups sur l'échiquier principal. Son adversaire demande comment s'applique la règle du « pièce touchée, pièce à jouer »",
       "choices": [
         "Cette règle ne s'applique par pour les malvoyants.",
         "On applique cette règle dès que l'enfant retire la pièce de l'ouverture de fixation.",
@@ -306,10 +301,8 @@
         "A"
       ],
       "explanations_color": [],
-      "explanations": [
-        "Dans le cadre d'un tournoi, un enfant malvoyant utilise un échiquier secondaire avec des pièces à tiges s'encastrant dans des ouvertures de fixation. Un assistant réalise les coups sur l'échiquier principal. Son adversaire demande comment s'applique la règle du « pièce touchée, pièce à jouer »"
-      ],
-      "has_explanation": true
+      "explanations": [],
+      "has_explanation": false
     },
     {
       "uv": "UVR",
@@ -319,7 +312,7 @@
       "success_rate": 0.77,
       "grille_page": 11,
       "corrige_page": 14,
-      "question_text": "Question 9   :",
+      "question_text": "Lors d'une partie, un joueur a touché un cavalier avec l'intention de le déplacer. Il change finalement d'avis. Vous lui avez rappelé la règle après réclamation de son adversaire. Il refuse catégoriquement de déplacer son cavalier malgré vos avertissements et joue une autre pièce. Quelle est votre décision ?",
       "choices": [
         "Vous sanctionnez par la perte de la partie.",
         "Vous l'autorisez à jouer la pièce de son choix et vous sanctionnez par l'ajout de deux minutes au temps de son adversaire.",
@@ -337,7 +330,6 @@
         "perte de la partie."
       ],
       "explanations": [
-        "Lors d'une partie, un joueur a touché un cavalier avec l'intention de le déplacer. Il change finalement d'avis. Vous lui avez rappelé la règle après réclamation de son adversaire. Il refuse catégoriquement de déplacer son cavalier malgré vos avertissements et joue une autre pièce. Quelle est votre décision ?",
         "Le joueur refuse de manière obstinée de se conformer aux règles du jeu, l'arbitre doit sanctionner par la perte de la partie.",
         "Le joueur refuse de manière obstinée de se conformer aux règles du jeu, l’arbitre doit sanctionner par la",
         "perte de la partie."
@@ -352,7 +344,7 @@
       "success_rate": 0.8,
       "grille_page": 11,
       "corrige_page": 14,
-      "question_text": "Question 10   :",
+      "question_text": "Une partie vient de se terminer. Les blancs ont fait échec et mat. Juste avant de serrer la main de leur adversaire, les noirs voient que le drapeau des blancs était tombé et exigent le gain au temps car un spectateur confirme que cela s'était produit avant l'échec et mat. Vous n'étiez pas devant la partie.",
       "choices": [
         "Vous déclarez la victoire pour les noirs car ils ont gagné au temps avant l'échec et mat.",
         "Le signalement de la chute du drapeau aurait dû être effectué par les noirs ou par l'arbitre avant que l'échec et mat ne soit posé, c'est trop tard pour réclamer.",
@@ -372,7 +364,6 @@
         "le signalement."
       ],
       "explanations": [
-        "Une partie vient de se terminer. Les blancs ont fait échec et mat. Juste avant de serrer la main de leur adversaire, les noirs voient que le drapeau des blancs était tombé et exigent le gain au temps car un spectateur confirme que cela s'était produit avant l'échec et mat. Vous n'étiez pas devant la partie.",
         "Le drapeau est considéré comme tombé que lorsque le fait est constaté. L’échec et mat s’est produit avant",
         "le signalement."
       ],
@@ -386,7 +377,7 @@
       "success_rate": 0.82,
       "grille_page": 11,
       "corrige_page": 14,
-      "question_text": "Question 11   :",
+      "question_text": "Lors d'un tournoi, vous observez que la montre d'un joueur s'allume. Il s'agit d'une montre connectée qui a juste affiché le rappel d'une réunion de famille. Le joueur vous montre qu'elle n'émet aucun bruit et qu'elle est déconnectée de tout autre appareil. Son adversaire veut continuer la partie. Quelle est votre décision ?",
       "choices": [
         "Le joueur dont la montre était allumée a perdu la partie.",
         "La partie continue, vous considérez que ce matériel est autorisé.",
@@ -412,7 +403,6 @@
         "communication pour lequel la sanction est immédiate."
       ],
       "explanations": [
-        "Lors d'un tournoi, vous observez que la montre d'un joueur s'allume. Il s'agit d'une montre connectée qui a juste affiché le rappel d'une réunion de famille. Le joueur vous montre qu'elle n'émet aucun bruit et qu'elle est déconnectée de tout autre appareil. Son adversaire veut continuer la partie. Quelle est votre décision ?",
         "Les   appareils   électroniques   sont   interdits,   une   montre   connectée   est   de   plus   un   appareil   de communication pour lequel la sanction est immédiate.",
         "Les  appareils  électroniques  sont  interdits,  une  montre  connectée  est  de  plus  un  appareil  de",
         "communication pour lequel la sanction est immédiate."
@@ -427,7 +417,7 @@
       "success_rate": 0.78,
       "grille_page": 11,
       "corrige_page": 15,
-      "question_text": "Question 12   : Dans la position suivante, le trait est aux noirs, quelle proposition est vraie ?",
+      "question_text": "Règles du jeu - Article 3 sur le déplacement des pièces et 3.8.2.2 sur l'interdiction temporaire du roque.",
       "choices": [
         "Les noirs peuvent roquer.",
         "Le roi noir ne peut pas bouger.",
@@ -467,7 +457,7 @@
       "success_rate": 0.62,
       "grille_page": 11,
       "corrige_page": 15,
-      "question_text": "Question 13   :",
+      "question_text": "Dans cette position, quel est le seul mouvement qui pourrait amener à un coup légal ?",
       "choices": [
         "Pour les noirs : Le petit-roque",
         "Pour les blancs : Le grand-roque",
@@ -493,7 +483,6 @@
         "déplacement du pion b4 sur la case c3 est associable à une prise en passant."
       ],
       "explanations": [
-        "Dans cette position, quel est le seul mouvement qui pourrait amener à un coup légal ?",
         "Les   noirs   ne   peuvent   pas   roquer   car   le   roi   n'est   pas   sur   sa   case initiale( Beaucoup trop de candidats n'ont pas fait attention à cette information) . Les blancs ne peuvent pas faire le grand-roque car la case d1 est attaquée. Le déplacement du pion b4 sur la case c3 est associable à une prise en passant.",
         "Les  noirs  ne  peuvent  pas  roquer  car  le  roi  n’est  pas  sur  sa  case",
         "initiale(",
@@ -512,7 +501,7 @@
       "success_rate": 0.37,
       "grille_page": 11,
       "corrige_page": 15,
-      "question_text": "Question 14   :",
+      "question_text": "Vous arbitrez un tournoi en cadence 5 min +3s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. La pendule semble indiquer que le trait est aux blancs. Quelle proposition est vraie ?",
       "choices": [
         "Il y a une irrégularité apparente, vous interviendrez uniquement après que les blancs aient joué même si les blancs ne réclament pas.",
         "Il y a une irrégularité apparente, si les blancs jouent sans réclamer alors vous n'interviendrez pas pour le moment."
@@ -562,7 +551,7 @@
       "success_rate": 0.84,
       "grille_page": 11,
       "corrige_page": 15,
-      "question_text": "Question 15   :",
+      "question_text": "Vous arbitrez un tournoi en cadence 60 min +30s/coup. Vous n'avez pas vu le dernier coup et vous observez la position suivante. Le trait est aux noirs et ils n'ont pas encore joué. Quelle proposition est vraie ?",
       "choices": [
         "La position est illégale, vous intervenez immédiatement.",
         "La position est illégale, vous interviendrez uniquement après que noirs aient joué même si personne ne réclame.",
@@ -603,7 +592,7 @@
       "success_rate": 0.86,
       "grille_page": 11,
       "corrige_page": 16,
-      "question_text": "Question 16   :",
+      "question_text": "A la cadence 5 min +3s/coup, les noirs jouent un coup illégal et appuient sur leur pendule. C'est leur 1 er coup illégal. Quelle est la sanction adaptée ?",
       "choices": [
         "Vous donnez un avertissement oral.",
         "Vous ajoutez une minute à la pendule de son adversaire.",
@@ -624,7 +613,6 @@
         "e"
       ],
       "explanations": [
-        "A la cadence 5 min +3s/coup, les noirs jouent un coup illégal et appuient sur leur pendule. C'est leur 1 er coup illégal. Quelle est la sanction adaptée ?",
         "Les parties Blitz et rapides s'arbitrent de la même manière. La sanction pour un coup illégal achevé n'est que d'une minute.",
         "Les parties Blitz et rapides s’arbitrent de la même manière. La sanction pour un coup illégal achevé n’est",
         "que d’une minute.",
@@ -640,7 +628,7 @@
       "success_rate": 0.7,
       "grille_page": 11,
       "corrige_page": 16,
-      "question_text": "Question 17   :",
+      "question_text": "A la cadence 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour avoir achevé un coup illégal. Devant vous, ils jouent un coup qui laisse leur roi en échec et appuient sur leur pendule. Avant même que vous n'interveniez les blancs jouent à leur tour et appuient sur la pendule. Quelle est votre intervention ?",
       "choices": [
         "Vous sanctionnez le coup illégal en ajoutant 2 minutes à l'adversaire.",
         "Les noirs ont perdu la partie.",
@@ -664,7 +652,6 @@
         "possibilité de faire mat car ils possèdent encore une tour. Les noirs ont donc perdu la partie."
       ],
       "explanations": [
-        "A la cadence 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour avoir achevé un coup illégal. Devant vous, ils jouent un coup qui laisse leur roi en échec et appuient sur leur pendule. Avant même que vous n'interveniez les blancs jouent à leur tour et appuient sur la pendule. Quelle est votre intervention ?",
         "Le 2 e   coup   illégal   achevé   met   fin   à   la   partie.   Nous   sommes   en   cadence   standard   donc,   même   si l'adversaire a déjà joué, l'arbitre peut sanctionner le coup illégal précédent. Les blancs ont forcément la possibilité de faire mat car ils possèdent encore une tour. Les noirs ont donc perdu la partie.",
         "Le 2",
         "e",
@@ -682,7 +669,7 @@
       "success_rate": 0.7,
       "grille_page": 11,
       "corrige_page": 16,
-      "question_text": "Question 18   :",
+      "question_text": "Une joueuse demande des informations concernant la réclamation de nulle selon « la règle des 50 coups ». Quelle proposition est vraie ?",
       "choices": [
         "Elle a le droit de faire cette réclamation juste après avoir joué son coup.",
         "L'arbitre peut intervenir de lui-même sans demande des joueurs pour déclarer le match nul s'il a observé les 50 coups.",
@@ -719,7 +706,7 @@
       "success_rate": 0.86,
       "grille_page": 11,
       "corrige_page": 16,
-      "question_text": "Question 19   :",
+      "question_text": "Voici des exemples de rappels à l'ordre à des joueurs. Lequel s'appuie sur l'article 4.2.1 des règles du jeu ?",
       "choices": [
         "Un joueur n'a pas le droit de cacher sa feuille de partie à l'arbitre.",
         "Une joueuse a fait maladroitement tomber une pièce, elle doit la remettre en place avant d'appuyer sur sa pendule.",
@@ -759,7 +746,7 @@
       "success_rate": 0.73,
       "grille_page": 11,
       "corrige_page": 17,
-      "question_text": "Question 20   :",
+      "question_text": "Lors d'une partie, un joueur vous appelle pour réclamer la nulle suite à une répétition de position. Son adversaire indique son désaccord, quel argument peut-il donner pour que la nulle soit refusée ?",
       "choices": [
         "Il pense pouvoir gagner et ne souhaite pas faire match nul.",
         "Ce n'est pas la 3 e répétition mais la 4 e .",
@@ -776,7 +763,6 @@
         "Si une prise en passant était possible alors on ne peut pas considérer que les positions sont identiques."
       ],
       "explanations": [
-        "Lors d'une partie, un joueur vous appelle pour réclamer la nulle suite à une répétition de position. Son adversaire indique son désaccord, quel argument peut-il donner pour que la nulle soit refusée ?",
         "Si une prise en passant était possible alors on ne peut pas considérer que les positions sont identiques."
       ],
       "has_explanation": true
@@ -789,7 +775,7 @@
       "success_rate": 0.8,
       "grille_page": 11,
       "corrige_page": 17,
-      "question_text": "Question 21   :",
+      "question_text": "Vous arbitrez un tournoi en cadence 7 min + 3 secondes par coup. De quel type de cadence s'agit-t-il ?",
       "choices": [
         "Cadence Standard",
         "Cadence Rapide",
@@ -822,7 +808,7 @@
       "success_rate": 0.73,
       "grille_page": 11,
       "corrige_page": 17,
-      "question_text": "Question 22   :",
+      "question_text": "Vous observez la finale suivante. Vous constatez que les blancs au trait viennent d'épuiser tout leur temps. Ils ont la main sur leur tour et regarde fixement la dernière ligne de l'échiquier. Quelle est votre intervention ?",
       "choices": [
         "Vous accordez immédiatement la victoire aux noirs.",
         "Vous déclarez la partie nulle.",
@@ -858,7 +844,7 @@
       "success_rate": 0.33,
       "grille_page": 11,
       "corrige_page": 17,
-      "question_text": "Question 23   :",
+      "question_text": "Lors d'un championnat jeune à la cadence 50min+10s/coup, un joueur avait terminé sa partie par un match nul. Il revient accompagné de son entraîneur après qu'ils aient analysé la partie. Il apparaît que son adversaire a commis un 2 ème  coup illégal qui n'a pas été vu et ils réclament le changement du résultat.",
       "choices": [
         "Vous effectuez une reconstitution de la partie, si possible avec l'adversaire, si le 2 ème coup illégal est constaté vous modifierez le résultat.",
         "Vous répondez que même l'arbitre n'a pas le droit de modifier le résultat une fois que les feuilles de parties sont signées.",
@@ -889,7 +875,6 @@
         "avéré...)"
       ],
       "explanations": [
-        "Lors d'un championnat jeune à la cadence 50min+10s/coup, un joueur avait terminé sa partie par un match nul. Il revient accompagné de son entraîneur après qu'ils aient analysé la partie. Il apparaît que son adversaire a commis un 2 ème  coup illégal qui n'a pas été vu et ils réclament le changement du résultat.",
         "L’article 7.5.5 définissant les sanctions pour les coups illégaux renvoie à l’article 7.5.1. Celui-ci indique",
         "« au cours d’une partie » pour la constatation des coups illégaux.  On ne revient donc pas sur le résultat",
         "d’une partie pour un coup illégal constaté bien plus tard.",
@@ -908,7 +893,7 @@
       "success_rate": 0.73,
       "grille_page": 11,
       "corrige_page": 18,
-      "question_text": "Question 24   :",
+      "question_text": "Lors d'un tournoi en cadence 2h00, on vous appelle pour vous signaler une partie où les fous et cavaliers étaient mal placés lors de la position initiale. Quelle proposition est vraie ?",
       "choices": [
         "Vous n'intervenez pas si plus de 10 coups ont été achevé par chacun des deux joueurs.",
         "Vous n'intervenez pas si la partie est commencée depuis plus de 30 minutes",
@@ -922,10 +907,8 @@
         "Règles du jeu – article 7.2.1"
       ],
       "explanations_color": [],
-      "explanations": [
-        "Lors d'un tournoi en cadence 2h00, on vous appelle pour vous signaler une partie où les fous et cavaliers étaient mal placés lors de la position initiale. Quelle proposition est vraie ?"
-      ],
-      "has_explanation": true
+      "explanations": [],
+      "has_explanation": false
     },
     {
       "uv": "UVR",
@@ -935,7 +918,7 @@
       "success_rate": 0.81,
       "grille_page": 11,
       "corrige_page": 18,
-      "question_text": "Question 25   :",
+      "question_text": "Lors d'un tournoi en cadence 20 min, on vous appelle pour vous signaler une partie où les fous et cavaliers étaient mal placés lors de la position initiale. Quelle proposition est vraie ?",
       "choices": [
         "Vous n'intervenez pas si plus de 10 coups ont été achevés par chacun des deux joueurs.",
         "Vous n'intervenez pas si la partie est commencée depuis plus de 30 minutes.",
@@ -954,7 +937,6 @@
         "En cadence rapide, l’irrégularité initiale doit être signalé avant que 10 coups soient achevés."
       ],
       "explanations": [
-        "Lors d'un tournoi en cadence 20 min, on vous appelle pour vous signaler une partie où les fous et cavaliers étaient mal placés lors de la position initiale. Quelle proposition est vraie ?",
         "En cadence rapide, l'irrégularité initiale doit être signalé avant que 10 coups soient achevés.",
         "En cadence rapide, l’irrégularité initiale doit être signalé avant que 10 coups soient achevés."
       ],
@@ -968,7 +950,7 @@
       "success_rate": 0.68,
       "grille_page": 11,
       "corrige_page": 18,
-      "question_text": "Question 26   :",
+      "question_text": "Lors d'une partie en cadence standard que vous observez, une joueuse - qui n'a encore commis aucune irrégularité - pousse un pion sur la dernière ligne, le retire, appuie sur la pendule puis pose un cavalier sur la case de promotion. Quelle proposition est correcte ?",
       "choices": [
         "Vous n'interviendrez que si l'adversaire le réclame.",
         "Vous intervenez. Elle est sanctionnée uniquement par l'ajout de 2 minutes ajoutées à la pendule de l'adversaire.",
@@ -987,7 +969,6 @@
         "sur la pendule.  De plus elle n’a plus le choix de la pièce de promotion."
       ],
       "explanations": [
-        "Lors d'une partie en cadence standard que vous observez, une joueuse - qui n'a encore commis aucune irrégularité - pousse un pion sur la dernière ligne, le retire, appuie sur la pendule puis pose un cavalier sur la case de promotion. Quelle proposition est correcte ?",
         "La joueuse est sanctionnée pour un coup illégal achevé car elle devait remplacer le pion avant d'appuyer sur la pendule.  De plus elle n'a plus le choix de la pièce de promotion.",
         "La joueuse est sanctionnée pour un coup illégal achevé car elle devait remplacer le pion avant d’appuyer",
         "sur la pendule.  De plus elle n’a plus le choix de la pièce de promotion."
@@ -1002,7 +983,7 @@
       "success_rate": 0.68,
       "grille_page": 11,
       "corrige_page": 18,
-      "question_text": "Question 27   :",
+      "question_text": "Quelle proposition n'est pas considérée comme un coup illégal.",
       "choices": [
         "Prendre une pièce adversaire de la main gauche et déplacer la sienne de la main droite.",
         "Déplacer une pièce de la main gauche et appuyer sur la pendule de la main droite.",
@@ -1023,7 +1004,6 @@
         "règles du jeu sur laquelle c’est l’arbitre qui choisit la sanction à prendre."
       ],
       "explanations": [
-        "Quelle proposition n'est pas considérée comme un coup illégal.",
         "Les règles du jeu définissent les trois autres propositions comme des coups illégaux.   L'appui sur la pendule par l'autre main que celle qui a joué le coup n'est pas un coup illégal mais une infraction aux règles du jeu sur laquelle c'est l'arbitre qui choisit la sanction à prendre.",
         "Les règles du jeu définissent les trois autres propositions comme des coups illégaux.  L’appui sur la",
         "pendule par l’autre main que celle qui a joué le coup n’est pas un coup illégal mais une infraction aux",
@@ -1039,7 +1019,7 @@
       "success_rate": 0.67,
       "grille_page": 11,
       "corrige_page": 18,
-      "question_text": "Question 28   :",
+      "question_text": "Vous observez une partie avec une finale Roi+Dame pour les blancs contre Roi pour les noirs.",
       "choices": [
         "Victoire pour les blancs",
         "Victoire pour les noirs",
@@ -1078,7 +1058,7 @@
       "success_rate": 0.77,
       "grille_page": 11,
       "corrige_page": 19,
-      "question_text": "Question 29   :",
+      "question_text": "Dans le règlement d'un tournoi, le délai de forfait est de 30 minutes.",
       "choices": [
         "Vous déclarez que la partie est perdue par forfait par les noirs.",
         "Vous considérez que c'est la pendule qui fait foi et que la partie peut se jouer.",
@@ -1098,7 +1078,6 @@
         "joueur. La pendule peut être un indice mais l’arbitre n’a pas l’obligation d’en tenir compte (6.12.2)."
       ],
       "explanations": [
-        "Dans le règlement d'un tournoi, le délai de forfait est de 30 minutes.",
         "Lors d'une ronde prévue à 14 h 00 et qui démarre à l'heure, deux joueurs devant s'affronter sont absents. A cause d'un problème technique vous n'y avez pas fait attention.",
         "Le délai de forfait est un délai qui est calculé entre le moment du lancement de la ronde et l'arrivée du joueur. La pendule peut être un indice mais l'arbitre n'a pas l'obligation d'en tenir compte (6.12.2).",
         "Le délai de forfait est un délai qui est calculé entre le moment du lancement de la ronde et l’arrivée du",
@@ -1114,7 +1093,7 @@
       "success_rate": 0.59,
       "grille_page": 11,
       "corrige_page": 19,
-      "question_text": "Question 30   :",
+      "question_text": "Une partie se joue à la cadence 1h+30s/coup, les blancs viennent d'achever leur 1 er  coup illégal. Voici l'affichage de la pendule avant votre intervention.",
       "choices": [
         "14 min 22 s pour les blancs 46 min et 09 s pour les noirs",
         "12 min 22 s pour les blancs 47 min et 09 s pour les noirs",
@@ -1141,7 +1120,6 @@
         "précédent alors il faut lui enlever ces 30 secondes auxquelles il n’avait pas le droit."
       ],
       "explanations": [
-        "Une partie se joue à la cadence 1h+30s/coup, les blancs viennent d'achever leur 1 er  coup illégal. Voici l'affichage de la pendule avant votre intervention.",
         "On doit ajouter 2 min à l'adversaire en tant que sanction pour le coup illégal. On prend aussi en compte que le joueur fautif a gagné 30 secondes en appuyant sur la pendule, comme on revient au coup précédent alors il faut lui enlever ces 30 secondes auxquelles il n'avait pas le droit.",
         "On doit ajouter 2 min à l’adversaire en tant que sanction pour le coup illégal. On prend aussi en compte",
         "que le joueur fautif a gagné 30 secondes en appuyant sur la pendule, comme on revient au coup",
@@ -1157,7 +1135,7 @@
       "success_rate": 0.76,
       "grille_page": 26,
       "corrige_page": 27,
-      "question_text": "Question 1   :",
+      "question_text": "Pour obtenir le titre d'Arbitre Fédéral Club, certaines conditions administratives sont nécessaires.",
       "choices": [
         "Être titulaire d'une licence A valable pour la saison en cours.",
         "Avoir pour la saison sportive en cours un classement Elo (lent ou rapide, national ou F.I.D.E.).",
@@ -1180,7 +1158,6 @@
         "Avoir possédé, à un moment donné, un classement Elo (lent ou rapide, national ou F.I.D.E.)."
       ],
       "explanations": [
-        "Pour obtenir le titre d'Arbitre Fédéral Club, certaines conditions administratives sont nécessaires.",
         "Avoir possédé, à un moment donné, un classement Elo (lent ou rapide, national ou F.I.D.E.)."
       ],
       "has_explanation": true
@@ -1193,7 +1170,7 @@
       "success_rate": 0.72,
       "grille_page": 26,
       "corrige_page": 27,
-      "question_text": "Question 2   :",
+      "question_text": "Un arbitre fédéral n'a pas suivi de formation continue durant une période de six ans à compter de son dernier stage.",
       "choices": [
         "Il doit suivre une formation continue.",
         "Il doit obligatoirement suivre un stage d'arbitre fédéral club (SC) dans sa totalité.",
@@ -1234,7 +1211,7 @@
       "success_rate": 0.62,
       "grille_page": 26,
       "corrige_page": 27,
-      "question_text": "Question 3   :",
+      "question_text": "Une fois toutes les conditions remplies pour l'obtention d'un titre d'arbitre fédéral, à quelle personne de la DNA faut-il faire sa demande de titre ?",
       "choices": [
         "Le Directeur ou la Directrice Nationale de l'Arbitrage.",
         "Le Directeur ou la Directrice des Titres.",
@@ -1265,7 +1242,7 @@
       "success_rate": 0.76,
       "grille_page": 26,
       "corrige_page": 27,
-      "question_text": "Question 4   :",
+      "question_text": "Une fois le titre d'Arbitre Fédéral Club obtenu, quelle mission peut-on vous confier ?",
       "choices": [
         "Délivrer des Attestations de Stage Pratique (ASP).",
         "Arbitrer un quart de finale de Coupe de France.",
@@ -1308,7 +1285,7 @@
       "success_rate": 0.79,
       "grille_page": 26,
       "corrige_page": 28,
-      "question_text": "Question 5   :",
+      "question_text": "b) Une prise de licence entre le 1er et 30 septembre exonère d'effectuer une demande de transfert.",
       "choices": [
         "La période de transfert libre est du 1er août au 30 septembre.",
         "La notification de décision de transfert s'effectue en utilisant l'espace 'Gérer son club'.",
@@ -1328,7 +1305,6 @@
         "transfert qui exonère de la faire."
       ],
       "explanations": [
-        "b) Une prise de licence entre le 1er et 30 septembre exonère d'effectuer une demande de transfert.",
         "Une prise de licence dans un autre club entre le 1er et le 30 septembre équivaut à une demande de",
         "transfert qui exonère de la faire."
       ],
@@ -1342,7 +1318,7 @@
       "success_rate": 0.89,
       "grille_page": 26,
       "corrige_page": 28,
-      "question_text": "Question 6   :",
+      "question_text": "Pour la saison sportive 2024-2025, une jeune joueuse prend sa licence, elle est née le 26 janvier 2011.",
       "choices": [],
       "correct_answer_text": [
         "c) Elle est U14 F.",
@@ -1358,7 +1334,6 @@
         "(24-11=13). Elle est donc en catégorie U14F."
       ],
       "explanations": [
-        "Pour la saison sportive 2024-2025, une jeune joueuse prend sa licence, elle est née le 26 janvier 2011.",
         "Les joueurs et joueuses sont classés dans des catégories en fonction de leur âge avant le 1er janvier de la saison. Cette joueuse étant née le 26 janvier 2011, il faut donc connaître son âge en 2024 à savoir 13 ans (24-11=13). Elle est donc en catégorie U14F.",
         "Les joueurs et joueuses sont classés dans des catégories en fonction de leur âge avant le 1er janvier de la",
         "saison. Cette joueuse étant née le 26 janvier 2011, il faut donc connaître son âge en 2024 à savoir 13 ans",
@@ -1374,7 +1349,7 @@
       "success_rate": 0.79,
       "grille_page": 26,
       "corrige_page": 28,
-      "question_text": "Question 7 :",
+      "question_text": "Vous êtes arbitre-adjoint lors de la phase départementale de la Coupe Jean-Claude Loubatière.",
       "choices": [
         "Il est décidé par l'arbitre.",
         "Il est de 0 minute.",
@@ -1413,7 +1388,7 @@
       "success_rate": 0.26,
       "grille_page": 26,
       "corrige_page": 28,
-      "question_text": "Question 8   :",
+      "question_text": "Vous êtes arbitre-adjoint de la catégorie U10 des qualifications départementales du Championnat de France Jeunes comptant pour le classement rapide FFE.",
       "choices": [
         "1.",
         "2.",
@@ -1442,7 +1417,7 @@
       "success_rate": 0.87,
       "grille_page": 26,
       "corrige_page": 28,
-      "question_text": "Question 9   :",
+      "question_text": "Le capitaine d'équipe de votre club vous a demandé en début de saison combien de groupes figuraient en N3 dans le championnat interclubs 2024-2025.",
       "choices": [
         "12.",
         "14.",
@@ -1476,7 +1451,7 @@
       "success_rate": 0.49,
       "grille_page": 26,
       "corrige_page": 29,
-      "question_text": "Question 10 :",
+      "question_text": "Une rencontre entre deux équipes du championnat de France des clubs a lieu un samedi.",
       "choices": [
         "Le lundi.",
         "Le mardi.",
@@ -1516,7 +1491,7 @@
       "success_rate": 0.79,
       "grille_page": 26,
       "corrige_page": 29,
-      "question_text": "Question 11 :",
+      "question_text": "Vous arbitrez une rencontre de Nationale 3. Avant la rencontre, vous rappelez aux capitaines leurs obligations durant la partie ainsi que vos options à votre disposition pour les sanctionner en cas de nonrespect des règles liées à leur rôle.",
       "choices": [
         "La déclaration de la partie perdue (ou de plusieurs parties) si l'intervention fautive du capitaine exerce une influence sur les résultats des parties concernées.",
         "L'avertissement.",
@@ -1556,7 +1531,7 @@
       "success_rate": 0.35,
       "grille_page": 26,
       "corrige_page": 29,
-      "question_text": "Question 12   :",
+      "question_text": "Vous êtes l'arbitre de la rencontre de l'équipe de votre club évoluant en N3. Le jour du match, un peu avant l'arrivée de l'équipe adverse, vous constatez un problème électrique conduisant à une trop faible luminosité dans la salle de jeu. Après avoir trouvé une solution, vous lancez la ronde avec un léger retard de 10 minutes.",
       "choices": [],
       "correct_answer_text": [
         "c)",
@@ -1586,7 +1561,7 @@
       "success_rate": 0.73,
       "grille_page": 26,
       "corrige_page": 29,
-      "question_text": "Question 13   :",
+      "question_text": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise",
       "choices": [
         "Cela doit être effectué avant la fin du tournoi.",
         "Cela doit être effectué au plus tard le lendemain de la fin du tournoi.",
@@ -1616,7 +1591,7 @@
       "success_rate": 0.65,
       "grille_page": 26,
       "corrige_page": 30,
-      "question_text": "Question 14   :",
+      "question_text": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante.",
       "choices": [
         "Un arbitre stagiaire.",
         "Un arbitre fédéral Jeune.",
@@ -1645,7 +1620,7 @@
       "success_rate": 0.48,
       "grille_page": 26,
       "corrige_page": 30,
-      "question_text": "Question 15   :",
+      "question_text": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe trois minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive cinquante minutes après le lancement des parties. Sa pendule indique 0h28 minutes.",
       "choices": [
         "Le délai de forfait étant d'une heure, vous déclarez la perte de la partie par forfait.",
         "Le délai de retard autorisé devant l'échiquier est fixé à 30 minutes par défaut pour les compétitions fédérales, vous déclarez la perte de la partie par forfait.",
@@ -1667,7 +1642,6 @@
         "ramené à une heure."
       ],
       "explanations": [
-        "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe trois minutes avant l'heure prévue pour le début de la rencontre. Un joueur de son équipe arrive cinquante minutes après le lancement des parties. Sa pendule indique 0h28 minutes.",
         "A02 - Le Championnat de France des Clubs - Article 3.6.a) Feuille de match.",
         "Lorsque la liste est remise plus tard, les pendules de tous les échiquiers de l'équipe concernée sont avancées d'un temps égal au retard. Si, de plus, un joueur ou une joueuse arrive dans un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure.",
         "Lorsque la liste est remise plus tard, les pendules de tous les échiquiers de l'équipe concernée sont",
@@ -1685,7 +1659,7 @@
       "success_rate": 0.34,
       "grille_page": 26,
       "corrige_page": 30,
-      "question_text": "Question 16   :",
+      "question_text": "Lors d'une rencontre du championnat de France des Clubs, les feuilles de composition des équipes sont transcrites sur la feuille de match. Cette dernière comporte pour chaque joueur/joueuse le nom, prénom, code fédéral, classement Elo ainsi que le numéro de licence.",
       "choices": [
         "Les capitaines d'équipes.",
         "L'arbitre de la rencontre.",
@@ -1711,7 +1685,6 @@
         "match, de contrôler la situation des joueuses et des joueurs et procéder aux redressements nécessaires."
       ],
       "explanations": [
-        "Lors d'une rencontre du championnat de France des Clubs, les feuilles de composition des équipes sont transcrites sur la feuille de match. Cette dernière comporte pour chaque joueur/joueuse le nom, prénom, code fédéral, classement Elo ainsi que le numéro de licence.",
         "A02 - Le Championnat de France des Clubs - Article 2.1.b Direction de groupe.",
         "La personne chargée de la direction de groupe a pour mission entre autres de vérifier les feuilles de",
         "match, de contrôler la situation des joueuses et des joueurs et procéder aux redressements nécessaires."
@@ -1726,7 +1699,7 @@
       "success_rate": 0.88,
       "grille_page": 26,
       "corrige_page": 31,
-      "question_text": "Question 17   :",
+      "question_text": "En championnat de France des clubs, les joueurs doivent être licenciés A pour la saison en cours. Quelle est la limite de prise de licence pour un joueur participant à une rencontre.",
       "choices": [
         "Au plus tard l'avant-veille du jour fixé pour la rencontre.",
         "Lors de la remise de la composition de l'équipe.",
@@ -1745,7 +1718,6 @@
         "de la rencontre."
       ],
       "explanations": [
-        "En championnat de France des clubs, les joueurs doivent être licenciés A pour la saison en cours. Quelle est la limite de prise de licence pour un joueur participant à une rencontre.",
         "A02 - Le Championnat de France des Clubs - Article 3.6.d) Validité de la licence.",
         "L'heure limite de prise de licence pour un joueur participant à une rencontre est l'heure prévue du début de la rencontre.",
         "L’heure limite de prise de licence pour un joueur participant à une rencontre est l’heure prévue du début",
@@ -1761,7 +1733,7 @@
       "success_rate": 0.75,
       "grille_page": 26,
       "corrige_page": 31,
-      "question_text": "Question 18 :",
+      "question_text": "Parmi les propositions suivantes, laquelle est vraie ?",
       "choices": [
         "L'arbitre en N1 et N2 peut être joueur/joueuse, même dans une autre division.",
         "En N3, l'arbitre d'un seul match peut jouer dans une division inférieure.",
@@ -1782,7 +1754,6 @@
         "division inférieure."
       ],
       "explanations": [
-        "Parmi les propositions suivantes, laquelle est vraie ?",
         "A02 - Le Championnat de France des Clubs - Article 2.5 Responsable des rencontres et arbitrage.",
         "En N4, l'arbitre peut jouer son match de N4 et officier dans un maximum de 2 matchs de N4 et de division inférieure.",
         "En N4, l’arbitre peut jouer son match de N4 et officier dans un maximum de 2 matchs de N4 et de",
@@ -1798,7 +1769,7 @@
       "success_rate": 0.75,
       "grille_page": 26,
       "corrige_page": 31,
-      "question_text": "Question 19   :",
+      "question_text": "Une rencontre de N2 a lieu à mi-distance entre deux équipes visiteuses.",
       "choices": [
         "Les missions de fourniture de matériel, d'arbitrage et de transmission des résultats de la rencontre ne peuvent pas être partagées entre les deux équipes.",
         "L'équipe ayant les blancs sur les échiquiers pairs contacte le club organisateur afin que ce dernier confirme qu'il pourra assumer la mission du matériel, d'arbitrage et de transmission des résultats.",
@@ -1840,7 +1811,7 @@
       "success_rate": 0.8,
       "grille_page": 26,
       "corrige_page": 31,
-      "question_text": "Question 20 :",
+      "question_text": "En Championnat de France des clubs, des personnes mutées peuvent faire partie d'une équipe.",
       "choices": [
         "1.",
         "2.",
@@ -1863,7 +1834,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "En Championnat de France des clubs, des personnes mutées peuvent faire partie d'une équipe.",
         "Excepté pour les divisions comportant un maximum de six personnes par équipes, quel est le nombre maximum de mutés ?",
         "A02 - Le Championnat de France des Clubs - Article 3.7.g) Joueuses et joueurs mutés.",
         "Pour chaque match, une équipe ne peut aligner plus de 3 personnes mutées."
@@ -1878,7 +1848,7 @@
       "success_rate": 0.19,
       "grille_page": 26,
       "corrige_page": 32,
-      "question_text": "Question 21 :",
+      "question_text": "Lors d'une rencontre de N2 hors ronde 1, le procès-verbal de la rencontre indique qu'une équipe s'est déplacée avec seulement six personnes.",
       "choices": [],
       "correct_answer_text": [
         "c) 3."
@@ -1890,7 +1860,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "Lors d'une rencontre de N2 hors ronde 1, le procès-verbal de la rencontre indique qu'une équipe s'est déplacée avec seulement six personnes.",
         "Pour cette rencontre, combien de personnes au maximum n'ayant pas déjà participé pour le compte de cette équipe depuis le début de la saison sportive peuvent participer ?",
         "En N1, N2 et N3, chaque équipe doit aligner à chaque ronde au moins 50% de personnes (appelé noyau) inscrites sur le PV ayant déjà participé au moins une fois pour le compte de cette équipe depuis le début de la saison (sauf pour la ronde 1). Il y a 6 personnes inscrites sur le PV. 50% de ces 6 personnes doivent déjà faire partie du noyau soit 3 personnes et donc 3 sont autorisées à ne pas en faire partie."
       ],
@@ -1904,7 +1873,7 @@
       "success_rate": 0.84,
       "grille_page": 26,
       "corrige_page": 32,
-      "question_text": "Question 22   :",
+      "question_text": "Lors d'un week-end d'interclub en N3, la ronde du dimanche à lieu à 14h15.",
       "choices": [],
       "correct_answer_text": [
         "b) 22h."
@@ -1920,7 +1889,6 @@
         "avant 22h."
       ],
       "explanations": [
-        "Lors d'un week-end d'interclub en N3, la ronde du dimanche à lieu à 14h15.",
         "A la fin de la rencontre, le responsable de la rencontre doit saisir le procès-verbal avant une certaine heure.",
         "Le club responsable de la rencontre doit saisir le procès-verbal (PV) de la rencontre sur le site fédéral avant 22h.",
         "Le club responsable de la rencontre doit saisir le procès-verbal (PV) de la rencontre sur le site fédéral",
@@ -1936,7 +1904,7 @@
       "success_rate": 0.73,
       "grille_page": 26,
       "corrige_page": 32,
-      "question_text": "Question 23   :",
+      "question_text": "Après la deuxième ronde de N3, le capitaine d'une équipe a dépassé la limite après la rencontre pour prévenir la direction de groupe d'une erreur. Son club avait reçu une amende après la ronde 1 pour avoir saisi le procès-verbal le jour suivant.",
       "choices": [
         "25 €.",
         "50 €.",
@@ -1957,7 +1925,6 @@
         "Le non-respect de l'article 3.11.a) ou 3.11.b) entraîne 50 € d'amende pour la deuxième infraction."
       ],
       "explanations": [
-        "Après la deuxième ronde de N3, le capitaine d'une équipe a dépassé la limite après la rencontre pour prévenir la direction de groupe d'une erreur. Son club avait reçu une amende après la ronde 1 pour avoir saisi le procès-verbal le jour suivant.",
         "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
         "Le non-respect de l'article 3.11.a) ou 3.11.b) entraîne 50 € d'amende pour la deuxième infraction."
       ],
@@ -1971,7 +1938,7 @@
       "success_rate": 0.68,
       "grille_page": 26,
       "corrige_page": 32,
-      "question_text": "Question 24   :",
+      "question_text": "Un club possède deux équipes engagées en N3.",
       "choices": [
         "Oui, un joueur peut toujours monter en équipe 1.",
         "Oui, parce qu'il n'a pas encore joué trois parties avec l'équipe 2.",
@@ -2006,7 +1973,7 @@
       "success_rate": 0.82,
       "grille_page": 26,
       "corrige_page": 33,
-      "question_text": "Question 25   :",
+      "question_text": "Lorsqu'un litige technique survient en cours de partie du championnat de France des clubs, celle-ci doit toujours être poursuivie, en appliquant les directives de l'arbitre. Un appel des décisions de l'arbitre peut être interjeté. Le ou la capitaine de l'équipe plaignante formule alors sa réclamation par écrit. L'arbitre et le ou la capitaine de l'équipe adverse rédigent aussi chacun un rapport donnant leur version des faits. Tous ces documents sont transmis à la direction du groupe.",
       "choices": [
         "La personne responsable de la rencontre.",
         "La capitaine de l'équipe plaignante.",
@@ -2027,7 +1994,6 @@
         "qui devra garder une trace numérique ou une copie."
       ],
       "explanations": [
-        "Lorsqu'un litige technique survient en cours de partie du championnat de France des clubs, celle-ci doit toujours être poursuivie, en appliquant les directives de l'arbitre. Un appel des décisions de l'arbitre peut être interjeté. Le ou la capitaine de l'équipe plaignante formule alors sa réclamation par écrit. L'arbitre et le ou la capitaine de l'équipe adverse rédigent aussi chacun un rapport donnant leur version des faits. Tous ces documents sont transmis à la direction du groupe.",
         "A02 - Le Championnat de France des Clubs - Article 3.9 Litiges techniques.",
         "Tous ces documents sont transmis avec le procès-verbal du match à la direction du groupe par l'arbitre, qui devra garder une trace numérique ou une copie.",
         "Tous ces documents sont transmis avec le procès-verbal du match à la direction du groupe par l'arbitre,",
@@ -2043,7 +2009,7 @@
       "success_rate": 0.55,
       "grille_page": 26,
       "corrige_page": 33,
-      "question_text": "Question 26   :",
+      "question_text": "Quel niveau minimum doit avoir la personne arbitrant une rencontre de Nationale 3 jeunes ?",
       "choices": [
         "La personne doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage de sa Ligue.",
         "La personne doit être Arbitre Fédéral Jeune.",
@@ -2067,7 +2033,6 @@
         "direction régionale de l'arbitrage (DRA) de sa Ligue."
       ],
       "explanations": [
-        "Quel niveau minimum doit avoir la personne arbitrant une rencontre de Nationale 3 jeunes ?",
         "J02 - Le Championnat de France Interclubs Jeunes - Article 2.5. Arbitres.",
         "En Nationale 3, la personne faisant fonction d'arbitre doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage (DRA) de sa Ligue.",
         "En Nationale 3, la personne faisant fonction d'arbitre doit être titulaire d'une licence A ayant l'aval de la",
@@ -2083,7 +2048,7 @@
       "success_rate": 0.84,
       "grille_page": 26,
       "corrige_page": 33,
-      "question_text": "Question 27   :",
+      "question_text": "En coupe Jean-Claude Loubatière, l'arbitre de la phase départementale peut-il être joueur ?",
       "choices": [],
       "correct_answer_text": [
         "b)",
@@ -2098,7 +2063,6 @@
         "participantes n'excède pas 5."
       ],
       "explanations": [
-        "En coupe Jean-Claude Loubatière, l'arbitre de la phase départementale peut-il être joueur ?",
         "Lors de la phase départementale, l'arbitre peut être joueur ou joueuse si le nombre d'équipes participantes n'excède pas 5.",
         "Lors de la phase départementale, l'arbitre peut être joueur ou joueuse si le nombre d’équipes",
         "participantes n'excède pas 5."
@@ -2113,7 +2077,7 @@
       "success_rate": 0.65,
       "grille_page": 26,
       "corrige_page": 33,
-      "question_text": "Question 28   :",
+      "question_text": "Vous êtes arbitre adjoint d'une phase 2 de la coupe Jean-Claude Loubatière où participent 12 équipes dont 5 joueuses.",
       "choices": [],
       "correct_answer_text": [
         "b)",
@@ -2151,7 +2115,7 @@
       "success_rate": 0.82,
       "grille_page": 26,
       "corrige_page": 34,
-      "question_text": "Question 29   :",
+      "question_text": "En Coupe de France, quelle affirmation suivante est vrai concernant l'arbitre de la rencontre ?",
       "choices": [
         "Lors des demi-finales et la finale, la Direction de la Coupe de France désigne sans consultation l'arbitre.",
         "Jusqu'aux quarts de finale inclus, l'arbitre doit être au minimum Arbitre Fédéral de Club (AFC).",
@@ -2172,7 +2136,6 @@
         "À partir des 32ème de finale, l’arbitre ne peut pas jouer et arbitrer."
       ],
       "explanations": [
-        "En Coupe de France, quelle affirmation suivante est vrai concernant l'arbitre de la rencontre ?",
         "À partir des 32ème de finale, l'arbitre ne peut pas jouer et arbitrer.",
         "À partir des 32ème de finale, l’arbitre ne peut pas jouer et arbitrer."
       ],
@@ -2186,7 +2149,7 @@
       "success_rate": 0.8,
       "grille_page": 26,
       "corrige_page": 34,
-      "question_text": "Question 30   :",
+      "question_text": "En Coupe de la Parité, quelle affirmation suivante est vrai concernant l'arbitre de la rencontre ?",
       "choices": [
         "Lors de la phase zone interdépartementale et la suivante, l'organisation de la phase concernée désigne l'arbitre.",
         "Lors des deux premières phases de la Coupe, l'arbitre peut être Arbitre Fédéral Club.",
@@ -2214,7 +2177,6 @@
         "l'arbitre."
       ],
       "explanations": [
-        "En Coupe de la Parité, quelle affirmation suivante est vrai concernant l'arbitre de la rencontre ?",
         "Lors de la phase zone interdépartementale et de la phase 2, l'organisation de la phase concernée désigne l'arbitre.",
         "Lors de la phase zone interdépartementale et de la phase 2, l'organisation de la phase concernée désigne",
         "l'arbitre."
@@ -2229,7 +2191,7 @@
       "success_rate": 0.56,
       "grille_page": 40,
       "corrige_page": 41,
-      "question_text": "Question 1   :",
+      "question_text": "Les arbitres fédéraux d'open ont la compétence pour arbitrer certaines compétitions.",
       "choices": [
         "La finale de la coupe de la parité.",
         "Un open à normes en tant qu'adjoint.",
@@ -2264,7 +2226,7 @@
       "success_rate": 0.8,
       "grille_page": 40,
       "corrige_page": 41,
-      "question_text": "Question 2   :",
+      "question_text": "Pour arbitrer dans un tournoi international homologué FIDE, un arbitre fédéral doit respecter certains critères.",
       "choices": [
         "Posséder un titre d'arbitre FIDE.",
         "Avoir obtenu l'agrément FIDE.",
@@ -2286,7 +2248,6 @@
         "l’agrément FIDE pour les arbitres."
       ],
       "explanations": [
-        "Pour arbitrer dans un tournoi international homologué FIDE, un arbitre fédéral doit respecter certains critères.",
         "Quel critère parmi les suivants est obligatoire ?",
         "Afin d'être autorisé à arbitrer dans les tournois internationaux homologués par la FIDE, un arbitre fédéral, quel que soit son titre FFE ou FIDE, doit s'acquitter d'un droit auprès de la FIDE : c'est ce que l'on appelle l'agrément FIDE pour les arbitres.",
         "Afin d’être autorisé à arbitrer dans les tournois internationaux homologués par la FIDE, un arbitre fédéral,",
@@ -2303,7 +2264,7 @@
       "success_rate": 0.89,
       "grille_page": 40,
       "corrige_page": 41,
-      "question_text": "Question 3   :",
+      "question_text": "Un organisateur souhaite vous faire arbitrer le tournoi rapide de son club. Il souhaite qu'il soit homologué FIDE et vous charge de faire la demande d'homologation en ligne.",
       "choices": [
         "7 jours.",
         "10 jours.",
@@ -2349,7 +2310,7 @@
       "success_rate": 0.89,
       "grille_page": 40,
       "corrige_page": 42,
-      "question_text": "Question 4   :",
+      "question_text": "Un arbitre AFO1 inactif, a effectué son dernier stage en avril 2014.",
       "choices": [
         "Suivre une formation continue avant le 31 août 2025.",
         "Suivre une formation d'arbitre d'open, avant le 31 août 2025.",
@@ -2390,7 +2351,7 @@
       "success_rate": 0.97,
       "grille_page": 40,
       "corrige_page": 42,
-      "question_text": "Question 5   :",
+      "question_text": "Dans les tournois rapides et blitz homologués FIDE, quelle est respectivement le nombre de rondes maximum par jour ?",
       "choices": [
         "10 pour les tournois rapides et 20 pour ceux en blitz.",
         "15 pour les tournois rapides et 25 pour ceux en blitz.",
@@ -2421,7 +2382,6 @@
         "http://www.echecs.asso.fr/Default.aspx?Cat=9"
       ],
       "explanations": [
-        "Dans les tournois rapides et blitz homologués FIDE, quelle est respectivement le nombre de rondes maximum par jour ?",
         "Chapitre 6.2 : Classement rapide et blitz de la FIDE. Article 3 Page 186 du LA",
         "Les joueurs suspendus de licence sont interdits de participer à une quelconque compétition durant leur période de suspension.",
         "Comment savoir si un joueur n'est pas sous le coup d'une suspension ?",
@@ -2452,7 +2412,7 @@
       "success_rate": 0.67,
       "grille_page": 40,
       "corrige_page": 42,
-      "question_text": "Question 7   : Vous arbitrez un tournoi à cadence lente homologué FIDE.",
+      "question_text": "Un joueur dont c'est la première compétition obtient les résultats ci-dessous.",
       "choices": [
         "1679",
         "1701",
@@ -2488,7 +2448,7 @@
       "success_rate": 0.85,
       "grille_page": 40,
       "corrige_page": 43,
-      "question_text": "Question 8   :",
+      "question_text": "Vous arbitrez un blitz en 15 rondes homologué FIDE.",
       "choices": [
         "50,75 €",
         "60,75 €",
@@ -2536,7 +2496,7 @@
       "success_rate": 0.62,
       "grille_page": 40,
       "corrige_page": 43,
-      "question_text": "Question 9   :",
+      "question_text": "Il peut arriver un problème disciplinaire au cours d'un tournoi.",
       "choices": [
         "Au secrétariat fédéral.",
         "Au Directeur National de l'Arbitrage.",
@@ -2557,7 +2517,6 @@
         "de triche…) doit être transmise au DNA. Il est demandé d’utiliser pour cela les formulaires T6 et T7."
       ],
       "explanations": [
-        "Il peut arriver un problème disciplinaire au cours d'un tournoi.",
         "A quelle instance adresser les formulaires T6 et T7 ?",
         "Toute procédure disciplinaire (Exclusion de tournoi, formulaire de signalement, demande de sanction, problème de triche…) doit être transmise au DNA. Il est demandé d'utiliser pour cela les formulaires T6 et T7.",
         "Toute procédure disciplinaire (Exclusion de tournoi, formulaire de signalement, demande de sanction, problème",
@@ -2573,7 +2532,7 @@
       "success_rate": 0.75,
       "grille_page": 40,
       "corrige_page": 43,
-      "question_text": "Question 10   :",
+      "question_text": "Vous arbitrez simultanément trois rencontres du championnat de France des clubs. Quelle est parmi les réponses ci-dessous celle qui est vraie ?",
       "choices": [
         "Vous êtes responsable de la mise en place et de la quantité suffisante de matériel pour assurer la rencontre.",
         "Vous remplissez à la vue de tous la feuille de match au fur et à mesure de la réception des compositions d'équipes.",
@@ -2617,7 +2576,7 @@
       "success_rate": 0.82,
       "grille_page": 40,
       "corrige_page": 44,
-      "question_text": "Question 11   :",
+      "question_text": "Quel départage utilise dans son calcul les résultats des adversaires ?",
       "choices": [
         "Le Kashdan.",
         "Le cumulatif.",
@@ -2636,7 +2595,6 @@
         "marqués contre lui."
       ],
       "explanations": [
-        "Quel départage utilise dans son calcul les résultats des adversaires ?",
         "Chapitre 4.2 Système de départages - Art 9.1 : Le Sonneborn-Berger - Page 151 du LA",
         "Il est obtenu en ajoutant, pour chaque ronde, le score ajusté de l'adversaire multiplié par le nombre de points marqués contre lui.",
         "Il est obtenu en ajoutant, pour chaque ronde, le score ajusté de l’adversaire multiplié par le nombre de points",
@@ -2652,7 +2610,7 @@
       "success_rate": 0.97,
       "grille_page": 40,
       "corrige_page": 44,
-      "question_text": "Question 12   :",
+      "question_text": "Quelle est la cadence équivalente à 40 min + 20 sec/coup en KO ?",
       "choices": [
         "45 minutes KO",
         "50 minutes KO",
@@ -2671,7 +2629,6 @@
         "minutes."
       ],
       "explanations": [
-        "Quelle est la cadence équivalente à 40 min + 20 sec/coup en KO ?",
         "Sur la base d'une partie durant 60 coups : 40 minutes + 60 x 20 secondes = 40 minutes + 20 minutes = 60 minutes.",
         "Sur la base d’une partie durant 60 coups : 40 minutes + 60 x 20 secondes = 40 minutes + 20 minutes = 60",
         "minutes."
@@ -2686,7 +2643,7 @@
       "success_rate": 0.54,
       "grille_page": 40,
       "corrige_page": 44,
-      "question_text": "Question 13   :",
+      "question_text": "Pour la composition des équipes en nationale 1 jeunes, laquelle des phrases ci-dessous est vraie ?",
       "choices": [
         "Pour jouer après un autre joueur, le joueur doit avoir moins de 100 points ELO de plus que tous les joueurs précédents.",
         "Les joueurs doivent obligatoirement être classés par ordre d'âge.",
@@ -2704,7 +2661,6 @@
         "L’échiquier 8 peut être placé devant l’échiquier 7, quels que soient les Elo."
       ],
       "explanations": [
-        "Pour la composition des équipes en nationale 1 jeunes, laquelle des phrases ci-dessous est vraie ?",
         "L'échiquier 8 peut être placé devant l'échiquier 7, quels que soient les Elo.",
         "L’échiquier 8 peut être placé devant l’échiquier 7, quels que soient les Elo."
       ],
@@ -2718,7 +2674,7 @@
       "success_rate": 0.48,
       "grille_page": 40,
       "corrige_page": 44,
-      "question_text": "Question 14   :",
+      "question_text": "Vous êtes l'arbitre du tournoi homologué rapide FIDE de votre club. Quinze jours avant le tournoi, votre président reçoit des demandes d'inscriptions de la part d'un GM, d'un MI, d'un GM par correspondance (ICCF) membre de la FFE et de deux membres de l'équipe de France jeunes. Qui est concerné par la gratuité des droits d'inscriptions ?",
       "choices": [
         "Tous les joueurs.",
         "Tous les titrés.",
@@ -2758,7 +2714,7 @@
       "success_rate": 0.67,
       "grille_page": 40,
       "corrige_page": 45,
-      "question_text": "Question 15   :",
+      "question_text": "Lors d'un tournoi homologué, à la suite d'un soupçon de triche d'un joueur, vous rédigez le formulaire de suspicion.",
       "choices": [
         "A la Commission Fédérale de Discipline.",
         "Au secrétariat fédéral.",
@@ -2779,7 +2735,6 @@
         "dossier vers la commission Fair-play de la FFE."
       ],
       "explanations": [
-        "Lors d'un tournoi homologué, à la suite d'un soupçon de triche d'un joueur, vous rédigez le formulaire de suspicion.",
         "Après avoir joint toutes les pièces nécessaires avec ce rapport (parties/photos/ témoignages/ plainte d'un joueur ou tout autre élément estimé pertinent), à qui devez-vous l'envoyer ?",
         "Suspicion/plainte pour triche - Gestion de fin de tournoi - 5.3 Gestion du tournoi - LA page 170",
         "L'arbitre joint toutes les pièces nécessaires avec ce rapport : parties/photos/ témoignages/ plainte d'un joueur ou tout autre élément qu'il estime pertinent. Le rapport est envoyé directement au secrétariat fédéral qui redirige le dossier vers la commission Fair-play de la FFE.",
@@ -2797,7 +2752,7 @@
       "success_rate": 0.89,
       "grille_page": 40,
       "corrige_page": 45,
-      "question_text": "Question 16   :",
+      "question_text": "Un organisateur souhaite organiser un open homologué FIDE tournoi en cadence 50 min +10s/coup. Quelle information parmi les suivantes devrez-vous lui fournir ?",
       "choices": [
         "Le montant des droits d'homologation dépend de la cadence choisie.",
         "Cette cadence est considérée comme une cadence de jeu rapide.",
@@ -2839,7 +2794,7 @@
       "success_rate": 0.75,
       "grille_page": 40,
       "corrige_page": 45,
-      "question_text": "Question 17   :",
+      "question_text": "En tant qu'arbitre en chef d'un tournoi en cadence rapide homologué pour le elo FIDE, vous avez la responsabilité d'établir le règlement intérieur du tournoi avec l'organisateur. Parmi les propositions suivantes, indiquer celle qui est fausse.",
       "choices": [
         "Vous avez le droit de mettre une règle interdisant les nulles par accord mutuel.",
         "Vous avez le droit d'indiquer que vous autorisez joueurs et joueuses à arriver en retard tant qu'il reste du temps à leur pendule.",
@@ -2867,7 +2822,6 @@
         "présence à la remise des prix doit être précisée dans le règlement du tournoi si vous souhaitez la faire appliquer."
       ],
       "explanations": [
-        "En tant qu'arbitre en chef d'un tournoi en cadence rapide homologué pour le elo FIDE, vous avez la responsabilité d'établir le règlement intérieur du tournoi avec l'organisateur. Parmi les propositions suivantes, indiquer celle qui est fausse.",
         "LA - 6.1 Le classement standard de la FIDE Article 2 : Règlements en vigueur",
         "Le jeu doit se dérouler en accord avec les Règles du Jeu d'Échecs de la FIDE, toute « adaptation » vous expose à un recours et peut provoquer le refus d'homologuer les résultats du tournoi. Par contre les règles du jeu vous autorisent à limiter les nulles par accord mutuel et définir par vous-même le délai de forfait. La condition de présence à la remise des prix doit être précisée dans le règlement du tournoi si vous souhaitez la faire appliquer.",
         "Le jeu doit se dérouler en accord avec les Règles du Jeu d’Échecs de la FIDE, toute « adaptation » vous expose",
@@ -2885,7 +2839,7 @@
       "success_rate": 0.9,
       "grille_page": 40,
       "corrige_page": 46,
-      "question_text": "Question 18   :",
+      "question_text": "Lors de la 1re phase de la coupe de la parité, 8 équipes se sont inscrites. Combien d'équipes seront qualifiées pour la 2ème phase ?",
       "choices": [
         "Une seule.",
         "Le 1er ou les deux premiers, selon la répartition de la Direction de la coupe.",
@@ -2905,7 +2859,6 @@
         "équipes – 2 qualifiées jusqu’à 6 équipes – 3 qualifiées jusqu’à 9 équipes."
       ],
       "explanations": [
-        "Lors de la 1re phase de la coupe de la parité, 8 équipes se sont inscrites. Combien d'équipes seront qualifiées pour la 2ème phase ?",
         "C04 Coupe de la parité - 1.2 Déroulement de la compétition",
         "Lors de la 1re phase, il y a une équipe qualifiée toutes les trois équipes participantes. 1 qualifiée jusqu'à 3 équipes - 2 qualifiées jusqu'à 6 équipes - 3 qualifiées jusqu'à 9 équipes.",
         "Lors de la 1re phase, il y a une équipe qualifiée toutes les trois équipes participantes. 1 qualifiée jusqu’à 3",
@@ -2921,7 +2874,7 @@
       "success_rate": 0.79,
       "grille_page": 40,
       "corrige_page": 46,
-      "question_text": "Question 19   :",
+      "question_text": "Vous êtes responsable d'un groupe de la coupe de la parité de 7 équipes dont la phase a été appariée au « Molter ». A la fin de cette phase, deux équipes ont obtenu le même nombre de points de match.",
       "choices": [
         "Le résultat de la confrontation directe entre ces deux équipes.",
         "La moyenne Elo la plus basse.",
@@ -2953,7 +2906,7 @@
       "success_rate": 0.98,
       "grille_page": 40,
       "corrige_page": 46,
-      "question_text": "Question 20   :",
+      "question_text": "A la fin de chaque tournoi, les arbitres qui doivent établir un rapport technique, ont un certain laps de temps pour l'envoyer.",
       "choices": [
         "Le jour même.",
         "Quinze jours.",
@@ -2978,7 +2931,6 @@
         "Il doit être envoyé par mail dans les 7 jours à la directrice des titres et des tournois de la DNA."
       ],
       "explanations": [
-        "A la fin de chaque tournoi, les arbitres qui doivent établir un rapport technique, ont un certain laps de temps pour l'envoyer.",
         "LA 5.1 Gestion de fin de tournoi - Gestion administrative des tournois - Rapport technique",
         "Il doit être envoyé par mail dans les 7 jours à la directrice des titres et des tournois de la DNA."
       ],
@@ -2992,7 +2944,7 @@
       "success_rate": 0.98,
       "grille_page": 57,
       "corrige_page": 58,
-      "question_text": "Question 1   : Quelques semaines avant le début du tournoi, vous avez fait la demande d'homologation du tournoi. Quelle est la procédure à suivre pour cela ?",
+      "question_text": "L.A. Chap. 5.2, paragraphe « homologation des tournois »., partie « procédure ».",
       "choices": [
         "Envoyer le formulaire trouvé sur le site de la DNA à Erick MOURET, le délégué ELO de la FFE.",
         "Envoyer le formulaire trouvé sur le site de la DNA au délégué ELO de la ligue du lieu du tournoi.",
@@ -3020,7 +2972,7 @@
       "success_rate": 0.35,
       "grille_page": 57,
       "corrige_page": 58,
-      "question_text": "Question 2   : Parmi les 14 joueurs réels pré-inscrits, combien doivent régulariser leur licence pour pouvoir jouer ce tournoi ?",
+      "question_text": "Les joueurs ayant un code FIDE autre que FRA n'ont pas besoin de licence (même s'ils ont déjà eu une licence FFE dans le passé).",
       "choices": [
         "1",
         "2",
@@ -3057,7 +3009,6 @@
         "n'ont pas d'obligation d'avoir de licence en France pour jouer un open."
       ],
       "explanations": [
-        "Les joueurs ayant un code FIDE autre que FRA n'ont pas besoin de licence (même s'ils ont déjà eu une licence FFE dans le passé).",
         "Les joueurs sans code FIDE ou avec un code FIDE FRA doivent avoir une licence A valable pour la saison en cours.",
         "Les joueurs suivants doivent donc régulariser leur licence :",
         "Cette question a eu un faible taux de réussite. C'est pourtant une question importante pour de futurs arbitres Open qui devront vérifier les licences.",
@@ -3078,7 +3029,7 @@
       "success_rate": 0.89,
       "grille_page": 57,
       "corrige_page": 58,
-      "question_text": "Question 3   : Madame COURVITE vous présente une carte d'invalidité au moment de l'inscription.",
+      "question_text": "Elle demande à payer le tarif « normal » sans majoration, donc 60 €.",
       "choices": [
         "Oui, pour elle l'inscription sur place est effectivement à 60 €.",
         "Non, la règle est la même pour tout le monde : une inscription sur place coûte 80 €.",
@@ -3102,7 +3053,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "Elle demande à payer le tarif « normal » sans majoration, donc 60 €.",
         "R03-Compétitions homologuées : Article 2.3 - Droits d'inscription",
         "La majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte de mobilisation inclusion de personne en situation de handicap."
       ],
@@ -3116,7 +3066,7 @@
       "success_rate": 0.93,
       "grille_page": 57,
       "corrige_page": 59,
-      "question_text": "Question 4   : Jean-Yves BUATHIER hésite à prendre un Bye à la ronde 3. Il vous demande avant quel moment il doit prendre sa décision. Quelle est votre réponse ?",
+      "question_text": "",
       "choices": [
         "Il faut le dire avant le début du tournoi.",
         "Il faut le dire avant le début de la ronde précédente, donc avant la ronde 2 pour un Bye ronde 3.",
@@ -3143,7 +3093,7 @@
       "success_rate": 0.9,
       "grille_page": 57,
       "corrige_page": 59,
-      "question_text": "Question 5   : 10 minutes avant la ronde 2, Dimitri TRAVAILLOUX vous dit que son ami Gilles HORN est malade. Il a passé une très mauvaise nuit et ne pourra pas jouer lors de cette journée à double ronde. Il pense que ce n'est pas bien méchant et espère être remis pour jouer la ronde 4 le lendemain. Il s'excuse pour son forfait à la ronde 2 et vous demande s'il pourra prendre un Bye à la ronde 3 puis continuer",
+      "question_text": "le tournoi à partir de la ronde 4. Quelle est votre réponse ?",
       "choices": [
         "Un forfait alors qu'on a été apparié entraîne l'exclusion du tournoi. Gilles HORN ne pourra pas revenir.",
         "Gilles HORN va louper 2 rondes consécutives donc il ne lui sera pas possible de revenir.",
@@ -3171,7 +3121,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "le tournoi à partir de la ronde 4. Quelle est votre réponse ?",
         "Ici, on peut considérer que la raison est valable. Un retour à la ronde 4 est donc possible, avec effectivement possibilité de prendre un bye à la ronde 3."
       ],
       "has_explanation": true
@@ -3184,7 +3133,7 @@
       "success_rate": 0.55,
       "grille_page": 57,
       "corrige_page": 60,
-      "question_text": "Question 6   : Au moment de faire les appariements de la ronde 3, on regarde qui a été flotteur.",
+      "question_text": "Combien de joueurs sont considérés comme flotteur ?",
       "choices": [
         "2 flotteurs montants et 2 flotteurs descendants.",
         "2 flotteurs montants et 3 flotteurs descendants.",
@@ -3214,7 +3163,6 @@
         "erreur, la réponse avec 6 flotteurs descendants n'était pas proposée."
       ],
       "explanations": [
-        "Combien de joueurs sont considérés comme flotteur ?",
         "On pouvait regarder l'aide aux appariements donnée par PAPI :",
         "On voit donc que 2 joueurs ont été flotteur montant :",
         "AROUSSTAMIAN et TRAVAILLOUX (tous les deux à la ronde 2).",
@@ -3234,7 +3182,7 @@
       "success_rate": 0.93,
       "grille_page": 57,
       "corrige_page": 60,
-      "question_text": "Question 7 : La ronde N°3 vient juste de commencer.",
+      "question_text": "Les 2 joueurs de la table 9 viennent vous rendre les feuilles de parties.",
       "choices": [
         "Comme la partie a moins de 10 coups, vous annulez cette partie et vous demandez aux 2 joueurs de refaire une partie avec les bonnes couleurs.",
         "Vous indiquez un double forfait car les deux joueurs sont fautifs.",
@@ -3265,7 +3213,7 @@
       "success_rate": 0.53,
       "grille_page": 57,
       "corrige_page": 61,
-      "question_text": "Question 8   :",
+      "question_text": "Au 16ème coup, à 14h32, les 2 joueurs de la table 4 viennent vous voir pour vous signaler un problème sur la pendule.",
       "choices": [
         "Comme plus de 10 coups ont été joué, vous ne pouvez pas corriger le réglage de la pendule. La partie devra donc continuer avec les temps indiqués au moment où vous avez été appelé.",
         "1h22 pour les blancs et pour les noirs.",
@@ -3292,7 +3240,6 @@
         "coup pour les 16 premiers coups : 8 minutes de plus par joueur donc."
       ],
       "explanations": [
-        "Au 16ème coup, à 14h32, les 2 joueurs de la table 4 viennent vous voir pour vous signaler un problème sur la pendule.",
         "Que doit afficher la pendule au moment où vous relancer la partie ?",
         "Nous sommes en cadence lente donc on corrige l'erreur manifeste sur la pendule.",
         "A 14h32, il y a eu 32 minutes de jeu et 16 minutes de bonus ((16 coups blancs + 16 coups noirs) x 30 secondes) Il faut donc enlever au temps initial 16 minutes, donc 8 minutes par joueur.",
@@ -3311,7 +3258,7 @@
       "success_rate": 0.93,
       "grille_page": 57,
       "corrige_page": 61,
-      "question_text": "Question 9   :",
+      "question_text": "Eva BARBIE vient vous rendre les feuilles. Elle a gagné table 5 contre Youpi POP ! Vous constatez qu'elle aurait dû jouer table 6 contre Jain DAKSH. A la table 6, Jain DASK a fait nul contre Sharma DUSHYANT depuis quelques minutes. Matchs réellement joués : Youpi POP - Eva BARBIE (sur l'échiquier, gain noir) Jain DASK - Sharma DUSHYANT (sur l'échiquier, partie nulle).",
       "choices": [
         "Vous modifiez manuellement les appariements en indiquant les matchs qui ont réellement été joué et les résultats acquis sur les 2 échiquiers.",
         "Les appariements n'ayant pas été respectés, vous comptez « nul »  pour ces 4 joueurs : chacun aura un demipoint pour cette ronde.",
@@ -3337,7 +3284,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "Eva BARBIE vient vous rendre les feuilles. Elle a gagné table 5 contre Youpi POP ! Vous constatez qu'elle aurait dû jouer table 6 contre Jain DAKSH. A la table 6, Jain DASK a fait nul contre Sharma DUSHYANT depuis quelques minutes. Matchs réellement joués : Youpi POP - Eva BARBIE (sur l'échiquier, gain noir) Jain DASK - Sharma DUSHYANT (sur l'échiquier, partie nulle).",
         "Cette situation arrive de temps en temps sur les tournois avec des joueurs débutants. Pour le rédacteur du sujet et les formateurs qui l'ont relu, la réponse A semblait évidente...",
         "Pour la FIDE, la bonne réponse à cette situation est la réponse D (ce n'est pas non plus écrit dans les règlements).",
         "10 candidats ont répondu D à cette question.",
@@ -3358,7 +3304,7 @@
       "success_rate": 0.71,
       "grille_page": 57,
       "corrige_page": 62,
-      "question_text": "Question 10 : Content de son bon début de tournoi, Marcel BIPOP vient vous voir avant le début de la ronde pour vous demander s'il est éligible au prix « Moins de 2000 ELO». Quelle est votre réponse ?",
+      "question_text": "a)",
       "choices": [],
       "correct_answer_text": [
         "c) NON parce que Marcel BIPOP est non classé. Les prix par catégories ELO sont réservé aux joueurs",
@@ -3393,7 +3339,7 @@
       "success_rate": 0.8,
       "grille_page": 57,
       "corrige_page": 62,
-      "question_text": "Question 11 : Lors de la ronde 4, le maire vient lancer la ronde. Il en profite pour dire quelques mots et vanter les mérites touristiques de sa ville. Du coup, la ronde prévue à 14h n'est lancée qu'à 14h06. Le joueur ayant les noirs à la table 5 arrive dans la salle à 14h34. Il a eu une crevaison en route, a mis un peu de temps à réparer ce qui explique son arrivée tardive. Il vous montre ses mains noircies en preuve de sa bonne foi. Le joueur ayant les blancs dit qu'il a attendu plus de 30 minutes donc le délais de forfait est dépassé et il ne souhaite plus jouer et donc avoir le point par forfait.",
+      "question_text": "",
       "choices": [
         "Le délais de 30 minutes est effectivement dépassé, gain des blancs par forfait. Le joueur des noirs ayant une bonne excuse, il pourra jouer le lendemain.",
         "La ronde a été retardée donc les noirs sont arrivés avec moins de 30 minutes de retard depuis le début réel. Ils peuvent donc jouer cette partie.",
@@ -3423,7 +3369,7 @@
       "success_rate": 0.74,
       "grille_page": 57,
       "corrige_page": 63,
-      "question_text": "Question 12   :",
+      "question_text": "Table 8 : Dans cette position, le conducteur des blancs dit « Dame » puis appuie sur la pendule.",
       "choices": [
         "Vous ajoutez 2 minutes aux noirs, remplacez le pion par une Dame et relancez la partie (si vous choisissez cette réponse, les blancs gagnent la partie, résultat à enregistrer).",
         "Partie nulle.",
@@ -3451,7 +3397,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "Table 8 : Dans cette position, le conducteur des blancs dit « Dame » puis appuie sur la pendule.",
         "Temps des blancs :  1h02   - Temps des noirs : 0h57",
         "Plus tôt dans la partie,  le conducteur des blancs avait fait un coup illégal que vous aviez constaté.",
         "Les noirs ont encore un cavalier. Il existe une suite de coups légaux emmenant au mat pour les noirs (en le faisant exprès, mais c'est possible), donc gain noir."
@@ -3466,7 +3411,7 @@
       "success_rate": 0.6,
       "grille_page": 57,
       "corrige_page": 63,
-      "question_text": "Question 13   :",
+      "question_text": "7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par",
       "choices": [
         "Gain blanc",
         "Partie nulle.",
@@ -3491,7 +3436,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par",
         "Table 7 : Dans cette positon, le conducteur des blancs joue Rf5et il achève son coup en appuyant sur la pendule.",
         "Le conducteur des noirs vous appelle pour signaler un 2ème coup illégal des blancs (vous aviez effectivement constaté un coup illégal des blancs quelques minutes plus tôt).",
         "celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. »",
@@ -3507,7 +3451,7 @@
       "success_rate": 0.64,
       "grille_page": 57,
       "corrige_page": 64,
-      "question_text": "Question 14   : Le matin de la ronde 5, vous recevez un courriel : Vincent BARDET a un rendez-vous médical prévu depuis longtemps. Il vous indique qu'il ne sera pas là l'après-midi pour la ronde 5, mais qu'il sera là sans problème le lendemain pour les 2 dernières rondes.",
+      "question_text": "Ici, l'absence était prévisible (la question indique « prévu depuis longtemps »). Cette absence aurait donc du être signalée avant l'appariement de la ronde 5.",
       "choices": [
         "Un forfait alors qu'on a été apparié entraîne l'exclusion du tournoi. Ce joueur ne pourra pas revenir.",
         "Un rendez-vous médical est évidemment une bonne excuse. Pas de souci, ce joueur pourra revenir pour les 2 dernières parties.",
@@ -3530,7 +3474,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "Ici, l'absence était prévisible (la question indique « prévu depuis longtemps »). Cette absence aurait donc du être signalée avant l'appariement de la ronde 5.",
         "Ce comportement très gênant doit être sanctionné. Ce joueur est donc exclu du tournoi."
       ],
       "has_explanation": true
@@ -3543,7 +3486,7 @@
       "success_rate": 0.85,
       "grille_page": 57,
       "corrige_page": 64,
-      "question_text": "Question 15   : 15 minutes avant le début de la ronde 5, les 2 joueurs de la table 9 de la ronde 4 viennent vous voir. Ils se sont tous les deux trompés et vous disent que ce sont les blancs qui ont gagné, contrairement à ce qu'indique le résultat.",
+      "question_text": "Vous vérifier les feuilles : les deux feuilles sont signées par les 2 joueurs. Une des feuilles n'indique aucun résultat et l'autre feuille indique clairement la victoire des noirs.",
       "choices": [
         "Comme les 2 feuilles ont été signées, vous maintenez le résultat.",
         "La ronde 5 se déroulera avec les appariements déjà publiés puis vous corrigerez le résultat avant les appariements de la ronde 6.",
@@ -3582,7 +3525,7 @@
       "success_rate": 0.23,
       "grille_page": 57,
       "corrige_page": 65,
-      "question_text": "Question 16   : Evgeni JANEV a passé une mauvaise soirée : Il a fait une mauvaise chute la veille au soir et a passé sa soirée à l'hôpital. Un grand bandage lui recouvre toute la main droite.",
+      "question_text": "Il est droitier et vous indique donc qu'il aura beaucoup de mal à noter ses parties.",
       "choices": [
         "La notation reste obligatoire. Ce joueur doit essayer de noter avec la main gauche.",
         "Vu les circonstances il est dispensé de notation. Pour compenser cet « avantage », vous lui enlèverez 5 minutes à sa pendule.",
@@ -3611,7 +3554,6 @@
         "»."
       ],
       "explanations": [
-        "Il est droitier et vous indique donc qu'il aura beaucoup de mal à noter ses parties.",
         "Ce joueur est en situation de handicap (même handicap temporaire). On ne doit donc pas ajuster sa pendule.",
         "« Si un joueur ou une joueuse est dans l'incapacité de noter les coups, il/elle peut fournir un assistant ou une assistante, ayant l'agrément de l'arbitre, pour enregistrer les coups. Sa pendule est ajustée par l'arbitre d'une manière équitable. Cet ajustement de la pendule ne doit pas s'appliquer à une personne en situation de handicap. »",
         "Cette question a eu un taux de réussite très faible (les réponses A et B ont été données).",
@@ -3633,7 +3575,7 @@
       "success_rate": 0.92,
       "grille_page": 57,
       "corrige_page": 65,
-      "question_text": "Question 17   : Clémence DENET ne se présente pas à cette ronde.",
+      "question_text": "Elle perd donc sa partie par forfait.",
       "choices": [
         "Après votre signalement à la DNA, cette joueuse aura une suspension automatique de licence de 3 mois.",
         "Vous devez signaler cette joueuse à la DNA. La joueuse sera prévenue du signalement et une sanction pourra être décidée si la situation se répète.",
@@ -3656,7 +3598,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "Elle perd donc sa partie par forfait.",
         "Que devez-vous faire de plus et que risque cette joueuse ?",
         "Selon l'article 17.2, a l'occasion des tournois homologues, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satisfaisante a la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridique."
       ],
@@ -3670,7 +3611,7 @@
       "success_rate": 0.75,
       "grille_page": 57,
       "corrige_page": 66,
-      "question_text": "Question 18 : Quel prix aura le joueur ou la joueuse qui termine à la 4ème place du classement général ? a) 120 € b) 100 € c) 80 € d) 70 € e) 60 € Les joueurs 3ème est Senior+. Le prix Senior+ (120 €) est supérieur au prix de la 3ème place (120 €). Joël LAUTIER aura donc le prix Senior+. Comme les prix ne sont pas cumulables. Le prix de la 3ème place reste disponible. Polina SHUVALOVA, classée 4ème va donc avoir ce prix (qui est supérieur au prix féminin). Donc : 100 €. Ici, il y a avait un petit piège parce que PAPI ne prend pas en compte la catégories Senior+. Il fallait donc vérifier les prix donnés par PAPI (comme dans les tournois réels).",
+      "question_text": "",
       "choices": [],
       "correct_answer_text": [
         "b) 100 €"
@@ -3703,7 +3644,7 @@
       "success_rate": 0.36,
       "grille_page": 57,
       "corrige_page": 67,
-      "question_text": "Question 19   : Plusieurs joueurs ou joueuses sont à égalité à la 4ème place. Avec lequel (ou lesquels) de ces départages (utilisé en 1er départage) le 4ème du classement général final ne serait pas le même ? (Vous pouvez faire des essais, mais à la fin penser à remettre les départages choisis pour le tournoi).",
+      "question_text": "Connaissance des départages ou plutôt manipulation de PAPI ici puisque on ne demandait pas aux candidats de tester ces 3 autres départages à la main. Il suffisait de faire des essais avec PAPI et de repérer dans quel cas le classement à la 4ème place changeait.",
       "choices": [
         "Cumulatif.",
         "Sonnborn-Berger.",
@@ -3721,10 +3662,8 @@
         "A"
       ],
       "explanations_color": [],
-      "explanations": [
-        "Connaissance des départages ou plutôt manipulation de PAPI ici puisque on ne demandait pas aux candidats de tester ces 3 autres départages à la main. Il suffisait de faire des essais avec PAPI et de repérer dans quel cas le classement à la 4ème place changeait."
-      ],
-      "has_explanation": true
+      "explanations": [],
+      "has_explanation": false
     },
     {
       "uv": "UVT",
@@ -3734,7 +3673,7 @@
       "success_rate": 0.65,
       "grille_page": 57,
       "corrige_page": 67,
-      "question_text": "Question 20 : Qui aura les 50 € du 2ème prix féminin ?",
+      "question_text": "BARBIE a donc le 2ème prix féminin.",
       "choices": [
         "Polina SHUVALOVA",
         "Miruna-Daria LEHACI",
@@ -3753,10 +3692,8 @@
         "A"
       ],
       "explanations_color": [],
-      "explanations": [
-        "BARBIE a donc le 2ème prix féminin."
-      ],
-      "has_explanation": true
+      "explanations": [],
+      "has_explanation": false
     },
     {
       "uv": "UVT",
@@ -3766,7 +3703,7 @@
       "success_rate": 0.23,
       "grille_page": 57,
       "corrige_page": 67,
-      "question_text": "Question 21 : A.S. SHARVAANICA vous demande combien de points ELO FIDE elle va gagner durant ce tournoi. Quelle réponse est la plus proche ?",
+      "question_text": "coefficient 10. Il s'agit d'une jeune joueuse donc son coefficient est de 40. Son gain sera donc d'environ : 6,34 x 4 = 25,36 points.",
       "choices": [
         "Environ 6 points.",
         "Environ 12 points.",
@@ -3790,8 +3727,7 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "A.S. SHARVAANICA a un gain estimé indiqué de 6,34 points, mais attention, ceci est calculé sur la base d'un",
-        "coefficient 10. Il s'agit d'une jeune joueuse donc son coefficient est de 40. Son gain sera donc d'environ : 6,34 x 4 = 25,36 points."
+        "A.S. SHARVAANICA a un gain estimé indiqué de 6,34 points, mais attention, ceci est calculé sur la base d'un"
       ],
       "has_explanation": true
     },
@@ -3803,7 +3739,7 @@
       "success_rate": 0.73,
       "grille_page": 57,
       "corrige_page": 68,
-      "question_text": "Question 22   : Un joueur vient vous demandez pourquoi sur la page indiquant le calcul du ELO FIDE, toutes ces parties ne sont pas comptées. Parmi les 5 affirmations suivantes, combien sont vraies ?",
+      "question_text": "- Quand 2 joueurs classés ont 400 points d'écart ou plus et que le plus fort gagne, la partie n'est pas prise en compte pour le calcul.",
       "choices": [
         "Les victoires par forfait ne sont pas prises en compte pour le classement ELO du vainqueur.",
         "Les défaites par forfait ne font pas perdre de point ELO au joueur absent.",
@@ -3834,7 +3770,6 @@
         "- Les défaites par forfait ne font pas perdre de point ELO au joueur absent."
       ],
       "explanations": [
-        "- Quand 2 joueurs classés ont 400 points d'écart ou plus et que le plus fort gagne, la partie n'est pas prise en compte pour le calcul.",
         "- Les victoires par forfait ne sont pas prises en compte pour le classement ELO du vainqueur.",
         "- Les défaites par forfait ne font pas perdre de point ELO au joueur absent.",
         "Les autres sont fausses. Donc 2 affirmations vraies.",
@@ -3856,7 +3791,7 @@
       "success_rate": 0.78,
       "grille_page": 57,
       "corrige_page": 68,
-      "question_text": "Question 23   : Vous habitez à 20 km du tournoi donc vous ferez la route tous les jours. L'organisateur vous fourni l'imprimante du club et prend en charge tous vos repas sur place. Vous n'aurez donc que les frais de déplacements à vous faire rembourser (en plus de l'indemnité).",
+      "question_text": "d) 64 €",
       "choices": [
         "13 €",
         "32 €",
@@ -3886,7 +3821,7 @@
       "success_rate": 0.79,
       "grille_page": 57,
       "corrige_page": 68,
-      "question_text": "Question 24   : En plus de vos frais de déplacements, quelle est l'indemnité d'arbitrage maximale que vous pouvez demander à l'organisateur pour ce tournoi ?",
+      "question_text": "d) 455 €",
       "choices": [
         "250 €",
         "355 €",
@@ -3923,7 +3858,7 @@
       "success_rate": 0.71,
       "grille_page": 57,
       "corrige_page": 69,
-      "question_text": "Question 25   : Deux joueurs ayant le même classement ELO et le même nombre de points se rencontrent à la table 1 d'un tournoi au système Suisse. En cas de nul, avec quel(s) départage(s) le joueur en tête avant la ronde est-il certain de rester devant son adversaire du jour après la ronde ?",
+      "question_text": "a) Performance.",
       "choices": [
         "Buchholz-Médian.",
         "Sonneborn-Berger.",
@@ -3968,7 +3903,7 @@
       "success_rate": 0.21,
       "grille_page": 57,
       "corrige_page": 69,
-      "question_text": "Question 26   : Attribution  des couleurs (1) Joueur A : Elo 2000 - Score 3 points - Historique des couleurs : NBNB Joueur B : Elo 1975 - Score 3 points - Historique des couleurs : NBNB Joueur C : Elo 1820 - Score 2,5 points - Historique des couleurs : NBBN Joueur D : Elo 1750 - Score 2 points - Historique des couleurs : BNBN",
+      "question_text": "Les appariements de la ronde 5 font jouer A contre B et C contre D.",
       "choices": [
         "Les joueurs A et B ont exactement le même historique donc la même préférence couleur (noir faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4). Les 2 joueurs ont le même nombre de points donc le plus fort est celui qui a le plus fort ELO. Le joueur A aura donc sa couleur préférentielle : les noirs. Le joueur B aura donc les blancs."
       ],
@@ -4003,7 +3938,7 @@
       "success_rate": 0.63,
       "grille_page": 57,
       "corrige_page": 69,
-      "question_text": "Question 27   : Attribution des couleurs (2)",
+      "question_text": "donc pour le prochaine ronde,",
       "choices": [
         "Joueur E et joueur G.",
         "Joueur E et joueur H.",
@@ -4038,7 +3973,7 @@
       "success_rate": 0.54,
       "grille_page": 57,
       "corrige_page": 70,
-      "question_text": "Question 28   : A la fin des 9 rondes du championnat de ligue petit-poussin avec 37 joueurs, juste avant la remise des prix, le papa d'un des joueurs du podium vient vous voir avec la question suivante : Je ne comprends pas le buchholz de mon fils : tous ses adversaires ont un nombre de points entiers sauf un qui a un demi... Et à la fin, mon fils a un nombre entier en buccholz.",
+      "question_text": "Il n'y a eu aucun forfait durant le tournoi et personne n'a abandonné le tournoi.",
       "choices": [
         "PAPI arrondi le buccholz final à l'entier le plus proche.",
         "Sur un tournoi en 9 rondes, on ne prend que les 7 adversaires médians, en éliminant le plus fort et le plus faible des adversaires.",
@@ -4070,7 +4005,6 @@
         "2023 »"
       ],
       "explanations": [
-        "Il n'y a eu aucun forfait durant le tournoi et personne n'a abandonné le tournoi.",
         "LA chapitre 4.2 : Départages - Paragraphe 14 (scores ajustés) - encadré info logiciel PAPI Rappel important : (voir l'encadré à la suite de l'article 14,2) :",
         "« Information de la direction des règlements : En mars 2024, le logiciel PAPI utilise encore l'ancienne méthode de calcul du score ajusté. Le texte qui suit décrit la nouvelle méthode officielle de la FIDE qu'elle impose à partir du 1 er avril 2024. L'ancienne méthode est mise à disposition sur le site de la DNA. Les règles de la FIDE autorisent à ce que le règlement d'une compétition précise qu'une méthode alternative de score ajusté est utilisée. La Direction des règlements conseille d'utiliser cette précision à l'heure actuelle en fonction de l'évolution du logiciel PAPI. »",
         "Il est quand même bien de pouvoir donner une (bonne) réponse rapidement à ce genre de question, avant la remise des prix. Le calcul des scores ajustés reste assez simple. Ici la réponse D était donc la réponse appropriée (ça peut aussi être joueur forfait, joueur qui a abandonné le tournoi...).",
@@ -4090,7 +4024,7 @@
       "success_rate": 0.32,
       "grille_page": 57,
       "corrige_page": 71,
-      "question_text": "Question 29   : Appariement d'un groupe de points (1)",
+      "question_text": "6 joueurs ont 3 points (numéro d'appariement et préférence couleur (avec force) de chacun d'eux :",
       "choices": [
         "4 joueurs ont une couleur préférentiel « noir »."
       ],
@@ -4136,7 +4070,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "6 joueurs ont 3 points (numéro d'appariement et préférence couleur (avec force) de chacun d'eux :",
         "Un des joueurs ayant la couleur préférentiel « noir » aura donc les blancs.",
         "L'article C11 indique : « Minimiser le nombre de personnes qui n'ont pas leur préférence couleur forte satisfaite ». Un seul de ces 4 joueurs est en préférence faible (le 17). Si possible, c'est donc ce joueur qui",
         "Mais attention, tous les joueurs ayant « noir » comme préférence couleur ne l'ont pas avec le même niveau de préférence (1 absolu, 2 forts, 1 faible)."
@@ -4151,7 +4084,7 @@
       "success_rate": 0.44,
       "grille_page": 57,
       "corrige_page": 71,
-      "question_text": "Question 30   : Appariement d'un groupe de points (2)",
+      "question_text": "5 joueurs ont 0 points (il n'y a donc aucun « déjà joué »).",
       "choices": [],
       "correct_answer_text": [
         "b) 10 – 14, 12 – 21 et 18 exempt."
@@ -4170,7 +4103,6 @@
       ],
       "explanations_color": [],
       "explanations": [
-        "5 joueurs ont 0 points (il n'y a donc aucun « déjà joué »).",
         "Voilà leurs numéros d'appariements et leur préférence couleur (préférence faible pour tous donc) :",
         "4 joueurs ont une préférence blanc et 1 joueur une préférence noir.",
         "On aura donc une table perturbée en forçant un des joueur ayant une préférence blanc.",

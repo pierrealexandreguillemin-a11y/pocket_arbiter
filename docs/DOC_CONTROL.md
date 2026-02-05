@@ -87,6 +87,7 @@ S'applique a :
 | CHK-P2-001 | Checklist Phase 2 Android | .iso/checklists/phase2_android_rag.md | 1.0 |
 | CORP-INV-001 | Inventaire Corpus | corpus/INVENTORY.md | 1.0 |
 | PROM-LOG-001 | Changelog Prompts | prompts/CHANGELOG.md | 1.0 |
+| SPEC-GS-SCRATCH-001 | Gold Standard Scratch v1 | docs/specs/GS_SCRATCH_V1_SPEC.md | 1.0 |
 
 ---
 

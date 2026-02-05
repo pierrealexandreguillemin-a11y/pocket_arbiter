@@ -1,0 +1,73 @@
+{
+  "report_id": "VAL-GS-SCRATCH-001",
+  "iso_reference": "ISO 29119-3",
+  "generated_at": "2026-02-05T21:57:56.013296",
+  "gs_file": "tests/data/gs_scratch_v1.json",
+  "methodology": "BY DESIGN (chunk = INPUT)",
+  "coverage": {
+    "total_questions": 584,
+    "answerable": 397,
+    "unanswerable": 187,
+    "unanswerable_ratio": 0.32
+  },
+  "provenance_compliance": {
+    "chunk_id_present": 584,
+    "answer_explanation_present": 584,
+    "article_reference_present": 584,
+    "compliance_rate": 1.0
+  },
+  "semantic_quality": {
+    "keywords_present": 584,
+    "domain_keywords_count": 2870,
+    "domain_keywords_unique": 66,
+    "top_domain_keywords": [
+      [
+        "arbitre",
+        231
+      ],
+      [
+        "elo",
+        190
+      ],
+      [
+        "tour",
+        187
+      ],
+      [
+        "article",
+        168
+      ],
+      [
+        "mat",
+        165
+      ],
+      [
+        "ffe",
+        147
+      ],
+      [
+        "fide",
+        140
+      ],
+      [
+        "tournoi",
+        130
+      ],
+      [
+        "roi",
+        124
+      ],
+      [
+        "classement",
+        89
+      ]
+    ]
+  },
+  "validation_gates": {
+    "G1_chunk_match_score_100": true,
+    "G2_unanswerable_ratio_25_33": true,
+    "G3_provenance_complete": true,
+    "G4_keywords_domain": true
+  },
+  "status": "VALIDATED"
+}

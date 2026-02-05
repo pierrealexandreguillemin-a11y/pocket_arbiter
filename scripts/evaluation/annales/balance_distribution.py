@@ -15,10 +15,12 @@ Effectue:
 ISO Reference:
 - ISO 29119-3: Test data balance
 - ISO 25010: Data quality metrics
+- ISO 42001 A.6.2.2: Provenance and embeddings (EmbeddingGemma QAT)
 
 Standards Reference:
 - SemHash/SoftDedup: Deduplication < 0.95
 - NV-Embed/E5: Anchor independence < 0.90
+- EmbeddingGemma QAT: google/embeddinggemma-300m-qat-q4_0-unquantized
 - SQuAD 2.0: Unanswerable ratio 25-33%
 - Know Your RAG (COLING 2025): reasoning_class distribution
 
@@ -41,33 +43,36 @@ _project_root = Path(__file__).parent.parent.parent.parent
 if str(_project_root) not in sys.path:
     sys.path.insert(0, str(_project_root))
 
+from scripts.pipeline.embeddings import (  # noqa: E402
+    embed_query,
+    embed_texts,
+    load_embedding_model,
+)
 from scripts.pipeline.utils import get_date, load_json, save_json  # noqa: E402
 
-# Lazy-loaded embedding model
+# Lazy-loaded EmbeddingGemma QAT model (ISO 42001 A.6.2.2)
 _embedding_model = None
 
 
 def get_embedding_model():
-    """Lazy load sentence embedding model."""
+    """Lazy load EmbeddingGemma QAT embedding model (ISO 42001 A.6.2.2)."""
     global _embedding_model
     if _embedding_model is None:
-        from sentence_transformers import SentenceTransformer
-
-        print("  Loading embedding model...")
-        _embedding_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+        print("  Loading EmbeddingGemma QAT model...")
+        _embedding_model = load_embedding_model()
     return _embedding_model
 
 
 def compute_embedding(text: str) -> np.ndarray:
-    """Compute sentence embedding for text."""
+    """Compute sentence embedding using EmbeddingGemma QAT."""
     model = get_embedding_model()
-    return model.encode(text, convert_to_numpy=True)
+    return embed_query(text, model, normalize=True)
 
 
 def compute_embeddings_batch(texts: list[str], batch_size: int = 32) -> np.ndarray:
-    """Compute embeddings for a batch of texts."""
+    """Compute embeddings for a batch of texts using EmbeddingGemma QAT."""
     model = get_embedding_model()
-    return model.encode(texts, convert_to_numpy=True, batch_size=batch_size)
+    return embed_texts(texts, model, normalize=True)
 
 
 def cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:

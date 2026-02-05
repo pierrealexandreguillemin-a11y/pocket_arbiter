@@ -6,7 +6,7 @@ Validates that each question's expected_answer is actually extractable
 from the source chunk. Uses three validation methods:
 1. Verbatim match (exact substring)
 2. Keyword coverage >= 80%
-3. Semantic similarity >= 0.90
+3. Semantic similarity >= 0.90 (using EmbeddingGemma QAT)
 
 ISO Reference:
 - ISO 42001 A.6.2.2: Provenance verification
@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -31,27 +32,36 @@ _project_root = Path(__file__).parent.parent.parent.parent
 if str(_project_root) not in sys.path:
     sys.path.insert(0, str(_project_root))
 
+from scripts.pipeline.embeddings import (  # noqa: E402
+    embed_query,
+    embed_texts,
+    load_embedding_model,
+)
 from scripts.pipeline.utils import get_date, load_json, save_json  # noqa: E402
 
-# Lazy-loaded embedding model
+# Lazy-loaded embedding model (uses EmbeddingGemma QAT per ISO 42001)
 _embedding_model = None
 
 
 def get_embedding_model():
-    """Lazy load sentence embedding model."""
+    """Lazy load EmbeddingGemma QAT embedding model (ISO 42001 A.6.2.2)."""
     global _embedding_model
     if _embedding_model is None:
-        from sentence_transformers import SentenceTransformer
-
-        print("  Loading embedding model...")
-        _embedding_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+        print("  Loading EmbeddingGemma QAT model...")
+        _embedding_model = load_embedding_model()
     return _embedding_model
 
 
 def compute_embedding(text: str) -> np.ndarray:
-    """Compute sentence embedding for text."""
+    """Compute sentence embedding using EmbeddingGemma QAT."""
     model = get_embedding_model()
-    return model.encode(text, convert_to_numpy=True)
+    return embed_query(text, model, normalize=True)
+
+
+def compute_embeddings_batch(texts: list[str]) -> np.ndarray:
+    """Compute embeddings for a batch of texts."""
+    model = get_embedding_model()
+    return embed_texts(texts, model, normalize=True)
 
 
 def cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:
@@ -68,14 +78,12 @@ def normalize_text_for_matching(text: str) -> str:
     Normalize text for matching purposes.
 
     - Lowercase
-    - Remove accents
+    - Remove accents via Unicode NFKD
     - Normalize whitespace
     """
     text = text.lower()
 
     # Unicode normalization to remove accents
-    import unicodedata
-
     text = unicodedata.normalize("NFKD", text)
     text = "".join(c for c in text if not unicodedata.combining(c))
 
@@ -245,7 +253,7 @@ def validate_semantic(
     threshold: float = 0.90,
 ) -> tuple[bool, float]:
     """
-    Check semantic similarity.
+    Check semantic similarity using EmbeddingGemma QAT.
 
     Args:
         answer: Expected answer text
@@ -256,7 +264,7 @@ def validate_semantic(
         Tuple of (passed, similarity)
     """
     answer_emb = compute_embedding(answer)
-    chunk_emb = compute_embedding(chunk_text)
+    chunk_emb = compute_embedding(chunk_text[:512])  # Truncate for efficiency
 
     similarity = cosine_similarity(answer_emb, chunk_emb)
 
@@ -397,7 +405,7 @@ def validate_questions(
     passed_count = 0
     rejected_ids = []
 
-    method_counts = {
+    method_counts: dict[str, int] = {
         "verbatim": 0,
         "keyword": 0,
         "semantic": 0,
@@ -629,6 +637,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    import sys
-
     sys.exit(main())

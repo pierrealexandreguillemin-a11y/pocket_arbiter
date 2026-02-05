@@ -1,0 +1,1170 @@
+{
+  "version": "1.0",
+  "schema": "GS_SCHEMA_V2",
+  "methodology": {
+    "type": "BY_DESIGN",
+    "description": "chunk_id is INPUT, not OUTPUT",
+    "date": "2026-02-05"
+  },
+  "coverage": {
+    "total_questions": 16,
+    "answerable": 13,
+    "unanswerable": 3
+  },
+  "questions": [
+    {
+      "id": "sample:answerable:000",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, d'éventuelles séances supplémentaires peuvent se t... ?",
+        "expected_answer": "D'éventuelles séances supplémentaires peuvent se tenir en visioconférence",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, d'éventuelles séances supplémentaires peuvent se t... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "D'éventuelles séances supplémentaires peuvent se tenir en visioconférence",
+        "original_answer": "D'éventuelles séances supplémentaires peuvent se tenir en visioconférence"
+      },
+      "provenance": {
+        "chunk_id": "2024_Statuts20240420.pdf-p010-parent031-child00",
+        "docs": [
+          "2024_Statuts20240420.pdf"
+        ],
+        "pages": [
+          10
+        ],
+        "article_reference": "7.3 Modalités de réunions",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "arbitrage",
+        "keywords": [
+          "peuvent",
+          "selon",
+          "document",
+          "tenir"
+        ],
+        "difficulty": 0.49689099657156816,
+        "question_type": "factual",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "reasoning",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.7999999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2024_Statuts20240420.pdf-p010-parent031-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:001",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, 3 engagement  \npour participer à la compétition, t... ?",
+        "expected_answer": "3 Engagement  \nPour participer à la compétition, tous les clubs, doivent impérativement faire parvenir à la Direction Technique du CDJE, au plus tard 15 jours avant le début de la compétition, un form",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, 3 engagement  \npour participer à la compétition, t... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "3 Engagement  \nPour participer à la compétition, tous les clubs, doivent impérativement faire parvenir à la Direction Technique du CDJE, au plus tard 15 jours avant le début de la compétition, un form",
+        "original_answer": "3 Engagement  \nPour participer à la compétition, tous les clubs, doivent impérativement faire parvenir à la Direction Technique du CDJE, au plus tard 15 jours avant le début de la compétition, un form"
+      },
+      "provenance": {
+        "chunk_id": "Interclubs_DepartementalBdr.pdf-p002-parent004-child00",
+        "docs": [
+          "Interclubs_DepartementalBdr.pdf"
+        ],
+        "pages": [
+          2
+        ],
+        "article_reference": "1.3 Engagement",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "arbitrage",
+        "keywords": [
+          "engagement",
+          "participer",
+          "selon",
+          "document",
+          "clubs",
+          "doivent",
+          "faire",
+          "parvenir"
+        ],
+        "difficulty": 0.2755487165280992,
+        "question_type": "scenario",
+        "cognitive_level": "Remember",
+        "reasoning_type": "comparative",
+        "reasoning_class": "summary",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.85
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from Interclubs_DepartementalBdr.pdf-p002-parent004-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:002",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, les autres licenciés partant ou entrant dans le no... ?",
+        "expected_answer": "Les autres licenciés partant ou entrant dans le nouveau club sont soumis aux règles générales de mutation",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, les autres licenciés partant ou entrant dans le no... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "Les autres licenciés partant ou entrant dans le nouveau club sont soumis aux règles générales de mutation",
+        "original_answer": "Les autres licenciés partant ou entrant dans le nouveau club sont soumis aux règles générales de mutation"
+      },
+      "provenance": {
+        "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p006-parent017-child00",
+        "docs": [
+          "2025_Reglement_Interieur_20250503.pdf"
+        ],
+        "pages": [
+          6
+        ],
+        "article_reference": "4.2.2 La fusion-création",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "classement",
+        "keywords": [
+          "autres",
+          "partant",
+          "entrant",
+          "selon",
+          "document",
+          "nouveau",
+          "club",
+          "soumis"
+        ],
+        "difficulty": 0.7886130767010837,
+        "question_type": "comparative",
+        "cognitive_level": "Remember",
+        "reasoning_type": "comparative",
+        "reasoning_class": "fact_single",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.76
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2025_Reglement_Interieur_20250503.pdf-p006-parent017-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:003",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, 1 objet  \ntoute prise de licence implique l'accept... ?",
+        "expected_answer": "1 Objet  \nToute prise de licence implique l'acceptation :  \n-  Du règlement disciplinaire de la FFE relatif à la lutte contre le dopage ;\n-  Du code mondial antidopage",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, 1 objet  \ntoute prise de licence implique l'accept... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "1 Objet  \nToute prise de licence implique l'acceptation :  \n-  Du règlement disciplinaire de la FFE relatif à la lutte contre le dopage ;\n-  Du code mondial antidopage",
+        "original_answer": "1 Objet  \nToute prise de licence implique l'acceptation :  \n-  Du règlement disciplinaire de la FFE relatif à la lutte contre le dopage ;\n-  Du code mondial antidopage"
+      },
+      "provenance": {
+        "chunk_id": "2022_Reglement_medical_19082022.pdf-p005-parent012-child00",
+        "docs": [
+          "2022_Reglement_medical_19082022.pdf"
+        ],
+        "pages": [
+          5
+        ],
+        "article_reference": "4.1 Objet",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "regles_jeu",
+        "keywords": [
+          "objet",
+          "toute",
+          "prise",
+          "licence",
+          "implique",
+          "selon",
+          "document",
+          "accept"
+        ],
+        "difficulty": 0.3426279986757814,
+        "question_type": "procedural",
+        "cognitive_level": "Apply",
+        "reasoning_type": "comparative",
+        "reasoning_class": "reasoning",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.8799999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2022_Reglement_medical_19082022.pdf-p005-parent012-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:004",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, le lieu et la date ne peuvent être modifiés qu'en ... ?",
+        "expected_answer": "Le lieu et la date ne peuvent être modifiés qu'en cas de circonstances nouvelles par décision du comité directeur prise à la majorité des 2⁄3 des voix",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, le lieu et la date ne peuvent être modifiés qu'en ... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "Le lieu et la date ne peuvent être modifiés qu'en cas de circonstances nouvelles par décision du comité directeur prise à la majorité des 2⁄3 des voix",
+        "original_answer": "Le lieu et la date ne peuvent être modifiés qu'en cas de circonstances nouvelles par décision du comité directeur prise à la majorité des 2⁄3 des voix"
+      },
+      "provenance": {
+        "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p009-parent024-child00",
+        "docs": [
+          "2025_Reglement_Interieur_20250503.pdf"
+        ],
+        "pages": [
+          9
+        ],
+        "article_reference": "6.1 Date",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "arbitrage",
+        "keywords": [
+          "lieu",
+          "date",
+          "peuvent",
+          "selon",
+          "document",
+          "circonstances",
+          "nouvelles",
+          "directeur"
+        ],
+        "difficulty": 0.7492595164597291,
+        "question_type": "procedural",
+        "cognitive_level": "Understand",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.8799999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2025_Reglement_Interieur_20250503.pdf-p009-parent024-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:005",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, ces frais incluent :  \n- indemnités des arbitres s... ?",
+        "expected_answer": "Ces frais incluent :  \n- Indemnités des arbitres suivant les tarifs officiels du \"barème d'indemnisation des arbitres\" ;\n- Frais de déplacements ;\n- Hébergement et restauration ;  \nLe s arbitres sont ",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, ces frais incluent :  \n- indemnités des arbitres s... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "Ces frais incluent :  \n- Indemnités des arbitres suivant les tarifs officiels du \"barème d'indemnisation des arbitres\" ;\n- Frais de déplacements ;\n- Hébergement et restauration ;  \nLe s arbitres sont ",
+        "original_answer": "Ces frais incluent :  \n- Indemnités des arbitres suivant les tarifs officiels du \"barème d'indemnisation des arbitres\" ;\n- Frais de déplacements ;\n- Hébergement et restauration ;  \nLe s arbitres sont "
+      },
+      "provenance": {
+        "chunk_id": "LA-octobre2025.pdf-p010-parent018-child00",
+        "docs": [
+          "LA-octobre2025.pdf"
+        ],
+        "pages": [
+          10
+        ],
+        "article_reference": "Article 5",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "arbitrage",
+        "keywords": [
+          "arbitres",
+          "frais",
+          "incluent",
+          "selon",
+          "document",
+          "suivant",
+          "tarifs",
+          "officiels"
+        ],
+        "difficulty": 0.6860738167759854,
+        "question_type": "scenario",
+        "cognitive_level": "Analyze",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.8799999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from LA-octobre2025.pdf-p010-parent018-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:006",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, la demande (annexe) est à adresser dans les 30 jou... ?",
+        "expected_answer": "La demande (ANNEXE) est à adresser dans les 30 jours au médecin fédéral qui est tenu au secret professionnel dans les conditions et sous les réserves énoncées aux articles 226-13 et226-14du code pénal",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, la demande (annexe) est à adresser dans les 30 jou... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "La demande (ANNEXE) est à adresser dans les 30 jours au médecin fédéral qui est tenu au secret professionnel dans les conditions et sous les réserves énoncées aux articles 226-13 et226-14du code pénal",
+        "original_answer": "La demande (ANNEXE) est à adresser dans les 30 jours au médecin fédéral qui est tenu au secret professionnel dans les conditions et sous les réserves énoncées aux articles 226-13 et226-14du code pénal"
+      },
+      "provenance": {
+        "chunk_id": "2022_Reglement_medical_19082022.pdf-p006-parent017-child00",
+        "docs": [
+          "2022_Reglement_medical_19082022.pdf"
+        ],
+        "pages": [
+          6
+        ],
+        "article_reference": "Article 4.3.2.1",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "classement",
+        "keywords": [
+          "demande",
+          "annexe",
+          "adresser",
+          "selon",
+          "document",
+          "jours",
+          "tenu",
+          "secret"
+        ],
+        "difficulty": 0.7584106940637112,
+        "question_type": "comparative",
+        "cognitive_level": "Understand",
+        "reasoning_type": "comparative",
+        "reasoning_class": "reasoning",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.8799999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2022_Reglement_medical_19082022.pdf-p006-parent017-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:007",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, ## article 16 - delai de decision de premiere inst... ?",
+        "expected_answer": "## ARTICLE 16 - DELAI DE DECISION DE PREMIERE INSTANCE  \nL'organe disciplinaire de première instance doit se prononcer dans un délai de dix semaines à compter de l'engagement des poursuites disciplina",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, ## article 16 - delai de decision de premiere inst... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "## ARTICLE 16 - DELAI DE DECISION DE PREMIERE INSTANCE  \nL'organe disciplinaire de première instance doit se prononcer dans un délai de dix semaines à compter de l'engagement des poursuites disciplina",
+        "original_answer": "## ARTICLE 16 - DELAI DE DECISION DE PREMIERE INSTANCE  \nL'organe disciplinaire de première instance doit se prononcer dans un délai de dix semaines à compter de l'engagement des poursuites disciplina"
+      },
+      "provenance": {
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p006-parent016-child00",
+        "docs": [
+          "2018_Reglement_Disciplinaire20180422.pdf"
+        ],
+        "pages": [
+          6
+        ],
+        "article_reference": "Article 16",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "discipline",
+        "keywords": [
+          "article",
+          "delai",
+          "decision",
+          "premiere",
+          "instance",
+          "selon",
+          "document",
+          "inst"
+        ],
+        "difficulty": 0.7066597681477147,
+        "question_type": "procedural",
+        "cognitive_level": "Apply",
+        "reasoning_type": "temporal",
+        "reasoning_class": "reasoning",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.8799999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2018_Reglement_Disciplinaire20180422.pdf-p006-parent016-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:008",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, les membres des organes disciplinaires ne peuvent ... ?",
+        "expected_answer": "Les membres des organes disciplinaires ne peuvent être liés à la fédération et à ses organes déconcentrés par un lien contractuel autre que celui résultant éventuellement de la licence",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, les membres des organes disciplinaires ne peuvent ... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "Les membres des organes disciplinaires ne peuvent être liés à la fédération et à ses organes déconcentrés par un lien contractuel autre que celui résultant éventuellement de la licence",
+        "original_answer": "Les membres des organes disciplinaires ne peuvent être liés à la fédération et à ses organes déconcentrés par un lien contractuel autre que celui résultant éventuellement de la licence"
+      },
+      "provenance": {
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00",
+        "docs": [
+          "2018_Reglement_Disciplinaire20180422.pdf"
+        ],
+        "pages": [
+          2
+        ],
+        "article_reference": "RÈGLEMENT DISCIPLINAIRE",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "arbitrage",
+        "keywords": [
+          "organes",
+          "membres",
+          "disciplinaires",
+          "peuvent",
+          "selon",
+          "document",
+          "lien",
+          "contractuel"
+        ],
+        "difficulty": 0.41581931557496365,
+        "question_type": "procedural",
+        "cognitive_level": "Apply",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "summary",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.82
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2018_Reglement_Disciplinaire20180422.pdf-p002-parent002-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:010",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, faute d'avoir statué dans ces délais, l'organe dis... ?",
+        "expected_answer": "Faute d'avoir statué dans ces délais, l'organe disciplinaire de première instance est dessaisi et l'ensemble du dossier est transmis à l'organe disciplinaire d'appel compétent qui statue en dernier re",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, faute d'avoir statué dans ces délais, l'organe dis... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "Faute d'avoir statué dans ces délais, l'organe disciplinaire de première instance est dessaisi et l'ensemble du dossier est transmis à l'organe disciplinaire d'appel compétent qui statue en dernier re",
+        "original_answer": "Faute d'avoir statué dans ces délais, l'organe disciplinaire de première instance est dessaisi et l'ensemble du dossier est transmis à l'organe disciplinaire d'appel compétent qui statue en dernier re"
+      },
+      "provenance": {
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p006-parent016-child00",
+        "docs": [
+          "2018_Reglement_Disciplinaire20180422.pdf"
+        ],
+        "pages": [
+          6
+        ],
+        "article_reference": "Article 16",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "discipline",
+        "keywords": [
+          "organe",
+          "faute",
+          "disciplinaire",
+          "selon",
+          "document",
+          "instance",
+          "dessaisi",
+          "ensemble"
+        ],
+        "difficulty": 0.745327028482708,
+        "question_type": "comparative",
+        "cognitive_level": "Apply",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.7749999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2018_Reglement_Disciplinaire20180422.pdf-p006-parent016-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:011",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, ## le classement rapide  \nle calcul de l'elo rapid... ?",
+        "expected_answer": "## LE CLASSEMENT RAPIDE  \nLe calcul de l'Elo Rapide(ci-dessous désigné Rapide)porte sur les parties de moins de 60 min et de plus de 10 min/joueur",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, ## le classement rapide  \nle calcul de l'elo rapid... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "## LE CLASSEMENT RAPIDE  \nLe calcul de l'Elo Rapide(ci-dessous désigné Rapide)porte sur les parties de moins de 60 min et de plus de 10 min/joueur",
+        "original_answer": "## LE CLASSEMENT RAPIDE  \nLe calcul de l'Elo Rapide(ci-dessous désigné Rapide)porte sur les parties de moins de 60 min et de plus de 10 min/joueur"
+      },
+      "provenance": {
+        "chunk_id": "E02-Le_classement_rapide.pdf-p001-parent000-child00",
+        "docs": [
+          "E02-Le_classement_rapide.pdf"
+        ],
+        "pages": [
+          1
+        ],
+        "article_reference": "LE CLASSEMENT RAPIDE",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "classement",
+        "keywords": [
+          "rapide",
+          "classement",
+          "calcul",
+          "selon",
+          "document",
+          "rapid",
+          "dessous",
+          "porte"
+        ],
+        "difficulty": 0.2401476927270143,
+        "question_type": "comparative",
+        "cognitive_level": "Remember",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.8799999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from E02-Le_classement_rapide.pdf-p001-parent000-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:012",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, en cas de circonstances exceptionnelles, le délai ... ?",
+        "expected_answer": "En cas de circonstances exceptionnelles, le délai de quatre mois peut être prorogé d'un mois par une décision motivée du président de l'organe disciplinaire d'appel et notifiée à la personne poursuivi",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, en cas de circonstances exceptionnelles, le délai ... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "En cas de circonstances exceptionnelles, le délai de quatre mois peut être prorogé d'un mois par une décision motivée du président de l'organe disciplinaire d'appel et notifiée à la personne poursuivi",
+        "original_answer": "En cas de circonstances exceptionnelles, le délai de quatre mois peut être prorogé d'un mois par une décision motivée du président de l'organe disciplinaire d'appel et notifiée à la personne poursuivi"
+      },
+      "provenance": {
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p007-parent019-child00",
+        "docs": [
+          "2018_Reglement_Disciplinaire20180422.pdf"
+        ],
+        "pages": [
+          7
+        ],
+        "article_reference": "Article 19",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "discipline",
+        "keywords": [
+          "circonstances",
+          "exceptionnelles",
+          "mois",
+          "selon",
+          "document",
+          "quatre",
+          "organe",
+          "disciplinaire"
+        ],
+        "difficulty": 0.4238771084108418,
+        "question_type": "factual",
+        "cognitive_level": "Apply",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "fact_single",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.85
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2018_Reglement_Disciplinaire20180422.pdf-p007-parent019-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:answerable:013",
+      "legacy_id": "",
+      "content": {
+        "question": "Selon le document, ## principe  \nces annexes permettent aux joueurs e... ?",
+        "expected_answer": "## Principe  \nCes annexes permettent aux joueurs et joueuses, capitaines, arbitres ou organisateurs et organisatrices d'avoir une aide à la décision pour toutes les compétitions fédérales pour lesquel",
+        "is_impossible": false
+      },
+      "mcq": {
+        "original_question": "Selon le document, ## principe  \nces annexes permettent aux joueurs e... ?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "## Principe  \nCes annexes permettent aux joueurs et joueuses, capitaines, arbitres ou organisateurs et organisatrices d'avoir une aide à la décision pour toutes les compétitions fédérales pour lesquel",
+        "original_answer": "## Principe  \nCes annexes permettent aux joueurs et joueuses, capitaines, arbitres ou organisateurs et organisatrices d'avoir une aide à la décision pour toutes les compétitions fédérales pour lesquel"
+      },
+      "provenance": {
+        "chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00",
+        "docs": [
+          "R02_2025_26_Regles_generales_Annexes.pdf"
+        ],
+        "pages": [
+          1
+        ],
+        "article_reference": "Principe",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "arbitrage",
+        "keywords": [
+          "principe",
+          "annexes",
+          "permettent",
+          "joueurs",
+          "selon",
+          "document",
+          "joueuses",
+          "capitaines"
+        ],
+        "difficulty": 0.4027699434890829,
+        "question_type": "comparative",
+        "cognitive_level": "Understand",
+        "reasoning_type": "comparative",
+        "reasoning_class": "fact_single",
+        "answer_type": "extractive",
+        "hard_type": "ANSWERABLE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": true,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.8799999999999999
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from R02_2025_26_Regles_generales_Annexes.pdf-p001-parent000-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:unanswerable:000",
+      "legacy_id": "",
+      "content": {
+        "question": "Quelles etaient les regles FIDE concernant le pat en 1850?",
+        "expected_answer": "",
+        "is_impossible": true
+      },
+      "mcq": {
+        "original_question": "Quelles etaient les regles FIDE concernant le pat en 1850?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "",
+        "original_answer": ""
+      },
+      "provenance": {
+        "chunk_id": "2022_Reglement_medical_19082022.pdf-p003-parent006-child00",
+        "docs": [
+          "2022_Reglement_medical_19082022.pdf"
+        ],
+        "pages": [
+          3
+        ],
+        "article_reference": "2.2.2.2 Fonction",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "regles_jeu",
+        "keywords": [
+          "quelles",
+          "etaient",
+          "regles",
+          "fide",
+          "concernant"
+        ],
+        "difficulty": 0.9562347875772439,
+        "question_type": "adversarial",
+        "cognitive_level": "Analyze",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "adversarial",
+        "answer_type": "extractive",
+        "hard_type": "TEMPORAL_MISMATCH"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": false,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.4
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2022_Reglement_medical_19082022.pdf-p003-parent006-child00 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:unanswerable:001",
+      "legacy_id": "",
+      "content": {
+        "question": "Comment ca marche exactement pour les pendules?",
+        "expected_answer": "",
+        "is_impossible": true
+      },
+      "mcq": {
+        "original_question": "Comment ca marche exactement pour les pendules?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "",
+        "original_answer": ""
+      },
+      "provenance": {
+        "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01",
+        "docs": [
+          "2018_Reglement_Disciplinaire20180422.pdf"
+        ],
+        "pages": [
+          5
+        ],
+        "article_reference": "Article 12",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "regles_jeu",
+        "keywords": [
+          "comment",
+          "marche",
+          "exactement",
+          "pendules"
+        ],
+        "difficulty": 0.9928669738493362,
+        "question_type": "adversarial",
+        "cognitive_level": "Analyze",
+        "reasoning_type": "multi-hop",
+        "reasoning_class": "adversarial",
+        "answer_type": "extractive",
+        "hard_type": "AMBIGUOUS"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": false,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.4
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from 2018_Reglement_Disciplinaire20180422.pdf-p005-parent012-child01 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    },
+    {
+      "id": "sample:unanswerable:002",
+      "legacy_id": "",
+      "content": {
+        "question": "Quelles sont les regles du basketball selon la FIBA?",
+        "expected_answer": "",
+        "is_impossible": true
+      },
+      "mcq": {
+        "original_question": "Quelles sont les regles du basketball selon la FIBA?",
+        "choices": {},
+        "mcq_answer": "",
+        "correct_answer": "",
+        "original_answer": ""
+      },
+      "provenance": {
+        "chunk_id": "R02_2025_26_Regles_generales_Annexes.pdf-p002-parent007-child01",
+        "docs": [
+          "R02_2025_26_Regles_generales_Annexes.pdf"
+        ],
+        "pages": [
+          2
+        ],
+        "article_reference": "7. Liste des zones interdépartementales (ZID)",
+        "answer_explanation": "",
+        "annales_source": null
+      },
+      "classification": {
+        "category": "classement",
+        "keywords": [
+          "quelles",
+          "regles",
+          "basketball",
+          "selon",
+          "fiba"
+        ],
+        "difficulty": 0.867275094592957,
+        "question_type": "adversarial",
+        "cognitive_level": "Analyze",
+        "reasoning_type": "single-hop",
+        "reasoning_class": "adversarial",
+        "answer_type": "extractive",
+        "hard_type": "OUT_OF_SCOPE"
+      },
+      "validation": {
+        "status": "VALIDATED",
+        "method": "by_design_generation",
+        "reviewer": "claude_code",
+        "answer_current": true,
+        "verified_date": "2026-02-05",
+        "pages_verified": true,
+        "batch": "gs_scratch_v1"
+      },
+      "processing": {
+        "chunk_match_score": 100,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": false,
+        "extraction_flags": [
+          "by_design"
+        ],
+        "answer_source": "chunk_extraction",
+        "quality_score": 0.4
+      },
+      "audit": {
+        "history": "[BY DESIGN] Generated from R02_2025_26_Regles_generales_Annexes.pdf-p002-parent007-child01 on 2026-02-05",
+        "qat_revalidation": null,
+        "requires_inference": false
+      }
+    }
+  ]
+}

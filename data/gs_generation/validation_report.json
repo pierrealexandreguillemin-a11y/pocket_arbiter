@@ -1,0 +1,6335 @@
+{
+  "validation_date": "2026-02-05",
+  "total_questions": 700,
+  "passed": 700,
+  "rejected": 0,
+  "pass_rate": 1.0,
+  "thresholds": {
+    "keyword_coverage": 0.8,
+    "semantic_similarity": 0.9
+  },
+  "method_distribution": {
+    "verbatim": 489,
+    "keyword": 0,
+    "semantic": 0,
+    "unanswerable_skip": 211,
+    "REJECTED": 0
+  },
+  "rejected_ids": [],
+  "details": [
+    {
+      "question_id": "gs:scratch:answerable:0000:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0001:1884f009",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0002:d782648f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0003:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0004:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0005:5f0a4c67",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0006:38505cdd",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0007:38fc2aef",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0008:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0009:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0010:2e4b3c1f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0011:f9ceb6ed",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0012:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0013:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0014:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0015:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0016:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0017:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0018:9ee18cac",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0019:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0020:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0021:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0022:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0023:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0024:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0025:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0026:b7f320da",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0027:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0028:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0029:ea0aac41",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0030:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0031:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0032:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0033:fea21b07",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0034:a28e028b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0035:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0036:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0037:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0038:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0039:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0040:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0041:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0042:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0043:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0044:cb63b926",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0045:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0046:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0047:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0048:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0049:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0050:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0051:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0052:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0053:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0054:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0055:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0056:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0057:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0058:2e4b3c1f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0059:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0060:1a5e8f49",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0061:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0062:440b7629",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0063:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0064:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0065:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0066:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0067:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0068:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0069:5865666e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0070:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0071:7bd7528b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0072:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0073:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0074:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0075:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0076:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0077:def0a815",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0078:8ba0abd3",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0079:d539f0ab",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0080:4baff264",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0081:1f73ead7",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0082:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0083:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0084:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0085:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0086:0719a6d3",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0087:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0088:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0089:0af386e6",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0090:a46f3802",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0091:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0092:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0093:c362a0eb",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0094:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0095:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0096:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0097:0b9d43b7",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0098:98d13ab4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0099:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0100:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0101:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0102:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0103:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0104:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0105:022807f9",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0106:3a47d31b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0107:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0108:e8253a25",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0109:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0110:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0111:168fda63",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0112:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0113:cb63b926",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0114:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0115:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0116:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0117:b8ac3b5e",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0118:0b9d43b7",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0119:02aa5778",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0120:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0121:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0122:ea20d5fd",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0123:b25a40e4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0124:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0125:622465b8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0126:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0127:d299d14b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0128:98d13ab4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0129:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0130:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0131:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0132:b7f320da",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0133:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0134:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0135:b69593b3",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0136:b7f320da",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0137:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0138:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0139:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0140:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0141:3be12e61",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0142:3c0bd30a",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0143:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0144:1637a933",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0145:09fcdd91",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0146:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0147:cb63b926",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0148:f4b33f46",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0149:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0150:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0151:3c7a0d50",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0152:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0153:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0154:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0155:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0156:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0157:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0158:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0159:0d6e057c",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0160:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0161:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0162:fe616505",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0163:ccff5829",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0164:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0165:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0166:1e088d6c",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0167:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0168:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0169:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0170:e8690eb5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0171:d1c90add",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0172:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0173:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0174:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0175:e68f4087",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0176:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0177:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0178:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0179:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0180:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0181:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0182:8c36825f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0183:1884f009",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0184:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0185:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0186:3c7a0d50",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0187:79ae0c71",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0188:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0189:4f2ebc45",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0190:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0191:e5e92df7",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0192:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0193:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0194:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0195:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0196:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0197:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0198:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0199:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0200:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0201:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0202:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0203:011e01e5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0204:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0205:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0206:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0207:0e9e956e",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0208:46e2c99d",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0209:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0210:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0211:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0212:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0213:63c67b8a",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0214:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0215:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0216:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0217:7e5874c8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0218:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0219:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0220:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0221:a28e028b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0222:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0223:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0224:8b0e89a1",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0225:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0226:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0227:d1c90add",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0228:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0229:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0230:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0231:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0232:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0233:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0234:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0235:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0236:3c7a0d50",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0237:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0238:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0239:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0240:eef57a0e",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0241:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0242:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0243:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0244:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0245:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0246:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0247:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0248:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0249:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0250:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0251:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0252:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0253:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0254:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0255:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0256:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0257:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0258:de95f352",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0259:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0260:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0261:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0262:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0263:26484a67",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0264:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0265:6e59621b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0266:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0267:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0268:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0269:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0270:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0271:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0272:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0273:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0274:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0275:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0276:2d8dbce8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0277:ef615b44",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0278:2d8dbce8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0279:8b0e89a1",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0280:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0281:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0282:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0283:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0284:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0285:83893422",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0286:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0287:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0288:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0289:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0290:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0291:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0292:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0293:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0294:3c7a0d50",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0295:440b7629",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0296:1c953452",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0297:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0298:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0299:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0300:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0301:36c49e26",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0302:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0303:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0304:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0305:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0306:dea63965",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0307:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0308:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0309:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0310:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0311:c2064709",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0312:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0313:99d60bb3",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0314:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0315:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0316:d95f8d52",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0317:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0318:64a58fa4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0319:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0320:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0321:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0322:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0323:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0324:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0325:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0326:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0327:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0328:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0329:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0330:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0331:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0332:7bd7528b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0333:b32de191",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0334:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0335:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0336:38fc2aef",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0337:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0338:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0339:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0340:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0341:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0342:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0343:8b0e89a1",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0344:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0345:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0346:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0347:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0348:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0349:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0350:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0351:7bd7528b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0352:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0353:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0354:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0355:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0356:1884f009",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0357:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0358:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0359:a4f3cdb2",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0360:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0361:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0362:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0363:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0364:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0365:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0366:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0367:98d13ab4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0368:2d8dbce8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0369:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0370:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0371:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0372:1884f009",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0373:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0374:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0375:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0376:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0377:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0378:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0379:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0380:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0381:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0382:7bd7528b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0383:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0384:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0385:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0386:5f0a4c67",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0387:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0388:bf1bfd1b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0389:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0390:2d8dbce8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0391:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0392:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0393:75c750c5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0394:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0395:b7f320da",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0396:b7f320da",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0397:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0398:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0399:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0400:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0401:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0402:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0403:95d3b17c",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0404:0b9d43b7",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0405:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0406:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0407:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0408:14f6dec1",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0409:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0410:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0411:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0412:635b491f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0413:0ca37028",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0414:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0415:35c79dbb",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0416:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0417:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0418:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0419:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0420:760e8d46",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0421:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0422:cd2c750b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0423:3c7a0d50",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0424:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0425:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0426:1884f009",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0427:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0428:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0429:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0430:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0431:e7791feb",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0432:ff97ed2f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0433:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0434:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0435:1637a933",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0436:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0437:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0438:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0439:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0440:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0441:6db8fbf4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0442:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0443:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0444:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0445:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0446:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0447:3be12e61",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0448:c0465839",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0449:440b7629",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0450:a28e028b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0451:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0452:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0453:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0454:1f73ead7",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0455:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0456:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0457:2b8efcfb",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0458:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0459:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0460:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0461:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0462:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0463:b7f320da",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0464:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0465:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0466:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0467:011e01e5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0468:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0469:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0470:10d7cd0d",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0471:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0472:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0473:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0474:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0475:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0476:dae0ae72",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0477:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0478:f4704d24",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0479:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0480:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0481:8ba0abd3",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0482:8eddad1f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0483:fea21b07",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0484:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0485:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0486:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0487:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0488:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0489:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0490:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0491:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0492:98d13ab4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0493:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0494:43001de0",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0495:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0496:64b7edb2",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0497:2d8dbce8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0498:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0499:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0500:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0501:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0502:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0503:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0504:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0505:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0506:cb63b926",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0507:121651a0",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0508:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0509:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0510:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0511:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0512:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0513:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0514:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0515:c1114efc",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0516:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0517:cb63b926",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0518:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0519:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0520:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0521:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0522:5d5762c4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0523:ab5b89c8",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0524:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0525:1884f009",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0526:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0527:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0528:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0529:20496cfa",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0530:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0531:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0532:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0533:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0534:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0535:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0536:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0537:2d262133",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0538:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0539:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0540:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0541:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0542:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0543:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0544:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0545:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0546:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0547:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0548:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0549:98d13ab4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0550:c0465839",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0551:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0552:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0553:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0554:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0555:55495067",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0556:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0557:cb63b926",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0558:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0559:80d2799e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0560:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0561:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0562:1884f009",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0563:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0564:d95f8d52",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0565:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0566:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0567:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0568:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0569:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0570:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0571:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0572:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0573:ae34be80",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0574:b15318d6",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0575:8d48c9f0",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0576:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0577:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0578:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0579:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0580:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0581:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0582:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0583:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0584:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0585:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0586:f4b33f46",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0587:620d287e",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0588:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0589:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0590:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0591:ba4bdb00",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0592:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0593:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0594:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0595:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0596:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0597:5865666e",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0598:a28c2a8d",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0599:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0600:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0601:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0602:3290cf3a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0603:43001de0",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0604:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0605:b0a6e817",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0606:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0607:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0608:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0609:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0610:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0611:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0612:3c7a0d50",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0613:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0614:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0615:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0616:8eddad1f",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0617:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0618:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0619:8dc78fca",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0620:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0621:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0622:de65d583",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0623:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0624:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0625:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0626:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0627:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0628:0122a808",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0629:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0630:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0631:2bc00e0c",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0632:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0633:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0634:a28e028b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0635:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0636:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0637:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0638:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0639:c31ba5a6",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0640:d063c289",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0641:3be12e61",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0642:1e987a5a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0643:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0644:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0645:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0646:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0647:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0648:628bd72c",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0649:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0650:1fb58338",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0651:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0652:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0653:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0654:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0655:cdcc80d5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0656:760e8d46",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0657:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0658:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0659:e95b24f5",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0660:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0661:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0662:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0663:861e6b64",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0664:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0665:a28e028b",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0666:550722a3",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0667:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0668:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0669:1abea0a0",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0670:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0671:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0672:7bd7528b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0673:b8a3dcb0",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0674:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0675:727744f8",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0676:235e700a",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0677:cb63b926",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0678:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0679:82e386b1",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0680:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0681:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0682:299ff1aa",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0683:c4147d16",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0684:8ba0abd3",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0685:82eb18b2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0686:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0687:e244a8f2",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0688:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0689:8e8eddb3",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0690:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0691:6610130b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0692:eef57a0e",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0693:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0694:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0695:eb8d5e83",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0696:e54cb748",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:unanswerable:0697:7bd7528b",
+      "passed": true,
+      "method": "unanswerable_skip",
+      "verbatim": false,
+      "keyword_coverage": 0.0,
+      "semantic_similarity": null,
+      "details": "Unanswerable question - validation skipped"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0698:da12c662",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    },
+    {
+      "question_id": "gs:scratch:answerable:0699:98d13ab4",
+      "passed": true,
+      "method": "verbatim",
+      "verbatim": true,
+      "keyword_coverage": 1.0,
+      "semantic_similarity": null,
+      "details": "Answer found verbatim in chunk"
+    }
+  ],
+  "gates": {
+    "G3-1": {
+      "name": "validation_passed",
+      "passed": true,
+      "value": "700/700",
+      "threshold": "100%"
+    },
+    "G3-2": {
+      "name": "hallucination_count",
+      "passed": true,
+      "value": 0,
+      "threshold": 0
+    }
+  }
+}

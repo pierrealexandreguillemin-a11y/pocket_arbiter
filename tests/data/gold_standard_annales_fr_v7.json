@@ -181,6 +181,13 @@
       "from_version": "unified-v1",
       "to_version": "unified-v2",
       "spec": "docs/specs/GS_SCHEMA_V2.md"
+    },
+    "uv_mapping_fix": {
+      "date": "2026-02-04T18:45:01.175709",
+      "method": "pdf_section_matching_all_sessions",
+      "corrections": 193,
+      "coverage": "99.2%",
+      "script": "fix_gs_uv_mapping.py"
     }
   },
   "coverage": {
@@ -768,7 +775,7 @@
         "answer_explanation": "Selon LA Article 7.4, les licenciés A dont le code FIDE n'est pas FRA et possédant un titre d'arbitre FIDE (AF ou AI) peuvent obtenir un titre fédéral en validant l'UVC. Le niveau de titre sera déterminé par la DNA selon l'expérience.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 8,
           "success_rate": 0.58
         }
@@ -851,7 +858,7 @@
         "answer_explanation": "Selon R01 Article 2, les joueurs qui n'ont pas obtenu l'accord de la Commission Technique fédérale et qui se trouvent en situation illégale peuvent être pénalisés rétroactivement. C'est donc cette commission qui valide les qualifications.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 9,
           "success_rate": 0.57
         }
@@ -1008,7 +1015,7 @@
         "answer_explanation": "Selon R01 article 3.2.1.c, est considérée forfait 'l'équipe qui se présente sur l'aire de jeu avec MOINS DE LA MOITIÉ de ses membres'. Or 4 joueurs sur 8 = exactement la moitié (50%), pas moins. Cette situation ne remplit donc pas le critère de forfait. Les autres options (A: absence à l'heure limite, B: forfait administratif, C: avis préalable) sont explicitement listées comme forfaits aux articles 3.2.1.a, 3.2.1.b et 3.2.1.d.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 11,
           "success_rate": 0.71
         }
@@ -1087,7 +1094,7 @@
         "answer_explanation": "Selon R01 article 4, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. Pour un match le dimanche: Jour 1=Lundi, Jour 2=Mardi, Jour 3=Mercredi, Jour 4=Jeudi. Donc le résultat est homologué au minimum le jeudi, même si le directeur de groupe a vérifié les résultats dès le mardi.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 12,
           "success_rate": 0.64
         }
@@ -1163,7 +1170,7 @@
         "answer_explanation": "Selon R03 art 2.3, 'la majoration des prix d'inscription ne s'applique pas dans le cas de personnes présentant une carte mobilité inclusion de personne en situation de handicap'. Donc une personne handicapée s'inscrivant à la dernière minute ne paie pas le tarif majoré (40€) mais le tarif normal (30€). Elle n'est pas non plus exemptée totalement - seuls les GMI/MI et champions sont gratuits.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 13,
           "success_rate": 0.62
         }
@@ -1239,7 +1246,7 @@
         "answer_explanation": "Selon R03 art 2.5, les tournois de type A (cadence lente ≥50min) exigent une licence A, tandis que les tournois de type B (cadence rapide <50min) acceptent une licence B. La phase 1 à 30min+5s est type B (licence B OK), la phase 2 à 50min+10s est type A (licence A requise). Donc le joueur peut participer à la phase 1 avec sa licence B, mais devra prendre la licence A pour la phase 2.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 14,
           "success_rate": 0.75
         }
@@ -1321,7 +1328,7 @@
         "answer_explanation": "Selon R03 art 2.3, l'inscription gratuite pour les champions de France jeunes en titre ne s'applique que 'dans les tournois de type A' (cadence lente). Un tournoi en cadence rapide est de type B, donc cette gratuité ne s'applique pas. La championne de France U10 devra payer son inscription comme les autres participants.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 15,
           "success_rate": 0.54
         }
@@ -1397,7 +1404,7 @@
         "answer_explanation": "Selon A02 art 1.2, 'Un club ne peut engager qu'une équipe en Top 16 et une équipe en N1'. Donc avoir deux équipes en Nationale 1 n'est PAS autorisé. Les autres propositions sont correctes: le Top 16 a bien 2 sous-groupes de 8, les 9e et 10e de N2 descendent, et les N1-N4 sont en toutes rondes.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 16,
           "success_rate": 0.84
         }
@@ -1473,7 +1480,7 @@
         "answer_explanation": "Selon A02 art 2.1.a, 'De la N1 à la N3, la personne chargée de la direction de Nationale nomme en début de saison les personnes chargées des directions de groupe'. C'est donc la direction nationale de la compétition (pas le bureau fédéral, la CTF, ni le DTN) qui nomme les directions de groupe en N3.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 17,
           "success_rate": 0.54
         }
@@ -1555,7 +1562,7 @@
         "answer_explanation": "Selon A02 art 2.4, en N3 et N4 le club doit avoir 'un arbitre fédéral Elite, d'Open, de Club, ou Jeune'. Le niveau minimum requis pour N4 est donc l'Arbitre Fédéral Jeune (AFJ). Ce n'est pas l'arbitre stagiaire (pas fédéral), ni l'AF de Club ou d'Open qui sont des niveaux supérieurs.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 18,
           "success_rate": 0.63
         }
@@ -1631,7 +1638,7 @@
         "answer_explanation": "Selon A02 art 3.7.c, un joueur 'ne peut participer dans une équipe s'il a déjà joué trois fois dans une équipe plus forte'. La joueuse a joué 1x en N2 et 2x en N3 (divisions supérieures à N4), soit 3 matchs dans des équipes plus fortes. Elle atteint la limite de 3 et ne peut donc plus jouer en N4.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 19,
           "success_rate": 0.66
         }
@@ -1713,7 +1720,7 @@
         "answer_explanation": "Selon R01 art 3.1.1, le forfait est constaté pour tout joueur 'ne se présentant pas dans la salle de jeu pendant le temps de retard autorisé suivant l'heure officielle du début de la rencontre'. L'heure officielle est 14h15 (horaire prévu), pas 14h30 (horaire réel). Temps de retard autorisé en interclubs = 1h. Donc forfait à 14h15 + 1h = 15h15.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 20,
           "success_rate": 0.15
         }
@@ -1795,7 +1802,7 @@
         "answer_explanation": "Selon A02 art 3.9, en cas de litige technique 'Tous ces documents sont transmis avec le procès-verbal du match à la direction du groupe par l'arbitre'. C'est donc l'arbitre de la rencontre qui transmet les documents, pas le capitaine plaignant, le capitaine adverse ou le directeur de groupe lui-même.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 21,
           "success_rate": 0.78
         }
@@ -1877,7 +1884,7 @@
         "answer_explanation": "Selon A02 art 3.7.f, en N3 chaque équipe doit aligner 'au moins 50% de personnes ayant déjà participé au moins une fois'. Pour 6 joueurs à la ronde 4, il faut 3 joueurs du noyau. Option D (2 de R1 + 1 de R3 = 3 joueurs) satisfait cette condition. Les autres options n'atteignent pas 50%.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 22,
           "success_rate": 0.6
         }
@@ -1953,7 +1960,7 @@
         "answer_explanation": "Selon C03 art 5.6.a, pour 9 équipes en phase 2 de la Coupe Loubatière: 'Un sous-groupe de 3 équipes qui sera apparié au système Molter' et 'Un sous-groupe composé des autres équipes (6) qui seront appariées au système Suisse'. C'est la règle pour les groupes de plus de 7 équipes en nombre impair.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 24,
           "success_rate": 0.84
         }
@@ -2035,7 +2042,7 @@
         "answer_explanation": "Selon C01 art 3.2, 'La première équipe nommée a les Blancs aux échiquiers 1 et 4 et les Noirs sur les échiquiers 2 et 3'. Si l'équipe A a les Noirs au 1er échiquier, c'est la 2e équipe nommée (l'inverse). Donc A a: éch.1=Noirs, éch.2=Blancs, éch.3=Blancs, éch.4=Noirs.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 25,
           "success_rate": 0.62
         }
@@ -2111,7 +2118,7 @@
         "answer_explanation": "Selon C01 art 3.8, les amendes pour forfait sont: 50€ jusqu'en 64e, 100€ en 32e, 200€ en 16e, 400€ en 8e. Si le 1er tour est un 128e de finale, le 4e tour est: 128e→64e→32e→16e de finale. Amende en 16e = 200€.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 27,
           "success_rate": 0.76
         }
@@ -2187,7 +2194,7 @@
         "answer_explanation": "Selon C01 art 4.2, 'En cas d'égalité de points lors des demi-finales et la finale, un match à la cadence de 15mn + 5 secondes par joueur/joueuse est organisé, avec couleurs inversées'. Jusqu'en quarts c'est différent (échiquier 1, puis 2, etc.), mais en demi-finale c'est un match rapide.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 28,
           "success_rate": 0.7
         }
@@ -2269,7 +2276,7 @@
         "answer_explanation": "Selon C04 art 3.7, il y a un plafond Elo pour la Coupe de la parité (6000). Calcul: A=5998, B=5994, C=6001, D=5994. Seule l'équipe C (1742+1987+2272=6001) dépasse le plafond de 6000.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 29,
           "success_rate": 0.81
         }
@@ -2345,7 +2352,7 @@
         "answer_explanation": "Selon C04 art 4.2, au système suisse le barème est: match gagné=2 points, match nul=1 point, match perdu=0 point. L'option D dit '3-2-0' ce qui est FAUX (c'est 2-1-0). Les autres propositions (A, B, C) sont conformes au règlement.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 30,
           "success_rate": 0.73
         }
@@ -2427,7 +2434,7 @@
         "answer_explanation": "Selon l'article 3.2 du RIDNA (Règlement Intérieur de la DNA), le Directeur National ou la Directrice Nationale de l'Arbitrage 'nomme les superviseurs et superviseures'. Cette prérogative fait partie des missions du DNA Director qui organise et coordonne l'ensemble de la structure arbitrale française.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 1,
           "success_rate": 0.99
         }
@@ -2509,7 +2516,7 @@
         "answer_explanation": "L'article 5.1.1 du RIDNA précise que 'Le Président ou la Présidente de la Ligue désigne une personne pour diriger la D.R.A. Cette nomination doit être approuvée par le Comité Directeur de la Ligue.' C'est donc le Président de Ligue (réponse D) qui désigne le DRA, pas la fédération ni la DNA.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 2,
           "success_rate": 0.79
         }
@@ -2591,7 +2598,7 @@
         "answer_explanation": "La Coupe « Jean-Claude Loubatière » est une compétition fédérale. Le règlement de cette compétition n'indique aucune information concernant le délai de forfait. D'après l'article sur les retards autorisés du R01 - Règles générales, le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 6,
           "success_rate": 0.69
         }
@@ -2667,7 +2674,7 @@
         "answer_explanation": "L'article 11.2.3 du R01 précise qu'une entente peut être constituée entre 3 clubs uniquement dans le championnat de France des clubs féminins, avec impossibilité de monter en division supérieure. Les autres réponses sont incorrectes: A) les ententes ne participent pas à toutes les compétitions (art. 11.1), B) l'entente n'est valable qu'une saison (art. 11.2.2), C) un club est limité à une seule entente par compétition (art. 11.3.4).",
         "annales_source": {
           "session": "dec2023",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 7,
           "success_rate": 0.8
         }
@@ -2743,7 +2750,7 @@
         "answer_explanation": "Pour les compétitions scolaires et catégories U8/U10 des championnats Jeunes, l'article 2.2.2 adapte la règle des coups illégaux: la partie est perdue après le 3e coup illégal achevé (réponse C), contrairement à la règle FIDE standard qui sanctionne au 2e coup. Cette tolérance s'applique uniquement aux tournois comptant pour l'Elo rapide National.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 8,
           "success_rate": 0.57
         }
@@ -3387,7 +3394,7 @@
         "answer_explanation": "Selon l'article A.6 du système néerlandais, quand deux joueurs ont la même préférence de couleur, on compare leur historique. Joueur A (B-N-N-B-N-B) et B (N-N-B-B-N-B) ont tous deux préférence noire (différence -1). On regarde R3 où A avait N et B avait B. En inversant R3, A avait 'mauvaise' couleur donc A reçoit maintenant les noirs (réponse B).",
         "annales_source": {
           "session": "dec2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 18,
           "success_rate": 0.92
         }
@@ -4021,7 +4028,7 @@
         "answer_explanation": "Selon le Guide de l'arbitrage à l'international (art. 2.2), pour être autorisé à arbitrer dans les tournois FIDE, un arbitre fédéral doit s'acquitter d'un droit de 20€ (réponse B) s'il ne possède pas de titre FIDE.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "UVC",
+          "uv": "tournament",
           "question_num": 1,
           "corrige_in_choices": true
         }
@@ -4185,7 +4192,7 @@
         "answer_explanation": "Selon l'article 4.1.1 du RIDNA, les superviseurs sont des 'arbitres fédéraux expérimentés' qui ont l'autorité pour intervenir sur n'importe quel tournoi. Leur rôle est avant tout pédagogique: assister et conseiller les autres arbitres (réponse C). Ce ne sont pas de simples arbitres remplissant l'ASP (A), ni l'arbitre en chef (B), ni des rôles spécialisés comme anti-triche (D).",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 3,
           "success_rate": 0.94
         }
@@ -4267,7 +4274,7 @@
         "answer_explanation": "L'article 6.2 précise les obligations de formation continue (FC tous les 4 ans), de stage AFC tous les 6 ans, et d'arbitrer au moins une fois par saison. La réponse D (formation spécifique d'une journée tous les 4 ans) n'est PAS une obligation réglementaire - c'est une formulation inexacte de la FC qui est un stage, pas une formation d'une journée.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 4,
           "success_rate": 0.82
         }
@@ -4343,7 +4350,7 @@
         "answer_explanation": "L'article 12.4 du RIDNA précise les compétences d'un Arbitre Fédéral de Club (AFC). Il peut arbitrer les matchs interclubs sauf Nationale 1 (réponse B). Il peut: arbitrer la Coupe de France (sauf finale), gérer les appariements aux championnats jeunes, et former des stagiaires.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 5,
           "success_rate": 0.92
         }
@@ -4425,7 +4432,7 @@
         "answer_explanation": "Selon l'article 2 du LA, la mise en place du matériel (jeux, pendules, cavaliers, numéros de tables) est une obligation de l'ORGANISATEUR, pas de l'arbitre (réponse A). L'arbitre doit vérifier les pendules (B), assurer le confort des joueurs (C), et afficher les résultats (D).",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 6,
           "success_rate": 0.73
         }
@@ -4507,7 +4514,7 @@
         "answer_explanation": "Un forfait administratif (réponse B) est déclaré quand un joueur ne respecte pas les règles administratives (mauvais échiquier, licence invalide). Un forfait sportif (A) concerne l'absence au jeu. Aller aux toilettes avec téléphone éteint (C) n'est pas sanctionnable. La transmission des résultats (D) est faite par le club responsable, pas l'arbitre.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 7,
           "success_rate": 0.95
         }
@@ -4829,7 +4836,7 @@
         "answer_explanation": "L'article 3.1.3 définit le forfait administratif: déclaré quand un joueur joue pour son équipe sans être licencié (réponse D). Les autres cas ne sont pas des forfaits administratifs: absence (A) = forfait sportif, malaise (B) = partie non terminée, chute au temps (C) = défaite normale.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 11,
           "success_rate": 0.84
         }
@@ -4911,7 +4918,7 @@
         "answer_explanation": "L'article 2.2 Mutations définit qu'un joueur est considéré comme muté s'il était licencié la saison précédente dans un autre club ET a participé à une compétition par équipe. La réponse A est correcte car une joueuse qui a changé de club mais n'a PAS joué en équipe la saison précédente n'est pas considérée comme mutée - elle peut donc jouer immédiatement en interclubs. Les autres cas (B=déménagement sans équipe, C=1ère licence, D=a joué en équipe) sont différents.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 12,
           "success_rate": 0.78
         }
@@ -5069,7 +5076,7 @@
         "answer_explanation": "L'article 2.5 autorise la participation d'un joueur sans licence à condition que l'organisateur régularise la prise de licence au plus tard 7 jours APRÈS LA FIN du tournoi (réponse D). Ce n'est pas interdit (A), ni avant la fin du tournoi (B), ni 7 jours après le début (C). Cette pratique courante permet l'inscription sur place.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 14,
           "success_rate": 0.88
         }
@@ -5227,7 +5234,7 @@
         "answer_explanation": "Pour déterminer les préférences couleur: Isabelle (BBN) a diff=+1 (2B-1N) donc préférence N forte. Frédéric (BNB) a diff=+1 (2B-1N) et dernière partie B, donc préférence N forte... MAIS la réponse B (B faible et N forte) indique que le calcul est différent. En fait: Isabelle BBN = diff 0 après équilibre, dernière N, donc B faible. Frédéric BNB = diff +1, donc N forte. Réponse B correcte.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 16,
           "success_rate": 0.95
         }
@@ -5385,7 +5392,7 @@
         "answer_explanation": "L'article 3.6.d) précise que la licence doit être prise avant l'heure prévue pour la rencontre (réponse D). Ce n'est pas la veille (A), ni à 12h le jour du match (B), ni avant la composition (C). La licence doit être validée avant le début officiel de la rencontre.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 18,
           "success_rate": 0.74
         }
@@ -5461,7 +5468,7 @@
         "answer_explanation": "L'article 3.7.c) précise les restrictions de participation dans plusieurs équipes du même club. Une joueuse ayant joué en N2 (équipe 1 ou 2) ne peut plus jouer en N4 (réponse B). Elle peut encore jouer en N3 ou au-dessus, mais pas en division inférieure à celle où elle a déjà participé.",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 19,
           "success_rate": 0.86
         }
@@ -5543,7 +5550,7 @@
         "answer_explanation": "L'article 3.8 précise que le retard autorisé est de 60 minutes pour TOUTES les divisions nationales, y compris le Top 16 (réponse B). Ce n'est pas 30 minutes (A), ni avec exception Top 16 sans retard (C), ni avec 30 minutes au Top 16 (D).",
         "annales_source": {
           "session": "jun2024",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 20,
           "success_rate": 0.89
         }
@@ -6263,7 +6270,7 @@
         "answer_explanation": "Avoir possédé, à un moment donné, un classement Elo (lent ou rapide, national ou F.I.D.E.).",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 1,
           "success_rate": 0.76
         }
@@ -6339,7 +6346,7 @@
         "answer_explanation": "Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage Club (SC). A l'issue de celui-ci, son titre d'arbitre est réactivé.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 2,
           "success_rate": 0.72
         }
@@ -6417,7 +6424,7 @@
         "answer_explanation": "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 4,
           "success_rate": 0.76
         }
@@ -6499,7 +6506,7 @@
         "answer_explanation": "Une prise de licence dans un autre club entre le 1er et le 30 septembre équivaut à une demande de transfert qui exonère de la faire.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 5,
           "success_rate": 0.79
         }
@@ -6577,7 +6584,7 @@
         "answer_explanation": "``` Les joueurs et joueuses sont classés dans des catégories en fonction de leur âge avant le 1er janvier de la saison. Cette joueuse étant née le 26 janvier 2011, il faut donc connaître son âge en 2024 à savoir 13 ans (24-11=13). Elle est donc en catégorie U14F.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 6,
           "success_rate": 0.89
         }
@@ -6659,7 +6666,7 @@
         "answer_explanation": "``` Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de forfait, il est donc par défaut de 30 minutes.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 7,
           "success_rate": 0.79
         }
@@ -6741,7 +6748,7 @@
         "answer_explanation": "En rapide homologué FIDE, la sanction pour coups illégaux est appliquée après le 3ème coup illégal achevé (réponse C=3). La règle FIDE prévoit: 1er coup = avertissement, 2ème = pénalité temps, 3ème = perte de la partie.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 8,
           "success_rate": 0.26
         }
@@ -6823,7 +6830,7 @@
         "answer_explanation": "L'article 1.1 définit la structure du Championnat de France des Clubs avec 5 divisions nationales: Top 16 équipes, N1, N2, N3, N4. Réponse C=16 correspond au nombre d'équipes au Top 16 (la plus haute division).",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 9,
           "success_rate": 0.87
         }
@@ -6905,7 +6912,7 @@
         "answer_explanation": "Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 10,
           "success_rate": 0.49
         }
@@ -6987,7 +6994,7 @@
         "answer_explanation": "L'arbitre d'un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à leur rôle. Les options à disposition de l'arbitre pour sanctionner sont l'avertissement, l'exclusion pour une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l'intervention fautive du capitaine exerce une influence sur les résultats des parties concernées.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 11,
           "success_rate": 0.79
         }
@@ -7303,7 +7310,7 @@
         "answer_explanation": "L'heure limite de prise de licence pour un joueur participant à une rencontre est l'heure prévue du début de la rencontre.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 17,
           "success_rate": 0.88
         }
@@ -7385,7 +7392,7 @@
         "answer_explanation": "En N4, l'arbitre peut jouer son match de N4 et officier dans un maximum de 2 matchs de N4 et de division inférieure.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 18,
           "success_rate": 0.75
         }
@@ -7467,7 +7474,7 @@
         "answer_explanation": "Exception pour le cas de l'obligation d'un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s'entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d'une amende de 75 € chacun.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 19,
           "success_rate": 0.75
         }
@@ -7713,7 +7720,7 @@
         "answer_explanation": "``` Le club responsable de la rencontre doit saisir le procès-verbal (PV) de la rencontre sur le site fédéral avant 22h.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 22,
           "success_rate": 0.84
         }
@@ -7877,7 +7884,7 @@
         "answer_explanation": "Lorsqu'un club a plusieurs équipes engagées dans une même division, la participation d'un joueur ou d'une joueuse à plusieurs équipes d'une même division est interdite y compris d'éventuels barrages.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 24,
           "success_rate": 0.68
         }
@@ -8041,7 +8048,7 @@
         "answer_explanation": "En Nationale 3, la personne faisant fonction d'arbitre doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage (DRA) de sa Ligue.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 26,
           "success_rate": 0.55
         }
@@ -8205,7 +8212,7 @@
         "answer_explanation": "``` La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières représentent donc au moins 10% de l'effectif. Au cours de la phase départementale, et de la phase 2, se qualifient pour le tour suivant 1 équipe pour 1 à 4 équipes participant, 2 équipes pour 5 à 8 équipes participantes, etc. ainsi qu'1 équipe supplémentaire si le quota de 10 % de joueuses est atteint dans la phase concernée. Cela fait donc 4 équipes qualifiées.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 28,
           "success_rate": 0.65
         }
@@ -8287,7 +8294,7 @@
         "answer_explanation": "Selon l'article 2.5 du règlement de la Coupe de France, à partir des 32ème de finale, l'arbitre désigné ne peut pas cumuler les fonctions de joueur et d'arbitre. Cette règle vise à garantir l'impartialité et la disponibilité totale de l'arbitre pour les rencontres des phases finales du tournoi, où les enjeux sportifs sont plus importants.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 29,
           "success_rate": 0.82
         }
@@ -8369,7 +8376,7 @@
         "answer_explanation": "Pour avoir le droit de jouer une ronde 2, un joueur ne doit pas avoir déjà joué 2 matchs. S'il joue le samedi, ça lui fait un match. Il ne pourra donc jouer le dimanche en équipe 2 que s'il n'a pas du tout joué avant ce match du samedi. Réponse D.",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 1,
           "success_rate": 0.27
         }
@@ -8451,7 +8458,7 @@
         "answer_explanation": "A chaque match chaque équipe doit aligner au moins 4 joueurs ayant déjà joué dans l'équipe (sauf à la ronde 1 évidemment). Ce point du règlement (3.7.f) est visiblement peu connu des candidats. Le problème peut éventuellement se poser à la ronde 2, c'est plus rare ensuite dans la saison. Nous sommes bien dans ce cas pour cette question. Le 7ème échiquier n'est pas en règle donc réponse C .",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 2,
           "success_rate": 0.29
         }
@@ -8534,7 +8541,7 @@
         "answer_explanation": "Si on se place du point de vue de l'équipe 3, peu importe si le joueur joue en équipe 1 ou 2 : il joue dans une équipe jouant dans une division « supérieure ». Au bout de 3 matchs en équipe « supérieure », il n'est plus possible de redescendre. Donc réponse A .",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 3,
           "success_rate": 0.63
         }
@@ -8617,7 +8624,7 @@
         "answer_explanation": "Si un club a 2 équipes dans la même division, un joueur qui a joué pour l'une des équipes ne peut plus jouer dans l'autre (article 3.7.d). Réponse D.",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 4,
           "success_rate": 0.57
         }
@@ -8778,7 +8785,7 @@
         "answer_explanation": "L'article 3.6 du championnat de France des clubs prévoit ce cas « si, de plus, un joueur arrive avec un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure ». Ce qui est valable pour un joueur est aussi valable pour toute l'équipe donc réponse C .",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 6,
           "success_rate": 0.33
         }
@@ -9019,7 +9026,7 @@
         "answer_explanation": "Vous n'avez pas encore la composition de l'équipe, vous ne connaissez pas encore le temps de pénalité à appliquer avant de démarrer les pendules. Comme il faudra de toute façon régler les pendules, quand la composition de l'équipe vous sera remise, inutile de les démarrer pour l'instant. Réponse C.",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 10,
           "success_rate": 0.65
         }
@@ -9350,7 +9357,7 @@
         "answer_explanation": "La réponse se trouve directement dans l'article 19 du RI DNA. Réponse D.",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 17,
           "success_rate": 0.44
         }
@@ -9515,7 +9522,7 @@
         "answer_explanation": "La réponse se trouve directement dans l'article 2.5 du championnat de France des interclubs jeunes. Réponse E.",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 20,
           "success_rate": 0.43
         }
@@ -9599,7 +9606,7 @@
         "answer_explanation": "Selon l'article 18.5 du RI de la DNA, l'exclusion pour une ou plusieurs rondes est une sanction possible. La question porte sur la division minimale permettant l'application de certaines sanctions par l'arbitre. La réponse B (Nationale 1) est correcte car c'est à partir de ce niveau que l'arbitre peut appliquer certaines sanctions disciplinaires prévues au règlement.",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 21,
           "success_rate": 0.69
         }
@@ -9675,7 +9682,7 @@
         "answer_explanation": "Selon l'article 3.2 de la Coupe de France, la première équipe nommée a les Blancs aux échiquiers 1 et 4 et les Noirs aux échiquiers 2 et 3. À partir des huitièmes de finale, un tirage au sort décide de la couleur. Dans le cas présent, l'équipe de Grandclub étant la première nommée, elle aura les blancs aux échiquiers 1 et 4 (réponse D).",
         "annales_source": {
           "session": "dec2021",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 22,
           "success_rate": 0.4
         }
@@ -9757,7 +9764,7 @@
         "answer_explanation": "Selon l'article 2.3.b de la Coupe de France, les matchs débutent à 14h15, mais les clubs peuvent s'entendre pour en avancer l'heure, sous réserve d'obtenir l'accord de la Direction de la Coupe de France. Un club peut exiger de commencer à 10h00 sous certaines conditions (réponse B). Les réponses A, C et D sont incorrectes car elles affirment soit une obligation absolue, soit une autonomie totale des clubs.",
         "annales_source": {
           "session": "dec2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 1,
           "success_rate": null
         }
@@ -9840,7 +9847,7 @@
         "answer_explanation": "Selon l'article 1.2 des règles générales, les joueurs doivent être licenciés au plus tard à l'heure prévue du début de la rencontre, ce qui correspond au moment de la remise des compositions d'équipe (réponse D). Les autres options sont incorrectes car elles fixent des dates arbitraires (30 septembre, 30 novembre, veille du match) qui ne correspondent pas au règlement.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 1,
           "success_rate": 0.881
         }
@@ -9922,7 +9929,7 @@
         "answer_explanation": "L'article 1.4 précise que la licence A est obligatoire pour toute compétition à cadence supérieure ou égale à 60 minutes (ou équivalent en cadence Fischer). La réponse A est correcte car elle inclut à la fois le seuil 'égal à' et la mention de l'équivalent Fischer, contrairement aux autres options qui omettent l'un ou l'autre de ces éléments.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 2,
           "success_rate": 0.938
         }
@@ -9998,7 +10005,7 @@
         "answer_explanation": "L'article 2.3.1 des règles générales définit la période de trêve estivale durant laquelle certaines compétitions ne peuvent pas avoir lieu. Cette période s'étend du 15 juillet au 30 septembre (réponse D). Les autres options proposent des dates incorrectes pour le début (1er juillet) ou la fin (30 août) de cette période.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 3,
           "success_rate": 0.944
         }
@@ -10076,7 +10083,7 @@
         "answer_explanation": "Lors d'une reconstitution de partie où un coup illégal est découvert (ici au 30ème coup), la procédure correcte est : 1) Arrêter la reconstitution, 2) Repartir en remplaçant le coup illégal par un coup légal, 3) Estimer au mieux le temps des joueurs à ce moment, 4) Ajouter 2 minutes à l'adversaire du fautif, 5) Appliquer la règle de la pièce touchée (si cavalier touché, coup de cavalier obligatoire). La réponse D est donc correcte car elle inclut tous ces éléments.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 4,
           "success_rate": 0.906
         }
@@ -10158,7 +10165,7 @@
         "answer_explanation": "Selon l'article 3.1.3, les réclamations concernant le déroulement d'un match ou d'une compétition doivent être adressées au directeur de groupe ou au directeur de compétition (réponse D). L'arbitre du match n'a pas compétence pour traiter ces réclamations qui dépassent le cadre de la partie elle-même.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 5,
           "success_rate": 0.881
         }
@@ -10233,7 +10240,7 @@
         "answer_explanation": "L'article 5 des règles générales définit les Elo estimés attribués aux nouveaux joueurs selon leur catégorie d'âge. Pour les joueurs adultes n'ayant jamais eu de classement, l'Elo estimé est de 1099 (réponse C). Les autres valeurs proposées correspondent à d'autres situations ou catégories.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 6,
           "success_rate": 0.956
         }
@@ -10314,7 +10321,7 @@
         "answer_explanation": "L'article 5 définit que les Elo estimés sont attribués par paliers de 50 points en 50 points selon la catégorie d'âge, à l'exception des U10 et U8 qui reçoivent 1009. Cette graduation par 50 points (réponse B) permet une différenciation fine des niveaux estimés tout en restant simple à appliquer.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 7,
           "success_rate": 0.794
         }
@@ -10396,7 +10403,7 @@
         "answer_explanation": "L'article 12 des règles générales précise les conditions pour arbitrer des compétitions fédérales. Pour pouvoir arbitrer, il faut avoir un titre fédéral de la FFE (réponse C). Ce n'est pas automatique (pas 'de droit'), il ne suffit pas d'un stage de formation continue, et l'AFO n'est pas le minimum requis - un titre fédéral suffit.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 8,
           "success_rate": 0.919
         }
@@ -10478,7 +10485,7 @@
         "answer_explanation": "L'article 2.6 du règlement des compétitions homologuées stipule que la demande d'homologation d'un tournoi doit être faite 40 jours avant le tournoi (réponse C). Ce délai permet à la FFE de traiter les demandes et d'assurer la bonne organisation administrative des compétitions.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 9,
           "success_rate": 0.856
         }
@@ -10554,7 +10561,7 @@
         "answer_explanation": "R.03 : Compétitions homologuées, art. 2.3.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 10,
           "success_rate": 0.863
         }
@@ -10629,7 +10636,7 @@
         "answer_explanation": "de la DNA, art. 3.2 : Livre de l'Arbitre.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 11,
           "success_rate": 0.988
         }
@@ -10710,7 +10717,7 @@
         "answer_explanation": "C.03 : Coupe Jean-Claude Loubatière, art. 2.5.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 12,
           "success_rate": 0.919
         }
@@ -10790,7 +10797,7 @@
         "answer_explanation": "B - Match de Nationale 3. Vous devez arbitrer dans trois semaines un match de Nationale 3 dans votre club de Cavalierville. Vous affronterez le club de Tour-Plage. C'est la dernière ronde du championnat de N3.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 13,
           "success_rate": 0.95
         }
@@ -10870,7 +10877,7 @@
         "answer_explanation": ": Championnat de France des clubs)",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 17,
           "success_rate": 0.869
         }
@@ -11186,7 +11193,7 @@
         "answer_explanation": "Article 3.8 du règlement A.02 : Championnat de France des clubs",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 21,
           "success_rate": 0.869
         }
@@ -11263,7 +11270,7 @@
         "answer_explanation": "3.1 du règlement R.01 : Règles générales pour les compétitions fédérales",
         "annales_source": {
           "session": "jun2022",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 22,
           "success_rate": 0.938
         }
@@ -11346,7 +11353,7 @@
         "answer_explanation": "Un arbitre fédéral de club (AFC) est une personne : - Agée au minimum de 16 ans - Ayant suivi un stage SC - Titulaire des UVR et UVC - Ayant obtenu 1 (une) A.S.P. Favorable.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 1,
           "success_rate": 0.905
         }
@@ -11425,7 +11432,7 @@
         "answer_explanation": "La D.N.A se compose de 8 à 10 membres. Le Président ou la présidente de la F.F.E. désigne un directeur ou une directrice de la D.N.A. Cette personne propose une liste d'arbitres pour constituer la D.N.A., ce choix doit être approuvé par le Président ou la présidente de la F.F.E. puis par le Comité Directeur de la F.F.E.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 2,
           "success_rate": 0.859
         }
@@ -11507,7 +11514,7 @@
         "answer_explanation": "Un stagiaire dispose de deux années à compter de la session d'examen immédiatement postérieure au stage suivi pour obtenir le titre d'arbitre fédéral visé.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "rules",
           "question_num": 3,
           "success_rate": 0.613
         }
@@ -11588,7 +11595,7 @@
         "answer_explanation": "Toute Commission Régionale de Discipline est composée en majorité de membres n'appartenant pas aux instances dirigeantes de son organe déconcentré.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 4,
           "success_rate": 0.435
         }
@@ -11670,7 +11677,7 @@
         "answer_explanation": "Pour toute compétition se jouant à une cadence supérieure ou égale à 60 min (ou équivalent en cadence Fischer), les joueurs et joueuses doivent être titulaires d'une licence A valable pour la saison en cours.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 5,
           "success_rate": 0.974
         }
@@ -11749,7 +11756,7 @@
         "answer_explanation": "U12 - U12F (Pupilles, Pupillettes) : 10 ou 11 ans",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 6,
           "success_rate": 0.754
         }
@@ -11829,7 +11836,7 @@
         "answer_explanation": "1199 pour les vétérans",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 7,
           "success_rate": 0.925
         }
@@ -11908,7 +11915,7 @@
         "answer_explanation": "Chaque équipe doit avoir un ou une capitaine possédant une licence fédérale en cours qui peut jouer ou pas la rencontre.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 8,
           "success_rate": 1.0
         }
@@ -11988,7 +11995,7 @@
         "answer_explanation": "Article 2.2.2 du R03 Compétitions homologuées. Pour les catégories U8, U8F, U10 et U10F des qualifications départementales et régionales du championnat de France Jeunes, organisées en France et prises en compte uniquement pour le Elo rapide National, la partie sera perdue après le 3e coup illégal achevé. Dans le cas d'un rapide homologué FIDE, c'est la règle de la FIDE qui s'applique, à savoir, perte après le 2e coup illégal achevé.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 9,
           "success_rate": 0.869
         }
@@ -12067,7 +12074,7 @@
         "answer_explanation": "Lorsque la liste est remise plus tard, les pendules de tous les échiquiers de l'équipe concernée sont avancées d'un temps égal au retard. Si, de plus, un joueur ou une joueuse arrive dans un délai suffisant pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est ramené à une heure.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 10,
           "success_rate": 0.425
         }
@@ -12148,7 +12155,7 @@
         "answer_explanation": "Lorsqu'un club a plusieurs équipes engagées dans différentes divisions, un joueur ou une joueuse ne peut participer dans une division s'il ou elle a déjà joué trois fois en division(s) supérieure(s). En cas d'infraction, forfait administratif sur le 1 er échiquier concerné et tous ceux qui le suivent .",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 11,
           "success_rate": 0.625
         }
@@ -12231,7 +12238,7 @@
         "answer_explanation": "L'Elo à prendre en compte est le dernier Elo publié. Si deux joueurs ont une différence de classement Elo de plus de 100 points, le mieux classé doit être placé devant le moins bien classé. En cas d'infraction, forfait administratif pour le (ou les) joueur(s) ayant le plus fort Elo.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 12,
           "success_rate": 0.723
         }
@@ -12310,7 +12317,7 @@
         "answer_explanation": "Le Championnat de France des Clubs est organisé chaque saison. Il comporte 5 divisions nationales et des divisions inférieures au niveau régional et/ou départemental",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 13,
           "success_rate": 0.8
         }
@@ -12468,7 +12475,7 @@
         "answer_explanation": "L'arbitre en N1 et N2 ne peut pas être joueur/joueuse, même dans une autre division. En N3, l'arbitre d'un seul match ne peut jouer que dans ce même match. En N4 un arbitre peut jouer son match de N4 et officier dans plusieurs matchs de N4 et de division inférieure.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 15,
           "success_rate": 0.765
         }
@@ -12548,7 +12555,7 @@
         "answer_explanation": "En cas d'insuffisance de matériel, la partie sur le (ou les) dernier(s) échiquier(s) de l'équipe fautive est perdue par forfait administratif.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 16,
           "success_rate": 0.845
         }
@@ -12710,7 +12717,7 @@
         "answer_explanation": "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Pour les divisions inférieures le retard est fixé par l'organisateur",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 18,
           "success_rate": 0.728
         }
@@ -12790,7 +12797,7 @@
         "answer_explanation": "Dans un match, les échiquiers 1 à 6 (1 à 3 en Nationale 3) disputent une partie, les échiquiers 7 et 8 (4 en Nationale 3) deux parties.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 19,
           "success_rate": 0.576
         }
@@ -12951,7 +12958,7 @@
         "answer_explanation": "Les clubs engagés dans le Championnat de France des Clubs Top 16 et Nationale 1, doivent s'inscrire en Coupe de France, sous peine d'exclusion immédiate du Championnat.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 21,
           "success_rate": 0.785
         }
@@ -13030,7 +13037,7 @@
         "answer_explanation": "Si un joueur ou joueuse est aveugle, ou incapable de lire les gros caractères, alors ces informations doivent lui être lues avant le début de la partie, à sa demande et sans déranger les autres joueurs et joueuses.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 22,
           "success_rate": 0.853
         }
@@ -13110,7 +13117,7 @@
         "answer_explanation": "La Coupe est ouverte aux équipes de clubs et se déroule suivant quatre phases : départementale, phase 2, phase 3 et finale.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 23,
           "success_rate": 0.958
         }
@@ -13189,7 +13196,7 @@
         "answer_explanation": "L'ordre dans lequel sont alignés les membres de l'équipe est du ressort du capitaine.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 24,
           "success_rate": 0.744
         }
@@ -13266,7 +13273,7 @@
         "answer_explanation": "Elle est ouverte aux équipes de clubs et se déroule suivant trois phases : zone interdépartementale, phase 2 et finale.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 25,
           "success_rate": 0.937
         }
@@ -13346,7 +13353,7 @@
         "answer_explanation": "Lors de la phase zone interdépartementale et de la phase 2, l'organisation de la phase concernée désigne l'arbitre, qui doit être au minimum un ou une AFO1. Dès la phase 2, l'arbitre ne peut pas être joueur ou joueuse. La Direction de la Coupe, après avis de la Direction Nationale de l'Arbitrage (DNA), nomme l'arbitre fédéral de la phase finale.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 26,
           "success_rate": 0.963
         }
@@ -13512,7 +13519,7 @@
         "answer_explanation": "Le championnat de France Féminin des Clubs est organisé chaque saison. Il comporte 3 divisions : - Top 12F, comprenant 12 équipes (Top 12F) ; - Nationale 1 féminine, composée de 4 groupes de 8 équipes (N1F) ; - Nationale 2 féminine, composée d'autant de groupes que de zones interdépartementales pour la première phase et de 8 groupes au maximum pour la deuxième phase (N2F).",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 28,
           "success_rate": 0.906
         }
@@ -13593,7 +13600,7 @@
         "answer_explanation": "Article 1.2a du F01 Championnat de France des clubs Féminins",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 29,
           "success_rate": 0.948
         }
@@ -13675,7 +13682,7 @@
         "answer_explanation": "marque de - 1. ----------------------------------- Fin du corrigé de l'UVC Métropole Durée : 2 heures Tous les documents sont autorisés (en version imprimée ou numérique) sauf les annales constituées de sujets et de corrigés. Il est interdit de téléphoner ou de se connecter sur Internet pendant l'épreuve. Pour chaque question, une seule réponse est attendue. Toutes les questions rapportent un point. 80% de bonnes réponses nécessaires pour avoir l'UV donc 24 bonnes réponses (l'UV a 30 questions). Cliquer sur la case à cocher correspondant à la bonne réponse.",
         "annales_source": {
           "session": "jun2023",
-          "uv": "clubs",
+          "uv": "tournament",
           "question_num": 30,
           "success_rate": 0.747
         }
@@ -13754,7 +13761,7 @@
         "answer_explanation": "Pour les personnes de 16 ans et plus : avoir participé à un stage de sensibilisation contre les violences sexistes ou sexuelles agréé par la F.F.E.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 1,
           "success_rate": 0.85
         }
@@ -13827,7 +13834,7 @@
         "answer_explanation": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 8.4 L'arbitre fédéral d'open (AFO)",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 2,
           "success_rate": 0.97
         }
@@ -14225,7 +14232,7 @@
         "answer_explanation": "Ra = (1804 +1682 + 1483 + 1608 + 1565 + 1800 + 1800 ) / 7 = 1677,42 Le score total est 3,5/7 c'est-à-dire un taux de réussite de 50% 8.2.3. Ru = Ra + dp. Ru = 1677, 42 + 0 = 1677, 42 Ru est arrondi à l'entier le plus proche. → Ru = 1677",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 7,
           "success_rate": 0.7
         }
@@ -14298,7 +14305,7 @@
         "answer_explanation": "LA - Chapitre 5.2 Obligations administratives d'un tournoi - Paragraphe Homologation des Tournois",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 8,
           "success_rate": 0.89
         }
@@ -14383,7 +14390,7 @@
         "answer_explanation": "Dans les tournois A (cadence lente), l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'Équipe de France « Élite » Jeunes, les champions et championnes de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve de confirmer leur inscription à l'organisation au moins 48 heures avant le début du tournoi .",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 9,
           "success_rate": 0.89
         }
@@ -14463,7 +14470,7 @@
         "answer_explanation": "R03 Compétitions Homologuées - Article 2.5 Conditions de participation des joueurs et joueuse",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 10,
           "success_rate": 0.23
         }
@@ -14536,7 +14543,7 @@
         "answer_explanation": "F01 Championnat de France Féminin des clubs - Article 1.2 Déroulement de la compétition Selon l'article 1.2.b) N1F, les équipes sont appariées selon le même procédé que pour la Coupe Loubatière sans",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 11,
           "success_rate": 0.64
         }
@@ -14616,7 +14623,7 @@
         "answer_explanation": "Selon le 3.7.b), chaque joueur ou joueuse doit avoir un Elo estimé ou réel inférieur ou égal à 1800. L'Elo à prendre en compte est le dernier Elo publié. Uniquement pour la phase départementale, le classement Elo du mois précédent ne dépassant pas les 1800 points pour un joueur ou une joueuse, sera autorisé .",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 12,
           "success_rate": 0.87
         }
@@ -14689,7 +14696,7 @@
         "answer_explanation": "La liste des prix doit être affichée avant que la moitié des rondes ne soient jouées.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 13,
           "success_rate": 0.98
         }
@@ -14768,7 +14775,7 @@
         "answer_explanation": "Selon l'article 3.1.2, le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du tournoi ou le règlement fédéral prévoit autre chose. Dans le règlement de la Coupe de la Parité, il n'y a aucune indication de délai de forfait, le retard autorisé est donc de 30 minutes.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 14,
           "success_rate": 0.69
         }
@@ -14851,7 +14858,7 @@
         "answer_explanation": "Selon l'article 17.2, à l'occasion des tournois homologués, tout forfait fait l'objet d'une enquête de la part de l'arbitre principal. Si le joueur ou la joueuse ne répond pas de façon satisfaisante à la demande d'explications envoyée par l'arbitre principal, ce dernier le signale à la Direction Juridique.",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 15,
           "success_rate": 0.84
         }
@@ -14931,7 +14938,7 @@
         "answer_explanation": "LA - Chapitre 5.4 Rapport Technique et fin de tournoi - Paragraphe Gestion des résultats du tournoi",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 16,
           "success_rate": 0.95
         }
@@ -15010,7 +15017,7 @@
         "answer_explanation": "LA - Chapitre 5.2 Obligations administratives d'un tournoi - Paragraphe Droits d'Homologation",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 17,
           "success_rate": 0.74
         }
@@ -15090,7 +15097,7 @@
         "answer_explanation": "LA - Chapitre 5.5 Barème d'indemnisation des arbitres - Paragraphe 4 Calcul des indemnités pour les événements homologués par la FFE",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 18,
           "success_rate": 0.93
         }
@@ -15169,7 +15176,7 @@
         "answer_explanation": "Selon l'article 7.1, les scores ajustés d' Alain, Albert et Paul correspondent à leur score normal car toutes les parties ont été jouées. Selon le 14.4.2, le score ajusté de Jean est de 3 (2 points de score normal plus 1⁄2 point par partie non jouée) Selon l'article 14.1.3, une ronde volontairement non jouée (« RVNJ ») est une ronde durant laquelle le joueur/la joueuse n'était pas disponible pour jouer, c'est-à-dire un bye ou un forfait qu'il soit prévenu ou non. C'est le cas de la ronde 2 pour le joueur Pierre. Selon l'article 14.5, la valeur du score ajusté lors de cette ronde 2 est de 3,5. Selon l'article 14.6.1, pour le Buchholz tronqué, on retire en priorité les adversaires fictifs issues des RVNJ en commençant par le plus faible: on enlève donc le score ajusté de Pierre à la ronde 2! La valeur est donc de 11,5 (3,5+3,5+3+1,5 = 11,5)",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 19,
           "success_rate": 0.18
         }
@@ -15250,7 +15257,7 @@
         "answer_explanation": "On retire le prix de Jean que l'on redistribue à parts égales sur les trois derniers soit 12, 5 € pour Coralie, Etienne et Fabienne. Cette dernière touchera donc 40 €. Il y aura donc 7 prix distribués au classement général. Fin du corrigé de l'UVO",
         "annales_source": {
           "session": "dec2024",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 20,
           "success_rate": 0.16
         }
@@ -15412,7 +15419,7 @@
         "answer_explanation": "Afin d'être autorisé à arbitrer dans les tournois internationaux homologués par la FIDE, un arbitre fédéral, quel que soit son titre FFE ou FIDE, doit s'acquitter d'un droit auprès de la FIDE : c'est ce que l'on appelle l'agrément FIDE pour les arbitres.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 2,
           "success_rate": 0.8
         }
@@ -15653,7 +15660,7 @@
         "answer_explanation": "Ru = Ra + dp Ru est le classement du joueur sans classement Fide. Ra (moyenne des adversaires classés Fide) : Ra = (1424+1489+1600+1882+1778+1902+1800+1800) /8 = 1709,375 arrondis à 1709. Il réalise 4 points sur 8. Son score étant de 50% il n'a aucun malus ni bonus, son premier classement Ru sera donc 1709.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 7,
           "success_rate": 0.67
         }
@@ -15732,7 +15739,7 @@
         "answer_explanation": "LA 5.2 Gestion administrative des tournois",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 8,
           "success_rate": 0.85
         }
@@ -15812,7 +15819,7 @@
         "answer_explanation": "LA 5.4 - Rapport Technique et fin de tournoi",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 9,
           "success_rate": 0.62
         }
@@ -15892,7 +15899,7 @@
         "answer_explanation": "LA 5.1 - Gestion d'un match - Avant Match p 165",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 10,
           "success_rate": 0.75
         }
@@ -15967,7 +15974,7 @@
         "answer_explanation": "Sur la base d'une partie durant 60 coups : 40 minutes + 60 x 20 secondes = 40 minutes + 20 minutes = 60 minutes.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 12,
           "success_rate": 0.97
         }
@@ -16046,7 +16053,7 @@
         "answer_explanation": "L'échiquier 8 peut être placé devant l'échiquier 7, quels que soient les Elo.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 13,
           "success_rate": 0.54
         }
@@ -16125,7 +16132,7 @@
         "answer_explanation": "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l'équipe de France Jeunes, les champions de France jeunes en titre et les GMI ICCF (par correspondance) membres de la FFE, sous réserve qu'ils aient prévenu l'organisateur au moins 48 heures avant le début du tournoi. La gratuité s'applique donc en cadence lente/standard (tournois A), non aux tournois rapides/blitz (tournois B).",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 14,
           "success_rate": 0.48
         }
@@ -16210,7 +16217,7 @@
         "answer_explanation": "Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 16,
           "success_rate": 0.89
         }
@@ -16292,7 +16299,7 @@
         "answer_explanation": "Le jeu doit se dérouler en accord avec les Règles du Jeu d'Échecs de la FIDE, toute « adaptation » vous expose à un recours et peut provoquer le refus d'homologuer les résultats du tournoi. Par contre les règles du jeu vous autorisent à limiter les nulles par accord mutuel et définir par vous-même le délai de forfait. La condition de présence à la remise des prix doit être précisée dans le règlement du tournoi si vous souhaitez la faire appliquer.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 17,
           "success_rate": 0.75
         }
@@ -16371,7 +16378,7 @@
         "answer_explanation": "C04 Coupe de la parité - 1.2 Déroulement de la compétition.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 18,
           "success_rate": 0.9
         }
@@ -16450,7 +16457,7 @@
         "answer_explanation": "C04 Coupe de la parité - 4.3 Classement.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 19,
           "success_rate": 0.79
         }
@@ -16529,7 +16536,7 @@
         "answer_explanation": "LA 5.1 Gestion de fin de tournoi - Gestion administrative des tournois - Rapport technique",
         "annales_source": {
           "session": "jun2025",
-          "uv": "open",
+          "uv": "clubs",
           "question_num": 20,
           "success_rate": 0.98
         }
@@ -16607,7 +16614,7 @@
         "answer_explanation": "LF - R03 Compétitions homologuées LA - Les règles du jeu d'échecs Chapitre 2.1 Article 2.2.2 adapté sur les coups illégaux en cadence rapide. et Irrégularités Article 7.5.5",
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "tournament",
           "question_num": 1,
           "success_rate": 0.47
         }
@@ -17091,7 +17098,7 @@
         "answer_explanation": "LF - Règlement sur le championnat de France des Jeunes Article : Qualifiés d'office 2.6",
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 4,
           "success_rate": 0.84
         }
@@ -17255,7 +17262,7 @@
         "answer_explanation": "Art 9.3. et 9.6.",
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 17,
           "success_rate": 0.6
         }
@@ -17333,7 +17340,7 @@
         "answer_explanation": "Art 11.2.1.",
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 18,
           "success_rate": 0.78
         }
@@ -17415,7 +17422,7 @@
         "answer_explanation": "Art 7.5.",
         "annales_source": {
           "session": "dec2019",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 20,
           "success_rate": 0.86
         }
@@ -17499,7 +17506,7 @@
         "answer_explanation": "LA 1.2 Règlement Intérieur DNA Article 3.1",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "tournament",
           "question_num": 1,
           "success_rate": 0.79
         }
@@ -17581,7 +17588,7 @@
         "answer_explanation": "LA 1.2 Règlement Intérieur DNA Article 11",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "tournament",
           "question_num": 2,
           "success_rate": 0.79
         }
@@ -17663,7 +17670,7 @@
         "answer_explanation": "LA 1.2 Règlement Intérieur DNA Article 18.4",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "tournament",
           "question_num": 4,
           "success_rate": 0.79
         }
@@ -18155,7 +18162,7 @@
         "answer_explanation": "LA 5.1 Départages Sonneborn-Berger Définition",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 12,
           "success_rate": 0.84
         }
@@ -18237,7 +18244,7 @@
         "answer_explanation": "LA 5.1 Départages Sonneborn-Berger Calcul",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 13,
           "success_rate": 0.74
         }
@@ -18406,7 +18413,7 @@
         "answer_explanation": "Cf. R.I.D.N.A - Commentaire Article 11.3.3 du LA.",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 15,
           "success_rate": 0.26
         }
@@ -18487,7 +18494,7 @@
         "answer_explanation": "Il réalise 4 points sur 6, soit deux demi-points au-dessus de la moitié. Son classement sera de 1660 Ru = 1620 + 20 + 20 = 1660 Cf. Chapitre 6.1 Le classement de la FIDE - article 8.23 du LA.",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 16,
           "success_rate": 0.42
         }
@@ -18730,7 +18737,7 @@
         "answer_explanation": "LA 5.2 Barème indemnisation Article 1",
         "annales_source": {
           "session": "jun2021",
-          "uv": "open",
+          "uv": "rules",
           "question_num": 19,
           "success_rate": 0.74
         }
@@ -20775,7 +20782,7 @@
         "answer_explanation": "LA :Annexe A - Parties en cadence rapide - Article A.5.1.2 placement initial incorrect des pièces après 10 coups",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 3,
           "success_rate": 0.86
         }
@@ -20858,7 +20865,7 @@
         "answer_explanation": "LA : Articles 4.2.1 et 4.3.1 - L'exécution du déplacement des pièces",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 4,
           "success_rate": 0.75
         }
@@ -20936,7 +20943,7 @@
         "answer_explanation": "La cadence b) est une cadence rapide où la notation n'est pas obligatoire. Les cadences a) et c) sont des cadences de jeu standard avec un incrément inférieur à 30s/coup, l'arrêt de la notation pour une période est autorisé en dessous des 5 min. La cadence d) est une cadence de jeu standard avec un incrément de 30 secondes par coup, il est obligatoire de noter jusqu'au bout de la partie.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 5,
           "success_rate": 0.69
         }
@@ -21015,7 +21022,7 @@
         "answer_explanation": "Le pat met fin à la partie et oblige au match nul, même si les blancs tombent au temps après ou abandonnent car ils n'ont pas compris la situation.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 6,
           "success_rate": 0.93
         }
@@ -21094,7 +21101,7 @@
         "answer_explanation": "Article 5.2.2 Dans cette position avec les fous sur cases de même couleur, il n'y a pas de mat possible. C'est une position morte.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 7,
           "success_rate": 0.84
         }
@@ -21330,7 +21337,7 @@
         "answer_explanation": "Le drapeau est considéré comme tombé que lorsque le fait est constaté. L'échec et mat s'est produit avant le signalement.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 10,
           "success_rate": 0.86
         }
@@ -21410,7 +21417,7 @@
         "answer_explanation": "Le joueur a clairement annoncé qu'il avait perdu. L'arbitre n'a pas à intervenir dans cette décision et s'abstient de tout jugement de la position en dehors de tout cas particulier (pat/position morte",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 11,
           "success_rate": 0.65
         }
@@ -21566,7 +21573,7 @@
         "answer_explanation": "Le joueur dont le drapeau est tombé a perdu la partie sauf si son adversaire n'a aucun échec et mat atteignable par une suite de coups légaux - Ce n'est pas le cas ici car il est envisageable que les blancs placent leur Roi en h8, leur Fou en h7, que les noirs placent leur Roi en f8 et matent à l'aide de leur fou sur cases noires.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 13,
           "success_rate": 0.77
         }
@@ -21645,7 +21652,7 @@
         "answer_explanation": "Le coup illégal a été achevé par l'appui sur la pendule. Pour le 1er coup illégal achevé, l'arbitre donne deux minutes à l'adversaire.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 14,
           "success_rate": 0.97
         }
@@ -21724,7 +21731,7 @@
         "answer_explanation": "La sanction pour le 1er coup illégal achevé en blitz ou en rapide est d'une minute.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 15,
           "success_rate": 0.97
         }
@@ -21801,7 +21808,7 @@
         "answer_explanation": "Lors d'une partie en cadence rapide, l'arbitre n'intervient que si l'adversaire n'a pas joué son coup suivant.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 16,
           "success_rate": 0.75
         }
@@ -21881,7 +21888,7 @@
         "answer_explanation": "On devrait attendre un coup de roi sauf que celui-ci n'a pas de coup légal. La tour a été touchée mais uniquement dans le cadre d'une intention claire de faire le roque. Elle n'a pas été touchée avec « l'intention de faire un coup de tour », dans ce cas particulier on dispense de l'obligation de jouer la tour. Les blancs ont donc le droit de jouer la pièce de leur choix.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 17,
           "success_rate": 0.45
         }
@@ -21959,7 +21966,7 @@
         "answer_explanation": "Si un joueur ou une joueuse renverse une ou plusieurs pièces, il/elle rétablit la position correcte sur son propre temps.",
         "annales_source": {
           "session": "dec2023",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 18,
           "success_rate": 0.97
         }
@@ -22198,7 +22205,7 @@
         "answer_explanation": "LA : Article 7.2.1 - Règles du jeu en compétition",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 2,
           "success_rate": 0.82
         }
@@ -22282,7 +22289,7 @@
         "answer_explanation": "LA : Article A.5.1.2 - Annexe A: Parties en cadence rapide",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "clubs",
           "question_num": 3,
           "success_rate": 0.94
         }
@@ -22367,7 +22374,7 @@
         "answer_explanation": "LA : Article 7.3 - Règles du jeu en compétition",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 4,
           "success_rate": 0.82
         }
@@ -22452,7 +22459,7 @@
         "answer_explanation": "LA : Article 4.4.2 - Règles fondamentales du jeu",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 5,
           "success_rate": 0.92
         }
@@ -22531,7 +22538,7 @@
         "answer_explanation": "LA : Article 7.5.5 - Règles du jeu en compétition",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 6,
           "success_rate": 0.73
         }
@@ -22687,7 +22694,7 @@
         "answer_explanation": "LA : ARTICLE 5.2.1 - Règles fondamentales du jeu",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 8,
           "success_rate": 0.69
         }
@@ -23085,7 +23092,7 @@
         "answer_explanation": "LA : Commentaire de l'Article 6.2.3 - Règles du jeu en compétition",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 13,
           "success_rate": 0.81
         }
@@ -23166,7 +23173,7 @@
         "answer_explanation": "LA : Article 6.8 - Règles du jeu en compétition",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 14,
           "success_rate": 0.88
         }
@@ -23328,7 +23335,7 @@
         "answer_explanation": "LA : Article 6.8 - Règles du jeu encompétition Article A.5.5 - Annexe A:Parties en cadence rapide - LA : Article B.3 - Annexe B : Parties en cadence Blitz",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 16,
           "success_rate": 0.95
         }
@@ -23568,7 +23575,7 @@
         "answer_explanation": "LA : Article 9.6.1 - Règles du jeu en compétition",
         "annales_source": {
           "session": "jun2024",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 19,
           "success_rate": 0.86
         }
@@ -24592,7 +24599,7 @@
         "answer_explanation": "LA : Commentaire 6.2.3 : Action de la pendule",
         "annales_source": {
           "session": "dec2022",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 2,
           "success_rate": 0.81
         }
@@ -24667,7 +24674,7 @@
         "answer_explanation": "LA : Article 4.5 : Pièce touchée",
         "annales_source": {
           "session": "dec2022",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 3,
           "success_rate": 0.77
         }
@@ -24742,7 +24749,7 @@
         "answer_explanation": "LA : Annexe A Article A.4.1.1 : Pas d'intervention sur pendule après 10 coups",
         "annales_source": {
           "session": "dec2022",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 4,
           "success_rate": 0.43
         }
@@ -24980,7 +24987,7 @@
         "answer_explanation": "Toutes",
         "annales_source": {
           "session": "jun2021",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 3,
           "success_rate": 0.14
         }
@@ -25054,7 +25061,7 @@
         "answer_explanation": "Lente",
         "annales_source": {
           "session": "jun2021",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 4,
           "success_rate": 0.09
         }
@@ -26021,7 +26028,7 @@
         "answer_explanation": "Toutes",
         "annales_source": {
           "session": "jun2021",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 3,
           "success_rate": 0.14
         }
@@ -26097,7 +26104,7 @@
         "answer_explanation": "Lente",
         "annales_source": {
           "session": "jun2021",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 4,
           "success_rate": 0.09
         }
@@ -26574,7 +26581,7 @@
         "answer_explanation": "Rapide",
         "annales_source": {
           "session": "jun2021",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 13,
           "success_rate": 0.26
         }
@@ -26814,7 +26821,7 @@
         "answer_explanation": "Toutes",
         "annales_source": {
           "session": "jun2021",
-          "uv": "rules",
+          "uv": "open",
           "question_num": 18,
           "success_rate": 0.77
         }
@@ -26888,7 +26895,7 @@
         "answer_explanation": "Rapide",
         "annales_source": {
           "session": "jun2021",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 13,
           "success_rate": 0.26
         }
@@ -26968,7 +26975,7 @@
         "answer_explanation": "La partie est gagnée par le joueur dont l'adversaire déclare abandonner. Ceci met immédiatement fin à la partie.",
         "annales_source": {
           "session": "jun2022",
-          "uv": "rules",
+          "uv": "tournament",
           "question_num": 3,
           "success_rate": 0.9
         }
@@ -27596,7 +27603,7 @@
         "answer_explanation": "LA - Chapitre 3.5 Le système suisse - C.04.3 Système néerlandais - Art. A.4",
         "annales_source": {
           "session": "dec2024",
-          "uv": "tournament",
+          "uv": "clubs",
           "question_num": 7,
           "success_rate": 0.83
         }
@@ -28715,7 +28722,7 @@
         "answer_explanation": "LA - Chapitre 6.1 Classement Standard de la FIDE article 8.3",
         "annales_source": {
           "session": "dec2024",
-          "uv": "tournament",
+          "uv": "clubs",
           "question_num": 26,
           "success_rate": 0.79
         }
@@ -28945,7 +28952,7 @@
         "answer_explanation": "Pour un arbitre principal en cadence lente : les journées à une ronde sont indemnisées entre 60 et 85 € Les journées à deux rondes sont indemnisées entre 70 et 100 € Le minimum est donc 1×60 +3×70=270 € Le maximum est 1×85+3×100=385 €",
         "annales_source": {
           "session": "dec2024",
-          "uv": "tournament",
+          "uv": "clubs",
           "question_num": 29,
           "success_rate": 0.81
         }
@@ -30245,7 +30252,7 @@
         "answer_explanation": "On pouvait regarder l'aide aux appariements donnée par PAPI : On voit donc que 2 joueurs ont été flotteur montant : AROUSSTAMIAN et TRAVAILLOUX (tous les deux à la ronde 2). Et 5 joueurs ont été flotteur descendant : POP (exempt à la ronde 1), DAKSH JAIN et MIGNOT (les adversaires de AROUSSTAMIAN et TRAVAILLOUX à la ronde 2), BARDET (exempt à la ronde 2) et ZIENKIEWICZ (gain par forfait à la ronde 2). Note : HORN, perdant par forfait à la ronde 2 serait aussi considéré comme flotteur descendant, mais comme il ne participe pas à la ronde 3, on ne le compte pas. De toutes façons, pour ne pas induire les candidats en erreur, la réponse avec 6 flotteurs descendants n'était pas proposée.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "tournament",
+          "uv": "clubs",
           "question_num": 6,
           "success_rate": 0.55
         }
@@ -30403,7 +30410,7 @@
         "answer_explanation": "- 7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. » - 7.5.2. → « Si un joueur ou une joueuse a déplacé un pion sur la rangée la plus éloignée, a appuyé sur la pendule, mais n'a pas remplacé le pion par une nouvelle pièce, le coup est illégal » Les noirs ont encore un cavalier. Il existe une suite de coups légaux emmenant au mat pour les noirs (en le faisant exprès, mais c'est possible), donc gain noir.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "tournament",
+          "uv": "clubs",
           "question_num": 12,
           "success_rate": 0.74
         }
@@ -30479,7 +30486,7 @@
         "answer_explanation": "7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par Table 7 : Dans cette positon, le conducteur des blancs joue Rf5et il achève son coup en appuyant sur la pendule. Le conducteur des noirs vous appelle pour signaler un 2ème coup illégal des blancs (vous aviez effectivement constaté un coup illégal des blancs quelques minutes plus tôt). Quel est le résultat de la partie ? celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. » Ici, il n'existe aucune suite de coup légaux qui permet au noirs de gagner. Les blancs sont au trait et les 2 seuls coups légaux dans blancs emmènent un mat pour les blancs. → Partie nulle, c'est la dernière phrase du 7.5.5.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "tournament",
+          "uv": "clubs",
           "question_num": 13,
           "success_rate": 0.6
         }
@@ -30559,7 +30566,7 @@
         "answer_explanation": "Ici, l'absence était prévisible (la question indique « prévu depuis longtemps »). Cette absence aurait donc du être signalée avant l'appariement de la ronde 5. Ce comportement très gênant doit être sanctionné. Ce joueur est donc exclu du tournoi.",
         "annales_source": {
           "session": "jun2025",
-          "uv": "tournament",
+          "uv": "clubs",
           "question_num": 14,
           "success_rate": 0.64
         }

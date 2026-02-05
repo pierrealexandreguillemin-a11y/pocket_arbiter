@@ -1,0 +1,2210 @@
+{
+  "session": "jun2025",
+  "extraction_method": "pymupdf_color",
+  "color_mapping": {
+    "green (#00b050)": "correct_answer",
+    "purple (#7030a0)": "article_reference",
+    "blue (#0070c0)": "explanation"
+  },
+  "questions": [
+    {
+      "num": 1,
+      "page": 12,
+      "correct_answers": [
+        "d) En partie longue, les joueurs ont l’obligation de mettre un (=) sur la feuille de partie pour indiquer l’offre de",
+        "nulle."
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 9.1.2.2 ou Article 8.1.5 ou encore Annexe C.12",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVR"
+    },
+    {
+      "num": 2,
+      "page": 12,
+      "correct_answers": [
+        "a) Vous commencez à compter les coups effectués pour appliquer l’article 9.6.2"
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 9.6.2",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "L’article 9.2 ne peut pas s’appliquer si ce n’est pas la joueuse qui réclame.",
+        "L’article 6.9 ne peut pas s’appliquer car nous ne sommes pas dans le cas d’un",
+        "joueur qui n’a plus de temps.",
+        "L’article 5.2.2 ne peut pas s’appliquer, un échec et mat est possible donc ce n’est pas une position morte.",
+        "Même si les blancs ne peuvent plus gagner et qu’il est « surprenant » qu’ils refusent la nulle, l’arbitre n’a",
+        "pas de possibilité d’intervention et n’a que le seul choix de compter les coups pour déclarer la nulle une",
+        "fois que 75 auront été joués par les deux joueurs.",
+        "Le taux de réussite à cette question est très faible, la",
+        "présence des numéros d’article dans la question permettait de vérifier qu’ils ne correspondaient pas à la",
+        "situation."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 3,
+      "page": 12,
+      "correct_answers": [
+        "b) La partie continue sans modification, vous signalez juste l’information à l’arbitre en chef."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 7.3",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 12 sur 72"
+      ],
+      "explanations": [
+        "A partir du moment où 10 coups ont été joués, quelle que soit la cadence, on ne revient pas sur une partie",
+        "où les joueurs se sont trompés de couleur."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 4,
+      "page": 13,
+      "correct_answers": [
+        "d) On recommence la partie depuis la position initiale."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 7.3"
+      ],
+      "explanations": [
+        "Si moins de 10 coups ont été joués alors, quelle que soit la cadence, on recommence la partie."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 5,
+      "page": 13,
+      "correct_answers": [
+        "c) Les noirs ont l’obligation de jouer le coup exd4."
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 7.5.1 et article 4.3.3",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "N’ayant pas appuyé sur leur pendule, le coup n’est pas achevé et le joueur est autorisé à se corriger. Le",
+        "cavalier touché ne dispose d’aucun coup légal donc il n’est pas obligatoire de le déplacer. Par contre le",
+        "pion d4 qui a été touché peut être pris (uniquement avec le pion e5) par conséquent les noirs ont",
+        "l’obligation de joueur exd4"
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 6,
+      "page": 13,
+      "correct_answers": [
+        "d) Cadence 30 minutes + 30 secondes par coup."
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 8.4 et Annexe A.2",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "La cadence a) a un incrément strictement inférieur à 30s par coup et la cadence c) n’a pas d’incrément. Il",
+        "est donc autorisé de ne plus noter en dessous de 5 min dans ces cadences.",
+        "La  cadence  b)  est  une  cadence  de  jeu  rapide  où  la  notation  n’est  jamais  obligatoire.",
+        "La cadence d) est une cadence de jeu standard avec un incrément de 30s par coup, la notation est",
+        "obligatoire jusqu’au bout."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 7,
+      "page": 13,
+      "correct_answers": [
+        "d) Vous expliquez au capitaine que, le joueur ayant reconnu sa défaite, vous ne pouvez plus intervenir et que",
+        "vous conservez le résultat annoncé."
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 5.1.2",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 13 sur 72"
+      ],
+      "explanations": [
+        "Le fait que l’adversaire reconnaisse la défaite est assimilé à un abandon. Il était de sa responsabilité de",
+        "vérifier le mat par lui-même."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 8,
+      "page": 14,
+      "correct_answers": [
+        "b) On applique cette règle dès que l’enfant retire la pièce de l’ouverture de fixation."
+      ],
+      "article_refs": [
+        "Règles du jeu – Annexe D.2.2",
+        "D",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVR"
+    },
+    {
+      "num": 9,
+      "page": 14,
+      "correct_answers": [
+        "a) Vous sanctionnez par la perte de la partie."
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 4.3 et article 11.7",
+        "A"
+      ],
+      "explanations": [
+        "Le joueur refuse de manière obstinée de se conformer aux règles du jeu, l’arbitre doit sanctionner par la",
+        "perte de la partie."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 10,
+      "page": 14,
+      "correct_answers": [
+        "b) Le signalement de la chute du drapeau aurait dû être effectué par les noirs ou par l’arbitre avant que l’échec",
+        "et mat ne soit posé, c’est trop tard pour réclamer."
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 6.8",
+        "A"
+      ],
+      "explanations": [
+        "Le drapeau est considéré comme tombé que lorsque le fait est constaté. L’échec et mat s’est produit avant",
+        "le signalement."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 11,
+      "page": 14,
+      "correct_answers": [
+        "a) Le joueur dont la montre était allumée a perdu la partie."
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 11.3.2",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 14 sur 72"
+      ],
+      "explanations": [
+        "Les  appareils  électroniques  sont  interdits,  une  montre  connectée  est  de  plus  un  appareil  de",
+        "communication pour lequel la sanction est immédiate."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 12,
+      "page": 15,
+      "correct_answers": [
+        "d) Les noirs ne peuvent pas prendre le cavalier.",
+        "de"
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 3 sur le déplacement des pièces et 3.8.2.2 sur l’interdiction",
+        "temporaire du roque.",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Les noirs sont en échecs et ne peuvent pas roquer. Le roi pourrait aller par",
+        "exemple sur la case f2. Le cavalier blanc qui met en échec le roi ne peut pas être",
+        "pris par le fou en e4 qui est cloué par la dame en g2.",
+        "."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 13,
+      "page": 15,
+      "correct_answers": [
+        "c) Pour les noirs : le déplacement du pion b4 sur la case c3",
+        "de"
+      ],
+      "article_refs": [
+        "Règles du jeu – Article 3 sur le déplacement des pièces et 3.7.3.1 sur la prise en",
+        "passant.",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Les  noirs  ne  peuvent  pas  roquer  car  le  roi  n’est  pas  sur  sa  case",
+        "initiale(",
+        "Beaucoup trop de candidats n’ont pas fait attention à cette information)",
+        ".",
+        "Les blancs ne peuvent pas faire le grand-roque car la case d1 est attaquée. Le",
+        "déplacement du pion b4 sur la case c3 est associable à une prise en passant."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 14,
+      "page": 15,
+      "correct_answers": [
+        "c) Il y a une irrégularité apparente, si les blancs jouent sans réclamer alors vous",
+        "n’interviendrez pas pour le moment.",
+        "de"
+      ],
+      "article_refs": [
+        "Règles du jeu – Annexe A.5.2",
+        "A"
+      ],
+      "explanations": [
+        ".",
+        "Le  roi  noir  est  en  échec  alors  que  c’est  aux  blancs  de  jouer.  En  partie",
+        "Rapide&Blitz, l’arbitre n’intervient sur un coup irrégulier que s’il a vu le coup",
+        "se jouer devant lui ou si l’un des joueurs lui fait la réclamation. Si l’adversaire",
+        "joue un coup, on considère qu’il a « accepté l’irrégularité » et la partie continue.",
+        "Le taux de réussite à cette",
+        "question est très faible. L’arbitre n’ayant aucune connaissance du passé de la partie, il ne sait pas depuis",
+        "quand les blancs sont en échecs, quel coup a été effectué et si ce sont vraiment les blancs qui ont le trait (un",
+        "oubli  d’appui  sur  la  pendule  est  possible).  L’arbitrage  en  partie  rapide  ne  peut  se  faire  qu’avec  la",
+        "connaissance parfaite du dernier coup joué."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 15,
+      "page": 15,
+      "correct_answers": [
+        "n’interviendrez pas pour le moment.",
+        "d) La position n’est pas illégale. Vous n’avez pas à intervenir sauf si la feuille",
+        "de",
+        "partie vous prouve qu’il y a eu une irrégularité."
+      ],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 15 sur 72"
+      ],
+      "explanations": [
+        "."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 16,
+      "page": 16,
+      "correct_answers": [
+        "b) Vous ajoutez une minute à la pendule de son adversaire."
+      ],
+      "article_refs": [
+        "Règles du jeu annexe A.3 et B.3",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Les parties Blitz et rapides s’arbitrent de la même manière. La sanction pour un coup illégal achevé n’est",
+        "que d’une minute.",
+        "e"
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 17,
+      "page": 16,
+      "correct_answers": [
+        "b) Les noirs ont perdu la partie."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 7.5.5",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Le 2",
+        "e",
+        "coup  illégal achevé met fin  à la partie. Nous  sommes en  cadence standard donc, même si",
+        "l’adversaire a déjà joué, l’arbitre peut sanctionner le coup illégal précédent. Les blancs ont forcément la",
+        "possibilité de faire mat car ils possèdent encore une tour. Les noirs ont donc perdu la partie."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 18,
+      "page": 16,
+      "correct_answers": [
+        "d) Il est autorisé, dans ce cas particulier, de noter son coup en avance sur sa feuille de partie sans le jouer afin",
+        "de réclamer la nulle."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 9.3.1"
+      ],
+      "explanations": [
+        "e",
+        "Quand la joueuse au trait veut faire la réclamation sur quelque chose qui va se produire après son coup",
+        "alors elle peut exceptionnellement noter son coup en avance, sans toucher la moindre pièce, avant de faire",
+        "sa demande à l’arbitre."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 19,
+      "page": 16,
+      "correct_answers": [
+        "d) Une joueuse n’a pas le droit d’adouber les pièces quand c’est à son adversaire de jouer."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 4.2.1",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 16 sur 72"
+      ],
+      "explanations": [
+        "e",
+        "Seul le joueur au trait a le droit d’adouber."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 20,
+      "page": 17,
+      "correct_answers": [
+        "d) Sur l’une des positions il y avait une prise en passant possible."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 9.2.3.1"
+      ],
+      "explanations": [
+        "Si une prise en passant était possible alors on ne peut pas considérer que les positions sont identiques."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 21,
+      "page": 17,
+      "correct_answers": [
+        "c) Cadence Blitz"
+      ],
+      "article_refs": [
+        "Règles du jeu – Annexe B.1",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Cette cadence est équivalente à 10 min. Les blitz sont des parties pour lesquelles la cadence est inférieure",
+        "ou égale à 10 min."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 22,
+      "page": 17,
+      "correct_answers": [
+        "b) Vous déclarez la partie nulle."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 6.9"
+      ],
+      "explanations": [
+        "Les blancs n’ont pas posé l’échec et mat sur l’échiquier avant l’intervention de",
+        "l’arbitre, c’est trop tard. Par contre on peut s’apercevoir que les noirs ne",
+        "peuvent pas non plus mater avec le matériel présent sur l’échiquier.",
+        "On déclare donc le match nul."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 23,
+      "page": 17,
+      "correct_answers": [
+        "c) Vous répondez que dans cette cadence, le coup illégal doit être signalé avant que la partie ne soit terminée."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 7.5.1 et 7.5.5",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 17 sur 72"
+      ],
+      "explanations": [
+        "L’article 7.5.5 définissant les sanctions pour les coups illégaux renvoie à l’article 7.5.1. Celui-ci indique",
+        "« au cours d’une partie » pour la constatation des coups illégaux.  On ne revient donc pas sur le résultat",
+        "d’une partie pour un coup illégal constaté bien plus tard.",
+        "Le taux de réussite à cette question est bien trop",
+        "faible. Une fois confirmé par les deux joueurs, le résultat d’une partie ne sera modifié par l’arbitre que dans",
+        "des cas exceptionnels. (La répétition de 5 positions identiques,la règle des 75 coups, un cas de tricherie",
+        "avéré...)"
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 24,
+      "page": 18,
+      "correct_answers": [
+        "c) Vous intervenez toujours."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 7.2.1"
+      ],
+      "explanations": [],
+      "uv": "UVR"
+    },
+    {
+      "num": 25,
+      "page": 18,
+      "correct_answers": [
+        "c) Vous intervenez toujours.",
+        "a) Vous n’intervenez pas si plus de 10 coups ont été achevés par chacun des deux joueurs."
+      ],
+      "article_refs": [
+        "Règles du jeu – Annexe A.5.1.2",
+        "A"
+      ],
+      "explanations": [
+        "En cadence rapide, l’irrégularité initiale doit être signalé avant que 10 coups soient achevés."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 26,
+      "page": 18,
+      "correct_answers": [
+        "c) Vous intervenez et l’obligez à faire une promotion en Dame, elle est sanctionnée par l’ajout de 2 minutes",
+        "ajoutées à la pendule de l’adversaire."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 7.5.2",
+        "D"
+      ],
+      "explanations": [
+        "La joueuse est sanctionnée pour un coup illégal achevé car elle devait remplacer le pion avant d’appuyer",
+        "sur la pendule.  De plus elle n’a plus le choix de la pièce de promotion."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 27,
+      "page": 18,
+      "correct_answers": [
+        "b) Déplacer une pièce de la main gauche et appuyer sur la pendule de la main droite."
+      ],
+      "article_refs": [
+        "Règles du jeu – articles 7.5.3/7.5.4/3.10.1 et 6.2.3",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Les règles du jeu définissent les trois autres propositions comme des coups illégaux.  L’appui sur la",
+        "pendule par l’autre main que celle qui a joué le coup n’est pas un coup illégal mais une infraction aux",
+        "règles du jeu sur laquelle c’est l’arbitre qui choisit la sanction à prendre."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 28,
+      "page": 18,
+      "correct_answers": [
+        "c) Match nul"
+      ],
+      "article_refs": [
+        "Règles du jeu – article 5.2.1",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 18 sur 72"
+      ],
+      "explanations": [
+        "Il est considéré que le pat met immédiatement fin à la partie, il s’est produit avant l’abandon du joueur",
+        "par conséquent l’arbitre doit déclarer le match nul."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 29,
+      "page": 19,
+      "correct_answers": [
+        "a) Vous déclarez que la partie est perdue par forfait par les noirs."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 6.7",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Le délai de forfait est un délai qui est calculé entre le moment du lancement de la ronde et l’arrivée du",
+        "joueur. La pendule peut être un indice mais l’arbitre n’a pas l’obligation d’en tenir compte (6.12.2)."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 30,
+      "page": 19,
+      "correct_answers": [
+        "d) 11 min 52 s pour les blancs 48 min et 09 s pour les noirs."
+      ],
+      "article_refs": [
+        "Règles du jeu – article 7.1 et article 7.5",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 19 sur 72"
+      ],
+      "explanations": [
+        "On doit ajouter 2 min à l’adversaire en tant que sanction pour le coup illégal. On prend aussi en compte",
+        "que le joueur fautif a gagné 30 secondes en appuyant sur la pendule, comme on revient au coup",
+        "précédent alors il faut lui enlever ces 30 secondes auxquelles il n’avait pas le droit."
+      ],
+      "uv": "UVR"
+    },
+    {
+      "num": 1,
+      "page": 27,
+      "correct_answers": [
+        "b)",
+        "Avoir pour la saison sportive en cours un classement Elo (lent ou rapide, national ou F.I.D.E.).",
+        "b)",
+        "d)"
+      ],
+      "article_refs": [
+        "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 7.1 Critères administratifs",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Avoir possédé, à un moment donné, un classement Elo (lent ou rapide, national ou F.I.D.E.)."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 2,
+      "page": 27,
+      "correct_answers": [
+        "b)",
+        "c)  Il doit obligatoirement suivre un stage d’arbitre fédéral club (SC) dans sa totalité.",
+        "b)",
+        "d)"
+      ],
+      "article_refs": [
+        "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation",
+        "continue, celui-ci sera dans l’obligation de suivre un stage Club (SC). A l’issue de celui-ci, son titre",
+        "d’arbitre est réactivé."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 3,
+      "page": 27,
+      "correct_answers": [
+        "b)",
+        "b)",
+        "Le Directeur ou la Directrice des Titres.",
+        "d)"
+      ],
+      "article_refs": [
+        "Le formulaire de demande de Titre est à adresser à Stéphane GOBERT, Directeur des Titres.",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 4,
+      "page": 27,
+      "correct_answers": [
+        "b)",
+        "b)",
+        "d)",
+        "Excepté le TOP 16, arbitrer une rencontre du championnat de France des clubs mixte."
+      ],
+      "article_refs": [
+        "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.4. Arbitres Fédéraux de Club (AFC)",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 27 sur 72"
+      ],
+      "explanations": [
+        "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que",
+        "soit la division, sauf l’arbitrage en chef de la plus haute division."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 5,
+      "page": 28,
+      "correct_answers": [
+        "b) Une prise de licence entre le 1er et 30 septembre exonère d’effectuer une demande de transfert.",
+        "c)",
+        "3."
+      ],
+      "article_refs": [
+        "R01 - Règles Générales - Article 2.3.1. Transfert d’une saison à l’autre.",
+        "A"
+      ],
+      "explanations": [
+        "Une prise de licence dans un autre club entre le 1er et le 30 septembre équivaut à une demande de",
+        "transfert qui exonère de la faire."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 6,
+      "page": 28,
+      "correct_answers": [
+        "c) Elle est U14 F.",
+        "c)"
+      ],
+      "article_refs": [
+        "R01 - Règles Générales - Article 2.4 Catégories d’âge.",
+        "A"
+      ],
+      "explanations": [
+        "Les joueurs et joueuses sont classés dans des catégories en fonction de leur âge avant le 1er janvier de la",
+        "saison. Cette joueuse étant née le 26 janvier 2011, il faut donc connaître son âge en 2024 à savoir 13 ans",
+        "(24-11=13). Elle est donc en catégorie U14F."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 7,
+      "page": 28,
+      "correct_answers": [
+        "c) Il est de 30 minutes.",
+        "c)",
+        "3."
+      ],
+      "article_refs": [
+        "R01 - Règles Générales - Article 3.1.2. Retard autorisé.",
+        "A"
+      ],
+      "explanations": [
+        "Le retard autorisé devant l'échiquier est fixé à 30 minutes par défaut sauf si le règlement intérieur du",
+        "tournoi ou le règlement fédéral prévoit autre chose.",
+        "Comme le règlement de la Coupe Jean-Claude Loubatière indique aucune information de délai de",
+        "forfait, il est donc par défaut de 30 minutes."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 8,
+      "page": 28,
+      "correct_answers": [
+        "c)",
+        "3."
+      ],
+      "article_refs": [
+        "R03 - Compétitions homologuées - Article 2.2.2. Article 7.5.5 adapté sur les coups illégaux en cadence rapide.",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 9,
+      "page": 28,
+      "correct_answers": [
+        "c)",
+        "c) 16."
+      ],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 28 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 10,
+      "page": 29,
+      "correct_answers": [
+        "c)",
+        "Le mercredi."
+      ],
+      "article_refs": [
+        "R01 - Règles Générales - Article 4 Homologation d’un résultat.",
+        "irection",
+        "A"
+      ],
+      "explanations": [
+        "Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le",
+        "résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre.",
+        "L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant",
+        "n'est en cours."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 11,
+      "page": 29,
+      "correct_answers": [
+        "c)",
+        "d) Une sanction financière."
+      ],
+      "article_refs": [
+        "R01 - Règles Générales - Article 8 Le rôle des capitaines.",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "L’arbitre d’un match peut désormais sanctionner les capitaines qui ne respectent pas les règles liées à",
+        "leur rôle. Les options à disposition de l’arbitre pour sanctionner sont l’avertissement, l’exclusion pour",
+        "une ou plusieurs rondes et la déclaration de partie perdue (ou de plusieurs parties) si l’intervention",
+        "fautive du capitaine exerce une influence sur les résultats des parties concernées."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 12,
+      "page": 29,
+      "correct_answers": [
+        "c)",
+        "c) 15h15."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.8 Forfaits sportifs.",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Le retard autorisé est de 60 minutes pour toutes les divisions nationales. Ce délai commence à l’heure",
+        "stipulée du début de la rencontre à savoir 14h15."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 13,
+      "page": 29,
+      "correct_answers": [],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 29 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 14,
+      "page": 30,
+      "correct_answers": [
+        "b) Un arbitre fédéral Jeune."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 2.4 Arbitres.",
+        "N",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 15,
+      "page": 30,
+      "correct_answers": [
+        "d) Vous réglez sa pendule à 0h30 minutes et la partie se déroule normalement."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.6.a) Feuille de match.",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Lorsque la liste est remise plus tard, les pendules de tous les échiquiers de l'équipe concernée sont",
+        "avancées d'un temps égal au retard. Si, de plus, un joueur ou une joueuse arrive dans un délai suffisant",
+        "pour ne pas être forfait, mais qui entraîne un retard à la pendule supérieur à une heure, ce retard est",
+        "ramené à une heure."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 16,
+      "page": 30,
+      "correct_answers": [
+        "d) La personne chargée de la direction de groupe."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 2.1.b Direction de groupe.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 30 sur 72"
+      ],
+      "explanations": [
+        "La personne chargée de la direction de groupe a pour mission entre autres de vérifier les feuilles de",
+        "match, de contrôler la situation des joueuses et des joueurs et procéder aux redressements nécessaires."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 17,
+      "page": 31,
+      "correct_answers": [
+        "c) L’heure prévue de la rencontre."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.6.d) Validité de la licence.",
+        "A"
+      ],
+      "explanations": [
+        "L’heure limite de prise de licence pour un joueur participant à une rencontre est l’heure prévue du début",
+        "de la rencontre."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 18,
+      "page": 31,
+      "correct_answers": [
+        "c) En N4 un arbitre peut jouer son match de N4 et officier dans un maximum de deux matchs de N4 et de",
+        "division inférieure."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 2.5 Responsable des rencontres et arbitrage.",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "En N4, l’arbitre peut jouer son match de N4 et officier dans un maximum de 2 matchs de N4 et de",
+        "division inférieure."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 19,
+      "page": 31,
+      "correct_answers": [
+        "d) Si le club hôte ne peut assurer la mission d’arbitrage, les deux clubs devront s’entendre pour trouver un",
+        "arbitre. En cas d’infraction pour défaut d’arbitre non-joueur/joueuse, les clubs seront sanctionnés d’une amende",
+        "de 75 € chacun."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel.",
+        "irection",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Exception pour le cas de l’obligation d’un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir",
+        "cette tâche alors les 2 clubs devront s’entendre pour trouver un arbitre. Si des frais doivent être engagés,",
+        "ils seront partagés entre les 2 clubs. En cas d’infraction pour défaut d’arbitre non-joueur/joueuse, les 2",
+        "clubs seront sanctionnés d’une amende de 75 € chacun."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 20,
+      "page": 31,
+      "correct_answers": [
+        "c) 3."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.7.g) Joueuses et joueurs mutés.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 31 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 21,
+      "page": 32,
+      "correct_answers": [
+        "c) 3."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.7.f) Noyau de l’équipe.",
+        "N",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 22,
+      "page": 32,
+      "correct_answers": [
+        "b) 22h."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
+        "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Le club responsable de la rencontre doit saisir le procès-verbal (PV) de la rencontre sur le site fédéral",
+        "avant 22h."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 23,
+      "page": 32,
+      "correct_answers": [
+        "b) 50 €."
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
+        "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
+        "irection",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Le non-respect de l'article 3.11.a) ou 3.11.b) entraîne 50 € d'amende pour la deuxième infraction."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 24,
+      "page": 32,
+      "correct_answers": [],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 32 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVC"
+    },
+    {
+      "num": 25,
+      "page": 33,
+      "correct_answers": [
+        "c) L’arbitre de la rencontre.",
+        "b)"
+      ],
+      "article_refs": [
+        "A02 - Le Championnat de France des Clubs - Article 3.9 Litiges techniques.",
+        "irection",
+        "A"
+      ],
+      "explanations": [
+        "Tous ces documents sont transmis avec le procès-verbal du match à la direction du groupe par l'arbitre,",
+        "qui devra garder une trace numérique ou une copie."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 26,
+      "page": 33,
+      "correct_answers": [
+        "a) La personne doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage de sa",
+        "Ligue.",
+        "b)"
+      ],
+      "article_refs": [
+        "J02 - Le Championnat de France Interclubs Jeunes - Article 2.5. Arbitres.",
+        "D",
+        "irection",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "En Nationale 3, la personne faisant fonction d'arbitre doit être titulaire d'une licence A ayant l'aval de la",
+        "direction régionale de l'arbitrage (DRA) de sa Ligue."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 27,
+      "page": 33,
+      "correct_answers": [
+        "b)",
+        "Oui si le nombre d’équipes n’excède pas 5."
+      ],
+      "article_refs": [
+        "C03 - Coupe Jean-Claude Loubatière - Article 2.5. Arbitres.",
+        "A"
+      ],
+      "explanations": [
+        "Lors de la phase départementale, l'arbitre peut être joueur ou joueuse si le nombre d’équipes",
+        "participantes n'excède pas 5."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 28,
+      "page": 33,
+      "correct_answers": [
+        "b)",
+        "b) 4."
+      ],
+      "article_refs": [
+        "C03 - Coupe Jean-Claude Loubatière - Article 1.2. Déroulement de la Coupe.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 33 sur 72"
+      ],
+      "explanations": [
+        "La compétition se jouant par équipe de 4, il y a donc 48 personnes dont 5 joueuses. Ces dernières",
+        "représentent donc au moins 10% de l’effectif. Au cours de la phase départementale, et de la phase 2, se"
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 29,
+      "page": 34,
+      "correct_answers": [
+        "d) À partir des 32ème de finale, l’arbitre ne peut pas jouer et arbitrer."
+      ],
+      "article_refs": [
+        "C01 - Coupe de France - Article 2.5. Arbitres.",
+        "D",
+        "irection",
+        "A"
+      ],
+      "explanations": [
+        "À partir des 32ème de finale, l’arbitre ne peut pas jouer et arbitrer."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 30,
+      "page": 34,
+      "correct_answers": [
+        "a) Lors de la phase zone interdépartementale et la suivante, l'organisation de la phase concernée désigne",
+        "l'arbitre."
+      ],
+      "article_refs": [
+        "C04 - Coupe de la Parité - Article 2.5. Arbitres.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 34 sur 72"
+      ],
+      "explanations": [
+        "Lors de la phase zone interdépartementale et de la phase 2, l'organisation de la phase concernée désigne",
+        "l'arbitre."
+      ],
+      "uv": "UVC"
+    },
+    {
+      "num": 1,
+      "page": 41,
+      "correct_answers": [
+        "Le championnat de France des jeunes en tant qu’arbitre en chef",
+        "."
+      ],
+      "article_refs": [
+        "LA RIDNA - Article 12.3 :",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Coupes Fédérales et Coupe de France jusqu’en finale."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 2,
+      "page": 41,
+      "correct_answers": [
+        ".",
+        "b) Avoir obtenu l’agrément FIDE."
+      ],
+      "article_refs": [
+        "Guide de l'Arbitrage à l'International Article 2 Agrément FIDE",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Afin d’être autorisé à arbitrer dans les tournois internationaux homologués par la FIDE, un arbitre fédéral,",
+        "quel que soit son titre FFE ou FIDE, doit s’acquitter d’un droit auprès de la FIDE : c’est ce que l’on appelle",
+        "l’agrément FIDE pour les arbitres."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 3,
+      "page": 41,
+      "correct_answers": [
+        ".",
+        "c) 15 jours."
+      ],
+      "article_refs": [
+        "LA 5.2 Préparation d’un tournoi",
+        "R03 Compétition homologuées",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 41 sur 72"
+      ],
+      "explanations": [
+        "Les demandes d’homologation doivent se faire dans les délais selon la nature du",
+        "tournoi :",
+        "Pour les tournois FIDE 15 jours avant le début du tournoi."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 4,
+      "page": 42,
+      "correct_answers": [
+        "Suivre une formation d’arbitre de club et valider à nouveau l’UVR."
+      ],
+      "article_refs": [
+        "RI DNA, article 6.2",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Si durant une période de six ans à compter de son dernier stage, un arbitre n’effectue pas de formation continue,",
+        "celui-ci sera dans l’obligation de suivre un stage SC.",
+        "Un arbitre inactif n’ayant fait aucune formation durant une période de dix ans sera en plus dans l’obligation de",
+        "valider à nouveau l’UVR. A l’issue de satisfaire ces deux conditions, son titre d’arbitre est réactivé."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 5,
+      "page": 42,
+      "correct_answers": [
+        "15 pour les tournois rapides et 30 pour ceux en blitz.",
+        "La liste des joueurs suspendus est consultable sur le site de la FE à la page « Discipline »."
+      ],
+      "article_refs": [
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "3.1. Le nombre maximum de rondes par jour est :",
+        "3.1.1. Pour les parties rapides : 15 rondes par jour",
+        "3.1.2. Pour les parties blitz : 30 rondes par jour.",
+        "La liste des joueurs suspendus est disponible sur la page de la commission fédérale de discipline :",
+        "http://www.echecs.asso.fr/Default.aspx?Cat=9"
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 7,
+      "page": 42,
+      "correct_answers": [
+        "1709"
+      ],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 42 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVO"
+    },
+    {
+      "num": 8,
+      "page": 43,
+      "correct_answers": [
+        "60,75 €"
+      ],
+      "article_refs": [
+        "LA 5.2 Gestion administrative des tournois :",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Les droits d'homologations comportent une part fixe de 10 euros pour les Tournois à cadence lente, rapide ou",
+        "blitz FIDE et d’une part variable égale à 7 % des droits d'inscriptions annoncés adultes et jeunes (hors MI et",
+        "GM).",
+        "On ne tient donc pas compte des titrés ni de la majoration du tarif pour les inscriptions sur place !",
+        "Montant retenu des inscriptions : (45+10=55) adultes à 10 € et (20+15=35) jeunes à 5 € : (55*10) + (35*5) =",
+        "725 €.",
+        "Calcul des droits : 725 × 7 % + 10 = 60,75 €.",
+        "Les droits d'homologation sont donc de 60,75 €."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 9,
+      "page": 43,
+      "correct_answers": [
+        "b) Au Directeur National de l’Arbitrage."
+      ],
+      "article_refs": [
+        "LA 5.4 - Rapport Technique et fin de tournoi",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Toute procédure disciplinaire (Exclusion de tournoi, formulaire de signalement, demande de sanction, problème",
+        "de triche…) doit être transmise au DNA. Il est demandé d’utiliser pour cela les formulaires T6 et T7."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 10,
+      "page": 43,
+      "correct_answers": [
+        "Vous vous abstenez de tout commentaire sur les compositions d’équipes même s’il est évident qu’une",
+        "équipe devrait avoir une sanction administrative. Celle-ci est de la responsabilité du directeur du groupe."
+      ],
+      "article_refs": [
+        "LA 5.1 - Gestion d’un match – Avant Match p 165",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 43 sur 72"
+      ],
+      "explanations": [
+        "➢",
+        "L’arbitre s’assure que le responsable de la rencontre a prévu le matériel échiquéen suffisant pour la"
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 11,
+      "page": 44,
+      "correct_answers": [
+        "Le Sonneborn-Berger."
+      ],
+      "article_refs": [
+        "Chapitre 4.2 Système de départages - Art 9.1 : Le Sonneborn-Berger - Page 151 du LA",
+        "A"
+      ],
+      "explanations": [
+        "Il est obtenu en ajoutant, pour chaque ronde, le score ajusté de l’adversaire multiplié par le nombre de points",
+        "marqués contre lui."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 12,
+      "page": 44,
+      "correct_answers": [
+        "60 minutes KO."
+      ],
+      "article_refs": [
+        "Article A1 de l’annexe A",
+        "A"
+      ],
+      "explanations": [
+        "Sur la base d’une partie durant 60 coups : 40 minutes + 60 x 20 secondes = 40 minutes + 20 minutes = 60",
+        "minutes."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 13,
+      "page": 44,
+      "correct_answers": [
+        "Les échiquiers 7 et 8 peuvent être placés dans n'importe quel ordre."
+      ],
+      "article_refs": [
+        "Article 3.7.c. du règlement des interclubs jeunes.",
+        "A"
+      ],
+      "explanations": [
+        "L’échiquier 8 peut être placé devant l’échiquier 7, quels que soient les Elo."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 14,
+      "page": 44,
+      "correct_answers": [
+        "Personne."
+      ],
+      "article_refs": [
+        "R03 Compétitions homologuées - Article 2.3 Droits d'inscriptions",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 44 sur 72"
+      ],
+      "explanations": [
+        "Dans les tournois A, l'inscription est gratuite pour les GMI, MI, GMF, MIF, les membres de l’équipe de France"
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 15,
+      "page": 45,
+      "correct_answers": [
+        "Au secrétariat fédéral."
+      ],
+      "article_refs": [
+        "Suspicion/plainte pour triche - Gestion de fin de tournoi - 5.3 Gestion du tournoi – LA page 170",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "L’arbitre joint toutes les pièces nécessaires avec ce rapport : parties/photos/ témoignages/ plainte d’un joueur ou",
+        "tout autre élément qu’il estime pertinent. Le rapport est envoyé directement au secrétariat fédéral qui redirige le",
+        "dossier vers la commission Fair-play de la FFE."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 16,
+      "page": 45,
+      "correct_answers": [
+        "Il doit préciser que son tournoi est réservé aux joueurs et joueuses ayant un classement Elo strictement",
+        "inférieur à 1800."
+      ],
+      "article_refs": [
+        "LA – 6.1 Le classement standard de la FIDE Article 1 : Cadence de jeu - page 181 - R03 2. Conditions",
+        "d’homologation.",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "Information rappelée dans la partie 5.2 préparation d’un tournoi paragraphe Homologation",
+        ". Quand, lors d’une",
+        "partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d’un minimum",
+        "de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé",
+        "aux joueurs de moins de 1800 Elo."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 17,
+      "page": 45,
+      "correct_answers": [
+        "Vous avez le droit en concertation avec l’organisateur d’indiquer que certaines règles du jeu ne seront",
+        "pas appliquées."
+      ],
+      "article_refs": [
+        "LA – 6.1 Le classement standard de la FIDE Article 2 : Règlements en vigueur",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 45 sur 72"
+      ],
+      "explanations": [
+        "Le jeu doit se dérouler en accord avec les Règles du Jeu d’Échecs de la FIDE, toute « adaptation » vous expose",
+        "à un recours et peut provoquer le refus d’homologuer les résultats du tournoi. Par contre les règles du jeu vous",
+        "autorisent à limiter les nulles par accord mutuel et définir par vous-même le délai de forfait. La condition de",
+        "présence à la remise des prix doit être précisée dans le règlement du tournoi si vous souhaitez la faire appliquer."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 18,
+      "page": 46,
+      "correct_answers": [
+        "Trois."
+      ],
+      "article_refs": [
+        "C04 Coupe de la parité – 1.2 Déroulement de la compétition",
+        "D",
+        "irection"
+      ],
+      "explanations": [
+        "Lors de la 1re phase, il y a une équipe qualifiée toutes les trois équipes participantes. 1 qualifiée jusqu’à 3",
+        "équipes – 2 qualifiées jusqu’à 6 équipes – 3 qualifiées jusqu’à 9 équipes."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 19,
+      "page": 46,
+      "correct_answers": [
+        "Le Berlin."
+      ],
+      "article_refs": [
+        "C04 Coupe de la parité – 4.3 Classement",
+        "A"
+      ],
+      "explanations": [
+        "Le classement est fait aux points de parties, avec départage au Berlin, et enfin au bénéfice de l'équipe ayant la",
+        "moyenne la plus basse des derniers Elo publiés (au prorata des participations)."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 20,
+      "page": 46,
+      "correct_answers": [
+        "Sept jours."
+      ],
+      "article_refs": [
+        "LA 5.1 Gestion de fin de tournoi - Gestion administrative des tournois – Rapport technique",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 46 sur 72"
+      ],
+      "explanations": [
+        "Il doit être envoyé par mail dans les 7 jours à la directrice des titres et des tournois de la DNA."
+      ],
+      "uv": "UVO"
+    },
+    {
+      "num": 1,
+      "page": 58,
+      "correct_answers": [
+        "d) Remplir le formulaire de demande en ligne depuis son compte FFE."
+      ],
+      "article_refs": [
+        "L.A. Chap. 5.2, paragraphe « homologation des tournois »., partie « procédure ».",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 2,
+      "page": 58,
+      "correct_answers": [
+        "c)   3"
+      ],
+      "article_refs": [
+        "L.A. Chap. 5.3, paragraphe « licence et référence FIDE ».",
+        "Les joueurs ayant un code FIDE autre que FRA n'ont pas besoin de licence (même s'ils ont déjà eu une licence",
+        "FFE dans le passé).",
+        "Les joueurs sans code FIDE ou avec un code FIDE FRA doivent avoir une licence A valable pour la saison en",
+        "cours.",
+        "Les joueurs suivants doivent donc régulariser leur licence :",
+        "- BUATHIER Jean-Yves (licence B)",
+        "- LAUTIER Joel  (licence B)",
+        "- VAPILLON Jean-François  (pas de licence).",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Cette question a eu un faible taux de réussite. C'est pourtant une question importante pour de futurs arbitres",
+        "Open qui devront vérifier les licences.",
+        "Beaucoup de candidats ont répondu la réponse F :",
+        "Attention, les joueurs ayant un code FIDE autre que FRA",
+        "n'ont pas d'obligation d'avoir de licence en France pour jouer un open."
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 3,
+      "page": 58,
+      "correct_answers": [
+        "a) Oui, pour elle l'inscription sur place est effectivement à 60 €."
+      ],
+      "article_refs": [
+        "R03-Compétitions homologuées : Article 2.3 – Droits d’inscription",
+        "La majoration des prix d’inscription ne s’applique pas dans le cas de personnes présentant une carte de",
+        "mobilisation inclusion de personne en situation de handicap.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 58 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 4,
+      "page": 59,
+      "correct_answers": [
+        "c) Il faut le dire avant la fin de la ronde 2."
+      ],
+      "article_refs": [
+        "Procédure propre à chaque tournoi. La réponse était donc indiquée dans la partie 1 de l'UV.",
+        "Il faut donc l'indiquer dans le RI du tournoi.  Ce timing est celui qui est le plus souvent utilisé.",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 5,
+      "page": 59,
+      "correct_answers": [
+        "c) Si Gilles HORN est malade, l'excuse est valable. Un bye à la ronde 3 et un retour à la ronde 4 est",
+        "possible."
+      ],
+      "article_refs": [
+        "L.A. Chap. 2.2, article 6.5 :",
+        "« L’absence d’un joueur/d’une joueurs sans avoir prévenu l'arbitre est considéré",
+        "comme un abandon du tournoi à moins qu'il/elle ne justifie son absence par une raison valable, avant que",
+        "l'appariement de la ronde suivante ne soit publié. »",
+        "Ici, on peut considérer que la raison est valable. Un retour à la ronde 4 est donc possible, avec effectivement",
+        "possibilité de prendre un bye à la ronde 3.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 59 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 6,
+      "page": 60,
+      "correct_answers": [
+        "c) 2 flotteurs montants et 5 flotteurs descendants."
+      ],
+      "article_refs": [
+        "LA – Chap 3.5 Les règles du système Suisse – Partie C.04.3, paragraphe A.4 : flotteurs.",
+        "On pouvait regarder l'aide aux appariements donnée par PAPI :",
+        "On voit donc que 2 joueurs ont été flotteur montant :",
+        "AROUSSTAMIAN et TRAVAILLOUX (tous les deux à la ronde 2).",
+        "Et 5 joueurs ont été flotteur descendant :",
+        "POP (exempt à la ronde 1), DAKSH JAIN et MIGNOT (les adversaires de AROUSSTAMIAN et TRAVAILLOUX à la",
+        "ronde 2),  BARDET (exempt à la ronde 2) et ZIENKIEWICZ (gain par forfait à la ronde 2).",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Note : HORN, perdant par forfait à la ronde 2 serait aussi considéré comme flotteur descendant, mais comme",
+        "il ne participe pas à la ronde 3, on ne le compte pas. De toutes façons, pour ne pas induire les candidats en",
+        "erreur, la réponse avec 6 flotteurs descendants n'était pas proposée."
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 7,
+      "page": 60,
+      "correct_answers": [],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 60 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 8,
+      "page": 61,
+      "correct_answers": [
+        "c) 1h22 pour les blancs et pour les noirs."
+      ],
+      "article_refs": [
+        "Nous sommes en cadence lente donc on corrige l'erreur manifeste sur la pendule.",
+        "Petit calcul.",
+        "A 14h32, il y a eu 32 minutes de jeu et 16 minutes de bonus ((16 coups blancs + 16 coups noirs) x 30 secondes)",
+        "Il faut donc enlever au temps initial 16 minutes, donc 8 minutes par joueur.",
+        "Article 6.10.2 des règles du jeu :",
+        "« Si au cours d’une partie, on constate que le réglage de l’un ou des deux afficheurs",
+        "était incorrect, l’un des adversaires ou l’arbitre arrête immédiatement la pendule. L’arbitre règle la pendule",
+        "correctement et, si nécessaire, ajuste les temps et compteurs de coups. Il/Elle fait preuve du plus grand discernement",
+        "pour déterminer les informations adéquates. »",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Ici, beaucoup de candidats ont indiqué la réponse B : ils ont oublié de compter l'incrément de 30 secondes par",
+        "coup pour les 16 premiers coups : 8 minutes de plus par joueur donc."
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 9,
+      "page": 61,
+      "correct_answers": [
+        "d) Les 2 joueurs noirs se sont trompés. Les joueurs blancs ont joué à la bonne place. Victoire pour les",
+        "blancs sur les 2 parties mais victoire « par forfait » : les noirs ne se sont pas présentés à la bonne table.",
+        "(Les joueurs noirs ne seront pas exclus, ils pourront poursuivre le tournoi)."
+      ],
+      "article_refs": [
+        "Cette situation arrive de temps en temps sur les tournois avec des joueurs débutants.",
+        "Pour le rédacteur du sujet et les formateurs qui l'ont relu, la réponse A semblait évidente...",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 61 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 10,
+      "page": 62,
+      "correct_answers": [
+        "c) NON parce que Marcel BIPOP est non classé. Les prix par catégories ELO sont réservé aux joueurs",
+        "ayant déjà un classement. Dans ce tournoi, l'organisateur a prévu un prix spécial pour les non classé",
+        "pour lequel il est en course."
+      ],
+      "article_refs": [
+        "Voir la partie 1 de l'UV : Un prix est prévu pour les non-classé. Les non-classé ne sont donc pas éligibles aux",
+        "prix par catégories ELO qui concernent ceux qui ont un classement.",
+        "Si la grille des prix ne prévoit pas de prix pour les non-classés, il faut indiquer dans le RI s'ils sont éligibles aux",
+        "prix de la dernière catégorie ELO ou non. Par défaut, ils ne le sont pas (PAPI ne prend pas en compte les non-",
+        "classés pour les prix par catégorie Elo. Attention donc lors de la remise des prix si vous souhaitez intégrer les",
+        "non-classés dans la dernière catégorie ELO).",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 11,
+      "page": 62,
+      "correct_answers": [],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 62 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 12,
+      "page": 63,
+      "correct_answers": [
+        "c) Gain pour les noirs.",
+        "b) Partie nulle."
+      ],
+      "article_refs": [
+        "«",
+        "LA. Articles 7.5.2. et 7.5.5.  des règles du jeu.",
+        "7.5.2. → «  Si un joueur ou une joueuse a déplacé un pion sur la rangée la plus éloignée, a appuyé sur la",
+        "pendule, mais n’a pas remplacé le pion par une nouvelle pièce, le coup est illégal »",
+        "7.5.5. → « Pour le second coup illégal achevé par la même personne, l’arbitre déclare la partie perdue par",
+        "celle-ci. Toutefois, la partie est nulle, si la position est telle que l’adversaire ne peut mater son roi par aucune",
+        "suite de coups légaux. »",
+        "Les noirs ont encore un cavalier. Il existe une suite de coups légaux emmenant au mat pour les noirs (en le",
+        "faisant exprès, mais c'est possible), donc gain noir.",
+        "7.5.5. → « Pour le second coup illégal achevé par la même personne, l’arbitre déclare la partie perdue par",
+        "D",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 13,
+      "page": 63,
+      "correct_answers": [
+        "b) Partie nulle."
+      ],
+      "article_refs": [
+        "«",
+        "7.5.5. → « Pour le second coup illégal achevé par la même personne, l’arbitre déclare la partie perdue par",
+        "LA. Article 7.5.5. des règles du jeu.",
+        "7.5.5. → « Pour le second coup illégal achevé par la même personne, l’arbitre déclare la partie perdue par",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 63 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 14,
+      "page": 64,
+      "correct_answers": [
+        "c) L’absence de ce joueur à la ronde 5 était prévisible. Il aurait du le dire avant les appariements. Ce",
+        "forfait n'est donc pas justifié alors ce joueur est exclu du tournoi."
+      ],
+      "article_refs": [
+        "L.A. Chap. 2.2, article 6.5 :",
+        "« L’absence d’un joueur/d’une joueurs sans avoir prévenu l'arbitre est considéré",
+        "comme un abandon du tournoi à moins qu'il/elle ne justifie son absence par une raison valable, avant que",
+        "l'appariement de la ronde suivante ne soit publié. »",
+        "Ici, l’absence était prévisible (la question indique « prévu depuis longtemps »). Cette absence aurait donc du",
+        "être signalée avant l'appariement de la ronde 5.",
+        "Ce comportement très gênant doit être sanctionné. Ce joueur est donc exclu du tournoi.",
+        "D",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 15,
+      "page": 64,
+      "correct_answers": [
+        "b) La ronde 5 se déroulera avec les appariements déjà publiés puis vous corrigerez le résultat avant les",
+        "appariements de la ronde 6."
+      ],
+      "article_refs": [
+        "LA - Chapitre 3.5 Règles du Système Suisse – Partie C.04.2 Paragraphe D.8",
+        "Dans le cas où un résultat erroné a été enregistré, si le signalement intervient après la fin de la ronde suivante,",
+        "la correction aura lieu après le tournoi et uniquement dans le cadre du calcul du classement Elo du joueur.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 64 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 16,
+      "page": 65,
+      "correct_answers": [
+        "c) Vu les circonstances il est dispensé de notation. Vous n'ajusterez pas sa pendule."
+      ],
+      "article_refs": [
+        "LA – Art 8.1.6 des règles du jeu.",
+        "« Si un joueur ou une joueuse est dans l’incapacité de noter les coups, il/elle peut fournir un assistant ou une",
+        "assistante, ayant l’agrément de l’arbitre, pour enregistrer les coups. Sa pendule est ajustée par l’arbitre d’une",
+        "manière équitable. Cet ajustement de la pendule ne doit pas s’appliquer à une personne en situation de",
+        "handicap. »",
+        "Ce joueur est en situation de handicap (même handicap temporaire). On ne doit donc pas ajuster sa pendule.",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Cette question a eu un taux de réussite très faible (les réponses A et B ont été données).",
+        "Attention : le texte parle bien de",
+        "situation de handicap",
+        ", pas de handicap permanent. Nous sommes bien dans",
+        "ce cas là et dans ce cas le texte indique clairement que l' «",
+        "ajustement de la pendule ne doit pas s’appliquer",
+        "»."
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 17,
+      "page": 65,
+      "correct_answers": [
+        "b) Vous devez signaler cette joueuse à la DNA. La joueuse sera prévenue du signalement et une sanction",
+        "pourra être décidée si la situation se répète."
+      ],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 65 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 18,
+      "page": 66,
+      "correct_answers": [
+        "b) 100 €"
+      ],
+      "article_refs": [
+        "Les joueurs 3ème est Senior+. Le prix Senior+ (120 €) est supérieur au prix de la 3ème place (120 €).",
+        "Joël LAUTIER aura donc le prix Senior+.",
+        "Comme les prix ne sont pas cumulables. Le prix de la 3ème place reste disponible. Polina SHUVALOVA, classée",
+        "4ème va donc avoir ce prix (qui est supérieur au prix féminin). Donc : 100 €.",
+        "Ici, il y a avait un petit piège parce que PAPI ne prend pas en compte la catégories Senior+. Il fallait donc",
+        "vérifier les prix donnés par PAPI (comme dans les tournois réels).",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 66 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 19,
+      "page": 67,
+      "correct_answers": [
+        "a) Cumulatif."
+      ],
+      "article_refs": [
+        "Connaissance des départages ou plutôt manipulation de PAPI ici puisque on ne demandait pas aux candidats",
+        "de tester ces 3 autres départages à la main. Il suffisait de faire des essais avec PAPI et de repérer dans quel cas",
+        "le classement à la 4ème place changeait.",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 20,
+      "page": 67,
+      "correct_answers": [
+        "c) Eva BARBIE"
+      ],
+      "article_refs": [
+        "SHUVALOVA a le prix de la 3ème place (voir question 18).",
+        "LEHACI a le premier prix féminin (puisque les prix ne sont pas cumulables).",
+        "BARBIE a donc le 2ème prix féminin.",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 21,
+      "page": 67,
+      "correct_answers": [
+        "d) Environ 25 points."
+      ],
+      "article_refs": [
+        "On regarde les estimations données par PAPI :",
+        "A.S. SHARVAANICA a un gain estimé indiqué de 6,34 points, mais attention, ceci est calculé sur la base d'un",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 67 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 22,
+      "page": 68,
+      "correct_answers": [
+        "c) 2 affirmations vraies."
+      ],
+      "article_refs": [
+        "Les affirmations suivantes sont vraies :",
+        "Les autres sont fausses. Donc 2 affirmations vraies.",
+        "LA chapitre 6.1 : chapitre système de classement FIDE – Paragraphe 5.1",
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "- Quand 2 joueurs classés ont 400 points d'écart ou plus et que le plus fort gagne, la partie n'est pas prise en",
+        "compte pour le calcul.",
+        "- Les victoires par forfait ne sont pas prises en compte pour le classement ELO du vainqueur.",
+        "- Les défaites par forfait ne font pas perdre de point ELO au joueur absent.",
+        "-",
+        "Les défaites des joueurs à moins de 2000 contre un joueur titré (MI ou GMI) ne sont pas prise en compte.",
+        "- Pour les joueurs non classé, une estimation est faite en fonction de leur résultats dans le tournoi pour",
+        "déterminer les points gagnés ou perdus par leurs adversaires.",
+        "- Les victoires par forfait ne sont pas prises en compte pour le classement ELO du vainqueur.",
+        "- Les défaites par forfait ne font pas perdre de point ELO au joueur absent."
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 23,
+      "page": 68,
+      "correct_answers": [
+        "d) 64 €"
+      ],
+      "article_refs": [
+        "A"
+      ],
+      "explanations": [
+        "-"
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 24,
+      "page": 68,
+      "correct_answers": [
+        "d) 455 €"
+      ],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 68 sur 72"
+      ],
+      "explanations": [
+        "-"
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 25,
+      "page": 69,
+      "correct_answers": [
+        "a) Performance.",
+        "f) Aucun",
+        "d)"
+      ],
+      "article_refs": [
+        "D",
+        "A"
+      ],
+      "explanations": [
+        "֍ :",
+        "Ensuite, il manquait une information pour choisir entre A ou F :",
+        "- Si tous les précédents adversaires des 2 joueurs de la table 1 avaient un classement, alors :",
+        "Si au moins un des adversaires précédents des 2 joueurs de la table 1 était non classé, alors",
+        "→ Ce manque d'information profite aux candidats : les réponses A et F ont été comptées comme justes."
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 26,
+      "page": 69,
+      "correct_answers": [
+        "d)",
+        "Joueur B et joueur D."
+      ],
+      "article_refs": [
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [
+        "Le joueur B aura donc les blancs.",
+        "donc pour le prochaine ronde,",
+        "le joueur D aura les blancs."
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 27,
+      "page": 69,
+      "correct_answers": [],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 69 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 28,
+      "page": 70,
+      "correct_answers": [
+        "d) Un des adversaires de votre fils a probablement été exempt. Dans ce cas, on ne lui compte pas un point",
+        "entier pour cette partie dans le calcul du buchholz de ses adversaires, mais seulement un demi à la place",
+        "de ce point acquis facilement."
+      ],
+      "article_refs": [
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 70 sur 72"
+      ],
+      "explanations": [
+        "→ Il est donc très important d'indiquer dans les règlements intérieurs de tournois «",
+        "Pour le calcul du",
+        "Buchholz dans le cadre de parties non jouées, en accord avec l’article C07-16.6, le calcul du score",
+        "ajusté est effectué par le logiciel PAPI version 3.3.8 suivant les préconisations de la FIDE antérieures à",
+        "2023 »"
+      ],
+      "uv": "UVT"
+    },
+    {
+      "num": 29,
+      "page": 71,
+      "correct_answers": [
+        "c) 19 – 5, 12 – 16 et 17 – 25"
+      ],
+      "article_refs": [
+        "S1",
+        "S2",
+        "Essais d'appariement.",
+        "5n",
+        "12b",
+        "16n",
+        "17(n)",
+        "19(b)",
+        "25N",
+        "5-17 : Déjà joué.",
+        "5-19 : OK.",
+        "12-17 : semble OK, mais dans ce cas, le joueur 17 aurait les noirs. Comme indiqué ci-dessus,",
+        "on veut que le joueur 17 ait finalement les blancs (si on acceptait ça, on forcerait un joueur",
+        "ayant une préférence noir plus forte). Donc on refuse.",
+        "12-25 : OK",
+        "16-17 : Déjà joué.",
+        "On doit donc casser 12-25.",
+        "On est arrivé au bout des permutations. On échanges donc le 16 et le 17 entre S1 et S2.",
+        "S1",
+        "S2",
+        "Essais d'appariement.",
+        "5n",
+        "12b",
+        "17(n)",
+        "16n",
+        "19(b)",
+        "25N",
+        "5-16 : Semble OK, mais comme expliqué ci-dessus, on veut forcer le 17, pas un autre joueur.",
+        "5-19 : OK.",
+        "12-16 : OK",
+        "17-25",
+        ": Blocage couleur, mais on forcerai la couleur du 17, c'est ce qu'on veut donc OK.",
+        "D",
+        "N",
+        "A"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    },
+    {
+      "num": 30,
+      "page": 71,
+      "correct_answers": [
+        "b) 10 – 14, 12 – 21 et 18 exempt."
+      ],
+      "article_refs": [
+        "4 joueurs ont une préférence blanc et 1 joueur une préférence noir.",
+        "On aura donc une table perturbée en forçant un des joueur ayant une préférence blanc.",
+        "FFÉ",
+        "checs –",
+        "D",
+        "irection",
+        "N",
+        "ationale de l'",
+        "A",
+        "rbitrage – Session d'examen de juin 2025 – Annales - Page 71 sur 72"
+      ],
+      "explanations": [],
+      "uv": "UVT"
+    }
+  ]
+}

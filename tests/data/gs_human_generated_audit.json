@@ -1,0 +1,134 @@
+{
+  "audit_date": "2026-02-05",
+  "source_file": "gs_human_generated.json",
+  "total_questions": 34,
+  "standards_checked": [
+    "SQuAD 2.0",
+    "UAEval4RAG",
+    "Know Your RAG (COLING 2025)",
+    "RAGen/Source2Synth",
+    "NV-Embed/E5",
+    "ISO 42001",
+    "ISO 29119",
+    "SemHash/SoftDedup"
+  ],
+  "results": {
+    "squad_format": {
+      "status": "PASS",
+      "q_length_avg": 16.6,
+      "ends_with_question_mark": "34/34 (100%)"
+    },
+    "know_your_rag_reasoning_class": {
+      "status": "WARN",
+      "distribution": {
+        "fact_single": "29 (85%)",
+        "summary": "4 (12%)",
+        "reasoning": "1 (3%)"
+      },
+      "issue": "85% fact_single exceeds 80% threshold",
+      "target": "<60% fact_single for good diversity"
+    },
+    "bloom_taxonomy": {
+      "status": "PASS",
+      "distribution": {
+        "Remember": "24 (71%)",
+        "Understand": "5 (15%)",
+        "Apply": "4 (12%)",
+        "Analyze": "1 (3%)"
+      }
+    },
+    "question_type_diversity": {
+      "status": "PASS",
+      "distribution": {
+        "factual": "24 (71%)",
+        "procedural": "5 (15%)",
+        "scenario": "4 (12%)",
+        "comparative": "1 (3%)"
+      },
+      "types_covered": 4
+    },
+    "context_grounded": {
+      "status": "PASS",
+      "grounded": "34/34 (100%)",
+      "standard": "RAGen/Source2Synth"
+    },
+    "query_independence": {
+      "status": "WARN",
+      "independent": "30/34 (88%)",
+      "issues": [
+        {"id": "ffe:human:youth:003:b7774476", "similarity": "83%"},
+        {"id": "ffe:human:women:001:735e35bb", "similarity": "71%"},
+        {"id": "ffe:human:access:001:e775f181", "similarity": "88%"}
+      ],
+      "standard": "NV-Embed requires <70% similarity"
+    },
+    "difficulty_distribution": {
+      "status": "WARN",
+      "distribution": {
+        "easy": "24 (71%)",
+        "medium": "9 (26%)",
+        "hard": "1 (3%)"
+      },
+      "issue": "Only 3% hard questions",
+      "target": ">=10% hard"
+    },
+    "iso_42001_provenance": {
+      "status": "PASS",
+      "chunk_id": "34/34 (100%)",
+      "docs": "34/34 (100%)",
+      "pages": "34/34 (100%)",
+      "article_reference": "34/34 (100%)"
+    },
+    "iso_29119_test_data": {
+      "status": "PASS",
+      "validation_status": "34/34 (100%)",
+      "validation_method": "34/34 (100%)",
+      "validation_reviewer": "34/34 (100%)"
+    },
+    "deduplication": {
+      "status": "PASS",
+      "true_duplicates": 0,
+      "intentional_variations": 2,
+      "note": "Similar questions test retrieval precision (not duplicates)"
+    },
+    "corpus_coverage": {
+      "status": "PASS",
+      "documents_covered": "22/28 (79%)",
+      "questions_per_source": {
+        "R01_Regles_generales": 5,
+        "J02_Interclubs_Jeunes": 4,
+        "LA-octobre2025": 3,
+        "J01_CF_Jeunes": 3,
+        "other": 19
+      }
+    }
+  },
+  "summary": {
+    "pass": 8,
+    "warn": 3,
+    "fail": 0,
+    "overall": "ACCEPTABLE with improvements needed"
+  },
+  "required_actions": [
+    {
+      "priority": "P1",
+      "issue": "reasoning_class diversity",
+      "current": "85% fact_single",
+      "target": "<60% fact_single",
+      "action": "Add summary/arithmetic/reasoning questions"
+    },
+    {
+      "priority": "P2",
+      "issue": "query_independence",
+      "current": "4 questions >70% similar to chunk",
+      "action": "Reformulate to increase independence"
+    },
+    {
+      "priority": "P2",
+      "issue": "difficulty_distribution",
+      "current": "3% hard",
+      "target": ">=10% hard",
+      "action": "Add harder questions"
+    }
+  ]
+}

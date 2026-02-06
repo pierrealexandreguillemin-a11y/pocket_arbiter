@@ -31706,7 +31706,12 @@
       "content": {
         "question": "Quel Elo minimum doit atteindre un joueur U12 pour être qualifié d'office au Championnat de France Jeunes ?",
         "expected_answer": "- 1900 pour les U12, 1700 pour les U12F ;",
-        "is_impossible": false
+        "is_impossible": false,
+        "question_variants": [
+          "A partir de quel classement un poussin accede-t-il directement aux nationaux sans passer par les qualifications regionales ?",
+          "Niveau Elo requis pour la qualification automatique en categorie U12 ?",
+          "Un jeune de moins de 12 ans avec quel rating va direct aux France ?"
+        ]
       },
       "mcq": {
         "original_question": null,
@@ -31741,7 +31746,9 @@
         "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
-        "answer_type": "extractive"
+        "answer_type": "extractive",
+        "query_type": "expert_terminology",
+        "has_paraphrases": true
       },
       "validation": {
         "status": "VALIDATED",
@@ -31762,7 +31769,7 @@
         "quality_score": null
       },
       "audit": {
-        "history": "[QAT] J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00 -> R01_2025_26_Regles_generales.pdf-p002-parent008-child00 (score:0.45)",
+        "history": "[QAT] J01_2025_26_Championnat_de_France_Jeunes.pdf-p003-parent012-child00 -> R01_2025_26_Regles_generales.pdf-p002-parent008-child00 (score:0.45) | [2026-02-05] Added paraphrase variants for robustness testing",
         "qat_revalidation": null,
         "requires_inference": null
       }
@@ -32114,7 +32121,12 @@
       "content": {
         "question": "Combien de divisions comporte le Championnat de France Feminin des Clubs ?",
         "expected_answer": "- Nationale 1 féminine, composée de 4 groupes de 8 équipes (N1F) ;",
-        "is_impossible": false
+        "is_impossible": false,
+        "question_variants": [
+          "En combien de niveaux est structuree la competition interclubs feminine ?",
+          "Nombre d echelons dans le championnat equipes dames ?",
+          "Les clubs feminins jouent sur combien de divisions ?"
+        ]
       },
       "mcq": {
         "original_question": null,
@@ -32149,7 +32161,9 @@
         "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
-        "answer_type": "list"
+        "answer_type": "list",
+        "query_type": "expert_terminology",
+        "has_paraphrases": true
       },
       "validation": {
         "status": "VALIDATED",
@@ -32170,7 +32184,7 @@
         "quality_score": null
       },
       "audit": {
-        "history": "",
+        "history": " | [2026-02-05] Added paraphrase variants for robustness testing",
         "qat_revalidation": null,
         "requires_inference": null
       }
@@ -32248,7 +32262,12 @@
       "content": {
         "question": "Un joueur peut-il refuser de jouer contre un adversaire en raison de son handicap ?",
         "expected_answer": "Personne n'a le droit de refuser de jouer avec une personne contre laquelle elle a été apparié correctement, notamment si sa raison est fondée sur un handicap de l' adversaire.",
-        "is_impossible": false
+        "is_impossible": false,
+        "question_variants": [
+          "Que dit le reglement si quelqu un ne veut pas affronter un appariement a cause d une situation de handicap ?",
+          "A-t-on le droit de decliner une partie face a une personne handicapee ?",
+          "Peut-on invoquer le handicap de l autre pour ne pas jouer ?"
+        ]
       },
       "mcq": {
         "original_question": null,
@@ -32281,7 +32300,9 @@
         "cognitive_level": "Understand",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
-        "answer_type": "yes_no"
+        "answer_type": "yes_no",
+        "query_type": "expert_terminology",
+        "has_paraphrases": true
       },
       "validation": {
         "status": "VALIDATED",
@@ -32302,7 +32323,7 @@
         "quality_score": null
       },
       "audit": {
-        "history": "",
+        "history": " | [2026-02-05] Added paraphrase variants for robustness testing",
         "qat_revalidation": null,
         "requires_inference": null
       }
@@ -32443,7 +32464,7 @@
       "legacy_id": "FR-A01-001",
       "content": {
         "question": "Combien de tournois constituent le Championnat de France individuel ?",
-        "expected_answer": "- Tournoi Open A",
+        "expected_answer": "Le championnat est constitue de dix tournois : Tournoi National, Tournoi National Feminin, Tournoi Accession Roger FERRY, Tournoi Veterans, Tournoi Seniors Plus, Tournoi Open A, Tournoi Open B, Tournoi Open C, Tournoi Open D, Tournoi Open E.",
         "is_impossible": false
       },
       "mcq": {
@@ -32499,7 +32520,7 @@
         "quality_score": null
       },
       "audit": {
-        "history": "",
+        "history": " | [2026-02-05] Fixed truncated expected_answer",
         "qat_revalidation": null,
         "requires_inference": null
       }
@@ -32510,7 +32531,12 @@
       "content": {
         "question": "Quelles sont les categories par moyenne Elo au Championnat de France des Clubs rapides ?",
         "expected_answer": "Les trois catégories sont :  \nCatégorie A : moyenne supérieure à 2000  \nCatégorie B : moyenne supérieure à 1700  \nCatégorie C : moyenne inférieure ou égale à 1700",
-        "is_impossible": false
+        "is_impossible": false,
+        "question_variants": [
+          "Comment sont reparties les equipes selon leur force moyenne en interclubs cadence acceleree ?",
+          "Les tranches de classement moyen pour les clubs en rapide ?",
+          "Quels sont les niveaux par Elo moyen en competition equipes parties rapides ?"
+        ]
       },
       "mcq": {
         "original_question": null,
@@ -32545,7 +32571,9 @@
         "cognitive_level": "Remember",
         "reasoning_type": "single-hop",
         "reasoning_class": "fact_single",
-        "answer_type": "list"
+        "answer_type": "list",
+        "query_type": "expert_terminology",
+        "has_paraphrases": true
       },
       "validation": {
         "status": "VALIDATED",
@@ -32566,7 +32594,7 @@
         "quality_score": null
       },
       "audit": {
-        "history": "",
+        "history": " | [2026-02-05] Added paraphrase variants for robustness testing",
         "qat_revalidation": null,
         "requires_inference": null
       }

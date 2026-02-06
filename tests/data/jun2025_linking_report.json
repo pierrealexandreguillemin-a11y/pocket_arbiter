@@ -1,0 +1,779 @@
+{
+  "input_gs": "tests\\data\\jun2025_gs_v2.json",
+  "input_chunks": "corpus\\processed\\chunks_mode_b_fr.json",
+  "stats": {
+    "total": 110,
+    "linked": 109,
+    "not_linked": 1
+  },
+  "results": [
+    {
+      "id": "ffe:annales:regles:001:7416e69b",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent179-child01",
+      "article": "9.1.2.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:002:a5dd497c",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child02",
+      "article": "9.6.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:003:e58c4e29",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent022-child00",
+      "article": "7.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:004:db853aed",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent022-child00",
+      "article": "7.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:005:50193350",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "article": "7.5.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:006:6294c126",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p192-parent001-child00",
+      "article": "6.4",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:007:11b1b863",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p017-parent061-child00",
+      "article": "5.1.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:008:c35361ae",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p194-parent166-child01",
+      "article": "6.2.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:009:9331b70d",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p030-parent135-child00",
+      "article": "11.7",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:010:224cc45d",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "4.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:011:a75f2d86",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p053-parent183-child02",
+      "article": "11.3.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:012:05681681",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:013:7f058514",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:014:b9c61510",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent161-child00",
+      "article": "A.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:015:7437387b",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "article": "3.10.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:016:b952d9a1",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p011-parent026-child00",
+      "article": "8.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:017:62a2c6d6",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "article": "7.5.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:018:abc379ed",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p052-parent180-child02",
+      "article": "9.3.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:019:c3ab2585",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent162-child00",
+      "article": "4.2.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:020:91acc0b3",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent180-child01",
+      "article": "9.2.3.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:021:bae465d0",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p058-parent192-child00",
+      "article": "B.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:022:8513badc",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+      "article": "6.9",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:023:23b42fe8",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+      "article": "7.5.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:024:2238c6d6",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p190-parent565-child00",
+      "article": "7.2.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:025:fb622c48",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:026:de3947e1",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "article": "7.5.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:027:d80fc2ef",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p041-parent160-child00",
+      "article": "3.10.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:028:c59ba9df",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p043-parent165-child01",
+      "article": "5.2.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:029:84671193",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p192-parent001-child00",
+      "article": "6.7",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:regles:030:be6ecea9",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent020-child00",
+      "article": "7.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:001:c9d14f04",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:002:ab1f9120",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:003:12b96760",
+      "status": "NO_REF",
+      "article_ref": "Le formulaire de demande de Titre est à adresser à Stéphane GOBERT, Directeur des Titres"
+    },
+    {
+      "id": "ffe:annales:clubs:004:8ce850d8",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
+      "article": "12.4",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:005:9cb9d823",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p051-parent180-child01",
+      "article": "2.3.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:006:958988e1",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p013-parent038-child00",
+      "article": "2.4",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:007:72496aff",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+      "article": "3.1.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:008:0f827d63",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "article": "7.5.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:009:d222584b",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:010:35bfb62a",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "01",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:011:9a070e5a",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "01",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:012:11a5ed9b",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent051-child00",
+      "article": "3.8",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:013:6da01915",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p014-parent039-child00",
+      "article": "2.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:014:23605ffd",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2.4",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:015:3b208421",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent046-child00",
+      "article": "3.6",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:016:f95d9171",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:017:c35ca1a9",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent046-child00",
+      "article": "3.6",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:018:8568c4e9",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p014-parent039-child00",
+      "article": "2.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:019:5884e5d0",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p014-parent040-child00",
+      "article": "2.6",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:020:1477bf15",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
+      "article": "3.7",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:021:29326dbc",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
+      "article": "3.7",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:022:9255d4fa",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p076-parent233-child01",
+      "article": "3.11",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:023:121b4eff",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p076-parent233-child01",
+      "article": "3.11",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:024:26c7194e",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
+      "article": "3.7",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:025:9930b1cf",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent052-child00",
+      "article": "3.9",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:026:9899df11",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:027:9b24ed68",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p014-parent039-child00",
+      "article": "2.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:028:22a322e1",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:029:4b80b6f2",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p014-parent039-child00",
+      "article": "2.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:clubs:030:b2235363",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p014-parent039-child00",
+      "article": "2.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:001:738e5510",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p023-parent103-child00",
+      "article": "12.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:002:73c433a7",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:003:2be6c393",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "5.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:004:6bd6ab88",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "6.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:005:174639fd",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "6.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:006:d1365ba9",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "5.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:007:0dd35219",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "6.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:008:a1ccddd7",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "5.4",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:009:2ba13d94",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "5.4",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:010:48cfbf3b",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "5.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:011:0fa28de8",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "4.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:012:e809c21d",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:013:5acfdcfa",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p015-parent050-child00",
+      "article": "3.7",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:014:b335b742",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:015:d765e3fc",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "5.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:016:70750147",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "6.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:017:62d79559",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "6.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:018:d95ce003",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:019:bd3bfa94",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "4.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:organisation:020:d9974d0f",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "5.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:001:f4de60a2",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "5.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:002:ecc3d1d2",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "5.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:003:0065b599",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:004:830dc190",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:005:9675510f",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:006:9d62617c",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p073-parent224-child00",
+      "article": "C.04",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:007:0c470ba6",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p010-parent022-child00",
+      "article": "7.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:008:d47b37a6",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p047-parent173-child00",
+      "article": "6.10.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:009:b25c7b88",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p073-parent224-child00",
+      "article": "C.04",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:010:c85a77cc",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:011:254fe623",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p046-parent171-child00",
+      "article": "6.7.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:012:ca2d9425",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+      "article": "7.5.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:013:a1425f94",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+      "article": "7.5.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:014:6c345f82",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "2.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:015:d9a77032",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p073-parent224-child00",
+      "article": "C.04",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:016:b73a5e2d",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p050-parent177-child01",
+      "article": "8.1.6",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:017:5da26a73",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1.3",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:018:bbde434b",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:019:f25f16c9",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "4.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:020:4b549ad5",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+      "article": "1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:021:7ae43ee4",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "6.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:022:c7974379",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "5.1",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:023:7bea9ab9",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "5.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:024:d747fe18",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+      "article": "5.5",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:025:1c1b1498",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "4.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:026:698a6370",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p073-parent224-child00",
+      "article": "C.04",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:027:4500578f",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p073-parent224-child00",
+      "article": "C.04",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:028:9923b3b7",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p100-parent000-child01",
+      "article": "4.2",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:029:e89b0719",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p073-parent224-child00",
+      "article": "C.04",
+      "match_type": "exact"
+    },
+    {
+      "id": "ffe:annales:travaux:030:91b351d3",
+      "status": "LINKED",
+      "chunk_id": "LA-octobre2025.pdf-p073-parent224-child00",
+      "article": "C.04",
+      "match_type": "exact"
+    }
+  ]
+}

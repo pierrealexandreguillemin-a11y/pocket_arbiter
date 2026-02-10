@@ -377,7 +377,7 @@ def validate_question(
         keyword_coverage=kw_coverage,
         semantic_similarity=semantic_sim,
         details=f"No match: verbatim=False, keyword={kw_coverage:.1%}, "
-        f"semantic={semantic_sim:.3f if semantic_sim else 'N/A'}",
+        f"semantic={f'{semantic_sim:.3f}' if semantic_sim is not None else 'N/A'}",
     )
 
 

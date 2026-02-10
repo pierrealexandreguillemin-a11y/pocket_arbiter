@@ -7,7 +7,7 @@ ISO Reference:
     - ISO 25010 - Accuracy metrics
 """
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import numpy as np
 import pytest
@@ -157,15 +157,6 @@ class TestCosineSimilarity:
 class TestValidateQuestion:
     """Tests for full question validation."""
 
-    @pytest.fixture
-    def mock_embedding_model(self):
-        """Mock the embedding model to avoid loading it."""
-        with patch(
-            "scripts.evaluation.annales.validate_anti_hallucination.compute_embedding"
-        ) as mock:
-            mock.return_value = np.random.rand(768)
-            yield mock
-
     def test_unanswerable_skipped(self) -> None:
         """Should skip validation for unanswerable questions."""
         question = {
@@ -212,22 +203,61 @@ class TestValidateQuestion:
         assert result.passed is False
         assert result.method == "REJECTED"
 
-    def test_semantic_fallback(self, mock_embedding_model: MagicMock) -> None:
+    def test_semantic_fallback(self) -> None:
         """Should fall back to semantic similarity when other methods fail."""
-        # Force high similarity
-        mock_embedding_model.return_value = np.ones(768)
+        # Controlled vectors: cosine(vec_answer, vec_chunk) = 0.95
+        vec_answer = np.zeros(768)
+        vec_answer[0] = 1.0
+        vec_chunk = np.zeros(768)
+        vec_chunk[0] = 0.95
+        vec_chunk[1] = np.sqrt(1 - 0.95**2)
 
-        question = {
-            "id": "q1",
-            "content": {
-                "is_impossible": False,
-                "expected_answer": "Une reponse completement differente",
-            },
-        }
-        chunk_text = "Un texte qui ne match pas du tout."
-        result = validate_question(
-            question, chunk_text, use_semantic=True, semantic_threshold=0.50
-        )
-        # With identical embeddings (mocked), cosine similarity = 1.0
-        assert result.passed is True
-        assert result.method == "semantic"
+        with patch(
+            "scripts.evaluation.annales.validate_anti_hallucination.compute_embedding"
+        ) as mock:
+            mock.side_effect = [vec_answer, vec_chunk]
+
+            question = {
+                "id": "q1",
+                "content": {
+                    "is_impossible": False,
+                    "expected_answer": "Une reponse completement differente",
+                },
+            }
+            chunk_text = "Un texte qui ne match pas du tout."
+            result = validate_question(
+                question, chunk_text, use_semantic=True, semantic_threshold=0.50
+            )
+            # Controlled cosine similarity = 0.95 > 0.50 threshold
+            assert result.passed is True
+            assert result.method == "semantic"
+            assert result.semantic_similarity == pytest.approx(0.95, rel=0.01)
+            assert mock.call_count == 2
+
+    def test_semantic_fallback_below_threshold(self) -> None:
+        """Should reject when semantic similarity is below threshold."""
+        # Controlled vectors: cosine(vec_answer, vec_chunk) = 0.0 (orthogonal)
+        vec_answer = np.zeros(768)
+        vec_answer[0] = 1.0
+        vec_chunk = np.zeros(768)
+        vec_chunk[1] = 1.0
+
+        with patch(
+            "scripts.evaluation.annales.validate_anti_hallucination.compute_embedding"
+        ) as mock:
+            mock.side_effect = [vec_answer, vec_chunk]
+
+            question = {
+                "id": "q1",
+                "content": {
+                    "is_impossible": False,
+                    "expected_answer": "Une reponse completement differente",
+                },
+            }
+            chunk_text = "Un texte qui ne match pas du tout."
+            result = validate_question(
+                question, chunk_text, use_semantic=True, semantic_threshold=0.50
+            )
+            assert result.passed is False
+            assert result.method == "REJECTED"
+            assert result.semantic_similarity == pytest.approx(0.0, abs=0.01)

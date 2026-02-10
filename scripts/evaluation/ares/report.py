@@ -1,4 +1,6 @@
-"""Generate ISO-compliant ARES evaluation report.
+"""Generate ISO-compliant ARES evaluation report (3 metrics).
+
+ARES paper (arXiv:2311.09476): Context Relevance, Answer Faithfulness, Answer Relevance.
 
 ISO Reference: ISO 42001 A.7.3, ISO 25010 S4.2
 """
@@ -10,6 +12,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+from scripts.evaluation.ares.run_evaluation import ARES_METRICS
 
 # Path constants
 BASE_DIR = Path(__file__).parent.parent.parent.parent
@@ -91,18 +95,22 @@ def load_retrieval_stats(corpus: str) -> dict[str, Any]:
 def generate_evaluation_report(
     corpus: str = "fr",
     output_dir: Path | None = None,
+    metrics_results: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Generate comprehensive ISO-compliant evaluation report.
+    """Generate comprehensive ISO-compliant evaluation report with 3 metrics.
 
     Combines:
-    - ARES context relevance scores with 95% CI
-    - Comparison with Recall@5 metrics
+    - ARES 3 metrics (context relevance, answer faithfulness, answer relevance)
+    - 95% CI for each metric
+    - Comparison with Recall@5
     - ISO compliance checklist
     - Traceability metadata
+    - Self-consistency check warning
 
     Args:
         corpus: Either 'fr' or 'intl'
         output_dir: Output directory for report
+        metrics_results: Pre-computed metrics results (from run_all_metrics)
 
     Returns:
         Complete report dict
@@ -116,48 +124,81 @@ def generate_evaluation_report(
     mapping = load_mapping(corpus)
     retrieval_stats = load_retrieval_stats(corpus)
 
-    if evaluation is None:
+    if evaluation is None and metrics_results is None:
         # Create placeholder report indicating no evaluation run
         return _create_pending_report(corpus, output_dir)
 
-    context_relevance = evaluation.get("context_relevance", {})
+    # Build per-metric results
+    metrics_data: dict[str, dict[str, Any]] = {}
+    for m in ARES_METRICS:
+        if metrics_results and m in metrics_results.get("metrics", {}):
+            metrics_data[m] = metrics_results["metrics"][m]
+        elif evaluation and m in evaluation:
+            metrics_data[m] = evaluation[m]
+        elif (
+            evaluation
+            and m == "context_relevance"
+            and "context_relevance" in evaluation
+        ):
+            metrics_data[m] = evaluation["context_relevance"]
+
+    # Ensure context_relevance is always present (backward compat)
+    context_relevance = metrics_data.get("context_relevance", {})
+    if not context_relevance and evaluation:
+        context_relevance = evaluation.get("context_relevance", {})
 
     # Calculate ISO compliance
-    iso_compliance = _assess_iso_compliance(context_relevance, mapping)
+    iso_compliance = _assess_iso_compliance(metrics_data, mapping)
 
     # Build comparison section
     comparison = _build_comparison(context_relevance, retrieval_stats)
 
     # Build report
-    report = {
+    report: dict[str, Any] = {
         "metadata": {
             "corpus": corpus,
-            "report_version": "1.0",
+            "report_version": "2.0",
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "iso_references": ["ISO 42001 A.7.3", "ISO 25010 S4.2", "ISO 29119"],
         },
-        "context_relevance": {
-            "score": context_relevance.get("score", 0.0),
-            "ci_95_lower": context_relevance.get("ci_95_lower", 0.0),
-            "ci_95_upper": context_relevance.get("ci_95_upper", 0.0),
-            "n_samples": context_relevance.get("n_samples", 0),
-            "pass": context_relevance.get("pass", False),
-            "llm_judge": evaluation.get("llm_used", "unknown"),
-            "evaluation_timestamp": evaluation.get("timestamp"),
-        },
-        "comparison": comparison,
-        "iso_compliance": iso_compliance,
-        "traceability": {
-            "total_samples": mapping.get("total_samples", 0) if mapping else 0,
-            "positive_count": mapping.get("positive_count", 0) if mapping else 0,
-            "negative_count": mapping.get("negative_count", 0) if mapping else 0,
-            "negative_ratio": mapping.get("negative_ratio", 0.0) if mapping else 0.0,
-            "mapping_file": f"mapping_{corpus}.json",
-        },
-        "recommendations": _generate_recommendations(
-            context_relevance, iso_compliance, comparison
+        "evaluation_type": "self_consistency_check",
+        "evaluation_warning": (
+            "Score computed on BY-DESIGN questions against their source chunks. "
+            "This measures GS internal consistency, NOT RAG system performance."
         ),
+        "valid_for": "GS quality assurance",
+        "not_valid_for": "RAG system evaluation",
     }
+
+    # Add each metric
+    for m in ARES_METRICS:
+        data = metrics_data.get(m, {})
+        report[m] = {
+            "score": data.get("score", 0.0),
+            "ci_95_lower": data.get("ci_95_lower", 0.0),
+            "ci_95_upper": data.get("ci_95_upper", 0.0),
+            "n_samples": data.get("n_samples", 0),
+            "pass": data.get("pass", False),
+            "llm_judge": (
+                evaluation.get("llm_used", "unknown") if evaluation else "unknown"
+            ),
+            "evaluation_timestamp": (
+                evaluation.get("timestamp") if evaluation else None
+            ),
+        }
+
+    report["comparison"] = comparison
+    report["iso_compliance"] = iso_compliance
+    report["traceability"] = {
+        "total_samples": mapping.get("total_samples", 0) if mapping else 0,
+        "positive_count": mapping.get("positive_count", 0) if mapping else 0,
+        "negative_count": mapping.get("negative_count", 0) if mapping else 0,
+        "negative_ratio": mapping.get("negative_ratio", 0.0) if mapping else 0.0,
+        "mapping_file": f"mapping_{corpus}.json",
+    }
+    report["recommendations"] = _generate_recommendations(
+        metrics_data, iso_compliance, comparison
+    )
 
     # Save report
     report_path = output_dir / f"ares_report_{corpus}.json"
@@ -175,7 +216,7 @@ def _create_pending_report(corpus: str, output_dir: Path) -> dict[str, Any]:
     report = {
         "metadata": {
             "corpus": corpus,
-            "report_version": "1.0",
+            "report_version": "2.0",
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "status": "pending",
         },
@@ -183,7 +224,7 @@ def _create_pending_report(corpus: str, output_dir: Path) -> dict[str, Any]:
         "instructions": [
             f"1. python -m scripts.evaluation.ares.convert_to_ares --corpus {corpus}",
             f"2. python -m scripts.evaluation.ares.generate_few_shot --corpus {corpus}",
-            f"3. python -m scripts.evaluation.ares.run_evaluation --corpus {corpus}",
+            f"3. python -m scripts.evaluation.ares.run_evaluation --corpus {corpus} --metric all",
             f"4. python -m scripts.evaluation.ares.report --corpus {corpus}",
         ],
     }
@@ -197,48 +238,61 @@ def _create_pending_report(corpus: str, output_dir: Path) -> dict[str, Any]:
 
 
 def _assess_iso_compliance(
-    context_relevance: dict[str, Any], mapping: dict[str, Any] | None
+    metrics_data: dict[str, dict[str, Any]],
+    mapping: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    """Assess ISO 42001 compliance.
+    """Assess ISO 42001 compliance across all 3 ARES metrics.
 
     Args:
-        context_relevance: Context relevance results
+        metrics_data: Dict of metric name -> results
         mapping: Traceability mapping
 
     Returns:
         Compliance assessment dict
     """
-    checks = {
-        "context_relevance_threshold": {
-            "requirement": "Context relevance >= 80%",
-            "value": context_relevance.get("score", 0.0),
-            "pass": context_relevance.get("score", 0.0) >= 0.80,
+    checks: dict[str, dict[str, Any]] = {}
+
+    # Check each metric threshold
+    for m in ARES_METRICS:
+        data = metrics_data.get(m, {})
+        score = data.get("score", 0.0)
+        checks[f"{m}_threshold"] = {
+            "requirement": f"{m} >= 80%",
+            "value": score,
+            "pass": score >= 0.80,
             "reference": "ISO 25010 S4.2",
-        },
-        "confidence_interval_valid": {
-            "requirement": "95% CI bounds valid",
-            "value": f"[{context_relevance.get('ci_95_lower', 0):.2%}, {context_relevance.get('ci_95_upper', 0):.2%}]",
-            "pass": (
-                0
-                <= context_relevance.get("ci_95_lower", 0)
-                <= context_relevance.get("score", 0)
-                <= context_relevance.get("ci_95_upper", 0)
-                <= 1
-            ),
-            "reference": "ISO 42001 A.7.3",
-        },
-        "sample_size_adequate": {
-            "requirement": "n >= 50 samples",
-            "value": context_relevance.get("n_samples", 0),
-            "pass": context_relevance.get("n_samples", 0) >= 50,
-            "reference": "ISO 29119",
-        },
-        "traceability_complete": {
-            "requirement": "All samples have gs_id traceability",
-            "value": "mapping file present" if mapping else "missing",
-            "pass": mapping is not None,
-            "reference": "ISO 42001 A.7.3",
-        },
+        }
+
+    # CI validity check (use context_relevance as primary)
+    cr = metrics_data.get("context_relevance", {})
+    checks["confidence_interval_valid"] = {
+        "requirement": "95% CI bounds valid",
+        "value": f"[{cr.get('ci_95_lower', 0):.2%}, {cr.get('ci_95_upper', 0):.2%}]",
+        "pass": (
+            0
+            <= cr.get("ci_95_lower", 0)
+            <= cr.get("score", 0)
+            <= cr.get("ci_95_upper", 0)
+            <= 1
+        ),
+        "reference": "ISO 42001 A.7.3",
+    }
+
+    # Sample size check
+    n_samples = cr.get("n_samples", 0)
+    checks["sample_size_adequate"] = {
+        "requirement": "n >= 50 samples",
+        "value": n_samples,
+        "pass": n_samples >= 50,
+        "reference": "ISO 29119",
+    }
+
+    # Traceability check
+    checks["traceability_complete"] = {
+        "requirement": "All samples have gs_id traceability",
+        "value": "mapping file present" if mapping else "missing",
+        "pass": mapping is not None,
+        "reference": "ISO 42001 A.7.3",
     }
 
     overall_pass = all(c["pass"] for c in checks.values())
@@ -246,8 +300,8 @@ def _assess_iso_compliance(
     return {
         "overall_pass": overall_pass,
         "checks": checks,
-        "citation_rate": 1.0 if mapping else 0.0,  # All samples have source
-        "hallucination_rate": 0.0,  # Controlled by corpus-grounded answers
+        "citation_rate": 1.0 if mapping else 0.0,
+        "hallucination_rate": 0.0,
     }
 
 
@@ -272,7 +326,6 @@ def _build_comparison(
     }
 
     if recall_5 is not None:
-        # Calculate correlation indicator
         diff = abs(ares_score - recall_5)
         if diff < 0.05:
             correlation = "high"
@@ -318,14 +371,14 @@ def _interpret_comparison(ares_score: float, recall_5: float) -> str:
 
 
 def _generate_recommendations(
-    context_relevance: dict[str, Any],
+    metrics_data: dict[str, dict[str, Any]],
     iso_compliance: dict[str, Any],
     comparison: dict[str, Any],
 ) -> list[str]:
-    """Generate actionable recommendations.
+    """Generate actionable recommendations based on all 3 metrics.
 
     Args:
-        context_relevance: Context relevance results
+        metrics_data: Dict of metric name -> results
         iso_compliance: Compliance assessment
         comparison: Metric comparison
 
@@ -334,27 +387,32 @@ def _generate_recommendations(
     """
     recommendations = []
 
-    score = context_relevance.get("score", 0.0)
-    ci_lower = context_relevance.get("ci_95_lower", 0.0)
+    for m in ARES_METRICS:
+        data = metrics_data.get(m, {})
+        score = data.get("score", 0.0)
+        ci_lower = data.get("ci_95_lower", 0.0)
 
-    if score < 0.80:
-        recommendations.append(
-            f"PRIORITY: Context relevance ({score:.1%}) below 80% threshold. "
-            "Review chunking strategy and retrieval parameters."
-        )
+        if score < 0.80:
+            recommendations.append(
+                f"PRIORITY: {m} ({score:.1%}) below 80% threshold. "
+                "Review evaluation data and chunking strategy."
+            )
 
-    if ci_lower < 0.80 and score >= 0.80:
-        recommendations.append(
-            f"WARNING: 95% CI lower bound ({ci_lower:.1%}) below 80%. "
-            "Add more labeled samples to narrow confidence interval."
-        )
+        if ci_lower < 0.80 and score >= 0.80:
+            recommendations.append(
+                f"WARNING: {m} 95% CI lower bound ({ci_lower:.1%}) below 80%. "
+                "Add more labeled samples to narrow confidence interval."
+            )
 
-    n_samples = context_relevance.get("n_samples", 0)
-    if n_samples < 100:
-        recommendations.append(
-            f"Increase evaluation sample size (currently {n_samples}) "
-            "to improve statistical confidence."
-        )
+    # Check sample sizes
+    for m in ARES_METRICS:
+        data = metrics_data.get(m, {})
+        n = data.get("n_samples", 0)
+        if 0 < n < 100:
+            recommendations.append(
+                f"Increase {m} sample size (currently {n}) "
+                "to improve statistical confidence."
+            )
 
     if not iso_compliance.get("overall_pass", False):
         failed_checks = [
@@ -378,14 +436,22 @@ def _generate_recommendations(
 def _print_summary(report: dict[str, Any]) -> None:
     """Print human-readable summary."""
     print("\n" + "=" * 60)
-    print("ARES EVALUATION REPORT SUMMARY")
+    print("ARES EVALUATION REPORT SUMMARY (3 METRICS)")
     print("=" * 60)
 
-    cr = report.get("context_relevance", {})
-    print(f"\nContext Relevance: {cr.get('score', 0):.1%}")
-    print(f"95% CI: [{cr.get('ci_95_lower', 0):.1%}, {cr.get('ci_95_upper', 0):.1%}]")
-    print(f"Samples: {cr.get('n_samples', 0)}")
-    print(f"Pass: {'YES' if cr.get('pass') else 'NO'}")
+    if report.get("evaluation_type") == "self_consistency_check":
+        print("\n[WARNING] Self-consistency check - NOT RAG system evaluation")
+
+    for m in ARES_METRICS:
+        data = report.get(m, {})
+        if data:
+            print(f"\n{m}:")
+            print(f"  Score: {data.get('score', 0):.1%}")
+            print(
+                f"  95% CI: [{data.get('ci_95_lower', 0):.1%}, {data.get('ci_95_upper', 0):.1%}]"
+            )
+            print(f"  Samples: {data.get('n_samples', 0)}")
+            print(f"  Pass: {'YES' if data.get('pass') else 'NO'}")
 
     comp = report.get("comparison", {})
     if comp.get("recall_at_5"):
@@ -405,7 +471,7 @@ def _print_summary(report: dict[str, Any]) -> None:
 def main() -> None:
     """CLI entrypoint."""
     parser = argparse.ArgumentParser(
-        description="Generate ISO-compliant ARES evaluation report"
+        description="Generate ISO-compliant ARES evaluation report (3 metrics)"
     )
     parser.add_argument(
         "--corpus",

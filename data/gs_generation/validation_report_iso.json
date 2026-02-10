@@ -1,29 +1,35 @@
 {
-  "report_id": "VAL-GS-SCRATCH-001",
+  "report_id": "VAL-GS-SCRATCH-002",
   "iso_reference": "ISO 29119-3",
-  "generated_at": "2026-02-05T21:57:56.013296",
+  "generated_at": "2026-02-10T16:35:12.424902",
   "gs_file": "tests/data/gs_scratch_v1.json",
   "methodology": "BY DESIGN (chunk = INPUT)",
+  "uaeval4rag_migration": {
+    "standard": "arXiv:2412.12300",
+    "categories_migrated": 187,
+    "questions_added": 30,
+    "enrichment_method": "enrich_to_schema_v2 (real pipeline)"
+  },
   "coverage": {
-    "total_questions": 584,
+    "total_questions": 614,
     "answerable": 397,
-    "unanswerable": 187,
-    "unanswerable_ratio": 0.32
+    "unanswerable": 217,
+    "unanswerable_ratio": 0.35
   },
   "provenance_compliance": {
-    "chunk_id_present": 584,
-    "answer_explanation_present": 584,
-    "article_reference_present": 584,
+    "chunk_id_present": 614,
+    "answer_explanation_present": 614,
+    "article_reference_present": 614,
     "compliance_rate": 1.0
   },
   "semantic_quality": {
-    "keywords_present": 584,
-    "domain_keywords_count": 2870,
-    "domain_keywords_unique": 66,
+    "keywords_present": 614,
+    "domain_keywords_count": 1830,
+    "domain_keywords_unique": 20,
     "top_domain_keywords": [
       [
         "arbitre",
-        231
+        234
       ],
       [
         "elo",
@@ -31,7 +37,7 @@
       ],
       [
         "tour",
-        187
+        188
       ],
       [
         "article",
@@ -51,7 +57,7 @@
       ],
       [
         "tournoi",
-        130
+        133
       ],
       [
         "roi",
@@ -59,13 +65,13 @@
       ],
       [
         "classement",
-        89
+        90
       ]
     ]
   },
   "validation_gates": {
     "G1_chunk_match_score_100": true,
-    "G2_unanswerable_ratio_25_33": true,
+    "G2_unanswerable_ratio_25_40": true,
     "G3_provenance_complete": true,
     "G4_keywords_domain": true
   },

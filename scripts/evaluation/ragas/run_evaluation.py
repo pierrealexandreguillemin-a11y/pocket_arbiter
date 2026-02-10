@@ -184,7 +184,7 @@ def run_ragas_evaluation(
     Args:
         corpus: Either 'fr' or 'intl'
         data_path: Path to ragas_evaluation.jsonl
-        llm_backend: Backend (mock, ollama, groq, hf)
+        llm_backend: Backend (mock, ollama, groq)
         model: Model name
         metrics: List of metrics to evaluate (default: all 4)
         max_samples: Limit samples (0=all)
@@ -291,15 +291,23 @@ def _llm_evaluate_metric(
     Args:
         metric: RAGAS metric name
         records: Evaluation records
-        backend: LLM backend (ollama, groq, hf)
+        backend: LLM backend (ollama, groq)
         model: Model name
 
     Returns:
         Average score across all records
+
+    Raises:
+        ValueError: If backend is not supported
     """
     import os
 
     import requests
+
+    if backend not in ("ollama", "groq"):
+        raise ValueError(
+            f"Unsupported RAGAS backend: {backend}. Available: ollama, groq."
+        )
 
     system_prompt = RAGAS_SYSTEM_PROMPTS[metric]
     scores: list[float] = []
@@ -339,8 +347,6 @@ def _llm_evaluate_metric(
                     temperature=0,
                 )
                 response_text = response.choices[0].message.content or ""
-            else:
-                response_text = '{"score": 0.0}'
 
             score = _extract_score(response_text)
             scores.append(score)
@@ -371,7 +377,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--backend",
-        choices=["mock", "ollama", "groq", "hf"],
+        choices=["mock", "ollama", "groq"],
         default="mock",
         help="LLM backend (default: mock)",
     )

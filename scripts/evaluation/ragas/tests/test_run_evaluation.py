@@ -247,3 +247,28 @@ class TestRunRagasEvaluation:
         assert "n_samples" in result
         assert "all_pass" in result
         assert isinstance(result["all_pass"], bool)
+
+    def test_unsupported_backend_raises(self, tmp_path: Path) -> None:
+        """Unsupported backend should raise ValueError, not silently return 0."""
+        import pytest
+
+        data_path = tmp_path / "test.jsonl"
+        with open(data_path, "w", encoding="utf-8") as f:
+            f.write(
+                json.dumps(
+                    {
+                        "question": "Q",
+                        "answer": "",
+                        "contexts": ["C"],
+                        "ground_truth": "GT",
+                    }
+                )
+                + "\n"
+            )
+
+        with pytest.raises(ValueError, match="Unsupported RAGAS backend"):
+            run_ragas_evaluation(
+                data_path=data_path,
+                llm_backend="hf",
+                output_dir=tmp_path / "results",
+            )

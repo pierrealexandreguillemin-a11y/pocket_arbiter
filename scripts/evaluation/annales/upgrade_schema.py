@@ -36,9 +36,9 @@ logger = logging.getLogger(__name__)
 
 def map_to_hard_type(question: dict[str, Any]) -> str:
     """
-    Map GS v6 fields to UAEval4RAG hard_type categories.
+    Map GS v6 fields to hard_type categories.
 
-    Categories from arXiv:2412.12300:
+    Project-adapted categories (inspired by UAEval4RAG arXiv:2412.12300):
     - ANSWERABLE: Standard answerable question
     - PARTIAL_INFO: Information incomplete in corpus
     - VOCABULARY_MISMATCH: Different terms (synonyms)

@@ -2,7 +2,7 @@
 Génération de questions answerable pour Gold Standard - Pocket Arbiter
 
 Analyse les chunks non couverts et génère des questions answerable conformes aux
-standards académiques (SQuAD 2.0, UAEval4RAG, QA Taxonomy, Bloom's Taxonomy).
+standards académiques (SQuAD 2.0, QA Taxonomy, Bloom's Taxonomy).
 
 ISO Reference: ISO/IEC 42001 A.6.2.2, ISO/IEC 25010 S4.2
 

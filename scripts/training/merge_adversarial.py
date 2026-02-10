@@ -76,7 +76,7 @@ def merge_adversarial(dry_run: bool = False) -> None:
     gs_fr["version"] = new_version
     gs_fr["description"] = (
         f"Gold standard v{new_version} - {len(gs_fr['questions'])} questions "
-        f"(+{len(new_fr)} adversarial UAEval4RAG/SQuAD2-CR)"
+        f"(+{len(new_fr)} adversarial SQuAD2-CR)"
     )
 
     # Count adversarial

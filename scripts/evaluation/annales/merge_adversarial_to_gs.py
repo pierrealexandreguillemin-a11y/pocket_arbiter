@@ -59,7 +59,7 @@ def convert_to_schema_v2(adv_q: dict) -> dict:
             "reasoning_type": metadata.get("reasoning_type", "adversarial"),
             "reasoning_class": "adversarial",
             "answer_type": metadata.get("answer_type", "unanswerable"),
-            "hard_type": hard_type,  # UAEval4RAG category
+            "hard_type": hard_type,  # project-adapted category
         },
         # Validation group
         "validation": {

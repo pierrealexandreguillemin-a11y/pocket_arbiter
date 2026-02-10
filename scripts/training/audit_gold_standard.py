@@ -194,8 +194,8 @@ def print_report(fr: dict, intl: dict) -> bool:
             print(f"     {status} {cat}: {count}")
         print(f"   Status: {'CONFORME' if r['squad2_cr'] >= 5 else 'NON CONFORME'}")
 
-        print("\n4. UAEval4RAG (arXiv:2412.12300)")
-        print("   Exigence: 6/6 categories (5/6 acceptable)")
+        print("\n4. Adversarial categories (inspired by UAEval4RAG arXiv:2412.12300)")
+        print("   Exigence: 6/6 project-adapted categories (5/6 acceptable)")
         print(f"   Resultat: {r['uaeval']}/6")
         for cat in [
             "UNDERSPECIFIED",
@@ -298,7 +298,7 @@ def print_report(fr: dict, intl: dict) -> bool:
             25 <= fr["ratio"] <= 35 and 25 <= intl["ratio"] <= 35,
         ),
         ("SQuAD2-CR (5/5 categories)", fr["squad2_cr"] >= 5 and intl["squad2_cr"] >= 5),
-        ("UAEval4RAG (5/6+ categories)", fr["uaeval"] >= 5 and intl["uaeval"] >= 5),
+        ("Adversarial categories (5/6+)", fr["uaeval"] >= 5 and intl["uaeval"] >= 5),
         ("QA Taxonomy (5/5 types)", fr["qa_types"] >= 5 and intl["qa_types"] >= 5),
         ("Bloom's Taxonomy (4/4 levels)", fr["bloom"] >= 4 and intl["bloom"] >= 4),
         ("Reasoning Types (4/4)", fr["reasoning"] >= 4 and intl["reasoning"] >= 4),

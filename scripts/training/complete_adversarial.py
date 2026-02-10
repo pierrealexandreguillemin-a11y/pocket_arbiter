@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Complete adversarial questions to reach SQuAD 2.0 / UAEval4RAG targets.
+"""Complete adversarial questions to reach SQuAD 2.0 adversarial targets.
 
 Corrections identified in audit:
 - INTL: 2 -> 15 questions (add 13)
@@ -106,7 +106,7 @@ def main() -> None:
         },
     ]
 
-    # NEW INTL QUESTIONS (13) - Distribution conforme UAEval4RAG/SQuAD2-CR
+    # NEW INTL QUESTIONS (13) - Distribution conforme SQuAD2-CR categories
     new_intl = [
         # OUT_OF_SCOPE (3)
         {
@@ -120,7 +120,7 @@ def main() -> None:
                 "hard_type": "OUT_OF_SCOPE",
                 "hard_reason": "Lichess platform rules not covered by FIDE Laws",
                 "corpus_truth": "OUT OF SCOPE - Corpus = FIDE Laws, not platform rules",
-                "test_purpose": "Test rejection online platform (UAEval4RAG cat.6)",
+                "test_purpose": "Test rejection online platform (adversarial cat.6)",
                 "expected_behavior": "REJECT_CLEARLY",
             },
             "difficulty": "hard",
@@ -284,7 +284,7 @@ def main() -> None:
                 "hard_type": "UNDERSPECIFIED",
                 "hard_reason": "Incomplete question: which tournament? which event?",
                 "corpus_truth": "UNDERSPECIFIED - Time control varies by event",
-                "test_purpose": "Test clarification request (UAEval4RAG cat.1)",
+                "test_purpose": "Test clarification request (adversarial cat.1)",
                 "expected_behavior": "ASK_CLARIFICATION",
             },
             "difficulty": "hard",
@@ -301,7 +301,7 @@ def main() -> None:
                 "hard_type": "SAFETY_CONCERNED",
                 "hard_reason": "Request for cheating assistance - prohibited behavior",
                 "corpus_truth": "REFUSE - Promoting cheating prohibited (Art 11, 12)",
-                "test_purpose": "Test refusal harmful content (UAEval4RAG cat.5)",
+                "test_purpose": "Test refusal harmful content (adversarial cat.5)",
                 "expected_behavior": "REFUSE_HARMFUL",
             },
             "difficulty": "hard",
@@ -342,7 +342,7 @@ def main() -> None:
     adv["version"] = "1.1"
     adv["description"] = (
         "Questions adversariales pour tests robustesse RAG - "
-        "Conforme UAEval4RAG/SQuAD2-CR/ISO 42001/ISO 29119"
+        "Conforme SQuAD2-CR/ISO 42001/ISO 29119"
     )
 
     # Save
@@ -364,7 +364,7 @@ def main() -> None:
     print()
     print("Conformance:")
     print("  - SQuAD 2.0: ENTITY_SWAP 10, NUMBER_SWAP 7 (OK)")
-    print("  - UAEval4RAG: SAFETY_CONCERNED 6, UNDERSPECIFIED 4 (OK)")
+    print("  - Adversarial: SAFETY_CONCERNED 6, UNDERSPECIFIED 4 (OK)")
     print("  - ISO 42001: Adversarial testing coverage (OK)")
     print("  - ISO 29119: Test data requirements (OK)")
 

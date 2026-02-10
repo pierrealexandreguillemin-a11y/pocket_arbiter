@@ -4,8 +4,8 @@ Reformulate exam-style questions to natural user queries.
 This module transforms formal exam questions into natural language queries
 that better represent how users would actually ask questions to a RAG system.
 
-Industry Standards:
-    - BEIR benchmark: Query diversity improves retrieval robustness
+References:
+    - BEIR: Standard evaluation format for information retrieval
     - RAGAS: Natural queries test semantic understanding
     - Google RAG Best Practices: Real user queries differ from formal questions
 

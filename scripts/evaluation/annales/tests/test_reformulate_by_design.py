@@ -10,7 +10,8 @@ ISO Reference:
 
 from __future__ import annotations
 
-from unittest.mock import MagicMock
+from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 import numpy as np
 import pytest
@@ -84,9 +85,12 @@ class TestCheckAnswerability:
         assert result["passed"] is False
 
     def test_empty_answer_words(self) -> None:
-        # All words <= 3 chars -> empty answer_words
+        # All words <= 3 chars -> empty answer_words -> coverage fallback
         result = check_answerability("le la un", "Le roi est sur la case.")
-        assert "word_coverage" in result
+        # "le la un" not found verbatim in chunk, no words > 3 chars
+        assert result["word_coverage"] == 0.0
+        assert result["answer_in_chunk"] is False
+        assert result["passed"] is False
 
     def test_return_structure(self) -> None:
         result = check_answerability("test", "text with test")
@@ -267,3 +271,117 @@ class TestReformulateQuestion:
         chunk_text = "Texte sans rapport avec la question."
         result = reformulate_question(question, chunk_text, model)
         assert result["validation"]["semantic"]["passed"] is False
+
+
+# ---------------------------------------------------------------------------
+# TestReformulateGoldStandard (MOCK I/O + model)
+# ---------------------------------------------------------------------------
+
+
+class TestReformulateGoldStandard:
+    """Tests for reformulate_gold_standard orchestrator."""
+
+    def _make_mock_model(self, similarity: float) -> MagicMock:
+        model = MagicMock()
+        if similarity >= 1.0:
+            v1 = np.array([1.0, 0.0])
+            v2 = np.array([1.0, 0.0])
+        else:
+            v1 = np.array([1.0, 0.0])
+            v2 = np.array([similarity, np.sqrt(max(0, 1 - similarity**2))])
+        v1 = v1 / np.linalg.norm(v1)
+        v2 = v2 / np.linalg.norm(v2)
+
+        call_count = [0]
+
+        def encode_side_effect(*args, **kwargs):
+            idx = call_count[0]
+            call_count[0] += 1
+            return v1 if idx % 2 == 0 else v2
+
+        model.encode.side_effect = encode_side_effect
+        return model
+
+    @patch("scripts.evaluation.annales.reformulate_by_design.load_embedding_model")
+    @patch("scripts.evaluation.annales.reformulate_by_design.load_json")
+    def test_reformulates_and_reports(
+        self, mock_load_json: MagicMock, mock_load_model: MagicMock
+    ) -> None:
+        from scripts.evaluation.annales.reformulate_by_design import (
+            reformulate_gold_standard,
+        )
+
+        gs_data = {
+            "version": "7.0.0",
+            "methodology": {},
+            "questions": [
+                {
+                    "id": "q1",
+                    "question": "Quelle est la regle pour le roque?",
+                    "expected_answer": "Le roque implique le roi et la tour.",
+                    "expected_chunk_id": "c1",
+                    "metadata": {},
+                },
+            ],
+        }
+        chunks_data = {
+            "chunks": [{"id": "c1", "text": "Le roque implique le roi et une tour."}]
+        }
+
+        call_count = [0]
+
+        def load_side_effect(path: object) -> dict:
+            idx = call_count[0]
+            call_count[0] += 1
+            return gs_data if idx == 0 else chunks_data
+
+        mock_load_json.side_effect = load_side_effect
+        mock_load_model.return_value = self._make_mock_model(0.95)
+
+        updated_gs, report = reformulate_gold_standard(
+            Path("gs.json"), Path("chunks.json")
+        )
+
+        assert report["summary"]["total_questions"] == 1
+        assert report["summary"]["reformulated"] >= 0
+        assert "version" in updated_gs
+
+    @patch("scripts.evaluation.annales.reformulate_by_design.load_embedding_model")
+    @patch("scripts.evaluation.annales.reformulate_by_design.load_json")
+    def test_skips_missing_chunk(
+        self, mock_load_json: MagicMock, mock_load_model: MagicMock
+    ) -> None:
+        from scripts.evaluation.annales.reformulate_by_design import (
+            reformulate_gold_standard,
+        )
+
+        gs_data = {
+            "version": "7.0.0",
+            "methodology": {},
+            "questions": [
+                {
+                    "id": "q1",
+                    "question": "Q?",
+                    "expected_answer": "A",
+                    "expected_chunk_id": "nonexistent",
+                    "metadata": {},
+                },
+            ],
+        }
+        chunks_data = {"chunks": []}
+
+        call_count = [0]
+
+        def load_side_effect(path: object) -> dict:
+            idx = call_count[0]
+            call_count[0] += 1
+            return gs_data if idx == 0 else chunks_data
+
+        mock_load_json.side_effect = load_side_effect
+        mock_load_model.return_value = self._make_mock_model(0.95)
+
+        _, report = reformulate_gold_standard(Path("gs.json"), Path("chunks.json"))
+
+        # Question with missing chunk should be skipped
+        assert report["summary"]["skipped"] == 1
+        assert report["summary"]["reformulated"] == 0

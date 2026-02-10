@@ -77,16 +77,6 @@ class TestChunkLinkage:
             chunk_id = q["provenance"]["chunk_id"]
             assert chunk_id in chunk_index, f"Orphan chunk_id: {chunk_id} in {q['id']}"
 
-    def test_zero_orphans(
-        self, gs_scratch_data: dict, chunk_index: dict[str, str]
-    ) -> None:
-        orphans = [
-            q["id"]
-            for q in gs_scratch_data["questions"]
-            if q["provenance"]["chunk_id"] not in chunk_index
-        ]
-        assert len(orphans) == 0, f"Found {len(orphans)} orphans"
-
     def test_g1_2_answer_in_chunk_sample(
         self, gs_scratch_data: dict, chunk_index: dict[str, str]
     ) -> None:
@@ -107,7 +97,7 @@ class TestChunkLinkage:
                 found = sum(1 for w in answer_words if w in chunk_lower)
                 coverage = found / len(answer_words)
                 assert (
-                    coverage >= 0.2
+                    coverage >= 0.3
                 ), f"{q['id']}: low keyword coverage {coverage:.2f} for answer in chunk"
 
     def test_chunk_match_score_100(self, gs_scratch_data: dict) -> None:
@@ -210,9 +200,9 @@ class TestAnswerInChunk:
             if score < 0.3:
                 low_score_count += 1
 
-        # Allow some tolerance (not all questions need perfect keyword match)
+        # BY DESIGN questions: answer extracted from chunk, <=25% tolerance
         assert (
-            low_score_count / len(sample) < 0.5
+            low_score_count / len(sample) < 0.25
         ), f"Too many low keyword scores: {low_score_count}/{len(sample)}"
 
     def test_unanswerable_empty_answer(self, gs_scratch_data: dict) -> None:
@@ -276,6 +266,20 @@ class TestValidationReportConsistency:
         report_total = report_data["coverage"]["total_questions"]
         gs_total = len(gs_scratch_data["questions"])
         assert report_total == gs_total
+
+    def test_unanswerable_ratio_matches_gs(
+        self, report_data: dict, gs_scratch_data: dict
+    ) -> None:
+        """Cross-validate report unanswerable ratio against actual GS data."""
+        actual_unanswerable = sum(
+            1 for q in gs_scratch_data["questions"] if q["content"]["is_impossible"]
+        )
+        actual_total = len(gs_scratch_data["questions"])
+        actual_ratio = round(actual_unanswerable / actual_total, 2)
+        report_ratio = report_data["coverage"]["unanswerable_ratio"]
+        assert (
+            abs(actual_ratio - report_ratio) < 0.02
+        ), f"Report unanswerable_ratio={report_ratio} vs actual={actual_ratio}"
 
 
 @pytest.mark.integration

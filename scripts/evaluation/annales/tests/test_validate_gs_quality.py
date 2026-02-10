@@ -137,7 +137,8 @@ class TestComputeKeywordScore:
             "le football americain",
             "L'arbitre surveille les echecs du tournoi de blitz.",
         )
-        assert score < 0.5
+        # "football" and "americain" (keywords >= 4 chars) absent from chess chunk
+        assert score == 0.0
 
     def test_partial_score(self) -> None:
         score = compute_keyword_score(

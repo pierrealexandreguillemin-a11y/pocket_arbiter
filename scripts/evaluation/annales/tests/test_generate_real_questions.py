@@ -11,6 +11,7 @@ ISO Reference:
 from __future__ import annotations
 
 import random
+from pathlib import Path
 
 from scripts.evaluation.annales.generate_real_questions import (
     UNANSWERABLE_GENERATORS,
@@ -239,6 +240,12 @@ class TestGenerateQuestionFromExtraction:
 
     def test_none_for_unknown_type(self) -> None:
         ext = {"type": "unknown_type", "match": "text", "groups": ()}
+        q = generate_question_from_extraction(ext, "chunk text")
+        assert q is None
+
+    def test_none_for_factual_insufficient_groups(self) -> None:
+        """Factual type with < 2 groups falls through to None."""
+        ext = {"type": "factual", "match": "30", "groups": ("30",)}
         q = generate_question_from_extraction(ext, "chunk text")
         assert q is None
 
@@ -513,3 +520,119 @@ class TestUnanswerableGeneratorsDict:
     def test_all_callable(self) -> None:
         for key, gen in UNANSWERABLE_GENERATORS.items():
             assert callable(gen), f"{key} is not callable"
+
+
+# ---------------------------------------------------------------------------
+# TestRunGeneration (MOCK I/O)
+# ---------------------------------------------------------------------------
+
+
+class TestRunGeneration:
+    """Tests for run_generation orchestrator (mock file I/O)."""
+
+    def test_distribution_70_30(self, tmp_path: Path) -> None:
+        """run_generation produces ~70% answerable, ~30% unanswerable."""
+        from unittest.mock import patch
+
+        from scripts.evaluation.annales.generate_real_questions import run_generation
+
+        chunks = [
+            {
+                "id": f"test.pdf-p{i:03d}-parent{i:03d}-child00",
+                "text": (
+                    f"Article {i}.1 - L'arbitre doit veiller au bon deroulement "
+                    f"de la ronde {i}. Le joueur peut demander une pause. "
+                    "En cas de litige, l'arbitre tranche la situation."
+                ),
+                "source": "test.pdf",
+                "page": i,
+            }
+            for i in range(1, 51)
+        ]
+        chunks_data = {"chunks": chunks}
+        strata_data = {
+            "strata": {
+                "s1": {"selected_chunks": [c["id"] for c in chunks]},
+            }
+        }
+
+        def mock_load(path: object) -> dict:
+            s = str(path)
+            if "chunks" in s:
+                return chunks_data
+            return strata_data
+
+        output_path = tmp_path / "output.json"
+
+        with (
+            patch(
+                "scripts.evaluation.annales.generate_real_questions.load_json",
+                side_effect=mock_load,
+            ),
+            patch(
+                "scripts.evaluation.annales.generate_real_questions.save_json",
+            ) as mock_save,
+        ):
+            random.seed(42)
+            result = run_generation(
+                Path("chunks.json"),
+                Path("strata.json"),
+                output_path,
+                target_total=20,
+            )
+
+        assert "questions" in result
+        total = len(result["questions"])
+        assert total > 0
+        impossible = sum(1 for q in result["questions"] if q.get("is_impossible"))
+        answerable = total - impossible
+        # 70/30 split with small target
+        assert answerable >= impossible
+        # All have IDs
+        for q in result["questions"]:
+            assert q["id"].startswith("gs:scratch:")
+        # save_json was called
+        mock_save.assert_called_once()
+
+    def test_empty_strata_no_crash(self, tmp_path: Path) -> None:
+        """run_generation with no selected chunks doesn't crash."""
+        from unittest.mock import patch
+
+        from scripts.evaluation.annales.generate_real_questions import run_generation
+
+        chunks_data = {"chunks": []}
+        strata_data = {"strata": {}}
+
+        def mock_load(path: object) -> dict:
+            s = str(path)
+            if "chunks" in s:
+                return chunks_data
+            return strata_data
+
+        with (
+            patch(
+                "scripts.evaluation.annales.generate_real_questions.load_json",
+                side_effect=mock_load,
+            ),
+            patch(
+                "scripts.evaluation.annales.generate_real_questions.save_json",
+            ),
+        ):
+            random.seed(42)
+            # With no chunks, unanswerable generation uses random.choice on empty list
+            # This should either produce 0 questions or raise - test the behavior
+            try:
+                result = run_generation(
+                    Path("chunks.json"),
+                    Path("strata.json"),
+                    tmp_path / "out.json",
+                    target_total=10,
+                )
+                # If it succeeds, answerable should be 0
+                answerable = [
+                    q for q in result["questions"] if not q.get("is_impossible")
+                ]
+                assert len(answerable) == 0
+            except (IndexError, ValueError):
+                # Expected: random.choice on empty list
+                pass

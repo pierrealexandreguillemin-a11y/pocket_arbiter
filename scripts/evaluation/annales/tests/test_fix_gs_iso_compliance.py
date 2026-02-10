@@ -30,8 +30,12 @@ from scripts.evaluation.annales.fix_gs_iso_compliance import (
 class TestFFEDomainTerms:
     """Tests for FFE_DOMAIN_TERMS constant."""
 
-    def test_minimum_terms(self) -> None:
-        assert len(FFE_DOMAIN_TERMS) >= 70
+    def test_exact_term_count(self) -> None:
+        # Exact count prevents silent regression or unreviewed additions
+        assert len(FFE_DOMAIN_TERMS) == 79, (
+            f"FFE_DOMAIN_TERMS has {len(FFE_DOMAIN_TERMS)} terms, expected 79. "
+            "Update this test if terms were intentionally added/removed."
+        )
 
     def test_contains_essential(self) -> None:
         essentials = {"roi", "dame", "tour", "arbitre", "elo"}
@@ -71,11 +75,11 @@ class TestExtractDomainKeywords:
     def test_text_without_domain_terms(self) -> None:
         text = "The weather today is very nice and sunny for a walk outside."
         keywords = extract_domain_keywords(text)
-        # May find some words via frequency, but no FFE domain terms
+        # English text must not yield any FFE chess domain terms
         for kw in keywords:
-            if kw in FFE_DOMAIN_TERMS:
-                # Should not find domain terms in English text
-                pass  # pragma: no cover
+            assert (
+                kw not in FFE_DOMAIN_TERMS
+            ), f"Unexpected domain term '{kw}' in English text"
 
 
 # ---------------------------------------------------------------------------

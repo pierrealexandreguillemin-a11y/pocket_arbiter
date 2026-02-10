@@ -1,7 +1,7 @@
 """Run ARES evaluation for 3 metrics: context relevance, answer faithfulness, answer relevance.
 
-ARES paper (arXiv:2311.09476) Section 3.2: All 3 metrics use LLM-as-judge + PPI.
-Only the system prompts and label columns differ.
+Inspired by ARES (arXiv:2311.09476): All 3 metrics use LLM-as-judge + PPI.
+System prompts are ARES-style paraphrases (not verbatim copies from the paper).
 
 ISO Reference: ISO 42001 A.7.3, ISO 25010 S4.2
 """
@@ -29,7 +29,9 @@ ARES_LABEL_COLUMNS = {
     "answer_relevance": "Answer_Relevance_Label",
 }
 
-# ARES-verbatim system prompts (arXiv:2311.09476, Section 3.2)
+# ARES-style system prompts inspired by arXiv:2311.09476, Section 3.2
+# NOTE: These are paraphrased prompts following the ARES pattern
+# (LLM-as-judge with [[Yes]]/[[No]]), not verbatim copies from the paper.
 ARES_SYSTEM_PROMPTS = {
     "context_relevance": (
         "You are an expert dialogue agent. Your task is to analyze the provided "
@@ -371,7 +373,7 @@ def _ppi_mean_ci(
     Yhat_unlabeled: list[int],
     alpha: float = 0.05,
 ) -> tuple[float, float, float]:
-    """ARES-verbatim PPI mean estimation with confidence interval.
+    """PPI mean estimation with confidence interval (ARES algorithm).
 
     Formula: theta_PP = theta_f - r_hat
     Where:
@@ -594,7 +596,7 @@ def _run_llm_evaluation(
             "pass": estimate >= 0.80,
         },
         "judge_accuracy_on_gold": accuracy,
-        "method": "ARES-verbatim PPI",
+        "method": "ARES-style PPI (LLM-as-judge)",
     }
 
     # Save results
@@ -948,12 +950,6 @@ def run_mock_evaluation(
         "note": "Mock evaluation - no LLM calls made",
     }
 
-    # Backward-compat: always include context_relevance key
-    if metric != "context_relevance":
-        result["context_relevance"] = metric_result
-    else:
-        result["context_relevance"] = metric_result
-
     return result
 
 
@@ -1017,7 +1013,7 @@ def run_all_metrics(
         else:
             raise ValueError(f"Unknown backend: {backend}")
 
-        results["metrics"][m] = r.get(m, r.get("context_relevance", {}))
+        results["metrics"][m] = r[m]
 
     # Summary
     all_pass = all(

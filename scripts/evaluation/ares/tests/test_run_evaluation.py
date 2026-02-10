@@ -133,7 +133,7 @@ class TestBuildUserPrompt:
 
 
 class TestPPIMeanCI:
-    """Tests for PPI Mean Estimation confidence interval (ARES-verbatim)."""
+    """Tests for PPI Mean Estimation confidence interval (ARES algorithm)."""
 
     def test_perfect_predictions(self) -> None:
         """When predictions match labels exactly, r_hat = 0."""

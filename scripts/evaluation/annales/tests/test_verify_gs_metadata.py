@@ -107,7 +107,9 @@ class TestDeriveDifficultyFromRate:
 
 class TestExtractKeywords:
     def test_chess_terms(self) -> None:
-        kw = extract_keywords_from_question("Le roque est-il valide dans cette cadence?")
+        kw = extract_keywords_from_question(
+            "Le roque est-il valide dans cette cadence?"
+        )
         assert "roque" in kw
         assert "cadence" in kw
 
@@ -132,18 +134,24 @@ class TestExtractKeywords:
 
 class TestComputeTripletReady:
     def test_all_present(self) -> None:
-        assert compute_triplet_ready(
-            "A long enough question text here",
-            "A valid answer text",
-            "chunk_001",
-        ) is True
+        assert (
+            compute_triplet_ready(
+                "A long enough question text here",
+                "A valid answer text",
+                "chunk_001",
+            )
+            is True
+        )
 
     def test_no_chunk(self) -> None:
-        assert compute_triplet_ready(
-            "A long enough question text here",
-            "A valid answer text",
-            None,
-        ) is False
+        assert (
+            compute_triplet_ready(
+                "A long enough question text here",
+                "A valid answer text",
+                None,
+            )
+            is False
+        )
 
     def test_short_question(self) -> None:
         assert compute_triplet_ready("Short", "A valid answer", "chunk_001") is False
@@ -152,11 +160,14 @@ class TestComputeTripletReady:
         assert compute_triplet_ready("A long enough question", "", "chunk_001") is False
 
     def test_short_answer(self) -> None:
-        assert compute_triplet_ready(
-            "A long enough question text here",
-            "AB",
-            "chunk_001",
-        ) is False
+        assert (
+            compute_triplet_ready(
+                "A long enough question text here",
+                "AB",
+                "chunk_001",
+            )
+            is False
+        )
 
 
 # --- validate_question ---
@@ -185,7 +196,9 @@ class TestValidateQuestion:
         assert any("image-dependent" in w for w in warnings)
 
     def test_fusion_artifact(self) -> None:
-        q = _make_question(question="Some text ## with fusion artifact that is long enough")
+        q = _make_question(
+            question="Some text ## with fusion artifact that is long enough"
+        )
         errors, _ = validate_question(q, 0)
         assert any("## fusion" in e for e in errors)
 
@@ -260,9 +273,7 @@ class TestValidateQuestion:
         assert any("triplet_ready" in e for e in errors)
 
     def test_mcq_answer_not_in_choices(self) -> None:
-        q = _make_question(
-            metadata={"choices": {"A": "text"}, "mcq_answer": "D"}
-        )
+        q = _make_question(metadata={"choices": {"A": "text"}, "mcq_answer": "D"})
         _, warnings = validate_question(q, 0)
         assert any("mcq_answer" in w for w in warnings)
 
@@ -285,21 +296,27 @@ class TestValidateQuestion:
 
     def test_annales_invalid_session(self) -> None:
         q = _make_question(
-            metadata={"annales_source": {"session": "invalid", "uv": "UVR", "question_num": 1}}
+            metadata={
+                "annales_source": {"session": "invalid", "uv": "UVR", "question_num": 1}
+            }
         )
         errors, _ = validate_question(q, 0)
         assert any("annales session" in e for e in errors)
 
     def test_annales_invalid_uv(self) -> None:
         q = _make_question(
-            metadata={"annales_source": {"session": "dec2024", "uv": "UVX", "question_num": 1}}
+            metadata={
+                "annales_source": {"session": "dec2024", "uv": "UVX", "question_num": 1}
+            }
         )
         errors, _ = validate_question(q, 0)
         assert any("annales uv" in e for e in errors)
 
     def test_annales_valid(self) -> None:
         q = _make_question(
-            metadata={"annales_source": {"session": "dec2024", "uv": "UVR", "question_num": 5}}
+            metadata={
+                "annales_source": {"session": "dec2024", "uv": "UVR", "question_num": 5}
+            }
         )
         errors, _ = validate_question(q, 0)
         assert not any("annales" in e for e in errors)
@@ -320,7 +337,12 @@ class TestAutoPopulate:
         q = _make_question(
             metadata={
                 "difficulty": None,
-                "annales_source": {"session": "dec2024", "uv": "UVR", "question_num": 1, "success_rate": 0.85},
+                "annales_source": {
+                    "session": "dec2024",
+                    "uv": "UVR",
+                    "question_num": 1,
+                    "success_rate": 0.85,
+                },
             }
         )
         gs = {"questions": [q]}
@@ -331,7 +353,9 @@ class TestAutoPopulate:
     def test_corrects_impossible_annales(self) -> None:
         q = _make_question(
             is_impossible=True,
-            metadata={"annales_source": {"session": "dec2024", "uv": "UVR", "question_num": 1}},
+            metadata={
+                "annales_source": {"session": "dec2024", "uv": "UVR", "question_num": 1}
+            },
         )
         gs = {"questions": [q]}
         _, corrections = auto_populate(gs)
@@ -351,7 +375,9 @@ class TestAutoPopulate:
         gs = {"questions": [q]}
         _, corrections = auto_populate(gs)
         # Only triplet_ready check may trigger, but it should be correct already
-        field_corrections = [c for c in corrections if c["field"] not in ("triplet_ready",)]
+        field_corrections = [
+            c for c in corrections if c["field"] not in ("triplet_ready",)
+        ]
         assert len(field_corrections) == 0
 
 

@@ -322,8 +322,7 @@ def extract_question_text(block: str) -> str:
     """
     # Find where choices start
     choice_start = re.search(
-        r"\n\s*-\s*[a-fA-F][\)\-:\.\s]"
-        r"|\n\s*[A-F]\s*[-\u2013\u2014:]\s",
+        r"\n\s*-\s*[a-fA-F][\)\-:\.\s]" r"|\n\s*[A-F]\s*[-\u2013\u2014:]\s",
         block,
     )
     text = block[: choice_start.start()] if choice_start else block
@@ -446,28 +445,28 @@ def _identify_columns(
     for i, cell in enumerate(header_cells):
         lower = cell.lower().strip()
         # Question/N° column
-        if any(
-            kw in lower
-            for kw in ["question", "n°", "n "]
-        ) and col_map["question"] == -1:
+        if (
+            any(kw in lower for kw in ["question", "n°", "n "])
+            and col_map["question"] == -1
+        ):
             col_map["question"] = i
         # Answer column
-        elif any(
-            kw in lower
-            for kw in ["réponse", "reponse", "rponse"]
-        ) and col_map["answer"] == -1:
+        elif (
+            any(kw in lower for kw in ["réponse", "reponse", "rponse"])
+            and col_map["answer"] == -1
+        ):
             col_map["answer"] = i
         # Article column
-        elif any(
-            kw in lower
-            for kw in ["article", "référence", "reference"]
-        ) and col_map["article"] == -1:
+        elif (
+            any(kw in lower for kw in ["article", "référence", "reference"])
+            and col_map["article"] == -1
+        ):
             col_map["article"] = i
         # Rate column
-        elif any(
-            kw in lower
-            for kw in ["taux", "réussite", "reussite", "russite"]
-        ) and col_map["rate"] == -1:
+        elif (
+            any(kw in lower for kw in ["taux", "réussite", "reussite", "russite"])
+            and col_map["rate"] == -1
+        ):
             col_map["rate"] = i
 
     # Fallback: question column is usually first
@@ -751,18 +750,14 @@ def reextract_question(
     sujet_bounds = find_uv_sujet(markdown, uv)
     if sujet_bounds:
         s_start, s_end = sujet_bounds
-        sujet_block = extract_question_block(
-            markdown[s_start:s_end], question_num
-        )
+        sujet_block = extract_question_block(markdown[s_start:s_end], question_num)
 
     # 2. Try corrigé section (has questions + article + explanation)
     corrige_block = None
     corrige_bounds = find_uv_corrige(markdown, uv)
     if corrige_bounds:
         c_start, c_end = corrige_bounds
-        corrige_block = extract_question_block(
-            markdown[c_start:c_end], question_num
-        )
+        corrige_block = extract_question_block(markdown[c_start:c_end], question_num)
 
     # 3. Choose primary block
     primary_block = sujet_block or corrige_block

@@ -23,18 +23,33 @@ logger = logging.getLogger(__name__)
 # --- Schema definitions ---
 
 VALID_CATEGORIES = {
-    "competitions", "regles_jeu", "open", "tournoi", "interclubs",
-    "regles_ffe", "classement", "jeunes", "administratif", "regional",
-    "feminin", "handicap", "medical",
+    "competitions",
+    "regles_jeu",
+    "open",
+    "tournoi",
+    "interclubs",
+    "regles_ffe",
+    "classement",
+    "jeunes",
+    "administratif",
+    "regional",
+    "feminin",
+    "handicap",
+    "medical",
 }
 VALID_ANSWER_TYPES = {"multiple_choice", "extractive", "abstractive", "list", "yes_no"}
 VALID_QUESTION_TYPES = {"factual", "scenario", "procedural", "comparative"}
 VALID_REASONING_TYPES = {"multi-hop", "single-hop", "temporal"}
 VALID_COGNITIVE_LEVELS = {"Remember", "Apply", "Understand", "Analyze"}
 VALID_CHUNK_MATCH_METHODS = {
-    "doc_page_semantic", "answer_in_chunk", "procrustes_qa_full",
-    "qat_revalidation", "procrustes_realign", "page_keyword",
-    "procrustes_qa_combined", "article_direct",
+    "doc_page_semantic",
+    "answer_in_chunk",
+    "procrustes_qa_full",
+    "qat_revalidation",
+    "procrustes_realign",
+    "page_keyword",
+    "procrustes_qa_combined",
+    "article_direct",
 }
 VALID_SESSIONS = {
     "dec2019",
@@ -263,7 +278,7 @@ def validate_question(
     # difficulty (float 0.0-1.0, represents success rate)
     diff = meta.get("difficulty")
     if diff is not None:
-        if not isinstance(diff, (int, float)) or diff < 0 or diff > 1:
+        if not isinstance(diff, int | float) or diff < 0 or diff > 1:
             errors.append(f"{q_id}: difficulty {diff} out of range 0-1")
     else:
         warnings.append(f"{q_id}: difficulty is None")
@@ -271,7 +286,7 @@ def validate_question(
     # quality_score
     qs = meta.get("quality_score")
     if qs is not None:
-        if not isinstance(qs, (int, float)) or qs < 0 or qs > 100:
+        if not isinstance(qs, int | float) or qs < 0 or qs > 100:
             errors.append(f"{q_id}: quality_score {qs} out of range 0-100")
     else:
         warnings.append(f"{q_id}: quality_score is None")
@@ -279,7 +294,7 @@ def validate_question(
     # chunk_match_score (some legacy scores go up to 110)
     cms = meta.get("chunk_match_score")
     if cms is not None:
-        if not isinstance(cms, (int, float)) or cms < 0 or cms > 110:
+        if not isinstance(cms, int | float) or cms < 0 or cms > 110:
             errors.append(f"{q_id}: chunk_match_score {cms} out of range 0-110")
 
     # chunk_match_method
@@ -360,7 +375,12 @@ def auto_populate(
             if derived and derived in VALID_CATEGORIES:
                 q["category"] = derived
                 corrections.append(
-                    {"id": q_id, "field": "category", "action": "derived_from_id", "value": derived}
+                    {
+                        "id": q_id,
+                        "field": "category",
+                        "action": "derived_from_id",
+                        "value": derived,
+                    }
                 )
 
         # 2. answer_type from choices
@@ -368,7 +388,12 @@ def auto_populate(
             at = derive_answer_type(meta.get("choices"))
             meta["answer_type"] = at
             corrections.append(
-                {"id": q_id, "field": "answer_type", "action": "derived_from_choices", "value": at}
+                {
+                    "id": q_id,
+                    "field": "answer_type",
+                    "action": "derived_from_choices",
+                    "value": at,
+                }
             )
 
         # 3. difficulty from success_rate
@@ -397,7 +422,12 @@ def auto_populate(
             )
             q["keywords"] = new_kw
             corrections.append(
-                {"id": q_id, "field": "keywords", "action": "extracted_from_question", "count": len(new_kw)}
+                {
+                    "id": q_id,
+                    "field": "keywords",
+                    "action": "extracted_from_question",
+                    "count": len(new_kw),
+                }
             )
 
         # 5. is_impossible correction for annales with known answer
@@ -405,7 +435,11 @@ def auto_populate(
             if q.get("expected_answer"):
                 q["is_impossible"] = False
                 corrections.append(
-                    {"id": q_id, "field": "is_impossible", "action": "corrected_to_false"}
+                    {
+                        "id": q_id,
+                        "field": "is_impossible",
+                        "action": "corrected_to_false",
+                    }
                 )
 
         # 6. triplet_ready recalculation
@@ -508,9 +542,7 @@ def main() -> None:
     """CLI entry point."""
     import argparse
 
-    parser = argparse.ArgumentParser(
-        description="Verify and populate GS metadata"
-    )
+    parser = argparse.ArgumentParser(description="Verify and populate GS metadata")
     parser.add_argument(
         "--gs",
         type=Path,

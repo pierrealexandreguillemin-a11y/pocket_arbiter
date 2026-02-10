@@ -243,7 +243,10 @@ class TestShouldUpdateQuestion:
 class TestSummarizeChanges:
     def test_counts_fields(self) -> None:
         changes = [
-            {"id": "q1", "fields_changed": ["question (50->100 chars)", "choices (3->5)"]},
+            {
+                "id": "q1",
+                "fields_changed": ["question (50->100 chars)", "choices (3->5)"],
+            },
             {"id": "q2", "fields_changed": ["question (30->80 chars)"]},
         ]
         summary = _summarize_changes(changes)
@@ -255,7 +258,10 @@ class TestSummarizeChanges:
 
     def test_extracts_field_name_before_paren(self) -> None:
         changes = [
-            {"id": "q1", "fields_changed": ["expected_answer (10->50 chars, source=choice)"]},
+            {
+                "id": "q1",
+                "fields_changed": ["expected_answer (10->50 chars, source=choice)"],
+            },
         ]
         summary = _summarize_changes(changes)
         assert summary["expected_answer"] == 1
@@ -370,7 +376,10 @@ class TestPatchGoldStandard:
         patch_gold_standard(gs_path, res_path, out_path)
         with open(out_path, encoding="utf-8") as f:
             result = json.load(f)
-        assert result["questions"][0]["expected_answer"] == "Detailed explanation from corrigé"
+        assert (
+            result["questions"][0]["expected_answer"]
+            == "Detailed explanation from corrigé"
+        )
         assert result["questions"][0]["metadata"]["answer_source"] == "explanation"
 
     def test_choices_updated_when_more(self, tmp_path: Path) -> None:
@@ -388,9 +397,7 @@ class TestPatchGoldStandard:
 
     def test_choices_not_updated_when_fewer(self, tmp_path: Path) -> None:
         """Choices NOT updated when re-extracted has fewer."""
-        q = _make_gs_question(
-            metadata={"choices": {"A": "x", "B": "y", "C": "z"}}
-        )
+        q = _make_gs_question(metadata={"choices": {"A": "x", "B": "y", "C": "z"}})
         r = _make_result(choices={"A": "x"})
         gs_path = _write_gs(tmp_path, [q])
         res_path = _write_results(tmp_path, [r])
@@ -425,7 +432,10 @@ class TestPatchGoldStandard:
         patch_gold_standard(gs_path, res_path, out_path)
         with open(out_path, encoding="utf-8") as f:
             result = json.load(f)
-        assert result["questions"][0]["metadata"]["article_reference"] == "Art. 3.7.2 et 4.1"
+        assert (
+            result["questions"][0]["metadata"]["article_reference"]
+            == "Art. 3.7.2 et 4.1"
+        )
 
     def test_success_rate_updated(self, tmp_path: Path) -> None:
         """success_rate updated in annales_source."""
@@ -549,9 +559,7 @@ class TestPatchGoldStandard:
         # q3 will be annulled
         r1 = _make_result(id="ffe:annales:rules:001:aaa", mcq_answer="B")
         r2 = _make_result(id="ffe:annales:rules:002:bbb")
-        r3 = _make_result(
-            id="ffe:annales:rules:003:ccc", extraction_flags=["annulled"]
-        )
+        r3 = _make_result(id="ffe:annales:rules:003:ccc", extraction_flags=["annulled"])
         gs_path = _write_gs(tmp_path, [q1, q2, q3])
         res_path = _write_results(tmp_path, [r1, r2, r3])
         out_path = tmp_path / "out.json"
@@ -662,7 +670,11 @@ class TestValidatePatchedGs:
     def test_total_questions_count(self, tmp_path: Path) -> None:
         gs = {
             "questions": [
-                {"id": f"q{i}", "question": f"Question {i}", "expected_answer": f"Answer {i}"}
+                {
+                    "id": f"q{i}",
+                    "question": f"Question {i}",
+                    "expected_answer": f"Answer {i}",
+                }
                 for i in range(5)
             ]
         }

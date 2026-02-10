@@ -1,17 +1,21 @@
 """Tests for export_formats.py (Step 4).
 
-Critical: RAGAS ground_truth must be the expected answer, NOT the question.
-RAGAS paper (arXiv:2309.15217) Section 3: "ground truth answer that serves
-as reference for evaluation."
+Critical: RAGAS ground_truth and ARES Answer must be the expected answer,
+NOT the question. RAGAS paper (arXiv:2309.15217) Section 3: "ground truth
+answer that serves as reference for evaluation."
 
 ISO Reference: ISO 29119 - Software testing
 """
 
+import csv
 import json
 import tempfile
 from pathlib import Path
 
-from scripts.training.unified.export_formats import export_ragas_format
+from scripts.training.unified.export_formats import (
+    export_ares_format,
+    export_ragas_format,
+)
 
 
 class TestExportRagasFormat:
@@ -158,3 +162,77 @@ class TestExportRagasFormat:
 
         assert "ragas_path" in result
         assert result["count"] == 2
+
+
+class TestExportAresFormat:
+    """Tests for ARES TSV export."""
+
+    def _make_triplets(self) -> list[dict]:
+        """Create sample triplets with metadata."""
+        return [
+            {
+                "anchor": "What is castling?",
+                "positive": "Castling is a special move involving the king and rook.",
+                "negative": "The pawn moves one square forward.",
+                "metadata": {
+                    "original_question": "What is castling?",
+                    "expected_answer": "Castling involves moving the king two squares.",
+                },
+            },
+        ]
+
+    def test_ares_answer_is_expected_answer_not_question(self) -> None:
+        """CRITICAL: ARES Answer column must be expected_answer, not question.
+
+        Same class of bug as the RAGAS ground_truth fix.
+        """
+        triplets = self._make_triplets()
+        with tempfile.TemporaryDirectory() as tmp:
+            export_ares_format(triplets, Path(tmp))
+            gold_path = Path(tmp) / "ares_gold_label.tsv"
+
+            with open(gold_path, encoding="utf-8") as f:
+                reader = csv.DictReader(f, delimiter="\t")
+                rows = list(reader)
+
+        # First row is the positive example
+        positive_row = rows[0]
+        assert (
+            positive_row["Answer"] == "Castling involves moving the king two squares."
+        )
+        assert positive_row["Answer"] != "What is castling?"
+
+    def test_ares_unlabeled_answer_is_expected_answer(self) -> None:
+        """Unlabeled ARES TSV should also use expected_answer."""
+        triplets = self._make_triplets()
+        with tempfile.TemporaryDirectory() as tmp:
+            export_ares_format(triplets, Path(tmp))
+            unlabeled_path = Path(tmp) / "ares_unlabeled.tsv"
+
+            with open(unlabeled_path, encoding="utf-8") as f:
+                reader = csv.DictReader(f, delimiter="\t")
+                rows = list(reader)
+
+        assert rows[0]["Answer"] == "Castling involves moving the king two squares."
+
+    def test_ares_missing_expected_answer_yields_empty(self) -> None:
+        """If no expected_answer in metadata, Answer should be empty."""
+        triplets = [
+            {
+                "anchor": "Q?",
+                "positive": "Context.",
+                "negative": "Other.",
+                "metadata": {"original_question": "Q?"},
+            }
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            export_ares_format(triplets, Path(tmp))
+            gold_path = Path(tmp) / "ares_gold_label.tsv"
+
+            with open(gold_path, encoding="utf-8") as f:
+                reader = csv.DictReader(f, delimiter="\t")
+                rows = list(reader)
+
+        # Must NOT fallback to original_question
+        assert rows[0]["Answer"] == ""
+        assert rows[0]["Answer"] != "Q?"

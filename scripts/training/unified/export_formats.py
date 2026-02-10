@@ -118,7 +118,7 @@ def export_ares_format(
 
         for t in triplets:
             metadata = t.get("metadata", {})
-            answer = metadata.get("original_question", "")
+            answer = metadata.get("expected_answer", "")
 
             # Positive example
             writer.writerow([t["anchor"], t["positive"], answer, 1])
@@ -133,7 +133,7 @@ def export_ares_format(
 
         for t in triplets:
             metadata = t.get("metadata", {})
-            answer = metadata.get("original_question", "")
+            answer = metadata.get("expected_answer", "")
             writer.writerow([t["anchor"], t["positive"], answer])
 
     return {

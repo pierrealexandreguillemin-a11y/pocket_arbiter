@@ -17,12 +17,12 @@ ISO Reference:
 - ISO 25010: Data quality metrics
 - ISO 42001 A.6.2.2: Provenance and embeddings (EmbeddingGemma QAT)
 
-Standards Reference:
-- SemHash/SoftDedup: Deduplication < 0.95
-- NV-Embed/E5: Anchor independence < 0.90
+Standards & Thresholds:
+- SemHash/SoftDedup: Deduplication threshold 0.95 (stricter than SemHash default 0.90)
+- Anchor independence: < 0.90 (project threshold for valid triplet training)
 - EmbeddingGemma QAT: google/embeddinggemma-300m-qat-q4_0-unquantized
-- SQuAD 2.0: Unanswerable ratio 25-33%
-- Know Your RAG (COLING 2025): reasoning_class distribution
+- SQuAD 2.0: Unanswerable ratio 25-33% (inspired by train split ~33.4%)
+- Know Your RAG (COLING 2025): reasoning_class taxonomy (fact_single/summary/reasoning)
 
 Usage:
     python balance_distribution.py --questions PATH --chunks PATH [--output PATH]
@@ -458,10 +458,10 @@ def run_balance_pipeline(
     print("=" * 50)
 
     targets = {
-        "fact_single": (0.0, 0.60),  # Max 60%
+        "fact_single": (0.0, 0.60),  # Max 60% (project threshold)
         "summary": (0.15, 0.25),
         "reasoning": (0.10, 0.20),
-        "unanswerable": (0.25, 0.33),
+        "unanswerable": (0.25, 0.40),  # SQuAD 2.0: train=33.4%, dev=50%
         "hard": (0.10, 1.0),  # Min 10%
     }
 

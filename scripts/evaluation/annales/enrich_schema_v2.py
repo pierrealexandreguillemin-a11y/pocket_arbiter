@@ -327,7 +327,7 @@ def enrich_to_schema_v2(
     # Handle unanswerable questions
     hard_type = question.get("hard_type", "ANSWERABLE")
     if is_impossible:
-        hard_type = question.get("hard_type", "OUT_OF_SCOPE")
+        hard_type = question.get("hard_type", "OUT_OF_DATABASE")
 
     return {
         # Root (2 fields)

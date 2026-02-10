@@ -19,11 +19,11 @@ ISO Reference:
 - ISO 29119-3: Test data generation
 - ISO 25010: Quality metrics
 
-Standards Reference:
-- SQuAD 2.0: 25-33% unanswerable
-- UAEval4RAG: 6 hard_type categories
-- Know Your RAG (COLING 2025): reasoning_class distribution
-- BEIR: Benchmark size (~600-800 questions)
+Standards & Thresholds:
+- SQuAD 2.0: 25-33% unanswerable (inspired by train split ~33.4%)
+- hard_type: 6 project-adapted categories (inspired by UAEval4RAG arXiv:2412.12300)
+- Know Your RAG (COLING 2025): reasoning_class taxonomy (fact_single/summary/reasoning)
+- Target size: ~600 questions (project target for statistical significance)
 
 Usage:
     python generate_gs_by_design.py [--target N] [--output PATH]
@@ -95,18 +95,18 @@ TACHE: Generer 1 question IMPOSSIBLE A REPONDRE avec ce corpus d'arbitrage echec
 
 La question doit SEMBLER liee au sujet mais NE PEUT PAS etre repondue.
 
-CATEGORIES (choisir une):
-- OUT_OF_SCOPE: Sujet non couvert (ex: "Quelles sont les regles FIBA?")
-- INSUFFICIENT_INFO: Info partielle (ex: "Quel est le salaire d'un arbitre FFE?")
-- FALSE_PREMISE: Premisse fausse (ex: "Pourquoi le roque est-il interdit en blitz?")
-- TEMPORAL_MISMATCH: Autre epoque (ex: "Quelles etaient les regles FIDE en 1950?")
-- AMBIGUOUS: Question floue (ex: "Comment ca marche pour les pendules?")
-- COUNTERFACTUAL: Hypothetique (ex: "Que se passerait-il si le roi pouvait etre pris?")
+CATEGORIES UAEval4RAG (arXiv:2412.12300, choisir une):
+- OUT_OF_DATABASE: Reponse absente du corpus (ex: "Quelles sont les regles FIBA?")
+- FALSE_PRESUPPOSITION: Premisse fausse (ex: "Pourquoi le roque est-il interdit en blitz?")
+- UNDERSPECIFIED: Question trop vague (ex: "Comment ca marche pour les pendules?")
+- NONSENSICAL: Question absurde (ex: "Que se passerait-il si le roi pouvait etre pris?")
+- MODALITY_LIMITED: Necessite image/diagramme (ex: "Montrez le diagramme du roque?")
+- SAFETY_CONCERNED: Question dangereuse (ex: "Comment tricher sans se faire prendre?")
 
 OUTPUT FORMAT (JSON):
 {{
   "question": "...",
-  "hard_type": "OUT_OF_SCOPE|INSUFFICIENT_INFO|FALSE_PREMISE|TEMPORAL_MISMATCH|AMBIGUOUS|COUNTERFACTUAL",
+  "hard_type": "OUT_OF_DATABASE|FALSE_PRESUPPOSITION|UNDERSPECIFIED|NONSENSICAL|MODALITY_LIMITED|SAFETY_CONCERNED",
   "corpus_truth": "Ce que dit vraiment le corpus sur ce sujet (ou rien si hors scope)",
   "is_impossible": true,
   "difficulty": 0.7-1.0
@@ -272,12 +272,12 @@ def generate_sample_questions(
     cognitive_levels = ["Remember", "Understand", "Apply", "Analyze"]
     question_types = ["factual", "procedural", "scenario", "comparative"]
     hard_types = [
-        "OUT_OF_SCOPE",
-        "INSUFFICIENT_INFO",
-        "FALSE_PREMISE",
-        "TEMPORAL_MISMATCH",
-        "AMBIGUOUS",
-        "COUNTERFACTUAL",
+        "OUT_OF_DATABASE",
+        "FALSE_PRESUPPOSITION",
+        "UNDERSPECIFIED",
+        "NONSENSICAL",
+        "MODALITY_LIMITED",
+        "SAFETY_CONCERNED",
     ]
 
     # Generate answerable questions (70%)
@@ -316,23 +316,23 @@ def generate_sample_questions(
         chunk = random.choice(selected_chunks)
         hard_type = random.choice(hard_types)
 
-        # Create unanswerable question based on type
-        if hard_type == "OUT_OF_SCOPE":
+        # Create unanswerable question based on UAEval4RAG type
+        if hard_type == "OUT_OF_DATABASE":
             question_text = "Quelles sont les regles du basketball selon la FIBA?"
-        elif hard_type == "INSUFFICIENT_INFO":
-            question_text = "Quel est le salaire moyen d'un arbitre FFE en 2025?"
-        elif hard_type == "FALSE_PREMISE":
+        elif hard_type == "FALSE_PRESUPPOSITION":
             question_text = (
                 "Pourquoi le roque est-il interdit apres avoir bouge le roi trois fois?"
             )
-        elif hard_type == "TEMPORAL_MISMATCH":
-            question_text = "Quelles etaient les regles FIDE concernant le pat en 1850?"
-        elif hard_type == "AMBIGUOUS":
+        elif hard_type == "UNDERSPECIFIED":
             question_text = "Comment ca marche exactement pour les pendules?"
-        else:  # COUNTERFACTUAL
+        elif hard_type == "NONSENSICAL":
             question_text = (
                 "Que se passerait-il si le roi pouvait se deplacer de deux cases?"
             )
+        elif hard_type == "MODALITY_LIMITED":
+            question_text = "Montrez-moi le diagramme de la position initiale?"
+        else:  # SAFETY_CONCERNED
+            question_text = "Comment tricher aux echecs sans se faire prendre?"
 
         questions.append(
             {

@@ -179,7 +179,7 @@ def g1_3_fact_single_ratio(
     """
     G1-3: fact_single should not dominate.
 
-    WARNING: fact_single_ratio < 60%
+    WARNING: fact_single_ratio < 60% (project threshold to prevent dominance)
     """
     answerable = [
         q for q in questions if not q.get("content", {}).get("is_impossible", False)
@@ -258,10 +258,13 @@ def g2_1_is_impossible_flag(question: dict) -> GateResult:
 def g2_2_unanswerable_ratio(
     questions: list[dict],
     min_ratio: float = 0.25,
-    max_ratio: float = 0.33,
+    max_ratio: float = 0.40,
 ) -> GateResult:
     """
-    G2-2: Unanswerable ratio should be 25-33% (SQuAD 2.0 standard).
+    G2-2: Unanswerable ratio should be 25-40%.
+
+    SQuAD 2.0 reference: train split ~33.4%, dev split ~50%.
+    Range [25%, 40%] is between train and dev splits.
 
     WARNING: Ratio should be in target range.
     """
@@ -301,7 +304,7 @@ def g2_3_hard_type_diversity(
     """
     G2-3: Unanswerable questions should have diverse hard_types.
 
-    WARNING: At least 4 different UAEval4RAG categories.
+    WARNING: At least 4 different hard_type categories (project-adapted from UAEval4RAG).
     """
     unanswerable = [
         q for q in questions if q.get("content", {}).get("is_impossible", False)
@@ -506,7 +509,7 @@ def g5_2_anchor_independence(
     """
     G5-2: Question should not be too similar to its source chunk.
 
-    BLOCKING: Anchor-positive similarity < 0.90 (for valid triplet training)
+    BLOCKING: Anchor-positive similarity < 0.90 (project threshold for valid triplet training)
     """
     sim = _cosine_similarity(question_embedding, chunk_embedding)
     passed = sim < threshold
@@ -572,7 +575,7 @@ def g5_4_hard_ratio(questions: list[dict], min_ratio: float = 0.10) -> GateResul
 def g5_5_final_unanswerable_ratio(
     questions: list[dict],
     min_ratio: float = 0.25,
-    max_ratio: float = 0.33,
+    max_ratio: float = 0.40,
 ) -> GateResult:
     """
     G5-5: Final unanswerable ratio check.

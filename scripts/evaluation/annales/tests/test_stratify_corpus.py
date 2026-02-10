@@ -143,9 +143,10 @@ class TestComputeQuotas:
 
         result = compute_quotas(strata, target_total=100)
 
-        # Priority 1 should get more quota (40% target)
-        assert result["LA"].quota > 0
-        assert result["R01"].quota > 0
+        # LA: prio1 target=40, raw=int(40*50/50)=40, max(5,40)=40, cap=int(50*0.5)=25
+        assert result["LA"].quota == 25
+        # R01: prio2 target=45, raw=int(45*30/30)=45, max(5,45)=45, cap=int(30*0.5)=15
+        assert result["R01"].quota == 15
 
     def test_minimum_quota_per_stratum(self) -> None:
         """Should ensure minimum quota per stratum."""
@@ -161,10 +162,11 @@ class TestComputeQuotas:
         }
 
         result = compute_quotas(strata, target_total=100, min_per_stratum=5)
-        assert result["small"].quota >= 5
+        # prio2 target=45, raw=int(45*10/10)=45, max(5,45)=45, cap=int(10*0.5)=5
+        assert result["small"].quota == 5
 
     def test_quota_capped_by_chunks(self) -> None:
-        """Should cap quota based on available chunks."""
+        """Should cap quota based on available chunks (0.5 * chunk_count)."""
         strata = {
             "tiny": Stratum(
                 name="tiny",
@@ -175,8 +177,8 @@ class TestComputeQuotas:
         }
 
         result = compute_quotas(strata, target_total=1000)
-        # Can't generate more questions than 0.5 * chunk count
-        assert result["tiny"].quota <= 1
+        # prio1 target=400, raw=400, max(5,400)=400, cap=int(1*0.5)=0 → min(400,0)=0
+        assert result["tiny"].quota == 0
 
 
 class TestComputeCoverage:

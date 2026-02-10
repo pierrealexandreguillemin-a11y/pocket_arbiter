@@ -11,14 +11,14 @@
 
 ### 1.1 Objectifs Quantitatifs
 
-| Metrique | Cible | Standard |
-|----------|-------|----------|
-| Total questions | ~600-800 | BEIR benchmark size |
-| Unanswerable (is_impossible=true) | 25-33% | SQuAD 2.0 |
-| fact_single | <60% | Know Your RAG |
-| summary | 15-25% | Know Your RAG |
-| reasoning | 10-20% | Know Your RAG |
-| hard difficulty | >=10% | UAEval4RAG |
+| Metrique | Cible | Justification |
+|----------|-------|---------------|
+| Total questions | ~600 | Seuil projet pour significativite statistique |
+| Unanswerable (is_impossible=true) | 25-33% | Inspire SQuAD 2.0 train split (~33.4%) |
+| fact_single | <60% | Seuil projet pour eviter dominance (cf. Know Your RAG) |
+| summary | 15-25% | Seuil projet |
+| reasoning | 10-20% | Seuil projet |
+| hard difficulty | >=10% | Seuil projet |
 | Schema v2.0 fields | 46/46 | GS_SCHEMA_V2.md |
 
 ### 1.2 Principes BY DESIGN

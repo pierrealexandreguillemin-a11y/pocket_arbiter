@@ -88,6 +88,7 @@ S'applique a :
 | CORP-INV-001 | Inventaire Corpus | corpus/INVENTORY.md | 1.0 |
 | PROM-LOG-001 | Changelog Prompts | prompts/CHANGELOG.md | 1.0 |
 | SPEC-GS-SCRATCH-001 | Gold Standard Scratch v1 | docs/specs/GS_SCRATCH_V1_SPEC.md | 1.0 |
+| SPEC-GS-METH-001 | Methodologie GS BY DESIGN | docs/specs/GS_BY_DESIGN_METHODOLOGY.md | 1.0 |
 
 ---
 

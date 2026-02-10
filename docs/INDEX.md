@@ -92,6 +92,7 @@ pocket_arbiter/
 | SPEC-GS-OPT | [specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md](specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md) | Optimisation GS v7 pour triplets | En cours |
 | SPEC-ADV-V1 | [specs/ADVERSARIAL_QUESTIONS_STRATEGY.md](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie questions adversariales SQuAD 2.0 | Approuve |
 | SPEC-UTD-001 | [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) | Generation Donnees Unifiees | Draft |
+| **SPEC-GS-METH-001** | [specs/GS_BY_DESIGN_METHODOLOGY.md](specs/GS_BY_DESIGN_METHODOLOGY.md) | **Methodologie GS BY DESIGN (pipeline 6 phases, 21 gates, tests sinceres)** | **Approuve** |
 
 ### 2.5 Guides techniques
 

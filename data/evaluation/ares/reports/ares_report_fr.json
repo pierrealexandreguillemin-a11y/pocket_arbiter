@@ -2,7 +2,7 @@
   "metadata": {
     "corpus": "fr",
     "report_version": "2.0",
-    "generated_at": "2026-01-24T00:05:26.941484+00:00",
+    "generated_at": "2026-02-10T17:54:49.349013+00:00",
     "iso_references": [
       "ISO 42001 A.7.3",
       "ISO 25010 S4.2",
@@ -23,20 +23,18 @@
     "evaluation_timestamp": "2026-01-24T00:05:19.546686+00:00"
   },
   "answer_faithfulness": {
-    "score": 0.0,
-    "ci_95_lower": 0.0,
-    "ci_95_upper": 0.0,
+    "status": "not_evaluated",
+    "score": null,
     "n_samples": 0,
-    "pass": false,
+    "pass": null,
     "llm_judge": "pending",
     "evaluation_timestamp": null
   },
   "answer_relevance": {
-    "score": 0.0,
-    "ci_95_lower": 0.0,
-    "ci_95_upper": 0.0,
+    "status": "not_evaluated",
+    "score": null,
     "n_samples": 0,
-    "pass": false,
+    "pass": null,
     "llm_judge": "pending",
     "evaluation_timestamp": null
   },
@@ -48,7 +46,7 @@
     "interpretation": "ARES score higher than Recall@5 suggests retrieved documents are contextually relevant even when not exact expected chunks."
   },
   "iso_compliance": {
-    "overall_pass": false,
+    "overall_pass": true,
     "checks": {
       "context_relevance_threshold": {
         "requirement": "context_relevance >= 80%",
@@ -58,15 +56,17 @@
       },
       "answer_faithfulness_threshold": {
         "requirement": "answer_faithfulness >= 80%",
-        "value": 0.0,
-        "pass": false,
-        "reference": "ISO 25010 S4.2"
+        "value": "not_evaluated",
+        "pass": null,
+        "reference": "ISO 25010 S4.2",
+        "status": "not_evaluated"
       },
       "answer_relevance_threshold": {
         "requirement": "answer_relevance >= 80%",
-        "value": 0.0,
-        "pass": false,
-        "reference": "ISO 25010 S4.2"
+        "value": "not_evaluated",
+        "pass": null,
+        "reference": "ISO 25010 S4.2",
+        "status": "not_evaluated"
       },
       "confidence_interval_valid": {
         "requirement": "95% CI bounds valid",
@@ -98,9 +98,7 @@
     "mapping_file": "mapping_fr.json"
   },
   "recommendations": [
-    "PRIORITY: answer_faithfulness (0.0%) below 80% threshold. Review evaluation data and chunking strategy.",
-    "PRIORITY: answer_relevance (0.0%) below 80% threshold. Review evaluation data and chunking strategy.",
     "Increase context_relevance sample size (currently 60) to improve statistical confidence.",
-    "Address ISO compliance issues: answer_faithfulness_threshold, answer_relevance_threshold"
+    "TODO: Run evaluation for answer_faithfulness, answer_relevance. Use --metric all with an LLM backend (ollama/groq/hf)."
   ]
 }

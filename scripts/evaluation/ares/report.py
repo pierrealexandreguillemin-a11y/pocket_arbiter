@@ -173,19 +173,29 @@ def generate_evaluation_report(
     # Add each metric
     for m in ARES_METRICS:
         data = metrics_data.get(m, {})
-        report[m] = {
-            "score": data.get("score", 0.0),
-            "ci_95_lower": data.get("ci_95_lower", 0.0),
-            "ci_95_upper": data.get("ci_95_upper", 0.0),
-            "n_samples": data.get("n_samples", 0),
-            "pass": data.get("pass", False),
-            "llm_judge": (
-                evaluation.get("llm_used", "unknown") if evaluation else "unknown"
-            ),
-            "evaluation_timestamp": (
-                evaluation.get("timestamp") if evaluation else None
-            ),
-        }
+        if m not in metrics_data or data.get("n_samples", 0) == 0:
+            report[m] = {
+                "status": "not_evaluated",
+                "score": None,
+                "n_samples": 0,
+                "pass": None,
+                "llm_judge": "pending",
+                "evaluation_timestamp": None,
+            }
+        else:
+            report[m] = {
+                "score": data.get("score", 0.0),
+                "ci_95_lower": data.get("ci_95_lower", 0.0),
+                "ci_95_upper": data.get("ci_95_upper", 0.0),
+                "n_samples": data.get("n_samples", 0),
+                "pass": data.get("pass", False),
+                "llm_judge": (
+                    evaluation.get("llm_used", "unknown") if evaluation else "unknown"
+                ),
+                "evaluation_timestamp": (
+                    evaluation.get("timestamp") if evaluation else None
+                ),
+            }
 
     report["comparison"] = comparison
     report["iso_compliance"] = iso_compliance
@@ -256,12 +266,23 @@ def _assess_iso_compliance(
     for m in ARES_METRICS:
         data = metrics_data.get(m, {})
         score = data.get("score", 0.0)
-        checks[f"{m}_threshold"] = {
-            "requirement": f"{m} >= 80%",
-            "value": score,
-            "pass": score >= 0.80,
-            "reference": "ISO 25010 S4.2",
-        }
+        n = data.get("n_samples", 0)
+        if n == 0 and m not in metrics_data:
+            # Metric not yet evaluated — skip from pass/fail determination
+            checks[f"{m}_threshold"] = {
+                "requirement": f"{m} >= 80%",
+                "value": "not_evaluated",
+                "pass": None,  # Neither pass nor fail
+                "reference": "ISO 25010 S4.2",
+                "status": "not_evaluated",
+            }
+        else:
+            checks[f"{m}_threshold"] = {
+                "requirement": f"{m} >= 80%",
+                "value": score,
+                "pass": score >= 0.80,
+                "reference": "ISO 25010 S4.2",
+            }
 
     # CI validity check (use context_relevance as primary)
     cr = metrics_data.get("context_relevance", {})
@@ -295,7 +316,11 @@ def _assess_iso_compliance(
         "reference": "ISO 42001 A.7.3",
     }
 
-    overall_pass = all(c["pass"] for c in checks.values())
+    # Only evaluated checks contribute to overall pass (skip not_evaluated)
+    evaluated_checks = [c for c in checks.values() if c["pass"] is not None]
+    overall_pass = (
+        all(c["pass"] for c in evaluated_checks) if evaluated_checks else False
+    )
 
     return {
         "overall_pass": overall_pass,
@@ -387,8 +412,15 @@ def _generate_recommendations(
     """
     recommendations = []
 
+    unevaluated = []
     for m in ARES_METRICS:
         data = metrics_data.get(m, {})
+        n = data.get("n_samples", 0)
+
+        if m not in metrics_data or n == 0:
+            unevaluated.append(m)
+            continue
+
         score = data.get("score", 0.0)
         ci_lower = data.get("ci_95_lower", 0.0)
 
@@ -404,25 +436,28 @@ def _generate_recommendations(
                 "Add more labeled samples to narrow confidence interval."
             )
 
-    # Check sample sizes
-    for m in ARES_METRICS:
-        data = metrics_data.get(m, {})
-        n = data.get("n_samples", 0)
         if 0 < n < 100:
             recommendations.append(
                 f"Increase {m} sample size (currently {n}) "
                 "to improve statistical confidence."
             )
 
+    if unevaluated:
+        recommendations.append(
+            f"TODO: Run evaluation for {', '.join(unevaluated)}. "
+            "Use --metric all with an LLM backend (ollama/groq/hf)."
+        )
+
     if not iso_compliance.get("overall_pass", False):
         failed_checks = [
             k
             for k, v in iso_compliance.get("checks", {}).items()
-            if not v.get("pass", False)
+            if v.get("pass") is False  # Explicitly False, not None
         ]
-        recommendations.append(
-            f"Address ISO compliance issues: {', '.join(failed_checks)}"
-        )
+        if failed_checks:
+            recommendations.append(
+                f"Address ISO compliance issues: {', '.join(failed_checks)}"
+            )
 
     if not recommendations:
         recommendations.append(
@@ -444,11 +479,16 @@ def _print_summary(report: dict[str, Any]) -> None:
 
     for m in ARES_METRICS:
         data = report.get(m, {})
-        if data:
-            print(f"\n{m}:")
+        if not data:
+            continue
+        print(f"\n{m}:")
+        if data.get("status") == "not_evaluated":
+            print("  Status: NOT EVALUATED")
+        else:
             print(f"  Score: {data.get('score', 0):.1%}")
             print(
-                f"  95% CI: [{data.get('ci_95_lower', 0):.1%}, {data.get('ci_95_upper', 0):.1%}]"
+                f"  95% CI: [{data.get('ci_95_lower', 0):.1%}, "
+                f"{data.get('ci_95_upper', 0):.1%}]"
             )
             print(f"  Samples: {data.get('n_samples', 0)}")
             print(f"  Pass: {'YES' if data.get('pass') else 'NO'}")

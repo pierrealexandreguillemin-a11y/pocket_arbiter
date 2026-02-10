@@ -275,6 +275,8 @@ def generate_few_shot_examples(
                 "Document": chunk["text"],
                 "Answer": answer,
                 "Context_Relevance_Label": 1,
+                "Answer_Faithfulness_Label": 1,
+                "Answer_Relevance_Label": 1,
                 "Reasoning": reasoning_template["reasoning"],
             }
         )
@@ -299,6 +301,8 @@ def generate_few_shot_examples(
                 "Document": neg_chunk["text"],
                 "Answer": "",
                 "Context_Relevance_Label": 0,
+                "Answer_Faithfulness_Label": 0,
+                "Answer_Relevance_Label": 0,
                 "Reasoning": reasoning_template["reasoning"],
             }
         )
@@ -315,6 +319,8 @@ def generate_few_shot_examples(
             "Document",
             "Answer",
             "Context_Relevance_Label",
+            "Answer_Faithfulness_Label",
+            "Answer_Relevance_Label",
             "Reasoning",
         ]
         writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter="\t")

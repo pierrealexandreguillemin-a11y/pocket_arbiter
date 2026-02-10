@@ -207,6 +207,8 @@ def convert_gold_standard_to_ares(
                 "Document": chunk["text"],
                 "Answer": answer,
                 "Context_Relevance_Label": 1,
+                "Answer_Faithfulness_Label": 1,
+                "Answer_Relevance_Label": 1,
                 "gs_id": q["id"],
                 "chunk_id": chunk_id,
             }
@@ -247,6 +249,8 @@ def convert_gold_standard_to_ares(
                 "Document": neg_chunk["text"],
                 "Answer": "",  # No valid answer for negative
                 "Context_Relevance_Label": 0,
+                "Answer_Faithfulness_Label": 0,
+                "Answer_Relevance_Label": 0,
                 "gs_id": f"{q['id']}_neg",
                 "chunk_id": neg_chunk["id"],
             }
@@ -327,7 +331,13 @@ def _write_tsv(
 
     fieldnames = ["Query", "Document", "Answer"]
     if include_label:
-        fieldnames.append("Context_Relevance_Label")
+        fieldnames.extend(
+            [
+                "Context_Relevance_Label",
+                "Answer_Faithfulness_Label",
+                "Answer_Relevance_Label",
+            ]
+        )
 
     with open(path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter="\t")

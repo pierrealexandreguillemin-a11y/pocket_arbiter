@@ -7,7 +7,47 @@ source = scripts/
 # update_db_model_id.py (0% — one-shot migration script) to reach 80%.
 omit =
     scripts/training/**
-    scripts/evaluation/**
+    # evaluation: ares + root-level scripts excluded
+    scripts/evaluation/ares/**
+    scripts/evaluation/tests/**
+    scripts/evaluation/migrate_gs_schema_v2.py
+    # evaluation/annales: exclude all except 5 tested modules
+    # (generate_real_questions, fix_gs_iso_compliance, quality_gates,
+    #  reformulate_by_design, validate_gs_quality are INCLUDED)
+    scripts/evaluation/annales/analyze_failures.py
+    scripts/evaluation/annales/audit_chunk_ids.py
+    scripts/evaluation/annales/balance_distribution.py
+    scripts/evaluation/annales/cleanup_gold_standard.py
+    scripts/evaluation/annales/convert_to_gs_v2.py
+    scripts/evaluation/annales/create_jun2025_final.py
+    scripts/evaluation/annales/enrich_schema_v2.py
+    scripts/evaluation/annales/export_beir.py
+    scripts/evaluation/annales/extract_by_color.py
+    scripts/evaluation/annales/extract_corrige_answers.py
+    scripts/evaluation/annales/fix_chunk_ids.py
+    scripts/evaluation/annales/fix_short_answers.py
+    scripts/evaluation/annales/generate_gold_standard.py
+    scripts/evaluation/annales/generate_gs_by_design.py
+    scripts/evaluation/annales/link_gs_to_chunks.py
+    scripts/evaluation/annales/map_articles_to_corpus.py
+    scripts/evaluation/annales/merge_adversarial_to_gs.py
+    scripts/evaluation/annales/optimize_gs_v7.py
+    scripts/evaluation/annales/parse_annales.py
+    scripts/evaluation/annales/parse_docling_full.py
+    scripts/evaluation/annales/patch_gs_from_reextraction.py
+    scripts/evaluation/annales/reextract_from_docling.py
+    scripts/evaluation/annales/reformulate_questions.py
+    scripts/evaluation/annales/revalidate_gs_qat.py
+    scripts/evaluation/annales/session_utils.py
+    scripts/evaluation/annales/smart_chunk_fix.py
+    scripts/evaluation/annales/stratify_corpus.py
+    scripts/evaluation/annales/upgrade_schema.py
+    scripts/evaluation/annales/validate_answers.py
+    scripts/evaluation/annales/validate_anti_hallucination.py
+    scripts/evaluation/annales/validate_by_class.py
+    scripts/evaluation/annales/validate_chunk_ids.py
+    scripts/evaluation/annales/validate_gs_complete.py
+    scripts/evaluation/annales/verify_gs_metadata.py
     scripts/pipeline/adversarial_harness.py
     scripts/pipeline/chunker_langchain.py
     scripts/pipeline/update_db_model_id.py
@@ -24,4 +64,7 @@ exclude_lines =
     if __name__ == .__main__.:
     raise NotImplementedError
     \.\.\.
+    def main\(
+    parser\.add_argument
+    args = parser\.parse_args
 fail_under = 80

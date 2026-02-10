@@ -392,7 +392,8 @@ class TestConfidenceIntervalValid:
             "n_samples": 100,
         }
 
-        compliance = _assess_iso_compliance(valid_cr, {"total_samples": 100})
+        metrics_data = {"context_relevance": valid_cr}
+        compliance = _assess_iso_compliance(metrics_data, {"total_samples": 100})
         assert compliance["checks"]["confidence_interval_valid"]["pass"] is True
 
         # Invalid CI (lower > score)
@@ -403,7 +404,10 @@ class TestConfidenceIntervalValid:
             "n_samples": 100,
         }
 
-        compliance_invalid = _assess_iso_compliance(invalid_cr, {"total_samples": 100})
+        metrics_data_invalid = {"context_relevance": invalid_cr}
+        compliance_invalid = _assess_iso_compliance(
+            metrics_data_invalid, {"total_samples": 100}
+        )
         assert (
             compliance_invalid["checks"]["confidence_interval_valid"]["pass"] is False
         )
@@ -427,17 +431,27 @@ class TestMockEvaluation:
         with open(gold_label_path, "w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(
                 f,
-                fieldnames=["Query", "Document", "Answer", "Context_Relevance_Label"],
+                fieldnames=[
+                    "Query",
+                    "Document",
+                    "Answer",
+                    "Context_Relevance_Label",
+                    "Answer_Faithfulness_Label",
+                    "Answer_Relevance_Label",
+                ],
                 delimiter="\t",
             )
             writer.writeheader()
             for i in range(10):
+                label = 1 if i < 7 else 0
                 writer.writerow(
                     {
                         "Query": f"Question {i}",
                         "Document": f"Document {i}",
                         "Answer": f"Answer {i}",
-                        "Context_Relevance_Label": 1 if i < 7 else 0,
+                        "Context_Relevance_Label": label,
+                        "Answer_Faithfulness_Label": label,
+                        "Answer_Relevance_Label": label,
                     }
                 )
 
@@ -488,24 +502,40 @@ class TestReportGeneration:
 
     def test_recommendations_for_low_score(self) -> None:
         """Low score should generate priority recommendation."""
-        context_relevance = {"score": 0.75, "ci_95_lower": 0.70, "n_samples": 100}
+        metrics_data = {
+            "context_relevance": {"score": 0.75, "ci_95_lower": 0.70, "n_samples": 100},
+            "answer_faithfulness": {
+                "score": 0.75,
+                "ci_95_lower": 0.70,
+                "n_samples": 100,
+            },
+            "answer_relevance": {"score": 0.75, "ci_95_lower": 0.70, "n_samples": 100},
+        }
         iso_compliance = {"overall_pass": False, "checks": {}}
         comparison: dict[str, Any] = {}
 
         recommendations = _generate_recommendations(
-            context_relevance, iso_compliance, comparison
+            metrics_data, iso_compliance, comparison
         )
 
         assert any("PRIORITY" in r for r in recommendations)
 
     def test_recommendations_for_passing_score(self) -> None:
         """Passing score should not have priority recommendations."""
-        context_relevance = {"score": 0.90, "ci_95_lower": 0.85, "n_samples": 200}
+        metrics_data = {
+            "context_relevance": {"score": 0.90, "ci_95_lower": 0.85, "n_samples": 200},
+            "answer_faithfulness": {
+                "score": 0.90,
+                "ci_95_lower": 0.85,
+                "n_samples": 200,
+            },
+            "answer_relevance": {"score": 0.90, "ci_95_lower": 0.85, "n_samples": 200},
+        }
         iso_compliance = {"overall_pass": True, "checks": {}}
         comparison: dict[str, Any] = {}
 
         recommendations = _generate_recommendations(
-            context_relevance, iso_compliance, comparison
+            metrics_data, iso_compliance, comparison
         )
 
         assert not any("PRIORITY" in r for r in recommendations)
@@ -858,22 +888,32 @@ class TestRunEvaluationIntegration:
         """run_mock_evaluation works with fixture data."""
         from scripts.evaluation.ares import run_evaluation
 
-        # Create gold_label file
+        # Create gold_label file with all 3 label columns
         gold_label_path = mock_corpus_data["output_dir"] / "gold_label_test.tsv"
         with open(gold_label_path, "w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(
                 f,
-                fieldnames=["Query", "Document", "Answer", "Context_Relevance_Label"],
+                fieldnames=[
+                    "Query",
+                    "Document",
+                    "Answer",
+                    "Context_Relevance_Label",
+                    "Answer_Faithfulness_Label",
+                    "Answer_Relevance_Label",
+                ],
                 delimiter="\t",
             )
             writer.writeheader()
             for i in range(20):
+                label = 1 if i < 14 else 0
                 writer.writerow(
                     {
                         "Query": f"Question {i}",
                         "Document": f"Document {i}",
                         "Answer": f"Answer {i}",
-                        "Context_Relevance_Label": 1 if i < 14 else 0,
+                        "Context_Relevance_Label": label,
+                        "Answer_Faithfulness_Label": label,
+                        "Answer_Relevance_Label": label,
                     }
                 )
 
@@ -1146,7 +1186,11 @@ class TestCLIMain:
             # Patch generate_evaluation_report to use our temp output dir
             original_func = report.generate_evaluation_report
 
-            def patched_func(corpus: str = "fr", output_dir: Path | None = None) -> Any:
+            def patched_func(
+                corpus: str = "fr",
+                output_dir: Path | None = None,
+                metrics_results: dict[str, Any] | None = None,
+            ) -> Any:
                 return original_func(corpus=corpus, output_dir=tmp_path / "reports")
 
             with patch.object(report, "generate_evaluation_report", patched_func):
@@ -1160,22 +1204,32 @@ class TestCLIMain:
         """run_evaluation.main() with --mock flag."""
         from scripts.evaluation.ares import run_evaluation
 
-        # Create gold_label file for fr corpus
+        # Create gold_label file for fr corpus with all 3 label columns
         gold_label_path = mock_corpus_data["output_dir"] / "gold_label_fr.tsv"
         with open(gold_label_path, "w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(
                 f,
-                fieldnames=["Query", "Document", "Answer", "Context_Relevance_Label"],
+                fieldnames=[
+                    "Query",
+                    "Document",
+                    "Answer",
+                    "Context_Relevance_Label",
+                    "Answer_Faithfulness_Label",
+                    "Answer_Relevance_Label",
+                ],
                 delimiter="\t",
             )
             writer.writeheader()
             for i in range(10):
+                label = 1 if i < 7 else 0
                 writer.writerow(
                     {
                         "Query": f"Q{i}",
                         "Document": f"D{i}",
                         "Answer": f"A{i}",
-                        "Context_Relevance_Label": 1 if i < 7 else 0,
+                        "Context_Relevance_Label": label,
+                        "Answer_Faithfulness_Label": label,
+                        "Answer_Relevance_Label": label,
                     }
                 )
 

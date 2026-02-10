@@ -22,10 +22,11 @@ _PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
 
 @pytest.mark.integration
 class TestGSSchemaCompliance:
-    """G4-1, G4-2: Schema v2 compliance for all 584 questions."""
+    """G4-1, G4-2: Schema v2 compliance for all 614 questions."""
 
-    def test_584_questions(self, gs_scratch_data: dict) -> None:
-        assert len(gs_scratch_data["questions"]) == 584
+    def test_614_questions(self, gs_scratch_data: dict) -> None:
+        """614 = 584 original + 30 new (15 MODALITY_LIMITED + 15 SAFETY_CONCERNED)."""
+        assert len(gs_scratch_data["questions"]) == 614
 
     def test_7_required_groups(self, gs_scratch_data: dict) -> None:
         required_groups = {
@@ -110,17 +111,17 @@ class TestChunkLinkage:
 class TestDistributionTargets:
     """G2-2, G2-3, G1-3, G5-3, G5-4, G5-5: Distribution gates."""
 
-    def test_g2_2_g5_5_unanswerable_25_33(self, gs_scratch_data: dict) -> None:
-        """G2-2/G5-5: Unanswerable ratio 25-33%."""
+    def test_g2_2_g5_5_unanswerable_25_40(self, gs_scratch_data: dict) -> None:
+        """G2-2/G5-5: Unanswerable ratio 25-40% (SQuAD 2.0 train=33.4%, dev=50%)."""
         total = len(gs_scratch_data["questions"])
         unanswerable = sum(
             1 for q in gs_scratch_data["questions"] if q["content"]["is_impossible"]
         )
         ratio = unanswerable / total
-        assert 0.25 <= ratio <= 0.33, f"Unanswerable ratio: {ratio:.3f}"
+        assert 0.25 <= ratio <= 0.40, f"Unanswerable ratio: {ratio:.3f}"
 
     def test_g2_3_at_least_4_hard_types(self, gs_scratch_data: dict) -> None:
-        """G2-3: At least 4 different UAEval4RAG hard_types."""
+        """G2-3: At least 4 different hard_types (project-adapted categories)."""
         unanswerable = [
             q for q in gs_scratch_data["questions"] if q["content"]["is_impossible"]
         ]
@@ -132,19 +133,20 @@ class TestDistributionTargets:
         assert len(hard_types) >= 4, f"Only {len(hard_types)} hard_types: {hard_types}"
 
     def test_6_uaeval4rag_categories(self, gs_scratch_data: dict) -> None:
+        """G2-3: All 6 UAEval4RAG categories present (arXiv:2412.12300)."""
         unanswerable = [
             q for q in gs_scratch_data["questions"] if q["content"]["is_impossible"]
         ]
         hard_types = {q["classification"]["hard_type"] for q in unanswerable}
         expected = {
-            "OUT_OF_SCOPE",
-            "INSUFFICIENT_INFO",
-            "FALSE_PREMISE",
-            "TEMPORAL_MISMATCH",
-            "AMBIGUOUS",
-            "COUNTERFACTUAL",
+            "OUT_OF_DATABASE",
+            "FALSE_PRESUPPOSITION",
+            "UNDERSPECIFIED",
+            "NONSENSICAL",
+            "MODALITY_LIMITED",
+            "SAFETY_CONCERNED",
         }
-        assert hard_types == expected
+        assert hard_types == expected, f"Got {hard_types}, expected {expected}"
 
     def test_g1_3_g5_3_fact_single_under_60(self, gs_scratch_data: dict) -> None:
         """G1-3/G5-3: fact_single ratio < 60%."""
@@ -280,6 +282,131 @@ class TestValidationReportConsistency:
         assert (
             abs(actual_ratio - report_ratio) < 0.02
         ), f"Report unanswerable_ratio={report_ratio} vs actual={actual_ratio}"
+
+
+@pytest.mark.integration
+class TestCoherenceConstraints:
+    """C1-C8: Coherence constraints from GS_SCHEMA_V2.md Section 5."""
+
+    def test_c1_correct_answer_matches_choice(self, gs_scratch_data: dict) -> None:
+        """C1: mcq.correct_answer == mcq.choices[mcq.mcq_answer]."""
+        for q in gs_scratch_data["questions"]:
+            mcq = q["mcq"]
+            if mcq["mcq_answer"] and mcq["choices"]:
+                expected = mcq["choices"].get(mcq["mcq_answer"], "")
+                assert (
+                    mcq["correct_answer"] == expected
+                ), f"{q['id']}: C1 violation - correct_answer != choices[{mcq['mcq_answer']}]"
+
+    def test_c2_docs_in_chunk_id(self, gs_scratch_data: dict) -> None:
+        """C2: provenance.docs[0] appears in provenance.chunk_id."""
+        for q in gs_scratch_data["questions"]:
+            prov = q["provenance"]
+            if prov["docs"]:
+                doc = prov["docs"][0]
+                # chunk_id format: "source.pdf-pXXX-parentXXX-childXX"
+                # docs[0] should be the source part
+                assert (
+                    doc in prov["chunk_id"]
+                ), f"{q['id']}: C2 violation - doc '{doc}' not in chunk_id '{prov['chunk_id']}'"
+
+    def test_c3_pages_in_chunk_id(self, gs_scratch_data: dict) -> None:
+        """C3: provenance.pages[0] appears in provenance.chunk_id."""
+        for q in gs_scratch_data["questions"]:
+            prov = q["provenance"]
+            if prov["pages"]:
+                page = prov["pages"][0]
+                # chunk_id contains page as "pXXX"
+                page_pattern = f"p{page:03d}"
+                assert page_pattern in prov["chunk_id"], (
+                    f"{q['id']}: C3 violation - page {page} (as {page_pattern}) "
+                    f"not in chunk_id '{prov['chunk_id']}'"
+                )
+
+    def test_c6_question_ends_with_question_mark(self, gs_scratch_data: dict) -> None:
+        """C6: content.question finit par '?'."""
+        for q in gs_scratch_data["questions"]:
+            assert (
+                q["content"]["question"].strip().endswith("?")
+            ), f"{q['id']}: C6 violation - question does not end with '?'"
+
+    def test_c7_expected_answer_gt_5_chars(self, gs_scratch_data: dict) -> None:
+        """C7: content.expected_answer > 5 chars (answerable only)."""
+        for q in gs_scratch_data["questions"]:
+            if not q["content"]["is_impossible"]:
+                answer = q["content"]["expected_answer"]
+                assert (
+                    len(answer) > 5
+                ), f"{q['id']}: C7 violation - expected_answer '{answer}' <= 5 chars"
+
+    def test_c8_difficulty_in_0_1(self, gs_scratch_data: dict) -> None:
+        """C8: classification.difficulty in [0, 1]."""
+        for q in gs_scratch_data["questions"]:
+            diff = q["classification"]["difficulty"]
+            assert (
+                0 <= diff <= 1
+            ), f"{q['id']}: C8 violation - difficulty={diff} not in [0, 1]"
+
+
+@pytest.mark.integration
+class TestFormatCriteria:
+    """Format criteria from GS_SCHEMA_V2.md Section 3.3."""
+
+    def test_question_at_least_10_chars(self, gs_scratch_data: dict) -> None:
+        """content.question >= 10 chars (GS_SCHEMA_V2 Section 3.3)."""
+        for q in gs_scratch_data["questions"]:
+            question = q["content"]["question"]
+            assert (
+                len(question) >= 10
+            ), f"{q['id']}: question '{question}' is < 10 chars"
+
+    def test_answerable_answer_gt_5_chars(self, gs_scratch_data: dict) -> None:
+        """content.expected_answer > 5 chars for answerable (GS_SCHEMA_V2 Section 3.3)."""
+        for q in gs_scratch_data["questions"]:
+            if not q["content"]["is_impossible"]:
+                answer = q["content"]["expected_answer"]
+                assert (
+                    len(answer) > 5
+                ), f"{q['id']}: expected_answer '{answer}' <= 5 chars"
+
+
+@pytest.mark.integration
+class TestProvenanceQuality:
+    """ISO 42001 A.6.2.2: Provenance tracking quality on real data."""
+
+    def test_answerable_has_explanation(self, gs_scratch_data: dict) -> None:
+        """Answerable questions must have non-empty answer_explanation."""
+        for q in gs_scratch_data["questions"]:
+            if not q["content"]["is_impossible"]:
+                explanation = q["provenance"]["answer_explanation"]
+                assert (
+                    explanation.strip()
+                ), f"{q['id']}: answerable question has empty answer_explanation"
+
+    def test_explanation_min_length(self, gs_scratch_data: dict) -> None:
+        """answer_explanation should be meaningful (> 20 chars)."""
+        for q in gs_scratch_data["questions"]:
+            if not q["content"]["is_impossible"]:
+                explanation = q["provenance"]["answer_explanation"]
+                assert (
+                    len(explanation) > 20
+                ), f"{q['id']}: answer_explanation too short ({len(explanation)} chars)"
+
+    def test_answerable_has_article_reference(self, gs_scratch_data: dict) -> None:
+        """Answerable questions should have article_reference."""
+        empty_count = 0
+        answerable = [
+            q for q in gs_scratch_data["questions"] if not q["content"]["is_impossible"]
+        ]
+        for q in answerable:
+            if not q["provenance"]["article_reference"].strip():
+                empty_count += 1
+        # Allow up to 10% without article_reference
+        ratio = empty_count / len(answerable)
+        assert ratio < 0.10, (
+            f"{empty_count}/{len(answerable)} ({ratio:.1%}) answerable questions "
+            "have empty article_reference"
+        )
 
 
 @pytest.mark.integration

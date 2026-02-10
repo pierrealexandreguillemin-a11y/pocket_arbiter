@@ -74,7 +74,12 @@ def sample_gs_question_answerable() -> dict:
             "pages": [1],
             "article_reference": "Art. 5.1",
             "answer_explanation": 'Source: test-source, Art. 5.1. Extrait: "l\'arbitre doit..."',
-            "annales_source": {"exam_year": 2024, "session": "octobre"},
+            "annales_source": {
+                "session": "dec2024",
+                "uv": "clubs",
+                "question_num": 1,
+                "success_rate": 0.85,
+            },
         },
         "classification": {
             "category": "arbitrage",
@@ -85,6 +90,7 @@ def sample_gs_question_answerable() -> dict:
             "reasoning_type": "single-hop",
             "reasoning_class": "reasoning",
             "answer_type": "extractive",
+            # hard_type: BY DESIGN extension (not in GS_SCHEMA_V2.md base spec)
             "hard_type": "ANSWERABLE",
         },
         "validation": {
@@ -104,7 +110,6 @@ def sample_gs_question_answerable() -> dict:
             "extraction_flags": ["by_design"],
             "answer_source": "chunk_extraction",
             "quality_score": 0.8,
-            "priority_boost": 0.1,
         },
         "audit": {
             "history": "[BY DESIGN] Generated on 2026-01-01",
@@ -116,7 +121,7 @@ def sample_gs_question_answerable() -> dict:
 
 @pytest.fixture()
 def sample_gs_question_unanswerable() -> dict:
-    """Schema v2 question (is_impossible=True, hard_type=INSUFFICIENT_INFO)."""
+    """Schema v2 question (is_impossible=True, hard_type=OUT_OF_DATABASE)."""
     return {
         "id": "gs:scratch:unanswerable:0001:def67890",
         "legacy_id": "",
@@ -149,7 +154,8 @@ def sample_gs_question_unanswerable() -> dict:
             "reasoning_type": "single-hop",
             "reasoning_class": "adversarial",
             "answer_type": "unanswerable",
-            "hard_type": "INSUFFICIENT_INFO",
+            # hard_type: UAEval4RAG category (arXiv:2412.12300)
+            "hard_type": "OUT_OF_DATABASE",
         },
         "validation": {
             "status": "VALIDATED",
@@ -168,7 +174,6 @@ def sample_gs_question_unanswerable() -> dict:
             "extraction_flags": ["by_design"],
             "answer_source": "unanswerable",
             "quality_score": 0.8,
-            "priority_boost": 0.0,
         },
         "audit": {
             "history": "[BY DESIGN] Generated on 2026-01-01",

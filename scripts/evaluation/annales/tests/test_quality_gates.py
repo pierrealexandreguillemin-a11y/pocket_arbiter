@@ -103,7 +103,6 @@ def _make_question(
             "extraction_flags": ["by_design"],
             "answer_source": "chunk_extraction",
             "quality_score": 0.8,
-            "priority_boost": 0.1,
         },
         "audit": {
             "history": "[BY DESIGN] test",
@@ -287,14 +286,19 @@ class TestG2Gates:
         assert result.passed is False
 
     def test_g2_3_pass(self) -> None:
-        types = ["OUT_OF_SCOPE", "INSUFFICIENT_INFO", "FALSE_PREMISE", "AMBIGUOUS"]
+        types = [
+            "OUT_OF_DATABASE",
+            "FALSE_PRESUPPOSITION",
+            "UNDERSPECIFIED",
+            "NONSENSICAL",
+        ]
         questions = [_make_question(is_impossible=True, hard_type=t) for t in types]
         result = g2_3_hard_type_diversity(questions)
         assert result.passed is True
 
     def test_g2_3_fail(self) -> None:
         questions = [
-            _make_question(is_impossible=True, hard_type="OUT_OF_SCOPE")
+            _make_question(is_impossible=True, hard_type="OUT_OF_DATABASE")
             for _ in range(5)
         ]
         result = g2_3_hard_type_diversity(questions)
@@ -495,7 +499,7 @@ class TestValidateAllGates:
         q_ans = _make_question(question_text="Quelle est la regle?")
         q_unans = _make_question(
             is_impossible=True,
-            hard_type="OUT_OF_SCOPE",
+            hard_type="OUT_OF_DATABASE",
             reasoning_class="adversarial",
             question_text="Question impossible?",
         )

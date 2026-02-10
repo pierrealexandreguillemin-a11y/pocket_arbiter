@@ -413,55 +413,55 @@ class TestGenerateQuestionsFromChunk:
 
 
 class TestUnanswerableGenerators:
-    """Tests for individual unanswerable question generators."""
+    """Tests for individual UAEval4RAG generators (arXiv:2412.12300)."""
 
-    def test_out_of_scope(self) -> None:
+    def test_out_of_database(self) -> None:
         from scripts.evaluation.annales.generate_real_questions import (
-            generate_out_of_scope,
+            generate_out_of_database,
         )
 
-        q = generate_out_of_scope(0)
+        q = generate_out_of_database(0)
         assert "?" in q
         assert any(sport in q.lower() for sport in ["tennis", "basketball", "football"])
 
-    def test_insufficient_info(self) -> None:
+    def test_false_presupposition(self) -> None:
         from scripts.evaluation.annales.generate_real_questions import (
-            generate_insufficient_info,
+            generate_false_presupposition,
         )
 
-        q = generate_insufficient_info(0)
+        q = generate_false_presupposition(0)
         assert "?" in q
 
-    def test_false_premise(self) -> None:
+    def test_underspecified(self) -> None:
         from scripts.evaluation.annales.generate_real_questions import (
-            generate_false_premise,
+            generate_underspecified,
         )
 
-        q = generate_false_premise(0)
+        q = generate_underspecified(0)
         assert "?" in q
 
-    def test_temporal_mismatch(self) -> None:
+    def test_nonsensical(self) -> None:
         from scripts.evaluation.annales.generate_real_questions import (
-            generate_temporal_mismatch,
+            generate_nonsensical,
         )
 
-        q = generate_temporal_mismatch(0)
+        q = generate_nonsensical(0)
         assert "?" in q
 
-    def test_ambiguous(self) -> None:
+    def test_modality_limited(self) -> None:
         from scripts.evaluation.annales.generate_real_questions import (
-            generate_ambiguous,
+            generate_modality_limited,
         )
 
-        q = generate_ambiguous(0)
+        q = generate_modality_limited(0)
         assert "?" in q
 
-    def test_counterfactual(self) -> None:
+    def test_safety_concerned(self) -> None:
         from scripts.evaluation.annales.generate_real_questions import (
-            generate_counterfactual,
+            generate_safety_concerned,
         )
 
-        q = generate_counterfactual(0)
+        q = generate_safety_concerned(0)
         assert "?" in q
 
 
@@ -475,17 +475,18 @@ class TestGenerateUnanswerableQuestion:
 
     def test_is_impossible_true(self, sample_chunk: dict) -> None:
         random.seed(42)
-        q = generate_unanswerable_question(sample_chunk, "OUT_OF_SCOPE", 0)
+        q = generate_unanswerable_question(sample_chunk, "OUT_OF_DATABASE", 0)
         assert q["is_impossible"] is True
 
     def test_reasoning_class_adversarial(self, sample_chunk: dict) -> None:
         random.seed(42)
-        q = generate_unanswerable_question(sample_chunk, "FALSE_PREMISE", 0)
+        q = generate_unanswerable_question(sample_chunk, "FALSE_PRESUPPOSITION", 0)
         assert q["reasoning_class"] == "adversarial"
 
-    def test_insufficient_info_adds_source(self, sample_chunk: dict) -> None:
+    def test_out_of_database_adds_source(self, sample_chunk: dict) -> None:
+        """OUT_OF_DATABASE with idx%3!=0 adds source context."""
         random.seed(42)
-        q = generate_unanswerable_question(sample_chunk, "INSUFFICIENT_INFO", 0)
+        q = generate_unanswerable_question(sample_chunk, "OUT_OF_DATABASE", 1)
         assert (
             sample_chunk["source"][:20].lower() in q["question"].lower()
             or "page" in q["question"].lower()
@@ -493,8 +494,8 @@ class TestGenerateUnanswerableQuestion:
 
     def test_hard_type_set(self, sample_chunk: dict) -> None:
         random.seed(42)
-        q = generate_unanswerable_question(sample_chunk, "COUNTERFACTUAL", 0)
-        assert q["hard_type"] == "COUNTERFACTUAL"
+        q = generate_unanswerable_question(sample_chunk, "NONSENSICAL", 0)
+        assert q["hard_type"] == "NONSENSICAL"
 
 
 # ---------------------------------------------------------------------------
@@ -506,14 +507,15 @@ class TestUnanswerableGeneratorsDict:
     """Tests for UNANSWERABLE_GENERATORS constant."""
 
     def test_six_keys(self) -> None:
+        """UNANSWERABLE_GENERATORS has exactly the 6 UAEval4RAG categories."""
         assert len(UNANSWERABLE_GENERATORS) == 6
         expected = {
-            "OUT_OF_SCOPE",
-            "INSUFFICIENT_INFO",
-            "FALSE_PREMISE",
-            "TEMPORAL_MISMATCH",
-            "AMBIGUOUS",
-            "COUNTERFACTUAL",
+            "OUT_OF_DATABASE",
+            "FALSE_PRESUPPOSITION",
+            "UNDERSPECIFIED",
+            "NONSENSICAL",
+            "MODALITY_LIMITED",
+            "SAFETY_CONCERNED",
         }
         assert set(UNANSWERABLE_GENERATORS.keys()) == expected
 
@@ -594,9 +596,15 @@ class TestRunGeneration:
         # save_json was called
         mock_save.assert_called_once()
 
-    def test_empty_strata_no_crash(self, tmp_path: Path) -> None:
-        """run_generation with no selected chunks doesn't crash."""
+    def test_empty_strata_raises_index_error(self, tmp_path: Path) -> None:
+        """run_generation with no selected chunks raises IndexError.
+
+        random.choice(selected_chunks) on empty list raises IndexError
+        during unanswerable generation (line 597 of source).
+        """
         from unittest.mock import patch
+
+        import pytest
 
         from scripts.evaluation.annales.generate_real_questions import run_generation
 
@@ -619,20 +627,10 @@ class TestRunGeneration:
             ),
         ):
             random.seed(42)
-            # With no chunks, unanswerable generation uses random.choice on empty list
-            # This should either produce 0 questions or raise - test the behavior
-            try:
-                result = run_generation(
+            with pytest.raises(IndexError):
+                run_generation(
                     Path("chunks.json"),
                     Path("strata.json"),
                     tmp_path / "out.json",
                     target_total=10,
                 )
-                # If it succeeds, answerable should be 0
-                answerable = [
-                    q for q in result["questions"] if not q.get("is_impossible")
-                ]
-                assert len(answerable) == 0
-            except (IndexError, ValueError):
-                # Expected: random.choice on empty list
-                pass

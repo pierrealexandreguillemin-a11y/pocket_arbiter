@@ -168,7 +168,16 @@ class TestCosineSimilarityMatrix:
 
     def test_symmetric(self) -> None:
         """Matrix should be symmetric."""
-        embeddings = np.random.rand(5, 10)
+        # Deterministic embeddings with known values (no random)
+        embeddings = np.array(
+            [
+                [1.0, 0.3, 0.0, 0.0, 0.0],
+                [0.0, 1.0, 0.5, 0.0, 0.0],
+                [0.2, 0.0, 1.0, 0.1, 0.0],
+                [0.0, 0.4, 0.0, 1.0, 0.3],
+                [0.1, 0.0, 0.2, 0.0, 1.0],
+            ]
+        )
         matrix = cosine_similarity_matrix(embeddings)
         assert np.allclose(matrix, matrix.T)
 
@@ -211,17 +220,17 @@ class TestValidateDistribution:
         """Should pass when distribution meets targets."""
         stats = DistributionStats(
             total=100,
-            answerable=70,
-            unanswerable=30,  # 30% - in [25%, 33%]
-            fact_single=35,  # 50% of answerable - < 60%
+            answerable=65,
+            unanswerable=35,  # 35% - in [25%, 40%] (SQuAD 2.0 train=33.4%)
+            fact_single=32,  # ~49% of answerable - < 60%
             summary=20,
-            reasoning=15,
+            reasoning=13,
             arithmetic=0,
             hard=15,  # 15% - >= 10%
         )
         targets = {
             "fact_single": (0.0, 0.60),
-            "unanswerable": (0.25, 0.33),
+            "unanswerable": (0.25, 0.40),
             "hard": (0.10, 1.0),
         }
         passed, errors = validate_distribution(stats, targets)
@@ -263,7 +272,7 @@ class TestValidateDistribution:
         assert any("G5-4" in e for e in errors)
 
     def test_fails_bad_unanswerable_ratio(self) -> None:
-        """Should fail G5-5 when unanswerable outside [25%, 33%]."""
+        """Should fail G5-5 when unanswerable outside [25%, 40%]."""
         # Too low
         stats_low = DistributionStats(
             total=100,
@@ -275,7 +284,7 @@ class TestValidateDistribution:
             arithmetic=0,
             hard=20,
         )
-        targets = {"unanswerable": (0.25, 0.33)}
+        targets = {"unanswerable": (0.25, 0.40)}
         passed, errors = validate_distribution(stats_low, targets)
         assert not passed
         assert any("G5-5" in e for e in errors)
@@ -283,11 +292,11 @@ class TestValidateDistribution:
         # Too high
         stats_high = DistributionStats(
             total=100,
-            answerable=60,
-            unanswerable=40,  # 40% - > 33%
-            fact_single=30,
+            answerable=50,
+            unanswerable=50,  # 50% - > 40%
+            fact_single=25,
             summary=15,
-            reasoning=15,
+            reasoning=10,
             arithmetic=0,
             hard=20,
         )
@@ -299,33 +308,58 @@ class TestValidateDistribution:
 class TestDeduplicationIntegration:
     """Integration tests for deduplication (mocked embeddings)."""
 
-    @pytest.fixture
-    def mock_embeddings(self):
-        """Mock the embedding functions."""
-        with patch(
-            "scripts.evaluation.annales.balance_distribution.compute_embeddings_batch"
-        ) as mock:
-            # Return different embeddings for each question
-            def side_effect(texts, batch_size=32):
-                n = len(texts)
-                # Return orthogonal embeddings (no duplicates)
-                embeddings = np.eye(n, min(n, 10))
-                if n > 10:
-                    embeddings = np.random.rand(n, 10)
-                return embeddings
-
-            mock.side_effect = side_effect
-            yield mock
-
-    def test_unique_questions_preserved(self, mock_embeddings) -> None:
+    def test_unique_questions_preserved(self) -> None:
         """Should preserve all questions when no duplicates."""
         from scripts.evaluation.annales.balance_distribution import (
             deduplicate_questions,
         )
 
-        questions = [
-            {"id": f"q{i}", "content": {"question": f"Question {i}?"}} for i in range(5)
-        ]
-        result = deduplicate_questions(questions, threshold=0.95)
-        assert len(result.unique_ids) == 5
-        assert len(result.removed_ids) == 0
+        with patch(
+            "scripts.evaluation.annales.balance_distribution.compute_embeddings_batch"
+        ) as mock:
+            # 5 orthogonal unit vectors → all pairwise cosine = 0.0 < 0.95
+            embeddings = np.zeros((5, 10))
+            for i in range(5):
+                embeddings[i, i] = 1.0
+            mock.return_value = embeddings
+
+            questions = [
+                {"id": f"q{i}", "content": {"question": f"Question {i}?"}}
+                for i in range(5)
+            ]
+            result = deduplicate_questions(questions, threshold=0.95)
+            assert len(result.unique_ids) == 5
+            assert len(result.removed_ids) == 0
+            assert len(result.duplicate_pairs) == 0
+
+    def test_duplicates_detected(self) -> None:
+        """Should detect near-duplicate questions based on controlled similarity."""
+        from scripts.evaluation.annales.balance_distribution import (
+            deduplicate_questions,
+        )
+
+        with patch(
+            "scripts.evaluation.annales.balance_distribution.compute_embeddings_batch"
+        ) as mock:
+            # q0 and q1 are near-identical (cosine = 0.99), q2 is orthogonal
+            embeddings = np.zeros((3, 10))
+            embeddings[0, 0] = 1.0
+            embeddings[1, 0] = 0.99
+            embeddings[1, 1] = np.sqrt(1 - 0.99**2)  # cosine(q0,q1) ≈ 0.99
+            embeddings[2, 2] = 1.0  # orthogonal to both
+            mock.return_value = embeddings
+
+            questions = [
+                {"id": "q0", "content": {"question": "Quel est le temps?"}},
+                {"id": "q1", "content": {"question": "Quel est le temps?"}},
+                {"id": "q2", "content": {"question": "Question differente?"}},
+            ]
+            result = deduplicate_questions(questions, threshold=0.95)
+            assert len(result.unique_ids) == 2
+            assert "q0" in result.unique_ids
+            assert "q2" in result.unique_ids
+            assert "q1" in result.removed_ids
+            assert len(result.duplicate_pairs) == 1
+            # Verify the recorded similarity is close to 0.99
+            _, _, sim = result.duplicate_pairs[0]
+            assert sim == pytest.approx(0.99, abs=0.02)

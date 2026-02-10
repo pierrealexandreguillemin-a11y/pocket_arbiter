@@ -235,13 +235,13 @@ class TestEnrichToSchemaV2:
             "question": "Quel est le salaire d'un arbitre?",
             "expected_answer": "",
             "is_impossible": True,
-            "hard_type": "OUT_OF_SCOPE",
+            "hard_type": "OUT_OF_DATABASE",
         }
 
         result = enrich_to_schema_v2(unanswerable_q, sample_chunk)
 
         assert result["content"]["is_impossible"] is True
-        assert result["classification"]["hard_type"] == "OUT_OF_SCOPE"
+        assert result["classification"]["hard_type"] == "OUT_OF_DATABASE"
         assert result["processing"]["triplet_ready"] is False
 
 
@@ -249,13 +249,14 @@ class TestCountSchemaFields:
     """Tests for schema field counting."""
 
     def test_counts_root_fields(self) -> None:
-        """Should count root fields."""
+        """Should count exactly 2 root fields (id + legacy_id)."""
         question = {"id": "test", "legacy_id": ""}
         count = count_schema_fields(question)
-        assert count >= 2
+        # id is truthy → +1, "legacy_id" in question → +1, no groups
+        assert count == 2
 
     def test_counts_group_fields(self) -> None:
-        """Should count fields in groups."""
+        """Should count root fields + group fields exactly."""
         question = {
             "id": "test",
             "legacy_id": "",
@@ -272,7 +273,8 @@ class TestCountSchemaFields:
             "audit": {},
         }
         count = count_schema_fields(question)
-        assert count >= 5  # At least root (2) + content (3)
+        # 2 root (id + legacy_id) + 3 content fields + 0 from 6 empty groups = 5
+        assert count == 5
 
 
 class TestValidateSchemaCompliance:

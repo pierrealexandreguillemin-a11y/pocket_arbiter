@@ -514,3 +514,144 @@ class TestLoadGsItems:
     def test_missing_gs_raises(self) -> None:
         with pytest.raises(FileNotFoundError):
             _load_gs_items("fr", Path("/nonexistent/gs.json"))
+
+    def test_skips_item_without_id(self, tmp_path: Path) -> None:
+        """HIGH-2 fix: item missing 'id' field is skipped, not KeyError."""
+        gs_data = {
+            "questions": [
+                {
+                    # No "id" field
+                    "content": {"question": "Q?", "expected_answer": "A"},
+                    "provenance": {"chunk_id": "c1"},
+                    "classification": {"hard_type": "ANSWERABLE"},
+                    "validation": {"status": "VALIDATED"},
+                },
+            ]
+        }
+        gs_path = tmp_path / "gs.json"
+        gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        chunks_dir = tmp_path / "corpus"
+        chunks_dir.mkdir()
+        (chunks_dir / "chunks_mode_b_fr.json").write_text(
+            json.dumps({"chunks": [{"id": "c1", "text": "txt"}]}),
+            encoding="utf-8",
+        )
+
+        with patch("scripts.evaluation.gs_validate.CORPUS_DIR", chunks_dir):
+            items = _load_gs_items("fr", gs_path)
+
+        assert len(items) == 0  # Skipped, not crashed
+
+
+# ── validate_gs with FAIL path ────────────────────────────────────────
+
+
+class TestValidateGsFailPath:
+    """Integration test exercising FAIL verdicts end-to-end."""
+
+    def test_fail_path_produces_flagged_items(self, tmp_path: Path) -> None:
+        """MED-3 fix: verify the full pipeline with FAILs, not just PASs."""
+        gs_data = {
+            "questions": [
+                {
+                    "id": "gs:test:001",
+                    "content": {
+                        "question": "Q about chess?",
+                        "expected_answer": "Answer about chess.",
+                    },
+                    "provenance": {"chunk_id": "c1"},
+                    "classification": {"hard_type": "ANSWERABLE"},
+                    "validation": {"status": "VALIDATED"},
+                },
+            ]
+        }
+        gs_path = tmp_path / "gs.json"
+        gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        chunks_dir = tmp_path / "corpus"
+        chunks_dir.mkdir()
+        (chunks_dir / "chunks_mode_b_fr.json").write_text(
+            json.dumps({"chunks": [{"id": "c1", "text": "chunk"}]}),
+            encoding="utf-8",
+        )
+
+        # Patch _call_llm to return FAIL for faithfulness
+        call_count = 0
+
+        def mock_fail_af(
+            system_prompt: str,
+            user_prompt: str,
+            backend: str,
+            model: str,
+        ) -> str:
+            nonlocal call_count
+            call_count += 1
+            if "faithfully grounded" in system_prompt.lower():
+                return "[[FAIL]] Answer adds info not in chunk."
+            return "[[PASS]] Ok."
+
+        with (
+            patch("scripts.evaluation.gs_validate.CORPUS_DIR", chunks_dir),
+            patch(
+                "scripts.evaluation.gs_validate._call_llm",
+                side_effect=mock_fail_af,
+            ),
+        ):
+            report = validate_gs(
+                corpus="fr",
+                llm_backend="ollama",
+                model="test",
+                output_dir=tmp_path / "output",
+                gs_path=gs_path,
+            )
+
+        assert call_count == 3  # 3 criteria per item
+        assert report["n_items"] == 1
+        assert report["overall_pass_rate"] == 0.0  # AF failed
+        assert report["metrics"]["answer_faithfulness"]["n_fail"] == 1
+        assert report["metrics"]["context_relevance"]["n_fail"] == 0
+        assert "gs:test:001" in report["flagged_items"]
+
+
+# ── CLI entrypoint ────────────────────────────────────────────────────
+
+
+class TestMainCli:
+    """MED-5 fix: test the CLI entrypoint."""
+
+    def test_main_mock_backend(self, tmp_path: Path) -> None:
+        """main() with mock backend completes without error."""
+        from scripts.evaluation.gs_validate import main
+
+        gs_data = {
+            "questions": [
+                {
+                    "id": "gs:cli:001",
+                    "content": {"question": "Q?", "expected_answer": "A."},
+                    "provenance": {"chunk_id": "c1"},
+                    "classification": {"hard_type": "ANSWERABLE"},
+                    "validation": {"status": "VALIDATED"},
+                },
+            ]
+        }
+        gs_path = tmp_path / "gs_scratch_v1.json"
+        gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        chunks_dir = tmp_path / "corpus"
+        chunks_dir.mkdir()
+        (chunks_dir / "chunks_mode_b_fr.json").write_text(
+            json.dumps({"chunks": [{"id": "c1", "text": "chunk text"}]}),
+            encoding="utf-8",
+        )
+
+        with (
+            patch("scripts.evaluation.gs_validate.CORPUS_DIR", chunks_dir),
+            patch("scripts.evaluation.gs_validate.TESTS_DATA_DIR", tmp_path),
+            patch(
+                "sys.argv",
+                ["gs_validate", "--backend", "mock", "--corpus", "fr"],
+            ),
+        ):
+            # main() prints to stdout but should not crash
+            main()

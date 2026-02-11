@@ -16,14 +16,10 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
+from scripts.pipeline.utils import load_json
+
 # Configuration
 MIN_ANSWER_MATCH_RATIO = 0.3  # Au moins 30% des mots-clés de la réponse
-
-
-def load_json(path: str) -> dict:
-    """Load JSON file with UTF-8 encoding."""
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
 
 
 def save_json(data: dict, path: str) -> None:

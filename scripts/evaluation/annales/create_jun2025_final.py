@@ -10,10 +10,7 @@ ISO Reference: ISO 42001 A.6.2.2 - Provenance tracking
 import json
 from pathlib import Path
 
-
-def load_json(path: Path) -> dict:
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
+from scripts.pipeline.utils import load_json
 
 
 def merge_all_sources():

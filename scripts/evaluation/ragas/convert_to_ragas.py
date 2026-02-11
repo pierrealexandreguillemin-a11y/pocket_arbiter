@@ -91,32 +91,40 @@ def convert_to_ragas(
     questions = gs.get("questions", [])
 
     # Filter to answerable, validated questions
-    answerable = [
-        q
-        for q in questions
-        if q.get("expected_chunk_id")
-        and q.get("validation", {}).get("status") == "VALIDATED"
-        and q.get("metadata", {}).get("hard_type", "ANSWERABLE") == "ANSWERABLE"
-    ]
+    # Support both Schema V2 (nested) and V1 (flat) field names
+    answerable = []
+    for q in questions:
+        chunk_id = q.get("provenance", {}).get("chunk_id") or q.get("expected_chunk_id")
+        status = q.get("validation", {}).get("status", "")
+        hard_type = q.get("classification", {}).get("hard_type") or q.get(
+            "metadata", {}
+        ).get("hard_type", "ANSWERABLE")
+        if chunk_id and status == "VALIDATED" and hard_type == "ANSWERABLE":
+            answerable.append(q)
 
     output_path = output_dir / "ragas_evaluation.jsonl"
     n_written = 0
 
     with open(output_path, "w", encoding="utf-8") as f:
         for q in answerable:
-            chunk_id = q["expected_chunk_id"]
+            chunk_id = q.get("provenance", {}).get("chunk_id") or q["expected_chunk_id"]
             chunk = chunks.get(chunk_id)
             if not chunk:
                 continue
 
             # ground_truth = expected answer, NOT the question
-            expected_answer = q.get("expected_answer", "")
+            # Schema V2: content.expected_answer; V1: expected_answer
+            expected_answer = q.get("content", {}).get("expected_answer") or q.get(
+                "expected_answer", ""
+            )
             if not expected_answer:
-                # Fallback to metadata
                 expected_answer = q.get("metadata", {}).get("expected_answer", "")
 
+            # Schema V2: content.question; V1: question
+            question = q.get("content", {}).get("question") or q.get("question", "")
+
             record = {
-                "question": q["question"],
+                "question": question,
                 "answer": "",  # To be filled by RAG system
                 "contexts": [chunk["text"]],
                 "ground_truth": expected_answer,

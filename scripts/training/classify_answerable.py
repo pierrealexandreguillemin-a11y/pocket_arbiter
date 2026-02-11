@@ -35,6 +35,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+from scripts.pipeline.utils import load_json
+
 
 def classify_answer_type(question: str) -> str:
     """Classify question by expected answer type."""
@@ -139,12 +141,6 @@ def classify_cognitive_level(answer_type: str, reasoning_type: str) -> str:
         return "ANALYZE"
 
     return "REMEMBER"
-
-
-def load_json(path: Path) -> dict:
-    """Load JSON file with UTF-8 encoding."""
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
 
 
 def save_json(path: Path, data: dict) -> None:

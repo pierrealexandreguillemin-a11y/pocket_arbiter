@@ -14,11 +14,7 @@ References:
 import json
 from pathlib import Path
 
-
-def load_json(path: Path) -> dict:
-    """Load JSON file with UTF-8 encoding."""
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
+from scripts.pipeline.utils import load_json
 
 
 def save_json(path: Path, data: dict) -> None:

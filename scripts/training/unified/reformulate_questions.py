@@ -28,6 +28,8 @@ from typing import Any, Protocol
 
 from tqdm import tqdm
 
+from scripts.pipeline.utils import load_json
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
@@ -204,12 +206,6 @@ def create_llm_client(provider: str = "mock", **kwargs: Any) -> LLMClient:
             f"Unknown provider: {provider}. Available: {list(providers.keys())}"
         )
     return providers[provider](**{k: v for k, v in kwargs.items() if v is not None})
-
-
-def load_json_file(path: Path) -> Any:
-    """Load JSON file."""
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
 
 
 def build_chunk_index(chunks_data: Any) -> dict[str, dict]:
@@ -389,10 +385,10 @@ def main() -> None:
 
     # Load data
     logger.info(f"Loading GS: {args.input}")
-    gs_data = load_json_file(args.input)
+    gs_data = load_json(args.input)
 
     logger.info(f"Loading chunks: {args.chunks}")
-    chunks_data = load_json_file(args.chunks)
+    chunks_data = load_json(args.chunks)
     chunk_index = build_chunk_index(chunks_data)
     logger.info(f"  Indexed {len(chunk_index)} chunks")
 

@@ -6,11 +6,11 @@ READ-ONLY analysis: checks M2, M2b, M3, M4, M5, CB-01, CB-02, F-01, F-04, M-01/M
 from __future__ import annotations
 
 import io
-import json
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any
+
+from scripts.pipeline.utils import load_json
 
 # Force UTF-8 output on Windows
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
@@ -24,11 +24,6 @@ CHUNKS_PATH = Path(r"C:\Dev\pocket_arbiter\corpus\processed\chunks_mode_b_fr.jso
 
 
 # ── Load data ──────────────────────────────────────────────────────────
-def load_json(p: Path) -> Any:
-    with open(p, encoding="utf-8") as f:
-        return json.load(f)
-
-
 print("=" * 90)
 print("  PHASE 0 — GS v8.0 TRACEABILITY CHAIN DIAGNOSTIC")
 print("=" * 90)

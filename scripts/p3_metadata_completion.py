@@ -19,6 +19,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from scripts.pipeline.utils import load_json
+
 GS_PATH = Path("tests/data/gold_standard_annales_fr_v7.json")
 CHUNKS_PATH = Path("corpus/processed/chunks_mode_b_fr.json")
 
@@ -52,12 +54,6 @@ REASON_CATEGORIES: dict[str, str] = {
     "licence": "requires_external_data",
     "saison": "requires_external_data",
 }
-
-
-def load_json(path: Path) -> Any:
-    """Load JSON with UTF-8."""
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
 
 
 def save_json(data: Any, path: Path) -> None:

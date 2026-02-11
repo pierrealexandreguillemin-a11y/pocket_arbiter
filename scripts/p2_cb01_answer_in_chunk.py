@@ -21,18 +21,14 @@ import re
 from pathlib import Path
 from typing import Any
 
+from scripts.pipeline.utils import load_json
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
 GS_PATH = Path("tests/data/gold_standard_annales_fr_v7.json")
 PREV_GS_PATH = Path("gs_prev.json")
 CHUNKS_PATH = Path("corpus/processed/chunks_mode_b_fr.json")
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON file with UTF-8 encoding."""
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
 
 
 def save_json(data: Any, path: Path) -> None:

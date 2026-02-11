@@ -7,11 +7,16 @@ entre les modules du pipeline.
 ISO Reference: ISO/IEC 12207 - Reusability
 """
 
+from __future__ import annotations
+
 import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -147,7 +152,7 @@ def list_pdf_files(directory: Path) -> list[Path]:
     return sorted(directory.rglob("*.pdf"))
 
 
-def cosine_similarity(vec1: Any, vec2: Any) -> float:
+def cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:
     """
     Compute cosine similarity between two vectors.
 

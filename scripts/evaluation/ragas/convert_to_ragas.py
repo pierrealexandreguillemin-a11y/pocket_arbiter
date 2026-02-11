@@ -92,12 +92,15 @@ def convert_to_ragas(
 
     # Filter to answerable, validated questions
     # Support both Schema V2 (nested) and V1 (flat) field names
+    # Guard against None nested dicts (e.g. content: null)
     answerable = []
     for q in questions:
-        chunk_id = q.get("provenance", {}).get("chunk_id") or q.get("expected_chunk_id")
-        status = q.get("validation", {}).get("status", "")
-        hard_type = q.get("classification", {}).get("hard_type") or q.get(
-            "metadata", {}
+        chunk_id = (q.get("provenance") or {}).get("chunk_id") or q.get(
+            "expected_chunk_id"
+        )
+        status = (q.get("validation") or {}).get("status", "")
+        hard_type = (q.get("classification") or {}).get("hard_type") or (
+            q.get("metadata") or {}
         ).get("hard_type", "ANSWERABLE")
         if chunk_id and status == "VALIDATED" and hard_type == "ANSWERABLE":
             answerable.append(q)
@@ -107,21 +110,23 @@ def convert_to_ragas(
 
     with open(output_path, "w", encoding="utf-8") as f:
         for q in answerable:
-            chunk_id = q.get("provenance", {}).get("chunk_id") or q["expected_chunk_id"]
-            chunk = chunks.get(chunk_id)
+            chunk_id = (q.get("provenance") or {}).get("chunk_id") or q.get(
+                "expected_chunk_id"
+            )
+            chunk = chunks.get(chunk_id) if chunk_id else None
             if not chunk:
                 continue
 
             # ground_truth = expected answer, NOT the question
             # Schema V2: content.expected_answer; V1: expected_answer
-            expected_answer = q.get("content", {}).get("expected_answer") or q.get(
+            expected_answer = (q.get("content") or {}).get("expected_answer") or q.get(
                 "expected_answer", ""
             )
             if not expected_answer:
-                expected_answer = q.get("metadata", {}).get("expected_answer", "")
+                expected_answer = (q.get("metadata") or {}).get("expected_answer", "")
 
             # Schema V2: content.question; V1: question
-            question = q.get("content", {}).get("question") or q.get("question", "")
+            question = (q.get("content") or {}).get("question") or q.get("question", "")
 
             record = {
                 "question": question,

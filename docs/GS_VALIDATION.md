@@ -38,6 +38,12 @@ python -m scripts.evaluation.gs_validate --corpus fr --backend ollama --model mi
 
 # Quick test (10 items)
 python -m scripts.evaluation.gs_validate --corpus fr --backend ollama --model mistral:latest --max-items 10
+
+# With Anthropic (cloud)
+python -m scripts.evaluation.gs_validate --corpus fr --backend anthropic --model claude-sonnet-4-5-20250929
+
+# With Groq (cloud)
+python -m scripts.evaluation.gs_validate --corpus fr --backend groq --model llama-3.3-70b-versatile
 ```
 
 ## Workflow for corrections

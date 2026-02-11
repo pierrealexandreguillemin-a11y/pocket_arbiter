@@ -205,7 +205,7 @@ def _call_llm(
     Args:
         system_prompt: System message
         user_prompt: User message
-        backend: 'mock', 'ollama', or 'groq'
+        backend: 'mock', 'ollama', 'groq', or 'anthropic'
         model: Model name
 
     Returns:
@@ -257,9 +257,37 @@ def _call_llm(
             max_tokens=250,
             temperature=0,
         )
-        return (response.choices[0].message.content or "").strip()
+        choices = response.choices or []
+        if not choices:
+            return ""
+        return (choices[0].message.content or "").strip()
 
-    raise ValueError(f"Unsupported backend: {backend}. Available: mock, ollama, groq")
+    if backend == "anthropic":
+        import os
+
+        import anthropic
+
+        api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+        if not api_key:
+            raise OSError("ANTHROPIC_API_KEY not set")
+
+        client = anthropic.Anthropic(api_key=api_key)
+        message = client.messages.create(
+            model=model,
+            system=system_prompt,
+            messages=[{"role": "user", "content": user_prompt}],
+            max_tokens=250,
+            temperature=0,
+            timeout=120,
+        )
+        blocks = message.content or []
+        if not blocks:
+            return ""
+        return (blocks[0].text or "").strip()
+
+    raise ValueError(
+        f"Unsupported backend: {backend}. Available: mock, ollama, groq, anthropic"
+    )
 
 
 def _judge_item(
@@ -490,7 +518,7 @@ def validate_gs(
 
     Args:
         corpus: Either 'fr' or 'intl'
-        llm_backend: Backend ('mock', 'ollama', 'groq')
+        llm_backend: Backend ('mock', 'ollama', 'groq', 'anthropic')
         model: Model name
         max_items: Limit items (0=all)
         output_dir: Output directory
@@ -594,7 +622,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--backend",
-        choices=["mock", "ollama", "groq"],
+        choices=["mock", "ollama", "groq", "anthropic"],
         default="mock",
         help="LLM backend (default: mock)",
     )

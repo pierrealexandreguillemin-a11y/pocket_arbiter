@@ -1,6 +1,6 @@
 # Pocket Arbiter - Dependencies
 # ISO 12207 S7.3.3 - Configuration Management
-# Updated: 2026-01-19
+# Updated: 2026-02-11
 
 # === PDF Extraction (IBM/LF AI) ===
 docling>=2.68.0  # ML-based, tables+sections, MIT license
@@ -20,6 +20,9 @@ ai-edge-litert>=2.1.0  # LiteRT successor to TFLite
 # === Testing (ISO 29119) ===
 pytest>=8.0.0
 pytest-cov>=5.0.0
+
+# === LLM Providers ===
+anthropic>=0.28.0
 
 # === Quality (ISO 25010) ===
 ruff>=0.8.0

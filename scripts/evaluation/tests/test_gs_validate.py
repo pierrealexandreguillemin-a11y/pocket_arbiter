@@ -15,6 +15,7 @@ import pytest
 from scripts.evaluation.gs_validate import (
     CRITERIA,
     _build_judge_prompt,
+    _call_llm,
     _compute_agreement,
     _generate_report,
     _judge_item,
@@ -180,6 +181,172 @@ class TestJudgeItem:
     def test_invalid_backend_raises(self) -> None:
         with pytest.raises(ValueError, match="Unsupported backend"):
             _judge_item("Q?", "C", "A", "context_relevance", "invalid_backend")
+
+
+class TestCallLlmAnthropic:
+    """Tests for _call_llm with anthropic backend."""
+
+    def test_call_llm_anthropic_ok(self) -> None:
+        """Anthropic backend returns response text and passes correct SDK params."""
+        mock_block = type("TextBlock", (), {"text": " [[PASS]] Looks good. "})()
+        mock_message = type("Message", (), {"content": [mock_block]})()
+
+        captured: dict = {}
+
+        def mock_create(**kw: object) -> object:
+            captured.update(kw)
+            return mock_message
+
+        mock_messages = type("Messages", (), {"create": staticmethod(mock_create)})()
+
+        class MockAnthropic:
+            def __init__(self, **kw: object) -> None:
+                captured["_api_key"] = kw.get("api_key")
+                self.messages = mock_messages
+
+        mock_anthropic = type("module", (), {"Anthropic": MockAnthropic})()
+
+        with (
+            patch.dict("os.environ", {"ANTHROPIC_API_KEY": "test-key"}),
+            patch.dict("sys.modules", {"anthropic": mock_anthropic}),
+        ):
+            result = _call_llm(
+                "sys prompt", "usr prompt", "anthropic", "claude-sonnet-4-5-20250929"
+            )
+
+        # Verify .strip() applied
+        assert result == "[[PASS]] Looks good."
+        # Verify SDK parameters (ISO 29119: all inputs to external APIs)
+        assert captured["_api_key"] == "test-key"
+        assert captured["model"] == "claude-sonnet-4-5-20250929"
+        assert captured["system"] == "sys prompt"
+        assert captured["messages"] == [{"role": "user", "content": "usr prompt"}]
+        assert captured["max_tokens"] == 250
+        assert captured["temperature"] == 0
+        assert captured["timeout"] == 120
+
+    def test_call_llm_anthropic_no_key(self) -> None:
+        """Anthropic backend raises OSError when API key is missing."""
+        mock_anthropic = type("module", (), {"Anthropic": None})()
+
+        with (
+            patch.dict("os.environ", {}, clear=True),
+            patch.dict("sys.modules", {"anthropic": mock_anthropic}),
+        ):
+            with pytest.raises(OSError, match="ANTHROPIC_API_KEY not set"):
+                _call_llm("system", "user", "anthropic", "claude-sonnet-4-5-20250929")
+
+    def test_call_llm_anthropic_empty_content(self) -> None:
+        """Anthropic backend returns empty string when content list is empty."""
+        mock_message = type("Message", (), {"content": []})()
+
+        def mock_create(**kw: object) -> object:
+            return mock_message
+
+        mock_messages = type("Messages", (), {"create": staticmethod(mock_create)})()
+
+        class MockAnthropic:
+            def __init__(self, **kw: object) -> None:
+                self.messages = mock_messages
+
+        mock_anthropic = type("module", (), {"Anthropic": MockAnthropic})()
+
+        with (
+            patch.dict("os.environ", {"ANTHROPIC_API_KEY": "test-key"}),
+            patch.dict("sys.modules", {"anthropic": mock_anthropic}),
+        ):
+            result = _call_llm("sys", "usr", "anthropic", "model")
+
+        assert result == ""
+
+
+class TestCallLlmGroqEdge:
+    """Edge-case tests for _call_llm groq backend."""
+
+    def test_call_llm_groq_ok(self) -> None:
+        """Groq backend returns response text and passes correct SDK params."""
+        mock_msg = type("Msg", (), {"content": " [[PASS]] Groq ok. "})()
+        mock_choice = type("Choice", (), {"message": mock_msg})()
+        mock_response = type("Response", (), {"choices": [mock_choice]})()
+
+        captured: dict = {}
+
+        def mock_create(**kw: object) -> object:
+            captured.update(kw)
+            return mock_response
+
+        class MockOpenAI:
+            def __init__(self, **kw: object) -> None:
+                captured["_api_key"] = kw.get("api_key")
+                captured["_base_url"] = kw.get("base_url")
+                self.chat = type(
+                    "Chat",
+                    (),
+                    {
+                        "completions": type(
+                            "Completions",
+                            (),
+                            {"create": staticmethod(mock_create)},
+                        )()
+                    },
+                )()
+
+        mock_openai_mod = type("module", (), {"OpenAI": MockOpenAI})()
+
+        with (
+            patch.dict("os.environ", {"GROQ_API_KEY": "groq-test-key"}),
+            patch.dict("sys.modules", {"openai": mock_openai_mod}),
+        ):
+            result = _call_llm(
+                "sys prompt", "usr prompt", "groq", "llama-3.3-70b-versatile"
+            )
+
+        # Verify .strip() applied
+        assert result == "[[PASS]] Groq ok."
+        # Verify SDK parameters (ISO 29119: all inputs to external APIs)
+        assert captured["_api_key"] == "groq-test-key"
+        assert captured["_base_url"] == "https://api.groq.com/openai/v1"
+        assert captured["model"] == "llama-3.3-70b-versatile"
+        assert captured["messages"] == [
+            {"role": "system", "content": "sys prompt"},
+            {"role": "user", "content": "usr prompt"},
+        ]
+        assert captured["max_tokens"] == 250
+        assert captured["temperature"] == 0
+
+    def test_call_llm_groq_no_key(self) -> None:
+        """Groq backend raises OSError when API key is missing."""
+        with patch.dict("os.environ", {}, clear=True):
+            with pytest.raises(OSError, match="GROQ_API_KEY not set"):
+                _call_llm("sys", "usr", "groq", "model")
+
+    def test_call_llm_groq_empty_choices(self) -> None:
+        """Groq backend returns empty string when choices list is empty."""
+        mock_response = type("Response", (), {"choices": []})()
+
+        class MockOpenAI:
+            def __init__(self, **kw: object) -> None:
+                self.chat = type(
+                    "Chat",
+                    (),
+                    {
+                        "completions": type(
+                            "Completions",
+                            (),
+                            {"create": staticmethod(lambda **kw: mock_response)},
+                        )()
+                    },
+                )()
+
+        mock_openai_mod = type("module", (), {"OpenAI": MockOpenAI})()
+
+        with (
+            patch.dict("os.environ", {"GROQ_API_KEY": "test-key"}),
+            patch.dict("sys.modules", {"openai": mock_openai_mod}),
+        ):
+            result = _call_llm("sys", "usr", "groq", "model")
+
+        assert result == ""
 
 
 # ── _compute_agreement ────────────────────────────────────────────────

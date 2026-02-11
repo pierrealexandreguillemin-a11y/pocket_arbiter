@@ -27,6 +27,8 @@ from pathlib import Path
 
 import numpy as np
 
+from scripts.pipeline.utils import load_json
+
 # Lazy import for sentence-transformers
 _model = None
 
@@ -40,12 +42,6 @@ def get_embedding_model():
         print("  Chargement du modèle d'embeddings...")
         _model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
     return _model
-
-
-def load_json(path: str) -> dict:
-    """Load JSON file with UTF-8 encoding."""
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
 
 
 def save_json(data: dict, path: str) -> None:

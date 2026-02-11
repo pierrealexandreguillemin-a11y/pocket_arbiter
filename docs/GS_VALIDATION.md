@@ -25,7 +25,7 @@ Each GS item `(question, chunk, expected_answer)` is evaluated independently:
 
 - **Raw agreement**: Simple % of GS-creator vs judge agreement
 - **Cohen's Kappa**: Chance-corrected agreement (biased by prevalence paradox when most items pass)
-- **Gwet's AC2**: Robust to prevalence paradox - **primary metric**
+- **Gwet's AC1**: Robust to prevalence paradox (binary nominal) - **primary metric**
 
 ## Usage
 
@@ -50,6 +50,6 @@ python -m scripts.evaluation.gs_validate --corpus fr --backend ollama --model mi
 ## References
 
 - "A Survey on LLM-as-a-Judge" (arXiv:2411.15594)
-- "LLM Judge for Legal RAG with Gwet's AC2" (arXiv:2509.12382)
+- "LLM Judge for Legal RAG with Gwet's AC" (arXiv:2509.12382)
 - ARES (arXiv:2311.09476) Section 3.2
 - ISO 29119: exhaustive evaluation when N <= 1000

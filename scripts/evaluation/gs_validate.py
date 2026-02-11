@@ -7,7 +7,7 @@ Each GS item (question, chunk, expected_answer) is evaluated on:
 
 References:
 - "A Survey on LLM-as-a-Judge" (arXiv:2411.15594, Nov 2024)
-- "LLM Judge for Legal RAG with Gwet's AC2" (arXiv:2509.12382, 2025)
+- "LLM Judge for Legal RAG with Gwet's AC" (arXiv:2509.12382, 2025)
 - ARES (arXiv:2311.09476) Section 3.2: system prompts
 - ISO 29119: exhaustive evaluation when N <= 1000
 
@@ -107,13 +107,21 @@ def _load_gs_items(
         if not chunk_id or status != "VALIDATED" or hard_type != "ANSWERABLE":
             continue
 
+        # Skip items with empty question or answer (would produce meaningless eval)
+        if not question or not expected_answer:
+            continue
+
         chunk_text = chunks.get(chunk_id, "")
         if not chunk_text:
             continue
 
+        gs_id = q.get("id", "")
+        if not gs_id:
+            continue
+
         items.append(
             {
-                "gs_id": q["id"],
+                "gs_id": gs_id,
                 "question": question,
                 "chunk_id": chunk_id,
                 "chunk_text": chunk_text,
@@ -173,12 +181,11 @@ def _parse_verdict(response_text: str) -> tuple[bool, str]:
         lower = response_text.lower().strip()
         is_pass = "pass" in lower and "fail" not in lower
 
-    # Extract reason (text after the verdict marker)
+    # Extract reason (text after the verdict marker, case-insensitive)
     reason = response_text.strip()
-    for marker in ["[[PASS]]", "[[FAIL]]", "[[pass]]", "[[fail]]"]:
-        if marker in reason:
-            reason = reason.split(marker, 1)[1].strip()
-            break
+    marker_match = re.search(r"\[\[(PASS|FAIL)\]\]", reason, re.IGNORECASE)
+    if marker_match:
+        reason = reason[marker_match.end() :].strip()
 
     # Truncate long reasons
     if len(reason) > 200:
@@ -214,16 +221,19 @@ def _call_llm(
 
         ollama_url = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
         resp = requests.post(
-            f"{ollama_url}/api/generate",
+            f"{ollama_url}/api/chat",
             json={
                 "model": model,
-                "prompt": f"{system_prompt}\n\n{user_prompt}",
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
                 "stream": False,
             },
             timeout=120,
         )
         resp.raise_for_status()
-        return resp.json().get("response", "").strip()
+        return resp.json().get("message", {}).get("content", "").strip()
 
     if backend == "groq":
         import os
@@ -244,7 +254,7 @@ def _call_llm(
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            max_tokens=150,
+            max_tokens=250,
             temperature=0,
         )
         return (response.choices[0].message.content or "").strip()
@@ -290,16 +300,19 @@ def _compute_agreement(
     GS creator labels are assumed all True (creator believes all items correct).
     Judge labels come from the LLM evaluation.
 
-    Computes: raw agreement, Cohen's Kappa, Gwet's AC2.
+    Computes: raw agreement, Cohen's Kappa, Gwet's AC1.
+
+    Note: AC1 (not AC2) is the correct name for the binary nominal formula
+    P_e = 2*pi*(1-pi). AC2 uses ordinal quadratic weights.
 
     Args:
         judge_labels: List of boolean verdicts from the judge
 
     Returns:
-        Dict with raw_agreement, cohens_kappa, gwets_ac2
+        Dict with raw_agreement, cohens_kappa, gwets_ac1
     """
     if not judge_labels:
-        return {"raw_agreement": 0.0, "cohens_kappa": 0.0, "gwets_ac2": 0.0}
+        return {"raw_agreement": 0.0, "cohens_kappa": 0.0, "gwets_ac1": 0.0}
 
     n = len(judge_labels)
     gs_labels = [True] * n  # GS creator assumes all items are correct
@@ -323,20 +336,21 @@ def _compute_agreement(
     else:
         cohens_kappa = (raw_agreement - p_e) / (1.0 - p_e)
 
-    # Gwet's AC2 (more robust to prevalence paradox)
+    # Gwet's AC1 (more robust to prevalence paradox than Kappa)
+    # Binary nominal case: P_e = 2*pi*(1-pi)
     # Pi = overall proportion of True across both raters
     pi = (1.0 + p_judge_true) / 2.0  # average of gs=1.0 and judge rate
-    p_e_ac2 = 2.0 * pi * (1.0 - pi)
+    p_e_ac1 = 2.0 * pi * (1.0 - pi)
 
-    if abs(1.0 - p_e_ac2) < 1e-10:
-        gwets_ac2 = 1.0 if raw_agreement == 1.0 else 0.0
+    if abs(1.0 - p_e_ac1) < 1e-10:
+        gwets_ac1 = 1.0 if raw_agreement == 1.0 else 0.0
     else:
-        gwets_ac2 = (raw_agreement - p_e_ac2) / (1.0 - p_e_ac2)
+        gwets_ac1 = (raw_agreement - p_e_ac1) / (1.0 - p_e_ac1)
 
     return {
         "raw_agreement": round(raw_agreement, 4),
         "cohens_kappa": round(cohens_kappa, 4),
-        "gwets_ac2": round(gwets_ac2, 4),
+        "gwets_ac1": round(gwets_ac1, 4),
     }
 
 
@@ -346,7 +360,7 @@ def _generate_report(
     llm_backend: str,
     model: str,
     output_dir: Path,
-) -> tuple[Path, Path]:
+) -> tuple[Path, Path, dict[str, Any]]:
     """Write CSV per-item results and JSON aggregate report.
 
     Args:
@@ -357,7 +371,7 @@ def _generate_report(
         output_dir: Directory for output files
 
     Returns:
-        (csv_path, json_path)
+        (csv_path, json_path, report_dict)
     """
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -412,6 +426,11 @@ def _generate_report(
         if not (r["cr_pass"] and r["af_pass"] and r["ar_pass"])
     ]
 
+    # Compute agreement once per criterion (not 9 times)
+    cr_agreement = _compute_agreement(cr_labels)
+    af_agreement = _compute_agreement(af_labels)
+    ar_agreement = _compute_agreement(ar_labels)
+
     report: dict[str, Any] = {
         "corpus": corpus,
         "n_items": n,
@@ -434,19 +453,19 @@ def _generate_report(
         "overall_pass_rate": round(overall_pass_rate, 4),
         "agreement": {
             "cohens_kappa": {
-                "cr": _compute_agreement(cr_labels)["cohens_kappa"],
-                "af": _compute_agreement(af_labels)["cohens_kappa"],
-                "ar": _compute_agreement(ar_labels)["cohens_kappa"],
+                "cr": cr_agreement["cohens_kappa"],
+                "af": af_agreement["cohens_kappa"],
+                "ar": ar_agreement["cohens_kappa"],
             },
-            "gwets_ac2": {
-                "cr": _compute_agreement(cr_labels)["gwets_ac2"],
-                "af": _compute_agreement(af_labels)["gwets_ac2"],
-                "ar": _compute_agreement(ar_labels)["gwets_ac2"],
+            "gwets_ac1": {
+                "cr": cr_agreement["gwets_ac1"],
+                "af": af_agreement["gwets_ac1"],
+                "ar": ar_agreement["gwets_ac1"],
             },
             "raw_agreement": {
-                "cr": _compute_agreement(cr_labels)["raw_agreement"],
-                "af": _compute_agreement(af_labels)["raw_agreement"],
-                "ar": _compute_agreement(ar_labels)["raw_agreement"],
+                "cr": cr_agreement["raw_agreement"],
+                "af": af_agreement["raw_agreement"],
+                "ar": ar_agreement["raw_agreement"],
             },
         },
         "flagged_items": flagged,
@@ -456,7 +475,7 @@ def _generate_report(
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
 
-    return csv_path, json_path
+    return csv_path, json_path, report
 
 
 def validate_gs(
@@ -536,7 +555,7 @@ def validate_gs(
         if (i + 1) % 50 == 0:
             print(f"  Progress: {i + 1}/{len(items)}")
 
-    csv_path, json_path = _generate_report(
+    csv_path, json_path, report = _generate_report(
         results,
         corpus,
         llm_backend,
@@ -547,10 +566,6 @@ def validate_gs(
     print("\nResults saved:")
     print(f"  CSV: {csv_path}")
     print(f"  JSON: {json_path}")
-
-    # Load and return the report
-    with open(json_path, encoding="utf-8") as f:
-        report: dict[str, Any] = json.load(f)
 
     # Print summary
     print(f"\n{'='*50}")

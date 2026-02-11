@@ -27,21 +27,6 @@ from scripts.evaluation.gs_validate import (
 
 
 @pytest.fixture()
-def sample_gs_item() -> dict[str, str]:
-    """Minimal GS item for testing."""
-    return {
-        "gs_id": "gs:scratch:answerable:0001:abc12345",
-        "question": "Que doit faire l'arbitre en cas de litige?",
-        "chunk_id": "test-source.pdf-p001-parent001-child00",
-        "chunk_text": (
-            "L'arbitre doit prendre une decision dans les 5 minutes. "
-            "En cas de litige, il consulte le reglement."
-        ),
-        "expected_answer": "L'arbitre doit prendre une decision dans les 5 minutes.",
-    }
-
-
-@pytest.fixture()
 def sample_results() -> list[dict]:
     """Sample results for report generation."""
     return [
@@ -125,6 +110,18 @@ class TestParseVerdict:
         assert is_pass is True
         assert "Mock" in reason
 
+    def test_mixed_case_reason_extracted(self) -> None:
+        """CRITICAL-2 fix: mixed-case markers must be stripped from reason."""
+        is_pass, reason = _parse_verdict("[[Pass]] The chunk is relevant.")
+        assert is_pass is True
+        assert "[[" not in reason
+        assert "relevant" in reason
+
+    def test_mixed_case_fail_reason(self) -> None:
+        is_pass, reason = _parse_verdict("[[Fail]] Not supported by chunk.")
+        assert is_pass is False
+        assert "[[" not in reason
+
 
 # ── _build_judge_prompt ───────────────────────────────────────────────
 
@@ -196,7 +193,7 @@ class TestComputeAgreement:
         result = _compute_agreement(labels)
         assert result["raw_agreement"] == 1.0
         assert result["cohens_kappa"] == 1.0
-        assert result["gwets_ac2"] == 1.0
+        assert result["gwets_ac1"] == 1.0
 
     def test_partial_agreement(self) -> None:
         labels = [True] * 80 + [False] * 20
@@ -205,7 +202,7 @@ class TestComputeAgreement:
         # Kappa should be lower due to high prevalence
         assert result["cohens_kappa"] < result["raw_agreement"]
         # AC2 should be more robust
-        assert isinstance(result["gwets_ac2"], float)
+        assert isinstance(result["gwets_ac1"], float)
 
     def test_all_disagree(self) -> None:
         labels = [False] * 100
@@ -216,18 +213,18 @@ class TestComputeAgreement:
         result = _compute_agreement([])
         assert result["raw_agreement"] == 0.0
         assert result["cohens_kappa"] == 0.0
-        assert result["gwets_ac2"] == 0.0
+        assert result["gwets_ac1"] == 0.0
 
     def test_single_item(self) -> None:
         result = _compute_agreement([True])
         assert result["raw_agreement"] == 1.0
 
     def test_kappa_prevalence_paradox(self) -> None:
-        """When prevalence is high, Kappa is low but AC2 is high."""
+        """When prevalence is high, Kappa is low but AC1 is high."""
         labels = [True] * 95 + [False] * 5
         result = _compute_agreement(labels)
         # With 95% pass, kappa suffers from prevalence paradox
-        assert result["gwets_ac2"] > result["cohens_kappa"]
+        assert result["gwets_ac1"] > result["cohens_kappa"]
 
 
 # ── _generate_report ──────────────────────────────────────────────────
@@ -237,7 +234,9 @@ class TestGenerateReport:
     """Tests for CSV + JSON report generation."""
 
     def test_csv_structure(self, sample_results: list[dict], tmp_path: Path) -> None:
-        csv_path, _ = _generate_report(sample_results, "fr", "mock", "test", tmp_path)
+        csv_path, _, _ = _generate_report(
+            sample_results, "fr", "mock", "test", tmp_path
+        )
         assert csv_path.exists()
 
         with open(csv_path, encoding="utf-8") as f:
@@ -251,7 +250,9 @@ class TestGenerateReport:
         assert "ar_pass" in rows[0]
 
     def test_json_structure(self, sample_results: list[dict], tmp_path: Path) -> None:
-        _, json_path = _generate_report(sample_results, "fr", "mock", "test", tmp_path)
+        _, json_path, _ = _generate_report(
+            sample_results, "fr", "mock", "test", tmp_path
+        )
         assert json_path.exists()
 
         with open(json_path, encoding="utf-8") as f:
@@ -270,18 +271,14 @@ class TestGenerateReport:
     def test_pass_rates_correct(
         self, sample_results: list[dict], tmp_path: Path
     ) -> None:
-        _, json_path = _generate_report(sample_results, "fr", "mock", "test", tmp_path)
-        with open(json_path, encoding="utf-8") as f:
-            report = json.load(f)
+        _, _, report = _generate_report(sample_results, "fr", "mock", "test", tmp_path)
 
         # CR: 2/3 pass, AF: 2/3 pass, AR: 2/3 pass
         assert abs(report["metrics"]["context_relevance"]["pass_rate"] - 2 / 3) < 0.01
         assert report["metrics"]["context_relevance"]["n_fail"] == 1
 
     def test_flagged_items(self, sample_results: list[dict], tmp_path: Path) -> None:
-        _, json_path = _generate_report(sample_results, "fr", "mock", "test", tmp_path)
-        with open(json_path, encoding="utf-8") as f:
-            report = json.load(f)
+        _, _, report = _generate_report(sample_results, "fr", "mock", "test", tmp_path)
 
         # gs:002 fails AF, gs:003 fails CR+AR
         assert "gs:002" in report["flagged_items"]
@@ -472,6 +469,47 @@ class TestLoadGsItems:
             items = _load_gs_items("fr", gs_path)
 
         assert len(items) == 0
+
+    def test_filters_empty_answer(self, tmp_path: Path) -> None:
+        """HIGH-1 fix: items with empty expected_answer are excluded."""
+        gs_data = {
+            "questions": [
+                {
+                    "id": "gs:001",
+                    "content": {"question": "Q?", "expected_answer": ""},
+                    "provenance": {"chunk_id": "c1"},
+                    "classification": {"hard_type": "ANSWERABLE"},
+                    "validation": {"status": "VALIDATED"},
+                },
+            ]
+        }
+        gs_path = tmp_path / "gs.json"
+        gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        chunks_dir = tmp_path / "corpus"
+        chunks_dir.mkdir()
+        (chunks_dir / "chunks_mode_b_fr.json").write_text(
+            json.dumps({"chunks": [{"id": "c1", "text": "txt"}]}),
+            encoding="utf-8",
+        )
+
+        with patch("scripts.evaluation.gs_validate.CORPUS_DIR", chunks_dir):
+            items = _load_gs_items("fr", gs_path)
+
+        assert len(items) == 0
+
+    def test_missing_chunks_file_raises(self, tmp_path: Path) -> None:
+        """MED-4 fix: missing chunks file raises FileNotFoundError."""
+        gs_data = {"questions": []}
+        gs_path = tmp_path / "gs.json"
+        gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        with patch(
+            "scripts.evaluation.gs_validate.CORPUS_DIR",
+            tmp_path / "nonexistent",
+        ):
+            with pytest.raises(FileNotFoundError, match="Chunks not found"):
+                _load_gs_items("fr", gs_path)
 
     def test_missing_gs_raises(self) -> None:
         with pytest.raises(FileNotFoundError):

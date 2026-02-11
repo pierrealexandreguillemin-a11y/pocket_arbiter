@@ -16,12 +16,12 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 
-def load_json(file_path: Path) -> dict:
+def load_json(file_path: Path | str) -> dict:
     """
     Charge un fichier JSON.
 
     Args:
-        file_path: Chemin vers le fichier JSON.
+        file_path: Chemin vers le fichier JSON (Path ou str).
 
     Returns:
         Contenu du fichier JSON.
@@ -145,6 +145,26 @@ def list_pdf_files(directory: Path) -> list[Path]:
         raise FileNotFoundError(f"Directory not found: {directory}")
 
     return sorted(directory.rglob("*.pdf"))
+
+
+def cosine_similarity(vec1: Any, vec2: Any) -> float:
+    """
+    Compute cosine similarity between two vectors.
+
+    Args:
+        vec1: First vector.
+        vec2: Second vector.
+
+    Returns:
+        Cosine similarity in [-1, 1], or 0.0 if either vector has zero norm.
+    """
+    import numpy as np
+
+    norm1 = np.linalg.norm(vec1)
+    norm2 = np.linalg.norm(vec2)
+    if norm1 == 0 or norm2 == 0:
+        return 0.0
+    return float(np.dot(vec1, vec2) / (norm1 * norm2))
 
 
 def _validate_chunk_id(chunk_id: str) -> list[str]:

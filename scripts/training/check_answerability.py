@@ -20,6 +20,8 @@ from pathlib import Path
 
 import numpy as np
 
+from scripts.pipeline.utils import cosine_similarity
+
 try:
     from sentence_transformers import SentenceTransformer
 
@@ -65,11 +67,6 @@ def load_chunks(path: str) -> dict[str, str]:
         raise ValueError(f"Unknown chunks format: {type(data)}")
 
     return {c["id"]: c["text"] for c in chunks}
-
-
-def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
-    """Compute cosine similarity between two vectors."""
-    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
 
 
 def check_answerability(

@@ -48,7 +48,12 @@ from scripts.pipeline.embeddings import (  # noqa: E402
     embed_texts,
     load_embedding_model,
 )
-from scripts.pipeline.utils import get_date, load_json, save_json  # noqa: E402
+from scripts.pipeline.utils import (  # noqa: E402
+    cosine_similarity,
+    get_date,
+    load_json,
+    save_json,
+)
 
 # Lazy-loaded EmbeddingGemma QAT model (ISO 42001 A.6.2.2)
 _embedding_model = None
@@ -73,15 +78,6 @@ def compute_embeddings_batch(texts: list[str], batch_size: int = 32) -> np.ndarr
     """Compute embeddings for a batch of texts using EmbeddingGemma QAT."""
     model = get_embedding_model()
     return embed_texts(texts, model, normalize=True)
-
-
-def cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:
-    """Compute cosine similarity between two vectors."""
-    norm1 = np.linalg.norm(vec1)
-    norm2 = np.linalg.norm(vec2)
-    if norm1 == 0 or norm2 == 0:
-        return 0.0
-    return float(np.dot(vec1, vec2) / (norm1 * norm2))
 
 
 def cosine_similarity_matrix(embeddings: np.ndarray) -> np.ndarray:

@@ -28,15 +28,13 @@ from datetime import datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-import numpy as np
-
 from scripts.pipeline.embeddings import load_embedding_model
 from scripts.pipeline.embeddings_config import (
     MODEL_ID,
     PROMPT_DOCUMENT,
     PROMPT_QUERY,
 )
-from scripts.pipeline.utils import load_json, save_json
+from scripts.pipeline.utils import cosine_similarity, load_json, save_json
 
 if TYPE_CHECKING:
     from sentence_transformers import SentenceTransformer
@@ -48,15 +46,6 @@ logger = logging.getLogger(__name__)
 THRESHOLD_FACT_SINGLE = 0.85  # NV-Embed-v2 strict threshold
 THRESHOLD_SUMMARY = 0.80  # GTE threshold for synthesis
 THRESHOLD_REASONING = 0.90  # HotpotQA multi-hop coverage
-
-
-def cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:
-    """Compute cosine similarity between two vectors."""
-    norm1 = np.linalg.norm(vec1)
-    norm2 = np.linalg.norm(vec2)
-    if norm1 == 0 or norm2 == 0:
-        return 0.0
-    return float(np.dot(vec1, vec2) / (norm1 * norm2))
 
 
 def validate_fact_single(

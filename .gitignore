@@ -70,6 +70,7 @@ corpus/processed/docling_*/
 corpus/processed/annales_all/
 corpus/raw/annales/
 data/evaluation/annales/
+data/evaluation/gs_validation/
 
 # Models (binaires à télécharger séparément)
 models/*.gguf
@@ -141,6 +142,7 @@ tmpclaude-*
 htmlcov/
 coverage.xml
 *.cover
+coverage_report.txt
 .pytest_cache/
 
 # =============================================================================

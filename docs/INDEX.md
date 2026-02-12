@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 2.6
-> **Date**: 2026-01-29
+> **Version**: 2.7
+> **Date**: 2026-02-11
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -62,7 +62,7 @@ pocket_arbiter/
 
 | ID | Document | Description | Statut |
 |----|----------|-------------|--------|
-| SPEC-VIS-001 | [VISION.md](VISION.md) | Vision et objectifs du projet v2.1 | En cours |
+| SPEC-VIS-001 | [VISION.md](VISION.md) | Vision et objectifs du projet v2.2 | En cours |
 | SPEC-ARCH-001 | [ARCHITECTURE.md](ARCHITECTURE.md) | Architecture technique | Draft |
 | SPEC-REQ-001 | [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md) | Exigences qualite ISO 25010 | En cours |
 | SPEC-CHUNK-001 | [CHUNKING_STRATEGY.md](CHUNKING_STRATEGY.md) | Strategie chunking Parent-Child v6.6 | Approuve |
@@ -93,6 +93,7 @@ pocket_arbiter/
 | SPEC-ADV-V1 | [specs/ADVERSARIAL_QUESTIONS_STRATEGY.md](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie questions adversariales SQuAD 2.0 | Approuve |
 | SPEC-UTD-001 | [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) | Generation Donnees Unifiees | Draft |
 | **SPEC-GS-METH-001** | [specs/GS_BY_DESIGN_METHODOLOGY.md](specs/GS_BY_DESIGN_METHODOLOGY.md) | **Methodologie GS BY DESIGN (pipeline 6 phases, 21 gates, tests sinceres)** | **Approuve** |
+| **DOC-VAL-001** | [GS_VALIDATION.md](GS_VALIDATION.md) | **Validation GS par LLM-as-Judge (3 criteres, Gwet's AC1)** | **Approuve** |
 
 ### 2.5 Guides techniques
 
@@ -159,7 +160,9 @@ pocket_arbiter/
 - **Gates (phase gates)** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
 - **Gold Standard** : [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md), [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md)
 - **Gold Standard Schema v2** : [specs/GS_SCHEMA_V2.md](specs/GS_SCHEMA_V2.md) (8 groupes: content, mcq, provenance, classification, validation, processing, audit)
+- **Gold Standard Validation (LLM-as-Judge)** : [GS_VALIDATION.md](GS_VALIDATION.md) (3 criteres, Cohen's Kappa, Gwet's AC1)
 - **Grounding** : [AI_POLICY.md](AI_POLICY.md) Section 3.2
+- **Gwet's AC1** : [GS_VALIDATION.md](GS_VALIDATION.md) Section Agreement metrics
 
 ### H
 - **Hallucination** : [AI_POLICY.md](AI_POLICY.md) Section 3.2, [TEST_PLAN.md](TEST_PLAN.md) Section 3.3
@@ -173,8 +176,12 @@ pocket_arbiter/
 - **ISO 12207** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
 - **Index** : Ce document
 
+### K
+- **Kappa (Cohen's)** : [GS_VALIDATION.md](GS_VALIDATION.md) Section Agreement metrics
+
 ### L
 - **LLM** : [AI_POLICY.md](AI_POLICY.md) Section 5.2
+- **LLM-as-Judge** : [GS_VALIDATION.md](GS_VALIDATION.md) (validation GS item-level, 3 criteres independants)
 - **LoRA (Low-Rank Adaptation)** : [research/LORA_FINETUNING_GUIDE.md](research/LORA_FINETUNING_GUIDE.md)
 
 ### M
@@ -231,6 +238,7 @@ pocket_arbiter/
 
 ### V
 - **Validation** : [TEST_PLAN.md](TEST_PLAN.md) Section 3.5
+- **Validation GS (LLM-as-Judge)** : [GS_VALIDATION.md](GS_VALIDATION.md)
 - **Version** : [DOC_CONTROL.md](DOC_CONTROL.md) Section 4.3
 - **Vision** : [VISION.md](VISION.md)
 
@@ -273,7 +281,8 @@ pocket_arbiter/
 | Phase | Documents cles |
 |-------|---------------|
 | Phase 0 | VISION.md, AI_POLICY.md, ISO_STANDARDS_REFERENCE.md, DOC_CONTROL.md, ARCHITECTURE.md |
-| Phase 1 | CHUNKING_STRATEGY.md, ISO_MODEL_DEPLOYMENT_ANALYSIS.md, corpus/INVENTORY.md |
+| Phase 1A | CHUNKING_STRATEGY.md, ISO_MODEL_DEPLOYMENT_ANALYSIS.md, corpus/INVENTORY.md |
+| Phase 1B | GS_VALIDATION.md, RETRIEVAL_PIPELINE.md, PHASE1B_REMEDIATION_PLAN.md |
 | Phase 2 | ARCHITECTURE.md (Section 5.2), TEST_PLAN.md (Section 3.2) |
 | Phase 3 | AI_POLICY.md (Section 3.2), TEST_PLAN.md (Section 3.3) |
 | Phase 4 | QUALITY_REQUIREMENTS.md, TEST_PLAN.md (Section 3.4) |
@@ -308,6 +317,7 @@ pocket_arbiter/
 | 2.4 | 2026-01-29 | Claude Opus 4.5 | Self-audit: ISO_STANDARDS_REFERENCE v2.8 (metriques reelles), fix dead code _batch_size, ruff C901 per-file noqa, pyproject.toml ruff config, pip-audit + types-requests. |
 | 2.5 | 2026-01-29 | Claude Opus 4.5 | ISO-enforcing: pyproject.toml (ruff E/W/F/I/UP/B/C901/S/SIM + mypy strict iso/pipeline), fix SQL injection S608, 170 auto-fixes ruff, type annotations iso/, pre-commit hooks aligned. |
 | 2.6 | 2026-01-29 | Claude Opus 4.5 | **MAJ 12 documents**: metriques ISO (696 tests, 83.47% cov, seuil 80%), deprecation reranker (6 docs), GS v7 (420+ FR), registre DOC_CONTROL synchronise, toolchain pyproject.toml |
+| 2.7 | 2026-02-11 | Claude Opus 4.6 | **Ajout GS_VALIDATION.md** (DOC-VAL-001): validation LLM-as-Judge. Index LLM-as-Judge/Cohen's Kappa/Gwet's AC1. Phase 1B ajoutee. VISION v2.2 ref corrigee. Metriques: 1352 tests, 87.95% cov |
 
 ---
 

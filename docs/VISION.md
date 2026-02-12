@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-VIS-001
 > **ISO Reference**: ISO/IEC 12207:2017 - Processus du cycle de vie logiciel
-> **Version**: 2.2
-> **Date**: 2026-02-02
+> **Version**: 2.3
+> **Date**: 2026-02-11
 > **Statut**: En cours
 > **Classification**: Interne
 > **Auteur**: Equipe projet
@@ -43,7 +43,7 @@ Application mobile Android 100% offline permettant aux arbitres d'échecs d'inte
 │  │ ├── GS FR v8.0 ✓            │    │ ├── GS INTL v2.1 obsolete   │        │
 │  │ ├── Chunking LangChain ✓    │    │ ├── Corpus incomplet        │        │
 │  │ ├── EmbeddingGemma 330M ✓   │    │ ├── Chunking a refaire      │        │
-│  │ └── chunk_id mapping TODO   │    │ └── Embeddings a refaire    │        │
+│  │ └── LLM-as-Judge valid. ✓   │    │ └── Embeddings a refaire    │        │
 │  └─────────────────────────────┘    └─────────────────────────────┘        │
 │                                                                              │
 │  RELATION: Les reglements FR derivent des reglements FIDE.                  │
@@ -229,6 +229,7 @@ Le projet est "Done" quand :
 | 2.0 | 2026-01-24 | Claude Opus 4.5 | **EVOLUTION MAJEURE**: Architecture Dual-RAG (FR + INTL separes). Cause: pollution mutuelle des corpus due a specificite metier et scopes differents. Status: RAG FR operationnel (GS v6.7.0, chunking LangChain, EmbeddingGemma 330M), RAG INTL a construire (corpus incomplet, GS/chunking/embeddings obsoletes) |
 | 2.1 | 2026-01-29 | Claude Opus 4.5 | GS FR v6.7.0→v7.0, reranker supprime (VRAM incompatible mobile) |
 | 2.2 | 2026-02-02 | Claude Opus 4.5 | GS FR v7.0→v8.0 (P4 audit fixes: correct_answer, unified taxonomy, markdown cleanup, difficulty variance) |
+| 2.3 | 2026-02-11 | Claude Opus 4.6 | LLM-as-Judge validation operationnelle (gs_validate.py: 3 criteres, 4 backends, Gwet's AC1). DRY refactoring (load_json 15→1, cosine_similarity 5→1). Venv + DVC local remote. 1352 tests, 87.95% coverage |
 
 ---
 

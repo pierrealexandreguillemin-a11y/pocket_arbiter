@@ -1,82 +1,88 @@
-# 📦 Guide DVC - Pocket Arbiter
+# Guide DVC - Pocket Arbiter
 
-> DVC (Data Version Control) permet de versionner les fichiers volumineux sans les stocker dans Git.
+> **Document ID**: DOC-GUIDE-001
+> **ISO Reference**: ISO/IEC 12207:2017 - Gestion de configuration
+> **Version**: 2.0
+> **Date**: 2026-02-11
 
-## 🎯 Pourquoi DVC dans ce projet ?
+DVC (Data Version Control) versionne les fichiers volumineux sans les stocker dans Git.
 
-| Type de fichier | Taille | Où ? |
+## Pourquoi DVC dans ce projet ?
+
+| Type de fichier | Taille | Ou ? |
 |-----------------|--------|------|
-| Code Python/Kotlin | ~KB | Git ✅ |
-| Documentation | ~KB | Git ✅ |
-| Embeddings (.npy) | ~50-200 MB | DVC ✅ |
-| Vector DB (.db) | ~50-100 MB | DVC ✅ |
-| PDFs règlements | ~5 MB | Git ou DVC |
+| Code Python/Kotlin | ~KB | Git |
+| Documentation | ~KB | Git |
+| Corpus PDF (29 FFE + 1 FIDE) | ~75 MB | DVC |
+| Embeddings (.npy) | ~11 MB | DVC |
+| Training data (triplets, BEIR, RAGAS) | ~34 MB | DVC |
+| Gold Standard annales | ~2 MB | DVC |
+| **Total DVC** | **~122 MB** | |
 
-## 🚀 Setup initial (une seule fois)
+## Configuration actuelle
 
-```bash
-# 1. Installer DVC
-pip install dvc dvc-gdrive  # ou dvc-s3, dvc-gs
-
-# 2. Initialiser DVC dans le projet
-cd C:\Dev\pocket_arbiter
-dvc init
-
-# 3. Configurer le remote (Google Drive recommandé)
-# Créer un dossier dans Drive, copier l'ID depuis l'URL
-dvc remote add -d storage gdrive://TON_FOLDER_ID
+```
+Remote: local (C:/Dev/dvc_remote)
+Cache:  .dvc/cache (local)
 ```
 
-## 📁 Fichiers à tracker avec DVC
+### Fichiers .dvc trackes par Git
+
+| Fichier .dvc | Cible | Taille |
+|---|---|---|
+| `corpus/fr.dvc` | 29 PDF FFE | 68.6 MB |
+| `corpus/intl.dvc` | 1 PDF FIDE | 6.6 MB |
+| `corpus/processed/embeddings_fr.npy.dvc` | Embeddings FR | 7.9 MB |
+| `corpus/processed/embeddings_intl.npy.dvc` | Embeddings INTL | 3.1 MB |
+| `data/training.dvc` | Triplets, BEIR, RAGAS (37 fichiers) | 33.7 MB |
+| `tests/data/gold_standard_annales_fr_v8_adversarial.json.dvc` | GS annales | 1.7 MB |
+
+## Workflow quotidien
 
 ```bash
-# Quand tu génères des embeddings
-dvc add corpus/processed/embeddings_fr.npy
-dvc add corpus/processed/embeddings_intl.npy
+# Recuperer les donnees (nouveau clone)
+python -m dvc pull
 
-# Quand tu crées les bases vectorielles (SqliteVectorStore)
-dvc add corpus/processed/corpus_mode_b_fr.db
-# Note: INTL a reconstruire (voir VISION.md Dual-RAG)
-
-# Commiter les fichiers .dvc dans Git
-git add corpus/processed/*.dvc corpus/processed/.gitignore
-git commit -m "Add embeddings and vector DBs to DVC"
-
-# Pousser vers le remote
-dvc push
-```
-
-## 🔄 Workflow quotidien
-
-```bash
-# Récupérer les données (nouveau clone ou mise à jour)
-dvc pull
-
-# Après modification des données
-dvc add data/embeddings/
-git add data/embeddings.dvc
-git commit -m "Update embeddings"
-dvc push
+# Apres modification des donnees
+python -m dvc add data/training
+git add data/training.dvc
+git commit -m "chore(dvc): update training data"
+python -m dvc push
 git push
 ```
 
-## 📋 Commandes essentielles
+## Commandes essentielles
 
 | Commande | Usage |
 |----------|-------|
-| `dvc pull` | Télécharger les données |
-| `dvc push` | Uploader les données |
-| `dvc add <fichier>` | Tracker un fichier |
-| `dvc status` | Voir les changements |
-| `dvc diff` | Comparer versions |
+| `python -m dvc pull` | Telecharger les donnees |
+| `python -m dvc push` | Uploader les donnees |
+| `python -m dvc add <fichier>` | Tracker un fichier |
+| `python -m dvc status` | Voir les changements |
+| `python -m dvc diff` | Comparer versions |
 
-## ⚠️ Points d'attention
+## Points d'attention
 
-1. **Toujours commiter les .dvc** → Ils lient code et données
-2. **dvc push avant git push** → Sinon les données sont perdues
-3. **Ne jamais éditer les .dvc manuellement**
+1. **Toujours commiter les .dvc** : ils lient code et donnees
+2. **dvc push avant git push** : sinon les donnees sont perdues pour les autres
+3. **Ne jamais editer les .dvc manuellement**
+4. **Venv obligatoire** : `python -m dvc` depuis le venv du projet
 
-## 🔗 Ressources
+## Migration future vers cloud
 
-- [Documentation DVC](https://dvc.org/doc)
-- [DVC avec Google Drive](https://dvc.org/doc/user-guide/data-management/remote-storage/google-drive)
+Le remote local est suffisant pour un developpeur unique. Pour collaborer :
+
+```bash
+# DagsHub (gratuit, 10 GB)
+python -m dvc remote add -d dagshub dagshub://<user>/pocket_arbiter
+
+# Google Cloud Storage
+python -m dvc remote add -d gcs gs://pocket-arbiter-dvc
+```
+
+## Historique
+
+| Version | Date | Changements |
+|---------|------|-------------|
+| 1.0 | 2026-01-18 | Creation initiale, setup Google Drive |
+| 2.0 | 2026-02-11 | Remote local (122 MB), inventaire complet fichiers .dvc, venv |

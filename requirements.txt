@@ -10,6 +10,7 @@ tiktoken>=0.8.0  # OpenAI cl100k_base, fast C impl
 
 # === Text Splitting ===
 langchain-text-splitters>=0.3.0  # RecursiveCharacterTextSplitter
+snowballstemmer>=2.0.0  # Query expansion stemming
 
 # === Embeddings (Google) ===
 sentence-transformers>=5.2.0  # EmbeddingGemma support, MRL
@@ -23,6 +24,7 @@ pytest-cov>=5.0.0
 
 # === LLM Providers ===
 anthropic>=0.28.0
+openai>=1.0.0  # Groq backend (OpenAI-compatible API)
 
 # === Quality (ISO 25010) ===
 ruff>=0.8.0

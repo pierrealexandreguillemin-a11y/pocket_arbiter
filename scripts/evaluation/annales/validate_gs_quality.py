@@ -180,7 +180,9 @@ def validate_question(
             issues.append(f"low_semantic_score:{semantic_score:.2f}")
 
     # Determine answerability
-    answerable = keyword_score >= 0.3 or (semantic_score and semantic_score >= 0.6)
+    answerable = keyword_score >= 0.3 or (
+        semantic_score is not None and semantic_score >= 0.6
+    )
 
     return ValidationResult(
         question_id=qid,
@@ -193,7 +195,10 @@ def validate_question(
 
 
 def validate_gold_standard(
-    gs: dict, chunk_index: dict, compute_semantic: bool = True, sample_size: int = None
+    gs: dict,
+    chunk_index: dict,
+    compute_semantic: bool = True,
+    sample_size: int | None = None,
 ) -> dict:
     """
     Validate entire Gold Standard.

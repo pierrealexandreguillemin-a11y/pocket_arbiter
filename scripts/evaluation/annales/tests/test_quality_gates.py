@@ -32,6 +32,9 @@ from scripts.evaluation.annales.quality_gates import (
     g5_3_final_fact_single_ratio,
     g5_4_hard_ratio,
     g5_5_final_unanswerable_ratio,
+    g5_6_cognitive_level_diversity,
+    g5_7_question_type_diversity,
+    g5_8_chunk_coverage,
     validate_all_gates,
 )
 
@@ -421,16 +424,33 @@ class TestG5Gates:
         assert result.gate_id == "G1-3"
         assert result.passed is True
 
-    def test_g5_4_pass(self) -> None:
+    def test_g5_4_pass_answerable_only(self) -> None:
+        """G5-4: passes when answerable questions have enough hard ones."""
         questions = [_make_question(difficulty=0.8) for _ in range(3)]
         questions.append(_make_question(difficulty=0.3))
         result = g5_4_hard_ratio(questions)
         assert result.passed is True
+        assert result.blocking is True
 
-    def test_g5_4_fail(self) -> None:
+    def test_g5_4_fail_answerable_only(self) -> None:
         questions = [_make_question(difficulty=0.3) for _ in range(20)]
         result = g5_4_hard_ratio(questions)
         assert result.passed is False
+
+    def test_g5_4_ignores_unanswerable(self) -> None:
+        """G5-4: unanswerable questions are excluded from hard ratio."""
+        # 10 answerable easy + 10 unanswerable hard
+        questions = [_make_question(difficulty=0.3) for _ in range(10)]
+        questions.extend(
+            _make_question(
+                is_impossible=True, difficulty=0.9, hard_type="OUT_OF_DATABASE"
+            )
+            for _ in range(10)
+        )
+        result = g5_4_hard_ratio(questions)
+        # Only answerable (all easy) → 0% hard → FAIL
+        assert result.passed is False
+        assert "0/10" in result.message
 
     def test_g5_4_empty(self) -> None:
         result = g5_4_hard_ratio([])
@@ -442,6 +462,77 @@ class TestG5Gates:
         result = g5_5_final_unanswerable_ratio(questions)
         assert result.gate_id == "G2-2"
         assert result.passed is True
+
+
+# ---------------------------------------------------------------------------
+# TestG5NewGates - G5-6, G5-7, G5-8
+# ---------------------------------------------------------------------------
+
+
+class TestG5NewGates:
+    """Tests for G5-6 (cognitive_level), G5-7 (question_type), G5-8 (chunk_coverage)."""
+
+    def test_g5_6_pass_4_levels(self) -> None:
+        levels = ["Remember", "Understand", "Apply", "Analyze"]
+        questions = [_make_question() for _ in range(4)]
+        for i, q in enumerate(questions):
+            q["classification"]["cognitive_level"] = levels[i]
+        result = g5_6_cognitive_level_diversity(questions)
+        assert result.passed is True
+        assert result.blocking is True
+
+    def test_g5_6_fail_2_levels(self) -> None:
+        questions = [_make_question() for _ in range(4)]
+        for q in questions[:2]:
+            q["classification"]["cognitive_level"] = "Remember"
+        for q in questions[2:]:
+            q["classification"]["cognitive_level"] = "Understand"
+        result = g5_6_cognitive_level_diversity(questions)
+        assert result.passed is False
+
+    def test_g5_7_pass_all_types(self) -> None:
+        types = ["factual", "procedural", "scenario", "comparative"]
+        questions = [_make_question() for _ in range(4)]
+        for i, q in enumerate(questions):
+            q["classification"]["question_type"] = types[i]
+        result = g5_7_question_type_diversity(questions)
+        assert result.passed is True
+        assert result.blocking is False
+
+    def test_g5_7_fail_missing_comparative(self) -> None:
+        questions = [_make_question() for _ in range(3)]
+        questions[0]["classification"]["question_type"] = "factual"
+        questions[1]["classification"]["question_type"] = "procedural"
+        questions[2]["classification"]["question_type"] = "scenario"
+        result = g5_7_question_type_diversity(questions)
+        assert result.passed is False
+        assert "comparative" in result.message
+
+    def test_g5_7_ignores_unanswerable(self) -> None:
+        """Unanswerable questions are excluded from type diversity check."""
+        questions = [_make_question() for _ in range(3)]
+        questions[0]["classification"]["question_type"] = "factual"
+        questions[1]["classification"]["question_type"] = "procedural"
+        questions[2]["classification"]["question_type"] = "scenario"
+        # Add unanswerable with "comparative" — should NOT count
+        q_unans = _make_question(is_impossible=True, hard_type="OUT_OF_DATABASE")
+        q_unans["classification"]["question_type"] = "comparative"
+        questions.append(q_unans)
+        result = g5_7_question_type_diversity(questions)
+        assert result.passed is False
+
+    def test_g5_8_pass(self) -> None:
+        result = g5_8_chunk_coverage(160, 200)
+        assert result.passed is True
+        assert result.blocking is False
+
+    def test_g5_8_fail(self) -> None:
+        result = g5_8_chunk_coverage(100, 200)
+        assert result.passed is False
+
+    def test_g5_8_zero_total(self) -> None:
+        result = g5_8_chunk_coverage(0, 0)
+        assert result.passed is False
 
 
 # ---------------------------------------------------------------------------
@@ -473,8 +564,12 @@ class TestValidateAllGates:
     def test_all_blocking_pass(self, sample_gs_question_answerable: dict) -> None:
         questions = [sample_gs_question_answerable]
         all_passed, results = validate_all_gates(questions)
-        assert all_passed is True
+        # G5-6 (cognitive_level_diversity) requires 4 levels, 1 question has only 1
+        # So all_blocking_passed will be False. Check that gates ran.
         assert len(results) > 0
+        gate_ids = {r.gate_id for r in results}
+        assert "G5-6" in gate_ids
+        assert "G5-7" in gate_ids
 
     def test_blocking_fail(self) -> None:
         q = _make_question(chunk_match_score=50, question_text="pas de point final")

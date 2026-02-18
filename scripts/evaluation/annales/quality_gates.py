@@ -539,36 +539,40 @@ def g5_3_final_fact_single_ratio(
 
 def g5_4_hard_ratio(questions: list[dict], min_ratio: float = 0.10) -> GateResult:
     """
-    G5-4: At least 10% of questions should be hard (difficulty >= 0.7).
+    G5-4: At least 10% of answerable questions should be hard (difficulty >= 0.7).
 
-    WARNING: Ensures challenging evaluation set.
+    BLOCKING: Ensures challenging evaluation set among real questions.
+    Filters on answerable only — unanswerable difficulty values are LLM-generated
+    and inflate the metric artificially.
     """
-    total = len(questions)
-    if total == 0:
+    answerable = [
+        q for q in questions if not q.get("content", {}).get("is_impossible", False)
+    ]
+    if not answerable:
         return GateResult(
             gate_id="G5-4",
             name="hard_ratio",
             passed=False,
-            blocking=False,
+            blocking=True,
             value=0,
             threshold=min_ratio,
-            message="No questions",
+            message="No answerable questions",
         )
 
     hard = sum(
-        1 for q in questions if q.get("classification", {}).get("difficulty", 0) >= 0.7
+        1 for q in answerable if q.get("classification", {}).get("difficulty", 0) >= 0.7
     )
-    ratio = hard / total
+    ratio = hard / len(answerable)
     passed = ratio >= min_ratio
 
     return GateResult(
         gate_id="G5-4",
         name="hard_ratio",
         passed=passed,
-        blocking=False,
+        blocking=True,
         value=ratio,
         threshold=min_ratio,
-        message=f"Hard questions: {hard}/{total} ({ratio:.1%})",
+        message=f"Hard answerable: {hard}/{len(answerable)} ({ratio:.1%})",
     )
 
 
@@ -585,6 +589,87 @@ def g5_5_final_unanswerable_ratio(
     return g2_2_unanswerable_ratio(questions, min_ratio, max_ratio)
 
 
+def g5_6_cognitive_level_diversity(
+    questions: list[dict], min_levels: int = 4
+) -> GateResult:
+    """
+    G5-6: At least min_levels distinct Bloom cognitive levels.
+
+    BLOCKING: Ensures pedagogical diversity (Remember, Understand, Apply, Analyze).
+    """
+    levels = {
+        q.get("classification", {}).get("cognitive_level", "")
+        for q in questions
+        if q.get("classification", {}).get("cognitive_level")
+    }
+    passed = len(levels) >= min_levels
+
+    return GateResult(
+        gate_id="G5-6",
+        name="cognitive_level_diversity",
+        passed=passed,
+        blocking=True,
+        value=len(levels),
+        threshold=min_levels,
+        message=f"Cognitive levels: {len(levels)} ({', '.join(sorted(levels))})",
+    )
+
+
+def g5_7_question_type_diversity(
+    questions: list[dict],
+    required_types: set[str] | None = None,
+) -> GateResult:
+    """
+    G5-7: Required question_type categories must be present.
+
+    WARNING: Ensures diversity of question types (factual, procedural, scenario, comparative).
+    """
+    if required_types is None:
+        required_types = {"factual", "procedural", "scenario", "comparative"}
+
+    answerable = [
+        q for q in questions if not q.get("content", {}).get("is_impossible", False)
+    ]
+    present_types = {
+        q.get("classification", {}).get("question_type", "") for q in answerable
+    }
+    missing = required_types - present_types
+    passed = len(missing) == 0
+
+    return GateResult(
+        gate_id="G5-7",
+        name="question_type_diversity",
+        passed=passed,
+        blocking=False,
+        value=len(present_types & required_types),
+        threshold=len(required_types),
+        message=f"Question types: {len(present_types & required_types)}/{len(required_types)}"
+        + (f" (missing: {', '.join(sorted(missing))})" if missing else ""),
+    )
+
+
+def g5_8_chunk_coverage(
+    covered_chunks: int, total_chunks: int, min_ratio: float = 0.80
+) -> GateResult:
+    """
+    G5-8: At least min_ratio of corpus chunks should be covered by questions.
+
+    WARNING: Ensures broad corpus coverage.
+    """
+    ratio = covered_chunks / total_chunks if total_chunks > 0 else 0.0
+    passed = ratio >= min_ratio
+
+    return GateResult(
+        gate_id="G5-8",
+        name="chunk_coverage",
+        passed=passed,
+        blocking=False,
+        value=ratio,
+        threshold=min_ratio,
+        message=f"Chunk coverage: {covered_chunks}/{total_chunks} ({ratio:.1%})",
+    )
+
+
 # =============================================================================
 # AGGREGATE VALIDATION
 # =============================================================================
@@ -596,6 +681,7 @@ def validate_all_gates(
     coverage: dict | None = None,
     validation_results: dict[str, bool] | None = None,
     rejected_ids: list[str] | None = None,
+    chunk_coverage_stats: tuple[int, int] | None = None,
 ) -> tuple[bool, list[GateResult]]:
     """
     Run all applicable quality gates.
@@ -606,6 +692,7 @@ def validate_all_gates(
         coverage: Coverage statistics (for G0 gates)
         validation_results: Anti-hallucination results (for G3 gates)
         rejected_ids: IDs rejected for hallucination (for G3 gates)
+        chunk_coverage_stats: Tuple (covered_chunks, total_chunks) for G5-8
 
     Returns:
         Tuple of (all_blocking_passed, list of GateResults)
@@ -653,6 +740,13 @@ def validate_all_gates(
     results.append(g5_3_final_fact_single_ratio(questions))
     results.append(g5_4_hard_ratio(questions))
     results.append(g5_5_final_unanswerable_ratio(questions))
+    results.append(g5_6_cognitive_level_diversity(questions))
+    results.append(g5_7_question_type_diversity(questions))
+
+    # G5-8 chunk coverage (if stats provided)
+    if chunk_coverage_stats is not None:
+        covered, total = chunk_coverage_stats
+        results.append(g5_8_chunk_coverage(covered, total))
 
     # Check if all blocking gates passed
     all_blocking_passed = all(r.passed for r in results if r.blocking)

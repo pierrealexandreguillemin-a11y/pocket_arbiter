@@ -1,276 +1,186 @@
 """
-Validation Complete Gold Standard - Pocket Arbiter
+Validation Complete Gold Standard BY DESIGN - Pocket Arbiter
 
-Script de validation finale pour verifier que le Gold Standard v8.0.0
-respecte tous les criteres standards industrie.
+Script de validation sincere: execute TOUTES les quality gates (G0-G5)
+via validate_all_gates() et genere un rapport honnete.
 
 ISO Reference:
     - ISO/IEC 42001 A.6.2.2 - Validation complete
     - ISO/IEC 25010 FA-01 - Conformite specification
     - ISO/IEC 29119 - Tests validation
 
-Criteres de validation:
-    - 420 questions totales
-    - 100% chunk_ids valides
-    - Reformulation avec cosine >= 0.85
-    - Triplets avec hard negatives
-    - Export BEIR valide
-
 Usage:
     python -m scripts.evaluation.annales.validate_gs_complete \
-        --gs tests/data/gold_standard_annales_fr_v7.json \
+        --gs tests/data/gs_scratch_v1.json \
         --chunks corpus/processed/chunks_mode_b_fr.json \
-        --embeddings corpus/processed/embeddings_mode_b_fr.npy \
-        --ids corpus/processed/embeddings_mode_b_fr.ids.json
+        --output data/gs_generation/validation_report_iso.json
 """
+
+from __future__ import annotations
 
 import argparse
 import logging
 from datetime import datetime
 from pathlib import Path
 
-import numpy as np
-
+from scripts.evaluation.annales.quality_gates import (
+    format_gate_report,
+    validate_all_gates,
+)
 from scripts.pipeline.utils import load_json, save_json
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def validate_question_counts(gs_data: dict) -> dict:
-    """Validate question counts and distribution."""
-    questions = gs_data.get("questions", [])
-    total = len(questions)
+def compute_coverage_stats(questions: list[dict], chunks_data: dict) -> dict:
+    """Compute document and chunk coverage statistics from GS questions.
 
-    # Count by category
-    requires_context = sum(
-        1 for q in questions if q.get("metadata", {}).get("requires_context", False)
-    )
-    testable = total - requires_context
+    Args:
+        questions: List of Schema v2 questions.
+        chunks_data: Chunks corpus dict with "chunks" key.
 
-    # Count by reasoning_class
-    class_counts: dict[str, int] = {}
-    for q in questions:
-        rc = q.get("metadata", {}).get("reasoning_class", "unknown")
-        class_counts[rc] = class_counts.get(rc, 0) + 1
-
-    return {
-        "total_questions": total,
-        "requires_context": requires_context,
-        "testable": testable,
-        "reasoning_class_distribution": class_counts,
-        "passed": total >= 400,  # Target: 420
-    }
-
-
-def validate_chunk_ids(gs_data: dict, chunks_data: dict) -> dict:
-    """Validate all chunk_ids exist in corpus."""
-    questions = gs_data.get("questions", [])
+    Returns:
+        Dict with coverage_ratio (document) and chunk stats.
+    """
     chunks = chunks_data.get("chunks", [])
-    valid_ids = {c["id"] for c in chunks}
+    all_docs = {c["source"] for c in chunks}
+    all_chunk_ids = {c["id"] for c in chunks}
 
-    invalid = []
-    for q in questions:
-        chunk_id = q.get("expected_chunk_id")
-        if chunk_id and chunk_id not in valid_ids:
-            invalid.append(q.get("id", "unknown"))
-
-    total_with_chunks = sum(1 for q in questions if q.get("expected_chunk_id"))
-    valid_count = total_with_chunks - len(invalid)
-
-    return {
-        "total_with_chunk_id": total_with_chunks,
-        "valid_chunk_ids": valid_count,
-        "invalid_chunk_ids": len(invalid),
-        "invalid_questions": invalid[:10],  # Sample
-        "validity_rate": round(valid_count / total_with_chunks * 100, 2)
-        if total_with_chunks > 0
-        else 0,
-        "passed": len(invalid) == 0,
-    }
-
-
-def validate_reformulations(gs_data: dict) -> dict:
-    """Validate reformulation metadata."""
-    questions = gs_data.get("questions", [])
-
-    reformulated = 0
-    scores = []
-    needs_review = 0
+    covered_docs: set[str] = set()
+    covered_chunks: set[str] = set()
 
     for q in questions:
-        metadata = q.get("metadata", {})
-        if q.get("original_annales"):
-            reformulated += 1
-            score = metadata.get("reformulation_score")
-            if score:
-                scores.append(score)
-        if metadata.get("reformulation_status") == "needs_manual_review":
-            needs_review += 1
+        prov = q.get("provenance", {})
+        for doc in prov.get("docs", []):
+            covered_docs.add(doc)
+        chunk_id = prov.get("chunk_id", "")
+        if chunk_id:
+            covered_chunks.add(chunk_id)
 
-    avg_score = sum(scores) / len(scores) if scores else 0
+    doc_ratio = len(covered_docs & all_docs) / len(all_docs) if all_docs else 0.0
 
     return {
-        "reformulated": reformulated,
-        "needs_review": needs_review,
-        "average_score": round(avg_score, 4),
-        "min_score": round(min(scores), 4) if scores else None,
-        "max_score": round(max(scores), 4) if scores else None,
-        "passed": avg_score >= 0.80 if scores else True,  # Pending = pass
-    }
-
-
-def validate_triplet_readiness(gs_data: dict) -> dict:
-    """Validate triplet_ready flags."""
-    questions = gs_data.get("questions", [])
-
-    triplet_ready = sum(
-        1 for q in questions if q.get("metadata", {}).get("triplet_ready", False)
-    )
-    requires_context = sum(
-        1 for q in questions if q.get("metadata", {}).get("requires_context", False)
-    )
-    testable = len(questions) - requires_context
-
-    return {
-        "triplet_ready": triplet_ready,
-        "testable": testable,
-        "readiness_rate": round(triplet_ready / testable * 100, 2)
-        if testable > 0
-        else 0,
-        "passed": triplet_ready >= testable * 0.9,  # 90% target
-    }
-
-
-def validate_embeddings(
-    embeddings_path: Path, ids_path: Path, chunks_data: dict
-) -> dict:
-    """Validate embeddings file consistency."""
-    if not embeddings_path.exists():
-        return {
-            "exists": False,
-            "passed": False,
-            "error": f"Embeddings file not found: {embeddings_path}",
-        }
-
-    if not ids_path.exists():
-        return {
-            "exists": False,
-            "passed": False,
-            "error": f"IDs file not found: {ids_path}",
-        }
-
-    embeddings = np.load(embeddings_path)
-    ids_data = load_json(ids_path)
-    chunk_ids = ids_data.get("chunk_ids", [])
-    chunks = chunks_data.get("chunks", [])
-
-    # Validate shape consistency
-    shape_match = embeddings.shape[0] == len(chunk_ids) == len(chunks)
-
-    return {
-        "exists": True,
-        "embeddings_shape": list(embeddings.shape),
-        "chunk_ids_count": len(chunk_ids),
-        "chunks_count": len(chunks),
-        "shape_consistent": shape_match,
-        "embedding_dim": embeddings.shape[1] if len(embeddings.shape) > 1 else None,
-        "passed": shape_match and embeddings.shape[1] == 768,
-    }
-
-
-def validate_metadata_completeness(gs_data: dict) -> dict:
-    """Validate metadata field completeness."""
-    questions = gs_data.get("questions", [])
-
-    required_fields = [
-        "question_type",
-        "reasoning_class",
-        "article_reference",
-    ]
-
-    missing_by_field = {f: 0 for f in required_fields}
-    total = len(questions)
-
-    for q in questions:
-        metadata = q.get("metadata", {})
-        for field in required_fields:
-            if not metadata.get(field):
-                missing_by_field[field] += 1
-
-    completeness = {
-        field: round((total - count) / total * 100, 2)
-        for field, count in missing_by_field.items()
-    }
-
-    avg_completeness = (
-        sum(completeness.values()) / len(completeness) if completeness else 0
-    )
-
-    return {
-        "field_completeness": completeness,
-        "average_completeness": round(avg_completeness, 2),
-        "passed": avg_completeness >= 90,
+        "coverage_ratio": doc_ratio,
+        "covered_docs": len(covered_docs & all_docs),
+        "total_docs": len(all_docs),
+        "covered_chunks": len(covered_chunks & all_chunk_ids),
+        "total_chunks": len(all_chunk_ids),
     }
 
 
 def validate_gs_complete(
     gs_path: Path,
-    chunks_path: Path,
-    embeddings_path: Path | None = None,
-    ids_path: Path | None = None,
+    chunks_path: Path | None = None,
 ) -> dict:
     """
-    Run complete validation of Gold Standard.
+    Run complete validation of Gold Standard BY DESIGN using all quality gates.
 
     Args:
-        gs_path: Path to gold standard JSON.
-        chunks_path: Path to chunks JSON.
-        embeddings_path: Path to embeddings .npy (optional).
-        ids_path: Path to chunk IDs JSON (optional).
+        gs_path: Path to gold standard JSON (Schema v2).
+        chunks_path: Path to chunks JSON (optional, for coverage gates).
 
     Returns:
-        Complete validation report.
+        Complete validation report dict.
     """
     logger.info(f"Loading gold standard: {gs_path}")
     gs_data = load_json(gs_path)
+    questions = gs_data.get("questions", [])
+    total = len(questions)
 
-    logger.info(f"Loading chunks: {chunks_path}")
-    chunks_data = load_json(chunks_path)
+    answerable = [
+        q for q in questions if not q.get("content", {}).get("is_impossible", False)
+    ]
+    unanswerable = [
+        q for q in questions if q.get("content", {}).get("is_impossible", False)
+    ]
 
-    # Run all validations
-    validations = {}
+    # Compute coverage if chunks available
+    coverage = None
+    chunk_coverage_stats = None
+    if chunks_path and chunks_path.exists():
+        logger.info(f"Loading chunks: {chunks_path}")
+        chunks_data = load_json(chunks_path)
+        cov = compute_coverage_stats(questions, chunks_data)
+        coverage = {"coverage_ratio": cov["coverage_ratio"]}
+        chunk_coverage_stats = (cov["covered_chunks"], cov["total_chunks"])
+    else:
+        cov = {}
 
-    logger.info("Validating question counts...")
-    validations["question_counts"] = validate_question_counts(gs_data)
+    # Run ALL quality gates
+    logger.info("Running all quality gates...")
+    all_blocking_passed, results = validate_all_gates(
+        questions,
+        coverage=coverage,
+        chunk_coverage_stats=chunk_coverage_stats,
+    )
 
-    logger.info("Validating chunk IDs...")
-    validations["chunk_ids"] = validate_chunk_ids(gs_data, chunks_data)
+    # Build gate results dict
+    gate_results: dict[str, bool] = {}
+    gate_details: list[dict] = []
+    for r in results:
+        key = f"{r.gate_id}_{r.name}"
+        # Deduplicate per-question gates — only report aggregate pass/fail
+        if key not in gate_results:
+            gate_results[key] = r.passed
+        else:
+            # If any question fails a per-question gate, the gate fails
+            gate_results[key] = gate_results[key] and r.passed
 
-    logger.info("Validating reformulations...")
-    validations["reformulations"] = validate_reformulations(gs_data)
+    # Build detailed list (unique gates only)
+    seen_gates: set[str] = set()
+    for r in results:
+        key = f"{r.gate_id}_{r.name}"
+        if key not in seen_gates:
+            seen_gates.add(key)
+            gate_details.append(
+                {
+                    "gate_id": r.gate_id,
+                    "name": r.name,
+                    "passed": gate_results[key],
+                    "blocking": r.blocking,
+                    "value": str(r.value),
+                    "threshold": str(r.threshold),
+                    "message": r.message,
+                }
+            )
 
-    logger.info("Validating triplet readiness...")
-    validations["triplet_readiness"] = validate_triplet_readiness(gs_data)
+    # Count results
+    blocking_gates = [d for d in gate_details if d["blocking"]]
+    warning_gates = [d for d in gate_details if not d["blocking"]]
+    blocking_passed = sum(1 for d in blocking_gates if d["passed"])
+    warning_passed = sum(1 for d in warning_gates if d["passed"])
 
-    logger.info("Validating metadata completeness...")
-    validations["metadata_completeness"] = validate_metadata_completeness(gs_data)
-
-    if embeddings_path and ids_path:
-        logger.info("Validating embeddings...")
-        validations["embeddings"] = validate_embeddings(
-            embeddings_path, ids_path, chunks_data
-        )
-
-    # Overall status
-    all_passed = all(v.get("passed", False) for v in validations.values())
+    status = "VALIDATED" if all_blocking_passed else "FAILED"
 
     report = {
-        "timestamp": datetime.now().isoformat(),
-        "gold_standard_file": str(gs_path),
-        "gold_standard_version": gs_data.get("version", "unknown"),
-        "overall_status": "PASS" if all_passed else "FAIL",
-        "validations": validations,
+        "report_id": "VAL-GS-SCRATCH-003",
+        "iso_reference": "ISO 29119-3",
+        "generated_at": datetime.now().isoformat(),
+        "gs_file": str(gs_path),
+        "methodology": "BY DESIGN (chunk = INPUT)",
+        "status": status,
+        "coverage": {
+            "total_questions": total,
+            "answerable": len(answerable),
+            "unanswerable": len(unanswerable),
+            "unanswerable_ratio": round(len(unanswerable) / total, 2) if total else 0,
+            "document_coverage": cov.get("coverage_ratio"),
+            "chunk_coverage": (
+                round(cov["covered_chunks"] / cov["total_chunks"], 3)
+                if cov.get("total_chunks")
+                else None
+            ),
+        },
+        "validation_gates": {
+            d["gate_id"] + "_" + d["name"]: d["passed"] for d in gate_details
+        },
+        "gate_details": gate_details,
+        "summary": {
+            "blocking_gates": f"{blocking_passed}/{len(blocking_gates)}",
+            "warning_gates": f"{warning_passed}/{len(warning_gates)}",
+            "all_blocking_passed": all_blocking_passed,
+        },
     }
 
     return report
@@ -278,35 +188,23 @@ def validate_gs_complete(
 
 def main() -> None:
     """CLI entry point."""
-    parser = argparse.ArgumentParser(description="Complete validation of Gold Standard")
+    parser = argparse.ArgumentParser(
+        description="Complete validation of Gold Standard BY DESIGN"
+    )
 
     parser.add_argument(
         "--gs",
         "-g",
         type=Path,
         required=True,
-        help="Gold standard JSON file",
+        help="Gold standard JSON file (Schema v2)",
     )
     parser.add_argument(
         "--chunks",
         "-c",
         type=Path,
-        required=True,
-        help="Chunks JSON file from corpus",
-    )
-    parser.add_argument(
-        "--embeddings",
-        "-e",
-        type=Path,
         default=None,
-        help="Embeddings .npy file (optional)",
-    )
-    parser.add_argument(
-        "--ids",
-        "-i",
-        type=Path,
-        default=None,
-        help="Chunk IDs JSON file (optional)",
+        help="Chunks JSON file from corpus (optional, for coverage gates)",
     )
     parser.add_argument(
         "--output",
@@ -318,59 +216,32 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    report = validate_gs_complete(args.gs, args.chunks, args.embeddings, args.ids)
+    report = validate_gs_complete(args.gs, args.chunks)
 
-    # Print formatted report
-    print()
-    print("=" * 60)
-    print(
-        f"[{'OK' if report['overall_status'] == 'PASS' else 'FAIL'}] Gold Standard {report['gold_standard_version']}"
+    # Print formatted report using quality_gates.format_gate_report
+    gs_data = load_json(args.gs)
+    questions = gs_data.get("questions", [])
+
+    coverage = None
+    chunk_coverage_stats = None
+    if args.chunks and args.chunks.exists():
+        chunks_data = load_json(args.chunks)
+        cov = compute_coverage_stats(questions, chunks_data)
+        coverage = {"coverage_ratio": cov["coverage_ratio"]}
+        chunk_coverage_stats = (cov["covered_chunks"], cov["total_chunks"])
+
+    _, results = validate_all_gates(
+        questions,
+        coverage=coverage,
+        chunk_coverage_stats=chunk_coverage_stats,
     )
-    print("=" * 60)
-
-    # Question counts
-    qc = report["validations"]["question_counts"]
-    print(f"  - Questions: {qc['total_questions']} ({qc['testable']} testables)")
-    print(f"    Distribution: {qc['reasoning_class_distribution']}")
-
-    # Chunk IDs
-    ci = report["validations"]["chunk_ids"]
-    print(f"  - Chunk IDs: {ci['validity_rate']}% valid")
-
-    # Reformulations
-    rf = report["validations"]["reformulations"]
-    if rf["reformulated"] > 0:
-        print(
-            f"  - Reformulation: {rf['reformulated']} (avg score: {rf['average_score']})"
-        )
-    else:
-        print("  - Reformulation: pending")
-
-    # Triplet readiness
-    tr = report["validations"]["triplet_readiness"]
-    print(
-        f"  - Triplet ready: {tr['triplet_ready']}/{tr['testable']} ({tr['readiness_rate']}%)"
-    )
-
-    # Embeddings
-    if "embeddings" in report["validations"]:
-        emb = report["validations"]["embeddings"]
-        if emb["exists"]:
-            print(
-                f"  - Embeddings: {emb['embeddings_shape']} ({'OK' if emb['passed'] else 'FAIL'})"
-            )
-        else:
-            print("  - Embeddings: not found")
-
-    # Metadata completeness
-    mc = report["validations"]["metadata_completeness"]
-    print(f"  - Metadata completeness: {mc['average_completeness']}%")
-
+    print(format_gate_report(results))
     print()
-    print(f"Overall: {report['overall_status']}")
-    print("=" * 60)
+    print(f"Status: {report['status']}")
+    print(f"Blocking: {report['summary']['blocking_gates']}")
+    print(f"Warning: {report['summary']['warning_gates']}")
 
-    # Save report if output specified
+    # Save report
     if args.output:
         save_json(report, args.output)
         logger.info(f"Report saved: {args.output}")

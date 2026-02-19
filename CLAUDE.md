@@ -53,8 +53,18 @@ docs/           # Specs ISO
 - Verifier les donnees contre les PDF sources (pas de texte invente)
 - Utiliser les modules partages existants (token_utils, chunk_normalizer, etc.)
 
+## Current Work: GS Correction (PLAN-GS-CORR-002)
+
+- **Plan source**: docs/plans/GS_CORRECTION_PLAN_V2.md
+- **Phase courante**: P1 (Infrastructure + Phase A safe)
+- **Plans**: P1 [ ] → P2 [ ] → GO/NO-GO A→B → P3 [ ] → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
+- **Derniere gate validee**: aucune
+- **Prochain go/no-go**: A→B (apres P2)
+- **Fichier GS courant**: tests/data/gs_scratch_v1.json (614Q, v1.1)
+
 ## References
 
 - @docs/AI_POLICY.md: Politique anti-hallucination
 - @docs/QUALITY_REQUIREMENTS.md: Exigences qualite
 - @docs/specs/PHASE1A_SPECS.md: Specs Phase 1A actuelle
+- @docs/plans/GS_CORRECTION_PLAN_V2.md: Plan correction GS (PLAN-GS-CORR-002)

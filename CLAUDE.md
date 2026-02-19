@@ -56,11 +56,11 @@ docs/           # Specs ISO
 ## Current Work: GS Correction (PLAN-GS-CORR-002)
 
 - **Plan source**: docs/plans/GS_CORRECTION_PLAN_V2.md
-- **Phase courante**: P1 (Infrastructure + Phase A safe)
-- **Plans**: P1 [ ] → P2 [ ] → GO/NO-GO A→B → P3 [ ] → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
-- **Derniere gate validee**: aucune
+- **Phase courante**: P2 (Phase A re-generation)
+- **Plans**: P1 [x] → P2 [ ] → GO/NO-GO A→B → P3 [ ] → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
+- **Derniere gate validee**: P1 (infra + safe corrections)
 - **Prochain go/no-go**: A→B (apres P2)
-- **Fichier GS courant**: tests/data/gs_scratch_v1.json (614Q, v1.1)
+- **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1)
 
 ## References
 

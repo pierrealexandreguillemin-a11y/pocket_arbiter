@@ -2,9 +2,9 @@
 
 > **Document ID**: PLAN-GS-CORR-002
 > **ISO Reference**: ISO 29119-3 (Test Data), ISO 25010 (Quality), ISO 42001 (AI Traceability)
-> **Version**: 2.0
-> **Date**: 2026-02-19
-> **Statut**: Draft
+> **Version**: 2.1
+> **Date**: 2026-02-20
+> **Statut**: In Progress (P1 done, P2 next)
 > **Parent**: PLAN-GS-SCRATCH-001, SPEC-GS-METH-001
 > **Input**: Audit gs_scratch_v1.json (614Q) contre standards industrie
 
@@ -49,9 +49,9 @@ reasoning_class (answerable 397):
   reasoning:     63 (15.9%)
 
 cognitive_level (answerable 397):
-  Understand:   263 (66.2%)
-  Remember:     134 (33.8%)
-  Apply:          0 (0.0%)   <- ABSENT
+  Understand:   263 (66.2%)  [post-P1: 249]
+  Remember:     134 (33.8%)  [post-P1: 132]
+  Apply:          0 (0.0%)   <- ABSENT  [post-P1: 16 via A2]
   Analyze:        0 (0.0%)   <- ABSENT
 
 question_type (answerable 397):
@@ -205,6 +205,15 @@ Les cas ambigus necessitent une **re-generation BY DESIGN** de la question.
 | **A1: Schema completion** | Champs manquants | Ajouter valeurs par defaut pour les 6 champs absents (voir Section 4.5) | Oui — programmatique |
 | **A2: Cognitive reclassification safe** | `cognitive_level` | Pattern matching : "que doit faire" + scenario -> Apply. Conserver seulement si verifiable | Oui — regex sur question |
 | **A3: audit.history update** | `audit.history` | Ajouter trace "[PHASE A] reclassified 2026-02-19" | Oui — piste d'audit |
+
+> **Resultats P1 (2026-02-20)** :
+> - A1: 217 questions normalisees (priority_boost=0.0 ajoute aux unanswerable)
+> - A2: 16 reclassifications cognitives (8x "que doit faire" + 8x "que doit-on faire" → Apply)
+> - A3: 233 entrees audit trail ajoutees
+> - Coverage header corrige (584 → 614)
+> - Regression: PASS (614 IDs preserves, scores=100, field_counts.min 36→37)
+> - Output: `tests/data/gs_scratch_v1_step1.json`
+> - Baseline: `data/gs_generation/snapshots/gs_v1_baseline.json`
 
 ### 4.4 Corrections necessitant re-generation (LLM)
 
@@ -515,26 +524,26 @@ Un snapshot des tests est pris avant Phase A et doit passer apres chaque phase.
 
 ### 8.3 Snapshot avant/apres Phase A
 
-```python
-# Script de verification regression Phase A
-def verify_regression(before_path, after_path):
-    before = load_json(before_path)
-    after = load_json(after_path)
+**Implementation** : `scripts/evaluation/annales/verify_regression.py` (P1)
 
-    # Pas de perte de questions
-    assert len(after["questions"]) >= len(before["questions"])
+```bash
+# Snapshot baseline
+python -m scripts.evaluation.annales.verify_regression \
+    --snapshot --gs tests/data/gs_scratch_v1.json \
+    --output data/gs_generation/snapshots/gs_v1_baseline.json
 
-    # chunk_match_score inchange pour toutes les questions conservees
-    before_scores = {q["id"]: q["processing"]["chunk_match_score"] for q in before["questions"]}
-    for q in after["questions"]:
-        if q["id"] in before_scores:
-            assert q["processing"]["chunk_match_score"] == before_scores[q["id"]]
-
-    # Pas de question existante supprimee
-    before_ids = {q["id"] for q in before["questions"]}
-    after_ids = {q["id"] for q in after["questions"]}
-    assert before_ids.issubset(after_ids), f"Questions perdues: {before_ids - after_ids}"
+# Compare apres correction
+python -m scripts.evaluation.annales.verify_regression \
+    --compare --baseline data/gs_generation/snapshots/gs_v1_baseline.json \
+    --gs tests/data/gs_scratch_v1_step1.json
 ```
+
+Regles de comparaison :
+1. Baseline IDs ⊆ current IDs (pas de perte)
+2. `chunk_match_score` = 100 pour toutes les questions
+3. `field_counts.min` ne diminue pas
+
+Tests : 25 tests dans `tests/test_verify_regression.py` (63 tests P1 au total).
 
 ---
 
@@ -547,10 +556,10 @@ precedent sans perte.
 
 | Phase | Input | Output | Rollback = |
 |-------|-------|--------|-----------|
-| A | gs_scratch_v1.json | gs_scratch_v1_fixed.json | Garder gs_scratch_v1.json |
-| B | gs_scratch_v1_fixed.json | gs_scratch_v1_with_new_answerable.json | Garder gs_scratch_v1_fixed.json |
-| C | ...with_new_answerable.json | gs_scratch_v1_with_unanswerable.json | Garder ...with_new_answerable.json |
-| D | ...with_unanswerable.json | gs_scratch_v2.json | Garder ...with_unanswerable.json |
+| A | gs_scratch_v1.json | gs_scratch_v1_step1.json | Garder gs_scratch_v1.json |
+| B | gs_scratch_v1_step1.json | gs_scratch_v1_step2.json | Garder gs_scratch_v1_step1.json |
+| C | gs_scratch_v1_step2.json | gs_scratch_v1_step3.json | Garder gs_scratch_v1_step2.json |
+| D | gs_scratch_v1_step3.json | gs_scratch_v2.json | Garder gs_scratch_v1_step3.json |
 
 ### 9.2 Criteres de rollback automatique
 
@@ -567,12 +576,12 @@ precedent sans perte.
 
 ### 10.1 Nouveaux Scripts
 
-| Script | Role | Phase |
-|--------|------|-------|
-| `fix_gs_v2_metadata.py` | Corrections safe (schema, cognitive reclassification verifiable) | A |
-| `regenerate_targeted.py` | Re-generation BY DESIGN ciblee (hard, Apply, Analyze, comparative) | A |
-| `generate_v2_coverage.py` | Orchestrateur generation massive avec stop gates | B+C |
-| `verify_regression.py` | Tests de regression snapshot avant/apres | A-D |
+| Script | Role | Phase | Status |
+|--------|------|-------|--------|
+| `fix_gs_v2_metadata.py` | Corrections safe (schema, cognitive reclassification verifiable) | A | **DONE** (P1) |
+| `regenerate_targeted.py` | Re-generation BY DESIGN ciblee (hard, Apply, Analyze, comparative) | A | TODO (P2) |
+| `generate_v2_coverage.py` | Orchestrateur generation massive avec stop gates | B+C | TODO |
+| `verify_regression.py` | Tests de regression snapshot avant/apres | A-D | **DONE** (P1) |
 
 ### 10.2 Scripts a Modifier
 
@@ -688,6 +697,7 @@ Le GS v2 est considere conforme quand :
 |---------|------|-------------|
 | 1.0 | 2026-02-18 | Creation - audit findings F1-F10, plan 4 phases, cibles distribution |
 | 2.0 | 2026-02-19 | Corrections 10 findings rigueur : (1) criteres acceptation Phase A mesurables, (2) distinction seuils projet vs normatifs, (3) go/no-go inter-phases + rollback, (4) intervalles de confiance volumes, (5) Phase A BY DESIGN (pas de reclassification Potemkine), (6) IAA kappa >= 0.6, (7) schema 46 champs liste complete, (8) budget tokens/cout, (9) 21 -> 24 gates, (10) tests regression |
+| 2.1 | 2026-02-20 | P1 complete : verify_regression.py + fix_gs_v2_metadata.py + 63 tests. Resultats A1 (217 schema), A2 (16 cognitive), A3 (233 audit). Nommage fichiers aligne (step1/step2/step3). Section 8.3 mise a jour avec implementation reelle. |
 
 ---
 

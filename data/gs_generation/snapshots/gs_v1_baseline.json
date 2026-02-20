@@ -1,6 +1,6 @@
 {
-  "date": "2026-02-19",
-  "source_file": "tests\\data\\gs_scratch_v1.json",
+  "date": "2026-02-20",
+  "source_file": "tests/data/gs_scratch_v1.json",
   "total_questions": 614,
   "answerable_count": 397,
   "unanswerable_count": 217,
@@ -621,9 +621,9 @@
     "gs:scratch:uaeval:safety_concerned:78042dd142e8"
   ],
   "field_counts": {
-    "min": 35.0,
-    "max": 39.0,
-    "avg": 37.59
+    "min": 36.0,
+    "max": 40.0,
+    "avg": 38.59
   },
   "cognitive_level_dist": {
     "Understand": 263,

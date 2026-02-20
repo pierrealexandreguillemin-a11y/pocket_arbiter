@@ -10,6 +10,7 @@ ISO Reference: ISO/IEC 29119 - Regression testing
 from __future__ import annotations
 
 import argparse
+import logging
 import sys
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -18,7 +19,10 @@ _project_root = Path(__file__).parent.parent.parent.parent
 if str(_project_root) not in sys.path:
     sys.path.insert(0, str(_project_root))
 
+from scripts.evaluation.annales.quality_gates import count_schema_fields  # noqa: E402
 from scripts.pipeline.utils import get_date, load_json, save_json  # noqa: E402
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -53,29 +57,6 @@ class ComparisonResult:
     messages: list[str] = field(default_factory=list)
 
 
-def _count_fields(question: dict) -> int:
-    """Count populated fields in a question (non-None, non-empty)."""
-    count = 0
-    for key in ("id", "legacy_id"):
-        val = question.get(key)
-        if val is not None and val != "":
-            count += 1
-    for group in (
-        "content",
-        "mcq",
-        "provenance",
-        "classification",
-        "validation",
-        "processing",
-        "audit",
-    ):
-        group_data = question.get(group, {})
-        for val in group_data.values():
-            if val is not None and val != "":
-                count += 1
-    return count
-
-
 def _get_questions(gs_data: dict) -> list[dict]:
     """Extract questions list from GS data."""
     return gs_data.get("questions", [])
@@ -104,7 +85,7 @@ def create_snapshot(gs_data: dict, source_file: str = "") -> SnapshotData:
 
     # Field counts: min, max, avg
     if questions:
-        field_vals = [_count_fields(q) for q in questions]
+        field_vals = [count_schema_fields(q) for q in questions]
         field_counts = {
             "min": float(min(field_vals)),
             "max": float(max(field_vals)),

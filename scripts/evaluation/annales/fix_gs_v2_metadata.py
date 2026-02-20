@@ -1,7 +1,7 @@
 """
 Safe GS v2 metadata corrections (Phase A: A1/A2/A3).
 
-A1: Schema normalization - add missing priority_boost to unanswerable questions
+A1: Schema normalization - add missing priority_boost to questions
 A2: Safe cognitive reclassification - regex-based Understand/Remember -> Apply/Analyze
 A3: Audit trail - tag corrections in audit.history
 
@@ -12,11 +12,12 @@ from __future__ import annotations
 
 import argparse
 import copy
+import logging
 import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 _project_root = Path(__file__).parent.parent.parent.parent
 if str(_project_root) not in sys.path:
@@ -24,13 +25,17 @@ if str(_project_root) not in sys.path:
 
 from scripts.pipeline.utils import get_date, load_json, save_json  # noqa: E402
 
+logger = logging.getLogger(__name__)
+
+CorrectionType = Literal["A1_schema", "A2_cognitive"]
+
 
 @dataclass
 class CorrectionRecord:
     """Single correction applied to a question."""
 
     question_id: str
-    correction_type: str  # "A1_schema" | "A2_cognitive" | "A3_audit"
+    correction_type: CorrectionType
     field: str
     old_value: Any
     new_value: Any
@@ -64,9 +69,10 @@ _ANALYZE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
 
 
 def normalize_schema(question: dict, date: str) -> list[CorrectionRecord]:
-    """Add missing priority_boost to unanswerable questions.
+    """Add missing priority_boost field to any question lacking it.
 
-    Only modifies questions where processing.priority_boost is absent.
+    Ensures all questions have the same 43-key schema by adding
+    processing.priority_boost=0.0 where absent.
 
     Args:
         question: Single GS question dict (mutated in place).
@@ -79,6 +85,7 @@ def normalize_schema(question: dict, date: str) -> list[CorrectionRecord]:
     if "priority_boost" not in processing:
         processing["priority_boost"] = 0.0
         question["processing"] = processing
+        logger.debug("A1: added priority_boost to %s", question["id"])
         return [
             CorrectionRecord(
                 question_id=question["id"],
@@ -100,7 +107,7 @@ def safe_cognitive_reclassify(question: dict, date: str) -> list[CorrectionRecor
     """Reclassify cognitive_level using safe regex patterns.
 
     Only applies to answerable questions with cognitive_level in
-    (Understand, Remember). Patterns determine target level (Apply/Analyze).
+    (Understand, Remember). First matching pattern wins.
 
     Args:
         question: Single GS question dict (mutated in place).
@@ -122,10 +129,11 @@ def safe_cognitive_reclassify(question: dict, date: str) -> list[CorrectionRecor
 
     text = question.get("content", {}).get("question", "")
 
-    # Check Apply patterns
+    # Check Apply patterns (first match wins)
     for pattern, pat_str in _APPLY_PATTERNS:
         if pattern.search(text):
             classification["cognitive_level"] = "Apply"
+            logger.debug("A2: %s -> Apply (pattern: %s)", question["id"], pat_str)
             return [
                 CorrectionRecord(
                     question_id=question["id"],
@@ -141,6 +149,7 @@ def safe_cognitive_reclassify(question: dict, date: str) -> list[CorrectionRecor
     for pattern, pat_str in _ANALYZE_PATTERNS:
         if pattern.search(text):
             classification["cognitive_level"] = "Analyze"
+            logger.debug("A2: %s -> Analyze (pattern: %s)", question["id"], pat_str)
             return [
                 CorrectionRecord(
                     question_id=question["id"],
@@ -196,6 +205,29 @@ def update_audit_trail(
 
     audit["history"] = history
     question["audit"] = audit
+
+
+# ---------------------------------------------------------------------------
+# Coverage header sync
+# ---------------------------------------------------------------------------
+
+
+def _sync_coverage_header(gs_data: dict) -> None:
+    """Recalculate and update the top-level coverage header.
+
+    Args:
+        gs_data: Full GS JSON data (mutated in place).
+    """
+    questions = gs_data.get("questions", [])
+    answerable = sum(
+        1 for q in questions if not q.get("content", {}).get("is_impossible", False)
+    )
+    unanswerable = len(questions) - answerable
+    gs_data["coverage"] = {
+        "total_questions": len(questions),
+        "answerable": answerable,
+        "unanswerable": unanswerable,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -258,6 +290,9 @@ def apply_all_corrections(
         update_audit_trail(q, corrections, date)
         all_corrections.extend(corrections)
 
+    # Sync coverage header to match actual question counts
+    _sync_coverage_header(working)
+
     # Count cognitive levels after
     for q in questions:
         level = q.get("classification", {}).get("cognitive_level", "unknown")
@@ -273,6 +308,14 @@ def apply_all_corrections(
         "cognitive_after": cognitive_after,
         "dry_run": dry_run,
     }
+
+    logger.info(
+        "Phase A: %d corrections (%d A1, %d A2), dry_run=%s",
+        len(all_corrections),
+        a1_count,
+        a2_count,
+        dry_run,
+    )
 
     if dry_run:
         return gs_data, report

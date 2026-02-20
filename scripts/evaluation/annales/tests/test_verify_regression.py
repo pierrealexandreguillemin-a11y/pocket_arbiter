@@ -11,6 +11,7 @@ from pathlib import Path
 
 import pytest
 
+from scripts.evaluation.annales.tests.conftest import make_gs_question
 from scripts.evaluation.annales.verify_regression import (
     ComparisonResult,
     compare_snapshot,
@@ -30,82 +31,6 @@ def _make_gs(questions: list[dict]) -> dict:
     return {"questions": questions}
 
 
-def _make_question(
-    qid: str = "gs:scratch:answerable:0001:abc",
-    is_impossible: bool = False,
-    cognitive_level: str = "Understand",
-    question_type: str = "procedural",
-    difficulty: float = 0.5,
-    reasoning_class: str = "reasoning",
-    answer_type: str = "extractive",
-    chunk_match_score: int = 100,
-    priority_boost: float | None = 0.0,
-) -> dict:
-    """Build a minimal valid Schema v2 question."""
-    processing: dict = {
-        "chunk_match_score": chunk_match_score,
-        "chunk_match_method": "by_design_input",
-        "reasoning_class_method": "generation_prompt",
-        "triplet_ready": not is_impossible,
-        "extraction_flags": ["by_design"],
-        "answer_source": "chunk_extraction",
-        "quality_score": 0.8,
-    }
-    if priority_boost is not None:
-        processing["priority_boost"] = priority_boost
-
-    return {
-        "id": qid,
-        "legacy_id": "",
-        "content": {
-            "question": "Test question?",
-            "expected_answer": "Answer" if not is_impossible else "",
-            "is_impossible": is_impossible,
-        },
-        "mcq": {
-            "original_question": "Test?",
-            "choices": {},
-            "mcq_answer": "",
-            "correct_answer": "",
-            "original_answer": "",
-        },
-        "provenance": {
-            "chunk_id": "test.pdf-p001-parent001-child00",
-            "docs": ["test.pdf"],
-            "pages": [1],
-            "article_reference": "Art. 1",
-            "answer_explanation": "",
-            "annales_source": None,
-        },
-        "classification": {
-            "category": "arbitrage",
-            "keywords": ["test"],
-            "difficulty": difficulty,
-            "question_type": question_type,
-            "cognitive_level": cognitive_level,
-            "reasoning_type": "single-hop",
-            "reasoning_class": reasoning_class,
-            "answer_type": answer_type,
-            "hard_type": "ANSWERABLE" if not is_impossible else "OUT_OF_DATABASE",
-        },
-        "validation": {
-            "status": "VALIDATED",
-            "method": "by_design_generation",
-            "reviewer": "claude_code",
-            "answer_current": True,
-            "verified_date": "2026-01-01",
-            "pages_verified": True,
-            "batch": "test",
-        },
-        "processing": processing,
-        "audit": {
-            "history": "[BY DESIGN] test",
-            "qat_revalidation": None,
-            "requires_inference": False,
-        },
-    }
-
-
 # ===========================================================================
 # TestCreateSnapshot
 # ===========================================================================
@@ -117,9 +42,9 @@ class TestCreateSnapshot:
     def test_counts(self) -> None:
         """Snapshot counts answerable and unanswerable correctly."""
         questions = [
-            _make_question("q1", is_impossible=False),
-            _make_question("q2", is_impossible=False),
-            _make_question("q3", is_impossible=True, priority_boost=None),
+            make_gs_question("q1", is_impossible=False),
+            make_gs_question("q2", is_impossible=False),
+            make_gs_question("q3", is_impossible=True, has_priority_boost=False),
         ]
         snap = create_snapshot(_make_gs(questions))
         assert snap.total_questions == 3
@@ -127,46 +52,45 @@ class TestCreateSnapshot:
         assert snap.unanswerable_count == 1
 
     def test_ids(self) -> None:
-        """All question IDs are captured."""
-        questions = [_make_question(f"q{i}") for i in range(5)]
+        """All question IDs are captured in order."""
+        questions = [make_gs_question(f"q{i}") for i in range(5)]
         snap = create_snapshot(_make_gs(questions))
         assert snap.question_ids == [f"q{i}" for i in range(5)]
 
     def test_cognitive_level_distribution(self) -> None:
         """Cognitive level distribution is correct."""
         questions = [
-            _make_question("q1", cognitive_level="Remember"),
-            _make_question("q2", cognitive_level="Understand"),
-            _make_question("q3", cognitive_level="Understand"),
+            make_gs_question("q1", cognitive_level="Remember"),
+            make_gs_question("q2", cognitive_level="Understand"),
+            make_gs_question("q3", cognitive_level="Understand"),
         ]
         snap = create_snapshot(_make_gs(questions))
         assert snap.cognitive_level_dist == {"Remember": 1, "Understand": 2}
 
     def test_difficulty_buckets(self) -> None:
-        """Difficulty buckets (easy/medium/hard) are computed correctly."""
+        """Difficulty buckets (easy/medium/hard) boundary conditions."""
         questions = [
-            _make_question("q1", difficulty=0.2),  # easy
-            _make_question("q2", difficulty=0.5),  # medium
-            _make_question("q3", difficulty=0.7),  # hard
-            _make_question("q4", difficulty=0.39),  # easy (< 0.4)
-            _make_question("q5", difficulty=0.4),  # medium (>= 0.4)
+            make_gs_question("q1", difficulty=0.2),  # easy  (< 0.4)
+            make_gs_question("q2", difficulty=0.5),  # medium
+            make_gs_question("q3", difficulty=0.7),  # hard  (>= 0.7)
+            make_gs_question("q4", difficulty=0.39),  # easy  (< 0.4)
+            make_gs_question("q5", difficulty=0.4),  # medium (>= 0.4)
         ]
         snap = create_snapshot(_make_gs(questions))
         assert snap.difficulty_buckets == {"easy": 2, "medium": 2, "hard": 1}
 
-    def test_field_counts_stats(self) -> None:
-        """field_counts has min, max, avg."""
-        questions = [_make_question("q1"), _make_question("q2")]
+    def test_field_counts_use_quality_gates(self) -> None:
+        """field_counts uses count_schema_fields (includes legacy_id='')."""
+        questions = [make_gs_question("q1")]
         snap = create_snapshot(_make_gs(questions))
-        assert "min" in snap.field_counts
-        assert "max" in snap.field_counts
-        assert "avg" in snap.field_counts
+        # count_schema_fields counts legacy_id="" as present ("in" check)
+        # so min should be higher than a naive non-empty check
         assert snap.field_counts["min"] > 0
-        assert snap.field_counts["avg"] > 0
+        assert snap.field_counts["min"] == snap.field_counts["max"]
 
     def test_chunk_match_scores(self) -> None:
         """Chunk match scores captured for all questions."""
-        questions = [_make_question("q1", chunk_match_score=100)]
+        questions = [make_gs_question("q1", chunk_match_score=100)]
         snap = create_snapshot(_make_gs(questions))
         assert snap.chunk_match_scores == [100]
 
@@ -187,11 +111,29 @@ class TestCreateSnapshot:
     def test_question_type_distribution(self) -> None:
         """question_type distribution is computed."""
         questions = [
-            _make_question("q1", question_type="procedural"),
-            _make_question("q2", question_type="factual"),
+            make_gs_question("q1", question_type="procedural"),
+            make_gs_question("q2", question_type="factual"),
         ]
         snap = create_snapshot(_make_gs(questions))
         assert snap.question_type_dist == {"procedural": 1, "factual": 1}
+
+    def test_reasoning_class_distribution(self) -> None:
+        """reasoning_class distribution is computed."""
+        questions = [
+            make_gs_question("q1", reasoning_class="reasoning"),
+            make_gs_question("q2", reasoning_class="adversarial"),
+        ]
+        snap = create_snapshot(_make_gs(questions))
+        assert snap.reasoning_class_dist == {"reasoning": 1, "adversarial": 1}
+
+    def test_answer_type_distribution(self) -> None:
+        """answer_type distribution is computed."""
+        questions = [
+            make_gs_question("q1", answer_type="extractive"),
+            make_gs_question("q2", answer_type="unanswerable"),
+        ]
+        snap = create_snapshot(_make_gs(questions))
+        assert snap.answer_type_dist == {"extractive": 1, "unanswerable": 1}
 
 
 # ===========================================================================
@@ -205,8 +147,8 @@ class TestSaveLoadSnapshot:
     def test_roundtrip(self, tmp_path: Path) -> None:
         """Save then load produces identical snapshot."""
         questions = [
-            _make_question("q1"),
-            _make_question("q2", is_impossible=True, priority_boost=None),
+            make_gs_question("q1"),
+            make_gs_question("q2", is_impossible=True, has_priority_boost=False),
         ]
         original = create_snapshot(_make_gs(questions), source_file="test.json")
         path = tmp_path / "snapshot.json"
@@ -217,9 +159,10 @@ class TestSaveLoadSnapshot:
         assert loaded.question_ids == original.question_ids
         assert loaded.field_counts == original.field_counts
         assert loaded.cognitive_level_dist == original.cognitive_level_dist
+        assert loaded.chunk_match_scores == original.chunk_match_scores
 
     def test_file_created(self, tmp_path: Path) -> None:
-        """Save creates the file on disk."""
+        """Save creates the file in subdirectory."""
         snap = create_snapshot(_make_gs([]))
         path = tmp_path / "sub" / "snapshot.json"
         save_snapshot(snap, path)
@@ -238,7 +181,7 @@ class TestCompareSnapshot:
 
     def test_pass_identical(self) -> None:
         """Identical GS passes comparison."""
-        questions = [_make_question("q1"), _make_question("q2")]
+        questions = [make_gs_question("q1"), make_gs_question("q2")]
         gs = _make_gs(questions)
         baseline = create_snapshot(gs)
         result = compare_snapshot(baseline, gs)
@@ -248,9 +191,9 @@ class TestCompareSnapshot:
 
     def test_pass_with_additions(self) -> None:
         """Adding new questions still passes."""
-        orig = [_make_question("q1")]
+        orig = [make_gs_question("q1")]
         baseline = create_snapshot(_make_gs(orig))
-        updated = [_make_question("q1"), _make_question("q2")]
+        updated = [make_gs_question("q1"), make_gs_question("q2")]
         result = compare_snapshot(baseline, _make_gs(updated))
         assert result.passed is True
         assert result.ids_added == ["q2"]
@@ -258,33 +201,38 @@ class TestCompareSnapshot:
 
     def test_fail_ids_lost(self) -> None:
         """Losing an ID fails comparison."""
-        orig = [_make_question("q1"), _make_question("q2")]
+        orig = [make_gs_question("q1"), make_gs_question("q2")]
         baseline = create_snapshot(_make_gs(orig))
-        reduced = [_make_question("q1")]
+        reduced = [make_gs_question("q1")]
         result = compare_snapshot(baseline, _make_gs(reduced))
         assert result.passed is False
         assert result.ids_lost == ["q2"]
 
     def test_fail_chunk_score(self) -> None:
         """Non-100 chunk_match_score fails comparison."""
-        questions = [_make_question("q1", chunk_match_score=100)]
+        questions = [make_gs_question("q1", chunk_match_score=100)]
         baseline = create_snapshot(_make_gs(questions))
-        bad = [_make_question("q1", chunk_match_score=80)]
+        bad = [make_gs_question("q1", chunk_match_score=80)]
         result = compare_snapshot(baseline, _make_gs(bad))
         assert result.passed is False
         assert result.chunk_scores_valid is False
 
     def test_fail_field_count_degraded(self) -> None:
         """Decreasing field_counts.min fails comparison."""
-        # Create baseline with priority_boost (more fields)
-        q_full = _make_question("q1", priority_boost=0.1)
+        q_full = make_gs_question("q1", has_priority_boost=True)
         baseline = create_snapshot(_make_gs([q_full]))
 
-        # Current without priority_boost (fewer fields)
-        q_reduced = _make_question("q1", priority_boost=None)
+        q_reduced = make_gs_question("q1", has_priority_boost=False)
         result = compare_snapshot(baseline, _make_gs([q_reduced]))
         assert result.passed is False
         assert result.field_counts_valid is False
+
+    def test_pass_empty_baseline_empty_current(self) -> None:
+        """Empty baseline vs empty current passes."""
+        baseline = create_snapshot(_make_gs([]))
+        result = compare_snapshot(baseline, _make_gs([]))
+        assert result.passed is True
+        assert result.ids_preserved == 0
 
 
 # ===========================================================================
@@ -311,7 +259,7 @@ class TestFormatReport:
         assert "IDs preserved: 10" in report
 
     def test_fail_report(self) -> None:
-        """FAIL report contains FAIL keyword."""
+        """FAIL report contains FAIL keyword and detail."""
         result = ComparisonResult(
             passed=False,
             ids_lost=["q1"],
@@ -340,7 +288,7 @@ class TestCLI:
         """--snapshot creates a snapshot file."""
         gs_path = tmp_path / "gs.json"
         gs_path.write_text(
-            json.dumps({"questions": [_make_question("q1")]}),
+            json.dumps({"questions": [make_gs_question("q1")]}),
             encoding="utf-8",
         )
         out_path = tmp_path / "snapshot.json"
@@ -357,12 +305,11 @@ class TestCLI:
         self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ) -> None:
         """--compare returns 0 on pass."""
-        q = _make_question("q1")
+        q = make_gs_question("q1")
         gs_data = {"questions": [q]}
         gs_path = tmp_path / "gs.json"
         gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
 
-        # Create baseline
         snap = create_snapshot(gs_data)
         snap_path = tmp_path / "baseline.json"
         save_snapshot(snap, snap_path)
@@ -379,8 +326,8 @@ class TestCLI:
         self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ) -> None:
         """--compare returns 1 on fail (lost ID)."""
-        q1 = _make_question("q1")
-        q2 = _make_question("q2")
+        q1 = make_gs_question("q1")
+        q2 = make_gs_question("q2")
         baseline_data = {"questions": [q1, q2]}
         current_data = {"questions": [q1]}
 
@@ -398,3 +345,36 @@ class TestCLI:
         from scripts.evaluation.annales.verify_regression import main
 
         assert main() == 1
+
+    def test_compare_with_output_file(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """--compare --output writes report to file."""
+        q = make_gs_question("q1")
+        gs_data = {"questions": [q]}
+        gs_path = tmp_path / "gs.json"
+        gs_path.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        snap = create_snapshot(gs_data)
+        snap_path = tmp_path / "baseline.json"
+        save_snapshot(snap, snap_path)
+
+        report_path = tmp_path / "report.txt"
+        monkeypatch.setattr(
+            "sys.argv",
+            [
+                "prog",
+                "--compare",
+                "--gs",
+                str(gs_path),
+                "--baseline",
+                str(snap_path),
+                "--output",
+                str(report_path),
+            ],
+        )
+        from scripts.evaluation.annales.verify_regression import main
+
+        assert main() == 0
+        assert report_path.exists()
+        assert "PASS" in report_path.read_text(encoding="utf-8")

@@ -211,6 +211,88 @@ def chunks_by_id_small(sample_chunk: dict) -> dict[str, dict]:
     return {c["id"]: c for c in [chunk1, chunk2, chunk3]}
 
 
+def make_gs_question(
+    qid: str = "gs:scratch:answerable:0001:abc",
+    is_impossible: bool = False,
+    cognitive_level: str = "Understand",
+    question_text: str = "Test question?",
+    question_type: str = "procedural",
+    difficulty: float = 0.5,
+    reasoning_class: str = "reasoning",
+    answer_type: str = "extractive",
+    chunk_match_score: int = 100,
+    has_priority_boost: bool = True,
+    priority_boost_value: float = 0.1,
+) -> dict:
+    """Build a configurable Schema v2 question for testing.
+
+    Shared helper used by test_verify_regression and test_fix_gs_v2_metadata.
+    NOT a fixture: call directly as ``make_gs_question(...)``.
+    """
+    processing: dict = {
+        "chunk_match_score": chunk_match_score,
+        "chunk_match_method": "by_design_input",
+        "reasoning_class_method": "generation_prompt",
+        "triplet_ready": not is_impossible,
+        "extraction_flags": ["by_design"],
+        "answer_source": "chunk_extraction" if not is_impossible else "unanswerable",
+        "quality_score": 0.8,
+    }
+    if has_priority_boost:
+        processing["priority_boost"] = priority_boost_value
+
+    return {
+        "id": qid,
+        "legacy_id": "",
+        "content": {
+            "question": question_text,
+            "expected_answer": "Answer" if not is_impossible else "",
+            "is_impossible": is_impossible,
+        },
+        "mcq": {
+            "original_question": question_text,
+            "choices": {},
+            "mcq_answer": "",
+            "correct_answer": "",
+            "original_answer": "",
+        },
+        "provenance": {
+            "chunk_id": "test.pdf-p001-parent001-child00",
+            "docs": ["test.pdf"],
+            "pages": [1],
+            "article_reference": "Art. 1",
+            "answer_explanation": "",
+            "annales_source": None,
+        },
+        "classification": {
+            "category": "arbitrage",
+            "keywords": ["test"],
+            "difficulty": difficulty,
+            "question_type": question_type,
+            "cognitive_level": cognitive_level,
+            "reasoning_type": "single-hop",
+            "reasoning_class": reasoning_class,
+            "answer_type": answer_type,
+            "hard_type": "ANSWERABLE" if not is_impossible else "OUT_OF_DATABASE",
+        },
+        "validation": {
+            "status": "VALIDATED",
+            "method": "by_design_generation",
+            "reviewer": "claude_code",
+            "answer_current": True,
+            "verified_date": "2026-01-01",
+            "pages_verified": True,
+            "batch": "test",
+        },
+        "processing": processing,
+        "audit": {
+            "history": "[BY DESIGN] test",
+            "qat_revalidation": None,
+            "requires_inference": False,
+        },
+    }
+
+
 @pytest.fixture(scope="session")
 def gs_scratch_data() -> dict:
     """Load tests/data/gs_scratch_v1.json (session-scoped, loaded once)."""

@@ -71,8 +71,8 @@ _ANALYZE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
 def normalize_schema(question: dict, date: str) -> list[CorrectionRecord]:
     """Add missing priority_boost field to any question lacking it.
 
-    Ensures all questions have the same 43-key schema by adding
-    processing.priority_boost=0.0 where absent.
+    Adds processing.priority_boost=0.0 where absent, ensuring
+    answerable and unanswerable questions share the same schema.
 
     Args:
         question: Single GS question dict (mutated in place).

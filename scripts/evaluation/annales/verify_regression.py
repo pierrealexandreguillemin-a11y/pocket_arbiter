@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class SnapshotData:
-    """Immutable snapshot of a GS file state."""
+    """Snapshot of a GS file state at a given point in time."""
 
     date: str
     source_file: str
@@ -128,6 +128,15 @@ def create_snapshot(gs_data: dict, source_file: str = "") -> SnapshotData:
         score = q.get("processing", {}).get("chunk_match_score", 0)
         chunk_match_scores.append(int(score))
 
+    logger.info(
+        "Snapshot: %dQ (ans=%d, unans=%d), fields min=%.0f/max=%.0f",
+        len(questions),
+        len(answerable),
+        len(unanswerable),
+        field_counts["min"],
+        field_counts["max"],
+    )
+
     return SnapshotData(
         date=get_date(),
         source_file=source_file,
@@ -148,11 +157,13 @@ def create_snapshot(gs_data: dict, source_file: str = "") -> SnapshotData:
 def save_snapshot(snapshot: SnapshotData, output_path: Path) -> None:
     """Save snapshot to JSON file."""
     save_json(asdict(snapshot), output_path)
+    logger.debug("Snapshot saved to %s", output_path)
 
 
 def load_snapshot(snapshot_path: Path) -> SnapshotData:
     """Load snapshot from JSON file."""
     data = load_json(snapshot_path)
+    logger.debug("Snapshot loaded from %s", snapshot_path)
     return SnapshotData(**data)
 
 
@@ -218,6 +229,14 @@ def compare_snapshot(baseline: SnapshotData, current_gs: dict) -> ComparisonResu
         )
 
     passed = ids_ok and chunk_scores_valid and field_counts_valid
+
+    logger.info(
+        "Comparison: %s (%d preserved, %d lost, %d added)",
+        "PASS" if passed else "FAIL",
+        ids_preserved,
+        len(ids_lost),
+        len(ids_added),
+    )
 
     return ComparisonResult(
         passed=passed,

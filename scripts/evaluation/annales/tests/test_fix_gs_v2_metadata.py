@@ -131,6 +131,30 @@ class TestSafeCognitiveReclassify:
         assert len(records) == 1
         assert records[0].new_value == "Analyze"
 
+    def test_comparez_analyze(self) -> None:
+        """'comparez' reclassifies to Analyze."""
+        q = make_gs_question(
+            question_text="Comparez les regles du rapide et du blitz.",
+            cognitive_level="Understand",
+        )
+        records = safe_cognitive_reclassify(q, "2026-02-19")
+        assert len(records) == 1
+        assert records[0].new_value == "Analyze"
+        assert records[0].pattern_matched == "comparez"
+        assert q["classification"]["cognitive_level"] == "Analyze"
+
+    def test_pourquoi_plutot_que_analyze(self) -> None:
+        """'pourquoi ... plutot que' reclassifies to Analyze."""
+        q = make_gs_question(
+            question_text="Pourquoi utiliser la pendule Fischer plutot que la classique?",
+            cognitive_level="Understand",
+        )
+        records = safe_cognitive_reclassify(q, "2026-02-19")
+        assert len(records) == 1
+        assert records[0].new_value == "Analyze"
+        assert records[0].pattern_matched == "pourquoi .+ plut[oô]t que"
+        assert q["classification"]["cognitive_level"] == "Analyze"
+
     def test_skip_already_apply(self) -> None:
         """Does not reclassify if already Apply."""
         q = make_gs_question(

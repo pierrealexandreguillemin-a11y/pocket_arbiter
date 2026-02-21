@@ -163,12 +163,25 @@ repos:
 
       # ------------------------------------------------------------------------
       # SECURITY: Dependency Audit (ISO 27001 - Vulnerability Management)
+      # CVE exceptions: see docs/CVE_EXCEPTIONS.md
+      # Requires: .venv with pip-audit installed
       # ------------------------------------------------------------------------
       - id: pip-audit
         name: "ISO 27001 | Dependency Vulnerabilities"
-        description: "Audit dependencies for known CVEs"
+        description: "Audit dependencies for known CVEs (uses .venv)"
         entry: bash
-        args: [-c, '.venv/Scripts/python -m pip_audit --strict --local --ignore-vuln CVE-2025-69872 --ignore-vuln CVE-2026-26007 --ignore-vuln CVE-2026-25990']
+        args:
+          - -c
+          - |
+            VENV_PY="$( [ -f .venv/bin/python ] && echo .venv/bin/python || echo .venv/Scripts/python )"
+            if [ ! -f "$VENV_PY" ] && [ ! -f "${VENV_PY}.exe" ]; then
+              echo "ERROR: .venv not found. Run: python -m venv .venv && .venv/*/pip install -r requirements.txt pip-audit" >&2
+              exit 1
+            fi
+            "$VENV_PY" -m pip_audit --strict --local \
+              --ignore-vuln CVE-2025-69872 \
+              --ignore-vuln CVE-2026-26007 \
+              --ignore-vuln CVE-2026-25990
         language: system
         pass_filenames: false
         stages: [pre-push]

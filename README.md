@@ -131,10 +131,12 @@ git clone https://github.com/[user]/pocket_arbiter.git
 cd pocket_arbiter
 
 # Setup Python (pour le pipeline)
-cd scripts
-python -m venv venv
-source venv/bin/activate  # ou venv\Scripts\activate sur Windows
+python -m venv .venv
+source .venv/bin/activate  # ou .venv\Scripts\activate sur Windows
 pip install -r requirements.txt
+pip install pre-commit xenon pip-audit  # dev tools
+python -m pre_commit install
+python -m pre_commit install --hook-type commit-msg --hook-type pre-push
 
 # Ouvrir le projet Android
 # → Ouvrir android/ dans Android Studio

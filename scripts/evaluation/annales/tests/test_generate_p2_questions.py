@@ -53,6 +53,7 @@ class TestMakeQuestion:
         )
         for key in (
             "id",
+            "legacy_id",
             "content",
             "provenance",
             "classification",
@@ -114,6 +115,25 @@ class TestMakeQuestion:
             keywords=["k"],
         )
         assert q["validation"]["batch"] == "gs_v1_step1_p2"
+
+    def test_mcq_fields_populated(self) -> None:
+        q = _make_question(
+            question="Test?",
+            expected_answer="My answer text.",
+            chunk_id="c1",
+            source="s.pdf",
+            pages=[1],
+            article_ref="Art",
+            cognitive_level="Apply",
+            difficulty=0.7,
+            question_type="scenario",
+            answer_type="extractive",
+            reasoning_class="reasoning",
+            keywords=["k"],
+        )
+        assert q["mcq"]["correct_answer"] == "My answer text."
+        assert q["mcq"]["original_answer"] == "My answer text."
+        assert q["legacy_id"] == ""
 
 
 class TestProfileConformance:

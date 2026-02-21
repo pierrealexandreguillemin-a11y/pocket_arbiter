@@ -42,6 +42,7 @@ def _make_question(
     docs = [source] if source else []
     return {
         "id": "_placeholder_",
+        "legacy_id": "",
         "content": {
             "question": question,
             "expected_answer": expected_answer,
@@ -51,8 +52,8 @@ def _make_question(
             "original_question": question,
             "choices": {},
             "mcq_answer": "",
-            "correct_answer": "",
-            "original_answer": "",
+            "correct_answer": expected_answer,
+            "original_answer": expected_answer,
         },
         "provenance": {
             "chunk_id": chunk_id,
@@ -1658,7 +1659,7 @@ MED_APPLY_INF = [
             pages=[190],
             article_ref="Art. 7.3",
             cognitive_level="Apply",
-            difficulty=0.7,
+            difficulty=0.65,
             question_type="procedural",
             answer_type="inferential",
             reasoning_class="reasoning",
@@ -1718,7 +1719,7 @@ MED_APPLY_INF = [
             pages=[156],
             article_ref="Classement fictif",
             cognitive_level="Apply",
-            difficulty=0.7,
+            difficulty=0.65,
             question_type="procedural",
             answer_type="inferential",
             reasoning_class="reasoning",

@@ -1,6 +1,6 @@
 {
-  "date": "2026-02-19",
-  "source_file": "tests\\data\\gs_scratch_v1.json",
+  "date": "2026-02-21",
+  "source_file": "data\\gs_generation\\snapshots\\gs_v1_step1_pre_p2.json",
   "total_questions": 614,
   "answerable_count": 397,
   "unanswerable_count": 217,
@@ -621,14 +621,15 @@
     "gs:scratch:uaeval:safety_concerned:78042dd142e8"
   ],
   "field_counts": {
-    "min": 35.0,
-    "max": 39.0,
-    "avg": 37.59
+    "min": 37.0,
+    "max": 40.0,
+    "avg": 38.94
   },
   "cognitive_level_dist": {
-    "Understand": 263,
-    "Remember": 134,
-    "Analyze": 217
+    "Understand": 249,
+    "Remember": 132,
+    "Analyze": 217,
+    "Apply": 16
   },
   "question_type_dist": {
     "procedural": 154,

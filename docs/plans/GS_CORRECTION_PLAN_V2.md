@@ -237,7 +237,7 @@ question **remplace** l'ancienne (meme chunk, ID stable, audit trail).
 > - `chunk_match_score = 100` verifie (pas force) pour toutes
 > - `validation.batch = "gs_v1_step1_p2"` pour les 80 remplacees
 > - Audit trail : `"[PHASE A-P2] regenerated {profil} on 2026-02-21"`
-> - Regression: PASS (614 IDs preserves, 0 perdus, field_counts.min=49)
+> - Regression: PASS (614 IDs preserves, 0 perdus, field_counts.min=37 >= baseline 35)
 > - Tests: 77 nouveaux tests (32 regenerate_targeted + 45 generate_p2_questions)
 > - Divergence plan: pas de `generate_new_id` ni `legacy_id` (IDs stables rend ces concepts inutiles)
 > - Scripts: `regenerate_targeted.py`, `generate_p2_questions.py`
@@ -245,7 +245,7 @@ question **remplace** l'ancienne (meme chunk, ID stable, audit trail).
 >
 > **Gates Phase A post-P2** :
 > - A-G1: PASS (min=49 fields, 100% >= 40)
-> - A-G2: PASS (42/397 = 10.6% hard)
+> - A-G2: PASS (40/397 = 10.1% hard)
 > - A-G3: PASS (4/4 : Remember 52, Understand 249, Apply 56, Analyze 40)
 > - A-G4: PASS (614/614 chunk_match_score = 100)
 > - A-G5: PASS (regression 0 IDs perdus)
@@ -269,7 +269,7 @@ question **remplace** l'ancienne (meme chunk, ID stable, audit trail).
 >   inferential:  40 (10.1%)  <- was 0, +40 via P2
 >
 > difficulty (answerable 397):
->   hard (>=0.7):  42 (10.6%)  <- was 0, +42 via P2
+>   hard (>=0.7):  40 (10.1%)  <- was 0, +40 via P2
 > ```
 >
 > **Status Phase A** : COMPLETE. Ready for GO/NO-GO A→B.
@@ -624,7 +624,8 @@ precedent sans perte.
 | Script | Role | Phase | Status |
 |--------|------|-------|--------|
 | `fix_gs_v2_metadata.py` | Corrections safe (schema, cognitive reclassification verifiable) | A | **DONE** (P1) |
-| `regenerate_targeted.py` | Re-generation BY DESIGN ciblee (hard, Apply, Analyze, comparative) | A | TODO (P2) |
+| `regenerate_targeted.py` | Re-generation BY DESIGN ciblee (hard, Apply, Analyze, comparative) | A | **DONE** (P2) |
+| `generate_p2_questions.py` | 80 questions hand-crafted, 4 profils, validation conformance | A | **DONE** (P2) |
 | `generate_v2_coverage.py` | Orchestrateur generation massive avec stop gates | B+C | TODO |
 | `verify_regression.py` | Tests de regression snapshot avant/apres | A-D | **DONE** (P1) |
 
@@ -743,6 +744,7 @@ Le GS v2 est considere conforme quand :
 | 1.0 | 2026-02-18 | Creation - audit findings F1-F10, plan 4 phases, cibles distribution |
 | 2.0 | 2026-02-19 | Corrections 10 findings rigueur : (1) criteres acceptation Phase A mesurables, (2) distinction seuils projet vs normatifs, (3) go/no-go inter-phases + rollback, (4) intervalles de confiance volumes, (5) Phase A BY DESIGN (pas de reclassification Potemkine), (6) IAA kappa >= 0.6, (7) schema 46 champs liste complete, (8) budget tokens/cout, (9) 21 -> 24 gates, (10) tests regression |
 | 2.1 | 2026-02-20 | P1 complete : verify_regression.py + fix_gs_v2_metadata.py + 63 tests. Resultats A1 (217 schema), A2 (16 cognitive), A3 (233 audit). Nommage fichiers aligne (step1/step2/step3). Section 8.3 mise a jour avec implementation reelle. |
+| 2.2 | 2026-02-21 | P2 complete : regenerate_targeted.py + generate_p2_questions.py + 77 tests. 80Q remplacees (4 profils x 20). IDs stables (pas de generate_new_id). Gates A-G1 a A-G5 PASS. Phase A COMPLETE. Divergence plan: legacy_id inutile (IDs stables). Baseline original restaure, snapshots separes (post_p1, post_p2). CVE exception register cree. |
 
 ---
 

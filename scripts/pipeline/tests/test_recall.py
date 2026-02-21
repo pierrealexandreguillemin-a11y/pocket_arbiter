@@ -68,14 +68,48 @@ def compute_recall_at_k(
 
 
 def _parse_question(q: dict) -> tuple[str, list[int], bool]:
-    """Extract question text, expected pages, and impossibility from V2 or legacy format."""
+    """Extract question text, expected pages, and impossibility.
+
+    Supports two formats:
+        - V2 (nested): q["content"]["question"], q["provenance"]["pages"]
+        - Legacy (flat): q["question"], q["expected_pages"]
+
+    Required keys per format:
+        - V2: content.question, provenance.pages
+        - Legacy: question, expected_pages
+    """
     if "content" in q:
         return (
             q["content"]["question"],
             q["provenance"]["pages"],
             q["content"].get("is_impossible", False),
         )
-    return q["question"], q["expected_pages"], False
+    return q["question"], q["expected_pages"], q.get("is_impossible", False)
+
+
+def _build_recall_result(
+    recalls: list[float],
+    results: list[dict],
+    failed: list[dict],
+    top_k: int,
+    use_hybrid: bool,
+    tolerance: int,
+) -> dict:
+    """Build the recall benchmark result dict."""
+    recall_mean = 0.0 if not recalls else float(np.mean(recalls))
+
+    return {
+        "recall_mean": recall_mean,
+        "recall_percent": recall_mean * 100,
+        "total_questions": len(results),
+        "questions_detail": results,
+        "failed_questions": failed,
+        "config": {
+            "top_k": top_k,
+            "use_hybrid": use_hybrid,
+            "tolerance": tolerance,
+        },
+    }
 
 
 def benchmark_recall(
@@ -148,23 +182,7 @@ def benchmark_recall(
             failed.append(result)
 
     recalls = [r["recall"] for r in results]
-    recall_mean = round(np.mean(recalls), 4)
-
-    return {
-        "total_questions": len(results),
-        "top_k": top_k,
-        "use_hybrid": use_hybrid,
-        "use_reranker": False,
-        "tolerance": tolerance,
-        "recall_mean": recall_mean,
-        "recall_percent": round(recall_mean * 100, 2),
-        "recall_std": round(np.std(recalls), 4),
-        "recall_min": round(min(recalls), 4),
-        "recall_max": round(max(recalls), 4),
-        "questions_above_threshold": sum(1 for r in recalls if r >= 0.5),
-        "questions_detail": results,
-        "failed_questions": failed,
-    }
+    return _build_recall_result(recalls, results, failed, top_k, use_hybrid, tolerance)
 
 
 # =============================================================================
@@ -229,6 +247,19 @@ class TestParseQuestion:
         assert pages == [3]
         assert impossible is False
 
+    def test_legacy_with_is_impossible(self):
+        q = {"question": "Q?", "expected_pages": [], "is_impossible": True}
+        _, _, impossible = _parse_question(q)
+        assert impossible is True
+
+    def test_v2_missing_is_impossible_defaults_false(self):
+        q = {
+            "content": {"question": "Q?"},
+            "provenance": {"pages": [1]},
+        }
+        _, _, impossible = _parse_question(q)
+        assert impossible is False
+
 
 class TestSyntheticRecall:
     """Tests synthetiques - ISO 29119."""
@@ -246,6 +277,31 @@ class TestSyntheticRecall:
     def test_mean_recall_computation(self):
         recalls = [1.0, 0.5, 0.5, 1.0, 0.0]
         assert abs(np.mean(recalls) - 0.6) < 0.001
+
+
+class TestBuildRecallResult:
+    """Tests _build_recall_result() helper."""
+
+    def test_empty_recalls_returns_zero(self):
+        result = _build_recall_result(
+            [], [], [], top_k=5, use_hybrid=False, tolerance=0
+        )
+        assert result["recall_mean"] == 0.0
+        assert result["recall_percent"] == 0.0
+        assert result["total_questions"] == 0
+
+    def test_normal_recalls(self):
+        recalls = [1.0, 0.5]
+        results = [{"recall": 1.0}, {"recall": 0.5}]
+        failed = [{"recall": 0.5}]
+        result = _build_recall_result(
+            recalls, results, failed, top_k=5, use_hybrid=True, tolerance=1
+        )
+        assert result["recall_mean"] == 0.75
+        assert result["recall_percent"] == 75.0
+        assert result["total_questions"] == 2
+        assert result["failed_questions"] == failed
+        assert result["config"]["use_hybrid"] is True
 
 
 # =============================================================================

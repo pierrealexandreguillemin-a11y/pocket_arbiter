@@ -22,13 +22,18 @@
 
 ```
 scripts/
-  iso/          # Validation ISO (100% coverage)
-  pipeline/     # Extraction PDF, chunking (Phase 1A)
+  iso/              # Validation ISO (100% coverage)
+  pipeline/         # Extraction PDF, chunking, embeddings (Phase 1A)
+  evaluation/
+    annales/        # GS generation, correction, regression (Phase A)
+    ares/           # ARES evaluation framework
+  training/         # Fine-tuning embeddings (Phase 2)
 corpus/
-  fr/           # 29 PDF FFE
-  intl/         # 1 PDF FIDE
-tests/data/     # Questions gold standard
-docs/           # Specs ISO
+  fr/               # 29 PDF FFE
+  intl/             # 1 PDF FIDE
+tests/data/         # Questions gold standard (gs_scratch_v1_step1.json)
+data/gs_generation/ # Artefacts generation (candidates, replacements, snapshots)
+docs/               # Specs ISO, plans, CVE register
 ```
 
 ## ISO Compliance (OBLIGATOIRE)
@@ -55,9 +60,18 @@ docs/           # Specs ISO
 
 ## Environment
 
-- **Virtualenv**: `.venv/` (isolé, pip-audit clean)
-- **Activation**: `.venv/Scripts/activate` (Windows)
-- **Pre-commit hooks**: installés depuis le venv
+- **Virtualenv**: `.venv/` (required for pip-audit and dependency isolation)
+- **Setup**:
+  ```bash
+  python -m venv .venv
+  # Windows: .venv\Scripts\activate
+  # Unix:    source .venv/bin/activate
+  pip install -r requirements.txt
+  pip install pre-commit xenon pip-audit  # dev tools
+  python -m pre_commit install
+  python -m pre_commit install --hook-type commit-msg --hook-type pre-push
+  ```
+- **CVE exceptions**: docs/CVE_EXCEPTIONS.md
 
 ## Current Work: GS Correction (PLAN-GS-CORR-002)
 

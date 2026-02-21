@@ -4,6 +4,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Dans un tournoi, Emma (5e), Farid (6e) et Germain (7e) terminent ex-aequo a 5 points. Les prix annonces sont 200, 100 et 0 euros. Hortense (8e) est exclue. Comment les prix sont-ils redistribues selon le systeme Hort?",
         "expected_answer": "Selon le systeme Hort, Emma recoit 150 euros, Farid recoit 100 euros et Germain recoit 50 euros. Hortense est retiree de la liste des prix.",
@@ -13,8 +14,8 @@
         "original_question": "Dans un tournoi, Emma (5e), Farid (6e) et Germain (7e) terminent ex-aequo a 5 points. Les prix annonces sont 200, 100 et 0 euros. Hortense (8e) est exclue. Comment les prix sont-ils redistribues selon le systeme Hort?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Selon le systeme Hort, Emma recoit 150 euros, Farid recoit 100 euros et Germain recoit 50 euros. Hortense est retiree de la liste des prix.",
+        "original_answer": "Selon le systeme Hort, Emma recoit 150 euros, Farid recoit 100 euros et Germain recoit 50 euros. Hortense est retiree de la liste des prix."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p159-parent475-child01",
@@ -77,6 +78,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Lors d'une assemblee FFE, un vote doit elire un nouveau membre du bureau. 15 delegues sont presents, 3 s'abstiennent et 2 votes sont nuls. Quelle procedure de vote doit etre appliquee et comment la majorite est-elle calculee?",
         "expected_answer": "Le vote portant sur une personne doit avoir lieu a bulletin secret. La majorite est calculee sur 10 votes valides (15 moins 3 abstentions et 2 nuls), les abstentions et votes nuls n'etant pas pris en compte.",
@@ -86,8 +88,8 @@
         "original_question": "Lors d'une assemblee FFE, un vote doit elire un nouveau membre du bureau. 15 delegues sont presents, 3 s'abstiennent et 2 votes sont nuls. Quelle procedure de vote doit etre appliquee et comment la majorite est-elle calculee?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le vote portant sur une personne doit avoir lieu a bulletin secret. La majorite est calculee sur 10 votes valides (15 moins 3 abstentions et 2 nuls), les abstentions et votes nuls n'etant pas pris en compte.",
+        "original_answer": "Le vote portant sur une personne doit avoir lieu a bulletin secret. La majorite est calculee sur 10 votes valides (15 moins 3 abstentions et 2 nuls), les abstentions et votes nuls n'etant pas pris en compte."
       },
       "provenance": {
         "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p009-parent028-child00",
@@ -150,6 +152,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un tournoi a elimination directe accueille 52 joueurs. Le tableau prevu est pour 64 participants. Que doit faire l'arbitre pour gerer les exemptions au premier tour?",
         "expected_answer": "Il manque 12 joueurs pour atteindre 64 (64-52=12). L'arbitre doit exempter 12 joueurs qui se qualifient directement au tour suivant. Les 40 joueurs restants (52-12=40) s'affrontent au premier tour.",
@@ -159,8 +162,8 @@
         "original_question": "Un tournoi a elimination directe accueille 52 joueurs. Le tableau prevu est pour 64 participants. Que doit faire l'arbitre pour gerer les exemptions au premier tour?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Il manque 12 joueurs pour atteindre 64 (64-52=12). L'arbitre doit exempter 12 joueurs qui se qualifient directement au tour suivant. Les 40 joueurs restants (52-12=40) s'affrontent au premier tour.",
+        "original_answer": "Il manque 12 joueurs pour atteindre 64 (64-52=12). L'arbitre doit exempter 12 joueurs qui se qualifient directement au tour suivant. Les 40 joueurs restants (52-12=40) s'affrontent au premier tour."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p119-parent348-child00",
@@ -223,6 +226,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Lors d'un tournoi Toutes Rondes, l'arbitre constate que 4 joueurs du meme club sont inscrits. Que doit-il mettre en oeuvre pour limiter les suspicions d'arrangements?",
         "expected_answer": "L'arbitre doit diriger le tirage au sort des numeros d'appariement de facon a ce que les personnes de meme affinite (meme club) ne se rencontrent pas dans les 3 dernieres rondes. Cette information doit etre communiquee en avance via le reglement interieur.",
@@ -232,8 +236,8 @@
         "original_question": "Lors d'un tournoi Toutes Rondes, l'arbitre constate que 4 joueurs du meme club sont inscrits. Que doit-il mettre en oeuvre pour limiter les suspicions d'arrangements?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre doit diriger le tirage au sort des numeros d'appariement de facon a ce que les personnes de meme affinite (meme club) ne se rencontrent pas dans les 3 dernieres rondes. Cette information doit etre communiquee en avance via le reglement interieur.",
+        "original_answer": "L'arbitre doit diriger le tirage au sort des numeros d'appariement de facon a ce que les personnes de meme affinite (meme club) ne se rencontrent pas dans les 3 dernieres rondes. Cette information doit etre communiquee en avance via le reglement interieur."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p104-parent307-child00",
@@ -296,6 +300,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un joueur en fauteuil roulant se plaint que sa table est trop haute et que son adversaire le derange regulierement. Quelles mesures l'arbitre doit-il prendre conformement a l'article 12.2?",
         "expected_answer": "Selon l'article 12.2, l'arbitre doit assurer le fair-play (12.2.1), s'assurer que les joueurs ne soient pas deranges (12.2.4), prendre les mesures speciales dans l'interet des joueurs handicapes (12.2.6), et maintenir un bon environnement de jeu (12.2.3).",
@@ -305,8 +310,8 @@
         "original_question": "Un joueur en fauteuil roulant se plaint que sa table est trop haute et que son adversaire le derange regulierement. Quelles mesures l'arbitre doit-il prendre conformement a l'article 12.2?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Selon l'article 12.2, l'arbitre doit assurer le fair-play (12.2.1), s'assurer que les joueurs ne soient pas deranges (12.2.4), prendre les mesures speciales dans l'interet des joueurs handicapes (12.2.6), et maintenir un bon environnement de jeu (12.2.3).",
+        "original_answer": "Selon l'article 12.2, l'arbitre doit assurer le fair-play (12.2.1), s'assurer que les joueurs ne soient pas deranges (12.2.4), prendre les mesures speciales dans l'interet des joueurs handicapes (12.2.6), et maintenir un bon environnement de jeu (12.2.3)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p055-parent188-child00",
@@ -369,6 +374,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un club organise un tournoi ferme en partenariat avec la FFE. L'organisateur demande s'il doit payer les droits d'homologation. Que doit repondre l'arbitre?",
         "expected_answer": "Les tournois fermes organises en partenariat avec la FFE sont exoneres des droits d'homologation, tout comme les competitions federales.",
@@ -378,8 +384,8 @@
         "original_question": "Un club organise un tournoi ferme en partenariat avec la FFE. L'organisateur demande s'il doit payer les droits d'homologation. Que doit repondre l'arbitre?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les tournois fermes organises en partenariat avec la FFE sont exoneres des droits d'homologation, tout comme les competitions federales.",
+        "original_answer": "Les tournois fermes organises en partenariat avec la FFE sont exoneres des droits d'homologation, tout comme les competitions federales."
       },
       "provenance": {
         "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p003-parent012-child00",
@@ -442,6 +448,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un arbitre doit organiser un tournoi par equipes en 5 rondes avec le systeme Molter. Ce systeme ne prevoit que des tournois en nombre pair de rondes. Comment doit-il proceder?",
         "expected_answer": "L'arbitre doit prendre un tournoi a 4 rondes et lui ajouter la ronde autonome pour obtenir 5 rondes. La ronde autonome peut etre utilisee pour organiser un tournoi avec un nombre impair de rondes.",
@@ -451,8 +458,8 @@
         "original_question": "Un arbitre doit organiser un tournoi par equipes en 5 rondes avec le systeme Molter. Ce systeme ne prevoit que des tournois en nombre pair de rondes. Comment doit-il proceder?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre doit prendre un tournoi a 4 rondes et lui ajouter la ronde autonome pour obtenir 5 rondes. La ronde autonome peut etre utilisee pour organiser un tournoi avec un nombre impair de rondes.",
+        "original_answer": "L'arbitre doit prendre un tournoi a 4 rondes et lui ajouter la ronde autonome pour obtenir 5 rondes. La ronde autonome peut etre utilisee pour organiser un tournoi avec un nombre impair de rondes."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p108-parent320-child00",
@@ -515,6 +522,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Lors du remplissage du questionnaire medical d'un jeune joueur, ses parents signalent qu'un membre de la famille est decede subitement avant 50 ans d'une maladie du coeur. Quelle est la portee de cette information?",
         "expected_answer": "Le questionnaire medical demande aux parents si quelqu'un dans la famille proche a eu une maladie grave du coeur ou du cerveau, ou est decede subitement avant 50 ans. Cette information doit etre prise en compte pour evaluer l'aptitude du joueur a participer.",
@@ -524,8 +532,8 @@
         "original_question": "Lors du remplissage du questionnaire medical d'un jeune joueur, ses parents signalent qu'un membre de la famille est decede subitement avant 50 ans d'une maladie du coeur. Quelle est la portee de cette information?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le questionnaire medical demande aux parents si quelqu'un dans la famille proche a eu une maladie grave du coeur ou du cerveau, ou est decede subitement avant 50 ans. Cette information doit etre prise en compte pour evaluer l'aptitude du joueur a participer.",
+        "original_answer": "Le questionnaire medical demande aux parents si quelqu'un dans la famille proche a eu une maladie grave du coeur ou du cerveau, ou est decede subitement avant 50 ans. Cette information doit etre prise en compte pour evaluer l'aptitude du joueur a participer."
       },
       "provenance": {
         "chunk_id": "2022_Reglement_medical_19082022.pdf-p007-parent020-child02",
@@ -588,6 +596,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un arbitre organise un tournoi avec departage base sur la performance Elo, mais 5 joueurs n'ont pas de classement et le reglement ne prevoit rien. Que doit-il faire avant le debut du tournoi?",
         "expected_answer": "Lorsqu'on utilise des departages bases sur le classement Elo, le reglement doit detailler comment les joueurs non classes seront traites. L'arbitre en chef doit informer les joueurs avant le debut du tournoi de la methode utilisee.",
@@ -597,8 +606,8 @@
         "original_question": "Un arbitre organise un tournoi avec departage base sur la performance Elo, mais 5 joueurs n'ont pas de classement et le reglement ne prevoit rien. Que doit-il faire avant le debut du tournoi?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Lorsqu'on utilise des departages bases sur le classement Elo, le reglement doit detailler comment les joueurs non classes seront traites. L'arbitre en chef doit informer les joueurs avant le debut du tournoi de la methode utilisee.",
+        "original_answer": "Lorsqu'on utilise des departages bases sur le classement Elo, le reglement doit detailler comment les joueurs non classes seront traites. L'arbitre en chef doit informer les joueurs avant le debut du tournoi de la methode utilisee."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p150-parent442-child00",
@@ -661,6 +670,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Lors de l'appariement d'un niveau au systeme suisse, l'arbitre doit deplacer des joueurs de S1 vers S2. Il hesite entre deplacer les joueurs 5 et 2 ou les joueurs 4 et 3. Quelle transposition doit-il choisir?",
         "expected_answer": "L'arbitre doit choisir de deplacer les joueurs 5 et 2 vers S2 car cette option est meilleure que deplacer les joueurs 4 et 3. Le critere est de maximiser le NAN le plus eleve parmi ceux deplaces de S1 vers S2.",
@@ -670,8 +680,8 @@
         "original_question": "Lors de l'appariement d'un niveau au systeme suisse, l'arbitre doit deplacer des joueurs de S1 vers S2. Il hesite entre deplacer les joueurs 5 et 2 ou les joueurs 4 et 3. Quelle transposition doit-il choisir?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre doit choisir de deplacer les joueurs 5 et 2 vers S2 car cette option est meilleure que deplacer les joueurs 4 et 3. Le critere est de maximiser le NAN le plus eleve parmi ceux deplaces de S1 vers S2.",
+        "original_answer": "L'arbitre doit choisir de deplacer les joueurs 5 et 2 vers S2 car cette option est meilleure que deplacer les joueurs 4 et 3. Le critere est de maximiser le NAN le plus eleve parmi ceux deplaces de S1 vers S2."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p130-parent383-child01",
@@ -734,6 +744,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un joueur utilise son telephone pendant la partie pour consulter une base de donnees, puis s'adresse a son adversaire de maniere agressive. Quels principes du code de respect a-t-il enfreints?",
         "expected_answer": "Le joueur a enfreint le respect de l'adversaire en ayant recours a des sources d'informations exterieures et a la tricherie, et en ne s'adressant pas a son adversaire en des termes courtois et polis.",
@@ -743,8 +754,8 @@
         "original_question": "Un joueur utilise son telephone pendant la partie pour consulter une base de donnees, puis s'adresse a son adversaire de maniere agressive. Quels principes du code de respect a-t-il enfreints?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le joueur a enfreint le respect de l'adversaire en ayant recours a des sources d'informations exterieures et a la tricherie, et en ne s'adressant pas a son adversaire en des termes courtois et polis.",
+        "original_answer": "Le joueur a enfreint le respect de l'adversaire en ayant recours a des sources d'informations exterieures et a la tricherie, et en ne s'adressant pas a son adversaire en des termes courtois et polis."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p033-parent141-child00",
@@ -807,6 +818,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un organisateur veut organiser un tournoi permettant l'obtention de normes. Il y a 4 porteurs de titres inscrits. Y a-t-il une restriction sur le nombre de joueurs d'une meme federation?",
         "expected_answer": "Selon le tableau, il faut 4 porteurs de titres. Il n'y a aucune restriction sur le nombre maximum de joueurs d'une meme federation (Nb max d'une federation : Aucun).",
@@ -816,8 +828,8 @@
         "original_question": "Un organisateur veut organiser un tournoi permettant l'obtention de normes. Il y a 4 porteurs de titres inscrits. Y a-t-il une restriction sur le nombre de joueurs d'une meme federation?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Selon le tableau, il faut 4 porteurs de titres. Il n'y a aucune restriction sur le nombre maximum de joueurs d'une meme federation (Nb max d'une federation : Aucun).",
+        "original_answer": "Selon le tableau, il faut 4 porteurs de titres. Il n'y a aucune restriction sur le nombre maximum de joueurs d'une meme federation (Nb max d'une federation : Aucun)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p200-parent595-child02",
@@ -880,6 +892,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un joueur a court de temps derange son adversaire pendant une partie rapide. L'arbitre constate l'infraction. Quelles sanctions graduelles peut-il appliquer selon l'article 18.4?",
         "expected_answer": "Les sanctions sont : avertissement (18.4.1), augmentation du temps de l'adversaire (18.4.2), diminution du temps du fautif (18.4.3), augmentation des points de l'adversaire (18.4.4), diminution des points du fautif (18.4.5).",
@@ -889,8 +902,8 @@
         "original_question": "Un joueur a court de temps derange son adversaire pendant une partie rapide. L'arbitre constate l'infraction. Quelles sanctions graduelles peut-il appliquer selon l'article 18.4?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les sanctions sont : avertissement (18.4.1), augmentation du temps de l'adversaire (18.4.2), diminution du temps du fautif (18.4.3), augmentation des points de l'adversaire (18.4.4), diminution des points du fautif (18.4.5).",
+        "original_answer": "Les sanctions sont : avertissement (18.4.1), augmentation du temps de l'adversaire (18.4.2), diminution du temps du fautif (18.4.3), augmentation des points de l'adversaire (18.4.4), diminution des points du fautif (18.4.5)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p093-parent276-child00",
@@ -953,6 +966,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un nouveau joueur mineur s'inscrit a un tournoi FIDE pour la premiere fois et n'a pas d'adresse email. Que recommandent les regles FIDE pour son enregistrement?",
         "expected_answer": "Il est fortement recommande de fournir une adresse email valide. Pour les mineurs, l'adresse e-mail des parents est fortement recommandee. Un nouvel enregistrement reussi renverra la reference FIDE.",
@@ -962,8 +976,8 @@
         "original_question": "Un nouveau joueur mineur s'inscrit a un tournoi FIDE pour la premiere fois et n'a pas d'adresse email. Que recommandent les regles FIDE pour son enregistrement?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Il est fortement recommande de fournir une adresse email valide. Pour les mineurs, l'adresse e-mail des parents est fortement recommandee. Un nouvel enregistrement reussi renverra la reference FIDE.",
+        "original_answer": "Il est fortement recommande de fournir une adresse email valide. Pour les mineurs, l'adresse e-mail des parents est fortement recommandee. Un nouvel enregistrement reussi renverra la reference FIDE."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p225-parent685-child02",
@@ -1026,6 +1040,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Apres une decision controversee, un entraineur menace l'arbitre et couvre un joueur qui utilise un appareil electronique. Quelles infractions au code de l'ethique sont commises?",
         "expected_answer": "L'entraineur commet des menaces et coercition en intimidant l'arbitre dans le but d'influencer sa decision, ainsi que la complicite d'infraction en couvrant un participant coupable d'infraction au code de l'ethique.",
@@ -1035,8 +1050,8 @@
         "original_question": "Apres une decision controversee, un entraineur menace l'arbitre et couvre un joueur qui utilise un appareil electronique. Quelles infractions au code de l'ethique sont commises?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'entraineur commet des menaces et coercition en intimidant l'arbitre dans le but d'influencer sa decision, ainsi que la complicite d'infraction en couvrant un participant coupable d'infraction au code de l'ethique.",
+        "original_answer": "L'entraineur commet des menaces et coercition en intimidant l'arbitre dans le but d'influencer sa decision, ainsi que la complicite d'infraction en couvrant un participant coupable d'infraction au code de l'ethique."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p031-parent137-child01",
@@ -1099,6 +1114,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un jeune U14 avec un classement Elo eleve souhaite participer au Championnat de France Jeunes sans passer les phases qualificatives. Peut-il le faire?",
         "expected_answer": "Oui, les jeunes ayant acquis leur qualification directe en fonction de leur classement Elo ou de leurs resultats de la saison precedente ne sont pas concernes par les phases qualificatives.",
@@ -1108,8 +1124,8 @@
         "original_question": "Un jeune U14 avec un classement Elo eleve souhaite participer au Championnat de France Jeunes sans passer les phases qualificatives. Peut-il le faire?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Oui, les jeunes ayant acquis leur qualification directe en fonction de leur classement Elo ou de leurs resultats de la saison precedente ne sont pas concernes par les phases qualificatives.",
+        "original_answer": "Oui, les jeunes ayant acquis leur qualification directe en fonction de leur classement Elo ou de leurs resultats de la saison precedente ne sont pas concernes par les phases qualificatives."
       },
       "provenance": {
         "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent002-child00",
@@ -1172,6 +1188,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un joueur dans un tournoi a normes a battu un adversaire faible. Il souhaite ignorer cette partie pour ameliorer sa norme. Sous quelles conditions peut-il le faire?",
         "expected_answer": "Un joueur peut ignorer les parties contre tout adversaire qu'il a battu, a condition que cela lui laisse au moins le nombre minimum de parties prevu au 1.4.1 contre la combinaison requise d'adversaires. La grille de resultats entiere doit etre transmise.",
@@ -1181,8 +1198,8 @@
         "original_question": "Un joueur dans un tournoi a normes a battu un adversaire faible. Il souhaite ignorer cette partie pour ameliorer sa norme. Sous quelles conditions peut-il le faire?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Un joueur peut ignorer les parties contre tout adversaire qu'il a battu, a condition que cela lui laisse au moins le nombre minimum de parties prevu au 1.4.1 contre la combinaison requise d'adversaires. La grille de resultats entiere doit etre transmise.",
+        "original_answer": "Un joueur peut ignorer les parties contre tout adversaire qu'il a battu, a condition que cela lui laisse au moins le nombre minimum de parties prevu au 1.4.1 contre la combinaison requise d'adversaires. La grille de resultats entiere doit etre transmise."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p195-parent576-child02",
@@ -1245,6 +1262,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un joueur en fauteuil roulant se presente a un tournoi et demande des amenagements. L'arbitre ne connait pas les procedures. Vers quels textes doit-il se tourner?",
         "expected_answer": "L'arbitre doit consulter les reglements de la Commission Handicap : H01 (Conduite a tenir quant aux joueurs handicapes) et H02 (Texte d'application pour les joueurs a mobilite reduite).",
@@ -1254,8 +1272,8 @@
         "original_question": "Un joueur en fauteuil roulant se presente a un tournoi et demande des amenagements. L'arbitre ne connait pas les procedures. Vers quels textes doit-il se tourner?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre doit consulter les reglements de la Commission Handicap : H01 (Conduite a tenir quant aux joueurs handicapes) et H02 (Texte d'application pour les joueurs a mobilite reduite).",
+        "original_answer": "L'arbitre doit consulter les reglements de la Commission Handicap : H01 (Conduite a tenir quant aux joueurs handicapes) et H02 (Texte d'application pour les joueurs a mobilite reduite)."
       },
       "provenance": {
         "chunk_id": "R01_2025_26_Regles_generales.pdf-p006-parent035-child00",
@@ -1318,6 +1336,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Un joueur handicape demande que l'echiquier soit place selon une orientation particuliere, mais son adversaire estime que cela le desavantage. Comment l'arbitre doit-il gerer la situation?",
         "expected_answer": "Le joueur handicape a le droit de demander le placement de son materiel selon une orientation particuliere, a condition que cela ne desavantage pas son adversaire. L'equipe organisatrice doit veiller a ce que les besoins des deux adversaires soient pris en compte.",
@@ -1327,8 +1346,8 @@
         "original_question": "Un joueur handicape demande que l'echiquier soit place selon une orientation particuliere, mais son adversaire estime que cela le desavantage. Comment l'arbitre doit-il gerer la situation?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le joueur handicape a le droit de demander le placement de son materiel selon une orientation particuliere, a condition que cela ne desavantage pas son adversaire. L'equipe organisatrice doit veiller a ce que les besoins des deux adversaires soient pris en compte.",
+        "original_answer": "Le joueur handicape a le droit de demander le placement de son materiel selon une orientation particuliere, a condition que cela ne desavantage pas son adversaire. L'equipe organisatrice doit veiller a ce que les besoins des deux adversaires soient pris en compte."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p160-parent478-child00",
@@ -1391,6 +1410,7 @@
     "profile": "HARD_APPLY",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Lors d'une reunion du comite directeur, un vote concerne un de ses membres. Le resultat est une egalite. Le vote est-il a bulletin secret et la voix du president est-elle preponderante?",
         "expected_answer": "Tout vote concernant un membre du comite directeur se deroule hors de sa presence ou a scrutin secret. En cas d'egalite hors scrutin secret, la voix du president est preponderante. Si le scrutin est secret, la voix preponderante ne s'applique pas.",
@@ -1400,8 +1420,8 @@
         "original_question": "Lors d'une reunion du comite directeur, un vote concerne un de ses membres. Le resultat est une egalite. Le vote est-il a bulletin secret et la voix du president est-elle preponderante?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Tout vote concernant un membre du comite directeur se deroule hors de sa presence ou a scrutin secret. En cas d'egalite hors scrutin secret, la voix du president est preponderante. Si le scrutin est secret, la voix preponderante ne s'applique pas.",
+        "original_answer": "Tout vote concernant un membre du comite directeur se deroule hors de sa presence ou a scrutin secret. En cas d'egalite hors scrutin secret, la voix du president est preponderante. Si le scrutin est secret, la voix preponderante ne s'applique pas."
       },
       "provenance": {
         "chunk_id": "2025_Reglement_Interieur_20250503.pdf-p013-parent045-child00",
@@ -1464,6 +1484,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "En quoi le systeme Rutsch se distingue-t-il d'une attribution aleatoire des appariements pour un tournoi toutes rondes?",
         "expected_answer": "Le systeme Rutsch utilise le principe du taquin (glissement systematique, 'ein Rutsch' en allemand) pour organiser les appariements, garantissant que chaque participant rencontre tous les autres avec alternance des couleurs, contrairement a une attribution aleatoire sans structure.",
@@ -1473,8 +1494,8 @@
         "original_question": "En quoi le systeme Rutsch se distingue-t-il d'une attribution aleatoire des appariements pour un tournoi toutes rondes?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le systeme Rutsch utilise le principe du taquin (glissement systematique, 'ein Rutsch' en allemand) pour organiser les appariements, garantissant que chaque participant rencontre tous les autres avec alternance des couleurs, contrairement a une attribution aleatoire sans structure.",
+        "original_answer": "Le systeme Rutsch utilise le principe du taquin (glissement systematique, 'ein Rutsch' en allemand) pour organiser les appariements, garantissant que chaque participant rencontre tous les autres avec alternance des couleurs, contrairement a une attribution aleatoire sans structure."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p102-parent299-child00",
@@ -1537,6 +1558,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les criteres de classement moyen requis pour qu'un tournoi toutes rondes soit un 'evenement de haut niveau' selon qu'il est mixte ou feminin ?",
         "expected_answer": "Un tournoi mixte necessite un classement moyen superieur a 2600, tandis qu'un tournoi feminin necessite superieur a 2400, soit 200 points d'ecart. Les deux requierent au moins 10 participants ou 6 en aller-retour.",
@@ -1546,8 +1568,8 @@
         "original_question": "Comparez les criteres de classement moyen requis pour qu'un tournoi toutes rondes soit un 'evenement de haut niveau' selon qu'il est mixte ou feminin ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Un tournoi mixte necessite un classement moyen superieur a 2600, tandis qu'un tournoi feminin necessite superieur a 2400, soit 200 points d'ecart. Les deux requierent au moins 10 participants ou 6 en aller-retour.",
+        "original_answer": "Un tournoi mixte necessite un classement moyen superieur a 2600, tandis qu'un tournoi feminin necessite superieur a 2400, soit 200 points d'ecart. Les deux requierent au moins 10 participants ou 6 en aller-retour."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p215-parent656-child00",
@@ -1610,6 +1632,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les responsabilites de l'arbitre et celles de l'organisateur dans les taches post-tournoi selon le texte ?",
         "expected_answer": "L'arbitre doit s'assurer de la transmission des resultats, rediger le rapport technique, transmettre normes et formulaires de plaintes. L'organisateur doit payer les droits d'homologation dans les 7 jours. L'arbitre verifie que l'organisateur s'acquitte de ce paiement.",
@@ -1619,8 +1642,8 @@
         "original_question": "Comparez les responsabilites de l'arbitre et celles de l'organisateur dans les taches post-tournoi selon le texte ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre doit s'assurer de la transmission des resultats, rediger le rapport technique, transmettre normes et formulaires de plaintes. L'organisateur doit payer les droits d'homologation dans les 7 jours. L'arbitre verifie que l'organisateur s'acquitte de ce paiement.",
+        "original_answer": "L'arbitre doit s'assurer de la transmission des resultats, rediger le rapport technique, transmettre normes et formulaires de plaintes. L'organisateur doit payer les droits d'homologation dans les 7 jours. L'arbitre verifie que l'organisateur s'acquitte de ce paiement."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p166-parent493-child00",
@@ -1683,6 +1706,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les criteres pour obtenir un titre d'arbitre federal pour un candidat de 15 ans et un candidat de 25 ans. Quelles differences existent?",
         "expected_answer": "Les deux doivent avoir une licence A, un classement Elo et le controle d'honorabilite. La difference : le candidat de 25 ans doit avoir participe a un stage de sensibilisation contre les violences sexistes/sexuelles (requis pour les 16 ans et plus). Le candidat de 15 ans en est dispense.",
@@ -1692,8 +1716,8 @@
         "original_question": "Comparez les criteres pour obtenir un titre d'arbitre federal pour un candidat de 15 ans et un candidat de 25 ans. Quelles differences existent?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les deux doivent avoir une licence A, un classement Elo et le controle d'honorabilite. La difference : le candidat de 25 ans doit avoir participe a un stage de sensibilisation contre les violences sexistes/sexuelles (requis pour les 16 ans et plus). Le candidat de 15 ans en est dispense.",
+        "original_answer": "Les deux doivent avoir une licence A, un classement Elo et le controle d'honorabilite. La difference : le candidat de 25 ans doit avoir participe a un stage de sensibilisation contre les violences sexistes/sexuelles (requis pour les 16 ans et plus). Le candidat de 15 ans en est dispense."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p018-parent069-child00",
@@ -1757,6 +1781,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les exigences de titres des adversaires pour une norme de Grand Maitre et une norme de Maitre International Feminin ?",
         "expected_answer": "Pour une norme GM, au moins 1/3 des adversaires (minimum 3) doivent etre GM. Pour une norme MIF, au moins 1/3 (minimum 3) doivent etre MIF, GMF, MI ou GM. La norme MIF accepte un eventail plus large de titres. Dans les deux cas, 50% des adversaires doivent avoir un titre (CM/CMF exclus).",
@@ -1766,8 +1791,8 @@
         "original_question": "Comparez les exigences de titres des adversaires pour une norme de Grand Maitre et une norme de Maitre International Feminin ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Pour une norme GM, au moins 1/3 des adversaires (minimum 3) doivent etre GM. Pour une norme MIF, au moins 1/3 (minimum 3) doivent etre MIF, GMF, MI ou GM. La norme MIF accepte un eventail plus large de titres. Dans les deux cas, 50% des adversaires doivent avoir un titre (CM/CMF exclus).",
+        "original_answer": "Pour une norme GM, au moins 1/3 des adversaires (minimum 3) doivent etre GM. Pour une norme MIF, au moins 1/3 (minimum 3) doivent etre MIF, GMF, MI ou GM. La norme MIF accepte un eventail plus large de titres. Dans les deux cas, 50% des adversaires doivent avoir un titre (CM/CMF exclus)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p196-parent579-child00",
@@ -1831,6 +1856,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez la position de la FIDE sur le systeme neerlandais par rapport aux systemes alternatifs (Dubov, Burstein, Lim) ?",
         "expected_answer": "La FIDE deconseille les systemes Dubov, Burstein et Lim sauf s'il existe un programme approuve avec un verificateur en libre acces. Le systeme neerlandais, majoritaire en France, ne fait pas l'objet de cette restriction, ce qui en fait le choix le plus sur.",
@@ -1840,8 +1866,8 @@
         "original_question": "Comparez la position de la FIDE sur le systeme neerlandais par rapport aux systemes alternatifs (Dubov, Burstein, Lim) ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "La FIDE deconseille les systemes Dubov, Burstein et Lim sauf s'il existe un programme approuve avec un verificateur en libre acces. Le systeme neerlandais, majoritaire en France, ne fait pas l'objet de cette restriction, ce qui en fait le choix le plus sur.",
+        "original_answer": "La FIDE deconseille les systemes Dubov, Burstein et Lim sauf s'il existe un programme approuve avec un verificateur en libre acces. Le systeme neerlandais, majoritaire en France, ne fait pas l'objet de cette restriction, ce qui en fait le choix le plus sur."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p121-parent352-child00",
@@ -1904,6 +1930,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les roles du pole stage, des formateurs et du secretariat federal dans le processus de formation des arbitres ?",
         "expected_answer": "Le pole stage accorde ou refuse l'homologation et assure le suivi des stages. Les organisateurs et formateurs assurent la mise en oeuvre. Le secretariat federal et la direction des titres recoivent les elements financiers et administratifs du pole stage.",
@@ -1913,8 +1940,8 @@
         "original_question": "Comparez les roles du pole stage, des formateurs et du secretariat federal dans le processus de formation des arbitres ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le pole stage accorde ou refuse l'homologation et assure le suivi des stages. Les organisateurs et formateurs assurent la mise en oeuvre. Le secretariat federal et la direction des titres recoivent les elements financiers et administratifs du pole stage.",
+        "original_answer": "Le pole stage accorde ou refuse l'homologation et assure le suivi des stages. Les organisateurs et formateurs assurent la mise en oeuvre. Le secretariat federal et la direction des titres recoivent les elements financiers et administratifs du pole stage."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p015-parent048-child00",
@@ -1977,6 +2004,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les criteres C.12/C.13 (flotteurs deux rondes consecutives) avec les criteres C.14/C.15 (flotteurs aux rondes n et n-2). En quoi different-ils?",
         "expected_answer": "C.12/C.13 minimisent les flotteurs deux rondes de suite (consecutives). C.14/C.15 minimisent les flotteurs aux rondes n et n-2 (avec une ronde d'ecart). Les criteres consecutifs sont plus restrictifs. C.16-C.19 ajoutent la minimisation de la difference de score dans ces situations.",
@@ -1986,8 +2014,8 @@
         "original_question": "Comparez les criteres C.12/C.13 (flotteurs deux rondes consecutives) avec les criteres C.14/C.15 (flotteurs aux rondes n et n-2). En quoi different-ils?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "C.12/C.13 minimisent les flotteurs deux rondes de suite (consecutives). C.14/C.15 minimisent les flotteurs aux rondes n et n-2 (avec une ronde d'ecart). Les criteres consecutifs sont plus restrictifs. C.16-C.19 ajoutent la minimisation de la difference de score dans ces situations.",
+        "original_answer": "C.12/C.13 minimisent les flotteurs deux rondes de suite (consecutives). C.14/C.15 minimisent les flotteurs aux rondes n et n-2 (avec une ronde d'ecart). Les criteres consecutifs sont plus restrictifs. C.16-C.19 ajoutent la minimisation de la difference de score dans ces situations."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p129-parent379-child01",
@@ -2050,6 +2078,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez la structure des Regles du Jeu FIDE entre les regles fondamentales et les regles de competition. Quelle version fait foi en cas de divergence?",
         "expected_answer": "Les Regles se divisent en deux parties : regles fondamentales du Jeu (partie 1) et regles du jeu en competition (partie 2). La version anglaise est la version officielle, adoptee au 93eme Congres a Chennai. En cas de divergence de traduction, c'est la version anglaise qui fait foi.",
@@ -2059,8 +2088,8 @@
         "original_question": "Comparez la structure des Regles du Jeu FIDE entre les regles fondamentales et les regles de competition. Quelle version fait foi en cas de divergence?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les Regles se divisent en deux parties : regles fondamentales du Jeu (partie 1) et regles du jeu en competition (partie 2). La version anglaise est la version officielle, adoptee au 93eme Congres a Chennai. En cas de divergence de traduction, c'est la version anglaise qui fait foi.",
+        "original_answer": "Les Regles se divisent en deux parties : regles fondamentales du Jeu (partie 1) et regles du jeu en competition (partie 2). La version anglaise est la version officielle, adoptee au 93eme Congres a Chennai. En cas de divergence de traduction, c'est la version anglaise qui fait foi."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p036-parent153-child00",
@@ -2123,6 +2152,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez le champ d'application des regles de fair-play FIDE pour les tournois en ligne entre les competitions officielles et les competitions nationales/privees ?",
         "expected_answer": "Pour les competitions officielles FIDE, les regles sont obligatoires. Pour les competitions nationales et tournois prives, il est fortement recommande de les adopter mais elles peuvent etre adaptees. Il y a donc une distinction entre obligation et recommandation.",
@@ -2132,8 +2162,8 @@
         "original_question": "Comparez le champ d'application des regles de fair-play FIDE pour les tournois en ligne entre les competitions officielles et les competitions nationales/privees ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Pour les competitions officielles FIDE, les regles sont obligatoires. Pour les competitions nationales et tournois prives, il est fortement recommande de les adopter mais elles peuvent etre adaptees. Il y a donc une distinction entre obligation et recommandation.",
+        "original_answer": "Pour les competitions officielles FIDE, les regles sont obligatoires. Pour les competitions nationales et tournois prives, il est fortement recommande de les adopter mais elles peuvent etre adaptees. Il y a donc une distinction entre obligation et recommandation."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p094-parent279-child00",
@@ -2196,6 +2226,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les elements devant figurer sur les feuilles de notation papier avec les exigences pour les feuilles electroniques conformes FIDE ?",
         "expected_answer": "Les feuilles papier doivent contenir 9 elements : nom de la competition, numero de ronde et echiquier, date, noms des joueurs, resultat, signatures et zone d'enregistrement des coups. Les feuilles electroniques conformes FIDE sont une alternative acceptee devant contenir des informations equivalentes.",
@@ -2205,8 +2236,8 @@
         "original_question": "Comparez les elements devant figurer sur les feuilles de notation papier avec les exigences pour les feuilles electroniques conformes FIDE ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les feuilles papier doivent contenir 9 elements : nom de la competition, numero de ronde et echiquier, date, noms des joueurs, resultat, signatures et zone d'enregistrement des coups. Les feuilles electroniques conformes FIDE sont une alternative acceptee devant contenir des informations equivalentes.",
+        "original_answer": "Les feuilles papier doivent contenir 9 elements : nom de la competition, numero de ronde et echiquier, date, noms des joueurs, resultat, signatures et zone d'enregistrement des coups. Les feuilles electroniques conformes FIDE sont une alternative acceptee devant contenir des informations equivalentes."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p080-parent243-child00",
@@ -2269,6 +2300,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez le systeme de prix 'a la place par departage' avec un systeme de partage entre ex-aequo. Quels sont les avantages du systeme a la place?",
         "expected_answer": "Dans le systeme a la place, chaque joueur recoit le prix correspondant a sa place determinee par les points et le departage. C'est le plus simple car il utilise un classement precis. Le partage entre ex-aequo necessite des calculs supplementaires pour redistribuer les prix.",
@@ -2278,8 +2310,8 @@
         "original_question": "Comparez le systeme de prix 'a la place par departage' avec un systeme de partage entre ex-aequo. Quels sont les avantages du systeme a la place?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Dans le systeme a la place, chaque joueur recoit le prix correspondant a sa place determinee par les points et le departage. C'est le plus simple car il utilise un classement precis. Le partage entre ex-aequo necessite des calculs supplementaires pour redistribuer les prix.",
+        "original_answer": "Dans le systeme a la place, chaque joueur recoit le prix correspondant a sa place determinee par les points et le departage. C'est le plus simple car il utilise un classement precis. Le partage entre ex-aequo necessite des calculs supplementaires pour redistribuer les prix."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p157-parent471-child00",
@@ -2342,6 +2374,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les roles de l'arbitre en chef, du secretariat FIDE et de la Commission d'homologation dans le processus d'enregistrement des titres directs ?",
         "expected_answer": "L'arbitre en chef envoie les resultats avec la liste des titres obtenus. La CH examine les informations. Le secretariat FIDE informe les federations concernees. La chaine est : arbitre (envoi) puis CH (examen) puis secretariat (notification).",
@@ -2351,8 +2384,8 @@
         "original_question": "Comparez les roles de l'arbitre en chef, du secretariat FIDE et de la Commission d'homologation dans le processus d'enregistrement des titres directs ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre en chef envoie les resultats avec la liste des titres obtenus. La CH examine les informations. Le secretariat FIDE informe les federations concernees. La chaine est : arbitre (envoi) puis CH (examen) puis secretariat (notification).",
+        "original_answer": "L'arbitre en chef envoie les resultats avec la liste des titres obtenus. La CH examine les informations. Le secretariat FIDE informe les federations concernees. La chaine est : arbitre (envoi) puis CH (examen) puis secretariat (notification)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p199-parent589-child00",
@@ -2415,6 +2448,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez l'efficacite du departage par rencontre directe entre un cas a 2 joueurs et un cas a 3 joueurs ex-aequo, en utilisant les exemples du texte ?",
         "expected_answer": "Pour 2 joueurs : Diane bat Alma, departage clair. Mais Guy et Fatou font nulle, departage echoue. Pour 3 joueurs : Eric 2pts, Beatrice 1pt, Claude 0pt entre eux, classement complet possible. Avec 3 joueurs, plus de rencontres mutuelles rendent le departage plus efficace.",
@@ -2424,8 +2458,8 @@
         "original_question": "Comparez l'efficacite du departage par rencontre directe entre un cas a 2 joueurs et un cas a 3 joueurs ex-aequo, en utilisant les exemples du texte ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Pour 2 joueurs : Diane bat Alma, departage clair. Mais Guy et Fatou font nulle, departage echoue. Pour 3 joueurs : Eric 2pts, Beatrice 1pt, Claude 0pt entre eux, classement complet possible. Avec 3 joueurs, plus de rencontres mutuelles rendent le departage plus efficace.",
+        "original_answer": "Pour 2 joueurs : Diane bat Alma, departage clair. Mais Guy et Fatou font nulle, departage echoue. Pour 3 joueurs : Eric 2pts, Beatrice 1pt, Claude 0pt entre eux, classement complet possible. Avec 3 joueurs, plus de rencontres mutuelles rendent le departage plus efficace."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p148-parent431-child02",
@@ -2487,6 +2521,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les consequences d'une erreur d'appariement involontaire avec celles d'une modification intentionnelle en faveur d'un joueur ?",
         "expected_answer": "Des arbitres differents doivent aboutir a des appariements identiques, donc une erreur doit etre corrigee. Une modification intentionnelle pour favoriser une norme peut entrainer un rapport a la commission d'homologation FIDE et des mesures disciplinaires via la Commission d'ethique.",
@@ -2496,8 +2531,8 @@
         "original_question": "Comparez les consequences d'une erreur d'appariement involontaire avec celles d'une modification intentionnelle en faveur d'un joueur ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Des arbitres differents doivent aboutir a des appariements identiques, donc une erreur doit etre corrigee. Une modification intentionnelle pour favoriser une norme peut entrainer un rapport a la commission d'homologation FIDE et des mesures disciplinaires via la Commission d'ethique.",
+        "original_answer": "Des arbitres differents doivent aboutir a des appariements identiques, donc une erreur doit etre corrigee. Une modification intentionnelle pour favoriser une norme peut entrainer un rapport a la commission d'homologation FIDE et des mesures disciplinaires via la Commission d'ethique."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p123-parent354-child01",
@@ -2560,6 +2595,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les formats acceptables et inacceptables pour la soumission des attestations de normes a la FIDE. Pourquoi certains formats sont-ils rejetes?",
         "expected_answer": "Les formats acceptables sont doc ou pdf, car ils doivent etre lisibles. Les photos prises avec un telephone sont inacceptables et ne constituent pas un document recevable, en raison du besoin de lisibilite et de qualite documentaire.",
@@ -2569,8 +2605,8 @@
         "original_question": "Comparez les formats acceptables et inacceptables pour la soumission des attestations de normes a la FIDE. Pourquoi certains formats sont-ils rejetes?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les formats acceptables sont doc ou pdf, car ils doivent etre lisibles. Les photos prises avec un telephone sont inacceptables et ne constituent pas un document recevable, en raison du besoin de lisibilite et de qualite documentaire.",
+        "original_answer": "Les formats acceptables sont doc ou pdf, car ils doivent etre lisibles. Les photos prises avec un telephone sont inacceptables et ne constituent pas un document recevable, en raison du besoin de lisibilite et de qualite documentaire."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p177-parent520-child01",
@@ -2633,6 +2669,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les conditions de la prise en passant avec celles de la promotion d'un pion. En quoi different-elles dans leur temporalite?",
         "expected_answer": "La prise en passant est soumise a une contrainte temporelle stricte : autorisee uniquement sur le coup suivant l'avancement de deux cases. La promotion n'a pas de contrainte temporelle : elle s'effectue automatiquement a la derniere rangee, le joueur choisissant sans restriction aux pieces deja capturees.",
@@ -2642,8 +2679,8 @@
         "original_question": "Comparez les conditions de la prise en passant avec celles de la promotion d'un pion. En quoi different-elles dans leur temporalite?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "La prise en passant est soumise a une contrainte temporelle stricte : autorisee uniquement sur le coup suivant l'avancement de deux cases. La promotion n'a pas de contrainte temporelle : elle s'effectue automatiquement a la derniere rangee, le joueur choisissant sans restriction aux pieces deja capturees.",
+        "original_answer": "La prise en passant est soumise a une contrainte temporelle stricte : autorisee uniquement sur le coup suivant l'avancement de deux cases. La promotion n'a pas de contrainte temporelle : elle s'effectue automatiquement a la derniere rangee, le joueur choisissant sans restriction aux pieces deja capturees."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p039-parent159-child00",
@@ -2706,6 +2743,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les exigences pour obtenir le titre d'Arbitre FIDE (AF) et le titre d'Arbitre International (AI) en termes d'age et de normes ?",
         "expected_answer": "Pour l'AF : age minimum 19 ans, un seminaire AF plus 3 attestations de normes lors de tournois. Pour l'AI : age minimum 21 ans, 4 attestations de normes. Les deux requierent un formulaire signe par la federation et le paiement de droits FIDE.",
@@ -2715,8 +2753,8 @@
         "original_question": "Comparez les exigences pour obtenir le titre d'Arbitre FIDE (AF) et le titre d'Arbitre International (AI) en termes d'age et de normes ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Pour l'AF : age minimum 19 ans, un seminaire AF plus 3 attestations de normes lors de tournois. Pour l'AI : age minimum 21 ans, 4 attestations de normes. Les deux requierent un formulaire signe par la federation et le paiement de droits FIDE.",
+        "original_answer": "Pour l'AF : age minimum 19 ans, un seminaire AF plus 3 attestations de normes lors de tournois. Pour l'AI : age minimum 21 ans, 4 attestations de normes. Les deux requierent un formulaire signe par la federation et le paiement de droits FIDE."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p209-parent623-child01",
@@ -2780,6 +2818,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "En quoi le departage Buchholz differe-t-il d'un simple comptage de points, et quel ajustement est applique pour les rondes non jouees?",
         "expected_answer": "Le Buchholz mesure la force des adversaires (somme des scores ajustes de chaque adversaire) et non la performance directe du joueur. Il recompense les joueurs ayant affronte des adversaires plus forts. Pour les rondes non jouees, un calcul specifique du score ajuste est applique selon l'article 14.",
@@ -2789,8 +2828,8 @@
         "original_question": "En quoi le departage Buchholz differe-t-il d'un simple comptage de points, et quel ajustement est applique pour les rondes non jouees?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le Buchholz mesure la force des adversaires (somme des scores ajustes de chaque adversaire) et non la performance directe du joueur. Il recompense les joueurs ayant affronte des adversaires plus forts. Pour les rondes non jouees, un calcul specifique du score ajuste est applique selon l'article 14.",
+        "original_answer": "Le Buchholz mesure la force des adversaires (somme des scores ajustes de chaque adversaire) et non la performance directe du joueur. Il recompense les joueurs ayant affronte des adversaires plus forts. Pour les rondes non jouees, un calcul specifique du score ajuste est applique selon l'article 14."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p149-parent438-child00",
@@ -2853,6 +2892,7 @@
     "profile": "HARD_ANALYZE",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les trois categories de formation des arbitres et expliquez le role de la commission FIDE des Arbitres dans le soutien aux federations nationales ?",
         "expected_answer": "Les trois categories sont : formation initiale, formation continue, et preparation aux evenements mondiaux. En complement, la commission FIDE des Arbitres assiste les federations, sur leur demande, concernant leurs programmes nationaux de formation.",
@@ -2862,8 +2902,8 @@
         "original_question": "Comparez les trois categories de formation des arbitres et expliquez le role de la commission FIDE des Arbitres dans le soutien aux federations nationales ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les trois categories sont : formation initiale, formation continue, et preparation aux evenements mondiaux. En complement, la commission FIDE des Arbitres assiste les federations, sur leur demande, concernant leurs programmes nationaux de formation.",
+        "original_answer": "Les trois categories sont : formation initiale, formation continue, et preparation aux evenements mondiaux. En complement, la commission FIDE des Arbitres assiste les federations, sur leur demande, concernant leurs programmes nationaux de formation."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p210-parent628-child00",
@@ -2926,6 +2966,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment un arbitre doit-il proceder pour organiser un tournoi de 17 equipes de 8 joueurs selon le systeme Molter?",
         "expected_answer": "L'arbitre prevoit 68 echiquiers (17x4). Les capitaines remettent la liste ordonnee des membres. Un tirage au sort attribue une lettre par equipe. Les membres sont numerotes. L'ordre ne peut pas etre permute entre les rondes. L'arbitre doit preparer les tableaux pour plusieurs cas de figure.",
@@ -2935,8 +2976,8 @@
         "original_question": "Comment un arbitre doit-il proceder pour organiser un tournoi de 17 equipes de 8 joueurs selon le systeme Molter?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre prevoit 68 echiquiers (17x4). Les capitaines remettent la liste ordonnee des membres. Un tirage au sort attribue une lettre par equipe. Les membres sont numerotes. L'ordre ne peut pas etre permute entre les rondes. L'arbitre doit preparer les tableaux pour plusieurs cas de figure.",
+        "original_answer": "L'arbitre prevoit 68 echiquiers (17x4). Les capitaines remettent la liste ordonnee des membres. Un tirage au sort attribue une lettre par equipe. Les membres sont numerotes. L'ordre ne peut pas etre permute entre les rondes. L'arbitre doit preparer les tableaux pour plusieurs cas de figure."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p107-parent317-child00",
@@ -2999,6 +3040,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Quelles verifications techniques un arbitre doit-il effectuer avant d'utiliser des echiquiers electroniques dans un tournoi?",
         "expected_answer": "L'arbitre doit verifier le type d'alimentation (cable ou batterie), le type de connexion et nombre max d'echiquiers connectables, la connexion sans fil, la compatibilite avec les pendules, et les dispositifs de transmission des parties. Les pieces doivent etre conformes aux standards.",
@@ -3008,8 +3050,8 @@
         "original_question": "Quelles verifications techniques un arbitre doit-il effectuer avant d'utiliser des echiquiers electroniques dans un tournoi?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre doit verifier le type d'alimentation (cable ou batterie), le type de connexion et nombre max d'echiquiers connectables, la connexion sans fil, la compatibilite avec les pendules, et les dispositifs de transmission des parties. Les pieces doivent etre conformes aux standards.",
+        "original_answer": "L'arbitre doit verifier le type d'alimentation (cable ou batterie), le type de connexion et nombre max d'echiquiers connectables, la connexion sans fil, la compatibilite avec les pendules, et les dispositifs de transmission des parties. Les pieces doivent etre conformes aux standards."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p082-parent247-child00",
@@ -3072,6 +3114,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment un club doit-il proceder si une reserve est formulee sur la nationalite d'un de ses joueurs?",
         "expected_answer": "Le club doit justifier la nationalite dans les 15 jours suivant la notification. A defaut, le joueur n'est pas comptabilise dans le quota de nationalite francaise. Pour le statut de resident, la residence doit etre etablie au plus tard le 30 novembre de la saison.",
@@ -3081,8 +3124,8 @@
         "original_question": "Comment un club doit-il proceder si une reserve est formulee sur la nationalite d'un de ses joueurs?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le club doit justifier la nationalite dans les 15 jours suivant la notification. A defaut, le joueur n'est pas comptabilise dans le quota de nationalite francaise. Pour le statut de resident, la residence doit etre etablie au plus tard le 30 novembre de la saison.",
+        "original_answer": "Le club doit justifier la nationalite dans les 15 jours suivant la notification. A defaut, le joueur n'est pas comptabilise dans le quota de nationalite francaise. Pour le statut de resident, la residence doit etre etablie au plus tard le 30 novembre de la saison."
       },
       "provenance": {
         "chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent004-child00",
@@ -3145,6 +3188,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment se deroule le processus de deliberation et de notification d'une decision disciplinaire a la FFE?",
         "expected_answer": "L'organe delibere a huis clos, hors la presence de la personne poursuivie. La decision est motivee, signee par le president et le secretaire. La notification mentionne voies et delais de recours. L'association sportive et la FFE sont informees.",
@@ -3154,8 +3198,8 @@
         "original_question": "Comment se deroule le processus de deliberation et de notification d'une decision disciplinaire a la FFE?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'organe delibere a huis clos, hors la presence de la personne poursuivie. La decision est motivee, signee par le president et le secretaire. La notification mentionne voies et delais de recours. L'association sportive et la FFE sont informees.",
+        "original_answer": "L'organe delibere a huis clos, hors la presence de la personne poursuivie. La decision est motivee, signee par le president et le secretaire. La notification mentionne voies et delais de recours. L'association sportive et la FFE sont informees."
       },
       "provenance": {
         "chunk_id": "2018_Reglement_Disciplinaire20180422.pdf-p005-parent015-child00",
@@ -3218,6 +3262,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment classer les transpositions possibles dans S2 lors de l'appariement d'un niveau au systeme suisse?",
         "expected_answer": "Les transpositions sont classees dans l'ordre croissant des valeurs lexicographiques de leurs N1 premiers numeros. Les joueurs restants de S2 sont ignores car ils constituent le niveau residuel (heterogene) ou deviennent flotteurs descendants (homogene).",
@@ -3227,8 +3272,8 @@
         "original_question": "Comment classer les transpositions possibles dans S2 lors de l'appariement d'un niveau au systeme suisse?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les transpositions sont classees dans l'ordre croissant des valeurs lexicographiques de leurs N1 premiers numeros. Les joueurs restants de S2 sont ignores car ils constituent le niveau residuel (heterogene) ou deviennent flotteurs descendants (homogene).",
+        "original_answer": "Les transpositions sont classees dans l'ordre croissant des valeurs lexicographiques de leurs N1 premiers numeros. Les joueurs restants de S2 sont ignores car ils constituent le niveau residuel (heterogene) ou deviennent flotteurs descendants (homogene)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p129-parent381-child00",
@@ -3291,6 +3336,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment un arbitre peut-il demander a etre supervise dans le cadre de son cursus, et qui prend en charge les frais?",
         "expected_answer": "L'arbitre demande via la Direction Regionale de l'Arbitrage. Les frais sont pris en charge par la Ligue. Si la visite est diligentee par la DNA, les frais sont a la charge de la FFE. Tout superviseur peut aussi prendre l'initiative de superviser. Aucun arbitre ne peut refuser.",
@@ -3300,8 +3346,8 @@
         "original_question": "Comment un arbitre peut-il demander a etre supervise dans le cadre de son cursus, et qui prend en charge les frais?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre demande via la Direction Regionale de l'Arbitrage. Les frais sont pris en charge par la Ligue. Si la visite est diligentee par la DNA, les frais sont a la charge de la FFE. Tout superviseur peut aussi prendre l'initiative de superviser. Aucun arbitre ne peut refuser.",
+        "original_answer": "L'arbitre demande via la Direction Regionale de l'Arbitrage. Les frais sont pris en charge par la Ligue. Si la visite est diligentee par la DNA, les frais sont a la charge de la FFE. Tout superviseur peut aussi prendre l'initiative de superviser. Aucun arbitre ne peut refuser."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p016-parent055-child00",
@@ -3365,6 +3411,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment un nouveau joueur peut-il obtenir une reference FIDE et quelles sont les donnees obligatoires?",
         "expected_answer": "Le joueur s'inscrit sur la FOA (zone de jeu en ligne FIDE). Donnees obligatoires : prenom, nom, sexe, date de naissance, email et federation. Un enfant peut s'inscrire sur sm.fide.com et obtenir un classement CiS apres mise a niveau Premium. Les auto-inscrits recoivent le drapeau FIDE (FID).",
@@ -3374,8 +3421,8 @@
         "original_question": "Comment un nouveau joueur peut-il obtenir une reference FIDE et quelles sont les donnees obligatoires?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le joueur s'inscrit sur la FOA (zone de jeu en ligne FIDE). Donnees obligatoires : prenom, nom, sexe, date de naissance, email et federation. Un enfant peut s'inscrire sur sm.fide.com et obtenir un classement CiS apres mise a niveau Premium. Les auto-inscrits recoivent le drapeau FIDE (FID).",
+        "original_answer": "Le joueur s'inscrit sur la FOA (zone de jeu en ligne FIDE). Donnees obligatoires : prenom, nom, sexe, date de naissance, email et federation. Un enfant peut s'inscrire sur sm.fide.com et obtenir un classement CiS apres mise a niveau Premium. Les auto-inscrits recoivent le drapeau FIDE (FID)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p225-parent685-child01",
@@ -3438,6 +3485,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Quels avantages concrets un organisateur obtient-il en faisant homologuer son tournoi par la FFE?",
         "expected_answer": "L'organisateur beneficie d'une promotion dans les annonces FFE, d'un logiciel d'appariements gratuit, de l'assurance FFE, et du traitement des resultats pour le classement Elo. La FFE assure aussi la formation des arbitres et controle leur travail.",
@@ -3447,8 +3495,8 @@
         "original_question": "Quels avantages concrets un organisateur obtient-il en faisant homologuer son tournoi par la FFE?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'organisateur beneficie d'une promotion dans les annonces FFE, d'un logiciel d'appariements gratuit, de l'assurance FFE, et du traitement des resultats pour le classement Elo. La FFE assure aussi la formation des arbitres et controle leur travail.",
+        "original_answer": "L'organisateur beneficie d'une promotion dans les annonces FFE, d'un logiciel d'appariements gratuit, de l'assurance FFE, et du traitement des resultats pour le classement Elo. La FFE assure aussi la formation des arbitres et controle leur travail."
       },
       "provenance": {
         "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p003-parent015-child00",
@@ -3511,6 +3559,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment proceder au classement final d'un groupe de Nationale 1 interclubs jeunes en cas d'egalite de points de matchs?",
         "expected_answer": "On utilise les resultats entre les equipes a departager (points de match, differentiel, points de parties). Puis les differentiels sur l'ensemble, puis le nombre de points 'pour'. Si l'egalite persiste, on prend les differentiels par echiquier (1er, 2eme, etc.).",
@@ -3520,8 +3569,8 @@
         "original_question": "Comment proceder au classement final d'un groupe de Nationale 1 interclubs jeunes en cas d'egalite de points de matchs?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "On utilise les resultats entre les equipes a departager (points de match, differentiel, points de parties). Puis les differentiels sur l'ensemble, puis le nombre de points 'pour'. Si l'egalite persiste, on prend les differentiels par echiquier (1er, 2eme, etc.).",
+        "original_answer": "On utilise les resultats entre les equipes a departager (points de match, differentiel, points de parties). Puis les differentiels sur l'ensemble, puis le nombre de points 'pour'. Si l'egalite persiste, on prend les differentiels par echiquier (1er, 2eme, etc.)."
       },
       "provenance": {
         "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p007-parent032-child00",
@@ -3584,6 +3633,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment utiliser la notion de D-SA pour justifier le choix d'un appariement dans un niveau heterogene?",
         "expected_answer": "Quand un niveau a plusieurs solutions possibles, on compare les D-SA de ces possibilites pour justifier qu'un appariement est meilleur. En pratique, cela concerne les niveaux heterogenes. Le respect d'un algorithme rigoureux evite tout questionnement.",
@@ -3593,8 +3643,8 @@
         "original_question": "Comment utiliser la notion de D-SA pour justifier le choix d'un appariement dans un niveau heterogene?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Quand un niveau a plusieurs solutions possibles, on compare les D-SA de ces possibilites pour justifier qu'un appariement est meilleur. En pratique, cela concerne les niveaux heterogenes. Le respect d'un algorithme rigoureux evite tout questionnement.",
+        "original_answer": "Quand un niveau a plusieurs solutions possibles, on compare les D-SA de ces possibilites pour justifier qu'un appariement est meilleur. En pratique, cela concerne les niveaux heterogenes. Le respect d'un algorithme rigoureux evite tout questionnement."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p126-parent367-child01",
@@ -3657,6 +3707,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Quelles sont les obligations de l'OC en matiere de couverture medicale pour les participants a une competition d'echecs?",
         "expected_answer": "L'OC garantit une couverture medicale pour tous les participants, representants, arbitres et officiels, contre les accidents et services medicaux, mais pas pour les maladies chroniques. Une equipe medicale officielle est nommee pour la duree de la competition.",
@@ -3666,8 +3717,8 @@
         "original_question": "Quelles sont les obligations de l'OC en matiere de couverture medicale pour les participants a une competition d'echecs?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'OC garantit une couverture medicale pour tous les participants, representants, arbitres et officiels, contre les accidents et services medicaux, mais pas pour les maladies chroniques. Une equipe medicale officielle est nommee pour la duree de la competition.",
+        "original_answer": "L'OC garantit une couverture medicale pour tous les participants, representants, arbitres et officiels, contre les accidents et services medicaux, mais pas pour les maladies chroniques. Une equipe medicale officielle est nommee pour la duree de la competition."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p077-parent234-child01",
@@ -3730,6 +3781,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment un arbitre doit-il proceder en cas de force majeure necessitant l'interruption d'un tournoi?",
         "expected_answer": "L'arbitre informe les joueurs de l'interruption. Les parties peuvent etre ajournees. Il peut modifier la cadence, depasser 12 heures de jeu, ou organiser une ronde a cadence differente. L'objectif est d'atteindre le nombre prevu de rondes en minimisant le risque d'aide exterieure.",
@@ -3739,8 +3791,8 @@
         "original_question": "Comment un arbitre doit-il proceder en cas de force majeure necessitant l'interruption d'un tournoi?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre informe les joueurs de l'interruption. Les parties peuvent etre ajournees. Il peut modifier la cadence, depasser 12 heures de jeu, ou organiser une ronde a cadence differente. L'objectif est d'atteindre le nombre prevu de rondes en minimisant le risque d'aide exterieure.",
+        "original_answer": "L'arbitre informe les joueurs de l'interruption. Les parties peuvent etre ajournees. Il peut modifier la cadence, depasser 12 heures de jeu, ou organiser une ronde a cadence differente. L'objectif est d'atteindre le nombre prevu de rondes en minimisant le risque d'aide exterieure."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p084-parent253-child00",
@@ -3803,6 +3855,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Quelles options de jeu supplementaires peuvent etre activees par les joueurs sur une plateforme d'echecs en ligne?",
         "expected_answer": "Trois options : le smart move (selection de la case d'arrivee seule quand un seul coup est possible), le pre-move (preparation du coup avant que l'adversaire ait joue), et la promotion en dame automatique (sans choix de piece promue).",
@@ -3812,8 +3865,8 @@
         "original_question": "Quelles options de jeu supplementaires peuvent etre activees par les joueurs sur une plateforme d'echecs en ligne?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Trois options : le smart move (selection de la case d'arrivee seule quand un seul coup est possible), le pre-move (preparation du coup avant que l'adversaire ait joue), et la promotion en dame automatique (sans choix de piece promue).",
+        "original_answer": "Trois options : le smart move (selection de la case d'arrivee seule quand un seul coup est possible), le pre-move (preparation du coup avant que l'adversaire ait joue), et la promotion en dame automatique (sans choix de piece promue)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p086-parent256-child00",
@@ -3876,6 +3929,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment procede-t-on au calcul de la variation de classement Elo d'un joueur pour un tournoi?",
         "expected_answer": "Pour chaque partie, on determine la difference D (plafonnee a 400 pts, parties avec ecart >=600 exclues si un joueur >2600). On calcule PD via le tableau 8.1.2, puis delta_R = score - PD. La variation totale est somme(delta_R) x K, ou K=40 (nouveau, <30 parties) ou K=20 (classement <2400).",
@@ -3885,8 +3939,8 @@
         "original_question": "Comment procede-t-on au calcul de la variation de classement Elo d'un joueur pour un tournoi?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Pour chaque partie, on determine la difference D (plafonnee a 400 pts, parties avec ecart >=600 exclues si un joueur >2600). On calcule PD via le tableau 8.1.2, puis delta_R = score - PD. La variation totale est somme(delta_R) x K, ou K=40 (nouveau, <30 parties) ou K=20 (classement <2400).",
+        "original_answer": "Pour chaque partie, on determine la difference D (plafonnee a 400 pts, parties avec ecart >=600 exclues si un joueur >2600). On calcule PD via le tableau 8.1.2, puis delta_R = score - PD. La variation totale est somme(delta_R) x K, ou K=40 (nouveau, <30 parties) ou K=20 (classement <2400)."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p190-parent566-child00",
@@ -3908,7 +3962,7 @@
           "K",
           "classement"
         ],
-        "difficulty": 0.7,
+        "difficulty": 0.65,
         "question_type": "procedural",
         "cognitive_level": "Apply",
         "reasoning_type": "single-hop",
@@ -3949,6 +4003,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment sont organisees les qualifications pour la Nationale 2 du championnat interclubs jeunes?",
         "expected_answer": "Les Ligues organisent la N3 avec autant de groupes qu'elles souhaitent. Elles ne peuvent qualifier en N2 qu'une equipe par Zone Interdepartementale. S'il reste des places, les Ligues avec le plus de licences A minimes (U16/U16F) et plus jeunes obtiennent une place supplementaire.",
@@ -3958,8 +4013,8 @@
         "original_question": "Comment sont organisees les qualifications pour la Nationale 2 du championnat interclubs jeunes?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les Ligues organisent la N3 avec autant de groupes qu'elles souhaitent. Elles ne peuvent qualifier en N2 qu'une equipe par Zone Interdepartementale. S'il reste des places, les Ligues avec le plus de licences A minimes (U16/U16F) et plus jeunes obtiennent une place supplementaire.",
+        "original_answer": "Les Ligues organisent la N3 avec autant de groupes qu'elles souhaitent. Elles ne peuvent qualifier en N2 qu'une equipe par Zone Interdepartementale. S'il reste des places, les Ligues avec le plus de licences A minimes (U16/U16F) et plus jeunes obtiennent une place supplementaire."
       },
       "provenance": {
         "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p007-parent000-child00",
@@ -4023,6 +4078,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment attribuer un classement fictif a un joueur non classe pour le calcul des departages Elo?",
         "expected_answer": "On utilise l'interpolation entre niveaux de score adjacents. Pour un joueur seul dans son niveau, on calcule l'ecart entre son malus et celui du niveau superieur, puis on soustrait de la moyenne Elo du niveau superieur. Pour plusieurs joueurs non classes dans un meme niveau, on interpole entre les niveaux superieur et inferieur.",
@@ -4032,8 +4088,8 @@
         "original_question": "Comment attribuer un classement fictif a un joueur non classe pour le calcul des departages Elo?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "On utilise l'interpolation entre niveaux de score adjacents. Pour un joueur seul dans son niveau, on calcule l'ecart entre son malus et celui du niveau superieur, puis on soustrait de la moyenne Elo du niveau superieur. Pour plusieurs joueurs non classes dans un meme niveau, on interpole entre les niveaux superieur et inferieur.",
+        "original_answer": "On utilise l'interpolation entre niveaux de score adjacents. Pour un joueur seul dans son niveau, on calcule l'ecart entre son malus et celui du niveau superieur, puis on soustrait de la moyenne Elo du niveau superieur. Pour plusieurs joueurs non classes dans un meme niveau, on interpole entre les niveaux superieur et inferieur."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p156-parent469-child01",
@@ -4054,7 +4110,7 @@
           "departage",
           "interpolation"
         ],
-        "difficulty": 0.7,
+        "difficulty": 0.65,
         "question_type": "procedural",
         "cognitive_level": "Apply",
         "reasoning_type": "single-hop",
@@ -4095,6 +4151,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Quelles categories de personnes sont soumises a la juridiction de la Commission du Fair-Play de la FIDE en cas de tricherie?",
         "expected_answer": "Les joueurs, capitaines d'equipe, et parties prenantes : responsables de delegation, entraineurs, managers, psychologues, membres de l'organisation, public, parents, journalistes, officiels et arbitres lorsqu'ils sont impliques dans des incidents de tricherie.",
@@ -4104,8 +4161,8 @@
         "original_question": "Quelles categories de personnes sont soumises a la juridiction de la Commission du Fair-Play de la FIDE en cas de tricherie?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les joueurs, capitaines d'equipe, et parties prenantes : responsables de delegation, entraineurs, managers, psychologues, membres de l'organisation, public, parents, journalistes, officiels et arbitres lorsqu'ils sont impliques dans des incidents de tricherie.",
+        "original_answer": "Les joueurs, capitaines d'equipe, et parties prenantes : responsables de delegation, entraineurs, managers, psychologues, membres de l'organisation, public, parents, journalistes, officiels et arbitres lorsqu'ils sont impliques dans des incidents de tricherie."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p096-parent286-child00",
@@ -4168,6 +4225,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment un arbitre doit-il gerer les demandes de 'bye' dans un tournoi au systeme suisse homologue?",
         "expected_answer": "L'arbitre ne peut autoriser le bye que si la procedure est clairement decrite dans l'annonce du tournoi et le reglement interieur. Il doit refuser de diriger les appariements et ne pas ceder aux pressions de joueurs cherchant une norme.",
@@ -4177,8 +4235,8 @@
         "original_question": "Comment un arbitre doit-il gerer les demandes de 'bye' dans un tournoi au systeme suisse homologue?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'arbitre ne peut autoriser le bye que si la procedure est clairement decrite dans l'annonce du tournoi et le reglement interieur. Il doit refuser de diriger les appariements et ne pas ceder aux pressions de joueurs cherchant une norme.",
+        "original_answer": "L'arbitre ne peut autoriser le bye que si la procedure est clairement decrite dans l'annonce du tournoi et le reglement interieur. Il doit refuser de diriger les appariements et ne pas ceder aux pressions de joueurs cherchant une norme."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p024-parent110-child00",
@@ -4241,6 +4299,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment utiliser les concepts de MaxPaires et M1 lors de l'appariement d'un niveau au systeme suisse?",
         "expected_answer": "MaxPaires est le nombre maximum de paires possibles dans le niveau (defini en C.5). M1 est le nombre max de flotteurs descendants pouvant etre apparies (defini en C.6). M0 est le nombre de flotteurs du niveau precedent. L'appariement ne doit pas depasser ces limites pour etre legal.",
@@ -4250,8 +4309,8 @@
         "original_question": "Comment utiliser les concepts de MaxPaires et M1 lors de l'appariement d'un niveau au systeme suisse?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "MaxPaires est le nombre maximum de paires possibles dans le niveau (defini en C.5). M1 est le nombre max de flotteurs descendants pouvant etre apparies (defini en C.6). M0 est le nombre de flotteurs du niveau precedent. L'appariement ne doit pas depasser ces limites pour etre legal.",
+        "original_answer": "MaxPaires est le nombre maximum de paires possibles dans le niveau (defini en C.5). M1 est le nombre max de flotteurs descendants pouvant etre apparies (defini en C.6). M0 est le nombre de flotteurs du niveau precedent. L'appariement ne doit pas depasser ces limites pour etre legal."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p132-parent389-child00",
@@ -4315,6 +4374,7 @@
     "profile": "MED_APPLY_INF",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comment proceder au departage entre 2 joueurs ex-aequo lors d'une phase qualificative du championnat de France jeunes?",
         "expected_answer": "On joue en rapide 15 min + 10 sec/coup en aller-retour avec couleurs inversees. En cas d'egalite, blitz 3 min + 2 sec/coup en aller-retour. En cas de nouvelle egalite, le match est rejoue.",
@@ -4324,8 +4384,8 @@
         "original_question": "Comment proceder au departage entre 2 joueurs ex-aequo lors d'une phase qualificative du championnat de France jeunes?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "On joue en rapide 15 min + 10 sec/coup en aller-retour avec couleurs inversees. En cas d'egalite, blitz 3 min + 2 sec/coup en aller-retour. En cas de nouvelle egalite, le match est rejoue.",
+        "original_answer": "On joue en rapide 15 min + 10 sec/coup en aller-retour avec couleurs inversees. En cas d'egalite, blitz 3 min + 2 sec/coup en aller-retour. En cas de nouvelle egalite, le match est rejoue."
       },
       "provenance": {
         "chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p004-parent022-child00",
@@ -4388,6 +4448,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les differentes voies possibles pour obtenir une norme d'Arbitre International. Quelles limitations s'appliquent a chacune?",
         "expected_answer": "Les voies sont : finale nationale (2 normes max), tournoi/match FIDE, tournoi international a normes, championnat rapide/blitz continental/mondial (1 norme max). Un tournoi FIDE >=100 joueurs de 3 federations et 7 rondes en division nationale comptent aussi, chacun utilisable une seule fois.",
@@ -4397,8 +4458,8 @@
         "original_question": "Comparez les differentes voies possibles pour obtenir une norme d'Arbitre International. Quelles limitations s'appliquent a chacune?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les voies sont : finale nationale (2 normes max), tournoi/match FIDE, tournoi international a normes, championnat rapide/blitz continental/mondial (1 norme max). Un tournoi FIDE >=100 joueurs de 3 federations et 7 rondes en division nationale comptent aussi, chacun utilisable une seule fois.",
+        "original_answer": "Les voies sont : finale nationale (2 normes max), tournoi/match FIDE, tournoi international a normes, championnat rapide/blitz continental/mondial (1 norme max). Un tournoi FIDE >=100 joueurs de 3 federations et 7 rondes en division nationale comptent aussi, chacun utilisable une seule fois."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p208-parent622-child00",
@@ -4461,6 +4522,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les normes de dimensions des tables entre les competitions EVE/GSC standard et les competitions pour jeunes joueurs ?",
         "expected_answer": "Standard : longueur 110 cm (+/-15%), largeur 85 cm (+/-15%), hauteur 74 cm. Pour les jeunes (Junior, Cadets, Ecoles sous EVE), ces dimensions peuvent etre modifiees en fonction de l'age, en accord avec l'EVE. Les chaises doivent minimiser le bruit.",
@@ -4470,8 +4532,8 @@
         "original_question": "Comparez les normes de dimensions des tables entre les competitions EVE/GSC standard et les competitions pour jeunes joueurs ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Standard : longueur 110 cm (+/-15%), largeur 85 cm (+/-15%), hauteur 74 cm. Pour les jeunes (Junior, Cadets, Ecoles sous EVE), ces dimensions peuvent etre modifiees en fonction de l'age, en accord avec l'EVE. Les chaises doivent minimiser le bruit.",
+        "original_answer": "Standard : longueur 110 cm (+/-15%), largeur 85 cm (+/-15%), hauteur 74 cm. Pour les jeunes (Junior, Cadets, Ecoles sous EVE), ces dimensions peuvent etre modifiees en fonction de l'age, en accord avec l'EVE. Les chaises doivent minimiser le bruit."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p079-parent240-child00",
@@ -4534,6 +4596,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Quels sont les deux statuts possibles pour un arbitre FIDE et en quoi influencent-ils sa capacite a officier?",
         "expected_answer": "Les arbitres (AIs et AFs) ont deux statuts : Actif (a) ou Inactif (i). Le statut determine si l'arbitre est autorise a exercer dans une manifestation comptabilisee pour le classement FIDE. Seuls les arbitres actifs peuvent officier.",
@@ -4543,8 +4606,8 @@
         "original_question": "Quels sont les deux statuts possibles pour un arbitre FIDE et en quoi influencent-ils sa capacite a officier?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les arbitres (AIs et AFs) ont deux statuts : Actif (a) ou Inactif (i). Le statut determine si l'arbitre est autorise a exercer dans une manifestation comptabilisee pour le classement FIDE. Seuls les arbitres actifs peuvent officier.",
+        "original_answer": "Les arbitres (AIs et AFs) ont deux statuts : Actif (a) ou Inactif (i). Le statut determine si l'arbitre est autorise a exercer dans une manifestation comptabilisee pour le classement FIDE. Seuls les arbitres actifs peuvent officier."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p214-parent648-child00",
@@ -4607,6 +4670,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les droits et les limitations du capitaine d'equipe dans un match interclubs ?",
         "expected_answer": "Le capitaine peut acceder a l'aire de jeu, conseiller sur nullite/abandon/situation du match, remettre les feuilles et transmettre les resultats. Il lui est interdit de commenter les positions sur l'echiquier et d'officier simultanement comme arbitre.",
@@ -4616,8 +4680,8 @@
         "original_question": "Comparez les droits et les limitations du capitaine d'equipe dans un match interclubs ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le capitaine peut acceder a l'aire de jeu, conseiller sur nullite/abandon/situation du match, remettre les feuilles et transmettre les resultats. Il lui est interdit de commenter les positions sur l'echiquier et d'officier simultanement comme arbitre.",
+        "original_answer": "Le capitaine peut acceder a l'aire de jeu, conseiller sur nullite/abandon/situation du match, remettre les feuilles et transmettre les resultats. Il lui est interdit de commenter les positions sur l'echiquier et d'officier simultanement comme arbitre."
       },
       "provenance": {
         "chunk_id": "Interclubs_DepartementalBdr.pdf-p005-parent012-child00",
@@ -4680,6 +4744,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les deux moments ou la Commission d'Homologation peut se prononcer sur le statut d'un joueur ?",
         "expected_answer": "Elle peut se prononcer : (1) avant le debut de la saison, a la demande du club, ou (2) a tout moment mais au plus tard 30 jours apres la rencontre, a la demande du club, de la direction du groupe, de la DTN ou du Comite Directeur. Les clubs non conformes peuvent etre penalises retroactivement.",
@@ -4689,8 +4754,8 @@
         "original_question": "Comparez les deux moments ou la Commission d'Homologation peut se prononcer sur le statut d'un joueur ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Elle peut se prononcer : (1) avant le debut de la saison, a la demande du club, ou (2) a tout moment mais au plus tard 30 jours apres la rencontre, a la demande du club, de la direction du groupe, de la DTN ou du Comite Directeur. Les clubs non conformes peuvent etre penalises retroactivement.",
+        "original_answer": "Elle peut se prononcer : (1) avant le debut de la saison, a la demande du club, ou (2) a tout moment mais au plus tard 30 jours apres la rencontre, a la demande du club, de la direction du groupe, de la DTN ou du Comite Directeur. Les clubs non conformes peuvent etre penalises retroactivement."
       },
       "provenance": {
         "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p003-parent013-child00",
@@ -4753,6 +4818,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les criteres de publication du classement rapide/blitz FIDE avec les conditions d'entree d'un nouveau joueur dans la liste ?",
         "expected_answer": "Publication mensuelle avec titre, federation, classement, code, nombre de parties, naissance, sexe et K. Date de cloture : 3 jours avant publication. Nouveau joueur : minimum 5 parties contre adversaires classes sur 26 mois max, classement initial >= 1400.",
@@ -4762,8 +4828,8 @@
         "original_question": "Comparez les criteres de publication du classement rapide/blitz FIDE avec les conditions d'entree d'un nouveau joueur dans la liste ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Publication mensuelle avec titre, federation, classement, code, nombre de parties, naissance, sexe et K. Date de cloture : 3 jours avant publication. Nouveau joueur : minimum 5 parties contre adversaires classes sur 26 mois max, classement initial >= 1400.",
+        "original_answer": "Publication mensuelle avec titre, federation, classement, code, nombre de parties, naissance, sexe et K. Date de cloture : 3 jours avant publication. Nouveau joueur : minimum 5 parties contre adversaires classes sur 26 mois max, classement initial >= 1400."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p188-parent560-child00",
@@ -4826,6 +4892,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez un niveau d'appariement homogene et un niveau heterogene au systeme suisse ?",
         "expected_answer": "Un niveau homogene contient uniquement des joueurs avec le meme score. Un niveau heterogene comprend des residents (meme groupe de points) et des personnes non appariees du niveau precedent. Le niveau heterogene peut contenir un sous-niveau residuel.",
@@ -4835,8 +4902,8 @@
         "original_question": "Comparez un niveau d'appariement homogene et un niveau heterogene au systeme suisse ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Un niveau homogene contient uniquement des joueurs avec le meme score. Un niveau heterogene comprend des residents (meme groupe de points) et des personnes non appariees du niveau precedent. Le niveau heterogene peut contenir un sous-niveau residuel.",
+        "original_answer": "Un niveau homogene contient uniquement des joueurs avec le meme score. Un niveau heterogene comprend des residents (meme groupe de points) et des personnes non appariees du niveau precedent. Le niveau heterogene peut contenir un sous-niveau residuel."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p125-parent362-child00",
@@ -4899,6 +4966,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les termes 'piratage' et 'promotion automatique' dans le contexte des echecs en ligne ?",
         "expected_answer": "Le piratage (Annexe I, B.3) est une fraude : une autre personne joue a la place du veritable joueur. La promotion automatique (Art. 3.6.c) est une fonctionnalite legitime : un pion est automatiquement remplace par une dame selon les reglages. L'un est une infraction, l'autre un outil de jeu.",
@@ -4908,8 +4976,8 @@
         "original_question": "Comparez les termes 'piratage' et 'promotion automatique' dans le contexte des echecs en ligne ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le piratage (Annexe I, B.3) est une fraude : une autre personne joue a la place du veritable joueur. La promotion automatique (Art. 3.6.c) est une fonctionnalite legitime : un pion est automatiquement remplace par une dame selon les reglages. L'un est une infraction, l'autre un outil de jeu.",
+        "original_answer": "Le piratage (Annexe I, B.3) est une fraude : une autre personne joue a la place du veritable joueur. La promotion automatique (Art. 3.6.c) est une fonctionnalite legitime : un pion est automatiquement remplace par une dame selon les reglages. L'un est une infraction, l'autre un outil de jeu."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p099-parent295-child02",
@@ -4972,6 +5040,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les obligations de communication des joueurs et officiels : que doivent-ils faire et que doivent-ils eviter?",
         "expected_answer": "Ils doivent : communications factuelles et non blessantes, informations precises, approche constructive. Ils doivent eviter : critique negative publique des benevoles, entraineurs et officiels. Les difficultes doivent etre signalees de maniere appropriee plutot que publiquement.",
@@ -4981,8 +5050,8 @@
         "original_question": "Comparez les obligations de communication des joueurs et officiels : que doivent-ils faire et que doivent-ils eviter?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Ils doivent : communications factuelles et non blessantes, informations precises, approche constructive. Ils doivent eviter : critique negative publique des benevoles, entraineurs et officiels. Les difficultes doivent etre signalees de maniere appropriee plutot que publiquement.",
+        "original_answer": "Ils doivent : communications factuelles et non blessantes, informations precises, approche constructive. Ils doivent eviter : critique negative publique des benevoles, entraineurs et officiels. Les difficultes doivent etre signalees de maniere appropriee plutot que publiquement."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p029-parent130-child00",
@@ -5044,6 +5113,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les modalites des seances en presentiel et en visioconference du comite directeur de la FFE ?",
         "expected_answer": "Le comite se reunit au moins 3 fois par an en presentiel (obligatoire, 1 par tranche de 4 mois). Les seances supplementaires peuvent etre en visioconference. Le DTN assiste avec voix consultative dans les deux cas. Entre les reunions, vote electronique possible.",
@@ -5053,8 +5123,8 @@
         "original_question": "Comparez les modalites des seances en presentiel et en visioconference du comite directeur de la FFE ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Le comite se reunit au moins 3 fois par an en presentiel (obligatoire, 1 par tranche de 4 mois). Les seances supplementaires peuvent etre en visioconference. Le DTN assiste avec voix consultative dans les deux cas. Entre les reunions, vote electronique possible.",
+        "original_answer": "Le comite se reunit au moins 3 fois par an en presentiel (obligatoire, 1 par tranche de 4 mois). Les seances supplementaires peuvent etre en visioconference. Le DTN assiste avec voix consultative dans les deux cas. Entre les reunions, vote electronique possible."
       },
       "provenance": {
         "chunk_id": "2024_Statuts20240420.pdf-p010-parent031-child00",
@@ -5117,6 +5187,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les conditions pour proposer une modification des statuts avec celles pour l'adopter ?",
         "expected_answer": "Proposer : comite directeur ou 1/3 des membres representant 1/3 des voix. Adopter : quorum de 50% des membres (50% des voix), majorite des 2/3 des presents representant 2/3 des voix. Si quorum non atteint, nouvelle convocation sans condition de quorum. Convocation 15 jours avant.",
@@ -5126,8 +5197,8 @@
         "original_question": "Comparez les conditions pour proposer une modification des statuts avec celles pour l'adopter ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Proposer : comite directeur ou 1/3 des membres representant 1/3 des voix. Adopter : quorum de 50% des membres (50% des voix), majorite des 2/3 des presents representant 2/3 des voix. Si quorum non atteint, nouvelle convocation sans condition de quorum. Convocation 15 jours avant.",
+        "original_answer": "Proposer : comite directeur ou 1/3 des membres representant 1/3 des voix. Adopter : quorum de 50% des membres (50% des voix), majorite des 2/3 des presents representant 2/3 des voix. Si quorum non atteint, nouvelle convocation sans condition de quorum. Convocation 15 jours avant."
       },
       "provenance": {
         "chunk_id": "2024_Statuts20240420.pdf-p016-parent055-child00",
@@ -5190,6 +5261,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les tournois de type A 'FIDE' et 'FIDE a normes'. Quelle est la difference principale?",
         "expected_answer": "Les deux comptent pour le classement Elo FIDE. Les tournois 'FIDE a normes' permettent en plus l'obtention de normes de titres, impliquant des exigences supplementaires. Quand la FIDE impose une limite Elo, le tournoi est reserve aux joueurs ne depassant pas cette limite.",
@@ -5199,8 +5271,8 @@
         "original_question": "Comparez les tournois de type A 'FIDE' et 'FIDE a normes'. Quelle est la difference principale?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les deux comptent pour le classement Elo FIDE. Les tournois 'FIDE a normes' permettent en plus l'obtention de normes de titres, impliquant des exigences supplementaires. Quand la FIDE impose une limite Elo, le tournoi est reserve aux joueurs ne depassant pas cette limite.",
+        "original_answer": "Les deux comptent pour le classement Elo FIDE. Les tournois 'FIDE a normes' permettent en plus l'obtention de normes de titres, impliquant des exigences supplementaires. Quand la FIDE impose une limite Elo, le tournoi est reserve aux joueurs ne depassant pas cette limite."
       },
       "provenance": {
         "chunk_id": "R03_2025_26_Competitions_homologuees.pdf-p001-parent000-child00",
@@ -5263,6 +5335,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les definitions de 'position morte' et de 'prise' dans les regles du jeu d'echecs ?",
         "expected_answer": "La position morte (Art. 5.2.2) signifie qu'aucun adversaire ne peut mater, entrainant la nulle. La prise (Art. 3.1) est le deplacement vers une case occupee par une piece adverse qui est retiree. La prise reduit le materiel et peut mener a une position morte.",
@@ -5272,8 +5345,8 @@
         "original_question": "Comparez les definitions de 'position morte' et de 'prise' dans les regles du jeu d'echecs ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "La position morte (Art. 5.2.2) signifie qu'aucun adversaire ne peut mater, entrainant la nulle. La prise (Art. 3.1) est le deplacement vers une case occupee par une piece adverse qui est retiree. La prise reduit le materiel et peut mener a une position morte.",
+        "original_answer": "La position morte (Art. 5.2.2) signifie qu'aucun adversaire ne peut mater, entrainant la nulle. La prise (Art. 3.1) est le deplacement vers une case occupee par une piece adverse qui est retiree. La prise reduit le materiel et peut mener a une position morte."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p194-parent214-child01",
@@ -5336,6 +5409,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez la verification de la chute du drapeau entre une pendule electronique avec compteur et une pendule mecanique ?",
         "expected_answer": "Avec pendule electronique a compteur, on peut determiner automatiquement si 40 coups ont ete joues : un '-' apparait si le joueur n'a pas termine. Si les deux cadrans affichent 0.00, l'arbitre determine quel drapeau est tombe en premier. Avec pendules mecaniques, l'article III.3.1 des Directives s'applique.",
@@ -5345,8 +5419,8 @@
         "original_question": "Comparez la verification de la chute du drapeau entre une pendule electronique avec compteur et une pendule mecanique ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Avec pendule electronique a compteur, on peut determiner automatiquement si 40 coups ont ete joues : un '-' apparait si le joueur n'a pas termine. Si les deux cadrans affichent 0.00, l'arbitre determine quel drapeau est tombe en premier. Avec pendules mecaniques, l'article III.3.1 des Directives s'applique.",
+        "original_answer": "Avec pendule electronique a compteur, on peut determiner automatiquement si 40 coups ont ete joues : un '-' apparait si le joueur n'a pas termine. Si les deux cadrans affichent 0.00, l'arbitre determine quel drapeau est tombe en premier. Avec pendules mecaniques, l'article III.3.1 des Directives s'applique."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p045-parent169-child02",
@@ -5409,6 +5483,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les droits de l'appelant et les pouvoirs du Jury d'Appel dans le processus d'appel ?",
         "expected_answer": "L'appelant (joueur, representant, capitaine) doit soumettre par ecrit avec caution dans le delai. Le JA rend des decisions definitives. Si l'appel aboutit, la caution est remboursee. Si l'appel echoue mais est juge raisonnable, la caution peut etre partiellement remboursee.",
@@ -5418,8 +5493,8 @@
         "original_question": "Comparez les droits de l'appelant et les pouvoirs du Jury d'Appel dans le processus d'appel ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'appelant (joueur, representant, capitaine) doit soumettre par ecrit avec caution dans le delai. Le JA rend des decisions definitives. Si l'appel aboutit, la caution est remboursee. Si l'appel echoue mais est juge raisonnable, la caution peut etre partiellement remboursee.",
+        "original_answer": "L'appelant (joueur, representant, capitaine) doit soumettre par ecrit avec caution dans le delai. Le JA rend des decisions definitives. Si l'appel aboutit, la caution est remboursee. Si l'appel echoue mais est juge raisonnable, la caution peut etre partiellement remboursee."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p076-parent231-child01",
@@ -5482,6 +5557,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les methodes d'attribution des numeros d'appariement dans un tournoi toutes rondes. Quel ajustement est recommande en aller-retour?",
         "expected_answer": "Les methodes sont : tirage au sort, classement Elo, ou protocole de Varma. Le reglement doit preciser la methode. Pour un tournoi aller-retour, il est recommande d'inverser l'ordre des deux derniers tours du premier cycle pour eviter trois parties consecutives de la meme couleur.",
@@ -5491,8 +5567,8 @@
         "original_question": "Comparez les methodes d'attribution des numeros d'appariement dans un tournoi toutes rondes. Quel ajustement est recommande en aller-retour?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les methodes sont : tirage au sort, classement Elo, ou protocole de Varma. Le reglement doit preciser la methode. Pour un tournoi aller-retour, il est recommande d'inverser l'ordre des deux derniers tours du premier cycle pour eviter trois parties consecutives de la meme couleur.",
+        "original_answer": "Les methodes sont : tirage au sort, classement Elo, ou protocole de Varma. Le reglement doit preciser la methode. Pour un tournoi aller-retour, il est recommande d'inverser l'ordre des deux derniers tours du premier cycle pour eviter trois parties consecutives de la meme couleur."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p103-parent303-child00",
@@ -5555,6 +5631,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les cadences minimales requises pour le classement Elo selon le niveau des adversaires ?",
         "expected_answer": "Si un adversaire >= 2400 : minimum 120 minutes. Si un adversaire >= 1800 : minimum 90 minutes. Si les deux < 1800 : minimum 60 minutes (pour 60 coups). Premier controle de temps : minimum 30 coups.",
@@ -5564,8 +5641,8 @@
         "original_question": "Comparez les cadences minimales requises pour le classement Elo selon le niveau des adversaires ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Si un adversaire >= 2400 : minimum 120 minutes. Si un adversaire >= 1800 : minimum 90 minutes. Si les deux < 1800 : minimum 60 minutes (pour 60 coups). Premier controle de temps : minimum 30 coups.",
+        "original_answer": "Si un adversaire >= 2400 : minimum 120 minutes. Si un adversaire >= 1800 : minimum 90 minutes. Si les deux < 1800 : minimum 60 minutes (pour 60 coups). Premier controle de temps : minimum 30 coups."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p182-parent533-child00",
@@ -5628,6 +5705,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez l'ordre de tirage entre les joueurs de la meme federation et ceux de federations differentes dans le tirage au sort restrictif ?",
         "expected_answer": "La federation avec le plus de representants tire en premier. A nombre egal, priorite par ordre alphabetique des codes FIDE. Au sein d'une meme federation, priorite par ordre alphabetique des noms. Le premier joueur choisit une grande enveloppe contenant assez de numeros pour son contingent.",
@@ -5637,8 +5715,8 @@
         "original_question": "Comparez l'ordre de tirage entre les joueurs de la meme federation et ceux de federations differentes dans le tirage au sort restrictif ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "La federation avec le plus de representants tire en premier. A nombre egal, priorite par ordre alphabetique des codes FIDE. Au sein d'une meme federation, priorite par ordre alphabetique des noms. Le premier joueur choisit une grande enveloppe contenant assez de numeros pour son contingent.",
+        "original_answer": "La federation avec le plus de representants tire en premier. A nombre egal, priorite par ordre alphabetique des codes FIDE. Au sein d'une meme federation, priorite par ordre alphabetique des noms. Le premier joueur choisit une grande enveloppe contenant assez de numeros pour son contingent."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p104-parent308-child00",
@@ -5701,6 +5779,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez les criteres utilises pour distinguer une accusation legitime d'une fausse accusation de tricherie aux echecs ?",
         "expected_answer": "Les criteres sont : base factuelle suffisante, niveau de la competition, titre et classement de l'accuse, resultat final dans la competition, moyen et ampleur de diffusion (medias sociaux, interview, blog). Cette liste n'est pas exhaustive. La fausse accusation est un abus de la liberte d'expression.",
@@ -5710,8 +5789,8 @@
         "original_question": "Comparez les criteres utilises pour distinguer une accusation legitime d'une fausse accusation de tricherie aux echecs ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "Les criteres sont : base factuelle suffisante, niveau de la competition, titre et classement de l'accuse, resultat final dans la competition, moyen et ampleur de diffusion (medias sociaux, interview, blog). Cette liste n'est pas exhaustive. La fausse accusation est un abus de la liberte d'expression.",
+        "original_answer": "Les criteres sont : base factuelle suffisante, niveau de la competition, titre et classement de l'accuse, resultat final dans la competition, moyen et ampleur de diffusion (medias sociaux, interview, blog). Cette liste n'est pas exhaustive. La fausse accusation est un abus de la liberte d'expression."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p096-parent284-child00",
@@ -5773,6 +5852,7 @@
     "profile": "MED_ANALYZE_COMP",
     "new_question": {
       "id": "_placeholder_",
+      "legacy_id": "",
       "content": {
         "question": "Comparez la responsabilite de l'organisateur pour le comportement des spectateurs avec celle des personnes qui s'accordent pour commettre des infractions ?",
         "expected_answer": "L'organisateur doit intervenir avec des mesures raisonnables en cas d'inconduite des spectateurs. Tout accord entre personnes visant a commettre des infractions est une infraction distincte. Le code d'ethique complete les lois sans les remplacer, ajoutant des regles de conduite supplementaires.",
@@ -5782,8 +5862,8 @@
         "original_question": "Comparez la responsabilite de l'organisateur pour le comportement des spectateurs avec celle des personnes qui s'accordent pour commettre des infractions ?",
         "choices": {},
         "mcq_answer": "",
-        "correct_answer": "",
-        "original_answer": ""
+        "correct_answer": "L'organisateur doit intervenir avec des mesures raisonnables en cas d'inconduite des spectateurs. Tout accord entre personnes visant a commettre des infractions est une infraction distincte. Le code d'ethique complete les lois sans les remplacer, ajoutant des regles de conduite supplementaires.",
+        "original_answer": "L'organisateur doit intervenir avec des mesures raisonnables en cas d'inconduite des spectateurs. Tout accord entre personnes visant a commettre des infractions est une infraction distincte. Le code d'ethique complete les lois sans les remplacer, ajoutant des regles de conduite supplementaires."
       },
       "provenance": {
         "chunk_id": "LA-octobre2025.pdf-p031-parent138-child00",

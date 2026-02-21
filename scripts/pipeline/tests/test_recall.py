@@ -67,6 +67,17 @@ def compute_recall_at_k(
     return found / len(expected_set)
 
 
+def _parse_question(q: dict) -> tuple[str, list[int], bool]:
+    """Extract question text, expected pages, and impossibility from V2 or legacy format."""
+    if "content" in q:
+        return (
+            q["content"]["question"],
+            q["provenance"]["pages"],
+            q["content"].get("is_impossible", False),
+        )
+    return q["question"], q["expected_pages"], False
+
+
 def benchmark_recall(
     db_path: Path,
     questions_file: Path,
@@ -105,16 +116,20 @@ def benchmark_recall(
     failed = []
 
     for q in questions:
-        query_emb = embed_query(q["question"], model)
+        question_text, expected_pages, is_impossible = _parse_question(q)
+
+        if is_impossible or not expected_pages:
+            continue
+
+        query_emb = embed_query(question_text, model)
 
         if use_hybrid:
-            retrieved = retrieve_hybrid(db_path, query_emb, q["question"], top_k=top_k)
+            retrieved = retrieve_hybrid(db_path, query_emb, question_text, top_k=top_k)
         else:
             # smart_retrieve: auto source_filter based on specific patterns
-            retrieved = smart_retrieve(db_path, query_emb, q["question"], top_k=top_k)
+            retrieved = smart_retrieve(db_path, query_emb, question_text, top_k=top_k)
 
         retrieved_pages = [r["page"] for r in retrieved]
-        expected_pages = q["expected_pages"]
 
         recall = compute_recall_at_k(
             retrieved_pages, expected_pages, k=top_k, tolerance=tolerance
@@ -122,7 +137,7 @@ def benchmark_recall(
 
         result = {
             "id": q["id"],
-            "question": q["question"],
+            "question": question_text,
             "expected_pages": expected_pages,
             "retrieved_pages": retrieved_pages,
             "recall": recall,
@@ -136,7 +151,7 @@ def benchmark_recall(
     recall_mean = round(np.mean(recalls), 4)
 
     return {
-        "total_questions": len(questions),
+        "total_questions": len(results),
         "top_k": top_k,
         "use_hybrid": use_hybrid,
         "use_reranker": False,
@@ -184,6 +199,35 @@ class TestComputeRecall:
     def test_tolerance_exact_boundary(self):
         assert compute_recall_at_k([57], [55], k=5, tolerance=2) == 1.0
         assert compute_recall_at_k([58], [55], k=5, tolerance=2) == 0.0
+
+
+class TestParseQuestion:
+    """Tests _parse_question() - Schema V2 vs legacy."""
+
+    def test_v2_nested_format(self):
+        q = {
+            "content": {"question": "Q?", "is_impossible": False},
+            "provenance": {"pages": [1, 2]},
+        }
+        text, pages, impossible = _parse_question(q)
+        assert text == "Q?"
+        assert pages == [1, 2]
+        assert impossible is False
+
+    def test_v2_impossible(self):
+        q = {
+            "content": {"question": "Q?", "is_impossible": True},
+            "provenance": {"pages": []},
+        }
+        _, _, impossible = _parse_question(q)
+        assert impossible is True
+
+    def test_legacy_flat_format(self):
+        q = {"question": "Q?", "expected_pages": [3]}
+        text, pages, impossible = _parse_question(q)
+        assert text == "Q?"
+        assert pages == [3]
+        assert impossible is False
 
 
 class TestSyntheticRecall:

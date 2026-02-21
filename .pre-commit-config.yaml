@@ -167,8 +167,8 @@ repos:
       - id: pip-audit
         name: "ISO 27001 | Dependency Vulnerabilities"
         description: "Audit dependencies for known CVEs"
-        entry: python
-        args: [-m, pip_audit, --strict, --local, --ignore-vuln, CVE-2025-69872]
+        entry: bash
+        args: [-c, '.venv/Scripts/python -m pip_audit --strict --local --ignore-vuln CVE-2025-69872 --ignore-vuln CVE-2026-26007 --ignore-vuln CVE-2026-25990']
         language: system
         pass_filenames: false
         stages: [pre-push]

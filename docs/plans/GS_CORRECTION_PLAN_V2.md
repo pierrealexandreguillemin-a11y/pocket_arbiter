@@ -4,7 +4,7 @@
 > **ISO Reference**: ISO 29119-3 (Test Data), ISO 25010 (Quality), ISO 42001 (AI Traceability)
 > **Version**: 2.1
 > **Date**: 2026-02-20
-> **Statut**: In Progress (P1 done, P2 next)
+> **Statut**: In Progress (Phase A complete: P1+P2 done, GO/NO-GO A→B next)
 > **Parent**: PLAN-GS-SCRATCH-001, SPEC-GS-METH-001
 > **Input**: Audit gs_scratch_v1.json (614Q) contre standards industrie
 
@@ -227,7 +227,52 @@ Les cas ambigus necessitent une **re-generation BY DESIGN** de la question.
 
 **Methode re-generation** : Pour chaque question a re-generer, utiliser le chunk source
 (provenance.chunk_id) et un prompt specialise demandant le type cible. La nouvelle
-question **remplace** l'ancienne (meme chunk, nouvel ID, audit trail).
+question **remplace** l'ancienne (meme chunk, ID stable, audit trail).
+
+> **Resultats P2 (2026-02-21)** :
+> - 80 questions remplacees, 20 par profil (HARD_APPLY, HARD_ANALYZE, MED_APPLY_INF, MED_ANALYZE_COMP)
+> - Selection par `select_candidates()` : scoring replaceability + diversite chunks
+> - Generation manuelle (LLM dans la boucle) : chaque question lue depuis chunk source
+> - IDs stables : contenu remplace, ID original preserve (ISO 12207 config mgmt)
+> - `chunk_match_score = 100` verifie (pas force) pour toutes
+> - `validation.batch = "gs_v1_step1_p2"` pour les 80 remplacees
+> - Audit trail : `"[PHASE A-P2] regenerated {profil} on 2026-02-21"`
+> - Regression: PASS (614 IDs preserves, 0 perdus, field_counts.min=49)
+> - Tests: 77 nouveaux tests (32 regenerate_targeted + 45 generate_p2_questions)
+> - Divergence plan: pas de `generate_new_id` ni `legacy_id` (IDs stables rend ces concepts inutiles)
+> - Scripts: `regenerate_targeted.py`, `generate_p2_questions.py`
+> - Artefacts: `data/gs_generation/p2_candidates.json`, `data/gs_generation/p2_replacements.json`
+>
+> **Gates Phase A post-P2** :
+> - A-G1: PASS (min=49 fields, 100% >= 40)
+> - A-G2: PASS (42/397 = 10.6% hard)
+> - A-G3: PASS (4/4 : Remember 52, Understand 249, Apply 56, Analyze 40)
+> - A-G4: PASS (614/614 chunk_match_score = 100)
+> - A-G5: PASS (regression 0 IDs perdus)
+>
+> **Distributions post-P2** :
+> ```
+> cognitive_level (answerable 397):
+>   Understand:  249 (62.7%)
+>   Apply:        56 (14.1%)  <- was 16 post-P1, +40 via P2
+>   Remember:     52 (13.1%)
+>   Analyze:      40 (10.1%)  <- was 0, +40 via P2
+>
+> question_type (answerable 397):
+>   procedural:  174 (43.8%)
+>   factual:     127 (32.0%)
+>   scenario:     56 (14.1%)
+>   comparative:  40 (10.1%)  <- was 0, +40 via P2
+>
+> answer_type (answerable 397):
+>   extractive:  357 (89.9%)
+>   inferential:  40 (10.1%)  <- was 0, +40 via P2
+>
+> difficulty (answerable 397):
+>   hard (>=0.7):  42 (10.6%)  <- was 0, +42 via P2
+> ```
+>
+> **Status Phase A** : COMPLETE. Ready for GO/NO-GO A→B.
 
 ### 4.5 Schema v2.0 : les 46 champs
 

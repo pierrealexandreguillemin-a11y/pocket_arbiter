@@ -53,14 +53,21 @@ docs/           # Specs ISO
 - Verifier les donnees contre les PDF sources (pas de texte invente)
 - Utiliser les modules partages existants (token_utils, chunk_normalizer, etc.)
 
+## Environment
+
+- **Virtualenv**: `.venv/` (isolé, pip-audit clean)
+- **Activation**: `.venv/Scripts/activate` (Windows)
+- **Pre-commit hooks**: installés depuis le venv
+
 ## Current Work: GS Correction (PLAN-GS-CORR-002)
 
 - **Plan source**: docs/plans/GS_CORRECTION_PLAN_V2.md
-- **Phase courante**: P2 (Phase A re-generation)
-- **Plans**: P1 [x] → P2 [ ] → GO/NO-GO A→B → P3 [ ] → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
-- **Derniere gate validee**: P1 (infra + safe corrections)
-- **Prochain go/no-go**: A→B (apres P2)
-- **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1)
+- **Phase courante**: GO/NO-GO A→B
+- **Plans**: P1 [x] → P2 [x] → **GO/NO-GO A→B** → P3 [ ] → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
+- **Derniere gate validee**: P2 (Phase A re-generation, all gates PASS)
+- **Prochain go/no-go**: A→B (pret)
+- **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1+P2)
+- **P2 resultats**: 80Q remplacées, 4 profils (20x HARD_APPLY, 20x HARD_ANALYZE, 20x MED_APPLY_INF, 20x MED_ANALYZE_COMP), gates A-G1 à A-G5 PASS
 
 ## References
 

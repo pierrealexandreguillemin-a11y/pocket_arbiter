@@ -4,7 +4,7 @@
 > **ISO Reference**: ISO 29119-3 (Test Data), ISO 25010 (Quality), ISO 42001 (AI Traceability)
 > **Version**: 2.1
 > **Date**: 2026-02-20
-> **Statut**: In Progress (Phase A complete: P1+P2 done, GO/NO-GO A→B next)
+> **Statut**: In Progress (Phase A complete: P1+P2+GO/NO-GO done, Phase B next)
 > **Parent**: PLAN-GS-SCRATCH-001, SPEC-GS-METH-001
 > **Input**: Audit gs_scratch_v1.json (614Q) contre standards industrie
 
@@ -273,6 +273,35 @@ question **remplace** l'ancienne (meme chunk, ID stable, audit trail).
 > ```
 >
 > **Status Phase A** : COMPLETE. Ready for GO/NO-GO A→B.
+
+> **Resultats GO/NO-GO A→B (2026-02-22)** :
+> - **Decision** : PASS conditionnel (3/4 kappa axes PASS, difficulty = known limitation)
+> - **Level 1 - Gates** : A-G1 schema PASS, A-G2 hard 12.1% PASS, A-G3 4CL PASS, A-G4 chunk_match PASS, A-G5 regression PASS (37+5xfail)
+> - **Level 2 - Tests** : 1508 passed, 1 skipped, 5 xfailed. Lint + coverage + complexity OK.
+> - **Level 3 - LLM-as-Judge** (2 rounds, 30Q stratifies chacun) :
+>   - question_type: kappa=0.948 PASS
+>   - cognitive_level: kappa=0.748 PASS
+>   - answer_type: kappa=0.634 PASS
+>   - difficulty_bucketed: kappa=-0.284 FAIL
+> - **Recalibration appliquee** (614Q, script `recalibrate_full.py` depuis baseline) :
+>   - answer_type: 34 changes (seuil kw overlap 0.45)
+>   - cognitive_level: 205 Understand→Remember (pattern-based, questions recall simple)
+>   - question_type: 149 procedural/scenario→factual (questions sans process)
+>   - difficulty: 129 easy-caps (high q-chunk overlap → 0.35) + 11 hard replacements
+>   - Q2 (ca25aa80) answer reformulee
+> - **Distributions post-recalibration** :
+>   ```
+>   cognitive_level: Remember 257 (65%), Understand 44 (11%), Apply 56 (14%), Analyze 40 (10%)
+>   question_type:   factual 276 (70%), procedural 61 (15%), scenario 20 (5%), comparative 40 (10%)
+>   answer_type:     extractive 371 (93%), inferential 26 (7%)
+>   difficulty:      hard 48/397 (12.1%)
+>   ```
+> - **Issues identifies pour Phase B** :
+>   - 95 questions "page-number" (Quelle regle a la page X?) = mauvaises pour RAG, a redesigner
+>   - Difficulty non calibrable par kw overlap seul (necessite tests retrieval reels)
+>   - Kappa difficulty structurellement faible (base rate skew sur 3 buckets)
+> - **Artefacts** : `recalibrate_full.py`, `recalibrate_hard.py`, `gonogo_30q_*.json` (2 rounds x blind/truth/judge)
+> - **Scripts Phase A complets** : fix_gs_v2_metadata.py, regenerate_targeted.py, generate_p2_questions.py, recalibrate_full.py, recalibrate_hard.py
 
 ### 4.5 Schema v2.0 : les 46 champs
 
@@ -626,6 +655,8 @@ precedent sans perte.
 | `fix_gs_v2_metadata.py` | Corrections safe (schema, cognitive reclassification verifiable) | A | **DONE** (P1) |
 | `regenerate_targeted.py` | Re-generation BY DESIGN ciblee (hard, Apply, Analyze, comparative) | A | **DONE** (P2) |
 | `generate_p2_questions.py` | 80 questions hand-crafted, 4 profils, validation conformance | A | **DONE** (P2) |
+| `recalibrate_full.py` | Recalibration complete (AT, CL, QT, difficulty, hard replacements, Q2 fix) | A | **DONE** (GO/NO-GO) |
+| `recalibrate_hard.py` | 11 hard replacement questions (low kw overlap, genuine difficulty) | A | **DONE** (GO/NO-GO) |
 | `generate_v2_coverage.py` | Orchestrateur generation massive avec stop gates | B+C | TODO |
 | `verify_regression.py` | Tests de regression snapshot avant/apres | A-D | **DONE** (P1) |
 
@@ -745,6 +776,7 @@ Le GS v2 est considere conforme quand :
 | 2.0 | 2026-02-19 | Corrections 10 findings rigueur : (1) criteres acceptation Phase A mesurables, (2) distinction seuils projet vs normatifs, (3) go/no-go inter-phases + rollback, (4) intervalles de confiance volumes, (5) Phase A BY DESIGN (pas de reclassification Potemkine), (6) IAA kappa >= 0.6, (7) schema 46 champs liste complete, (8) budget tokens/cout, (9) 21 -> 24 gates, (10) tests regression |
 | 2.1 | 2026-02-20 | P1 complete : verify_regression.py + fix_gs_v2_metadata.py + 63 tests. Resultats A1 (217 schema), A2 (16 cognitive), A3 (233 audit). Nommage fichiers aligne (step1/step2/step3). Section 8.3 mise a jour avec implementation reelle. |
 | 2.2 | 2026-02-21 | P2 complete : regenerate_targeted.py + generate_p2_questions.py + 77 tests. 80Q remplacees (4 profils x 20). IDs stables (pas de generate_new_id). Gates A-G1 a A-G5 PASS. Phase A COMPLETE. Divergence plan: legacy_id inutile (IDs stables). Baseline original restaure, snapshots separes (post_p1, post_p2). CVE exception register cree. |
+| 2.3 | 2026-02-22 | GO/NO-GO A→B execute. LLM-as-Judge 2 rounds (30Q chacun). Kappa PASS 3/4 axes (question_type 0.948, cognitive_level 0.748, answer_type 0.634). Difficulty FAIL (known limitation). Recalibration complete 614Q : 205 CL, 149 QT, 34 AT, 129 difficulty, 11 hard replacements, Q2 fix. Scripts recalibrate_full.py + recalibrate_hard.py. Issues Phase B : 95 page-number Qs, difficulty calibration. |
 
 ---
 

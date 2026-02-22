@@ -1,0 +1,242 @@
+[
+  {
+    "id": "gs:scratch:answerable:0132:ea406257",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.4,
+    "justification": "Scenario: a club asks about homologation fees. The answer applies the exoneration rule directly. Answer vocabulary ('exoneres des droits d'homologation', 'competitions federales', 'tournois fermes organises en partenariat avec la FFE') is verbatim from the chunk. Question mentions 'droits d'homologation' and 'tournoi ferme en partenariat' providing moderate retrieval overlap."
+  },
+  {
+    "id": "gs:scratch:answerable:1883:991bfeb3",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.45,
+    "justification": "Asks to compare criteria for legitimate vs false accusations. Answer enumerates criteria (base factuelle, niveau competition, titre/classement, resultat final, moyen/ampleur diffusion) all found verbatim in the chunk. 'Abus de la liberte d'expression' and 'liste n'est pas exhaustive' also verbatim. Question uses 'fausse accusation' and 'tricherie' which appear in the chunk, but 'accusation legitime' requires some semantic understanding."
+  },
+  {
+    "id": "gs:scratch:answerable:0025:e6ba6bdd",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.8,
+    "justification": "Asks what rule is on 'page 1' -- pure recall by page number. The answer is a verbatim quote from the chunk. Retrieval difficulty is very high because 'page 1' has zero semantic overlap with the chunk content about financial regulations."
+  },
+  {
+    "id": "gs:scratch:answerable:0457:0738418b",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.8,
+    "justification": "Asks what obligation is on 'page 98' -- pure page-number recall. Answer is verbatim from the chunk ('La personne assistante en ligne designee doit avoir une vue complete de leur joueur/joueuse'). Retrieval relies entirely on page metadata, not content similarity."
+  },
+  {
+    "id": "gs:scratch:answerable:0004:b16c7a8f",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.75,
+    "justification": "Asks what the delegation contract specifies -- recall by document name. Answer is a verbatim quote from the chunk. Retrieval depends on matching the document title 'Contrat_de_delegation_15032022' to chunk metadata rather than content semantics."
+  },
+  {
+    "id": "gs:scratch:answerable:0550:32b33414",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.35,
+    "justification": "Compares electronic clock with counter vs mechanical clock for flag fall verification. Key answer terms ('determiner automatiquement si 40 coups', 'un - apparait', '0.00', 'quel drapeau est tombe en premier', 'article III.3.1 des Directives') all appear verbatim in the chunk. Question vocabulary ('chute du drapeau', 'pendule electronique', 'pendule mecanique') directly matches the chunk."
+  },
+  {
+    "id": "gs:scratch:answerable:1313:62e54db5",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.8,
+    "justification": "Asks what rule is on 'page 37' -- page-number recall. Answer ('Les huit alignements verticaux de cases sont appeles colonnes') is verbatim from the chunk. No content-based retrieval signal in the question."
+  },
+  {
+    "id": "gs:scratch:answerable:1513:b3256dbe",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "Asks what happens in case of a draw in the final phase. Answer is a near-verbatim quote from the chunk ('un des echiquiers du match est tire au sort afin de disputer une partie unique en Armageddon'). Question terms 'match nul' and 'phase finale' appear directly in the chunk."
+  },
+  {
+    "id": "gs:scratch:answerable:2139:75360613",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.8,
+    "justification": "Page-number recall ('page 191'). Answer is a verbatim quote about FIDE rating list inscription requirements. Retrieval depends on page metadata, not content similarity."
+  },
+  {
+    "id": "gs:scratch:answerable:2374:4c50ab80",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.35,
+    "justification": "Asks to compare pairing number methods and the aller-retour adjustment. All key terms in the answer ('tirage au sort', 'classement Elo', 'protocole de Varma', 'inverser l'ordre des deux derniers tours du premier cycle', 'trois parties consecutives de la meme couleur') are verbatim in the chunk. Question mentions 'numeros d'appariement', 'tournoi toutes rondes', 'aller-retour' -- strong vocabulary match."
+  },
+  {
+    "id": "gs:scratch:answerable:0520:99b08a75",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.45,
+    "justification": "Asks what happens in case of force majeure. Answer is nearly verbatim from the chunk. 'Force majeure' appears in the chunk, but the question is very generic and many chunks could potentially contain this term, making retrieval moderately difficult."
+  },
+  {
+    "id": "gs:scratch:answerable:0515:a12cc35d",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.8,
+    "justification": "Page-number recall ('page 3'). Answer is a verbatim quote about electronic document transmission requirements. Retrieval depends entirely on page metadata."
+  },
+  {
+    "id": "gs:scratch:answerable:0555:4b1ba3fb",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.8,
+    "justification": "Page-number recall ('page 206'). Answer is a verbatim quote about FIDE Arbiter norms requiring players from at least two federations. No content-based retrieval signal."
+  },
+  {
+    "id": "gs:scratch:answerable:0155:de95f352",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.55,
+    "justification": "Asks to distinguish 'position morte' from 'prise' using circumlocutions. The answer adds 'nulle automatique' (implied but not stated in the chunk's glossary table), synthesizes scattered table entries into prose, and uses interpretive language ('configuration', 'designe'). The question paraphrases concepts ('situation ou plus aucune sequence de coups ne peut aboutir a un mat') requiring semantic understanding rather than keyword matching."
+  },
+  {
+    "id": "gs:scratch:answerable:1849:f54f7a28",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.6,
+    "justification": "Asks the definition of 'le niveau'. Answer is a direct quote from the chunk within the sous-groupe definition. Very generic question term ('le niveau') could match many chunks, making retrieval moderately difficult despite the extractive answer."
+  },
+  {
+    "id": "gs:scratch:answerable:0163:2c81997a",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.45,
+    "justification": "Scenario: organizing a 5-round team tournament with Molter system. Answer applies the ronde autonome rule. Key terms ('prendre un tournoi a 4 rondes', 'lui ajouter la ronde autonome', 'nombre impair de rondes') are from the chunk. Question mentions 'systeme Molter' and '5 rondes' providing reasonable but not perfect retrieval overlap."
+  },
+  {
+    "id": "gs:scratch:answerable:2272:01d0cc3d",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.55,
+    "justification": "Asks the definition of 'le bonus'. Answer ('le bonus est ajoute au temps principal et la pendule commence immediatement le compte a rebours') is verbatim from the Bronstein Delay definition in the chunk. Generic question term 'le bonus' makes retrieval moderately difficult."
+  },
+  {
+    "id": "gs:scratch:answerable:2378:c88549a6",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.65,
+    "justification": "Asks definition of 'les documents'. Answer is verbatim from the chunk (article 5.5.b). Extremely generic question term 'les documents' would be very hard for a retrieval system to match to this specific disciplinary context."
+  },
+  {
+    "id": "gs:scratch:answerable:1234:cc2b37ab",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.35,
+    "justification": "Compares three roles (pole stage, formateurs, secretariat). The answer rephrases: 'organisateurs et formateurs assurent la mise en oeuvre' is an interpretation -- the chunk says 'en lien avec les organisateurs, les formateurs'. Also 'secretariat federal recoit les elements' reverses the verb direction from 'transmet au secretariat'. These rephrasings bring keyword overlap below 50%. Strong vocabulary match for retrieval."
+  },
+  {
+    "id": "gs:scratch:answerable:0335:665a5839",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.7,
+    "justification": "Asks definition of 'une personne'. Answer is a verbatim quote from the chunk's list of valid reasons to stop the clock. Extremely generic question term makes retrieval very hard."
+  },
+  {
+    "id": "gs:scratch:answerable:0046:e34ca6c3",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.4,
+    "justification": "Scenario: 4 players from same club in round-robin. Answer applies anti-arrangement rules. Key terms ('tirage au sort', 'personnes de meme affinite', 'ne se rencontrent pas dans les 3 dernieres rondes', 'reglement interieur') are verbatim from chunk. Question mentions 'Toutes Rondes', 'meme club', 'arrangements' -- good retrieval overlap."
+  },
+  {
+    "id": "gs:scratch:answerable:0019:79ae0c71",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "Compares rights vs limitations of team captain. All answer terms are in the chunk: 'droit d'acceder a l'aire', 'conseiller...nullite...abandonner...situation du match', 'remise des feuilles', 'transmettre les resultats', 'ne peut pas officier...arbitre', 'aucun commentaire sur la position'. Question mentions 'capitaine d'equipe', 'match interclubs' -- strong match."
+  },
+  {
+    "id": "gs:scratch:answerable:0622:f876a4d1",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.4,
+    "justification": "Scenario: minor player without email registering for FIDE tournament. Answer terms ('fortement recommande', 'adresse email valide', 'mineurs', 'adresse e-mail des parents', 'nouvel enregistrement reussi renverra la reference FIDE') are verbatim from chunk. Question mentions 'joueur mineur', 'inscrit', 'FIDE', 'adresse email' -- good retrieval overlap."
+  },
+  {
+    "id": "gs:scratch:answerable:0761:6927a730",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.65,
+    "justification": "Asks definition of 'les enregistrements'. Answer is verbatim from the chunk about video recording retention policy. Very generic question term makes retrieval difficult; chunk is about fair-play surveillance."
+  },
+  {
+    "id": "gs:scratch:answerable:0241:e8253a25",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "Compares minimum time requirements by opponent rating level. All key terms (2400/120min, 1800/90min, <1800/60min, 60 coups, 30 coups, premier controle de temps) appear verbatim in the chunk. Question mentions 'cadences minimales', 'classement Elo', 'niveau des adversaires' -- strong vocabulary match."
+  },
+  {
+    "id": "gs:scratch:answerable:0600:ed6e4f00",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.25,
+    "justification": "Asks to enumerate categories under FPL jurisdiction. Answer lists all categories found verbatim in the chunk (joueurs, capitaines d'equipe, parties prenantes, responsables delegation, entraineurs, etc.). Question mentions 'Commission du Fair-Play de la FIDE', 'juridiction', 'tricherie' -- direct match with chunk heading."
+  },
+  {
+    "id": "gs:scratch:answerable:1756:b2b6b900",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.35,
+    "justification": "Compares paper vs electronic score sheet requirements. While the 9 paper elements are listed in the chunk, the answer interprets electronic sheets as requiring 'informations equivalentes' -- the chunk only says they 'peuvent etre utilisees', not that they need equivalent info. The count '9 elements' is also an inference. Question terms ('feuilles de notation papier', 'feuilles electroniques', 'FIDE') match well."
+  },
+  {
+    "id": "gs:scratch:answerable:1782:64a58fa4",
+    "cognitive_level": "Understand",
+    "question_type": "procedural",
+    "answer_type": "inferential",
+    "difficulty": 0.4,
+    "justification": "Asks how to request supervision and who pays. Answer synthesizes multiple paragraphs into a condensed summary, rephrasing: 'L'arbitre demande via la DRA' condenses the original, 'Les frais sont pris en charge par la Ligue' simplifies nuanced text about different funding scenarios. Requires comprehending and reorganizing scattered information. Question terms ('arbitre', 'supervise', 'cursus', 'frais') match chunk vocabulary."
+  },
+  {
+    "id": "gs:scratch:answerable:2171:1637a933",
+    "cognitive_level": "Understand",
+    "question_type": "procedural",
+    "answer_type": "extractive",
+    "difficulty": 0.35,
+    "justification": "Asks about tiebreaking procedure for Nationale 1 youth interclub. Answer follows the chunk's step-by-step tiebreak sequence using matching vocabulary ('resultats entre les equipes a departager', 'points de match, differentiel, points de parties', 'differentiels sur l'ensemble', 'nombre de points pour', 'differentiels au 1er echiquier'). Question terms ('classement final', 'Nationale 1', 'egalite') match well."
+  },
+  {
+    "id": "gs:scratch:answerable:2072:0ca37028",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.25,
+    "justification": "Asks what happens on violation of Articles 20.4/20.5. Answer is nearly verbatim from Article 20.6 in the chunk. Question directly references the article numbers which appear verbatim in the chunk, making retrieval straightforward."
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "id": "gs:scratch:answerable:0223:e2f38696",
+    "cognitive_level": "Understand",
+    "question_type": "procedural",
+    "answer_type": "inferential",
+    "difficulty": 0.4,
+    "justification": "The question asks to explain a multi-step calculation procedure; the answer synthesizes and reorders chunk content (PD, delta_R, K values) rather than quoting verbatim, but the keywords 'variation de classement Elo' and 'calcul' map reasonably to the chunk."
+  },
+  {
+    "id": "gs:scratch:answerable:0032:da0f8f43",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "inferential",
+    "difficulty": 0.6,
+    "justification": "The question presents a concrete scenario (15 delegates, 3 abstentions, 2 null votes) requiring application of voting rules; the answer performs a numerical computation (10 valid votes) not explicitly stated in the chunk, and the scenario phrasing diverges from the regulatory text."
+  },
+  {
+    "id": "gs:scratch:answerable:0802:209369cd",
+    "cognitive_level": "Apply",
+    "question_type": "procedural",
+    "answer_type": "extractive",
+    "difficulty": 0.5,
+    "justification": "The question asks how to use D-SA to justify pairing choices; the answer closely mirrors the chunk's language about comparing D-SA of different possibilities in heterogeneous levels, but the term 'D-SA' is specialized and the question uses 'justifier le choix' which requires mapping to the chunk's phrasing."
+  },
+  {
+    "id": "gs:scratch:answerable:0680:620d287e",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question explicitly requests a comparison between standard and youth table dimensions; the answer directly extracts the numeric specifications from the chunk, and keywords like 'dimensions des tables' and 'competitions pour jeunes' closely match the chunk vocabulary."
+  },
+  {
+    "id": "gs:scratch:answerable:0668:332951ff",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.5,
+    "justification": "The question frames a scenario about ignoring a game against a weak opponent for norm purposes; the answer reuses the chunk's conditions nearly verbatim (minimum number of games per 1.4.1, required combination of opponents), but the scenario framing ('joueur a battu un adversaire faible') requires semantic bridging to the regulatory language."
+  },
+  {
+    "id": "gs:scratch:answerable:0320:e063299f",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "inferential",
+    "difficulty": 0.5,
+    "justification": "The question describes a concrete situation (phone use + aggressive behavior) and asks which principles are violated; the answer synthesizes two distinct principles from the chunk ('sources d'informations exterieures' and 'termes courtois et polis'), requiring interpretation of the scenario against the code's abstract principles."
+  },
+  {
+    "id": "gs:scratch:answerable:0219:09fcdd91",
+    "cognitive_level": "Understand",
+    "question_type": "procedural",
+    "answer_type": "inferential",
+    "difficulty": 0.5,
+    "justification": "The question asks about the process to obtain a FIDE reference; the answer combines information from multiple sub-articles (1.13.3 FOA self-registration, 1.13.4 sm.fide.com for children, 1.14 mandatory data), synthesizing and reorganizing scattered chunk content into a coherent procedure."
+  },
+  {
+    "id": "gs:scratch:answerable:2121:cd2c750b",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question explicitly asks to compare in-person and videoconference modalities; the answer extracts structured information directly from the chunk (3 times/year in-person, supplementary sessions via videoconference, DTN consultative voice), with close vocabulary match between question and chunk."
+  },
+  {
+    "id": "gs:scratch:answerable:0189:ca25aa80",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "inferential",
+    "difficulty": 0.7,
+    "justification": "The question narrates a specific scenario (parents reporting a family member's sudden death before 50) and asks about its significance; the chunk is a raw medical questionnaire table without explicit interpretation, so the answer must infer the purpose from context, and the question's phrasing is far from the tabular chunk format."
+  },
+  {
+    "id": "gs:scratch:answerable:1561:6db8fbf4",
+    "cognitive_level": "Understand",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question asks about concrete advantages of FFE tournament approval; the answer closely follows the chunk's enumeration (promotion, free software, insurance, results processing, referee training), with direct keyword overlap between 'homologuer' / 'tournois homologues'."
+  },
+  {
+    "id": "gs:scratch:answerable:0033:955d4585",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.2,
+    "justification": "The question describes the exact same scenario (52 players, tableau for 64) that appears as a worked example in the chunk; the answer replicates the chunk's arithmetic nearly verbatim, making retrieval trivial since the numbers match directly."
+  },
+  {
+    "id": "gs:scratch:answerable:2437:bdaee54b",
+    "cognitive_level": "Apply",
+    "question_type": "procedural",
+    "answer_type": "extractive",
+    "difficulty": 0.5,
+    "justification": "The question asks how to organize a Molter tournament for 17 teams of 8; the answer extracts step-by-step instructions from the chunk (calculate boards, captains submit lists, draw letters, no permutation), but the specific mention of 'systeme Molter' requires matching to a chunk that names it only at the end."
+  },
+  {
+    "id": "gs:scratch:answerable:2135:2f8d44de",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question explicitly requests comparison between AF and AI title requirements; the answer directly extracts age and norm requirements from the chunk's parallel structure (5.4 for AF, 5.5 for AI), with strong keyword alignment ('Arbitre FIDE', 'Arbitre International', 'age', 'normes')."
+  },
+  {
+    "id": "gs:scratch:answerable:0642:e969d7c3",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.4,
+    "justification": "The question presents a scenario of a U14 with high Elo wanting to skip qualifying phases; the answer directly extracts the exemption rule from the chunk ('qualification directe en fonction de leur classement Elo'), with close semantic match between the question's situation and the chunk's stated exceptions."
+  },
+  {
+    "id": "gs:scratch:answerable:0671:a5a96020",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.4,
+    "justification": "The question describes a wheelchair player scenario and asks which texts to consult; the answer directly names H01 and H02 from the chunk, though the question uses 'fauteuil roulant' while the chunk uses 'mobilite reduite' and 'handicapes', requiring minor semantic bridging."
+  },
+  {
+    "id": "gs:scratch:answerable:1926:390e6502",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question asks to compare homogeneous and heterogeneous pairing levels; the answer closely mirrors the chunk's formal definitions (residents, same score, residual sub-level), with direct vocabulary match between 'niveau homogene/heterogene' in both question and chunk."
+  },
+  {
+    "id": "gs:scratch:answerable:2063:270c8caa",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.7,
+    "justification": "The question asks to compare en passant and promotion on the temporality axis; the answer synthesizes from scattered articles (3.7.3.1-3.7.3.4) and draws an analytical contrast about temporal constraints that is not explicitly stated in the chunk, requiring cross-referencing and interpretation."
+  },
+  {
+    "id": "gs:scratch:answerable:2406:7e5874c8",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.5,
+    "justification": "The question asks to compare the different paths to an IA norm and their limitations; the answer synthesizes from multiple sub-articles (4.8.1 to 4.9.2) reorganizing the information by pathway and limitation, which requires combining and restructuring the chunk's sequential listing."
+  },
+  {
+    "id": "gs:scratch:answerable:0213:ce91ca1f",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.4,
+    "justification": "The question presents a scenario (5 unrated players, no regulation provision) and asks what to do; the answer closely follows the chunk's prescription (regulation must detail treatment of unrated players, or chief arbiter must inform before tournament), with good keyword overlap on 'departage' and 'classement Elo'."
+  },
+  {
+    "id": "gs:scratch:answerable:1224:959c65e2",
+    "cognitive_level": "Understand",
+    "question_type": "procedural",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question asks about the deliberation and notification process for disciplinary decisions; the answer closely extracts the chunk's sequential steps (huis clos, motivated decision, signed by president and secretary, notification with appeal information), with strong vocabulary match."
+  },
+  {
+    "id": "gs:scratch:answerable:1135:87803519",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.4,
+    "justification": "The question asks to compare GM and WIM norm opponent title requirements; the answer extracts from parallel sub-articles (1.4.5b and 1.4.5e) and adds an analytical observation about the broader range of accepted titles for WIM norms, which goes beyond simple extraction."
+  },
+  {
+    "id": "gs:scratch:answerable:1196:7376701e",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.6,
+    "justification": "The question asks to compare the FIDE position on the Dutch system vs alternative systems; the answer synthesizes the chunk's note about FIDE discouraging Dubov/Burstein/Lim unless approved programs exist, and infers that the Dutch system is the safest choice -- an inference not explicitly stated in the chunk."
+  },
+  {
+    "id": "gs:scratch:answerable:0796:0631f825",
+    "cognitive_level": "Understand",
+    "question_type": "factual",
+    "answer_type": "inferential",
+    "difficulty": 0.5,
+    "justification": "The question asks what distinguishes the Rutsch system from random assignment; the answer interprets the chunk's description of the sliding puzzle principle ('taquin') and its purpose (ensuring each participant meets all others with color alternation), adding functional contrast with randomness not explicitly stated in the chunk."
+  },
+  {
+    "id": "gs:scratch:answerable:0632:7e8c855e",
+    "cognitive_level": "Apply",
+    "question_type": "scenario",
+    "answer_type": "extractive",
+    "difficulty": 0.5,
+    "justification": "The question describes a scenario (coach threatens arbiter, covers electronic device use) and asks which ethics code infractions apply; the answer maps the scenario to two specific infractions from the chunk ('menaces et coercition' and 'complicite d'infraction'), requiring application of abstract definitions to a concrete situation but using chunk vocabulary."
+  },
+  {
+    "id": "gs:scratch:answerable:2438:4f6b770e",
+    "cognitive_level": "Remember",
+    "question_type": "procedural",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question asks which technical checks an arbiter must perform for electronic boards; the answer is a near-direct enumeration from the chunk's checklist (7.1.3 to 7.1.7: power supply, cable type, wireless, clock compatibility, broadcast devices), with direct keyword match on 'echiquiers electroniques' and 'verifications'."
+  },
+  {
+    "id": "gs:scratch:answerable:2303:23336902",
+    "cognitive_level": "Understand",
+    "question_type": "procedural",
+    "answer_type": "extractive",
+    "difficulty": 0.4,
+    "justification": "The question asks about the procedure in case of force majeure requiring tournament interruption; the answer follows the chunk's sequential provisions (inform players, adjourn, modify cadence, exceed 12 hours, different cadence round), with good vocabulary match on 'force majeure' and 'interruption'."
+  },
+  {
+    "id": "gs:scratch:answerable:0915:de7150d6",
+    "cognitive_level": "Analyze",
+    "question_type": "comparative",
+    "answer_type": "inferential",
+    "difficulty": 0.5,
+    "justification": "The question asks to compare arbiter and organizer post-tournament responsibilities; the answer separates and attributes tasks from the chunk's bullet list to either arbiter or organizer, requiring interpretation since the chunk does not always explicitly assign responsibility -- notably inferring the organizer's payment obligation."
+  },
+  {
+    "id": "gs:scratch:answerable:2287:3d27112c",
+    "cognitive_level": "Understand",
+    "question_type": "comparative",
+    "answer_type": "extractive",
+    "difficulty": 0.2,
+    "justification": "The question asks to compare three arbiter training categories and explain the FIDE commission's role; the answer nearly copies the chunk's three-item list and supplementary sentence verbatim, with identical terminology ('formation initiale', 'formation continue', 'preparation aux evenements mondiaux')."
+  },
+  {
+    "id": "gs:scratch:answerable:1429:2b80bf7e",
+    "cognitive_level": "Remember",
+    "question_type": "factual",
+    "answer_type": "extractive",
+    "difficulty": 0.3,
+    "justification": "The question asks about OC medical coverage obligations; the answer closely extracts the chunk's content (coverage for all participants, accidents and medical services, excluding chronic illness, official medical team named for the duration), with direct keyword match on 'couverture medicale' and 'OC'."
+  },
+  {
+    "id": "gs:scratch:answerable:0005:2d8dbce8",
+    "cognitive_level": "Understand",
+    "question_type": "procedural",
+    "answer_type": "inferential",
+    "difficulty": 0.8,
+    "justification": "The question asks about assigning a fictitious rating to unrated players for tiebreak calculations; the chunk contains worked numerical examples with interpolation formulas but no explicit general procedure statement, so the answer must abstract the method from specific examples, and the vocabulary gap between 'classement fictif' in the question and the chunk's computational examples is significant."
+  }
+]

@@ -76,12 +76,34 @@ docs/               # Specs ISO, plans, CVE register
 ## Current Work: GS Correction (PLAN-GS-CORR-002)
 
 - **Plan source**: docs/plans/GS_CORRECTION_PLAN_V2.md
-- **Phase courante**: GO/NO-GO A→B
-- **Plans**: P1 [x] → P2 [x] → **GO/NO-GO A→B** → P3 [ ] → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
-- **Derniere gate validee**: P2 (Phase A re-generation, all gates PASS)
-- **Prochain go/no-go**: A→B (pret)
-- **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1+P2)
-- **P2 resultats**: 80Q remplacées, 4 profils (20x HARD_APPLY, 20x HARD_ANALYZE, 20x MED_APPLY_INF, 20x MED_ANALYZE_COMP), gates A-G1 à A-G5 PASS
+- **Phase courante**: Phase B (pret a demarrer P3)
+- **Plans**: P1 [x] → P2 [x] → GO/NO-GO A→B [x] → **P3 [ ]** → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
+- **Derniere gate validee**: GO/NO-GO A→B (2026-02-22)
+- **Prochain jalon**: P3 (Phase B)
+- **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1+P2+recalib)
+- **Recalibration script**: `scripts/evaluation/annales/recalibrate_full.py` (applique TOUTES les corrections depuis baseline)
+
+### GO/NO-GO A→B (2026-02-22) - PASS conditionnel
+
+**Level 1 - Gates**: A-G1 schema PASS, A-G2 hard 12.1% PASS, A-G3 4CL PASS, A-G4 chunk_match PASS, A-G5 regression PASS (37+5xfail)
+**Level 2 - Tests**: 1508 passed, 1 skipped, 5 xfailed. Lint + coverage + complexity OK.
+**Level 3 - LLM-as-Judge (2 rounds, 30Q chacun)**:
+- question_type: kappa=0.948 PASS
+- cognitive_level: kappa=0.748 PASS
+- answer_type: kappa=0.634 PASS
+- difficulty_bucketed: kappa=-0.284 FAIL (known limitation)
+
+**Recalibration appliquee (614Q, pas seulement P2)**:
+- answer_type: 34 changes (seuil kw overlap 0.45)
+- cognitive_level: 205 Understand→Remember (pattern-based)
+- question_type: 149 procedural/scenario→factual
+- difficulty: 129 easy-caps + 11 hard replacements
+- Distributions finales: Remember 65%, factual 70%, extractive 93%, hard 12.1%
+
+**Issues identifies pour Phase B**:
+- 95 questions "page-number" (Quelle regle a la page X?) = mauvaises pour RAG, a redesigner
+- Difficulty non calibrable par kw overlap seul (necessite tests retrieval reels)
+- Kappa difficulty structurellement faible (base rate skew)
 
 ## References
 

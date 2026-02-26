@@ -76,12 +76,21 @@ docs/               # Specs ISO, plans, CVE register
 ## Current Work: GS Correction (PLAN-GS-CORR-002)
 
 - **Plan source**: docs/plans/GS_CORRECTION_PLAN_V2.md
-- **Phase courante**: Phase B (pret a demarrer P3)
-- **Plans**: P1 [x] → P2 [x] → GO/NO-GO A→B [x] → **P3 [ ]** → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
+- **Phase courante**: Phase B - P3 en cours
+- **Plans**: P1 [x] → P2 [x] → GO/NO-GO A→B [x] → **P3 [~]** → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
 - **Derniere gate validee**: GO/NO-GO A→B (2026-02-22)
-- **Prochain jalon**: P3 (Phase B)
+- **Prochain jalon**: P3a (remplacer 95 page-number Qs) + P3b (orchestrateur generation)
 - **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1+P2+recalib)
 - **Recalibration script**: `scripts/evaluation/annales/recalibrate_full.py` (applique TOUTES les corrections depuis baseline)
+
+### Phase B Prep (2026-02-26) - Analyse completee
+
+**95 page-number questions** : 100% Remember/factual/medium/extractive, pattern "Quelle regle a la page X?". Decision : remplacer en P3a (IDs stables, meme workflow que P2).
+
+**Stratification chunks non couverts** : 1501/1857 (19.2% coverage), 1288 generables (>=50 tok).
+- P1_LA: 889, P2_Coupes: 73, P3_Champ: 185, P4_Admin: 185, P5_Other: 169
+- Ordre : petits docs d'abord (diversite), puis LA (volume)
+- Cible 80% = 1485 chunks, besoin 1129 de plus
 
 ### GO/NO-GO A→B (2026-02-22) - PASS conditionnel
 

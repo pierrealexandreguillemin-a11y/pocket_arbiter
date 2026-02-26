@@ -4,7 +4,7 @@
 > **ISO Reference**: ISO 29119-3 (Test Data), ISO 25010 (Quality), ISO 42001 (AI Traceability)
 > **Version**: 2.1
 > **Date**: 2026-02-20
-> **Statut**: In Progress (Phase A complete: P1+P2+GO/NO-GO done, Phase B next)
+> **Statut**: In Progress (Phase A complete, Phase B P3 in progress)
 > **Parent**: PLAN-GS-SCRATCH-001, SPEC-GS-METH-001
 > **Input**: Audit gs_scratch_v1.json (614Q) contre standards industrie
 
@@ -777,6 +777,7 @@ Le GS v2 est considere conforme quand :
 | 2.1 | 2026-02-20 | P1 complete : verify_regression.py + fix_gs_v2_metadata.py + 63 tests. Resultats A1 (217 schema), A2 (16 cognitive), A3 (233 audit). Nommage fichiers aligne (step1/step2/step3). Section 8.3 mise a jour avec implementation reelle. |
 | 2.2 | 2026-02-21 | P2 complete : regenerate_targeted.py + generate_p2_questions.py + 77 tests. 80Q remplacees (4 profils x 20). IDs stables (pas de generate_new_id). Gates A-G1 a A-G5 PASS. Phase A COMPLETE. Divergence plan: legacy_id inutile (IDs stables). Baseline original restaure, snapshots separes (post_p1, post_p2). CVE exception register cree. |
 | 2.3 | 2026-02-22 | GO/NO-GO A→B execute. LLM-as-Judge 2 rounds (30Q chacun). Kappa PASS 3/4 axes (question_type 0.948, cognitive_level 0.748, answer_type 0.634). Difficulty FAIL (known limitation). Recalibration complete 614Q : 205 CL, 149 QT, 34 AT, 129 difficulty, 11 hard replacements, Q2 fix. Scripts recalibrate_full.py + recalibrate_hard.py. Issues Phase B : 95 page-number Qs, difficulty calibration. |
+| 2.4 | 2026-02-26 | Phase B prep (P3 analytique). Analyse 95 page-number Qs : 100% Remember/factual/medium/extractive, 81% LA-octobre2025, 0% overlap P2, pattern "Quelle regle a la page X?". Decision : remplacer en P3a (IDs stables). Stratification 1501 chunks non couverts : coverage 19.2% (356/1857), generables 1288 (>=50 tok), cible 1485 pour 80%. Tiers : P1_LA(889), P2_Coupes(73), P3_Champ(185), P4_Admin(185), P5_Other(169). Ordre : petits docs d'abord (P2+P3+P5), puis LA. Scripts a creer : select_page_number_candidates.py, generate_v2_coverage.py. |
 
 ---
 

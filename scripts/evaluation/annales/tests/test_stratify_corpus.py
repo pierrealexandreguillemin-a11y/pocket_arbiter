@@ -6,6 +6,8 @@ ISO Reference:
     - ISO 42001 A.6.2.2 - Provenance tracking
 """
 
+import json
+
 import pytest
 
 from scripts.evaluation.annales.stratify_corpus import (
@@ -14,9 +16,12 @@ from scripts.evaluation.annales.stratify_corpus import (
     classify_source,
     compute_coverage,
     compute_quotas,
+    extract_covered_chunk_ids,
+    filter_uncovered_chunks,
     stratify_chunks,
     validate_stratification,
 )
+from scripts.evaluation.annales.tests.conftest import make_gs_question
 
 
 class TestClassifySource:
@@ -262,3 +267,74 @@ class TestValidateStratification:
         passed, errors, warnings = validate_stratification(strata, coverage)
         assert passed  # G0-2 is warning, not blocking
         assert any("G0-2" in w for w in warnings)
+
+
+# ---------------------------------------------------------------------------
+# extract_covered_chunk_ids
+# ---------------------------------------------------------------------------
+
+
+class TestExtractCoveredChunkIds:
+    """Test covered chunk ID extraction from GS data."""
+
+    def test_basic_extraction(self) -> None:
+        q1 = make_gs_question(qid="q1", is_impossible=False)
+        q2 = make_gs_question(qid="q2", is_impossible=True)
+        gs_data = {"questions": [q1, q2]}
+        covered = extract_covered_chunk_ids(gs_data)
+        # q1 is answerable with chunk_id from make_gs_question
+        assert len(covered) == 1
+        assert "test.pdf-p001-parent001-child00" in covered
+
+    def test_empty_gs(self) -> None:
+        gs_data = {"questions": []}
+        covered = extract_covered_chunk_ids(gs_data)
+        assert covered == set()
+
+    def test_all_unanswerable(self) -> None:
+        q1 = make_gs_question(qid="q1", is_impossible=True)
+        gs_data = {"questions": [q1]}
+        covered = extract_covered_chunk_ids(gs_data)
+        assert covered == set()
+
+    def test_deduplicates_chunk_ids(self) -> None:
+        """Multiple questions on same chunk = 1 covered ID."""
+        q1 = make_gs_question(qid="q1", is_impossible=False)
+        q2 = make_gs_question(qid="q2", is_impossible=False)
+        gs_data = {"questions": [q1, q2]}
+        covered = extract_covered_chunk_ids(gs_data)
+        assert len(covered) == 1  # same chunk_id
+
+
+# ---------------------------------------------------------------------------
+# filter_uncovered_chunks
+# ---------------------------------------------------------------------------
+
+
+class TestFilterUncoveredChunks:
+    """Test chunk filtering against GS coverage."""
+
+    def test_filters_covered_chunks(self, tmp_path) -> None:
+        q = make_gs_question(qid="q1", is_impossible=False)
+        gs_data = {"version": "1.1", "questions": [q]}
+        gs_path = tmp_path / "gs.json"
+        with open(gs_path, "w", encoding="utf-8") as f:
+            json.dump(gs_data, f)
+
+        chunks = [
+            {"id": "test.pdf-p001-parent001-child00", "text": "covered"},
+            {"id": "other.pdf-p002-parent002-child00", "text": "uncovered"},
+        ]
+        result = filter_uncovered_chunks(chunks, gs_path)
+        assert len(result) == 1
+        assert result[0]["id"] == "other.pdf-p002-parent002-child00"
+
+    def test_all_uncovered(self, tmp_path) -> None:
+        gs_data = {"version": "1.1", "questions": []}
+        gs_path = tmp_path / "gs.json"
+        with open(gs_path, "w", encoding="utf-8") as f:
+            json.dump(gs_data, f)
+
+        chunks = [{"id": "c1", "text": "t1"}, {"id": "c2", "text": "t2"}]
+        result = filter_uncovered_chunks(chunks, gs_path)
+        assert len(result) == 2

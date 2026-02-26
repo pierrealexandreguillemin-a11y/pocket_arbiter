@@ -152,6 +152,43 @@ def load_chunks(chunks_path: Path) -> list[dict]:
     return chunks
 
 
+def extract_covered_chunk_ids(gs_data: dict) -> set[str]:
+    """Extract chunk IDs covered by answerable questions in GS.
+
+    Args:
+        gs_data: Full GS JSON data (Schema v2 nested format).
+
+    Returns:
+        Set of chunk_ids with at least one answerable question.
+    """
+    covered: set[str] = set()
+    for q in gs_data.get("questions", []):
+        if q.get("content", {}).get("is_impossible", True):
+            continue
+        chunk_id = q.get("provenance", {}).get("chunk_id", "")
+        if chunk_id:
+            covered.add(chunk_id)
+    return covered
+
+
+def filter_uncovered_chunks(
+    chunks: list[dict],
+    gs_path: Path,
+) -> list[dict]:
+    """Filter chunks to only those not covered by existing GS questions.
+
+    Args:
+        chunks: All chunks.
+        gs_path: Path to GS JSON file.
+
+    Returns:
+        List of uncovered chunks.
+    """
+    gs_data = load_json(gs_path)
+    covered_ids = extract_covered_chunk_ids(gs_data)
+    return [c for c in chunks if c["id"] not in covered_ids]
+
+
 def stratify_chunks(chunks: list[dict]) -> dict[str, Stratum]:
     """
     Stratify chunks by source document category.
@@ -449,6 +486,7 @@ def run_stratification(
     chunks_path: Path,
     output_path: Path,
     target_total: int = 700,
+    exclude_covered_gs: Path | None = None,
 ) -> dict:
     """
     Run complete stratification pipeline.
@@ -457,6 +495,7 @@ def run_stratification(
         chunks_path: Path to chunks JSON
         output_path: Path to output strata JSON
         target_total: Target total questions
+        exclude_covered_gs: If set, filter out chunks covered by this GS file
 
     Returns:
         Stratification result dictionary
@@ -464,6 +503,14 @@ def run_stratification(
     print(f"Loading chunks from {chunks_path}...")
     chunks = load_chunks(chunks_path)
     print(f"  Loaded {len(chunks)} chunks")
+
+    if exclude_covered_gs is not None:
+        original_count = len(chunks)
+        chunks = filter_uncovered_chunks(chunks, exclude_covered_gs)
+        print(
+            f"  Filtered to {len(chunks)} uncovered chunks "
+            f"(excluded {original_count - len(chunks)} covered)"
+        )
 
     print("\nStratifying by source document...")
     strata = stratify_chunks(chunks)
@@ -551,10 +598,21 @@ def main() -> int:
         default=700,
         help="Target total questions (default: 700)",
     )
+    parser.add_argument(
+        "--exclude-covered",
+        type=Path,
+        default=None,
+        help="GS JSON file — exclude chunks already covered by answerable Qs",
+    )
 
     args = parser.parse_args()
 
-    result = run_stratification(args.chunks, args.output, args.target)
+    result = run_stratification(
+        args.chunks,
+        args.output,
+        args.target,
+        exclude_covered_gs=args.exclude_covered,
+    )
 
     if not result["validation"]["passed"]:
         return 1

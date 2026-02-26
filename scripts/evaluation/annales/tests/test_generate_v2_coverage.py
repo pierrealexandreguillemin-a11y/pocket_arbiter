@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 from scripts.evaluation.annales.generate_v2_coverage import (
     STOP_KEYWORD_RATIO,
+    TOKEN_BUDGET_LIMIT,
     BatchReport,
     CumulativeStats,
     check_stop_gates,
@@ -48,6 +49,23 @@ class TestCumulativeStats:
         cs = CumulativeStats()
         cs.difficulty_buckets = Counter({"easy": 30, "medium": 55, "hard": 15})
         assert cs.hard_ratio() == 0.15
+
+    def test_needs_steering_false(self) -> None:
+        cs = CumulativeStats()
+        cs.reasoning_class = Counter({"fact_single": 50, "reasoning": 50})
+        assert cs.needs_steering() is False
+
+    def test_needs_steering_true(self) -> None:
+        cs = CumulativeStats()
+        cs.reasoning_class = Counter({"fact_single": 60, "reasoning": 40})
+        assert cs.needs_steering() is True
+
+    def test_needs_steering_at_boundary(self) -> None:
+        """At exactly FACT_SINGLE_CEILING, should NOT steer (> not >=)."""
+        cs = CumulativeStats()
+        # 55/100 = 0.55 = FACT_SINGLE_CEILING exactly
+        cs.reasoning_class = Counter({"fact_single": 55, "reasoning": 45})
+        assert cs.needs_steering() is False
 
 
 # ---------------------------------------------------------------------------
@@ -154,6 +172,26 @@ class TestCheckStopGates:
         should_stop, _ = check_stop_gates(report, cumulative)
         assert should_stop is False
 
+    def test_stop_token_budget_exceeded(self) -> None:
+        """Stop when cumulative tokens exceed budget."""
+        report = BatchReport(
+            batch_num=5, chunks_processed=30, questions_generated=50, empty_chunks=0
+        )
+        cumulative = CumulativeStats()
+        cumulative.total_tokens = TOKEN_BUDGET_LIMIT + 1
+        should_stop, reason = check_stop_gates(report, cumulative)
+        assert should_stop is True
+        assert "token budget" in reason.lower()
+
+    def test_no_stop_under_token_budget(self) -> None:
+        report = BatchReport(
+            batch_num=0, chunks_processed=30, questions_generated=50, empty_chunks=0
+        )
+        cumulative = CumulativeStats()
+        cumulative.total_tokens = TOKEN_BUDGET_LIMIT - 1
+        should_stop, _ = check_stop_gates(report, cumulative)
+        assert should_stop is False
+
 
 # ---------------------------------------------------------------------------
 # update_cumulative
@@ -230,6 +268,44 @@ class TestUpdateCumulative:
 
         assert cumulative.total_questions == 2
         assert cumulative.total_chunks == 2
+
+    def test_token_accumulation(self) -> None:
+        cumulative = CumulativeStats()
+        questions = [
+            {
+                "reasoning_class": "fact_single",
+                "cognitive_level": "Remember",
+                "question_type": "factual",
+                "answer_type": "extractive",
+                "difficulty": 0.3,
+                "chunk_id": "c1",
+            }
+        ]
+        batch_chunks = [{"id": "c1", "tokens": 150}, {"id": "c2", "tokens": 200}]
+        report = BatchReport(0, 2, 1, 1)
+
+        update_cumulative(cumulative, questions, report, batch_chunks)
+
+        assert cumulative.total_tokens == 350
+
+    def test_token_accumulation_no_chunks(self) -> None:
+        """Without batch_chunks, tokens stay at 0."""
+        cumulative = CumulativeStats()
+        questions = [
+            {
+                "reasoning_class": "fact_single",
+                "cognitive_level": "Remember",
+                "question_type": "factual",
+                "answer_type": "extractive",
+                "difficulty": 0.3,
+                "chunk_id": "c1",
+            }
+        ]
+        report = BatchReport(0, 1, 1, 0)
+
+        update_cumulative(cumulative, questions, report)
+
+        assert cumulative.total_tokens == 0
 
 
 # ---------------------------------------------------------------------------
@@ -482,3 +558,55 @@ class TestGenerateBatch:
 
         assert report.questions_generated == 0
         assert questions == []
+
+    def test_steering_prefers_non_fact_single(self) -> None:
+        """With steering, non-fact_single questions are prioritized."""
+        chunks = [
+            {
+                "id": "c1",
+                "text": "L'arbitre doit prendre une decision rapide.",
+                "source": "doc.pdf",
+                "page": 1,
+            },
+        ]
+
+        def mock_gen(chunk: dict, target_count: int = 2) -> list[dict]:
+            text = chunk.get("text", "")
+            return [
+                {
+                    "question": "Que doit faire l'arbitre?",
+                    "expected_answer": text.rstrip("."),
+                    "reasoning_class": "fact_single",
+                    "cognitive_level": "Remember",
+                    "question_type": "factual",
+                },
+                {
+                    "question": "Comment l'arbitre doit-il agir?",
+                    "expected_answer": text.rstrip("."),
+                    "reasoning_class": "reasoning",
+                    "cognitive_level": "Apply",
+                    "question_type": "scenario",
+                },
+                {
+                    "question": "Que stipule cette regle?",
+                    "expected_answer": text.rstrip("."),
+                    "reasoning_class": "fact_single",
+                    "cognitive_level": "Remember",
+                    "question_type": "factual",
+                },
+            ]
+
+        with patch(
+            "scripts.evaluation.annales.generate_v2_coverage.generate_questions_from_chunk",
+            side_effect=mock_gen,
+        ):
+            questions, report = generate_batch(
+                chunks,
+                batch_num=0,
+                target_per_chunk=2,
+                steer_away_from_fact_single=True,
+            )
+
+        # With steering + target=2: should pick reasoning first, then fact_single
+        assert len(questions) == 2
+        assert questions[0]["reasoning_class"] == "reasoning"

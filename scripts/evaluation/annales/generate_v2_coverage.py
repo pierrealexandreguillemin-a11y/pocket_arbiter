@@ -40,6 +40,8 @@ from scripts.pipeline.utils import get_date, load_json, save_json  # noqa: E402
 BATCH_SIZE = 30
 STOP_KEYWORD_THRESHOLD = 0.3
 STOP_KEYWORD_RATIO = 0.20
+FACT_SINGLE_CEILING = 0.55
+TOKEN_BUDGET_LIMIT = 10_000_000
 
 
 # ---------------------------------------------------------------------------
@@ -65,6 +67,7 @@ class CumulativeStats:
     total_chunks: int = 0
     total_questions: int = 0
     total_empty: int = 0
+    total_tokens: int = 0
     reasoning_class: Counter = field(default_factory=Counter)
     cognitive_level: Counter = field(default_factory=Counter)
     question_type: Counter = field(default_factory=Counter)
@@ -85,6 +88,14 @@ class CumulativeStats:
         if total == 0:
             return 0.0
         return self.difficulty_buckets.get("hard", 0) / total
+
+    def needs_steering(self) -> bool:
+        """Check if distribution steering is needed (Plan §5.4).
+
+        Returns:
+            True if fact_single > 55% and steering should apply.
+        """
+        return self.fact_single_ratio() > FACT_SINGLE_CEILING
 
 
 # ---------------------------------------------------------------------------
@@ -178,6 +189,7 @@ def generate_batch(
     chunks_batch: list[dict],
     batch_num: int,
     target_per_chunk: int = 2,
+    steer_away_from_fact_single: bool = False,
 ) -> tuple[list[dict], BatchReport]:
     """Generate questions for a batch of chunks.
 
@@ -185,6 +197,9 @@ def generate_batch(
         chunks_batch: List of chunks to process.
         batch_num: Batch number for tracking.
         target_per_chunk: Target questions per chunk.
+        steer_away_from_fact_single: If True, request more questions per
+            chunk to increase chance of non-fact_single results, and
+            filter out excess fact_single (Plan §5.4 distribution steering).
 
     Returns:
         Tuple of (questions, batch_report).
@@ -193,14 +208,28 @@ def generate_batch(
     empty_chunks = 0
     low_keyword = 0
 
+    effective_target = (
+        target_per_chunk + 1 if steer_away_from_fact_single else target_per_chunk
+    )
+
     for chunk in chunks_batch:
-        qs = generate_questions_from_chunk(chunk, target_count=target_per_chunk)
+        qs = generate_questions_from_chunk(chunk, target_count=effective_target)
         if not qs:
             empty_chunks += 1
             continue
 
+        # Steering: prefer non-fact_single when oversampled
+        if steer_away_from_fact_single:
+            non_fs = [q for q in qs if q.get("reasoning_class") != "fact_single"]
+            fs = [q for q in qs if q.get("reasoning_class") == "fact_single"]
+            qs = non_fs + fs  # non-fact_single first
+
         chunk_text = chunk.get("text", "")
+        chunk_accepted = 0
         for q in qs:
+            if chunk_accepted >= target_per_chunk:
+                break
+
             # Validate per-question gates (Plan §5.5: G1-1, G1-2, G1-4)
             if not validate_question(q, chunk):
                 continue
@@ -220,6 +249,7 @@ def generate_batch(
             q["source"] = chunk.get("source", "")
             q["pages"] = chunk.get("pages", [chunk.get("page", 0)])
             questions.append(q)
+            chunk_accepted += 1
 
     report = BatchReport(
         batch_num=batch_num,
@@ -263,6 +293,13 @@ def check_stop_gates(
                 f"(>50% threshold)"
             )
 
+    # Stop gate 3: token budget exceeded (Plan §5.4)
+    if cumulative.total_tokens > TOKEN_BUDGET_LIMIT:
+        return True, (
+            f"STOP: token budget exceeded "
+            f"({cumulative.total_tokens:,} > {TOKEN_BUDGET_LIMIT:,})"
+        )
+
     return False, ""
 
 
@@ -270,6 +307,7 @@ def update_cumulative(
     cumulative: CumulativeStats,
     questions: list[dict],
     batch_report: BatchReport,
+    batch_chunks: list[dict] | None = None,
 ) -> None:
     """Update cumulative statistics from a batch (mutates in place).
 
@@ -277,10 +315,13 @@ def update_cumulative(
         cumulative: Cumulative stats to update.
         questions: Questions from this batch.
         batch_report: Batch report.
+        batch_chunks: Optional list of chunks processed (for token counting).
     """
     cumulative.total_chunks += batch_report.chunks_processed
     cumulative.total_questions += batch_report.questions_generated
     cumulative.total_empty += batch_report.empty_chunks
+    if batch_chunks:
+        cumulative.total_tokens += sum(c.get("tokens", 0) for c in batch_chunks)
 
     for q in questions:
         cumulative.reasoning_class[q.get("reasoning_class", "unknown")] += 1
@@ -489,15 +530,15 @@ def run_coverage_generation(
         if not batch_chunks:
             break
 
-        questions, report = generate_batch(batch_chunks, batch_num)
-        update_cumulative(cumulative, questions, report)
+        # Distribution steering (Plan §5.4)
+        steer = cumulative.needs_steering()
+        questions, report = generate_batch(
+            batch_chunks,
+            batch_num,
+            steer_away_from_fact_single=steer,
+        )
+        update_cumulative(cumulative, questions, report, batch_chunks)
         all_questions.extend(questions)
-
-        # TODO(Plan §5.4): Distribution steering — if fact_single > 55%,
-        # adjust next batch prompt to force reasoning/Apply. Requires
-        # LLM-in-the-loop prompt modification (Phase B execution).
-        # TODO(Plan §5.4): Token budget tracking — stop if cumulative
-        # tokens > 10M. Requires token counting per LLM call.
 
         progress = format_progress(batch_num + 1, total_batches, report, cumulative)
         print(progress)

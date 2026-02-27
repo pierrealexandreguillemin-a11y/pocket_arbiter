@@ -76,10 +76,11 @@ docs/               # Specs ISO, plans, CVE register
 ## Current Work: GS Correction (PLAN-GS-CORR-002)
 
 - **Plan source**: docs/plans/GS_CORRECTION_PLAN_V2.md
-- **Phase courante**: Phase B - P3 en cours
+- **Phase courante**: P3 — nettoyage + generation BY DESIGN
 - **Plans**: P1 [x] → P2 [x] → GO/NO-GO A→B [x] → **P3 [~]** → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
 - **Derniere gate validee**: GO/NO-GO A→B (2026-02-22)
-- **Prochain jalon**: P3a (remplacer 95 page-number Qs) + P3b (orchestrateur generation)
+- **Prochain jalon**: generation questions BY DESIGN (LLM lit chunks, ecrit Q/A)
+- **Audit qualite (2026-02-27)**: 71.5% answerable = garbage (templates mecaniques). Scripts supprimes: generate_real_questions.py, generate_v2_coverage.py, select_page_number_candidates.py
 - **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1+P2+recalib)
 - **Recalibration script**: `scripts/evaluation/annales/recalibrate_full.py` (applique TOUTES les corrections depuis baseline)
 

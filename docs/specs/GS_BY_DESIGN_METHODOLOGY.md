@@ -156,7 +156,7 @@ Cap par strate: 0.5 * nombre_chunks
 
 ### 3.3 Phase 1 - Generation Answerable BY DESIGN
 
-**Script**: `scripts/evaluation/annales/generate_real_questions.py`
+**Script**: `scripts/evaluation/annales/generate_real_questions.py` [SUPPRIME 2026-02-27]
 
 **Methode**: Pour chaque chunk selectionne, generer 0 a 3 questions dont la reponse est extractible du chunk.
 
@@ -181,7 +181,7 @@ Cap par strate: 0.5 * nombre_chunks
 
 ### 3.4 Phase 2 - Generation Unanswerable BY DESIGN
 
-**Script**: `scripts/evaluation/annales/generate_real_questions.py` (generateurs specifiques)
+**Script**: `scripts/evaluation/annales/generate_real_questions.py` (generateurs specifiques) [SUPPRIME 2026-02-27]
 
 **Objectif**: Generer des questions impossibles a repondre avec le corpus, selon les 6 categories UAEval4RAG (arXiv:2412.12300).
 
@@ -425,7 +425,7 @@ with patch("module.compute_embedding") as mock:
 | Module | Script | Tests | Type |
 |--------|--------|-------|------|
 | Phase 0 | `stratify_corpus.py` | `test_stratify_corpus.py` | PURE |
-| Phase 1+2 | `generate_real_questions.py` | `test_generate_real_questions.py` | PURE |
+| Phase 1+2 | `generate_real_questions.py` [SUPPRIME 2026-02-27] | `test_generate_real_questions.py` [SUPPRIME 2026-02-27] | PURE |
 | Phase 3 | `validate_anti_hallucination.py` | `test_validate_anti_hallucination.py` | PURE + MOCK |
 | Phase 4 | `enrich_schema_v2.py` | `test_enrich_schema_v2.py` | PURE |
 | Phase 4 bis | `fix_gs_iso_compliance.py` | `test_fix_gs_iso_compliance.py` | PURE |
@@ -440,7 +440,7 @@ with patch("module.compute_embedding") as mock:
 | Fichier test | Gates couvertes |
 |-------------|-----------------|
 | test_quality_gates.py | **21/21** (G0-1 a G5-5) |
-| test_generate_real_questions.py | G1-1, G1-2, G1-3, G1-4, G2-1, G2-3 |
+| test_generate_real_questions.py [SUPPRIME 2026-02-27] | G1-1, G1-2, G1-3, G1-4, G2-1, G2-3 |
 | test_fix_gs_iso_compliance.py | G4-1, G4-2 |
 | test_validate_anti_hallucination.py | G3-1, G3-2 |
 | test_reformulate_by_design.py | G5-2, G1-2 |
@@ -531,17 +531,17 @@ La gate pre-commit `ISO 29119 | Test Coverage (80% min)` verifie que la couvertu
 | ISO 42001 A.6.2.2 Provenance | G1-1, G4-2 | test_quality_gates::TestG1Gates, test_gs_data_integrity::TestChunkLinkage | quality_gates.py |
 | ISO 42001 Anti-hallucination | G3-1, G3-2 | test_validate_anti_hallucination::TestValidateQuestion | validate_anti_hallucination.py |
 | ISO 29119-3 Test data balance | G2-2, G5-3, G5-4, G5-5 | test_balance_distribution::TestValidateDistribution | balance_distribution.py |
-| ISO 25010 Accuracy | G1-2 | test_generate_real_questions::TestGenerateQuestionFromExtraction | generate_real_questions.py |
+| ISO 25010 Accuracy | G1-2 | test_generate_real_questions::TestGenerateQuestionFromExtraction [SUPPRIME 2026-02-27] | generate_real_questions.py [SUPPRIME 2026-02-27] |
 | ISO 25010 Completeness | G4-1 | test_enrich_schema_v2::TestCountSchemaFields | enrich_schema_v2.py |
 | SQuAD 2.0 | G2-2, G5-5 | test_gs_data_integrity::TestDistributionTargets | (integration) |
-| UAEval4RAG (arXiv:2412.12300) | G2-1, G2-3 | test_generate_real_questions::TestUnanswerableGenerators | generate_real_questions.py |
+| UAEval4RAG (arXiv:2412.12300) | G2-1, G2-3 | test_generate_real_questions::TestUnanswerableGenerators [SUPPRIME 2026-02-27] | generate_real_questions.py [SUPPRIME 2026-02-27] |
 
 ### 9.2 Module → Tests → Coverage
 
 | Module | Fonctions testees | Tests | Coverage visee |
 |--------|------------------|-------|----------------|
 | stratify_corpus.py | classify_source, stratify_chunks, compute_quotas, compute_coverage, validate_stratification | 20 | >= 80% |
-| generate_real_questions.py | extract_article_info, extract_key_sentences, extract_rules_and_definitions, generate_question_from_extraction, generate_unanswerable_question, 6 generateurs | 40 | >= 80% |
+| generate_real_questions.py [SUPPRIME 2026-02-27] | extract_article_info, extract_key_sentences, extract_rules_and_definitions, generate_question_from_extraction, generate_unanswerable_question, 6 generateurs | 40 | >= 80% |
 | validate_anti_hallucination.py | normalize_text, extract_keywords, validate_verbatim, validate_keyword_coverage, cosine_similarity, validate_question | 24 | >= 80% |
 | enrich_schema_v2.py | generate_question_id, extract_article_reference, infer_category, infer_reasoning_type, extract_keywords, enrich_to_schema_v2, count_schema_fields, validate_schema_compliance | 31 | >= 80% |
 | balance_distribution.py | DistributionStats, compute_distribution_stats, cosine_similarity, cosine_similarity_matrix, balance_distribution, validate_distribution, deduplicate_questions | 22 | >= 80% |

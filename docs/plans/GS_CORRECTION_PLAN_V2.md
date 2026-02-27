@@ -657,14 +657,14 @@ precedent sans perte.
 | `generate_p2_questions.py` | 80 questions hand-crafted, 4 profils, validation conformance | A | **DONE** (P2) |
 | `recalibrate_full.py` | Recalibration complete (AT, CL, QT, difficulty, hard replacements, Q2 fix) | A | **DONE** (GO/NO-GO) |
 | `recalibrate_hard.py` | 11 hard replacement questions (low kw overlap, genuine difficulty) | A | **DONE** (GO/NO-GO) |
-| `generate_v2_coverage.py` | Orchestrateur generation massive avec stop gates | B+C | TODO |
+| `generate_v2_coverage.py` | Orchestrateur generation massive avec stop gates | B+C | **SUPPRIME** (2026-02-27, audit qualite) |
 | `verify_regression.py` | Tests de regression snapshot avant/apres | A-D | **DONE** (P1) |
 
 ### 10.2 Scripts a Modifier
 
 | Script | Modification | Phase |
 |--------|-------------|-------|
-| `generate_real_questions.py` | Prompt V2 (cognitive_level, difficulty hard, comparative, inferential) | B |
+| `generate_real_questions.py` | **SUPPRIME** (2026-02-27, audit qualite — template mecanique) | B |
 | `quality_gates.py` | Ajouter gates D-G1 a D-G5 (si non deja couvertes par G5-6/G5-7/G5-8) | D |
 | `test_gs_data_integrity.py` | Tests pour nouvelles distributions, retirer xfail quand corriges | D |
 
@@ -778,6 +778,7 @@ Le GS v2 est considere conforme quand :
 | 2.2 | 2026-02-21 | P2 complete : regenerate_targeted.py + generate_p2_questions.py + 77 tests. 80Q remplacees (4 profils x 20). IDs stables (pas de generate_new_id). Gates A-G1 a A-G5 PASS. Phase A COMPLETE. Divergence plan: legacy_id inutile (IDs stables). Baseline original restaure, snapshots separes (post_p1, post_p2). CVE exception register cree. |
 | 2.3 | 2026-02-22 | GO/NO-GO A→B execute. LLM-as-Judge 2 rounds (30Q chacun). Kappa PASS 3/4 axes (question_type 0.948, cognitive_level 0.748, answer_type 0.634). Difficulty FAIL (known limitation). Recalibration complete 614Q : 205 CL, 149 QT, 34 AT, 129 difficulty, 11 hard replacements, Q2 fix. Scripts recalibrate_full.py + recalibrate_hard.py. Issues Phase B : 95 page-number Qs, difficulty calibration. |
 | 2.4 | 2026-02-26 | Phase B prep (P3 analytique). Analyse 95 page-number Qs : 100% Remember/factual/medium/extractive, 81% LA-octobre2025, 0% overlap P2, pattern "Quelle regle a la page X?". Decision : remplacer en P3a (IDs stables). Stratification 1501 chunks non couverts : coverage 19.2% (356/1857), generables 1288 (>=50 tok), cible 1485 pour 80%. Tiers : P1_LA(889), P2_Coupes(73), P3_Champ(185), P4_Admin(185), P5_Other(169). Ordre : petits docs d'abord (P2+P3+P5), puis LA. Scripts a creer : select_page_number_candidates.py, generate_v2_coverage.py. |
+| 2.5 | 2026-02-27 | Audit qualite P3 : 71.5% answerable = garbage (122 templates mecaniques + 95 page-number + 24 filename + 43 fragments). Decision : supprimer scripts mecaniques, pivoter vers generation BY DESIGN manuelle (LLM lit chunk, ecrit Q/A). Scripts supprimes : generate_real_questions.py (735L), generate_v2_coverage.py (685L), select_page_number_candidates.py (232L) + 3 fichiers tests (1521L) + p3_page_candidates.json. |
 
 ---
 

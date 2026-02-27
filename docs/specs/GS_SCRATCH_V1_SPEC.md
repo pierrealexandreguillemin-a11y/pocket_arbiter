@@ -37,7 +37,7 @@ PRINCIPE FONDAMENTAL:
 | `tests/data/gs_scratch_v1.json` | Gold Standard 584 questions |
 | `data/gs_generation/chunk_strata.json` | Stratification corpus |
 | `data/gs_generation/validation_report.json` | Rapport validation |
-| `scripts/evaluation/annales/generate_real_questions.py` | Script generation |
+| `scripts/evaluation/annales/generate_real_questions.py` [SUPPRIME 2026-02-27] | Script generation |
 
 ---
 

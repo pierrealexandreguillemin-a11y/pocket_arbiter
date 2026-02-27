@@ -257,6 +257,186 @@ def benchmark_recall(
     return _build_recall_result(recalls, results, failed, top_k, use_hybrid, tolerance)
 
 
+def _compute_segments(
+    results: list[dict],
+    k_values: list[int],
+) -> dict:
+    """Aggregate recall by reasoning_class, difficulty band, source_session, source_uuid."""
+    from collections import defaultdict
+
+    segment_keys = ["reasoning_class", "source_session", "source_uuid"]
+    segments: dict[str, dict] = {}
+
+    for key in segment_keys:
+        groups: dict[str, list[dict]] = defaultdict(list)
+        for r in results:
+            groups[r[key]].append(r)
+
+        segments[key] = {}
+        for group_name, group_results in sorted(groups.items()):
+            n = len(group_results)
+            seg: dict[str, int | float] = {"count": n}
+            for k in k_values:
+                sk = str(k)
+                seg[f"recall@{k}"] = round(
+                    sum(r["chunk_recall"][sk] for r in group_results) / n, 4
+                )
+            segments[key][group_name] = seg
+
+    # Difficulty bands: easy (<0.33), medium (0.33-0.66), hard (>0.66)
+    diff_groups: dict[str, list[dict]] = defaultdict(list)
+    for r in results:
+        d = r["difficulty"]
+        band = "easy" if d < 0.33 else ("medium" if d <= 0.66 else "hard")
+        diff_groups[band].append(r)
+
+    segments["difficulty"] = {}
+    for band in ["easy", "medium", "hard"]:
+        group_results = diff_groups.get(band, [])
+        n = len(group_results)
+        if n == 0:
+            continue
+        seg = {"count": n}
+        for k in k_values:
+            sk = str(k)
+            seg[f"recall@{k}"] = round(
+                sum(r["chunk_recall"][sk] for r in group_results) / n, 4
+            )
+        segments["difficulty"][band] = seg
+
+    return segments
+
+
+def benchmark_recall_v8(
+    db_path: Path,
+    questions_file: Path,
+    model: object,
+    top_k: int = 10,
+    use_hybrid: bool = False,
+    tolerance: int = 2,
+) -> dict:
+    """
+    Benchmark recall on v8 GS with chunk-level and page-level metrics.
+
+    Evaluates recall@1,3,5,10 (chunk + page), MRR, segmented by metadata.
+    Skips is_impossible and requires_context questions.
+
+    Args:
+        db_path: SQLite vector store path.
+        questions_file: v8 GS JSON file.
+        model: Embedding model (pre-loaded).
+        top_k: Max results to retrieve (default 10 for multi-K).
+        use_hybrid: Use hybrid search (BM25 + vector).
+        tolerance: Page tolerance for page-level recall.
+
+    Returns:
+        Dict with recall_at_k, mrr_mean, segmented results, error analysis.
+    """
+    from scripts.pipeline.embeddings import embed_query
+    from scripts.pipeline.export_search import retrieve_hybrid, smart_retrieve
+    from scripts.pipeline.utils import load_json
+
+    gs_data = load_json(questions_file)
+    questions = gs_data["questions"]
+
+    k_values = [1, 3, 5, 10]
+    results_detail: list[dict] = []
+
+    for q in questions:
+        parsed = _parse_question_v8(q)
+
+        if parsed["is_impossible"] or not parsed["chunk_id"]:
+            continue
+        if parsed["requires_context"]:
+            continue
+
+        query_emb = embed_query(parsed["question"], model)
+
+        if use_hybrid:
+            retrieved = retrieve_hybrid(
+                db_path, query_emb, parsed["question"], top_k=top_k
+            )
+        else:
+            retrieved = smart_retrieve(
+                db_path, query_emb, parsed["question"], top_k=top_k
+            )
+
+        # Compute metrics at each K
+        chunk_recalls: dict[str, float] = {}
+        page_recalls: dict[str, float] = {}
+        for k in k_values:
+            chunk_recalls[str(k)] = compute_recall_at_k_chunk(
+                retrieved, parsed["chunk_id"], k=k
+            )
+            retrieved_pages = [r["page"] for r in retrieved[:k]]
+            page_recalls[str(k)] = compute_recall_at_k(
+                retrieved_pages, parsed["pages"], k=k, tolerance=tolerance
+            )
+
+        mrr = compute_mrr(retrieved, parsed["chunk_id"])
+
+        detail = {
+            "id": q["id"],
+            "question": parsed["question"],
+            "expected_chunk_id": parsed["chunk_id"],
+            "expected_pages": parsed["pages"],
+            "retrieved_chunks": [
+                {
+                    "id": r["id"],
+                    "score": round(r.get("score", r.get("hybrid_score", 0)), 4),
+                    "page": r["page"],
+                }
+                for r in retrieved[:top_k]
+            ],
+            "chunk_recall": chunk_recalls,
+            "page_recall": page_recalls,
+            "mrr": mrr,
+            "reasoning_class": parsed["reasoning_class"],
+            "difficulty": parsed["difficulty"],
+            "source_session": parsed["source_session"],
+            "source_uuid": parsed["source_uuid"],
+        }
+        results_detail.append(detail)
+
+    # Aggregate
+    n = len(results_detail)
+    recall_at_k_chunk: dict[str, float] = {}
+    recall_at_k_page: dict[str, float] = {}
+    for k in k_values:
+        sk = str(k)
+        recall_at_k_chunk[sk] = (
+            sum(r["chunk_recall"][sk] for r in results_detail) / n if n else 0.0
+        )
+        recall_at_k_page[sk] = (
+            sum(r["page_recall"][sk] for r in results_detail) / n if n else 0.0
+        )
+
+    mrr_mean = sum(r["mrr"] for r in results_detail) / n if n else 0.0
+
+    # Failed questions (chunk recall@5 < 1.0)
+    failed = [r for r in results_detail if r["chunk_recall"]["5"] < 1.0]
+
+    # Segmented stats
+    segments = _compute_segments(results_detail, k_values)
+
+    return {
+        "total_questions": n,
+        "recall_at_k": {"chunk": recall_at_k_chunk, "page": recall_at_k_page},
+        "mrr_mean": round(mrr_mean, 4),
+        "failed_count": len(failed),
+        "failed_questions": failed,
+        "segments": segments,
+        "config": {
+            "top_k": top_k,
+            "use_hybrid": use_hybrid,
+            "tolerance": tolerance,
+            "model": "EmbeddingGemma-300M-QAT",
+            "gs_version": "v8.1.0",
+        },
+        "questions_detail": results_detail,
+    }
+
+
 # =============================================================================
 # Unit Tests (pytest - NO model fixtures)
 # =============================================================================
@@ -475,6 +655,349 @@ class TestParseQuestionV8:
         parsed = _parse_question_v8(q)
         assert parsed["is_impossible"] is True
         assert parsed["chunk_id"] == ""
+
+
+class TestComputeSegments:
+    """Tests _compute_segments() aggregation."""
+
+    def test_segments_by_reasoning_class(self):
+        results = [
+            {
+                "chunk_recall": {"5": 1.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.3,
+                "source_session": "s1",
+                "source_uuid": "doc.pdf",
+            },
+            {
+                "chunk_recall": {"5": 0.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.5,
+                "source_session": "s1",
+                "source_uuid": "doc.pdf",
+            },
+            {
+                "chunk_recall": {"5": 1.0},
+                "reasoning_class": "fact_single",
+                "difficulty": 0.2,
+                "source_session": "s2",
+                "source_uuid": "other.pdf",
+            },
+        ]
+        segments = _compute_segments(results, [5])
+        assert segments["reasoning_class"]["summary"]["count"] == 2
+        assert segments["reasoning_class"]["summary"]["recall@5"] == 0.5
+        assert segments["reasoning_class"]["fact_single"]["recall@5"] == 1.0
+
+    def test_segments_by_difficulty_band(self):
+        results = [
+            {
+                "chunk_recall": {"5": 1.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.1,
+                "source_session": "s1",
+                "source_uuid": "doc.pdf",
+            },
+            {
+                "chunk_recall": {"5": 0.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.5,
+                "source_session": "s1",
+                "source_uuid": "doc.pdf",
+            },
+            {
+                "chunk_recall": {"5": 1.0},
+                "reasoning_class": "fact_single",
+                "difficulty": 0.8,
+                "source_session": "s2",
+                "source_uuid": "other.pdf",
+            },
+        ]
+        segments = _compute_segments(results, [5])
+        assert segments["difficulty"]["easy"]["count"] == 1
+        assert segments["difficulty"]["easy"]["recall@5"] == 1.0
+        assert segments["difficulty"]["medium"]["count"] == 1
+        assert segments["difficulty"]["medium"]["recall@5"] == 0.0
+        assert segments["difficulty"]["hard"]["count"] == 1
+        assert segments["difficulty"]["hard"]["recall@5"] == 1.0
+
+    def test_segments_by_source_session(self):
+        results = [
+            {
+                "chunk_recall": {"5": 1.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.3,
+                "source_session": "dec2024",
+                "source_uuid": "doc.pdf",
+            },
+            {
+                "chunk_recall": {"5": 0.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.5,
+                "source_session": "jun2025",
+                "source_uuid": "doc.pdf",
+            },
+        ]
+        segments = _compute_segments(results, [5])
+        assert segments["source_session"]["dec2024"]["count"] == 1
+        assert segments["source_session"]["jun2025"]["count"] == 1
+
+    def test_segments_empty_band_skipped(self):
+        results = [
+            {
+                "chunk_recall": {"5": 1.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.1,
+                "source_session": "s1",
+                "source_uuid": "doc.pdf",
+            },
+        ]
+        segments = _compute_segments(results, [5])
+        assert "easy" in segments["difficulty"]
+        assert "medium" not in segments["difficulty"]
+        assert "hard" not in segments["difficulty"]
+
+    def test_segments_multi_k(self):
+        results = [
+            {
+                "chunk_recall": {"1": 0.0, "5": 1.0},
+                "reasoning_class": "summary",
+                "difficulty": 0.3,
+                "source_session": "s1",
+                "source_uuid": "doc.pdf",
+            },
+        ]
+        segments = _compute_segments(results, [1, 5])
+        assert segments["reasoning_class"]["summary"]["recall@1"] == 0.0
+        assert segments["reasoning_class"]["summary"]["recall@5"] == 1.0
+
+
+class TestBenchmarkRecallV8:
+    """Test benchmark_recall_v8 with mocked retrieval."""
+
+    def test_basic_flow(self, tmp_path):
+        import json
+        from unittest.mock import patch
+
+        gs_data = {
+            "version": {"schema": "GS_SCHEMA_V2"},
+            "questions": [
+                {
+                    "id": "q1",
+                    "content": {"question": "Test?", "is_impossible": False},
+                    "provenance": {
+                        "chunk_id": "doc-p01-c00",
+                        "docs": ["doc.pdf"],
+                        "pages": [1],
+                        "annales_source": {"session": "dec2024", "uv": "clubs"},
+                    },
+                    "classification": {
+                        "reasoning_class": "summary",
+                        "difficulty": 0.3,
+                    },
+                    "audit": {"history": ""},
+                },
+                {
+                    "id": "q2",
+                    "content": {"question": "Impossible?", "is_impossible": True},
+                    "provenance": {"chunk_id": "", "docs": [], "pages": []},
+                    "classification": {
+                        "reasoning_class": "summary",
+                        "difficulty": 0.0,
+                    },
+                    "audit": {"history": ""},
+                },
+            ],
+        }
+        gs_file = tmp_path / "gs.json"
+        gs_file.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        mock_results = [
+            {
+                "id": "doc-p01-c00",
+                "text": "chunk text",
+                "source": "doc.pdf",
+                "page": 1,
+                "score": 0.95,
+            },
+            {
+                "id": "other-c01",
+                "text": "other",
+                "source": "doc.pdf",
+                "page": 2,
+                "score": 0.80,
+            },
+        ]
+
+        with (
+            patch("scripts.pipeline.embeddings.embed_query", return_value="fake_emb"),
+            patch(
+                "scripts.pipeline.export_search.smart_retrieve",
+                return_value=mock_results,
+            ),
+        ):
+            result = benchmark_recall_v8(
+                db_path=tmp_path / "fake.db",
+                questions_file=gs_file,
+                model=None,
+                top_k=10,
+                use_hybrid=False,
+            )
+
+        assert result["total_questions"] == 1  # q2 skipped (impossible)
+        assert result["recall_at_k"]["chunk"]["1"] == 1.0
+        assert result["recall_at_k"]["chunk"]["5"] == 1.0
+        assert result["mrr_mean"] == 1.0
+        assert result["failed_count"] == 0
+        assert "segments" in result
+        assert result["config"]["gs_version"] == "v8.1.0"
+
+    def test_hybrid_mode(self, tmp_path):
+        import json
+        from unittest.mock import patch
+
+        gs_data = {
+            "questions": [
+                {
+                    "id": "q1",
+                    "content": {"question": "Test?", "is_impossible": False},
+                    "provenance": {
+                        "chunk_id": "doc-p01-c00",
+                        "docs": ["doc.pdf"],
+                        "pages": [1],
+                        "annales_source": {"session": "dec2024", "uv": "clubs"},
+                    },
+                    "classification": {
+                        "reasoning_class": "summary",
+                        "difficulty": 0.3,
+                    },
+                    "audit": {"history": ""},
+                },
+            ],
+        }
+        gs_file = tmp_path / "gs.json"
+        gs_file.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        mock_results = [
+            {
+                "id": "doc-p01-c00",
+                "text": "chunk",
+                "source": "doc.pdf",
+                "page": 1,
+                "hybrid_score": 0.9,
+            },
+        ]
+
+        with (
+            patch("scripts.pipeline.embeddings.embed_query", return_value="fake_emb"),
+            patch(
+                "scripts.pipeline.export_search.retrieve_hybrid",
+                return_value=mock_results,
+            ),
+        ):
+            result = benchmark_recall_v8(
+                db_path=tmp_path / "fake.db",
+                questions_file=gs_file,
+                model=None,
+                top_k=10,
+                use_hybrid=True,
+            )
+
+        assert result["total_questions"] == 1
+        assert result["config"]["use_hybrid"] is True
+
+    def test_requires_context_skipped(self, tmp_path):
+        import json
+        from unittest.mock import patch
+
+        gs_data = {
+            "questions": [
+                {
+                    "id": "q1",
+                    "content": {"question": "Test?", "is_impossible": False},
+                    "provenance": {
+                        "chunk_id": "doc-p01-c00",
+                        "docs": ["doc.pdf"],
+                        "pages": [1],
+                        "annales_source": {"session": "dec2024", "uv": "clubs"},
+                    },
+                    "classification": {
+                        "reasoning_class": "summary",
+                        "difficulty": 0.3,
+                    },
+                    "audit": {"history": "requires_context:exam_name(Test)"},
+                },
+            ],
+        }
+        gs_file = tmp_path / "gs.json"
+        gs_file.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        with (
+            patch("scripts.pipeline.embeddings.embed_query", return_value="fake_emb"),
+            patch("scripts.pipeline.export_search.smart_retrieve", return_value=[]),
+        ):
+            result = benchmark_recall_v8(
+                db_path=tmp_path / "fake.db",
+                questions_file=gs_file,
+                model=None,
+            )
+
+        assert result["total_questions"] == 0
+
+    def test_failed_questions_tracked(self, tmp_path):
+        import json
+        from unittest.mock import patch
+
+        gs_data = {
+            "questions": [
+                {
+                    "id": "q1",
+                    "content": {"question": "Test?", "is_impossible": False},
+                    "provenance": {
+                        "chunk_id": "doc-p01-c00",
+                        "docs": ["doc.pdf"],
+                        "pages": [1],
+                        "annales_source": {"session": "dec2024", "uv": "clubs"},
+                    },
+                    "classification": {
+                        "reasoning_class": "summary",
+                        "difficulty": 0.3,
+                    },
+                    "audit": {"history": ""},
+                },
+            ],
+        }
+        gs_file = tmp_path / "gs.json"
+        gs_file.write_text(json.dumps(gs_data), encoding="utf-8")
+
+        # Return chunks that do NOT match expected chunk_id
+        mock_results = [
+            {
+                "id": "wrong-c01",
+                "text": "wrong",
+                "source": "doc.pdf",
+                "page": 5,
+                "score": 0.8,
+            },
+        ]
+
+        with (
+            patch("scripts.pipeline.embeddings.embed_query", return_value="fake_emb"),
+            patch(
+                "scripts.pipeline.export_search.smart_retrieve",
+                return_value=mock_results,
+            ),
+        ):
+            result = benchmark_recall_v8(
+                db_path=tmp_path / "fake.db",
+                questions_file=gs_file,
+                model=None,
+            )
+
+        assert result["total_questions"] == 1
+        assert result["failed_count"] == 1
+        assert result["recall_at_k"]["chunk"]["5"] == 0.0
+        assert result["mrr_mean"] == 0.0
 
 
 # =============================================================================

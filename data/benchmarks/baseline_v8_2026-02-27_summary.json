@@ -1,0 +1,691 @@
+{
+  "timestamp": "2026-02-27T23:49:11.576388+00:00",
+  "vector_only": {
+    "total_questions": 358,
+    "recall_at_k": {
+      "chunk": {
+        "1": 0.20670391061452514,
+        "3": 0.31564245810055863,
+        "5": 0.3659217877094972,
+        "10": 0.4581005586592179
+      },
+      "page": {
+        "1": 0.4366852886405959,
+        "3": 0.6014897579143389,
+        "5": 0.6675977653631285,
+        "10": 0.7178770949720671
+      }
+    },
+    "mrr_mean": 0.2796,
+    "failed_count": 227,
+    "segments": {
+      "reasoning_class": {
+        "arithmetic": {
+          "count": 26,
+          "recall@1": 0.3077,
+          "recall@3": 0.3846,
+          "recall@5": 0.4231,
+          "recall@10": 0.5385
+        },
+        "fact_single": {
+          "count": 167,
+          "recall@1": 0.2395,
+          "recall@3": 0.3772,
+          "recall@5": 0.4132,
+          "recall@10": 0.479
+        },
+        "reasoning": {
+          "count": 6,
+          "recall@1": 0.5,
+          "recall@3": 0.6667,
+          "recall@5": 0.6667,
+          "recall@10": 0.8333
+        },
+        "summary": {
+          "count": 159,
+          "recall@1": 0.1447,
+          "recall@3": 0.2264,
+          "recall@5": 0.2956,
+          "recall@10": 0.4088
+        }
+      },
+      "source_session": {
+        "dec2019": {
+          "count": 10,
+          "recall@1": 0.1,
+          "recall@3": 0.2,
+          "recall@5": 0.3,
+          "recall@10": 0.3
+        },
+        "dec2021": {
+          "count": 14,
+          "recall@1": 0.1429,
+          "recall@3": 0.1429,
+          "recall@5": 0.1429,
+          "recall@10": 0.5
+        },
+        "dec2022": {
+          "count": 5,
+          "recall@1": 0.2,
+          "recall@3": 0.4,
+          "recall@5": 0.4,
+          "recall@10": 0.6
+        },
+        "dec2023": {
+          "count": 43,
+          "recall@1": 0.2558,
+          "recall@3": 0.3721,
+          "recall@5": 0.4651,
+          "recall@10": 0.5349
+        },
+        "dec2024": {
+          "count": 78,
+          "recall@1": 0.2821,
+          "recall@3": 0.3718,
+          "recall@5": 0.4359,
+          "recall@10": 0.5513
+        },
+        "jun2021": {
+          "count": 41,
+          "recall@1": 0.0732,
+          "recall@3": 0.1951,
+          "recall@5": 0.2683,
+          "recall@10": 0.3659
+        },
+        "jun2022": {
+          "count": 19,
+          "recall@1": 0.1053,
+          "recall@3": 0.2105,
+          "recall@5": 0.3158,
+          "recall@10": 0.3684
+        },
+        "jun2023": {
+          "count": 19,
+          "recall@1": 0.0,
+          "recall@3": 0.0526,
+          "recall@5": 0.0526,
+          "recall@10": 0.1579
+        },
+        "jun2024": {
+          "count": 43,
+          "recall@1": 0.1628,
+          "recall@3": 0.3256,
+          "recall@5": 0.3488,
+          "recall@10": 0.4186
+        },
+        "jun2025": {
+          "count": 53,
+          "recall@1": 0.1698,
+          "recall@3": 0.2264,
+          "recall@5": 0.2453,
+          "recall@10": 0.3208
+        },
+        "unknown": {
+          "count": 33,
+          "recall@1": 0.4848,
+          "recall@3": 0.697,
+          "recall@5": 0.7273,
+          "recall@10": 0.7576
+        }
+      },
+      "source_uuid": {
+        "2022_Reglement_medical_19082022.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "2024_Statuts20240420.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "2025_Reglement_Interieur_20250503.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "A01_2025_26_Championnat_de_France.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf": {
+          "count": 47,
+          "recall@1": 0.1702,
+          "recall@3": 0.3404,
+          "recall@5": 0.3617,
+          "recall@10": 0.4894
+        },
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "C01_2025_26_Coupe_de_France.pdf": {
+          "count": 12,
+          "recall@1": 0.25,
+          "recall@3": 0.3333,
+          "recall@5": 0.4167,
+          "recall@10": 0.5
+        },
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf": {
+          "count": 6,
+          "recall@1": 0.1667,
+          "recall@3": 0.3333,
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        "C04_2025_26_Coupe_de_la_parité.pdf": {
+          "count": 5,
+          "recall@1": 0.2,
+          "recall@3": 0.4,
+          "recall@5": 0.4,
+          "recall@10": 0.4
+        },
+        "Contrat_de_delegation_15032022.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "E02-Le_classement_rapide.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf": {
+          "count": 4,
+          "recall@1": 0.25,
+          "recall@3": 0.25,
+          "recall@5": 0.25,
+          "recall@10": 0.25
+        },
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf": {
+          "count": 2,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf": {
+          "count": 2,
+          "recall@1": 0.0,
+          "recall@3": 0.5,
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "InterclubsJeunes_PACABdr.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "Interclubs_DepartementalBdr.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf": {
+          "count": 7,
+          "recall@1": 0.7143,
+          "recall@3": 0.7143,
+          "recall@5": 0.8571,
+          "recall@10": 0.8571
+        },
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf": {
+          "count": 11,
+          "recall@1": 0.1818,
+          "recall@3": 0.1818,
+          "recall@5": 0.1818,
+          "recall@10": 0.5455
+        },
+        "J03_2025_26_Championnat_de_France_scolaire.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        "LA-octobre2025.pdf": {
+          "count": 197,
+          "recall@1": 0.132,
+          "recall@3": 0.2183,
+          "recall@5": 0.2843,
+          "recall@10": 0.3756
+        },
+        "R01_2025_26_Regles_generales.pdf": {
+          "count": 32,
+          "recall@1": 0.3125,
+          "recall@3": 0.375,
+          "recall@5": 0.4062,
+          "recall@10": 0.4688
+        },
+        "R02_2025_26_Regles_generales_Annexes.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "R03_2025_26_Competitions_homologuees.pdf": {
+          "count": 19,
+          "recall@1": 0.3684,
+          "recall@3": 0.5263,
+          "recall@5": 0.5263,
+          "recall@10": 0.6316
+        },
+        "règlement_n4_2024_2025__1_.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "règlement_régionale_2024_2025.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        }
+      },
+      "difficulty": {
+        "easy": {
+          "count": 230,
+          "recall@1": 0.2304,
+          "recall@3": 0.3261,
+          "recall@5": 0.3783,
+          "recall@10": 0.4391
+        },
+        "medium": {
+          "count": 101,
+          "recall@1": 0.1881,
+          "recall@3": 0.3465,
+          "recall@5": 0.4059,
+          "recall@10": 0.5347
+        },
+        "hard": {
+          "count": 27,
+          "recall@1": 0.0741,
+          "recall@3": 0.1111,
+          "recall@5": 0.1111,
+          "recall@10": 0.3333
+        }
+      }
+    },
+    "config": {
+      "top_k": 10,
+      "use_hybrid": false,
+      "tolerance": 2,
+      "model": "EmbeddingGemma-300M-QAT",
+      "gs_version": "v8.1.0"
+    }
+  },
+  "hybrid": {
+    "total_questions": 358,
+    "recall_at_k": {
+      "chunk": {
+        "1": 0.1787709497206704,
+        "3": 0.3128491620111732,
+        "5": 0.3715083798882682,
+        "10": 0.4441340782122905
+      },
+      "page": {
+        "1": 0.44227188081936686,
+        "3": 0.5986964618249535,
+        "5": 0.6638733705772811,
+        "10": 0.7486033519553073
+      }
+    },
+    "mrr_mean": 0.2598,
+    "failed_count": 225,
+    "segments": {
+      "reasoning_class": {
+        "arithmetic": {
+          "count": 26,
+          "recall@1": 0.1538,
+          "recall@3": 0.3846,
+          "recall@5": 0.4231,
+          "recall@10": 0.6154
+        },
+        "fact_single": {
+          "count": 167,
+          "recall@1": 0.2275,
+          "recall@3": 0.3473,
+          "recall@5": 0.4012,
+          "recall@10": 0.4671
+        },
+        "reasoning": {
+          "count": 6,
+          "recall@1": 0.3333,
+          "recall@3": 0.5,
+          "recall@5": 0.6667,
+          "recall@10": 0.6667
+        },
+        "summary": {
+          "count": 159,
+          "recall@1": 0.1258,
+          "recall@3": 0.2579,
+          "recall@5": 0.3208,
+          "recall@10": 0.3836
+        }
+      },
+      "source_session": {
+        "dec2019": {
+          "count": 10,
+          "recall@1": 0.2,
+          "recall@3": 0.3,
+          "recall@5": 0.3,
+          "recall@10": 0.3
+        },
+        "dec2021": {
+          "count": 14,
+          "recall@1": 0.1429,
+          "recall@3": 0.1429,
+          "recall@5": 0.1429,
+          "recall@10": 0.2857
+        },
+        "dec2022": {
+          "count": 5,
+          "recall@1": 0.2,
+          "recall@3": 0.2,
+          "recall@5": 0.4,
+          "recall@10": 0.6
+        },
+        "dec2023": {
+          "count": 43,
+          "recall@1": 0.2093,
+          "recall@3": 0.3488,
+          "recall@5": 0.4186,
+          "recall@10": 0.5116
+        },
+        "dec2024": {
+          "count": 78,
+          "recall@1": 0.1923,
+          "recall@3": 0.3462,
+          "recall@5": 0.4872,
+          "recall@10": 0.5128
+        },
+        "jun2021": {
+          "count": 41,
+          "recall@1": 0.122,
+          "recall@3": 0.2683,
+          "recall@5": 0.2927,
+          "recall@10": 0.4146
+        },
+        "jun2022": {
+          "count": 19,
+          "recall@1": 0.1579,
+          "recall@3": 0.2632,
+          "recall@5": 0.2632,
+          "recall@10": 0.3158
+        },
+        "jun2023": {
+          "count": 19,
+          "recall@1": 0.0,
+          "recall@3": 0.1053,
+          "recall@5": 0.1053,
+          "recall@10": 0.2105
+        },
+        "jun2024": {
+          "count": 43,
+          "recall@1": 0.1395,
+          "recall@3": 0.2326,
+          "recall@5": 0.3023,
+          "recall@10": 0.3953
+        },
+        "jun2025": {
+          "count": 53,
+          "recall@1": 0.1132,
+          "recall@3": 0.2642,
+          "recall@5": 0.3019,
+          "recall@10": 0.3396
+        },
+        "unknown": {
+          "count": 33,
+          "recall@1": 0.4545,
+          "recall@3": 0.6667,
+          "recall@5": 0.6667,
+          "recall@10": 0.7576
+        }
+      },
+      "source_uuid": {
+        "2022_Reglement_medical_19082022.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "2024_Statuts20240420.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "2025_Reglement_Interieur_20250503.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "A01_2025_26_Championnat_de_France.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf": {
+          "count": 47,
+          "recall@1": 0.234,
+          "recall@3": 0.3191,
+          "recall@5": 0.3617,
+          "recall@10": 0.4468
+        },
+        "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "C01_2025_26_Coupe_de_France.pdf": {
+          "count": 12,
+          "recall@1": 0.1667,
+          "recall@3": 0.4167,
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf": {
+          "count": 6,
+          "recall@1": 0.1667,
+          "recall@3": 0.3333,
+          "recall@5": 0.3333,
+          "recall@10": 0.3333
+        },
+        "C04_2025_26_Coupe_de_la_parité.pdf": {
+          "count": 5,
+          "recall@1": 0.0,
+          "recall@3": 0.4,
+          "recall@5": 0.4,
+          "recall@10": 0.4
+        },
+        "Contrat_de_delegation_15032022.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "E02-Le_classement_rapide.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf": {
+          "count": 4,
+          "recall@1": 0.25,
+          "recall@3": 0.25,
+          "recall@5": 0.25,
+          "recall@10": 0.25
+        },
+        "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf": {
+          "count": 2,
+          "recall@1": 0.5,
+          "recall@3": 0.5,
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        "H01_2025_26_Conduite_pour_joueur_handicapes.pdf": {
+          "count": 2,
+          "recall@1": 0.0,
+          "recall@3": 0.5,
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        "H02_2025_26_Joueurs_a_mobilite_reduite.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "InterclubsJeunes_PACABdr.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "Interclubs_DepartementalBdr.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "J01_2025_26_Championnat_de_France_Jeunes.pdf": {
+          "count": 7,
+          "recall@1": 0.7143,
+          "recall@3": 0.8571,
+          "recall@5": 0.8571,
+          "recall@10": 0.8571
+        },
+        "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf": {
+          "count": 11,
+          "recall@1": 0.1818,
+          "recall@3": 0.1818,
+          "recall@5": 0.1818,
+          "recall@10": 0.3636
+        },
+        "J03_2025_26_Championnat_de_France_scolaire.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        "LA-octobre2025.pdf": {
+          "count": 197,
+          "recall@1": 0.0964,
+          "recall@3": 0.2132,
+          "recall@5": 0.2995,
+          "recall@10": 0.3756
+        },
+        "R01_2025_26_Regles_generales.pdf": {
+          "count": 32,
+          "recall@1": 0.25,
+          "recall@3": 0.3438,
+          "recall@5": 0.375,
+          "recall@10": 0.5
+        },
+        "R02_2025_26_Regles_generales_Annexes.pdf": {
+          "count": 1,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "R03_2025_26_Competitions_homologuees.pdf": {
+          "count": 19,
+          "recall@1": 0.3158,
+          "recall@3": 0.6316,
+          "recall@5": 0.6316,
+          "recall@10": 0.6316
+        },
+        "règlement_n4_2024_2025__1_.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "règlement_régionale_2024_2025.pdf": {
+          "count": 1,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        }
+      },
+      "difficulty": {
+        "easy": {
+          "count": 230,
+          "recall@1": 0.1739,
+          "recall@3": 0.2957,
+          "recall@5": 0.3565,
+          "recall@10": 0.4391
+        },
+        "medium": {
+          "count": 101,
+          "recall@1": 0.2178,
+          "recall@3": 0.3762,
+          "recall@5": 0.4455,
+          "recall@10": 0.495
+        },
+        "hard": {
+          "count": 27,
+          "recall@1": 0.0741,
+          "recall@3": 0.2222,
+          "recall@5": 0.2222,
+          "recall@10": 0.2963
+        }
+      }
+    },
+    "config": {
+      "top_k": 10,
+      "use_hybrid": true,
+      "tolerance": 2,
+      "model": "EmbeddingGemma-300M-QAT",
+      "gs_version": "v8.1.0"
+    }
+  }
+}

@@ -143,8 +143,8 @@ def _parse_question_v8(q: dict) -> dict:
     classification = q.get("classification", {})
     audit = q.get("audit", {})
 
-    annales = provenance.get("annales_source", {})
-    docs = provenance.get("docs", [])
+    annales = provenance.get("annales_source") or {}
+    docs = provenance.get("docs") or []
 
     return {
         "question": content.get("question", ""),

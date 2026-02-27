@@ -31,7 +31,7 @@ scripts/
 corpus/
   fr/               # 29 PDF FFE
   intl/             # 1 PDF FIDE
-tests/data/         # Questions gold standard (gs_scratch_v1_step1.json)
+tests/data/         # Questions gold standard (gold_standard_annales_fr_v8_adversarial.json)
 data/gs_generation/ # Artefacts generation (candidates, replacements, snapshots)
 docs/               # Specs ISO, plans, CVE register
 ```
@@ -73,51 +73,55 @@ docs/               # Specs ISO, plans, CVE register
   ```
 - **CVE exceptions**: docs/CVE_EXCEPTIONS.md
 
-## Current Work: GS Correction (PLAN-GS-CORR-002)
+## Current Work: Triplet Generation (SPEC-TRIP-001)
 
-- **Plan source**: docs/plans/GS_CORRECTION_PLAN_V2.md
-- **Phase courante**: P3 — nettoyage + generation BY DESIGN
-- **Plans**: P1 [x] → P2 [x] → GO/NO-GO A→B [x] → **P3 [~]** → P4 [ ] → GO/NO-GO B→C,C→D → P5 [ ] → P6 [ ]
-- **Derniere gate validee**: GO/NO-GO A→B (2026-02-22)
-- **Prochain jalon**: generation questions BY DESIGN (LLM lit chunks, ecrit Q/A)
-- **Audit qualite (2026-02-27)**: 71.5% answerable = garbage (templates mecaniques). Scripts supprimes: generate_real_questions.py, generate_v2_coverage.py, select_page_number_candidates.py
-- **Fichier GS courant**: tests/data/gs_scratch_v1_step1.json (614Q, v1.1+P1+P2+recalib)
-- **Recalibration script**: `scripts/evaluation/annales/recalibrate_full.py` (applique TOUTES les corrections depuis baseline)
+- **Spec source**: docs/specs/TRIPLET_GENERATION_SPEC.md
+- **GS primaire**: `tests/data/gold_standard_annales_fr_v8_adversarial.json` (525Q = 420 answerable + 105 adversarial)
+- **Prochain jalon**: reclassifier answer_type (340 MC → extractive/abstractive) puis generer triplets
 
-### Phase B Prep (2026-02-26) - Analyse completee
+### Pivot v8 annales (2026-02-27) - Decision
 
-**95 page-number questions** : 100% Remember/factual/medium/extractive, pattern "Quelle regle a la page X?". Decision : remplacer en P3a (IDs stables, meme workflow que P2).
+**gs_scratch abandonne** : audit qualite 71.5% answerable = garbage (templates mecaniques). Scripts supprimes. P3a (95 page-number) annule.
 
-**Stratification chunks non couverts** : 1501/1857 (19.2% coverage), 1288 generables (>=50 tok).
-- P1_LA: 889, P2_Coupes: 73, P3_Champ: 185, P4_Admin: 185, P5_Other: 169
-- Ordre : petits docs d'abord (diversite), puis LA (volume)
-- Cible 80% = 1485 chunks, besoin 1129 de plus
+**v8 annales adopte comme GS primaire**. Re-evaluation a montre que les 3 objections initiales etaient infondees :
+- "post-hoc matching" → FAUX : 420/420 `manual_by_design`, chunk_match_score=100
+- "237 chunk issues" → RESOLU : cascading fixes (152+101+25+290+238), final = 0 issues
+- "100% MCQ" → REFORMULE : 335/340 reponses reformulees (194 chars moy, pas des lettres)
 
-### GO/NO-GO A→B (2026-02-22) - PASS conditionnel
+**Pourquoi v8** : 386 questions d'examen FFE reelles (10 sessions, 4 UV), success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 105 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
 
-**Level 1 - Gates**: A-G1 schema PASS, A-G2 hard 12.1% PASS, A-G3 4CL PASS, A-G4 chunk_match PASS, A-G5 regression PASS (37+5xfail)
-**Level 2 - Tests**: 1508 passed, 1 skipped, 5 xfailed. Lint + coverage + complexity OK.
-**Level 3 - LLM-as-Judge (2 rounds, 30Q chacun)**:
-- question_type: kappa=0.948 PASS
-- cognitive_level: kappa=0.748 PASS
-- answer_type: kappa=0.634 PASS
-- difficulty_bucketed: kappa=-0.284 FAIL (known limitation)
+### v8 annales — chiffres cles
 
-**Recalibration appliquee (614Q, pas seulement P2)**:
-- answer_type: 34 changes (seuil kw overlap 0.45)
-- cognitive_level: 205 Understand→Remember (pattern-based)
-- question_type: 149 procedural/scenario→factual
-- difficulty: 129 easy-caps + 11 hard replacements
-- Distributions finales: Remember 65%, factual 70%, extractive 93%, hard 12.1%
+| Dimension | Valeur |
+|-----------|--------|
+| Answerable | 420 (386 annales + 34 human) |
+| Unanswerable | 105 (20%, 6 categories UAEval4RAG) |
+| Testables (hors requires_context) | 328 |
+| chunk_match_score=100 | 420/420 |
+| Documents couverts | 28/28 |
+| Chunks uniques | 193 |
+| Cognitive: Apply | 151 (36%) |
+| answer_type: multiple_choice | 340 (a reclassifier) |
+| Validation method | 257 annales_official + 129 manual_llm_as_judge + 33 QAT + 1 manual |
 
-**Issues identifies pour Phase B**:
-- 95 questions "page-number" (Quelle regle a la page X?) = mauvaises pour RAG, a redesigner
-- Difficulty non calibrable par kw overlap seul (necessite tests retrieval reels)
-- Kappa difficulty structurellement faible (base rate skew)
+### Travail restant avant triplets
+
+1. **Reclassifier answer_type** : 340 "multiple_choice" → extractive/abstractive (reponses deja reformulees, label seul a corriger)
+2. **Charger chunk_text** pour champ `positive` des triplets
+3. **Hard negative mining** : sentence-transformers, margin 0.05 (NV-Retriever, SPEC-TRIP-001 Section 3)
+4. **Split 80/20** : ~262 train GS + ~66 val GS (100% GS, zero synthetique en val)
+
+### gs_scratch — archive
+
+- **Fichier**: `tests/data/gs_scratch_v1_step1.json` (614Q, v1.1+P1+P2+recalib) — ARCHIVE, plus le GS primaire
+- **Reutilisable**: ~113 questions non-garbage potentiellement cherry-pickables en Phase B (coverage supplement)
+- **Scripts Phase A**: recalibrate_full.py, regenerate_targeted.py, verify_regression.py — conserves (reutilisables)
+- **Plan**: docs/plans/GS_CORRECTION_PLAN_V2.md — historique, plus actif
 
 ## References
 
 - @docs/AI_POLICY.md: Politique anti-hallucination
 - @docs/QUALITY_REQUIREMENTS.md: Exigences qualite
 - @docs/specs/PHASE1A_SPECS.md: Specs Phase 1A actuelle
-- @docs/plans/GS_CORRECTION_PLAN_V2.md: Plan correction GS (PLAN-GS-CORR-002)
+- @docs/specs/TRIPLET_GENERATION_SPEC.md: Spec triplets (SPEC-TRIP-001, source de verite)
+- @docs/plans/GS_CORRECTION_PLAN_V2.md: Plan correction GS (PLAN-GS-CORR-002, historique/archive)

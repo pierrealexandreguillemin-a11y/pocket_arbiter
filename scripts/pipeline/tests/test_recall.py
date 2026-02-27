@@ -1000,6 +1000,86 @@ class TestBenchmarkRecallV8:
         assert result["mrr_mean"] == 0.0
 
 
+class TestPrintBaselineReport:
+    """Test _print_baseline_report doesn't crash."""
+
+    def test_prints_without_error(self, capsys):
+        result = {
+            "total_questions": 2,
+            "recall_at_k": {
+                "chunk": {"1": 0.5, "3": 0.5, "5": 1.0, "10": 1.0},
+                "page": {"1": 0.5, "3": 1.0, "5": 1.0, "10": 1.0},
+            },
+            "mrr_mean": 0.75,
+            "failed_count": 1,
+            "failed_questions": [
+                {
+                    "id": "q1",
+                    "question": "Test?",
+                    "expected_chunk_id": "doc-p01-c00",
+                    "retrieved_chunks": [
+                        {"id": "other-c00", "score": 0.8, "page": 2},
+                    ],
+                    "chunk_recall": {"5": 0.0},
+                }
+            ],
+            "segments": {
+                "reasoning_class": {
+                    "summary": {"count": 2, "recall@5": 0.5},
+                },
+                "difficulty": {
+                    "easy": {"count": 2, "recall@5": 0.5},
+                },
+                "source_session": {},
+                "source_uuid": {},
+            },
+            "config": {
+                "top_k": 10,
+                "use_hybrid": False,
+                "model": "test",
+                "gs_version": "v8",
+            },
+        }
+        _print_baseline_report(result, "Vector-Only")
+        captured = capsys.readouterr()
+        assert "BASELINE RECALL v8" in captured.out
+        assert "Vector-Only" in captured.out
+
+
+class TestExportBaselineJson:
+    """Tests _export_baseline_json() export."""
+
+    def test_exports_json_file(self, tmp_path):
+        result_vector = {
+            "recall_at_k": {"chunk": {"5": 0.8}},
+            "config": {"model": "test"},
+        }
+        result_hybrid = {
+            "recall_at_k": {"chunk": {"5": 0.9}},
+            "config": {"model": "test"},
+        }
+        output_path = _export_baseline_json(result_vector, result_hybrid, tmp_path)
+        assert output_path.exists()
+        import json
+
+        data = json.loads(output_path.read_text(encoding="utf-8"))
+        assert "vector_only" in data
+        assert "hybrid" in data
+        assert "timestamp" in data
+
+    def test_exports_without_hybrid(self, tmp_path):
+        result_vector = {
+            "recall_at_k": {"chunk": {"5": 0.8}},
+            "config": {"model": "test"},
+        }
+        output_path = _export_baseline_json(result_vector, None, tmp_path)
+        import json
+
+        data = json.loads(output_path.read_text(encoding="utf-8"))
+        assert "vector_only" in data
+        assert "hybrid" not in data
+
+
 # =============================================================================
 # CLI Benchmark (ISO 25010 validation)
 # =============================================================================
@@ -1071,6 +1151,91 @@ def _run_single_benchmark(
     return iso_pass
 
 
+def _print_baseline_report(result: dict, variant_name: str) -> None:
+    """Print formatted baseline recall report to console."""
+    print(f"\n{'=' * 60}")
+    print(f"BASELINE RECALL v8 — {variant_name}")
+    print(f"{'=' * 60}")
+    print(
+        f"{result['total_questions']} questions | "
+        f"{result['config']['model']} | {result['config']['gs_version']}"
+    )
+    print()
+
+    chunk = result["recall_at_k"]["chunk"]
+    page = result["recall_at_k"]["page"]
+
+    print(f"{'Metric':<22} {'Chunk':>10} {'Page':>10}")
+    print("-" * 44)
+    for k in ["1", "3", "5", "10"]:
+        if k in chunk:
+            print(
+                f"recall@{k:<16} "
+                f"{chunk[k] * 100:>9.1f}% "
+                f"{page.get(k, 0) * 100:>9.1f}%"
+            )
+    print(f"{'MRR':<22} {result['mrr_mean']:>10.4f}")
+    print()
+
+    # ISO gate
+    r5 = chunk.get("5", 0)
+    print(
+        f"ISO 25010 (recall@5 chunk >= 80%): "
+        f"{'PASS' if r5 >= 0.8 else 'FAIL'} ({r5 * 100:.1f}%)"
+    )
+    print()
+
+    # Segments
+    for seg_name in ["reasoning_class", "difficulty"]:
+        seg_data = result["segments"].get(seg_name, {})
+        if not seg_data:
+            continue
+        print(f"--- By {seg_name} ---")
+        for group, stats in sorted(seg_data.items()):
+            r5_seg = stats.get("recall@5", 0)
+            print(f"  {group:<20} {stats['count']:>4}Q  recall@5={r5_seg * 100:.1f}%")
+        print()
+
+    # Top failed questions
+    failed = result["failed_questions"]
+    if failed:
+        print(f"--- Failed questions ({len(failed)}) — top 20 ---")
+        for fq in failed[:20]:
+            print(f"  {fq['id']}")
+            print(f"    Q: {fq['question'][:80]}...")
+            print(f"    Expected: {fq['expected_chunk_id']}")
+            top_retrieved = fq.get("retrieved_chunks", [])[:3]
+            for i, rc in enumerate(top_retrieved):
+                print(f"    #{i + 1}: {rc['id']} (score={rc['score']:.4f})")
+        print()
+
+
+def _export_baseline_json(
+    result_vector: dict,
+    result_hybrid: dict | None,
+    output_dir: Path,
+) -> Path:
+    """Export baseline results to JSON."""
+    import json
+    from datetime import datetime, timezone
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
+
+    report: dict = {
+        "timestamp": datetime.now(tz=timezone.utc).isoformat(),
+        "vector_only": result_vector,
+    }
+    if result_hybrid:
+        report["hybrid"] = result_hybrid
+
+    output_path = output_dir / f"baseline_v8_{timestamp}.json"
+    output_path.write_text(
+        json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    return output_path
+
+
 def main() -> int:
     """CLI benchmark recall - ISO 25010 S4.2."""
     import argparse
@@ -1081,6 +1246,11 @@ def main() -> int:
     parser.add_argument("--tolerance", type=int, default=2, help="Page tolerance")
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--verbose", "-v", action="store_true")
+    parser.add_argument(
+        "--baseline-v8",
+        action="store_true",
+        help="Run full v8 baseline (vector + hybrid, multi-K, segmented)",
+    )
     args = parser.parse_args()
 
     from scripts.pipeline.embeddings import MODEL_ID, load_embedding_model
@@ -1088,6 +1258,59 @@ def main() -> int:
     print(f"Loading embedding model: {MODEL_ID}")
     model = load_embedding_model(MODEL_ID)
 
+    if args.baseline_v8:
+        db_path = CORPUS_DIR / "corpus_mode_b_fr.db"
+        gs_file = DATA_DIR / "gold_standard_annales_fr_v8_adversarial.json"
+
+        if not db_path.exists():
+            print(f"[ERROR] DB not found: {db_path}")
+            return 1
+        if not gs_file.exists():
+            print(f"[ERROR] GS not found: {gs_file}")
+            return 1
+
+        # Vector-only
+        print("\n>>> Running vector-only benchmark...")
+        result_vector = benchmark_recall_v8(
+            db_path,
+            gs_file,
+            model,
+            top_k=10,
+            use_hybrid=False,
+            tolerance=args.tolerance,
+        )
+        _print_baseline_report(result_vector, "Vector-Only")
+
+        # Hybrid
+        print("\n>>> Running hybrid benchmark...")
+        result_hybrid = benchmark_recall_v8(
+            db_path, gs_file, model, top_k=10, use_hybrid=True, tolerance=args.tolerance
+        )
+        _print_baseline_report(result_hybrid, "Hybrid (BM25+Vector)")
+
+        # Export JSON
+        output_dir = PROJECT_ROOT / "data" / "benchmarks"
+        output_path = _export_baseline_json(result_vector, result_hybrid, output_dir)
+        print(f"\n[EXPORT] Results saved to {output_path}")
+
+        # Decision
+        r5_vec = result_vector["recall_at_k"]["chunk"]["5"]
+        r5_hyb = result_hybrid["recall_at_k"]["chunk"]["5"]
+        best = max(r5_vec, r5_hyb)
+        if best >= 0.8:
+            print(
+                "\n>> DECISION: recall@5 >= 80% — RAG pur + prompt engineering suffisant"
+            )
+        elif best >= 0.6:
+            print(
+                "\n>> DECISION: recall@5 60-80% — optimisations retrieval recommandees"
+            )
+        else:
+            print("\n>> DECISION: recall@5 < 60% — fine-tuning embeddings justifie")
+
+        return 0 if best >= 0.8 else 1
+
+    # Legacy benchmark (existing behavior unchanged)
     corpora = _build_corpora(args.corpus)
 
     print("\n" + "=" * 60)

@@ -67,6 +67,50 @@ def compute_recall_at_k(
     return found / len(expected_set)
 
 
+def compute_recall_at_k_chunk(
+    retrieved_chunks: list[dict],
+    expected_chunk_id: str,
+    k: int = 5,
+) -> float:
+    """
+    Recall@k by exact chunk ID match.
+
+    Args:
+        retrieved_chunks: Top-k retrieved chunks (each has "id" key).
+        expected_chunk_id: Expected chunk ID from gold standard.
+        k: Number of results to consider.
+
+    Returns:
+        1.0 if expected chunk found in top-k, 0.0 otherwise.
+    """
+    if not expected_chunk_id:
+        return 1.0
+    retrieved_ids = {c["id"] for c in retrieved_chunks[:k]}
+    return 1.0 if expected_chunk_id in retrieved_ids else 0.0
+
+
+def compute_mrr(
+    retrieved_chunks: list[dict],
+    expected_chunk_id: str,
+) -> float:
+    """
+    Mean Reciprocal Rank for a single query.
+
+    Args:
+        retrieved_chunks: Retrieved chunks (ordered by score).
+        expected_chunk_id: Expected chunk ID.
+
+    Returns:
+        1/rank if found, 0.0 otherwise.
+    """
+    if not expected_chunk_id:
+        return 1.0
+    for i, chunk in enumerate(retrieved_chunks):
+        if chunk["id"] == expected_chunk_id:
+            return 1.0 / (i + 1)
+    return 0.0
+
+
 def _parse_question(q: dict) -> tuple[str, list[int], bool]:
     """Extract question text, expected pages, and impossibility.
 
@@ -85,6 +129,34 @@ def _parse_question(q: dict) -> tuple[str, list[int], bool]:
             q["content"].get("is_impossible", False),
         )
     return q["question"], q["expected_pages"], q.get("is_impossible", False)
+
+
+def _parse_question_v8(q: dict) -> dict:
+    """Extract full v8 metadata from a GS question.
+
+    Returns dict with: question, chunk_id, pages, is_impossible,
+    reasoning_class, difficulty, source_session, source_uuid,
+    requires_context.
+    """
+    content = q.get("content", {})
+    provenance = q.get("provenance", {})
+    classification = q.get("classification", {})
+    audit = q.get("audit", {})
+
+    annales = provenance.get("annales_source", {})
+    docs = provenance.get("docs", [])
+
+    return {
+        "question": content.get("question", ""),
+        "chunk_id": provenance.get("chunk_id", ""),
+        "pages": provenance.get("pages", []),
+        "is_impossible": content.get("is_impossible", False),
+        "reasoning_class": classification.get("reasoning_class", "unknown"),
+        "difficulty": classification.get("difficulty", 0.0),
+        "source_session": annales.get("session", "unknown"),
+        "source_uuid": docs[0] if docs else "unknown",
+        "requires_context": "requires_context" in audit.get("history", ""),
+    }
 
 
 def _build_recall_result(
@@ -302,6 +374,107 @@ class TestBuildRecallResult:
         assert result["total_questions"] == 2
         assert result["failed_questions"] == failed
         assert result["config"]["use_hybrid"] is True
+
+
+class TestComputeRecallChunk:
+    """Tests compute_recall_at_k_chunk() - chunk-level recall."""
+
+    def test_exact_match(self):
+        retrieved = [{"id": "doc-p01-c00"}, {"id": "doc-p02-c00"}]
+        assert compute_recall_at_k_chunk(retrieved, "doc-p01-c00", k=5) == 1.0
+
+    def test_no_match(self):
+        retrieved = [{"id": "doc-p02-c00"}, {"id": "doc-p03-c00"}]
+        assert compute_recall_at_k_chunk(retrieved, "doc-p01-c00", k=5) == 0.0
+
+    def test_k_limits(self):
+        retrieved = [{"id": "other"}, {"id": "target"}]
+        assert compute_recall_at_k_chunk(retrieved, "target", k=1) == 0.0
+        assert compute_recall_at_k_chunk(retrieved, "target", k=2) == 1.0
+
+    def test_empty_retrieved(self):
+        assert compute_recall_at_k_chunk([], "target", k=5) == 0.0
+
+    def test_empty_expected(self):
+        retrieved = [{"id": "doc-p01-c00"}]
+        assert compute_recall_at_k_chunk(retrieved, "", k=5) == 1.0
+
+
+class TestComputeMRR:
+    """Tests compute_mrr() - Mean Reciprocal Rank."""
+
+    def test_first_position(self):
+        retrieved = [{"id": "target"}, {"id": "other"}]
+        assert compute_mrr(retrieved, "target") == 1.0
+
+    def test_second_position(self):
+        retrieved = [{"id": "other"}, {"id": "target"}]
+        assert compute_mrr(retrieved, "target") == 0.5
+
+    def test_not_found(self):
+        retrieved = [{"id": "a"}, {"id": "b"}]
+        assert compute_mrr(retrieved, "target") == 0.0
+
+    def test_empty(self):
+        assert compute_mrr([], "target") == 0.0
+
+    def test_empty_expected(self):
+        assert compute_mrr([{"id": "a"}], "") == 1.0
+
+
+class TestParseQuestionV8:
+    """Tests _parse_question_v8() - full v8 metadata extraction."""
+
+    def test_answerable_question(self):
+        q = {
+            "content": {"question": "Q?", "is_impossible": False},
+            "provenance": {
+                "chunk_id": "doc-p01-c00",
+                "docs": ["doc.pdf"],
+                "pages": [1],
+                "annales_source": {"session": "dec2024", "uv": "clubs"},
+            },
+            "classification": {
+                "reasoning_class": "summary",
+                "difficulty": 0.3,
+            },
+            "audit": {"history": "some history"},
+        }
+        parsed = _parse_question_v8(q)
+        assert parsed["question"] == "Q?"
+        assert parsed["chunk_id"] == "doc-p01-c00"
+        assert parsed["pages"] == [1]
+        assert parsed["is_impossible"] is False
+        assert parsed["reasoning_class"] == "summary"
+        assert parsed["difficulty"] == 0.3
+        assert parsed["source_session"] == "dec2024"
+        assert parsed["source_uuid"] == "doc.pdf"
+        assert parsed["requires_context"] is False
+
+    def test_requires_context_flagged(self):
+        q = {
+            "content": {"question": "Q?", "is_impossible": False},
+            "provenance": {
+                "chunk_id": "doc-p01-c00",
+                "docs": ["doc.pdf"],
+                "pages": [1],
+            },
+            "classification": {"reasoning_class": "fact_single", "difficulty": 0.5},
+            "audit": {"history": "requires_context:exam_name(Olivier)"},
+        }
+        parsed = _parse_question_v8(q)
+        assert parsed["requires_context"] is True
+
+    def test_impossible_question(self):
+        q = {
+            "content": {"question": "Q?", "is_impossible": True},
+            "provenance": {"chunk_id": "", "docs": [], "pages": []},
+            "classification": {"reasoning_class": "summary", "difficulty": 0.0},
+            "audit": {"history": ""},
+        }
+        parsed = _parse_question_v8(q)
+        assert parsed["is_impossible"] is True
+        assert parsed["chunk_id"] == ""
 
 
 # =============================================================================

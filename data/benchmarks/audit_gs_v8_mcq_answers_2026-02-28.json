@@ -1,35 +1,57 @@
 {
   "timestamp": "2026-02-28",
-  "description": "Audit manuel des mcq_answer du GS v8 contre les PDF sources des annales FFE + correction",
+  "description": "Audit complet Q/choices du GS v8 : verification semantique de TOUTES les sessions annales + correction",
   "methodology": {
-    "approach": "Extraction des grilles de reponses (4 UV) depuis les PDF annales texte-extractables (dec2024, jun2025), puis mapping sequentiel des groupes de questions GS vers les grilles. Cross-reference systematique Q text vs choices via docling_mcq_reference pour detecter les mismatches.",
-    "verified_sessions": ["dec2024", "jun2025", "jun2021", "dec2023"],
+    "approach": "Verification semantique exhaustive : pour chaque question, confirmer que le texte de la question et les choix ABCD portent sur le meme sujet. Cross-reference via docling_mcq_reference, detection de doublons (Q text + choice sets), et inspection manuelle de chaque session.",
+    "verified_sessions": ["dec2019", "dec2021", "dec2022", "dec2023", "dec2024", "jun2021", "jun2022", "jun2023", "jun2024", "jun2025"],
     "pdf_sources": [
       "corpus/fr/Annales/Annales-Decembre-2024.pdf",
       "corpus/fr/Annales/Annales-Juin-2025-VF2.pdf"
+    ],
+    "detection_methods": [
+      "Semantic inspection: Q topic vs choices topic mismatch",
+      "Duplicate Q text with different choices (cross-UV proof)",
+      "Identical choice sets across different questions",
+      "Broken data (empty/image-only questions)"
     ]
   },
   "results": {
-    "dec2024": {
-      "total_questions": 92,
-      "verified_sequential": 59,
-      "correct": 59,
-      "wrong": 0,
-      "accuracy": "100%",
-      "status": "CLEAN",
-      "groups": [
-        {"uv_real": "UVC", "count": 28, "verified": 28, "correct": 28},
-        {"uv_real": "UVO", "count": 20, "verified": 20, "correct": 20},
-        {"uv_real": "UVR", "count": 23, "verified_first": 8, "correct": 8},
-        {"uv_real": "UVT", "count": 21, "verified_first": 3, "correct": 3}
-      ]
-    },
-    "jun2025": {
-      "total_before": 64,
-      "qa_mismatches_removed": 20,
-      "total_after": 44,
+    "dec2019": {
+      "total_before": 11,
+      "qa_mismatches_removed": 5,
+      "data_quality_removed": 1,
+      "total_after": 5,
       "status": "CLEANED",
-      "description": "Q text from one UV paired with choices from a different UV. Systematic extraction bug. All 20 removed."
+      "description": "5 game position/tournament Qs with wrong UV choices + 1 broken data (choices all '?')"
+    },
+    "dec2021": {
+      "total_before": 18,
+      "qa_mismatches_removed": 8,
+      "total_after": 10,
+      "status": "CLEANED",
+      "description": "8 cross-UV mismatches: game rules Qs with clubs/admin choices and vice versa"
+    },
+    "dec2022": {
+      "total_before": 6,
+      "qa_mismatches_removed": 1,
+      "total_after": 5,
+      "status": "CLEANED",
+      "description": "1 mismatch: clock settings Q with Elo rating choices"
+    },
+    "dec2023": {
+      "total_before": 52,
+      "qa_mismatches_removed": 12,
+      "duplicates_removed": 1,
+      "total_after": 39,
+      "status": "CLEANED",
+      "description": "12 rules block mismatches (tournament/admin Qs with game intervention choices) + 1 exact duplicate (clubs:041 = tournament:029)"
+    },
+    "dec2024": {
+      "total_before": 92,
+      "duplicates_removed": 3,
+      "total_after": 89,
+      "status": "CLEANED",
+      "description": "Verified 100% clean on 59/59 Q/answers. 3 exact duplicates removed (rules:012=005, rules:014=007, rules:015=008). Remaining 89 questions all verified."
     },
     "jun2021": {
       "total_before": 42,
@@ -37,35 +59,76 @@
       "coherent_duplicates_removed": 6,
       "data_quality_removed": 3,
       "total_after": 19,
-      "status": "CLEANED",
-      "description": "Same Q/choices mismatch pattern as jun2025, plus duplicate questions and broken data (empty/garbage choices)."
+      "status": "CLEANED (batch 1)",
+      "description": "Same cross-UV pattern as jun2025, plus duplicates and broken data."
     },
-    "dec2023": {
-      "total_questions": 52,
-      "cross_verified_against_docling": 26,
-      "matches": 26,
-      "status": "CLEAN (spot-checked)"
+    "jun2022": {
+      "total_before": 24,
+      "qa_mismatches_removed": 13,
+      "total_after": 11,
+      "status": "CLEANED",
+      "description": "Massive cross-UV contamination: 12 clubs block Qs with rules choices + 1 rules duplicate. 54% contamination rate."
+    },
+    "jun2023": {
+      "total_before": 30,
+      "qa_mismatches_removed": 25,
+      "total_after": 5,
+      "status": "CLEANED",
+      "description": "Worst-affected session: 83% contamination rate. Nearly all tournament pairing Qs paired with clubs/admin choices."
+    },
+    "jun2024": {
+      "total_before": 47,
+      "qa_mismatches_removed": 8,
+      "total_after": 39,
+      "status": "CLEANED",
+      "description": "8 mismatches: 5 clubs block with tournament choices + 3 rules block with game intervention choices."
+    },
+    "jun2025": {
+      "total_before": 64,
+      "qa_mismatches_removed": 20,
+      "data_quality_removed": 2,
+      "total_after": 42,
+      "status": "CLEANED",
+      "description": "20 cross-UV mismatches (batch 1) + 1 duplicate Q with wrong choices + 1 image-only broken Q (batch 2)."
     }
   },
   "correction": {
     "date": "2026-02-28",
-    "total_removed": 43,
-    "breakdown": {
-      "jun2025_qa_mismatch": 20,
-      "jun2021_qa_mismatch": 14,
-      "jun2021_coherent_duplicate": 6,
-      "jun2021_data_quality": 3
+    "total_removed": 122,
+    "batch_1": {
+      "count": 43,
+      "sessions": "jun2025 (20), jun2021 (23)",
+      "archive": "data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json"
     },
-    "archive": "data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json",
+    "batch_2": {
+      "count": 77,
+      "sessions": "dec2019 (6), dec2021 (8), dec2022 (1), dec2023 (13), dec2024 (3), jun2022 (13), jun2023 (25), jun2024 (8)",
+      "archive": "data/benchmarks/removed_questions_qa_mismatch_batch2_2026-02-28.json"
+    },
+    "batch_3": {
+      "count": 2,
+      "sessions": "jun2025 (2: 1 duplicate Q + 1 image-only)",
+      "archive": "inline (open:036 + rules:064)"
+    },
     "gs_before": "525 questions (386 annales + 40 human + 99 adversarial)",
-    "gs_after": "482 questions (343 annales + 40 human + 99 adversarial)"
+    "gs_after": "403 questions (264 annales + 40 human + 99 adversarial)"
   },
   "findings": {
-    "mcq_answer_accuracy": "100% verified on dec2024 (59/59). No evidence of systematic mcq_answer errors.",
-    "uv_label_swaps": "annales_source.uv has rules/clubs inversions in many sessions. Metadata label only, does not affect Q/A content.",
-    "previous_31pct_error_rate": "FALSE. Caused by UV label swap leading to wrong PDF grid lookup.",
-    "recall_at_5_37pct": "REAL retrieval problem, not GS quality issue.",
-    "q_text_choices_mismatch": "43 questions removed (20 jun2025, 23 jun2021). Pattern: question TEXT extracted from one UV, CHOICES from another UV. Concentrated in jun2025 and jun2021 sessions.",
-    "clean_sessions": "dec2019, dec2021, dec2022, dec2023, dec2024, jun2022, jun2023, jun2024 show no Q/choices mismatch issues."
+    "root_cause": "Systematic PDF extraction bug in docling: question TEXT extracted from one UV, CHOICES extracted from a different UV. Affects all sessions except dec2024.",
+    "contamination_rates": {
+      "jun2023": "83% (25/30)",
+      "jun2021": "55% (23/42)",
+      "jun2022": "54% (13/24)",
+      "dec2019": "55% (6/11)",
+      "dec2021": "44% (8/18)",
+      "dec2023": "25% (13/52)",
+      "jun2025": "34% (22/64)",
+      "jun2024": "17% (8/47)",
+      "dec2022": "17% (1/6)",
+      "dec2024": "3% (3/92, duplicates only)"
+    },
+    "mcq_answer_accuracy": "100% verified on dec2024 (59/59). mcq_answer is internally consistent with choices, even for mismatched Qs.",
+    "previous_clean_sessions_claim": "FALSE. Initial audit incorrectly claimed 8 sessions were clean. Full semantic review found contamination in ALL sessions except dec2024.",
+    "recall_at_5_37pct": "REAL retrieval problem (measured before cleanup). Needs re-measurement on clean 304-question set."
   }
 }

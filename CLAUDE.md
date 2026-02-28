@@ -76,8 +76,8 @@ docs/               # Specs ISO, plans, CVE register
 ## Current Work: Triplet Generation (SPEC-TRIP-001)
 
 - **Spec source**: docs/specs/TRIPLET_GENERATION_SPEC.md
-- **GS primaire**: `tests/data/gold_standard_annales_fr_v8_adversarial.json` (482Q = 383 answerable + 99 adversarial)
-- **Prochain jalon**: reclassifier answer_type (~300 MC -> extractive/abstractive) puis generer triplets
+- **GS primaire**: `tests/data/gold_standard_annales_fr_v8_adversarial.json` (403Q = 304 answerable + 99 adversarial)
+- **Prochain jalon**: reclassifier answer_type (~260 MC -> extractive/abstractive) puis generer triplets
 
 ### Pivot v8 annales (2026-02-27) - Decision
 
@@ -88,33 +88,35 @@ docs/               # Specs ISO, plans, CVE register
 - "237 chunk issues" → RESOLU : cascading fixes (152+101+25+290+238), final = 0 issues
 - "100% MCQ" → REFORMULE : 335/340 reponses reformulees (194 chars moy, pas des lettres)
 
-**Pourquoi v8** : 343 questions d'examen FFE reelles (10 sessions, 4 UV) + 40 human, success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 99 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
+**Pourquoi v8** : 264 questions d'examen FFE reelles (10 sessions, 4 UV) + 40 human, success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 99 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
 
-### Nettoyage Q/choices mismatch (2026-02-28)
+### Nettoyage Q/choices mismatch (2026-02-28) - Audit complet
 
-43 questions supprimees (Q text d'une UV avec choices d'une autre UV, bug d'extraction):
-- jun2025: 20 mismatches (64->44)
-- jun2021: 14 mismatches + 6 duplicats + 3 data quality (42->19)
-- Archive: `data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json`
+122 questions supprimees au total (Q text d'une UV avec choices d'une autre UV, bug d'extraction docling):
+- **Batch 1**: jun2025 (20) + jun2021 (23) = 43
+- **Batch 2**: dec2019 (6) + dec2021 (8) + dec2022 (1) + dec2023 (13) + dec2024 (3 dups) + jun2022 (13) + jun2023 (25) + jun2024 (8) = 77
+- **Batch 3**: jun2025 (2 residual) = 2
+- **Taux de contamination**: jun2023 83%, dec2019/jun2021/jun2022 ~55%, dec2021 44%, jun2025 34%, dec2023 25%, jun2024/dec2022 17%, dec2024 3% (dups only)
+- Archives: `data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json` (batch 1), `data/benchmarks/removed_questions_qa_mismatch_batch2_2026-02-28.json` (batch 2)
 - Audit: `data/benchmarks/audit_gs_v8_mcq_answers_2026-02-28.json`
 
 ### v8 annales — chiffres cles (post-cleanup)
 
 | Dimension | Valeur |
 |-----------|--------|
-| Answerable | 383 (343 annales + 40 human) |
-| Unanswerable | 99 (20%, 6 categories UAEval4RAG) |
-| Testables (hors requires_context) | ~290 |
+| Total | 403 |
+| Answerable | 304 (264 annales + 40 human) |
+| Unanswerable | 99 (25%, 6 categories UAEval4RAG) |
+| Testables (hors requires_context) | 304 |
 | Documents couverts | 28/28 |
-| Chunks uniques | ~185 |
-| answer_type: multiple_choice | ~300 (a reclassifier) |
+| answer_type: multiple_choice | ~260 (a reclassifier) |
 
 ### Travail restant avant triplets
 
-1. **Reclassifier answer_type** : ~300 "multiple_choice" -> extractive/abstractive (reponses deja reformulees, label seul a corriger)
+1. **Reclassifier answer_type** : ~260 "multiple_choice" -> extractive/abstractive (reponses deja reformulees, label seul a corriger)
 2. **Charger chunk_text** pour champ `positive` des triplets
 3. **Hard negative mining** : sentence-transformers, margin 0.05 (NV-Retriever, SPEC-TRIP-001 Section 3)
-4. **Split 80/20** : ~230 train GS + ~58 val GS (100% GS, zero synthetique en val)
+4. **Split 80/20** : ~243 train GS + ~61 val GS (100% GS, zero synthetique en val)
 
 ### gs_scratch — archive
 

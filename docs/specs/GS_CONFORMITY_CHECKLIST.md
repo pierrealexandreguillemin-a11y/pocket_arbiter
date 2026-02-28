@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-GS-CONF-001
 > **ISO Reference**: ISO 42001, ISO 25010, ISO 29119
-> **Version**: 3.1
-> **Date**: 2026-02-02
+> **Version**: 3.2
+> **Date**: 2026-02-28
 > **Statut**: Aligne sur PLAN-GS-CONF-001
 > **Note**: Aligne avec GS_CONFORMITY_PLAN_V1.md (CB-05..08 dans §1.1, EX-05/06 reordonne, G3-6 bloquant)
 > **Classification**: Critique
@@ -175,7 +175,7 @@ for question in gs['questions']:
 python -c "
 import json
 
-with open('tests/data/gold_standard_annales_fr_v7.json', encoding='utf-8') as f:
+with open('tests/data/gold_standard_annales_fr_v8_adversarial.json', encoding='utf-8') as f:
     gs = json.load(f)
 
 questions = gs['questions']
@@ -219,7 +219,7 @@ print(f'CT-01 hard_negatives>=3: {ct01}/{len(testables)}')
 **Methode combinee**: Pour CHAQUE question, le LLM recoit le chunk + la question + la reponse
 et produit: validation chunk, reformulation BY DESIGN, requires_context_reason.
 
-- [ ] 420/420 questions traitees
+- [ ] 304/304 questions answerable traitees
 - [ ] CB-04 by_design = 100%
 - [ ] CB-01 chunk_match_score = 100% testables
 - [ ] F-01 question finit par ? = 100%
@@ -240,7 +240,7 @@ et produit: validation chunk, reformulation BY DESIGN, requires_context_reason.
 > **Acteur**: EmbeddingGemma (pre-filtre local) + LLM (juge)
 > **Ref plan**: PLAN-GS-CONF-001 Phase 2
 
-- [ ] Etape 2B: EmbeddingGemma encode 1857 chunks + 420 queries → top-10 candidats
+- [ ] Etape 2B: EmbeddingGemma encode 1857 chunks + 304 queries → top-10 candidats
 - [ ] Etape 2A: LLM juge 10 candidats/question → 3-5 hard negatives valides
 - [ ] Etape 2C: same_doc >= 40% enrichissement
 - [ ] CT-01 hard_negatives >= 3 = 100% testables
@@ -268,7 +268,7 @@ python -c "
 import json, sys
 from pathlib import Path
 
-with open('tests/data/gold_standard_annales_fr_v7.json', encoding='utf-8') as f:
+with open('tests/data/gold_standard_annales_fr_v8_adversarial.json', encoding='utf-8') as f:
     gs = json.load(f)
 
 questions = gs['questions']
@@ -318,7 +318,7 @@ else:
 
 ---
 
-## 5. Etat Actuel GS v8.0 (audit 2026-02-02)
+## 5. Etat Actuel GS v9.0 (audit 2026-02-28)
 
 > **Changements v7.6→v8.0**: Complete traceability chain rebuild from Docling sources.
 > Phase 1: 765 field repairs (choices, mcq_answer, expected_answer, article_reference).
@@ -328,26 +328,30 @@ else:
 > Know Your RAG/SQuAD 2.0/RAGAS standards), false positive reclassification (3+9),
 > markdown heading cleanup (102/109), difficulty variance for human questions.
 >
+> **Changements v8.0→v9.0**: Audit Q/choices mismatch — 122 questions contaminees supprimees
+> (Q text d'une UV avec choices d'une autre UV, bug extraction docling).
+> 525Q → 403Q (304 answerable + 99 adversarial). Fichier DVC inchange.
+>
 > Scripts: p1_rebuild_gs_from_docling.py, p2_cb01_answer_in_chunk.py, p3_metadata_completion.py, p4_audit_fixes.py
 
 ### 5.1 Criteres Bloquants
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
-| CB-01 answer in chunk | 100% | **100% (420/420)** | **PASS** | P2 |
-| CB-02 expected_chunk_id | 100% | **100% (420/420)** | **PASS** | - |
-| CB-03 expected_chunk_id non-null | 100% | **100% (420/420)** | **PASS** | - |
-| CB-04 by_design (manual_by_design) | 100% | **100% (420/420)** | **PASS** | P2 |
-| CB-09 requires_context_reason | 100% rc | **100% (92/92)** | **PASS** | P3 |
+| CB-01 answer in chunk | 100% | **100% (304/304)** | **PASS** | P2+v9 |
+| CB-02 expected_chunk_id | 100% | **100% (304/304)** | **PASS** | - |
+| CB-03 expected_chunk_id non-null | 100% | **100% (304/304)** | **PASS** | - |
+| CB-04 by_design (manual_by_design) | 100% | **100% (304/304)** | **PASS** | P2 |
+| CB-09 requires_context_reason | 100% rc | **100% (0/0, no rc in v9)** | **PASS** | P3 |
 
 ### 5.2 Criteres Format
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
-| F-01 question finit par ? | 100% | **100% (420/420)** | **PASS** | P2 |
-| F-02 anchor >= 10 chars | 100% | **100% (420/420)** | **PASS** | - |
-| F-03 positive >= 50 chars | 100% | **100% (420/420)** | **PASS** | - |
-| F-04 expected_answer > 5 chars | 100% | **100% (420/420)** | **PASS** | P2 |
+| F-01 question finit par ? | 100% | **100% (304/304)** | **PASS** | P2 |
+| F-02 anchor >= 10 chars | 100% | **100% (304/304)** | **PASS** | - |
+| F-03 positive >= 50 chars | 100% | **100% (304/304)** | **PASS** | - |
+| F-04 expected_answer > 5 chars | 100% | **100% (304/304)** | **PASS** | P2 |
 
 ### 5.3 Criteres Qualite Donnees
 
@@ -358,24 +362,24 @@ else:
 | Zero empty answer | 0 | **0** | **PASS** | P1 rebuild |
 | Zero ref-only answer | 0 | **0** | **PASS** | P1 M3b check |
 | Zero dirty mcq_answer | 0 | **0** | **PASS** | P1 manual corrections |
-| keywords populated | 100% | **100% (420/420)** | **PASS** | Preserved |
-| question_type populated | 100% | **100% (420/420)** | **PASS** | Preserved |
-| reasoning_class populated | 100% | **100% (420/420)** | **PASS** | Preserved |
+| keywords populated | 100% | **100% (304/304)** | **PASS** | Preserved |
+| question_type populated | 100% | **100% (304/304)** | **PASS** | Preserved |
+| reasoning_class populated | 100% | **100% (304/304)** | **PASS** | Preserved |
 
 ### 5.4 Criteres Metadonnees
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
-| M-01 difficulty present | 100% | **100% (420/420)** | **PASS** | P3 |
-| M-02 difficulty in [0,1] | 100% | **100% (420/420)** | **PASS** | P3 |
-| M-03 cognitive_level | 100% | **100% (420/420)** | **PASS** | - |
-| M-04 category | 100% | **100% (420/420)** | **PASS** | - |
+| M-01 difficulty present | 100% | **100% (304/304)** | **PASS** | P3 |
+| M-02 difficulty in [0,1] | 100% | **100% (304/304)** | **PASS** | P3 |
+| M-03 cognitive_level | 100% | **100% (304/304)** | **PASS** | - |
+| M-04 category | 100% | **100% (304/304)** | **PASS** | - |
 
 ### 5.5 Criteres Triplets
 
 | Critere | Seuil | Actuel | Status | Phase |
 |---------|-------|--------|--------|-------|
-| CT-01 hard_negatives >= 3 | 100% testables | 0% (0/328) | **PENDING** | Next |
+| CT-01 hard_negatives >= 3 | 100% testables | 0% (0/304) | **PENDING** | Next |
 | QA-01 deduplication | cosine < 0.95 | Non verifie | **AUDIT** | Next |
 | QA-02 anchor independence | cosine < 0.9 | Non verifie | **AUDIT** | Next |
 
@@ -394,8 +398,8 @@ else:
 
 | Fix | Description | Result | Status |
 |-----|-------------|--------|--------|
-| Fix 1 | metadata.correct_answer added | **420/420** (381 single + 5 multi + 34 human) | **PASS** |
-| Fix 2 | Unified taxonomy (7 categories) | **92/92** valid, 0 old, 0 exam_name | **PASS** |
+| Fix 1 | metadata.correct_answer added | **304/304** answerable (post v9 cleanup) | **PASS** |
+| Fix 2 | Unified taxonomy (7 categories) | valid, 0 old, 0 exam_name | **PASS** |
 | Fix 3 | Reclassify false positives + exam_name | **3/3 FP + 9/9 EN + 9/9 tags** | **PASS** |
 | Fix 4 | Strip ## markdown headings | **102/109** stripped, 7 rollback (F-04) | **PASS** |
 | Fix 5 | Difficulty variance (human) | **8 distinct values** (was 4) | **PASS** |
@@ -421,8 +425,8 @@ else:
 | Export (EX-01..06) | 0 | 6 | 0 |
 | **Total** | **21** | **7** | **2** |
 
-**Verdict: GS v8.0 — 15 criteres bloquants PASS (CB+F+M complets), 7 PENDING (triplets+export), 2 AUDIT requis.**
-**Le GS est pret pour la generation de triplets.**
+**Verdict: GS v9.0 — 15 criteres bloquants PASS (CB+F+M complets), 7 PENDING (triplets+export), 2 AUDIT requis.**
+**Le GS est pret pour la generation de triplets (304 answerable, 99 adversarial, 403 total).**
 
 ---
 
@@ -432,7 +436,7 @@ else:
 
 | Phase | Tache | Claude Code | Gemini 2.5 Flash (free) | Mistral (free) | Python local |
 |-------|-------|:-----------:|:-----------------------:|:--------------:|:------------:|
-| **0** CB-04 BY DESIGN | Reformulation 420 Q | **Optimal** | Bon | Tres bon (FR) | - |
+| **0** CB-04 BY DESIGN | Reformulation 304 Q | **Optimal** | Bon | Tres bon (FR) | - |
 | **0** CB-01 | Validation chunk-reponse | **Optimal** | Bon | Bon | - |
 | **1** CB-09 | requires_context_reason | **Optimal** | OK | Bon | - |
 | **1** M-01/M-02 | difficulty | - | - | - | **Script** |
@@ -465,15 +469,15 @@ Qualite estimee des alternatives: 85-95% de Claude pour ce domaine specifique.
 
 | Phase | Input tokens | Output tokens | Total |
 |-------|:----------:|:-----------:|:-----:|
-| Phase 0 (420 Q) | ~215K | ~126K | ~341K |
-| Phase 2A (420 Q) | ~1,470K | ~168K | ~1,638K |
+| Phase 0 (304 Q) | ~155K | ~91K | ~246K |
+| Phase 2A (304 Q) | ~1,064K | ~122K | ~1,186K |
 | **Total LLM** | **~1,685K** | **~294K** | **~1,979K** |
 
 ### 6.4 Strategie Recommandee
 
 ```
 OPTION A (Optimale): Claude Code direct
-  Phase 0: Claude traite 420 Q par batches (~20 Q/tour)
+  Phase 0: Claude traite 304 Q par batches (~20 Q/tour)
   Phase 1: Python deterministe + Claude pour CB-09
   Phase 2B: Python + EmbeddingGemma local (Kaggle T4 si pas de GPU)
   Phase 2A: Claude juge les hard negatives
@@ -505,7 +509,7 @@ OPTION C (Hybride): Claude Phase 0 + Gemini Phase 2A
 | [UNIFIED_TRAINING_DATA_SPEC.md](UNIFIED_TRAINING_DATA_SPEC.md) | S1.3-1.4 | Validation BY DESIGN, context-grounded | Methode validation |
 | [UNIFIED_TRAINING_DATA_SPEC.md](UNIFIED_TRAINING_DATA_SPEC.md) | S2.4 | Quality Gates par etape | Pipeline qualite |
 | [UNIFIED_TRAINING_DATA_SPEC.md](UNIFIED_TRAINING_DATA_SPEC.md) | S3 | Specs detaillees par etape | Implementation |
-| [GOLD_STANDARD_SPECIFICATION.md](../GOLD_STANDARD_SPECIFICATION.md) | S1.3 | Metriques GS v8.0 | Etat actuel |
+| [GOLD_STANDARD_SPECIFICATION.md](../GOLD_STANDARD_SPECIFICATION.md) | S1.3 | Metriques GS v9.0 | Etat actuel |
 | [GOLD_STANDARD_SPECIFICATION.md](../GOLD_STANDARD_SPECIFICATION.md) | S10 | Standards industrie (MTEB, BEIR) | Benchmarks |
 | [AI_POLICY.md](../AI_POLICY.md) | S3-4 | Controles ISO 42001, anti-hallucination | Gouvernance IA |
 | [ISO_STANDARDS_REFERENCE.md](../ISO_STANDARDS_REFERENCE.md) | S1.2 | ISO 42001 details | Conformite ISO |
@@ -605,6 +609,7 @@ OPTION C (Hybride): Claude Phase 0 + Gemini Phase 2A
 | 2.1 | 2026-01-30 | Audit v7.7: 9 criteres qualite donnees PASS (0 fusion, 0 ref-only, 0 empty, 0 dirty mcq, 420/420 chunk_ids valid + 106 optimised, metadata schema 0 errors). Pipeline: reextract_from_docling + patch_gs + verify_gs_metadata |
 | 3.0 | 2026-02-02 | Audit v8.0: 15 criteres bloquants PASS. P1: traceability chain repaired (765 fields, 7 manual corrections). P2: CB-01=420/420, CB-04=420/420, F-01=420/420, F-04=420/420. P3: M-01/M-02=420/420, CB-09=92/92, version 8.0. Scripts: p1_rebuild_gs_from_docling.py, p2_cb01_answer_in_chunk.py, p3_metadata_completion.py |
 | 3.1 | 2026-02-02 | P4 audit fixes: correct_answer field (420/420), unified taxonomy 7 categories (92/92), reclassify 3 FP + 9 exam_name, markdown ## cleanup (102/109), difficulty variance 8 distinct (was 4). All 15 blocking criteria + P4 gates PASS. Script: p4_audit_fixes.py |
+| 3.2 | 2026-02-28 | **v8→v9 cleanup**: Audit Q/choices semantic mismatch — 122 contaminated questions removed (docling extraction bug). 525Q→403Q (304 answerable + 99 adversarial). All blocking criteria re-verified PASS on reduced set. Counts updated throughout. |
 
 ---
 

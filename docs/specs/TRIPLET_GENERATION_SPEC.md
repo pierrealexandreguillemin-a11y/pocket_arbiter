@@ -48,13 +48,13 @@ Erreurs commises:
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │  TIER 1: GOLD STANDARD (SOURCE PRIMAIRE)                        │
-│  ├── 420 questions FR v8.0 (386 annales + 34 human)             │
-│  ├── expected_chunk_id CONNU = positive CERTAIN (420/420)       │
+│  ├── 304 answerable FR v9.0 (264 annales + 40 human)           │
+│  ├── expected_chunk_id CONNU = positive CERTAIN (304/304)       │
 │  ├── Split: 80% train / 20% val (INTOUCHABLE)                   │
 │  └── Val = 100% GS, JAMAIS de synthetique                       │
 │                                                                  │
 │  TIER 2: SYNTHETIQUE (AUGMENTATION CONTROLEE)                   │
-│  ├── Ratio MAX: 3:1 (synth:GS) = ~984 synth pour ~328 testables │
+│  ├── Ratio MAX: 3:1 (synth:GS) = ~912 synth pour ~304 testables │
 │  ├── Validation humaine 10% OBLIGATOIRE avant merge             │
 │  ├── LLM-as-judge score >= 0.7 OBLIGATOIRE                      │
 │  └── Ajoute au TRAIN UNIQUEMENT (jamais val/test)               │
@@ -66,8 +66,8 @@ Erreurs commises:
 
 | Split | Gold Standard | Synthetique | Total | Ratio |
 |-------|---------------|-------------|-------|-------|
-| **Train** | ~262 (80% de 328 testables) | ~786 MAX | ~1048 | 3:1 max |
-| **Val** | ~66 (20% de 328 testables) | **0** | ~66 | GS only |
+| **Train** | ~243 (80% de 304 testables) | ~729 MAX | ~972 | 3:1 max |
+| **Val** | ~61 (20% de 304 testables) | **0** | ~61 | GS only |
 | **Test** | Reserve optionnel | **0** | - | GS only |
 
 ### 1.2 INTERDICTIONS ABSOLUES
@@ -190,8 +190,8 @@ Erreurs commises:
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                      │
 │  ETAPE 1: EXTRACTION GOLD STANDARD                                  │
-│  ├── Input: gold_standard_annales_fr_v7.json (420 Q, v8.0)        │
-│  ├── Output: 328 paires (anchor, positive) avec chunk_id connu      │
+│  ├── Input: gold_standard_annales_fr_v8_adversarial.json (304 Q, v9.0) │
+│  ├── Output: 304 paires (anchor, positive) avec chunk_id connu      │
 │  ├── Validation: 100% coverage chunks                               │
 │  └── Checkpoint: gold_pairs.jsonl                                   │
 │           │                                                          │
@@ -199,13 +199,13 @@ Erreurs commises:
 │  ETAPE 2: HARD NEGATIVES GOLD STANDARD                              │
 │  ├── Methode: mine_hard_negatives (sentence-transformers)           │
 │  ├── relative_margin: 0.05 (NV-Retriever)                           │
-│  ├── Output: 328 triplets GS complets                               │
+│  ├── Output: 304 triplets GS complets                               │
 │  └── Checkpoint: gold_triplets.jsonl                                │
 │           │                                                          │
 │           ▼                                                          │
 │  ETAPE 3: SPLIT GOLD STANDARD 80/20                                 │
-│  ├── Train: ~154 triplets GS                                        │
-│  ├── Val: ~39 triplets GS (INTOUCHABLE)                             │
+│  ├── Train: ~243 triplets GS                                        │
+│  ├── Val: ~61 triplets GS (INTOUCHABLE)                             │
 │  ├── Seed: 42 (reproductibilite)                                    │
 │  └── Checkpoint: gold_train.jsonl, gold_val.jsonl                   │
 │           │                                                          │
@@ -246,10 +246,10 @@ Erreurs commises:
 
 | Etape | Fichier Checkpoint | Validation Requise |
 |-------|-------------------|-------------------|
-| 1 | `data/training/gold_pairs.jsonl` | count == 328 |
+| 1 | `data/training/gold_pairs.jsonl` | count == 304 |
 | 2 | `data/training/gold_triplets.jsonl` | all have negative |
-| 3 | `data/training/gold_train.jsonl` | count ~= 154 |
-| 3 | `data/training/gold_val.jsonl` | count ~= 39 |
+| 3 | `data/training/gold_train.jsonl` | count ~= 243 |
+| 3 | `data/training/gold_val.jsonl` | count ~= 61 |
 | 4 | `data/training/synthetic_raw.jsonl` | count <= 600 |
 | 5 | `data/training/synthetic_validated.jsonl` | all score >= 0.7 |
 | 5 | `data/training/validation_report.json` | human_reviewed >= 10% |
@@ -465,7 +465,7 @@ def generate_question_posthoc(topic: str, model: str) -> str:
 |----------|----------------|
 | Exactitude | Reponse DANS le chunk (pas inventee) |
 | Pertinence | Questions realistes domaine echecs |
-| Completude | Coverage 420 questions GS (328 testables) |
+| Completude | Coverage 304 questions GS answerable (v9.0) |
 
 ### 6.3 ISO 29119 - Tests
 
@@ -481,7 +481,7 @@ def generate_question_posthoc(topic: str, model: str) -> str:
 
 ### 7.1 Prerequis
 
-- [ ] `tests/data/gold_standard_annales_fr_v7.json` existe (420 Q, GS v8.0)
+- [ ] `tests/data/gold_standard_annales_fr_v8_adversarial.json` existe (304 Q answerable, GS v9.0)
 - [ ] `tests/data/gold_standard_intl.json` existe (43 Q) ⚠️ OBSOLETE — a reconstruire
 - [ ] `corpus/processed/chunks_for_embedding_fr.json` existe
 - [ ] `corpus/processed/chunks_for_embedding_intl.json` existe
@@ -490,8 +490,8 @@ def generate_question_posthoc(topic: str, model: str) -> str:
 
 ### 7.2 Validation Pre-Merge
 
-- [ ] gold_train.jsonl: count ~= 154
-- [ ] gold_val.jsonl: count ~= 39
+- [ ] gold_train.jsonl: count ~= 243
+- [ ] gold_val.jsonl: count ~= 61
 - [ ] Tous les triplets GS ont negative valide
 - [ ] synthetic_validated.jsonl: tous score >= 0.7
 - [ ] Human review >= 10% synthetique
@@ -514,7 +514,7 @@ def generate_question_posthoc(topic: str, model: str) -> str:
 ```bash
 # Etape 1: Extraire paires GS
 python scripts/training/extract_gold_triplets.py \
-  --gold-fr tests/data/gold_standard_annales_fr_v7.json \
+  --gold-fr tests/data/gold_standard_annales_fr_v8_adversarial.json \
   --chunks-fr corpus/processed/chunks_for_embedding_fr.json \
   --chunks-intl corpus/processed/chunks_for_embedding_intl.json \
   --output data/training/gold_pairs.jsonl
@@ -600,9 +600,9 @@ python scripts/training/validate_dataset.py \
 | **UAEval4RAG** | **Variable** | Salesforce | 2024 |
 | **RAGTruth** | **~25%** | ACL | 2024 |
 
-**Cible Pocket Arbiter**: **25-30%** questions adversariales (actuel: 21.9% = 92/420)
+**Cible Pocket Arbiter**: **25-30%** questions adversariales (actuel: 24.6% = 99/403, v9.0)
 
-**Action requise**: Ajouter ~13-34 questions adversariales pour atteindre standard industrie (cible: 105-126/420).
+**Status v9.0**: 99 adversariales sur 403 total = 24.6%, dans la fourchette cible 25-30%.
 
 ### 10.2 Taxonomie UAEval4RAG (Salesforce 2024)
 

@@ -1,7 +1,8 @@
 # Methode de Verification Manuelle des chunk_ids
 
 > GATE 6 du plan async-orbiting-mitten.md
-> 420 questions (386 annales + 34 human)
+> 403 questions (264 annales + 40 human + 99 adversarial) — GS v9.0
+> Note: verification initiale sur 420 Q (v8), puis 122 contaminees supprimees (v9)
 > ISO 42001 (tracabilite), ISO 25010 (qualite donnees)
 
 ## Principe
@@ -19,7 +20,7 @@ a l'`article_reference` de la question.
 
 | Fichier | Contenu | Acces |
 |---------|---------|-------|
-| `tests/data/gold_standard_annales_fr_v7.json` | 420 questions avec chunk_ids | Read |
+| `tests/data/gold_standard_annales_fr_v8_adversarial.json` | 403 questions avec chunk_ids (v9.0) | Read |
 | `corpus/processed/chunks_mode_b_fr.json` | 1857 chunks, 28 PDFs sources | Grep par chunk_id |
 | Annales Docling (13 JSON) | Corrige detaille avec article_reference | Read |
 
@@ -190,7 +191,7 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 
 ## IMPORTANT
 
-- **420 questions = 420 verifications manuelles**. Pas de raccourci.
+- **420 questions verifiees manuellement** (pre-v9), puis 122 contaminees supprimees = 403 Q finales (v9).
 - Meme les 363 "OK source" sont verifiees: bon document ne veut pas dire bonne section.
 - Chaque verdict est trace dans le log.
 - L'utilisateur valide par batch interactif.
@@ -203,8 +204,8 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 
 | Controle | Critere |
 |----------|---------|
-| Couverture | 420/420 questions verifiees |
-| Log complet | 420 entrees dans chunk_verification_log.jsonl |
+| Couverture | 420/420 questions verifiees (pre-v9, 122 depuis supprimees) |
+| Log complet | 420 entrees dans chunk_verification_log.jsonl (historique complet) |
 | Chunks valides | Tout chunk rejete a un remplacement ou flag requires_context |
 | Pas d'orphelins | 0 question sans chunk_id ET sans flag requires_context |
 | Tracabilite | Chaque verdict justifie (article_ref vs chunk content) |
@@ -551,7 +552,7 @@ Chaque verdict est ecrit dans `chunk_verification_log.jsonl`:
 
 | Metrique | Valeur |
 |----------|--------|
-| Questions verifiees | 420/420 (100%) |
+| Questions verifiees | 420/420 (100%, pre-v9; 122 depuis supprimees → 403 Q v9) |
 | Chunks corriges | 315 |
 | Textes corriges | 3 |
 | Metadata UV/qnum corriges | 156 |
@@ -599,7 +600,7 @@ Note: 300 total "not OK" includes 315 WRONG chunks minus some entries where chun
 6. **Version renumbering**: RIDNA article numbers changed between 2019-2025 editions (Art 8.3→8.4, Art 18.4→17.2, Art 22.2→Mesures admin, Art 23.2→17.2)
 
 ### GATE 6 STATUS: PASS
-- 420/420 questions verifiees (100%) ✓
+- 420/420 questions verifiees (100%, pre-v9) ✓
 - Log complet (471 entries) ✓
 - Tous chunks rejetes ont un remplacement ✓
 - 0 orphelins (0 questions sans chunk_id) ✓

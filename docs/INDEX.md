@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-IDX-001
 > **ISO Reference**: ISO 999:1996 - Lignes directrices pour l'indexation
-> **Version**: 2.7
-> **Date**: 2026-02-11
+> **Version**: 2.8
+> **Date**: 2026-02-28
 > **Statut**: Approuve
 > **Classification**: Interne
 > **Auteur**: Claude Opus 4.5
@@ -89,6 +89,7 @@ pocket_arbiter/
 | **PLAN-GS-CONF-001** | [plans/GS_CONFORMITY_PLAN_V1.md](plans/GS_CONFORMITY_PLAN_V1.md) | **Plan mise en conformite GS + hard negatives hybride Claude+EmbeddingGemma** | **En cours** |
 | SPEC-GS-V6 | [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md) | Gold Standard v6 pipeline (historique) | Obsolete |
 | **SPEC-GS-SCH-002** | [specs/GS_SCHEMA_V2.md](specs/GS_SCHEMA_V2.md) | **Schema JSON GS v2.0 (8 groupes, 46 champs, ISO 42001)** | **Approuve** |
+| **AUDIT-GS-V9** | [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) | **Audit Q/choices mismatch v8→v9: 122 contaminated Q removed (403Q final)** | **Approuve** |
 | SPEC-GS-OPT | [specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md](specs/GS_ANNALES_V7_OPTIMIZATION_SPEC.md) | Optimisation GS v7 pour triplets | En cours |
 | SPEC-ADV-V1 | [specs/ADVERSARIAL_QUESTIONS_STRATEGY.md](specs/ADVERSARIAL_QUESTIONS_STRATEGY.md) | Strategie questions adversariales SQuAD 2.0 | Approuve |
 | SPEC-UTD-001 | [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) | Generation Donnees Unifiees | Draft |
@@ -159,6 +160,7 @@ pocket_arbiter/
 ### G
 - **Gates (phase gates)** : [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md) Section 1.3
 - **Gold Standard** : [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md), [specs/GOLD_STANDARD_V6_ANNALES.md](specs/GOLD_STANDARD_V6_ANNALES.md)
+- **Gold Standard v9** : [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) Section 1.3 (v9.0, 403Q post Q/choices cleanup)
 - **Gold Standard Schema v2** : [specs/GS_SCHEMA_V2.md](specs/GS_SCHEMA_V2.md) (8 groupes: content, mcq, provenance, classification, validation, processing, audit)
 - **Gold Standard Validation (LLM-as-Judge)** : [GS_VALIDATION.md](GS_VALIDATION.md) (3 criteres, Cohen's Kappa, Gwet's AC1)
 - **Grounding** : [AI_POLICY.md](AI_POLICY.md) Section 3.2
@@ -209,6 +211,7 @@ pocket_arbiter/
 - **Prompts** : [prompts/](../prompts/), [prompts/CHANGELOG.md](../prompts/CHANGELOG.md)
 
 ### Q
+- **Q/choices mismatch cleanup** : [GOLD_STANDARD_SPECIFICATION.md](GOLD_STANDARD_SPECIFICATION.md) Section 1.3 (122 contaminated Q removed, v8→v9)
 - **Qualite** : [QUALITY_REQUIREMENTS.md](QUALITY_REQUIREMENTS.md), [ISO_STANDARDS_REFERENCE.md](ISO_STANDARDS_REFERENCE.md)
 - **Quality Gates (Training Data)** : [specs/UNIFIED_TRAINING_DATA_SPEC.md](specs/UNIFIED_TRAINING_DATA_SPEC.md) Section 2.4
 
@@ -318,6 +321,7 @@ pocket_arbiter/
 | 2.5 | 2026-01-29 | Claude Opus 4.5 | ISO-enforcing: pyproject.toml (ruff E/W/F/I/UP/B/C901/S/SIM + mypy strict iso/pipeline), fix SQL injection S608, 170 auto-fixes ruff, type annotations iso/, pre-commit hooks aligned. |
 | 2.6 | 2026-01-29 | Claude Opus 4.5 | **MAJ 12 documents**: metriques ISO (696 tests, 83.47% cov, seuil 80%), deprecation reranker (6 docs), GS v7 (420+ FR), registre DOC_CONTROL synchronise, toolchain pyproject.toml |
 | 2.7 | 2026-02-11 | Claude Opus 4.6 | **Ajout GS_VALIDATION.md** (DOC-VAL-001): validation LLM-as-Judge. Index LLM-as-Judge/Cohen's Kappa/Gwet's AC1. Phase 1B ajoutee. VISION v2.2 ref corrigee. Metriques: 1352 tests, 87.95% cov |
+| 2.8 | 2026-02-28 | Claude Opus 4.6 | **GS v8→v9**: Audit Q/choices mismatch, 122 questions contaminees supprimees (bug extraction docling). GS passe de 525Q (420+105) a 403Q (304+99). Index Gold Standard v9, Q/choices mismatch cleanup |
 
 ---
 

@@ -35,7 +35,7 @@ Cache:  .dvc/cache (local)
 | `corpus/processed/embeddings_fr.npy.dvc` | Embeddings FR | 7.9 MB |
 | `corpus/processed/embeddings_intl.npy.dvc` | Embeddings INTL | 3.1 MB |
 | `data/training.dvc` | Triplets, BEIR, RAGAS (37 fichiers) | 33.7 MB |
-| `tests/data/gold_standard_annales_fr_v8_adversarial.json.dvc` | GS annales | 1.7 MB |
+| `tests/data/gold_standard_annales_fr_v8_adversarial.json.dvc` | GS annales (v9.0 interne, 403Q) | 1.7 MB |
 
 ## Workflow quotidien
 

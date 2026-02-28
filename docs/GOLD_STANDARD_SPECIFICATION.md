@@ -2,8 +2,8 @@
 
 > **Document ID**: SPEC-GS-001
 > **ISO Reference**: ISO 29119-3 (Test Documentation), ISO 25010, ISO 42001
-> **Version**: 1.8
-> **Date**: 2026-02-02
+> **Version**: 1.9
+> **Date**: 2026-02-28
 > **Statut**: Approuve
 > **Classification**: Qualite
 > **Auteur**: Claude Opus 4.5
@@ -25,7 +25,7 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 │     (CE DOCUMENT)               │    │     (DOCUMENT SEPARE A CREER)   │
 ├─────────────────────────────────┤    ├─────────────────────────────────┤
 │ Status: ACTIF                   │    │ Status: OBSOLETE                │
-│ GS FR v8.0: 420 questions       │    │ GS INTL v2.1: 93 questions      │
+│ GS FR v9.0: 304 answerable     │    │ GS INTL v2.1: 93 questions      │
 │ GS FR Annales unified           │    │ --> A REFAIRE from scratch      │
 │ Corpus: 29 docs FFE             │    │ Corpus: INCOMPLET               │
 │ Chunking: LangChain ✓           │    │ Chunking: OBSOLETE              │
@@ -39,8 +39,8 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 
 | Gold Standard | Questions | Status | Database |
 |---------------|-----------|--------|----------|
-| GS FR Annales v8.0 | 420 (386 annales + 34 human) | Actif | corpus_mode_b_fr.db |
-| **Total FR** | **420** | **ACTIF** | **SEPARE** |
+| GS FR Annales v9.0 | 304 (264 annales + 40 human) | Actif | corpus_mode_b_fr.db |
+| **Total FR** | **304 answerable + 99 adversarial = 403** | **ACTIF** | **SEPARE** |
 
 **HORS PERIMETRE** (document separe a creer):
 
@@ -48,27 +48,30 @@ Ce document definit les principes, exigences et normes appliquees au Gold Standa
 |---------------|-----------|--------|--------|
 | ~~GS INTL v2.1~~ | ~~93~~ | OBSOLETE | A refaire apres completion corpus FIDE |
 
-### 1.3 Gold Standard FR Annales v8.0 (2026-02-02)
+### 1.3 Gold Standard FR Annales v9.0 (2026-02-28)
 
 | Metrique | Valeur | Status |
 |----------|--------|--------|
-| Questions totales | 420 | ✅ |
+| Questions totales | 403 (304 answerable + 99 adversarial) | ✅ |
 | Documents couverts | 28/28 (100%) | ✅ |
 | ID Schema | URN-like v1.0.0 | ✅ |
-| requires_context | 92 (exclus) | ✅ |
-| Testables | 328 | ✅ |
-| Chunks alignes | 420/420 (100%) | ✅ |
+| Testables | 304 | ✅ |
+| Chunks alignes | 304/304 (100%) | ✅ |
 | **Score humain** | **100%** | ✅ REFERENCE |
 
-**Note importante v8.0**: Ce GS est un benchmark de **RAISONNEMENT**, pas de retrieval RAG classique.
+**Note v9.0**: 122 questions contaminees supprimees (Q/choices mismatch, bug extraction docling).
+Le fichier reste `gold_standard_annales_fr_v8_adversarial.json` (DVC-tracked), version interne 9.0.0.
+
+**Note importante v9.0**: Ce GS est un benchmark de **RAISONNEMENT**, pas de retrieval RAG classique.
 Les reponses annales sont des reformulations, calculs et inferences, pas des extractions directes.
 Le score humain de 100% confirme que toutes les reponses sont derivables du corpus.
 
 **Distribution par namespace:**
 | Namespace | Count |
 |-----------|-------|
-| ffe:annales:* | 386 |
-| ffe:human:* | 34 |
+| ffe:annales:* | 264 |
+| ffe:human:* | 40 |
+| adversarial:* | 99 |
 
 **Distribution reasoning_class (Know Your RAG):**
 | Classe | Count | % | Role |
@@ -160,7 +163,7 @@ Basees sur [arXiv:2412.12300](https://arxiv.org/abs/2412.12300) - UAEval4RAG Fra
 | **5** | FALSE_PREMISE | Question basee sur premisse fausse | Rejection appropriee |
 | **6** | OUT_OF_SCOPE | Hors perimetre corpus | Graceful failure |
 
-### 4.2 Distribution Cible vs Actuelle (v8.0)
+### 4.2 Distribution Cible vs Actuelle (v9.0)
 
 | Categorie | % Cible | Actuel FR | Status |
 |-----------|---------|-----------|--------|
@@ -345,14 +348,14 @@ Le schema v2.0 organise les 46+ champs en 8 groupes fonctionnels:
 
 ### 6.2 Etat Actuel (2026-02-02)
 
-| Corpus | Version | Questions | requires_context | chunk_id | Status |
-|--------|---------|-----------|-----------------|----------|--------|
-| FR | v8.0 | 420 | 92 (22%) | 420/420 | ✅ CB-01 PASS (verbatim 100%) |
-| INTL | v2.1 | 93 | 26 (28%) | 67/67 | ⚠️ OBSOLETE — a reconstruire |
-| **Total** | | **513** | 118 | 487 | **FR: ISO CONFORME** |
+| Corpus | Version | Questions | Answerable | chunk_id | Status |
+|--------|---------|-----------|-----------|----------|--------|
+| FR | v9.0 | 403 | 304 (264 annales + 40 human) | 304/304 | ✅ CB-01 PASS (verbatim 100%) |
+| INTL | v2.1 | 93 | 67 | 67/67 | ⚠️ OBSOLETE — a reconstruire |
+| **Total** | | **496** | 371 | 371 | **FR: ISO CONFORME** |
 
-> **Note FR v8.0**: Les 420 `expected_chunk_id` sont valides par verification verbatim (CB-01=100%).
-> P4 audit fixes appliques: correct_answer, unified taxonomy, markdown cleanup, difficulty variance.
+> **Note FR v9.0**: 122 questions contaminees supprimees lors de l'audit Q/choices mismatch (v8→v9).
+> Les 304 `expected_chunk_id` answerable sont valides par verification verbatim (CB-01=100%).
 
 ---
 
@@ -433,7 +436,7 @@ python -m scripts.pipeline.tests.test_recall --coverage
 
 | Metrique | Minimum | Standard Industrie | Actuel | Status |
 |----------|---------|-------------------|--------|--------|
-| Taille GS total | >= 200 | BEIR (300-50k) | 420 FR | ✅ |
+| Taille GS total | >= 200 | BEIR (300-50k) | 403 FR (304 answerable) | ✅ |
 | Questions adversariales | 25-30% | SQuAD 2.0 (33%) | 22% (92 rc) | ⚠️ A COMPLETER |
 | Couverture categories | >= 80% | BEIR diversity | 100% (13 cat) | ✅ |
 | Deduplication | < 5% sim | SoftDedup | TBD | ⚠️ A VERIFIER |
@@ -444,7 +447,7 @@ python -m scripts.pipeline.tests.test_recall --coverage
 |----------|---------|-------------------|--------|--------|
 | Context-grounded | 100% | RAGen, Source2Synth | **100%** (CB-04 BY DESIGN) | ✅ |
 | Validation humaine | 100% GS | Industrie | 100% | ✅ |
-| expected_chunk_id | 100% answerable | ISO 42001 A.6.2.2 | **100%** (420/420) | ✅ |
+| expected_chunk_id | 100% answerable | ISO 42001 A.6.2.2 | **100%** (304/304) | ✅ |
 
 ### 10.3 Actions Requises
 
@@ -452,7 +455,7 @@ python -m scripts.pipeline.tests.test_recall --coverage
 |--------|----------|----------|--------|
 | Reformulation BY DESIGN | P0 | RAGen | ✅ FAIT (P2 manual_by_design) |
 | Deduplication SemHash | P1 | SoftDedup | ⚠️ A verifier |
-| Mapping chunk_id 100% | P1 | ISO 42001 | ✅ FAIT (420/420) |
+| Mapping chunk_id 100% | P1 | ISO 42001 | ✅ FAIT (304/304) |
 | MMTEB evaluation INTL | P2 | MMTEB | ❌ INTL obsolete |
 
 ### 10.4 Benchmarks Cibles
@@ -512,4 +515,4 @@ python -m scripts.pipeline.tests.test_recall --coverage
 ---
 
 *Ce document remplace gold_standard_status_v1.md et les audits 2026-01-19/20.*
-*Derniere mise a jour: 2026-02-02 - GS Annales v8.0 (P4 audit fixes, 15 criteres bloquants PASS)*
+*Derniere mise a jour: 2026-02-28 - GS Annales v9.0 (Q/choices mismatch cleanup: 122Q removed, 403Q final)*

@@ -31,7 +31,7 @@ scripts/
 corpus/
   fr/               # 29 PDF FFE
   intl/             # 1 PDF FIDE
-tests/data/         # Questions gold standard (gold_standard_annales_fr_v8_adversarial.json)
+tests/data/         # Questions gold standard (gold_standard_annales_fr_v8_adversarial.json, GS v9 interne)
 data/gs_generation/ # Artefacts generation (candidates, replacements, snapshots)
 docs/               # Specs ISO, plans, CVE register
 ```
@@ -79,16 +79,16 @@ docs/               # Specs ISO, plans, CVE register
 - **GS primaire**: `tests/data/gold_standard_annales_fr_v8_adversarial.json` (403Q = 304 answerable + 99 adversarial)
 - **Prochain jalon**: reclassifier answer_type (~260 MC -> extractive/abstractive) puis generer triplets
 
-### Pivot v8 annales (2026-02-27) - Decision
+### Pivot annales (2026-02-27) - Decision
 
 **gs_scratch abandonne** : audit qualite 71.5% answerable = garbage (templates mecaniques). Scripts supprimes. P3a (95 page-number) annule.
 
-**v8 annales adopte comme GS primaire**. Re-evaluation a montre que les 3 objections initiales etaient infondees :
+**Annales adopte comme GS primaire (v8, puis v9 apres cleanup)**. Re-evaluation a montre que les 3 objections initiales etaient infondees :
 - "post-hoc matching" → FAUX : 420/420 `manual_by_design`, chunk_match_score=100
 - "237 chunk issues" → RESOLU : cascading fixes (152+101+25+290+238), final = 0 issues
 - "100% MCQ" → REFORMULE : 335/340 reponses reformulees (194 chars moy, pas des lettres)
 
-**Pourquoi v8** : 264 questions d'examen FFE reelles (10 sessions, 4 UV) + 40 human, success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 99 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
+**Pourquoi annales** : 264 questions d'examen FFE reelles (10 sessions, 4 UV) + 40 human, success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 99 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
 
 ### Nettoyage Q/choices mismatch (2026-02-28) - Audit complet
 
@@ -100,7 +100,7 @@ docs/               # Specs ISO, plans, CVE register
 - Archives: `data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json` (batch 1), `data/benchmarks/removed_questions_qa_mismatch_batch2_2026-02-28.json` (batch 2)
 - Audit: `data/benchmarks/audit_gs_v8_mcq_answers_2026-02-28.json`
 
-### v8 annales — chiffres cles (post-cleanup)
+### v9 annales — chiffres cles (post-cleanup)
 
 | Dimension | Valeur |
 |-----------|--------|

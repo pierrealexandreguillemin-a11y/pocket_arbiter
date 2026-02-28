@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-02-28",
+  "description": "Audit manuel des mcq_answer du GS v8 contre les PDF sources des annales FFE + correction",
+  "methodology": {
+    "approach": "Extraction des grilles de reponses (4 UV) depuis les PDF annales texte-extractables (dec2024, jun2025), puis mapping sequentiel des groupes de questions GS vers les grilles. Cross-reference systematique Q text vs choices via docling_mcq_reference pour detecter les mismatches.",
+    "verified_sessions": ["dec2024", "jun2025", "jun2021", "dec2023"],
+    "pdf_sources": [
+      "corpus/fr/Annales/Annales-Decembre-2024.pdf",
+      "corpus/fr/Annales/Annales-Juin-2025-VF2.pdf"
+    ]
+  },
+  "results": {
+    "dec2024": {
+      "total_questions": 92,
+      "verified_sequential": 59,
+      "correct": 59,
+      "wrong": 0,
+      "accuracy": "100%",
+      "status": "CLEAN",
+      "groups": [
+        {"uv_real": "UVC", "count": 28, "verified": 28, "correct": 28},
+        {"uv_real": "UVO", "count": 20, "verified": 20, "correct": 20},
+        {"uv_real": "UVR", "count": 23, "verified_first": 8, "correct": 8},
+        {"uv_real": "UVT", "count": 21, "verified_first": 3, "correct": 3}
+      ]
+    },
+    "jun2025": {
+      "total_before": 64,
+      "qa_mismatches_removed": 20,
+      "total_after": 44,
+      "status": "CLEANED",
+      "description": "Q text from one UV paired with choices from a different UV. Systematic extraction bug. All 20 removed."
+    },
+    "jun2021": {
+      "total_before": 42,
+      "qa_mismatches_removed": 14,
+      "coherent_duplicates_removed": 6,
+      "data_quality_removed": 3,
+      "total_after": 19,
+      "status": "CLEANED",
+      "description": "Same Q/choices mismatch pattern as jun2025, plus duplicate questions and broken data (empty/garbage choices)."
+    },
+    "dec2023": {
+      "total_questions": 52,
+      "cross_verified_against_docling": 26,
+      "matches": 26,
+      "status": "CLEAN (spot-checked)"
+    }
+  },
+  "correction": {
+    "date": "2026-02-28",
+    "total_removed": 43,
+    "breakdown": {
+      "jun2025_qa_mismatch": 20,
+      "jun2021_qa_mismatch": 14,
+      "jun2021_coherent_duplicate": 6,
+      "jun2021_data_quality": 3
+    },
+    "archive": "data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json",
+    "gs_before": "525 questions (386 annales + 40 human + 99 adversarial)",
+    "gs_after": "482 questions (343 annales + 40 human + 99 adversarial)"
+  },
+  "findings": {
+    "mcq_answer_accuracy": "100% verified on dec2024 (59/59). No evidence of systematic mcq_answer errors.",
+    "uv_label_swaps": "annales_source.uv has rules/clubs inversions in many sessions. Metadata label only, does not affect Q/A content.",
+    "previous_31pct_error_rate": "FALSE. Caused by UV label swap leading to wrong PDF grid lookup.",
+    "recall_at_5_37pct": "REAL retrieval problem, not GS quality issue.",
+    "q_text_choices_mismatch": "43 questions removed (20 jun2025, 23 jun2021). Pattern: question TEXT extracted from one UV, CHOICES from another UV. Concentrated in jun2025 and jun2021 sessions.",
+    "clean_sessions": "dec2019, dec2021, dec2022, dec2023, dec2024, jun2022, jun2023, jun2024 show no Q/choices mismatch issues."
+  }
+}

@@ -76,8 +76,8 @@ docs/               # Specs ISO, plans, CVE register
 ## Current Work: Triplet Generation (SPEC-TRIP-001)
 
 - **Spec source**: docs/specs/TRIPLET_GENERATION_SPEC.md
-- **GS primaire**: `tests/data/gold_standard_annales_fr_v8_adversarial.json` (525Q = 420 answerable + 105 adversarial)
-- **Prochain jalon**: reclassifier answer_type (340 MC → extractive/abstractive) puis generer triplets
+- **GS primaire**: `tests/data/gold_standard_annales_fr_v8_adversarial.json` (482Q = 383 answerable + 99 adversarial)
+- **Prochain jalon**: reclassifier answer_type (~300 MC -> extractive/abstractive) puis generer triplets
 
 ### Pivot v8 annales (2026-02-27) - Decision
 
@@ -88,28 +88,33 @@ docs/               # Specs ISO, plans, CVE register
 - "237 chunk issues" → RESOLU : cascading fixes (152+101+25+290+238), final = 0 issues
 - "100% MCQ" → REFORMULE : 335/340 reponses reformulees (194 chars moy, pas des lettres)
 
-**Pourquoi v8** : 386 questions d'examen FFE reelles (10 sessions, 4 UV), success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 105 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
+**Pourquoi v8** : 343 questions d'examen FFE reelles (10 sessions, 4 UV) + 40 human, success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 99 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
 
-### v8 annales — chiffres cles
+### Nettoyage Q/choices mismatch (2026-02-28)
+
+43 questions supprimees (Q text d'une UV avec choices d'une autre UV, bug d'extraction):
+- jun2025: 20 mismatches (64->44)
+- jun2021: 14 mismatches + 6 duplicats + 3 data quality (42->19)
+- Archive: `data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json`
+- Audit: `data/benchmarks/audit_gs_v8_mcq_answers_2026-02-28.json`
+
+### v8 annales — chiffres cles (post-cleanup)
 
 | Dimension | Valeur |
 |-----------|--------|
-| Answerable | 420 (386 annales + 34 human) |
-| Unanswerable | 105 (20%, 6 categories UAEval4RAG) |
-| Testables (hors requires_context) | 328 |
-| chunk_match_score=100 | 420/420 |
+| Answerable | 383 (343 annales + 40 human) |
+| Unanswerable | 99 (20%, 6 categories UAEval4RAG) |
+| Testables (hors requires_context) | ~290 |
 | Documents couverts | 28/28 |
-| Chunks uniques | 193 |
-| Cognitive: Apply | 151 (36%) |
-| answer_type: multiple_choice | 340 (a reclassifier) |
-| Validation method | 257 annales_official + 129 manual_llm_as_judge + 33 QAT + 1 manual |
+| Chunks uniques | ~185 |
+| answer_type: multiple_choice | ~300 (a reclassifier) |
 
 ### Travail restant avant triplets
 
-1. **Reclassifier answer_type** : 340 "multiple_choice" → extractive/abstractive (reponses deja reformulees, label seul a corriger)
+1. **Reclassifier answer_type** : ~300 "multiple_choice" -> extractive/abstractive (reponses deja reformulees, label seul a corriger)
 2. **Charger chunk_text** pour champ `positive` des triplets
 3. **Hard negative mining** : sentence-transformers, margin 0.05 (NV-Retriever, SPEC-TRIP-001 Section 3)
-4. **Split 80/20** : ~262 train GS + ~66 val GS (100% GS, zero synthetique en val)
+4. **Split 80/20** : ~230 train GS + ~58 val GS (100% GS, zero synthetique en val)
 
 ### gs_scratch — archive
 

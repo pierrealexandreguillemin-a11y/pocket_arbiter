@@ -1,0 +1,3683 @@
+{
+  "timestamp": "2026-02-28",
+  "description": "Questions removed from GS v8 due to Q/choices mismatches, duplicates, or data quality issues",
+  "total_removed": 43,
+  "by_reason": {
+    "jun2025_qa_mismatch": 20,
+    "jun2021_qa_mismatch": 14,
+    "jun2021_coherent_duplicate": 6,
+    "jun2021_data_quality": 3
+  },
+  "removed_questions": [
+    {
+      "global_index": 77,
+      "id": "ffe:annales:clubs:078:3a10054a",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:078:3a10054a",
+        "legacy_id": "FR-ANN-UVC-086",
+        "content": {
+          "question": "Dans une partie en 12min+3s/coup, un parent vous sollicite. Sa fille a les noirs et a proposé plusieurs fois la nulle, son adversaire refuse. Ils jouent depuis un moment sans réelle avancée. Il affirme que la position actuelle s'est produite plusieurs fois. <!-- image --> ?",
+          "expected_answer": "6.2. Arbitres inactifs  \nAu moins une fois toutes les quatre saisons sportives, chaque arbitre titré doit participer à un stage de formation continue (FC) qu'il est tenu de suivre entièrement",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Il doit suivre une formation continue.",
+            "B": "Il doit repasser l'Unité de Valeur - Règles du jeu (UVR).",
+            "C": "Il doit obligatoirement suivre un stage d'arbitre fédéral club (SC) dans sa totalité.",
+            "D": "Il doit suivre une formation SC et repasser l'UVR."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Il doit obligatoirement suivre un stage d'arbitre fédéral club (SC) dans sa totalité.",
+          "original_answer": "Vous rappelez à l'ordre le joueur qui a les blancs à l'ordre en lui indiquant qu'il est obligé d'accepter la nulle car il n'a plus le matériel pour mater suivant l'article 6.9."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p017-parent064-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            17
+          ],
+          "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs",
+          "answer_explanation": "Si durant une période de six ans à compter de son dernier stage, un arbitre n'effectue pas de formation continue, celui-ci sera dans l'obligation de suivre un stage Club (SC). A l'issue de celui-ci, son titre d'arbitre est réactivé.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 2,
+            "success_rate": 0.72
+          }
+        },
+        "classification": {
+          "category": "arbitrage",
+          "keywords": [
+            "arbitre inactif",
+            "formation continue",
+            "stage SC",
+            "réactivation"
+          ],
+          "difficulty": 0.28,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "temporal",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q78"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [
+            "image_dependent"
+          ],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[SMART_FIX] LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 6.2. Arbitres inactifs: LA-octobre2025.pdf-p027-parent120-child0 -> LA-octobre2025.pdf-p087-parent261-child0 (score:0.21) [CTX] marked requires_context",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 78,
+      "id": "ffe:annales:clubs:079:46e85a44",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:079:46e85a44",
+        "legacy_id": "FR-ANN-UVC-087",
+        "content": {
+          "question": "Vous êtes arbitre adjoint sur un tournoi, après le début d'une partie à la cadence 20min+10s/coup, les deux adversaires ont joué plusieurs coups (8 coups chacun). Vous remarquez que les joueurs se sont trompés de couleurs. L'un des joueurs a déjà une dame d'avance suite à un piège d'ouverture. Quelle est la bonne décision ?",
+          "expected_answer": "Arbitres Fédéraux de Club (AFC)  \n- Tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division,\n- Tous les matchs locaux, départementaux, régionaux,\n- Tous les tournois fermés (sans joueurs classés F.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Délivrer des Attestations de Stage Pratique (ASP).",
+            "B": "Arbitrer un quart de finale de Coupe de France.",
+            "C": "A condition d'être agréé F.I.D.E., arbitrer le tournoi rapide homologué F.I.D.E de votre club.",
+            "D": "Excepté le TOP 16, arbitrer une rencontre du championnat de France des clubs mixte."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Excepté le TOP 16, arbitrer une rencontre du championnat de France des clubs mixte.",
+          "original_answer": "On recommence la partie depuis la position initiale. Règles du jeu - article 7.3 Si moins de 10 coups ont été joués alors, quelle que soit la cadence, on recommence la partie."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p023-parent104-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            23
+          ],
+          "article_reference": "LA - Chapitre 1.3 Le Règlement intérieur de la DNA - Article 12.4. Arbitres Fédéraux de Club (AFC)",
+          "answer_explanation": "Un AFC peut arbitrer tous les matchs du championnat de France des clubs mixte ou féminin, quelle que soit la division, sauf l'arbitrage en chef de la plus haute division.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 4,
+            "success_rate": 0.76
+          }
+        },
+        "classification": {
+          "category": "arbitrage",
+          "keywords": [
+            "AFC",
+            "arbitre fédéral club",
+            "compétences",
+            "championnat clubs"
+          ],
+          "difficulty": 0.24,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q79"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": " | [QAT] LA-octobre2025.pdf-p055-parent189-child00 -> LA-octobre2025.pdf-p048-parent174-child01 (better_match_found_delta_0.071) [Q79] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:15.044066",
+            "old_chunk_id": "LA-octobre2025.pdf-p055-parent189-child00",
+            "old_score": 0.5632,
+            "new_score": 0.634,
+            "reason": "better_match_found_delta_0.071"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 79,
+      "id": "ffe:annales:clubs:080:6b0d5da4",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:080:6b0d5da4",
+        "legacy_id": "FR-ANN-UVC-088",
+        "content": {
+          "question": "<!-- image --> Vous arbitrez la partie ci-contre, vous voyez le joueur qui a les noirs prendre le pion d4 avec son cavalier en c6. Alors qu'il n'a pas encore d'appuyé sur sa pendule, il se rend compte qu'il laisse son roi en échec et veut reprendre son coup. Quelle est la seule suite correcte ?",
+          "expected_answer": "2.3.1. Transfert d'une saison à l'autre  \nUn joueur ou joueuse déjà licencié(e) désirant changer de club peut le faire, sur simple demande, durant la période de transfert libre, soit du 15 juillet au 30 septembre. Il ou elle devra notifier sa décision en utilisant son compte personnel sur le site de la FFE, via l'onglet destiné à cet effet",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "La période de transfert libre est du 1er août au 30 septembre.",
+            "B": "Une prise de licence entre le 1er et 30 septembre exonère d'effectuer une demande de transfert.",
+            "C": "La notification de décision de transfert s'effectue en utilisant l'espace 'Gérer son club'.",
+            "D": "Le ou la licencié(e) doit informer lui-même le ou la président(e) de la Ligue et du club quitté."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Une prise de licence entre le 1er et 30 septembre exonère d'effectuer une demande de transfert.",
+          "original_answer": "Les noirs ont l'obligation de jouer l'autre cavalier."
+        },
+        "provenance": {
+          "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent006-child00",
+          "docs": [
+            "R01_2025_26_Regles_generales.pdf"
+          ],
+          "pages": [
+            2
+          ],
+          "article_reference": "R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.",
+          "answer_explanation": "Une prise de licence dans un autre club entre le 1er et le 30 septembre équivaut à une demande de transfert qui exonère de la faire.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 5,
+            "success_rate": 0.79
+          }
+        },
+        "classification": {
+          "category": "regles_ffe",
+          "keywords": [
+            "transfert",
+            "licence",
+            "changement club",
+            "septembre"
+          ],
+          "difficulty": 0.21,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q80"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [
+            "image_dependent"
+          ],
+          "answer_source": "explanation",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[SMART_FIX] R01 - Règles Générales - Article 2.3.1. Transfert d'une saison à l'autre.: R01_2025_26_Regles_generales.pdf-p002-pa -> R01_2025_26_Regles_generales.pdf-p001-pa (score:0.25) [CTX] marked requires_context [Q80] manual audit 2026-02-04",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 80,
+      "id": "ffe:annales:clubs:081:f141471f",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:081:f141471f",
+        "legacy_id": "FR-ANN-UVC-089",
+        "content": {
+          "question": "Un joueur est en train de noter sa partie, il lui reste moins de 5 minutes à la pendule. Dans quel cas a-t-il l'obligation de noter jusqu'au bout ?",
+          "expected_answer": "2.4 Catégories d'âge  \nLes joueurs et joueuses sont classé(e)s dans les dix catégories suivantes, en fonction de leur âge avant le 1 er janvier de la saison :  \n| U8 - U8F | (Petits Poussins, Petites Poussines) : | moins de 8 ans |\n|------------|------------------------------------------|--------------------|\n| U10 - U10F | (Poussi",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Elle est U10 F.",
+            "B": "Elle est U12 F.",
+            "C": "Elle est U14 F.",
+            "D": "Elle est U16 F."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Elle est U14 F.",
+          "original_answer": "Vous êtes dans la 1 re période d'une partie à la cadence 2 heures - 40 coups + 1 heure KO"
+        },
+        "provenance": {
+          "chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+          "docs": [
+            "R01_2025_26_Regles_generales.pdf"
+          ],
+          "pages": [
+            2
+          ],
+          "article_reference": "R01 - Règles Générales - Article 2.4 Catégories d'âge.",
+          "answer_explanation": "``` Les joueurs et joueuses sont classés dans des catégories en fonction de leur âge avant le 1er janvier de la saison. Cette joueuse étant née le 26 janvier 2011, il faut donc connaître son âge en 2024 à savoir 13 ans (24-11=13). Elle est donc en catégorie U14F.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 6,
+            "success_rate": 0.89
+          }
+        },
+        "classification": {
+          "category": "regles_ffe",
+          "keywords": [
+            "catégorie âge",
+            "U14",
+            "jeunes",
+            "calcul"
+          ],
+          "difficulty": 0.11,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "arithmetic",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q81"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p182-parent [Q81] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:15.183066",
+            "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p001-parent001-child00",
+            "old_score": 0.2598,
+            "new_score": 0.5715,
+            "reason": "current_rank_823_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 84,
+      "id": "ffe:annales:clubs:085:f99e636d",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:085:f99e636d",
+        "legacy_id": "FR-ANN-UVC-093",
+        "content": {
+          "question": "Une partie vient de se terminer. Les blancs ont fait échec et mat. Juste avant de serrer la main de leur adversaire, les noirs voient que le drapeau des blancs était tombé et exigent le gain au temps car un spectateur confirme que cela s'était produit avant l'échec et mat. Vous n'étiez pas devant la partie ?",
+          "expected_answer": "4. Homologation d'un résultat  \nAprès vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Le lundi.",
+            "B": "Le mardi.",
+            "C": "Le mercredi.",
+            "D": "Le jeudi."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Le mercredi.",
+          "original_answer": "Vous utilisez une fonction de la pendule qui vous permet de savoir précisément quand le drapeau est tombé pour prendre votre décision."
+        },
+        "provenance": {
+          "chunk_id": "R01_2025_26_Regles_generales.pdf-p004-parent020-child00",
+          "docs": [
+            "R01_2025_26_Regles_generales.pdf"
+          ],
+          "pages": [
+            4
+          ],
+          "article_reference": "R01 - Règles Générales - Article 4 Homologation d'un résultat.",
+          "answer_explanation": "Après vérification et contrôle des matchs par la direction de la compétition et les équipes concernées, le résultat d'une rencontre ne sera pas homologué avant le 4e jour calendaire qui suit cette rencontre. L'homologation sera de droit le 30e jour qui suit cette rencontre si aucune réclamation la concernant n'est en cours.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 10,
+            "success_rate": 0.49
+          }
+        },
+        "classification": {
+          "category": "regles_ffe",
+          "keywords": [
+            "homologation",
+            "résultat",
+            "4e jour",
+            "délai"
+          ],
+          "difficulty": 0.51,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "arithmetic",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q85"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[SMART_FIX] R01 - Règles Générales - Article 4 Homologation d'un résultat.: R01_2025_26_Regles_generales.pdf-p001-pa -> R01_2025_26_Regles_generales.pdf-p002-pa (score:0.07) [RECLASS] fact_single->summary (not extractable) | [QAT] R01_2025_26_Regles_generales.pdf-p002-parent008-child00 -> LA-octobre2025.pdf-p045-parent170-child00 (current_rank_1648_too_low) | [MARK] requires_context:answer_not_found [Q85] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:15.869618",
+            "old_chunk_id": "R01_2025_26_Regles_generales.pdf-p002-parent008-child00",
+            "old_score": 0.1061,
+            "new_score": 0.6541,
+            "reason": "current_rank_1648_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 89,
+      "id": "ffe:annales:clubs:090:99d9d73f",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:090:99d9d73f",
+        "legacy_id": "FR-ANN-UVC-100",
+        "content": {
+          "question": "A la cadence 50min+10s/coup, vous avez déjà sanctionné une fois les noirs pour avoir achevé un coup illégal. Devant vous, ils jouent un coup qui laisse leur roi en échec et appuient sur leur pendule. Avant même que vous n'interveniez les blancs jouent à leur tour et appuient sur la pendule. Quelle est votre intervention ?",
+          "expected_answer": "Si deux membres d'une équipe ont une différence de classement Elo de plus de 100 points, le mieux classé doit être placé devant le moins bien classé",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Au plus tard l'avant-veille du jour fixé pour la rencontre.",
+            "B": "Lors de la remise de la composition de l'équipe.",
+            "C": "L'heure prévue de la rencontre.",
+            "D": "Avant 22 heures le jour de la rencontre."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "L'heure prévue de la rencontre.",
+          "original_answer": "Les blancs ont joué malgré le coup illégal des noirs, ce sont eux qui sont sanctionnés."
+        },
+        "provenance": {
+          "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+          "docs": [
+            "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+          ],
+          "pages": [
+            5
+          ],
+          "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.6.d) Validité de la licence.",
+          "answer_explanation": "L'heure limite de prise de licence pour un joueur participant à une rencontre est l'heure prévue du début de la rencontre.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 17,
+            "success_rate": 0.88
+          }
+        },
+        "classification": {
+          "category": "interclubs",
+          "keywords": [
+            "licence",
+            "validité",
+            "heure rencontre",
+            "délai"
+          ],
+          "difficulty": 0.12,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q90"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] A01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p048-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:16.376842",
+            "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child00",
+            "old_score": 0.3699,
+            "new_score": 0.644,
+            "reason": "current_rank_227_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 90,
+      "id": "ffe:annales:clubs:091:89ec7556",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:091:89ec7556",
+        "legacy_id": "FR-ANN-UVC-101",
+        "content": {
+          "question": "Une joueuse demande des informations concernant la réclamation de nulle selon « la règle des 50 coups ». Quelle proposition est vraie ?",
+          "expected_answer": "Les clubs fautifs sont sanctionnés d'une amende de 150 € par infraction.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "L'arbitre en N1 et N2 peut être joueur/joueuse, même dans une autre division.",
+            "B": "En N3, l'arbitre d'un seul match peut jouer dans une division inférieure.",
+            "C": "En N4 un arbitre peut jouer son match de N4 et officier dans un maximum de deux matchs de N4 et de division inférieure.",
+            "D": "En N4 un arbitre peut jouer un match de N4 qu'il n'arbitre pas mais officier en même temps dans un match de N3."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "En N4 un arbitre peut jouer son match de N4 et officier dans un maximum de deux matchs de N4 et de division inférieure.",
+          "original_answer": "Les 50 coups doivent avoir été effectués sans que les rois soient mis en échec."
+        },
+        "provenance": {
+          "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p003-parent010-child00",
+          "docs": [
+            "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+          ],
+          "pages": [
+            3
+          ],
+          "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.5 Responsable des rencontres et arbitrage.",
+          "answer_explanation": "En N4, l'arbitre peut jouer son match de N4 et officier dans un maximum de 2 matchs de N4 et de division inférieure.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 18,
+            "success_rate": 0.75
+          }
+        },
+        "classification": {
+          "category": "interclubs",
+          "keywords": [
+            "arbitre joueur",
+            "N4",
+            "cumul",
+            "2 matchs"
+          ],
+          "difficulty": 0.25,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q91"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p066-parent -> LA-octobre2025.pdf-p041-parent [Q91] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:16.492877",
+            "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p002-parent003-child00",
+            "old_score": 0.2164,
+            "new_score": 0.6197,
+            "reason": "current_rank_1085_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 91,
+      "id": "ffe:annales:clubs:092:46d8ab4d",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:092:46d8ab4d",
+        "legacy_id": "FR-ANN-UVC-102",
+        "content": {
+          "question": "Voici des exemples de rappels à l'ordre à des joueurs. Lequel s'appuie sur l'article 4.2.1 des règles du jeu ?",
+          "expected_answer": "2.6 Matériel  \nIl appartient aux clubs qui participent à la compétition et qui accueillent de fournir la totalité du matériel de jeu nécessaire à un bon déroulement des matchs",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Les missions de fourniture de matériel, d'arbitrage et de transmission des résultats de la rencontre ne peuvent pas être partagées entre les deux équipes.",
+            "B": "L'équipe ayant les blancs sur les échiquiers pairs contacte le club organisateur afin que ce dernier confirme qu'il pourra assumer la mission du matériel, d'arbitrage et de transmission des résultats.",
+            "C": "La personne chargée de la direction du groupe n'est pas tenue d'être informée de qui est responsable du matériel, de l'arbitrage et de la transmission des résultats.",
+            "D": "Si le club hôte ne peut assurer la mission d'arbitrage, les deux clubs devront s'entendre pour trouver un arbitre. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les clubs seront sanctionnés d'une amende de 75 € chacun."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Si le club hôte ne peut assurer la mission d'arbitrage, les deux clubs devront s'entendre pour trouver un arbitre. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les clubs seront sanctionnés d'une amende de 75 € chacun.",
+          "original_answer": "Une joueuse n'a pas le droit d'adouber les pièces quand c'est à son adversaire de jouer. Règles du jeu - article 4.2.1 Seul le joueur au trait a le droit d'adouber."
+        },
+        "provenance": {
+          "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent011-child00",
+          "docs": [
+            "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+          ],
+          "pages": [
+            4
+          ],
+          "article_reference": "A02 - Le Championnat de France des Clubs - Article 2.6 Matériel.",
+          "answer_explanation": "Exception pour le cas de l'obligation d'un arbitre non-joueur/joueuse : si le club hôte ne peut pas offrir cette tâche alors les 2 clubs devront s'entendre pour trouver un arbitre. Si des frais doivent être engagés, ils seront partagés entre les 2 clubs. En cas d'infraction pour défaut d'arbitre non-joueur/joueuse, les 2 clubs seront sanctionnés d'une amende de 75 € chacun.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 19,
+            "success_rate": 0.75
+          }
+        },
+        "classification": {
+          "category": "interclubs",
+          "keywords": [
+            "matériel",
+            "arbitrage",
+            "amende 75€",
+            "défaut arbitre"
+          ],
+          "difficulty": 0.25,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q92"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[SMART_FIX] A02 - Le Championnat de France des Clubs - Article 2.6 Matériel.: A02_2025_26_Championnat_de_France_des_Cl -> A02_2025_26_Championnat_de_France_des_Cl (score:0.50) | [QAT] A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01 -> LA-octobre2025.pdf-p041-parent162-child01 (current_rank_143_too_low) [Q92] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:16.637039",
+            "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p005-parent016-child01",
+            "old_score": 0.4094,
+            "new_score": 0.5725,
+            "reason": "current_rank_143_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 94,
+      "id": "ffe:annales:clubs:095:dd1e92ae",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:095:dd1e92ae",
+        "legacy_id": "FR-ANN-UVC-105",
+        "content": {
+          "question": "Vous observez la finale suivante. Vous constatez que les blancs au trait viennent d'épuiser tout leur temps. Ils ont la main sur leur tour et regarde fixement la dernière ligne de l'échiquier. Quelle est votre intervention ?",
+          "expected_answer": "La personne responsable de la rencontre doit garder le ou les procès-verbaux 6 mois, comme pour les feuilles de parties.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "21h.",
+            "B": "22h.",
+            "C": "23h.",
+            "D": "00h."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "22h.",
+          "original_answer": "Vous déclarez la partie nulle."
+        },
+        "provenance": {
+          "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
+          "docs": [
+            "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+          ],
+          "pages": [
+            7
+          ],
+          "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.11 Transmission des résultats.",
+          "answer_explanation": "``` Le club responsable de la rencontre doit saisir le procès-verbal (PV) de la rencontre sur le site fédéral avant 22h.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 22,
+            "success_rate": 0.84
+          }
+        },
+        "classification": {
+          "category": "interclubs",
+          "keywords": [
+            "procès-verbal",
+            "saisie",
+            "22h",
+            "délai"
+          ],
+          "difficulty": 0.16,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q95"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": false,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p087-parent -> LA-octobre2025.pdf-p052-parent [Q95] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:17.004513",
+            "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p007-parent023-child00",
+            "old_score": 0.2167,
+            "new_score": 0.5793,
+            "reason": "current_rank_1022_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 96,
+      "id": "ffe:annales:clubs:097:1c5185db",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:097:1c5185db",
+        "legacy_id": "FR-ANN-UVC-107",
+        "content": {
+          "question": "Lors d'un tournoi en cadence 2h00, on vous appelle pour vous signaler une partie où les fous et cavaliers étaient mal placés lors de la position initiale. Quelle proposition est vraie ?",
+          "expected_answer": "En cas d'infraction, forfait administratif sur le 1 er échiquier concerné et tous ceux qui le suivent.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Oui, un joueur peut toujours monter en équipe 1.",
+            "B": "Oui, parce qu'il n'a pas encore joué trois parties avec l'équipe 2.",
+            "C": "Oui, car pour disputer le match (n) de N1, N2, N3, N4 ou une division inférieure, un joueur/joueuse doit avoir joué moins de (n) matchs dans le championnat.",
+            "D": "Non, ce joueur ne peut pas jouer en équipe 1 même si cette équipe joue dans un autre groupe."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Non, ce joueur ne peut pas jouer en équipe 1 même si cette équipe joue dans un autre groupe.",
+          "original_answer": "Vous n'intervenez jamais. Règles du jeu - article 7.2.1"
+        },
+        "provenance": {
+          "chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p006-parent018-child01",
+          "docs": [
+            "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+          ],
+          "pages": [
+            6
+          ],
+          "article_reference": "A02 - Le Championnat de France des Clubs - Article 3.7.d) Participation dans une même division.",
+          "answer_explanation": "Lorsqu'un club a plusieurs équipes engagées dans une même division, la participation d'un joueur ou d'une joueuse à plusieurs équipes d'une même division est interdite y compris d'éventuels barrages.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 24,
+            "success_rate": 0.68
+          }
+        },
+        "classification": {
+          "category": "interclubs",
+          "keywords": [
+            "participation",
+            "même division",
+            "plusieurs équipes",
+            "interdit"
+          ],
+          "difficulty": 0.32,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q97"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p010-parent [Q97] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:17.301958",
+            "old_chunk_id": "A02_2025_26_Championnat_de_France_des_Clubs.pdf-p004-parent015-child00",
+            "old_score": 0.2658,
+            "new_score": 0.5119,
+            "reason": "current_rank_986_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 98,
+      "id": "ffe:annales:clubs:099:0a0848b0",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:099:0a0848b0",
+        "legacy_id": "FR-ANN-UVC-109",
+        "content": {
+          "question": "Lors d'une partie en cadence standard que vous observez, une joueuse - qui n'a encore commis aucune irrégularité - pousse un pion sur la dernière ligne, le retire, appuie sur la pendule puis pose un cavalier sur la case de promotion. Quelle proposition est correcte ?",
+          "expected_answer": "2.5. Arbitre  \nEn Top Jeunes, chaque match est dirigé par un arbitre fédéral proposé par l'organisateur et agréé par la direction de la compétition après avis de la Direction Nationale de l'Arbitrage",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "La personne doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage de sa Ligue.",
+            "B": "La personne doit être Arbitre Fédéral Jeune.",
+            "C": "La personne doit être Arbitre Fédéral Club.",
+            "D": "La personne doit être Arbitre Fédéral Open."
+          },
+          "mcq_answer": "A",
+          "correct_answer": "La personne doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage de sa Ligue.",
+          "original_answer": "Vous n'interviendrez que si l'adversaire le réclame."
+        },
+        "provenance": {
+          "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
+          "docs": [
+            "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+          ],
+          "pages": [
+            2
+          ],
+          "article_reference": "J02 - Le Championnat de France Interclubs Jeunes - Article 2.5. Arbitres.",
+          "answer_explanation": "En Nationale 3, la personne faisant fonction d'arbitre doit être titulaire d'une licence A ayant l'aval de la direction régionale de l'arbitrage (DRA) de sa Ligue.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 26,
+            "success_rate": 0.55
+          }
+        },
+        "classification": {
+          "category": "arbitrage",
+          "keywords": [
+            "arbitre",
+            "N3 jeunes",
+            "licence A",
+            "DRA"
+          ],
+          "difficulty": 0.45,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q99"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p033-parent [Q99] manual audit 2026-02-04",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:17.583660",
+            "old_chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p002-parent008-child00",
+            "old_score": 0.1528,
+            "new_score": 0.5521,
+            "reason": "current_rank_1445_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 101,
+      "id": "ffe:annales:clubs:102:ba5593bb",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:clubs:102:ba5593bb",
+        "legacy_id": "FR-ANN-UVC-112",
+        "content": {
+          "question": "Dans le règlement d'un tournoi, le délai de forfait est de 30 minutes. Lors d'une ronde prévue à 14 h 00 et qui démarre à l'heure, deux joueurs devant s'affronter sont absents. A cause d'un problème ?",
+          "expected_answer": "À partir des 32 ème de finale, l'arbitre ne peut pas jouer et arbitrer.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Lors des demi-finales et la finale, la Direction de la Coupe de France désigne sans consultation l'arbitre.",
+            "B": "Jusqu'aux quarts de finale inclus, l'arbitre doit être au minimum Arbitre Fédéral de Club (AFC).",
+            "C": "Jusqu'en huitième de finale uniquement, le club prévu pour recevoir désigne l'arbitre de la rencontre.",
+            "D": "À partir des 32ème de finale, l'arbitre ne peut pas jouer et arbitrer."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "À partir des 32ème de finale, l'arbitre ne peut pas jouer et arbitrer.",
+          "original_answer": "À partir des 32ème de finale, l'arbitre ne peut pas jouer et arbitrer."
+        },
+        "provenance": {
+          "chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
+          "docs": [
+            "C01_2025_26_Coupe_de_France.pdf"
+          ],
+          "pages": [
+            2
+          ],
+          "article_reference": "C01 - Coupe de France - Article 2.5. Arbitres.",
+          "answer_explanation": "Selon l'article 2.5 du règlement de la Coupe de France, à partir des 32ème de finale, l'arbitre désigné ne peut pas cumuler les fonctions de joueur et d'arbitre. Cette règle vise à garantir l'impartialité et la disponibilité totale de l'arbitre pour les rencontres des phases finales du tournoi, où les enjeux sportifs sont plus importants.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "rules",
+            "question_num": 29,
+            "success_rate": 0.82
+          }
+        },
+        "classification": {
+          "category": "competitions",
+          "keywords": [
+            "Coupe France",
+            "arbitre",
+            "32e finale",
+            "pas joueur"
+          ],
+          "difficulty": 0.18,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "manual_llm_as_judge",
+          "reviewer": "claude_opus_4.5",
+          "answer_current": true,
+          "verified_date": "2026-02-04",
+          "pages_verified": true,
+          "batch": "Q102"
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": " | [QAT] C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00 -> LA-octobre2025.pdf-p046-parent171-child01 (better_match_found_delta_0.062) | [FIX] LA-octobre2025.pdf-p046-parent171-child01 -> C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:17.966624",
+            "old_chunk_id": "C01_2025_26_Coupe_de_France.pdf-p002-parent010-child00",
+            "old_score": 0.5399,
+            "new_score": 0.6022,
+            "reason": "better_match_found_delta_0.062"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 198,
+      "id": "ffe:annales:open:030:6f4d6220",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:030:6f4d6220",
+        "legacy_id": "FR-ANN-UVO-050",
+        "content": {
+          "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser ?",
+          "expected_answer": "3.7.c) Ordre des échiquiers  \nLes échiquiers 1 à 8 (1 à 4 en N 3) sont rangés par âge, le plus petit échiquier étant le plus âgé.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Pour jouer après un autre joueur, le joueur doit avoir moins de 100 points ELO de plus que tous les joueurs précédents.",
+            "B": "Les joueurs doivent obligatoirement être classés par ordre d'âge.",
+            "C": "Les joueurs doivent obligatoirement être classés par ordre ELO.",
+            "D": "Les échiquiers 7 et 8 peuvent être placés dans n'importe quel ordre."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Les échiquiers 7 et 8 peuvent être placés dans n'importe quel ordre.",
+          "original_answer": "Les échiquiers 7 et 8 peuvent être placés dans n'importe quel ordre."
+        },
+        "provenance": {
+          "chunk_id": "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf-p004-parent018-child00",
+          "docs": [
+            "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf"
+          ],
+          "pages": [
+            4
+          ],
+          "article_reference": "Article 3.7.c. du règlement des interclubs jeunes.",
+          "answer_explanation": "L'échiquier 8 peut être placé devant l'échiquier 7, quels que soient les Elo.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "clubs",
+            "question_num": 13,
+            "success_rate": 0.54
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "joueur"
+          ],
+          "difficulty": 0.46,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] J01_2025_26_Championnat_de_Fra -> J02_2025_26_Championnat_de_Fra",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:32.935063",
+            "old_chunk_id": "J01_2025_26_Championnat_de_France_Jeunes.pdf-p001-parent001-child00",
+            "old_score": 0.5613,
+            "new_score": 0.6401,
+            "reason": "better_match_found_delta_0.079"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 200,
+      "id": "ffe:annales:open:032:1ad21c08",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:032:1ad21c08",
+        "legacy_id": "FR-ANN-UVO-052",
+        "content": {
+          "question": "Lors d'une rencontre du championnat de France des Clubs, les feuilles de composition des équipes sont transcrites sur la feuille de match. Cette dernière comporte pour chaque joueur/joueuse le nom, pr ?",
+          "expected_answer": "- ➔ Quand , lors d'une partie au moins un des deux adversaires possède un classement de 1800 ou plus, chacun doit disposer d'un minimum de 90 minutes.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Le montant des droits d'homologation dépend de la cadence choisie.",
+            "B": "Cette cadence est considérée comme une cadence de jeu rapide.",
+            "C": "Il doit préciser que son tournoi est réservé aux joueurs et joueuses ayant un classement Elo strictement inférieur à 1800.",
+            "D": "Avec cette cadence, le tournoi n'a pas le droit d'accueillir les joueurs et joueuses des autres pays."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Il doit préciser que son tournoi est réservé aux joueurs et joueuses ayant un classement Elo strictement inférieur à 1800.",
+          "original_answer": "Il doit préciser que son tournoi est réservé aux joueurs et joueuses ayant un classement Elo strictement inférieur à 1800."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p182-parent533-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            182
+          ],
+          "article_reference": "LA - 6.1 Le classement standard de la FIDE Article 1 : Cadence de jeu - page 181 - R03 2. Conditions d'homologation.",
+          "answer_explanation": "Information rappelée dans la partie 5.2 préparation d'un tournoi paragraphe Homologation. Quand, lors d'une partie, les deux adversaires possèdent des classements en-dessous de 1800, chacun doit disposer d'un minimum de 60 minutes (50 min +10 s/coup). De plus, la FFE impose que dans ce cas le tournoi soit strictement réservé aux joueurs de moins de 1800 Elo.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "clubs",
+            "question_num": 16,
+            "success_rate": 0.89
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "mat",
+            "joueur",
+            "feuille",
+            "position"
+          ],
+          "difficulty": 0.11,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "abstractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] A03_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p186-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:33.203875",
+            "old_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+            "old_score": 0.482,
+            "new_score": 0.6707,
+            "reason": "current_rank_94_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 216,
+      "id": "ffe:annales:open:048:d394d0e3",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:048:d394d0e3",
+        "legacy_id": "FR-ANN-UVO-068",
+        "content": {
+          "question": "Cadence : 15 min + 3''/coup. C'est la dernière partie d'une ronde d'un tournoi rapide. Vous (arbitre) vous trouvez donc à côté de la table de jeu. Le conducteur des blancs, au trait, arrête la pen ?",
+          "expected_answer": "Le Président ou la Présidente de la F.F.E.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Le Bureau Fédéral.",
+            "B": "Les membres de la D.N.A.",
+            "C": "Le Président Fédéral.",
+            "D": "Le Comité Directeur de la F.F.E."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Le Président Fédéral.",
+          "original_answer": "Le Président Fédéral."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p014-parent041-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            14
+          ],
+          "article_reference": "LA 1.2 Règlement Intérieur DNA Article 3.1",
+          "answer_explanation": "LA 1.2 Règlement Intérieur DNA Article 3.1",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "tournament",
+            "question_num": 1,
+            "success_rate": 0.79
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "cadence",
+            "partie",
+            "coup",
+            "trait"
+          ],
+          "difficulty": 0.21,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p049-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:35.479540",
+            "old_chunk_id": "LA-octobre2025.pdf-p003-parent000-child00",
+            "old_score": 0.3327,
+            "new_score": 0.6328,
+            "reason": "current_rank_485_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 217,
+      "id": "ffe:annales:open:049:d033d8c3",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:049:d033d8c3",
+        "legacy_id": "FR-ANN-UVO-069",
+        "content": {
+          "question": "Cadence : 90 min + 30''/coup. Le conducteur des blancs joue Tc1+, le note, puis arrête la pendule en vous indiquant qu'avec le coup qu'il vient de jouer, la position est identique pour la 3ème foi ?",
+          "expected_answer": "Article 11 Examens  \nLa D.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Un rapport technique complet doit être validé par le Directeur des Titres.",
+            "B": "Il faut être titulaire du titre d'Arbitre Fédéral de Club.",
+            "C": "Sur l'aspect théorique, il faut être titulaire des UV0 et UVT.",
+            "D": "Sur l'aspect pratique, il faut obtenir une Attestation de Stage Pratique favorable."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Sur l'aspect pratique, il faut obtenir une Attestation de Stage Pratique favorable.",
+          "original_answer": "Sur l'aspect pratique, il faut obtenir une Attestation de Stage Pratique favorable. Corrigé : Il faut deux ASP favorables. Cf. article 11 RIDNA du LA"
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p022-parent095-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            22
+          ],
+          "article_reference": "LA 1.2 Règlement Intérieur DNA Article 11",
+          "answer_explanation": "LA 1.2 Règlement Intérieur DNA Article 11",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "tournament",
+            "question_num": 2,
+            "success_rate": 0.79
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "pendule",
+            "cadence",
+            "coup",
+            "position"
+          ],
+          "difficulty": 0.21,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] F01_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p013-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:35.606880",
+            "old_chunk_id": "LA-octobre2025.pdf-p010-parent025-child00",
+            "old_score": 0.1973,
+            "new_score": 0.4354,
+            "reason": "current_rank_840_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 224,
+      "id": "ffe:annales:open:056:3e6a8494",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:056:3e6a8494",
+        "legacy_id": "FR-ANN-UVO-078",
+        "content": {
+          "question": "En cadence 50 minutes + 10 secondes par coup, lesquels des affirmations suivantes sont exactes ? - -Affirmation 1 : La notation est obligatoire tout le temps puisqu'il y a un incrément supérieur ou é ?",
+          "expected_answer": "## 9.1.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Le Sonneborn-Berger.",
+            "B": "Le Koya.",
+            "C": "Le Cumulatif.",
+            "D": "Le Kashdan."
+          },
+          "mcq_answer": "A",
+          "correct_answer": "Le Sonneborn-Berger.",
+          "original_answer": "Seulement l'affirmation 1."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p151-parent447-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            151
+          ],
+          "article_reference": "LA 5.1 Départages Sonneborn-Berger Définition",
+          "answer_explanation": "LA 5.1 Départages Sonneborn-Berger Définition",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 12,
+            "success_rate": 0.84
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "mat",
+            "temps",
+            "cadence",
+            "coup",
+            "notation"
+          ],
+          "difficulty": 0.16,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p148-parent -> 2022_Reglement_medical_1908202",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:36.542313",
+            "old_chunk_id": "LA-octobre2025.pdf-p153-parent462-child00",
+            "old_score": 0.2369,
+            "new_score": 0.5465,
+            "reason": "current_rank_366_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 225,
+      "id": "ffe:annales:open:057:1149ade0",
+      "reason": "jun2021_data_quality",
+      "question": {
+        "id": "ffe:annales:open:057:1149ade0",
+        "legacy_id": "FR-ANN-UVO-079",
+        "content": {
+          "question": "Cadence : 20 min KO. Les blancs viennent de jouer une de leur pièce en h4 puis tombe au temps. La partie est déclarée nulle si la pièce en h4 est... - A - Un pion blanc. - B - Un cavalier blanc ?",
+          "expected_answer": "9.1. Sonneborn-Berger (Sb)  \nIl est obtenu en ajoutant , pour chaque ronde, le score ajusté de l'adversaire multiplié par le nombre de points marqué s contre lui. (Voir article 14 pour le calcul du score ajusté pour la gestion des rondes non jouées)",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "B": "Anna",
+            "C": "Svetlana",
+            "D": "Julianna"
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Julianna",
+          "original_answer": "Une tour blanche."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p151-parent447-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            151
+          ],
+          "article_reference": "LA 5.1 Départages Sonneborn-Berger Calcul",
+          "answer_explanation": "LA 5.1 Départages Sonneborn-Berger Calcul",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 13,
+            "success_rate": 0.74
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "nulle",
+            "temps",
+            "cadence",
+            "partie",
+            "pièce"
+          ],
+          "difficulty": 0.26,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p038-parent -> LA-octobre2025.pdf-p103-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:36.669972",
+            "old_chunk_id": "LA-octobre2025.pdf-p038-parent157-child00",
+            "old_score": 0.4053,
+            "new_score": 0.5434,
+            "reason": "current_rank_102_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 226,
+      "id": "ffe:annales:open:058:6a9ad243",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:058:6a9ad243",
+        "legacy_id": "FR-ANN-UVO-080",
+        "content": {
+          "question": "Ci-joint une partie de la grille américaine finale d'un tournoi. La joueuse arrivant 6e au classement vient vous voir. Elle a essayé de calculer son Buchholz. Une valeur lui manque, celle du score ajusté de la ronde où elle a été exempte. Voir grille américain page suivante. DIRECTION NATIONALE DE L'ARBITRAGE Quelle est cette valeur ?",
+          "expected_answer": "A la 6 ème ronde on peut dire qu'il a « gagné contre Exempt ». Gaétan termine le tournoi à 2/9  \nOn considère qu'à la ronde 6, il a gagné contre un adversaire qui termine aussi à 2/9  \nExemple 3 : Dans un tournoi en 7 rondes, la joueuse Myra demande un bye à la ronde 5.  \nElle termine le tournoi à 4.5/7",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Comme personne n'a rien dit, vous continuez la reconstitution malgré ce coup de Cavalier.",
+            "B": "Vous placez le Cavalier sur la bonne case, sans irrégularité et continuez la reconstitution.",
+            "C": "Coup irrégulier et on ne peut plus revenir en arrière. Vous êtes obligé d'accorder la partie nulle.",
+            "D": "Coup irrégulier effectué il y a trop longtemps. Celui qui a fait ce coup irrégulier perd la partie.",
+            "E": "La reconstitution s'arrête là et la partie doit reprendre au 22ème coup."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Coup irrégulier et on ne peut plus revenir en arrière. Vous êtes obligé d'accorder la partie nulle.",
+          "original_answer": "Coup irrégulier et on ne peut plus revenir en arrière. Vous êtes obligé d'accorder la partie nulle."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p155-parent466-child01",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            155
+          ],
+          "article_reference": "LA 5.1 Départages Score ajusté adversaire virtuel - Calcul",
+          "answer_explanation": "LA 5.1 Départages Score ajusté adversaire virtuel - Calcul",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "open",
+            "question_num": 14,
+            "success_rate": 0.58
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "nulle",
+            "cadence",
+            "partie",
+            "coup",
+            "joueur"
+          ],
+          "difficulty": 0.42,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": false,
+          "extraction_flags": [
+            "image_dependent"
+          ],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p056-parent -> LA-octobre2025.pdf-p048-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:36.816803",
+            "old_chunk_id": "LA-octobre2025.pdf-p147-parent430-child00",
+            "old_score": 0.4457,
+            "new_score": 0.5987,
+            "reason": "current_rank_88_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 227,
+      "id": "ffe:annales:open:059:e98a4668",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:059:e98a4668",
+        "legacy_id": "FR-ANN-UVO-081",
+        "content": {
+          "question": "Cadence : 20 min KO. Le conducteur des blancs laisse son roi en échec et appui sur la pendule. Le conducteur des noirs joue un pion qui attaque alors la dame blanche et dit « échec » (alors qu'il ?",
+          "expected_answer": "Sauf en cas de force majeure, toute partie où les deux adversaires ont effectué au moins un coup sera prise en compte pour le classement sauf si les règles relatives au fair-play en disposent autrement.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Dans le calcul de la variation du Elo d'un joueur FIDE, le coefficient de développement peut varier en fonction du nombre de parties jouées sur une période.",
+            "B": "En Coupe Jean-Claude Loubatière, si un joueur classé 1590 FIDE marque le point face à un joueur classé 1690 FIDE, la partie ne comptera pour aucun des deux joueurs.",
+            "C": "Si le téléphone du joueur ayant les blancs sonne après son premier coup mais avant le coup de l'adversaire, ce dernier gagne. Cette victoire entre dans le calcul de la variation du Elo.",
+            "D": "Lors d'un tournoi homologué FIDE au système suisse, les parties jouées entre deux joueurs classés FIDE comptent pour le classement."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Si le téléphone du joueur ayant les blancs sonne après son premier coup mais avant le coup de l'adversaire, ce dernier gagne. Cette victoire entre dans le calcul de la variation du Elo.",
+          "original_answer": "Si le téléphone du joueur ayant les blancs sonne après son premier coup mais avant le coup de l'adversaire, ce dernier gagne. Cette victoire entre dans le calcul de la variation du Elo."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p183-parent537-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            183
+          ],
+          "article_reference": "LA 6.1 Classement Fide Article 5.1",
+          "answer_explanation": "Cf. R.I.D.N.A - Commentaire Article 11.3.3 du LA.",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 15,
+            "success_rate": 0.26
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "échec",
+            "pendule",
+            "cadence"
+          ],
+          "difficulty": 0.74,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p045-parent -> LA-octobre2025.pdf-p183-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:36.957121",
+            "old_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+            "old_score": 0.3415,
+            "new_score": 0.5158,
+            "reason": "current_rank_310_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 228,
+      "id": "ffe:annales:open:060:5b4d6205",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:060:5b4d6205",
+        "legacy_id": "FR-ANN-UVO-082",
+        "content": {
+          "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué son roque à 2 mains. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie ?",
+          "expected_answer": "- 8.2.2. Ra est le classement moyen des adversaires classés auxquels se sont ajoutés deux adversaires virtuels classés 1800. On considère que les résultats contre ces adversaires virtuels sont des matchs nuls.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Impossible de calculer sans la table de conversion du score en pourcentage",
+            "B": "1620",
+            "C": "1649",
+            "D": "1660"
+          },
+          "mcq_answer": "D",
+          "correct_answer": "1660",
+          "original_answer": "1660"
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p185-parent544-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            185
+          ],
+          "article_reference": "LA 6.1 Classement Fide Article 8.24 Calcul",
+          "answer_explanation": "Il réalise 4 points sur 6, soit deux demi-points au-dessus de la moitié. Son classement sera de 1660 Ru = 1620 + 20 + 20 = 1660 Cf. Chapitre 6.1 Le classement de la FIDE - article 8.23 du LA.",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 16,
+            "success_rate": 0.42
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "roque",
+            "cadence",
+            "partie",
+            "coup",
+            "joueur"
+          ],
+          "difficulty": 0.58,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": false,
+          "extraction_flags": [
+            "image_dependent"
+          ],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] E02-Le_classement_rapide.pdf-p -> LA-octobre2025.pdf-p183-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:37.087749",
+            "old_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+            "old_score": 0.4024,
+            "new_score": 0.5254,
+            "reason": "current_rank_133_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 231,
+      "id": "ffe:annales:open:063:f66e301c",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:open:063:f66e301c",
+        "legacy_id": "FR-ANN-UVO-085",
+        "content": {
+          "question": "Parmi les 5 affirmations suivantes, une seule est vraie. Laquelle ? A - Après 50 coups sans prise de pion ni mouvement de pièce, l'arbitre peut intervenir pour déclarer la partie nulle. B - Quand on o ?",
+          "expected_answer": "- L'indemnité d'arbitrage est calculée de manière journalière, elle est comprise entre 50 € (plancher) et 100 € (plafond) par jour.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Le calcul de l'indemnité est valable pour l'arbitre principal.",
+            "B": "Exceptées certaines dispositions, l'indemnité journalière d'un arbitre est comprise entre",
+            "C": "L'indemnisation de l'arbitre est obligatoire et doit nécessairement figurer dans le budget de l'événement.",
+            "D": "Le quota d'arbitres est d'un par tranche de 100 joueurs."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Exceptées certaines dispositions, l'indemnité journalière d'un arbitre est comprise entre",
+          "original_answer": "Exceptées certaines dispositions, l'indemnité journalière d'un arbitre est comprise entre 50 € (plancher) et 90 € (plafond)."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p178-parent522-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            178
+          ],
+          "article_reference": "LA 5.2 Barème indemnisation Article 1",
+          "answer_explanation": "LA 5.2 Barème indemnisation Article 1",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 19,
+            "success_rate": 0.74
+          }
+        },
+        "classification": {
+          "category": "open",
+          "keywords": [
+            "mat",
+            "nulle",
+            "partie",
+            "coup",
+            "pièce"
+          ],
+          "difficulty": 0.26,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "temporal",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p165-parent -> LA-octobre2025.pdf-p171-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:37.635881",
+            "old_chunk_id": "LA-octobre2025.pdf-p165-parent000-child02",
+            "old_score": 0.3894,
+            "new_score": 0.5832,
+            "reason": "current_rank_252_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 309,
+      "id": "ffe:annales:rules:077:9764086b",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:rules:077:9764086b",
+        "legacy_id": "FR-ANN-UVR-133",
+        "content": {
+          "question": "Lors du championnat de France petit-poussins, le conducteur des blancs joue son pion sur la 8ème rangée puis appuie sur la pendule avant de remplacer son pion. Il a déjà fait un coup irrégulier plus tôt dans la partie. Si on remplace le pion par une dame (ce qui est l'intention du jeune joueur), le roi noir est mat (mat du couloir). Quel est le résultat de la partie ? A - Gain blanc. B - Nulle. C - Gain noir ?",
+          "expected_answer": "Un coup ne peut pas être déclaré illégal avant qu 'il ne soit achevé en appuyant sur sa pendule. Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Être titulaire d'une licence A valable pour la saison en cours.",
+            "B": "Respecter les limites d'âge et les titres requis, tels qu'indiqués dans la description du titre visé.",
+            "C": "Posséder un classement Elo (lent ou rapide, national ou F.I.D.E.).",
+            "D": "Toutes les réponses ci-dessus sont correctes."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Respecter les limites d'âge et les titres requis, tels qu'indiqués dans la description du titre visé.",
+          "original_answer": "Nulle"
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            48
+          ],
+          "article_reference": "Toutes",
+          "answer_explanation": "Toutes",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "tournament",
+            "question_num": 3,
+            "success_rate": 0.14
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "pendule",
+            "coup"
+          ],
+          "difficulty": 0.86,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": false,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 310,
+      "id": "ffe:annales:rules:078:6e3dc32c",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:rules:078:6e3dc32c",
+        "legacy_id": "FR-ANN-UVR-134",
+        "content": {
+          "question": "Cadence : 1h30 / 40 coups + 30 min + 30 sec. par coup (cadence des interclubs). La ronde a débuté à 14h15. A 17h54, les 2 joueurs ont joué 39 coups chacun (cf. les feuilles de partie) et la pendule indique : BLANC : 0 : 29 NOIR : 0 : 32 Le conducteur des noirs vous appelle et réclame le gain au temps. Question : Quelle est votre décision ?",
+          "expected_answer": "Si un compteur de coups (de « pressions sur la pendule ») est utilisé avec une pendule électronique, alors il est possible d'établir si 40 coups ont été achevés avant la chute d'un drapeau, car un drapeau (ou un « -» ) apparaît sur la pendule dans le cas où un joueur/une joueuse n'a pas achevé 40 coups dans le temps imparti.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Un AFC peut officier en tant qu'arbitre principal dans toutes les coupes locales, départementales, régionales, fédérales.",
+            "B": "Un AFC peut officier dans n'importe quel tournoi en tant qu'adjoint.",
+            "C": "Un AFC peut officier en tant qu'arbitre principal dans toutes les compétitions jeunes y compris celles utilisant l'appariement au système suisse.",
+            "D": "A condition d'être agréé F.I.D.E, un AFC peut officier en tant qu'arbitre principal dans tous les types d'événements échiquéens homologués par la F.I.D.E."
+          },
+          "mcq_answer": "A",
+          "correct_answer": "Un AFC peut officier en tant qu'arbitre principal dans toutes les coupes locales, départementales, régionales, fédérales.",
+          "original_answer": "Gain noir au temps."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p045-parent169-child02",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            45
+          ],
+          "article_reference": "Lente",
+          "answer_explanation": "Lente",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "tournament",
+            "question_num": 4,
+            "success_rate": 0.09
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "pendule",
+            "cadence",
+            "partie",
+            "coup",
+            "joueur"
+          ],
+          "difficulty": 0.91,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p048-parent -> LA-octobre2025.pdf-p045-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:47.383023",
+            "old_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+            "old_score": 0.4458,
+            "new_score": 0.5372,
+            "reason": "current_rank_28_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 317,
+      "id": "ffe:annales:rules:085:d7d2e0cb",
+      "reason": "jun2021_coherent_duplicate",
+      "question": {
+        "id": "ffe:annales:rules:085:d7d2e0cb",
+        "legacy_id": "FR-ANN-UVR-145",
+        "content": {
+          "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué son roque à 2 mains. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie. Quelle est votre réponse ? A - Vous accordez le gain au joueur qui est venu vous voir. B - Vous ajoutez 2 minutes à la pendule du joueur qui est venu vous voir en validant le roque. C - Vous demandez au joueur qui a joué le roque à 2 mains de jouer un autre coup de Roi. D - Le roque est interdit lors de ce tour mais le joueur peut jouer ce qu'il veut d'autre. L'adversaire reçoit un bonus de 2 minutes ?",
+          "expected_answer": "Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Vous accordez le gain au joueur qui est venu vous voir.",
+            "B": "Vous ajoutez 2 minutes à la pendule du joueur qui est venu vous voir en validant le roque.",
+            "C": "Vous demandez au joueur qui a joué le roque à 2 mains de jouer un autre coup de Roi.",
+            "D": "Le roque est interdit lors de ce tour mais le joueur peut jouer ce qu'il veut d'autre. L'adversaire reçoit un bonus de 2 minutes.",
+            "E": "Ce n'est pas interdit. Vous laissez continuer la partie avec le roque."
+          },
+          "mcq_answer": "A",
+          "correct_answer": "Vous accordez le gain au joueur qui est venu vous voir.",
+          "original_answer": "Vous accordez le gain au joueur qui est venu vous voir."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            48
+          ],
+          "article_reference": "Lente",
+          "answer_explanation": "Lente",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 16,
+            "success_rate": 0.83
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "roque",
+            "cadence",
+            "partie",
+            "coup",
+            "joueur"
+          ],
+          "difficulty": 0.17,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] 2022_Reglement_medical_1908202 -> C01_2025_26_Coupe_de_France.pd",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:48.279487",
+            "old_chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+            "old_score": 0.4787,
+            "new_score": 0.584,
+            "reason": "current_rank_24_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 320,
+      "id": "ffe:annales:rules:088:06844059",
+      "reason": "jun2021_data_quality",
+      "question": {
+        "id": "ffe:annales:rules:088:06844059",
+        "legacy_id": "FR-ANN-UVR-148",
+        "content": {
+          "question": "Parmi les 5 affirmations suivantes, une seule est fausse. Laquelle ? A - Lors de la promotion, le pion n'a pas nécessairement à être placé sur la case d'arrivée. B - Si un joueur touche plusieurs pièces adverses, il doit prendre la première pièce touchée pouvant être prise. C - Si un joueur touche une Tour, puis son Roi, en ayant l'intention de roquer. Il n'est pas autorisé à roquer et il est obligé de jouer la Tour touchée. D - Il est interdit de recentrer une de ses pièces tant que le joueur n'est pas au trait ?",
+          "expected_answer": "Enlever le pion et poser la nouvelle pièce sur la case de promotion peuvent se faire dans n'importe quel ordre.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "E": "Lors d'une promotion, la première pièce de sa couleur touchée après le pion devra être la pièce qui remplacera le pion."
+          },
+          "mcq_answer": "E",
+          "correct_answer": "Lors d'une promotion, la première pièce de sa couleur touchée après le pion devra être la pièce qui remplacera le pion.",
+          "original_answer": "Lors d'une promotion, la première pièce de sa couleur touchée après le pion devra être la pièce qui remplacera le pion."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p042-parent163-child01",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            42
+          ],
+          "article_reference": "Toutes",
+          "answer_explanation": "Toutes",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 20,
+            "success_rate": 0.8
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "mat",
+            "joueur",
+            "promotion",
+            "case"
+          ],
+          "difficulty": 0.2,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p042-parent -> J02_2025_26_Championnat_de_Fra",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 322,
+      "id": "ffe:annales:rules:090:2d67e0b8",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:rules:090:2d67e0b8",
+        "legacy_id": "FR-ANN-UVR-150",
+        "content": {
+          "question": "Lors du championnat de France petit-poussins, le conducteur des blancs joue son pion sur la 8ème rangée puis appuie sur la pendule avant de remplacer son pion. Il a déjà fait un coup irrégulier plus tôt dans la partie. Si on remplace le pion par une dame (ce qui est l'intention du jeune joueur), le roi noir est mat (mat du couloir). Quel est le résultat de la partie ? A - Gain blanc. B - Nulle. C - Gain noir ?",
+          "expected_answer": "Un coup ne peut pas être déclaré illégal avant qu 'il ne soit achevé en appuyant sur sa pendule. Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Être titulaire d'une licence A valable pour la saison en cours.",
+            "B": "Respecter les limites d'âge et les titres requis, tels qu'indiqués dans la description du titre visé.",
+            "C": "Posséder un classement Elo (lent ou rapide, national ou F.I.D.E.).",
+            "D": "Toutes les réponses ci-dessus sont correctes."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Respecter les limites d'âge et les titres requis, tels qu'indiqués dans la description du titre visé.",
+          "original_answer": "Nulle"
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            48
+          ],
+          "article_reference": "Toutes",
+          "answer_explanation": "Toutes",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "tournament",
+            "question_num": 3,
+            "success_rate": 0.14
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "pendule",
+            "coup",
+            "joueur",
+            "article"
+          ],
+          "difficulty": 0.86,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": false,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 323,
+      "id": "ffe:annales:rules:091:4504ee69",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:rules:091:4504ee69",
+        "legacy_id": "FR-ANN-UVR-151",
+        "content": {
+          "question": "Cadence : 1h30 / 40 coups + 30 min + 30 sec. par coup (cadence des interclubs). La ronde a débuté à 14h15. A 17h54, les 2 joueurs ont joué 39 coups chacun (cf. les feuilles de partie) et la pendule indique : BLANC : 0 : 29 NOIR : 0 : 32 Le conducteur des noirs vous appelle et réclame le gain au temps. Question : Quelle est votre décision ?",
+          "expected_answer": "Si un compteur de coups (de « pressions sur la pendule ») est utilisé avec une pendule électronique, alors il est possible d'établir si 40 coups ont été achevés avant la chute d'un drapeau, car un drapeau (ou un « -» ) apparaît sur la pendule dans le cas où un joueur/une joueuse n'a pas achevé 40 coups dans le temps imparti.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Un AFC peut officier en tant qu'arbitre principal dans toutes les coupes locales, départementales, régionales, fédérales.",
+            "B": "Un AFC peut officier dans n'importe quel tournoi en tant qu'adjoint.",
+            "C": "Un AFC peut officier en tant qu'arbitre principal dans toutes les compétitions jeunes y compris celles utilisant l'appariement au système suisse.",
+            "D": "A condition d'être agréé F.I.D.E, un AFC peut officier en tant qu'arbitre principal dans tous les types d'événements échiquéens homologués par la F.I.D.E."
+          },
+          "mcq_answer": "A",
+          "correct_answer": "Un AFC peut officier en tant qu'arbitre principal dans toutes les coupes locales, départementales, régionales, fédérales.",
+          "original_answer": "Gain noir au temps."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p045-parent169-child02",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            45
+          ],
+          "article_reference": "Lente",
+          "answer_explanation": "Lente",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "tournament",
+            "question_num": 4,
+            "success_rate": 0.09
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "pendule",
+            "temps",
+            "coup"
+          ],
+          "difficulty": 0.91,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> 2025_Reglement_Interieur_20250",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:49.112605",
+            "old_chunk_id": "LA-octobre2025.pdf-p044-parent166-child00",
+            "old_score": 0.4987,
+            "new_score": 0.5893,
+            "reason": "better_match_found_delta_0.091"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 324,
+      "id": "ffe:annales:rules:092:6e7290e6",
+      "reason": "jun2021_coherent_duplicate",
+      "question": {
+        "id": "ffe:annales:rules:092:6e7290e6",
+        "legacy_id": "FR-ANN-UVR-152",
+        "content": {
+          "question": "Cadence : 20 min KO. Dans cette situation, le conducteur des blancs joue dxc4 et appuie sur la pendule. Comme c'est un coup illégal, vous ajoutez alors 2 minutes au conducteur des noirs et demandez au conducteur des blancs de jouer autre chose. Le conducteur des blancs joue alors Th6 +. Le conducteur des noirs joue le Roi immédiatement. Que faites-vous ?",
+          "expected_answer": "Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule. Bien entendu, le coup joué doit respecter l'article 4.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Rien, si le conducteur des noirs n'intervient pas, la partie continue.",
+            "B": "Vous intervenez pour demander aux blancs de jouer leur pion.",
+            "C": "Vous intervenez pour donner le gain aux noirs car les blancs viennent de faire un 2ème coup irrégulier."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Vous intervenez pour demander aux blancs de jouer leur pion.",
+          "original_answer": "Vous intervenez pour demander aux blancs de jouer leur pion."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            48
+          ],
+          "article_reference": "Art. 7.5.1.",
+          "answer_explanation": "Art. 7.5.1.",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 9,
+            "success_rate": null
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "Art. 7.5.1.",
+            "cadence",
+            "pendule",
+            "roi"
+          ],
+          "difficulty": 0.3,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": " | [2026-01-26] requires_context:failure_analysis",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 325,
+      "id": "ffe:annales:rules:093:8d0ba054",
+      "reason": "jun2021_coherent_duplicate",
+      "question": {
+        "id": "ffe:annales:rules:093:8d0ba054",
+        "legacy_id": "FR-ANN-UVR-153",
+        "content": {
+          "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué puis il a déclenché sa pendule avec l'autre main. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie. Quelle est votre réponse ?",
+          "expected_answer": "Parfois, ce qui suit se produit :  \nUn joueur ou une joueuse renverse des pièces ; dans cette situation, l'adversaire laisse son doigt sur le balancier de la pendule pour l'empêcher d'appuyer sur la pendule.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Vous accordez le gain au joueur qui est venu vous voir.",
+            "B": "Vous ajoutez 2 minutes à la pendule du joueur qui est venu vous voir.",
+            "C": "Vous faites un rappel à la règle à l'adversaire, sans pénalité."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Vous ajoutez 2 minutes à la pendule du joueur qui est venu vous voir.",
+          "original_answer": "Vous ajoutez 2 minutes à la pendule du joueur qui est venu vous voir."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p044-parent168-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            44
+          ],
+          "article_reference": "Art. 6.2.3. et 12.9",
+          "answer_explanation": "Art. 6.2.3. et 12.9",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 10,
+            "success_rate": 0.31
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "temps",
+            "joueur",
+            "adversaire",
+            "irrégularité"
+          ],
+          "difficulty": 0.69,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p056-parent",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 327,
+      "id": "ffe:annales:rules:095:cc85a835",
+      "reason": "jun2021_coherent_duplicate",
+      "question": {
+        "id": "ffe:annales:rules:095:cc85a835",
+        "legacy_id": "FR-ANN-UVR-155",
+        "content": {
+          "question": "Cadence : 50 minutes + 10 secondes par coup. Un joueur vient vous voir pour se plaindre que son adversaire joue son coup immédiatement après qu'il a joué, sans lui laisser le temps d'appuyer sur la pendule. Quelle est votre réponse ? A - Vous allez faire un rappel à la règle à l'adversaire, sans sanction. B - Vous ajoutez 2 minutes au joueur qui s'est plaint et vous surveillez pour que la situation ne se reproduise plus. C - Vous répondez qu'il n'y a pas d'irrégularité. Le joueur qui se plaint garde le droit d'appuyer sur la pendule même s'il est au trait. D - Vous répondez qu'il n'y a pas d'irrégularité. Il n'est bien sûr pas possible pour lui d'appuyer sur la pendule avant de jouer - un nouveau coup ?",
+          "expected_answer": "- 1.3. On dit d'un joueur ou une joueuse qu'il/elle « a le trait » lorsque son adversaire a « joué » son coup.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Vous allez faire un rappel à la règle à l'adversaire, sans sanction.",
+            "B": "Vous ajoutez 2 minutes au joueur qui s'est plaint et vous surveillez pour que la situation ne se reproduise plus.",
+            "C": "Vous répondez qu'il n'y a pas d'irrégularité. Le joueur qui se plaint garde le droit d'appuyer sur la pendule même s'il est au trait.",
+            "D": "Vous répondez qu'il n'y a pas d'irrégularité. Il n'est bien sûr pas possible pour lui d'appuyer sur la pendule avant de jouer un nouveau coup."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "Vous répondez qu'il n'y a pas d'irrégularité. Le joueur qui se plaint garde le droit d'appuyer sur la pendule même s'il est au trait.",
+          "original_answer": "Vous répondez qu'il n'y a pas d'irrégularité. Le joueur qui se plaint garde le droit d'appuyer sur la pendule même s'il est au trait"
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p036-parent155-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            36
+          ],
+          "article_reference": "Lente",
+          "answer_explanation": "Lente",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 21,
+            "success_rate": 0.37
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "coup",
+            "joueur",
+            "adversaire",
+            "trait",
+            "irrégularité"
+          ],
+          "difficulty": 0.63,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "abstractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p066-parent -> Contrat_de_delegation_15032022",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:49.614339",
+            "old_chunk_id": "LA-octobre2025.pdf-p037-parent155-child01",
+            "old_score": 0.3629,
+            "new_score": 0.4974,
+            "reason": "current_rank_98_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 328,
+      "id": "ffe:annales:rules:096:db7b1227",
+      "reason": "jun2021_coherent_duplicate",
+      "question": {
+        "id": "ffe:annales:rules:096:db7b1227",
+        "legacy_id": "FR-ANN-UVR-156",
+        "content": {
+          "question": "Cadence : 1h30 + 30 secondes par coups. Vous soupçonnez très fortement un joueur d'avoir un téléphone allumé dans la poche de sa veste qu'il garde tout le temps lors de ses déplacements. Vous lui demander de vider ses poches devant vous, ce que le joueur refuse. Que pouvez-vous faire ?",
+          "expected_answer": "Le résultat est 1-0 ou 0-1. Peu importe si, lorsque le téléphone mobile est découvert, l'adversaire ne peut pas mater le roi du joueur fautif par aucune suite de coups légaux : il gagne la partie",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Rien si ce n'est surveiller ce qu'il fait lors de ses déplacements.",
+            "B": "Déclarer ce joueur perdant et l'exclure du tournoi.",
+            "C": "Alerter la gendarmerie locale pour qu'ils puissent fouiller les poches du joueur concerné."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Déclarer ce joueur perdant et l'exclure du tournoi.",
+          "original_answer": "Déclarer ce joueur perdant et l'exclure du tournoi."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            53
+          ],
+          "article_reference": "Art. 11.3.3 et 12.9.",
+          "answer_explanation": "Art. 11.3.3 et 12.9.",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 8,
+            "success_rate": 0.66
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "joueur"
+          ],
+          "difficulty": 0.34,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> LA-octobre2025.pdf-p054-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:49.747560",
+            "old_chunk_id": "LA-octobre2025.pdf-p053-parent184-child00",
+            "old_score": 0.3345,
+            "new_score": 0.5643,
+            "reason": "current_rank_293_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 329,
+      "id": "ffe:annales:rules:097:631f31e8",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:rules:097:631f31e8",
+        "legacy_id": "FR-ANN-UVR-157",
+        "content": {
+          "question": "Le Sonneborn-Berger (SB) est la somme des points des adversaires que le joueur a battu, et la demi-somme des points des adversaires contre lesquels le joueur a fait nulle. ``` SB (Svetlana) = 5 + 3 + ?",
+          "expected_answer": "De même dans le cas des articles 9.6.1 et 9.6.2, si un joueur ou une joueuse n'achève pas le nombre de coups prescrit dans le temps imparti, la partie est nulle si son adversaire n'est pas en mesure de mater .  \nCela signifie que la seule chute du drapeau ne permet pas à l'Arbitre de conclure à la perte de la partie pour le joueur ou la joueuse dont le drapeau est tombé",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Un pion blanc.",
+            "B": "Un cavalier blanc.",
+            "C": "Un fou blanc.",
+            "D": "Une tour blanche.",
+            "E": "Toutes les propositions citées donnent partie nulle."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Une tour blanche.",
+          "original_answer": "Une tour blanche."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p046-parent171-child02",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            46
+          ],
+          "article_reference": "Rapide",
+          "answer_explanation": "Rapide",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "open",
+            "question_num": 13,
+            "success_rate": 0.26
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "nulle",
+            "joueur",
+            "adversaire"
+          ],
+          "difficulty": 0.74,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> 2018_Reglement_Disciplinaire20",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:49.871679",
+            "old_chunk_id": "LA-octobre2025.pdf-p148-parent436-child00",
+            "old_score": 0.4171,
+            "new_score": 0.7413,
+            "reason": "better_match_found_delta_0.324"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 330,
+      "id": "ffe:annales:rules:098:3fbacfde",
+      "reason": "jun2021_data_quality",
+      "question": {
+        "id": "ffe:annales:rules:098:3fbacfde",
+        "legacy_id": "FR-ANN-UVR-158",
+        "content": {
+          "question": "Cadence : 1h30 + 30''/coup Au 66ème coup, un joueur vous demande la nulle pour 3 fois la même position. Son adversaire conteste. Commence alors la reconstitution de la partie. Au cours de cette reconstitution, vous vous apercevez avec les joueurs qu'il y a eu un coup illégal (mouvement de cavalier illicite) au 22ème coup. Question : Que faites-vous ?",
+          "expected_answer": "Cependant, quand 2 actions illégales se produisent lors d'un même coup (par exemple, un roque illégal et joué à deux mains, une promotion illégale et jouée à deux mains, une prise illégale et jouée à deux mains), cela compte pour un (1) seul coup illégal et la partie ne doit pas être déclarée terminée juste pour cela, sauf s'il s'agit de la deuxième irrégularité.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Comme personne n'a rien dit, vous continuez la reconstitution malgré ce coup de Cavalier.",
+            "B": "Vous placez le Cavalier sur la bonne case, sans irrégularité et continuez la reconstitution.",
+            "C": "Coup irrégulier et on ne peut plus revenir en arrière. Vous êtes obligé d'accorder la partie nulle.",
+            "D": "Coup irrégulier effectué il y a trop longtemps. Celui qui a fait ce coup irrégulier perd la partie.",
+            "E": "La reconstitution s'arrête là et la partie doit reprendre au 22ème coup."
+          },
+          "mcq_answer": "E",
+          "correct_answer": "La reconstitution s'arrête là et la partie doit reprendre au 22ème coup.",
+          "original_answer": "La reconstitution s'arrête là et la partie doit reprendre au 22ème coup. DIRECTION NATIONALE DE L'ARBITRAGE"
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            49
+          ],
+          "article_reference": "Lente",
+          "answer_explanation": "Lente",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 14,
+            "success_rate": 0.8
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "joueur",
+            "adversaire"
+          ],
+          "difficulty": 0.2,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "abstractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [
+            "image_dependent"
+          ],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] Contrat_de_delegation_15032022 -> 2018_Reglement_Disciplinaire20",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 331,
+      "id": "ffe:annales:rules:099:a1e9cd97",
+      "reason": "jun2021_coherent_duplicate",
+      "question": {
+        "id": "ffe:annales:rules:099:a1e9cd97",
+        "legacy_id": "FR-ANN-UVR-159",
+        "content": {
+          "question": "Cadence : 60 minutes + 30 secondes par coup. Un jeune joueur vient se plaindre que son adversaire a joué son roque à 2 mains. Son adversaire avait déjà fait un coup irrégulier plus tôt dans la partie. Quelle est votre réponse ? A - Vous accordez le gain au joueur qui est venu vous voir. B - Vous ajoutez 2 minutes à la pendule du joueur qui est venu vous voir en validant le roque. C - Vous demandez au joueur qui a joué le roque à 2 mains de jouer un autre coup de Roi. D - Le roque est interdit lors de ce tour mais le joueur peut jouer ce qu'il veut d'autre. L'adversaire reçoit un bonus de 2 minutes ?",
+          "expected_answer": "Le joueur ou la joueuse peut donc corriger son coup sans avoir de sanction , même s'il /elle avait déjà lâché la pièce sur l'échiquier, à condition qu'il /elle n'ait pas appuyé sur la pendule.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Vous accordez le gain au joueur qui est venu vous voir.",
+            "B": "Vous ajoutez 2 minutes à la pendule du joueur qui est venu vous voir en validant le roque.",
+            "C": "Vous demandez au joueur qui a joué le roque à 2 mains de jouer un autre coup de Roi.",
+            "D": "Le roque est interdit lors de ce tour mais le joueur peut jouer ce qu'il veut d'autre. L'adversaire reçoit un bonus de 2 minutes.",
+            "E": "Ce n'est pas interdit. Vous laissez continuer la partie avec le roque."
+          },
+          "mcq_answer": "A",
+          "correct_answer": "Vous accordez le gain au joueur qui est venu vous voir.",
+          "original_answer": "Vous accordez le gain au joueur qui est venu vous voir"
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p048-parent175-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            48
+          ],
+          "article_reference": "Lente",
+          "answer_explanation": "Lente",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "rules",
+            "question_num": 16,
+            "success_rate": 0.83
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "joueur",
+            "adversaire"
+          ],
+          "difficulty": 0.17,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] LA-octobre2025.pdf-p190-parent -> LA-octobre2025.pdf-p049-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:50.130879",
+            "old_chunk_id": "LA-octobre2025.pdf-p049-parent175-child01",
+            "old_score": 0.3881,
+            "new_score": 0.6996,
+            "reason": "current_rank_287_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 332,
+      "id": "ffe:annales:rules:100:7e882181",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:rules:100:7e882181",
+        "legacy_id": "FR-ANN-UVR-160",
+        "content": {
+          "question": "Le système Hort consiste à attribuer à chaque joueur primé d'un tournoi, et ex aequo avec d'autres joueurs, la moitié du prix qu'il aurait obtenu en tenant compte de sa place et la moitié du prix qu'i ?",
+          "expected_answer": "17.1. Mesures administratives d'un arbitre sur les lieux du tournoi  \nUn arbitre fédéral peut être amené à infliger des pénalités sportives, conformément au dispositif décrit dans l'article 12.9 des règles du jeu de la F.I.D.E.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Prendre des mesures spéciales et nécessaires dans l'intérêt des joueurs handicapés.",
+            "B": "Assurer le traitement administratif de l'après tournoi, avec la FFE notamment.",
+            "C": "Suivre les règles et directives contre la tricherie.",
+            "D": "S'occuper de la mise en place du matériel, préparer la salle.",
+            "E": "S'assurer qu'un bon environnement de jeu soit maintenu."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "S'occuper de la mise en place du matériel, préparer la salle.",
+          "original_answer": "S'occuper de la mise en place du matériel, préparer la salle."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p025-parent113-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            25
+          ],
+          "article_reference": "Toutes",
+          "answer_explanation": "Toutes",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "open",
+            "question_num": 18,
+            "success_rate": 0.77
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "joueur"
+          ],
+          "difficulty": 0.23,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "summary",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": false,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] C04_2025_26_Coupe_de_la_parité -> 2018_Reglement_Disciplinaire20",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 333,
+      "id": "ffe:annales:rules:101:b57c84f0",
+      "reason": "jun2021_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:rules:101:b57c84f0",
+        "legacy_id": "FR-ANN-UVR-161",
+        "content": {
+          "question": "des candidats n'ont pas marqué le forfait de Samuel dans PAPI, et ont mis juste 1-0 à la place, ce qui a pour conséquence que son adversaire n'est pas considéré comme flotteur descendant. De même, de ?",
+          "expected_answer": "De même dans le cas des articles 9.6.1 et 9.6.2, si un joueur ou une joueuse n'achève pas le nombre de coups prescrit dans le temps imparti, la partie est nulle si son adversaire n'est pas en mesure de mater .  \nCela signifie que la seule chute du drapeau ne permet pas à l'Arbitre de conclure à la perte de la partie pour le joueur ou la joueuse dont le drapeau est tombé",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Un pion blanc.",
+            "B": "Un cavalier blanc.",
+            "C": "Un fou blanc.",
+            "D": "Une tour blanche.",
+            "E": "Toutes les propositions citées donnent partie nulle."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Une tour blanche.",
+          "original_answer": "Une tour blanche."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p046-parent171-child02",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            46
+          ],
+          "article_reference": "Rapide",
+          "answer_explanation": "Rapide",
+          "annales_source": {
+            "session": "jun2021",
+            "uv": "tournament",
+            "question_num": 13,
+            "success_rate": 0.26
+          }
+        },
+        "classification": {
+          "category": "regles_jeu",
+          "keywords": [
+            "forfait",
+            "adversaire"
+          ],
+          "difficulty": 0.74,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "extractive"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "choice",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] 2018_Reglement_Disciplinaire20 -> 2018_Reglement_Disciplinaire20",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:50.377823",
+            "old_chunk_id": "LA-octobre2025.pdf-p046-parent171-child01",
+            "old_score": 0.4497,
+            "new_score": 0.5043,
+            "reason": "better_match_found_delta_0.055"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 376,
+      "id": "ffe:annales:tournament:038:b2eb5fa2",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:tournament:038:b2eb5fa2",
+        "legacy_id": "FR-ANN-UVT-056",
+        "content": {
+          "question": "Pour la saison sportive 2024-2025, une jeune joueuse prend sa licence, elle est née le 26 janvier 2011. Quelle est sa catégorie d'âge ?",
+          "expected_answer": "A.4 Flotteurs",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "2 flotteurs montants et 2 flotteurs descendants.",
+            "B": "2 flotteurs montants et 3 flotteurs descendants.",
+            "C": "2 flotteurs montants et 5 flotteurs descendants.",
+            "D": "3 flotteurs montants et 3 flotteurs descendants.",
+            "E": "3 flotteurs montants et 4 flotteurs descendants."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "2 flotteurs montants et 5 flotteurs descendants.",
+          "original_answer": "2 flotteurs montants et 5 flotteurs descendants."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p125-parent363-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            125
+          ],
+          "article_reference": "LA - Chap 3.5 Les règles du système Suisse - Partie C.04.3, paragraphe A.4 : flotteurs. (Ou utilisation de PAPI qui donne la réponse)",
+          "answer_explanation": "On pouvait regarder l'aide aux appariements donnée par PAPI : On voit donc que 2 joueurs ont été flotteur montant : AROUSSTAMIAN et TRAVAILLOUX (tous les deux à la ronde 2). Et 5 joueurs ont été flotteur descendant : POP (exempt à la ronde 1), DAKSH JAIN et MIGNOT (les adversaires de AROUSSTAMIAN et TRAVAILLOUX à la ronde 2), BARDET (exempt à la ronde 2) et ZIENKIEWICZ (gain par forfait à la ronde 2). Note : HORN, perdant par forfait à la ronde 2 serait aussi considéré comme flotteur descendant, mais comme il ne participe pas à la ronde 3, on ne le compte pas. De toutes façons, pour ne pas induire les candidats en erreur, la réponse avec 6 flotteurs descendants n'était pas proposée.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "clubs",
+            "question_num": 6,
+            "success_rate": 0.55
+          }
+        },
+        "classification": {
+          "category": "tournoi",
+          "keywords": [
+            "licence"
+          ],
+          "difficulty": 0.45,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "explanation",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] J01_2025_26_Championnat_de_Fra -> 2024_Statuts20240420.pdf-p015-",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:55.865945",
+            "old_chunk_id": "LA-octobre2025.pdf-p009-parent016-child00",
+            "old_score": 0.1646,
+            "new_score": 0.4629,
+            "reason": "current_rank_1292_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 379,
+      "id": "ffe:annales:tournament:041:7a4c52d4",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:tournament:041:7a4c52d4",
+        "legacy_id": "FR-ANN-UVT-061",
+        "content": {
+          "question": "Les joueurs et joueuses, non licenciés en début de tournoi A ou B, devront prendre une licence dans le club organisateur. Celui-ci s'engage à fournir un reçu aux personnes concernées et à régulariser la prise de licence. Quel est le délai de régularisation pour le club ?",
+          "expected_answer": "Cependant, quand 2 actions illégales se produisent lors d'un même coup (par exemple, un roque illégal et joué à deux mains, une promotion illégale et jouée à deux mains, une prise illégale et jouée à deux mains), cela compte pour un (1) seul coup illégal et la partie ne doit pas être déclarée terminée juste pour cela, sauf s'il s'agit de la deuxième irrégularité",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Gain blanc",
+            "B": "Partie nulle.",
+            "C": "Gain noir."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "Partie nulle.",
+          "original_answer": "Cela doit être effectué au plus tard le lendemain de la fin du tournoi."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p049-parent176-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            49
+          ],
+          "article_reference": "LA. Article 7.5.5. des règles du jeu.",
+          "answer_explanation": "7.5.5. → « Pour le second coup illégal achevé par la même personne, l'arbitre déclare la partie perdue par Table 7 : Dans cette positon, le conducteur des blancs joue Rf5et il achève son coup en appuyant sur la pendule. Le conducteur des noirs vous appelle pour signaler un 2ème coup illégal des blancs (vous aviez effectivement constaté un coup illégal des blancs quelques minutes plus tôt). Quel est le résultat de la partie ? celle-ci. Toutefois, la partie est nulle, si la position est telle que l'adversaire ne peut mater son roi par aucune suite de coups légaux. » Ici, il n'existe aucune suite de coup légaux qui permet au noirs de gagner. Les blancs sont au trait et les 2 seuls coups légaux dans blancs emmènent un mat pour les blancs. → Partie nulle, c'est la dernière phrase du 7.5.5.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "clubs",
+            "question_num": 13,
+            "success_rate": 0.6
+          }
+        },
+        "classification": {
+          "category": "tournoi",
+          "keywords": [
+            "joueur"
+          ],
+          "difficulty": 0.4,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [
+            "image_dependent"
+          ],
+          "answer_source": "explanation",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] R03_2025_26_Competitions_homol -> LA-octobre2025.pdf-p010-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:56.304952",
+            "old_chunk_id": "LA-octobre2025.pdf-p031-parent112-child00",
+            "old_score": 0.3827,
+            "new_score": 0.6948,
+            "reason": "current_rank_167_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 380,
+      "id": "ffe:annales:tournament:042:0ae424b3",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:tournament:042:0ae424b3",
+        "legacy_id": "FR-ANN-UVT-062",
+        "content": {
+          "question": "Les clubs possédant une ou plusieurs équipes en N3 du championnat de France des Clubs doivent comporter des arbitres fédéraux parmi leurs membres. Le non-respect de cette obligation au 30 avril de la saison en cours entraînera la relégation des équipes du club concerné en Nationale inférieure pour la saison suivante. Quel est le niveau minimum requis ?",
+          "expected_answer": "L'absence d'un joueur/d'une joueurs sans avoir prévenu l'arbitre est considéré comme un abandon du tournoi à moins qu'il/elle ne justifie son absence par une raison valable, avant que l'appariement de la ronde suivante ne soit publié.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Un forfait alors qu'on a été apparié entraîne l'exclusion du tournoi. Ce joueur ne pourra pas revenir.",
+            "B": "Un rendez-vous médical est évidemment une bonne excuse. Pas de souci, ce joueur pourra revenir pour les 2 dernières parties.",
+            "C": "L'absence de ce joueur à la ronde 5 était prévisible. Il aurait du le dire avant les appariements. Ce forfait n'est donc pas justifié alors ce joueur est exclu du tournoi."
+          },
+          "mcq_answer": "C",
+          "correct_answer": "L'absence de ce joueur à la ronde 5 était prévisible. Il aurait du le dire avant les appariements. Ce forfait n'est donc pas justifié alors ce joueur est exclu du tournoi.",
+          "original_answer": "Un arbitre fédéral Club."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p074-parent225-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            74
+          ],
+          "article_reference": "L.A. Chap. 2.2, article 6.5",
+          "answer_explanation": "Ici, l'absence était prévisible (la question indique « prévu depuis longtemps »). Cette absence aurait donc du être signalée avant l'appariement de la ronde 5. Ce comportement très gênant doit être sanctionné. Ce joueur est donc exclu du tournoi.",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "clubs",
+            "question_num": 14,
+            "success_rate": 0.64
+          }
+        },
+        "classification": {
+          "category": "tournoi",
+          "keywords": [
+            "arbitre",
+            "club",
+            "pion"
+          ],
+          "difficulty": 0.36,
+          "question_type": "scenario",
+          "cognitive_level": "Apply",
+          "reasoning_type": "multi-hop",
+          "reasoning_class": "summary",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "explanation",
+          "quality_score": 0.5
+        },
+        "audit": {
+          "history": "[PROCRUSTES] A02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p019-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:56.443593",
+            "old_chunk_id": "LA-octobre2025.pdf-p012-parent031-child00",
+            "old_score": 0.3876,
+            "new_score": 0.7636,
+            "reason": "current_rank_222_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 382,
+      "id": "ffe:annales:tournament:044:32492050",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:tournament:044:32492050",
+        "legacy_id": "FR-ANN-UVT-066",
+        "content": {
+          "question": "Attribution des couleurs (1) Joueur A : Elo 2000 - Score 3 points - Historique des couleurs : NBNB Joueur B : Elo 1975 - Score 3 points - Historique des couleurs : NBNB Joueur C : Elo 1820 - Score 2,5 points - Historique des couleurs : NBBN Joueur D : Elo 1750 - Score 2 points - Historique des couleurs : BNBN ``` Les appariements de la ronde 5 font jouer A contre B et C contre D. Quels joueurs auront les blancs ? a) Joueur A et joueur C. b) Joueur A et joueur D. c) Joueur B et joueur C. d) Joueur B et joueur D. ``` LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 Paragraphe E : couleurs ``` - Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique. - Les joueurs A et B ont exactement le même historique donc la même préférence couleur (noir faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4). Les 2 joueurs ont le même nombre de points donc le plus fort est celui qui a le plus fort ELO. Le joueur A aura donc sa couleur préférentielle : les noirs. Le joueur B aura donc les blancs. On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. ``` ?",
+          "expected_answer": "E.2 Accorder la préférence de couleur la plus forte. Si les deux sont absolues (top joueurs, voir A.7) accorder la différence couleur la plus étendue (voir A.6)  \nE.3 Prendre en compte C.04.2.D.5, alterner les couleurs par rapport à la ronde la plus récente où les deux adversaires ont joué avec des couleurs différentes",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Vous n'interviendrez que si l'adversaire le réclame.",
+            "B": "Vous intervenez. Elle est sanctionnée uniquement par l'ajout de 2 minutes ajoutées à la pendule de l'adversaire.",
+            "C": "Vous intervenez et l'obligez à faire une promotion en Dame, elle est sanctionnée par l'ajout de 2 minutes ajoutées à la pendule de l'adversaire.",
+            "D": "Il n'y a pas à intervenir, elle a effectué son coup comme il fallait."
+          },
+          "mcq_answer": "D",
+          "correct_answer": "Il n'y a pas à intervenir, elle a effectué son coup comme il fallait.",
+          "original_answer": "La personne doit être Arbitre Fédéral Open."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p130-parent385-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            130
+          ],
+          "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 Paragraphe E : couleurs",
+          "answer_explanation": "``` - Les joueurs C et D ont la même préférence couleur (blanc faible), mais ils n'ont pas le même historique. - Les joueurs A et B ont exactement le même historique donc la même préférence couleur (noir faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4). Les 2 joueurs ont le même nombre de points donc le plus fort est celui qui a le plus fort ELO. Le joueur A aura donc sa couleur préférentielle : les noirs. Le joueur B aura donc les blancs. On applique donc la règle E3. A la ronde 2, le C avait le blancs et le D les noirs le joueur D aura les blancs. ```",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "tournament",
+            "question_num": 26,
+            "success_rate": 0.21
+          }
+        },
+        "classification": {
+          "category": "tournoi",
+          "keywords": [
+            "Chapitre 3",
+            "joueur",
+            "partie",
+            "elo",
+            "appariement"
+          ],
+          "difficulty": 0.79,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "explanation",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[PROCRUSTES] J02_2025_26_Championnat_de_Fra -> LA-octobre2025.pdf-p019-parent",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:56.708887",
+            "old_chunk_id": "LA-octobre2025.pdf-p019-parent079-child00",
+            "old_score": 0.5523,
+            "new_score": 0.6925,
+            "reason": "better_match_found_delta_0.140"
+          },
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 383,
+      "id": "ffe:annales:tournament:045:f0a2fcfc",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:tournament:045:f0a2fcfc",
+        "legacy_id": "FR-ANN-UVT-067",
+        "content": {
+          "question": "Attribution des couleurs (2) ``` ``` Joueur E : Elo 1850 - Score 3 points - Historique des couleurs : N_NB* Joueur F : Elo 2000 - Score 3 points - Historique des couleurs : BNBN ``` ``` Joueur G : Elo 1810 - Score 4,5 points - Historique des couleurs : BNBN Joueur H : Elo 1940 - Score 4 points - Historique des couleurs : BNBN FFÉ checs D irection N ationale de l' A rbitrage - Session d'examen de juin 2025 - Annales - Page 69 sur 72 ``` donc pour le prochaine ronde, (* Dans l'historique des couleurs, \\_ signifie que le joueur a gagné par forfait) Les appariements de la ronde 5 font jouer E contre F et G contre H. Quels joueurs auront les blancs ?",
+          "expected_answer": "Si les deux sont absolues (top joueurs, voir A.7) accorder la différence couleur la plus étendue (voir A.6)  \nE.3 Prendre en compte C.04.",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "Prendre une pièce adversaire de la main gauche et déplacer la sienne de la main droite.",
+            "B": "Déplacer une pièce de la main gauche et appuyer sur la pendule de la main droite.",
+            "C": "Appuyer sur la pendule sans avoir joué son coup.",
+            "D": "Faire le grand roque avec les blancs alors que la case d1 est attaquée."
+          },
+          "mcq_answer": "A",
+          "correct_answer": "Prendre une pièce adversaire de la main gauche et déplacer la sienne de la main droite.",
+          "original_answer": "Oui si le nombre d'équipes n'excède pas 4."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p130-parent385-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            130
+          ],
+          "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 Paragraphe E : couleurs",
+          "answer_explanation": "- Le joueur E a une préférence couleur « blanc fort » (différence de 1). Le joueur F a une préférence couleur « blanc faible » (même nombre de fois les blancs et les noirs, on alterne si possible). Dans ce cas, on applique la règle E2 donc le joueur E aura les blancs (préférence couleur plus forte) - Les joueurs F et H ont exactement le même historique donc la même préférence couleur (blanc faible). Dans ce cas, le joueur le plus fort aura sa couleur préférentielle (règle E4), mais attention le plus fort au sens de A2. Comme les 2 joueurs n'ont pas le même score, le plus fort ici est le G. C'est donc ce joueur G qui aura les blancs. .",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "tournament",
+            "question_num": 27,
+            "success_rate": 0.63
+          }
+        },
+        "classification": {
+          "category": "tournoi",
+          "keywords": [
+            "coup",
+            "joueur"
+          ],
+          "difficulty": 0.37,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "explanation",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[P1:0.95] LA-octobre2025.pdf-p120-parent351-child00 -> C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00 (score:1.00, src:global_search) | [2026-01-26] requires_context:exam_name(Jean)",
+          "qat_revalidation": null,
+          "requires_inference": null
+        }
+      }
+    },
+    {
+      "global_index": 385,
+      "id": "ffe:annales:tournament:047:9ca2b175",
+      "reason": "jun2025_qa_mismatch",
+      "question": {
+        "id": "ffe:annales:tournament:047:9ca2b175",
+        "legacy_id": "FR-ANN-UVT-069",
+        "content": {
+          "question": "Appariement d'un groupe de points (2) 5 joueurs ont 0 points (il n'y a donc aucun « déjà joué »). Voilà leurs numéros d'appariements et leur préférence couleur (préférence faible pour tous donc) : 10(b), 12(b), 14(b), 18(b), 21(n) Quel sera l'appariement des 2 dernières tables et qui sera exempt ? ``` a) 10 - 14, 12 - 18 et 21 exempt. b) 10 - 14, 12 - 21 et 18 exempt. c) 10 - 18, 12 - 21 et 14 exempt. d) 10 - 21, 12 - 14 et 18 exempt. e) 10 - 12, 14 - 18 et 21 exempt. ``` N'oubliez pas de rendre 2 fichiers : ce questionnaire et la boule PAPI. Votre boule PAPI doit être renommée avec votre numéro d'anonymat (Exemple : XB02.papi ) ?",
+          "expected_answer": "- C.10 Minimiser le nombre de personne s qui n'ont pas leur préférence couleur satisfaite",
+          "is_impossible": false
+        },
+        "mcq": {
+          "original_question": null,
+          "choices": {
+            "A": "14 min 22 s pour les blancs 46 min et 09 s pour les noirs",
+            "B": "12 min 22 s pour les blancs 47 min et 09 s pour les noirs",
+            "C": "12 min 22 s pour les blancs 48 min et 09 s pour les noirs",
+            "D": "11 min 52 s pour les blancs 48 min et 09 s pour les noirs."
+          },
+          "mcq_answer": "B",
+          "correct_answer": "12 min 22 s pour les blancs 47 min et 09 s pour les noirs",
+          "original_answer": "Lors des deux premières phases de la Coupe, l'arbitre peut être Arbitre Fédéral Club."
+        },
+        "provenance": {
+          "chunk_id": "LA-octobre2025.pdf-p128-parent379-child00",
+          "docs": [
+            "LA-octobre2025.pdf"
+          ],
+          "pages": [
+            128
+          ],
+          "article_reference": "LA - Chapitre 3.5 Règles du Système Suisse - Partie C.04.3 - Utilisation de C.11",
+          "answer_explanation": "``` 4 joueurs ont une préférence blanc et 1 joueur une préférence noir. On aura donc une table perturbée en forçant un des joueur ayant une préférence blanc. | S1 | S2 | Essais d'appariement. | |---------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------| | 10 (b) 12 (b) | 14 (b) 18 (b) 21 (n) | 10 - 14 : Blocage couleur, mais on aura une table perturbée donc OK ; 12 - 18 : Blocage couleur et on a déjà utilisée notre table perturbée donc NON. 12 - 21 : OK. | PAPI 1 : Identifiants FIDE des 14 joueurs réels de ce tournoi fictif : AROUSSTAMIAN → 45178593 BUATHIER → 26067900 DAKSH JAIN → 25969269 DUSHYANT SHARMA → 25065130 HORN → 01303716 JANEV → 02900360 LAUTIER → 00600016 LEHACI → 01234765 SHARVAANICA A S → 33419531 SHUVALOVA → 24171760 TOKTOMUSHEV → 14176726 TRAVAILLOUX → 26075296 VAPILLON → 20609868 ZIENKIEWICZ → 45116768 PAPI 2 : Saisie correcte de la liste des joueurs fictifs (toutes infos disponibles). : Elsa MIGNOT, fille, née le 02/04/2008. ELO estimé : 1299 Clémence DENET, fille, née le 08/08/2008. ELO estimé : 1299 Eva BARBIE, fille, née le 01/01/1999. ELO estimé : 1399 Vincent BARDET, garçon, né le 04/04/2004. ELO estimé : 1399 Youpi POP (garçon, né 01/04/2013). ELO estimé : 1299 Marcel BIPOP (garçon, né le 05/05/2010). ELO estimé : 1299 Line COURVITE (fille, née le 31/12/1970). ELO estimé : 1399 PAPI 3 : Saisie correcte des informations du tournoi (nombre de rondes, départages, prix). Il fallait aussi penser à indiquer la table fixe de BUATHIER pour avoir ce point. Attention : certains candidats ont inscrit le prix « Senior+ » dans la catégorie « Vétéran ». Ce n'est pas la même chose. Il n'y avait pas de vétéran dans le tournoi. Cette erreur a probablement engendré des erreurs à la question 18 (en plus d'être pénalisée ici). PAPI 4 : Saisie correcte des résultats de chaque ronde. PAPI 5 : Les appariements manuels se font clic droit puis « désapparier ». Ensuite clic droit sur le joueur à « apparier blanc » puis clic droit sur le joueur à « apparier noir ».",
+          "annales_source": {
+            "session": "jun2025",
+            "uv": "tournament",
+            "question_num": 30,
+            "success_rate": 0.44
+          }
+        },
+        "classification": {
+          "category": "tournoi",
+          "keywords": [
+            "mat",
+            "coup"
+          ],
+          "difficulty": 0.56,
+          "question_type": "factual",
+          "cognitive_level": "Remember",
+          "reasoning_type": "single-hop",
+          "reasoning_class": "fact_single",
+          "answer_type": "multiple_choice"
+        },
+        "validation": {
+          "status": "VALIDATED",
+          "method": "annales_official",
+          "reviewer": "human",
+          "answer_current": true,
+          "verified_date": "2026-01-24",
+          "pages_verified": true,
+          "batch": null
+        },
+        "processing": {
+          "chunk_match_score": 100,
+          "chunk_match_method": "manual_by_design",
+          "reasoning_class_method": "inferred",
+          "triplet_ready": true,
+          "extraction_flags": [],
+          "answer_source": "explanation",
+          "quality_score": 1.0
+        },
+        "audit": {
+          "history": "[P3:0.85] LA-octobre2025.pdf-p120-parent351-child00 -> F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p002-parent004-child00 (score:0.88, src:global_search) | [QAT] F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p002-parent004-child00 -> C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf-p002-parent007-child00 (current_rank_197_too_low)",
+          "qat_revalidation": {
+            "date": "2026-01-26T10:34:57.040491",
+            "old_chunk_id": "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf-p002-parent004-child00",
+            "old_score": 0.3528,
+            "new_score": 0.6553,
+            "reason": "current_rank_197_too_low"
+          },
+          "requires_inference": null
+        }
+      }
+    }
+  ]
+}

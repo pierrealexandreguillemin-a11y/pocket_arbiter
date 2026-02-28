@@ -257,6 +257,27 @@ def benchmark_recall(
     return _build_recall_result(recalls, results, failed, top_k, use_hybrid, tolerance)
 
 
+def _aggregate_group(
+    group_results: list[dict], k_values: list[int]
+) -> dict[str, int | float]:
+    """Compute recall@K stats for a group of results."""
+    n = len(group_results)
+    seg: dict[str, int | float] = {"count": n}
+    for k in k_values:
+        sk = str(k)
+        seg[f"recall@{k}"] = round(
+            sum(r["chunk_recall"][sk] for r in group_results) / n, 4
+        )
+    return seg
+
+
+def _difficulty_band(d: float) -> str:
+    """Map difficulty score to band name."""
+    if d < 0.33:
+        return "easy"
+    return "medium" if d <= 0.66 else "hard"
+
+
 def _compute_segments(
     results: list[dict],
     k_values: list[int],
@@ -271,40 +292,100 @@ def _compute_segments(
         groups: dict[str, list[dict]] = defaultdict(list)
         for r in results:
             groups[r[key]].append(r)
+        segments[key] = {
+            name: _aggregate_group(grp, k_values)
+            for name, grp in sorted(groups.items())
+        }
 
-        segments[key] = {}
-        for group_name, group_results in sorted(groups.items()):
-            n = len(group_results)
-            seg: dict[str, int | float] = {"count": n}
-            for k in k_values:
-                sk = str(k)
-                seg[f"recall@{k}"] = round(
-                    sum(r["chunk_recall"][sk] for r in group_results) / n, 4
-                )
-            segments[key][group_name] = seg
-
-    # Difficulty bands: easy (<0.33), medium (0.33-0.66), hard (>0.66)
     diff_groups: dict[str, list[dict]] = defaultdict(list)
     for r in results:
-        d = r["difficulty"]
-        band = "easy" if d < 0.33 else ("medium" if d <= 0.66 else "hard")
-        diff_groups[band].append(r)
+        diff_groups[_difficulty_band(r["difficulty"])].append(r)
 
-    segments["difficulty"] = {}
-    for band in ["easy", "medium", "hard"]:
-        group_results = diff_groups.get(band, [])
-        n = len(group_results)
-        if n == 0:
-            continue
-        seg = {"count": n}
-        for k in k_values:
-            sk = str(k)
-            seg[f"recall@{k}"] = round(
-                sum(r["chunk_recall"][sk] for r in group_results) / n, 4
-            )
-        segments["difficulty"][band] = seg
+    segments["difficulty"] = {
+        band: _aggregate_group(diff_groups[band], k_values)
+        for band in ["easy", "medium", "hard"]
+        if diff_groups.get(band)
+    }
 
     return segments
+
+
+def _evaluate_single_question(
+    q: dict,
+    db_path: Path,
+    model: object,
+    top_k: int,
+    use_hybrid: bool,
+    tolerance: int,
+    k_values: list[int],
+) -> dict | None:
+    """Evaluate a single GS question. Returns detail dict or None if skipped."""
+    from scripts.pipeline.embeddings import embed_query
+    from scripts.pipeline.export_search import retrieve_hybrid, smart_retrieve
+
+    parsed = _parse_question_v8(q)
+    if parsed["is_impossible"] or not parsed["chunk_id"] or parsed["requires_context"]:
+        return None
+
+    query_emb = embed_query(parsed["question"], model)
+    retriever = retrieve_hybrid if use_hybrid else smart_retrieve
+    retrieved = retriever(db_path, query_emb, parsed["question"], top_k=top_k)
+
+    chunk_recalls = {
+        str(k): compute_recall_at_k_chunk(retrieved, parsed["chunk_id"], k=k)
+        for k in k_values
+    }
+    page_recalls = {
+        str(k): compute_recall_at_k(
+            [r["page"] for r in retrieved[:k]],
+            parsed["pages"],
+            k=k,
+            tolerance=tolerance,
+        )
+        for k in k_values
+    }
+
+    return {
+        "id": q["id"],
+        "question": parsed["question"],
+        "expected_chunk_id": parsed["chunk_id"],
+        "expected_pages": parsed["pages"],
+        "retrieved_chunks": [
+            {
+                "id": r["id"],
+                "score": round(r.get("score", r.get("hybrid_score", 0)), 4),
+                "page": r["page"],
+            }
+            for r in retrieved[:top_k]
+        ],
+        "chunk_recall": chunk_recalls,
+        "page_recall": page_recalls,
+        "mrr": compute_mrr(retrieved, parsed["chunk_id"]),
+        "reasoning_class": parsed["reasoning_class"],
+        "difficulty": parsed["difficulty"],
+        "source_session": parsed["source_session"],
+        "source_uuid": parsed["source_uuid"],
+    }
+
+
+def _aggregate_recall(
+    results_detail: list[dict], k_values: list[int]
+) -> tuple[dict[str, float], dict[str, float], float]:
+    """Aggregate chunk/page recall@K and MRR from detailed results."""
+    n = len(results_detail)
+    if n == 0:
+        empty: dict[str, float] = {str(k): 0.0 for k in k_values}
+        return empty, empty, 0.0
+    chunk = {
+        str(k): sum(r["chunk_recall"][str(k)] for r in results_detail) / n
+        for k in k_values
+    }
+    page = {
+        str(k): sum(r["page_recall"][str(k)] for r in results_detail) / n
+        for k in k_values
+    }
+    mrr = sum(r["mrr"] for r in results_detail) / n
+    return chunk, page, mrr
 
 
 def benchmark_recall_v8(
@@ -315,123 +396,43 @@ def benchmark_recall_v8(
     use_hybrid: bool = False,
     tolerance: int = 2,
 ) -> dict:
-    """
-    Benchmark recall on v8 GS with chunk-level and page-level metrics.
+    """Benchmark recall on GS with chunk-level and page-level metrics.
 
     Evaluates recall@1,3,5,10 (chunk + page), MRR, segmented by metadata.
     Skips is_impossible and requires_context questions.
-
-    Args:
-        db_path: SQLite vector store path.
-        questions_file: v8 GS JSON file.
-        model: Embedding model (pre-loaded).
-        top_k: Max results to retrieve (default 10 for multi-K).
-        use_hybrid: Use hybrid search (BM25 + vector).
-        tolerance: Page tolerance for page-level recall.
-
-    Returns:
-        Dict with recall_at_k, mrr_mean, segmented results, error analysis.
     """
-    from scripts.pipeline.embeddings import embed_query
-    from scripts.pipeline.export_search import retrieve_hybrid, smart_retrieve
     from scripts.pipeline.utils import load_json
 
-    gs_data = load_json(questions_file)
-    questions = gs_data["questions"]
-
+    questions = load_json(questions_file)["questions"]
     k_values = [1, 3, 5, 10]
-    results_detail: list[dict] = []
 
-    for q in questions:
-        parsed = _parse_question_v8(q)
-
-        if parsed["is_impossible"] or not parsed["chunk_id"]:
-            continue
-        if parsed["requires_context"]:
-            continue
-
-        query_emb = embed_query(parsed["question"], model)
-
-        if use_hybrid:
-            retrieved = retrieve_hybrid(
-                db_path, query_emb, parsed["question"], top_k=top_k
+    results_detail = [
+        detail
+        for q in questions
+        if (
+            detail := _evaluate_single_question(
+                q, db_path, model, top_k, use_hybrid, tolerance, k_values
             )
-        else:
-            retrieved = smart_retrieve(
-                db_path, query_emb, parsed["question"], top_k=top_k
-            )
-
-        # Compute metrics at each K
-        chunk_recalls: dict[str, float] = {}
-        page_recalls: dict[str, float] = {}
-        for k in k_values:
-            chunk_recalls[str(k)] = compute_recall_at_k_chunk(
-                retrieved, parsed["chunk_id"], k=k
-            )
-            retrieved_pages = [r["page"] for r in retrieved[:k]]
-            page_recalls[str(k)] = compute_recall_at_k(
-                retrieved_pages, parsed["pages"], k=k, tolerance=tolerance
-            )
-
-        mrr = compute_mrr(retrieved, parsed["chunk_id"])
-
-        detail = {
-            "id": q["id"],
-            "question": parsed["question"],
-            "expected_chunk_id": parsed["chunk_id"],
-            "expected_pages": parsed["pages"],
-            "retrieved_chunks": [
-                {
-                    "id": r["id"],
-                    "score": round(r.get("score", r.get("hybrid_score", 0)), 4),
-                    "page": r["page"],
-                }
-                for r in retrieved[:top_k]
-            ],
-            "chunk_recall": chunk_recalls,
-            "page_recall": page_recalls,
-            "mrr": mrr,
-            "reasoning_class": parsed["reasoning_class"],
-            "difficulty": parsed["difficulty"],
-            "source_session": parsed["source_session"],
-            "source_uuid": parsed["source_uuid"],
-        }
-        results_detail.append(detail)
-
-    # Aggregate
-    n = len(results_detail)
-    recall_at_k_chunk: dict[str, float] = {}
-    recall_at_k_page: dict[str, float] = {}
-    for k in k_values:
-        sk = str(k)
-        recall_at_k_chunk[sk] = (
-            sum(r["chunk_recall"][sk] for r in results_detail) / n if n else 0.0
         )
-        recall_at_k_page[sk] = (
-            sum(r["page_recall"][sk] for r in results_detail) / n if n else 0.0
-        )
+        is not None
+    ]
 
-    mrr_mean = sum(r["mrr"] for r in results_detail) / n if n else 0.0
-
-    # Failed questions (chunk recall@5 < 1.0)
+    chunk_recall, page_recall, mrr_mean = _aggregate_recall(results_detail, k_values)
     failed = [r for r in results_detail if r["chunk_recall"]["5"] < 1.0]
 
-    # Segmented stats
-    segments = _compute_segments(results_detail, k_values)
-
     return {
-        "total_questions": n,
-        "recall_at_k": {"chunk": recall_at_k_chunk, "page": recall_at_k_page},
+        "total_questions": len(results_detail),
+        "recall_at_k": {"chunk": chunk_recall, "page": page_recall},
         "mrr_mean": round(mrr_mean, 4),
         "failed_count": len(failed),
         "failed_questions": failed,
-        "segments": segments,
+        "segments": _compute_segments(results_detail, k_values),
         "config": {
             "top_k": top_k,
             "use_hybrid": use_hybrid,
             "tolerance": tolerance,
             "model": "EmbeddingGemma-300M-QAT",
-            "gs_version": "v8.1.0",
+            "gs_version": "v9.0.0",
         },
         "questions_detail": results_detail,
     }
@@ -850,7 +851,7 @@ class TestBenchmarkRecallV8:
         assert result["mrr_mean"] == 1.0
         assert result["failed_count"] == 0
         assert "segments" in result
-        assert result["config"]["gs_version"] == "v8.1.0"
+        assert result["config"]["gs_version"] == "v9.0.0"
 
     def test_hybrid_mode(self, tmp_path):
         import json
@@ -1236,6 +1237,53 @@ def _export_baseline_json(
     return output_path
 
 
+def _run_baseline_v8(model: object, tolerance: int) -> int:
+    """Run full baseline benchmark (vector + hybrid, multi-K, segmented)."""
+    db_path = CORPUS_DIR / "corpus_mode_b_fr.db"
+    gs_file = DATA_DIR / "gold_standard_annales_fr_v8_adversarial.json"
+
+    if not db_path.exists():
+        print(f"[ERROR] DB not found: {db_path}")
+        return 1
+    if not gs_file.exists():
+        print(f"[ERROR] GS not found: {gs_file}")
+        return 1
+
+    print("\n>>> Running vector-only benchmark...")
+    result_vector = benchmark_recall_v8(
+        db_path, gs_file, model, top_k=10, use_hybrid=False, tolerance=tolerance
+    )
+    _print_baseline_report(result_vector, "Vector-Only")
+
+    print("\n>>> Running hybrid benchmark...")
+    result_hybrid = benchmark_recall_v8(
+        db_path, gs_file, model, top_k=10, use_hybrid=True, tolerance=tolerance
+    )
+    _print_baseline_report(result_hybrid, "Hybrid (BM25+Vector)")
+
+    output_dir = PROJECT_ROOT / "data" / "benchmarks"
+    output_path = _export_baseline_json(result_vector, result_hybrid, output_dir)
+    print(f"\n[EXPORT] Results saved to {output_path}")
+
+    best = max(
+        result_vector["recall_at_k"]["chunk"]["5"],
+        result_hybrid["recall_at_k"]["chunk"]["5"],
+    )
+    _print_decision(best)
+    return 0 if best >= 0.8 else 1
+
+
+def _print_decision(best_recall: float) -> None:
+    """Print recall decision threshold message."""
+    if best_recall >= 0.8:
+        msg = "recall@5 >= 80% — RAG pur + prompt engineering suffisant"
+    elif best_recall >= 0.6:
+        msg = "recall@5 60-80% — optimisations retrieval recommandees"
+    else:
+        msg = "recall@5 < 60% — fine-tuning embeddings justifie"
+    print(f"\n>> DECISION: {msg}")
+
+
 def main() -> int:
     """CLI benchmark recall - ISO 25010 S4.2."""
     import argparse
@@ -1249,7 +1297,7 @@ def main() -> int:
     parser.add_argument(
         "--baseline-v8",
         action="store_true",
-        help="Run full v8 baseline (vector + hybrid, multi-K, segmented)",
+        help="Run full baseline (vector + hybrid, multi-K, segmented)",
     )
     args = parser.parse_args()
 
@@ -1259,56 +1307,7 @@ def main() -> int:
     model = load_embedding_model(MODEL_ID)
 
     if args.baseline_v8:
-        db_path = CORPUS_DIR / "corpus_mode_b_fr.db"
-        gs_file = DATA_DIR / "gold_standard_annales_fr_v8_adversarial.json"
-
-        if not db_path.exists():
-            print(f"[ERROR] DB not found: {db_path}")
-            return 1
-        if not gs_file.exists():
-            print(f"[ERROR] GS not found: {gs_file}")
-            return 1
-
-        # Vector-only
-        print("\n>>> Running vector-only benchmark...")
-        result_vector = benchmark_recall_v8(
-            db_path,
-            gs_file,
-            model,
-            top_k=10,
-            use_hybrid=False,
-            tolerance=args.tolerance,
-        )
-        _print_baseline_report(result_vector, "Vector-Only")
-
-        # Hybrid
-        print("\n>>> Running hybrid benchmark...")
-        result_hybrid = benchmark_recall_v8(
-            db_path, gs_file, model, top_k=10, use_hybrid=True, tolerance=args.tolerance
-        )
-        _print_baseline_report(result_hybrid, "Hybrid (BM25+Vector)")
-
-        # Export JSON
-        output_dir = PROJECT_ROOT / "data" / "benchmarks"
-        output_path = _export_baseline_json(result_vector, result_hybrid, output_dir)
-        print(f"\n[EXPORT] Results saved to {output_path}")
-
-        # Decision
-        r5_vec = result_vector["recall_at_k"]["chunk"]["5"]
-        r5_hyb = result_hybrid["recall_at_k"]["chunk"]["5"]
-        best = max(r5_vec, r5_hyb)
-        if best >= 0.8:
-            print(
-                "\n>> DECISION: recall@5 >= 80% — RAG pur + prompt engineering suffisant"
-            )
-        elif best >= 0.6:
-            print(
-                "\n>> DECISION: recall@5 60-80% — optimisations retrieval recommandees"
-            )
-        else:
-            print("\n>> DECISION: recall@5 < 60% — fine-tuning embeddings justifie")
-
-        return 0 if best >= 0.8 else 1
+        return _run_baseline_v8(model, args.tolerance)
 
     # Legacy benchmark (existing behavior unchanged)
     corpora = _build_corpora(args.corpus)

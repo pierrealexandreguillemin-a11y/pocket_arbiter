@@ -177,4 +177,6 @@ tests/data/reformulation_batch.json
 # GS Generation intermediates
 data/gs_generation/questions_raw.json
 data/gs_generation/questions_enriched.json
+data/gs_generation/snapshots/
 data/benchmarks/baseline_v8_2026-02-27.json
+data/benchmarks/eval_e2e_prompts.json

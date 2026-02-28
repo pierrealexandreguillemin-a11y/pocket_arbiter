@@ -1,0 +1,165 @@
+{
+  "timestamp": "2026-02-28T01:03:21.912674+00:00",
+  "config": {
+    "model": "llama3.2:latest",
+    "mode": "hybrid",
+    "top_k": 5
+  },
+  "accuracy": 0.2,
+  "correct": 1,
+  "total": 5,
+  "errors": 0,
+  "segments": {
+    "reasoning_class": {
+      "fact_single": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "summary": {
+        "accuracy": 0.3333333333333333,
+        "correct": 1,
+        "total": 3
+      }
+    },
+    "source_uuid": {
+      "LA-octobre2025.pdf": {
+        "accuracy": 0.3333333333333333,
+        "correct": 1,
+        "total": 3
+      },
+      "R01_2025_26_Regles_generales.pdf": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "ffe:annales:clubs:001:55d409b5",
+      "question": "Quelle tâche ne fait pas partie des missions de l'arbitre ?",
+      "expected": "C",
+      "predicted": "B",
+      "raw_response": "B.",
+      "correct": false,
+      "reasoning_class": "summary",
+      "difficulty": 0.15,
+      "source_uuid": "LA-octobre2025.pdf",
+      "retrieved_chunks": [
+        {
+          "id": "LA-octobre2025.pdf-p009-parent015-child00",
+          "page": 9
+        },
+        {
+          "id": "LA-octobre2025.pdf-p089-parent267-child00",
+          "page": 89
+        },
+        {
+          "id": "LA-octobre2025.pdf-p055-parent189-child00",
+          "page": 55
+        }
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:002:79da8e92",
+      "question": "Qui ne peut pas siéger dans un jury d'appel lors d'une compétition d'échecs ?",
+      "expected": "D",
+      "predicted": "C",
+      "raw_response": "C.",
+      "correct": false,
+      "reasoning_class": "summary",
+      "difficulty": 0.14,
+      "source_uuid": "LA-octobre2025.pdf",
+      "retrieved_chunks": [
+        {
+          "id": "LA-octobre2025.pdf-p075-parent231-child00",
+          "page": 75
+        },
+        {
+          "id": "LA-octobre2025.pdf-p011-parent028-child00",
+          "page": 11
+        },
+        {
+          "id": "LA-octobre2025.pdf-p089-parent265-child00",
+          "page": 89
+        }
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:003:06c34715",
+      "question": "Quelle sanction l'arbitre ne peut-il pas appliquer à un capitaine d'équipe qui ne respecte pas les r",
+      "expected": "C",
+      "predicted": "B",
+      "raw_response": "B.",
+      "correct": false,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2,
+      "source_uuid": "R01_2025_26_Regles_generales.pdf",
+      "retrieved_chunks": [
+        {
+          "id": "LA-octobre2025.pdf-p075-parent228-child01",
+          "page": 75
+        },
+        {
+          "id": "R01_2025_26_Regles_generales.pdf-p005-parent027-child00",
+          "page": 5
+        },
+        {
+          "id": "Interclubs_DepartementalBdr.pdf-p005-parent012-child00",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:004:d22e1892",
+      "question": "À quelle compétition une entente entre clubs ne peut-elle pas participer ?",
+      "expected": "B",
+      "predicted": "C",
+      "raw_response": "C.",
+      "correct": false,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.17,
+      "source_uuid": "R01_2025_26_Regles_generales.pdf",
+      "retrieved_chunks": [
+        {
+          "id": "R01_2025_26_Regles_generales.pdf-p006-parent030-child00",
+          "page": 6
+        },
+        {
+          "id": "R01_2025_26_Regles_generales.pdf-p006-parent032-child00",
+          "page": 6
+        },
+        {
+          "id": "R01_2025_26_Regles_generales.pdf-p006-parent031-child00",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "ffe:annales:clubs:005:b740870c",
+      "question": "Quelle mission ne relève pas du Directeur Régional de l'Arbitrage (DRA) ?",
+      "expected": "C",
+      "predicted": "C",
+      "raw_response": "C",
+      "correct": true,
+      "reasoning_class": "summary",
+      "difficulty": 0.25,
+      "source_uuid": "LA-octobre2025.pdf",
+      "retrieved_chunks": [
+        {
+          "id": "LA-octobre2025.pdf-p017-parent060-child00",
+          "page": 17
+        },
+        {
+          "id": "LA-octobre2025.pdf-p006-parent005-child00",
+          "page": 6
+        },
+        {
+          "id": "LA-octobre2025.pdf-p017-parent059-child00",
+          "page": 17
+        }
+      ]
+    }
+  ]
+}

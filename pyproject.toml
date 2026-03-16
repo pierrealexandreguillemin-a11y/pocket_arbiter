@@ -22,6 +22,7 @@ requires-python = ">=3.10"
 [tool.ruff]
 target-version = "py310"
 line-length = 88
+exclude = ["scripts/archive/"]
 
 [tool.ruff.lint]
 # Rules enforced:
@@ -79,14 +80,7 @@ warn_unused_configs = true
 ignore_missing_imports = true
 explicit_package_bases = true
 exclude = [
-    "scripts/training/",
-    "scripts/evaluation/",
-    "scripts/pipeline/_obsolete/",
-    "scripts/pipeline/adversarial_harness\\.py",
-    "scripts/pipeline/chunker_langchain\\.py",
-    "scripts/consolidate_",
-    "scripts/create_",
-    "scripts/validate_anti_hallucination\\.py",
+    "scripts/archive/",
 ]
 
 # Strict typing for ISO module (100% coverage target)

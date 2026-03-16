@@ -6,7 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from scripts.pipeline.extract import extract_pdf, extract_corpus, _strip_page_headers
+from scripts.pipeline.extract import (
+    extract_pdf, extract_corpus, _strip_page_headers, _apply_edge_case_fixes,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -65,6 +67,58 @@ class TestStripPageHeaders:
     def test_no_headings(self):
         md = "Just plain text.\n\nMore text.\n"
         assert _strip_page_headers(md) == md
+
+
+class TestEdgeCaseFixes:
+    """Test manual fixes for H01, H02, R02."""
+
+    def test_h01_gets_title(self):
+        result = {
+            "markdown": "<!-- image -->\n\n1. First rule.\n2. Second rule.\n",
+            "source": "H01_2025_26_Conduite_pour_joueur_handicapes.pdf",
+            "heading_pages": {},
+        }
+        _apply_edge_case_fixes(result)
+        assert result["markdown"].startswith("## Conduite pour joueurs handicapes")
+        assert "<!-- image -->" not in result["markdown"]
+        assert result["heading_pages"]["Conduite pour joueurs handicapes"] == 1
+
+    def test_h02_hierarchy(self):
+        result = {
+            "markdown": (
+                "<!-- image -->\n\n"
+                "## Le cas general.\n\nIntro.\n\n"
+                "## Phase I :\n\nContent I.\n\n"
+                "## Phase II :\n\nContent II.\n"
+            ),
+            "source": "H02_2025_26_Joueurs_a_mobilite_reduite.pdf",
+            "heading_pages": {},
+        }
+        _apply_edge_case_fixes(result)
+        assert result["markdown"].startswith("## Joueurs a mobilite reduite")
+        assert "### Phase I" in result["markdown"]
+        assert "### Phase II" in result["markdown"]
+        assert "#### Phase II" not in result["markdown"]
+        assert result["heading_pages"]["Joueurs a mobilite reduite"] == 1
+
+    def test_r02_title_promoted(self):
+        result = {
+            "markdown": "## ANNEXES AUX REGLES GENERALES\n\nContent.\n",
+            "source": "R02_2025_26_Regles_generales_Annexes.pdf",
+            "heading_pages": {},
+        }
+        _apply_edge_case_fixes(result)
+        assert "# ANNEXES AUX REGLES GENERALES" in result["markdown"]
+        assert "## ANNEXES" not in result["markdown"]
+
+    def test_no_fix_for_normal_pdf(self):
+        result = {
+            "markdown": "## Normal heading\n\nContent.\n",
+            "source": "R01_2025_26_Regles_generales.pdf",
+            "heading_pages": {"Normal heading": 1},
+        }
+        _apply_edge_case_fixes(result)
+        assert result["markdown"] == "## Normal heading\n\nContent.\n"
 
 
 # ---------------------------------------------------------------------------

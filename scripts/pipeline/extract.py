@@ -130,12 +130,78 @@ def extract_pdf(pdf_path: Path) -> dict:
             "page": table_page,
         })
 
-    return {
+    result_dict = {
         "markdown": markdown,
         "tables": tables,
         "source": pdf_path.name,
         "heading_pages": heading_pages,
     }
+
+    # Apply manual fixes for PDFs where docling produces flat/missing headings
+    _apply_edge_case_fixes(result_dict)
+
+    return result_dict
+
+
+# Edge case fixes for PDFs where docling produces flat or missing headings.
+# These are 1-page documents with no real heading hierarchy in the PDF.
+# Verified manually against source PDFs (mars 2026).
+_EDGE_CASE_FIXES: dict[str, list[tuple[str, str]]] = {
+    "H01_2025_26_Conduite_pour_joueur_handicapes.pdf": [
+        # No headings detected — add document title
+        ("<!-- image -->\n\n", ""),  # remove leading image
+        ("__PREPEND__", "## Conduite pour joueurs handicapes\n\n"),  # prepend title
+    ],
+    "H02_2025_26_Joueurs_a_mobilite_reduite.pdf": [
+        ("<!-- image -->\n\n", ""),
+        ("## Le cas g", "Le cas g"),  # intro text, not a heading
+        ("## Phase I", "### Phase I"),
+        ("## Phase II", "### Phase II"),
+        ("__PREPEND__", "## Joueurs a mobilite reduite\n\n"),
+    ],
+    "R02_2025_26_Regles_generales_Annexes.pdf": [
+        # All ## flat — promote title to #
+        ("## ANNEXES AUX REGLES GENERALES", "# ANNEXES AUX REGLES GENERALES"),
+    ],
+}
+
+# Pages for manually added headings (not in docling provenance)
+_EDGE_CASE_PAGES: dict[str, dict[str, int]] = {
+    "H01_2025_26_Conduite_pour_joueur_handicapes.pdf": {
+        "Conduite pour joueurs handicapes": 1,
+    },
+    "H02_2025_26_Joueurs_a_mobilite_reduite.pdf": {
+        "Joueurs a mobilite reduite": 1,
+    },
+}
+
+
+def _apply_edge_case_fixes(result: dict) -> None:
+    """Apply manual heading fixes for known problematic PDFs.
+
+    Modifies result dict in place.
+    """
+    source = result["source"]
+    fixes = _EDGE_CASE_FIXES.get(source)
+    if not fixes:
+        return
+
+    md = result["markdown"]
+    for old, new in fixes:
+        if old == "__PREPEND__":
+            # Prepend
+            md = new + md
+        else:
+            md = md.replace(old, new, 1)
+    result["markdown"] = md
+
+    # Fix Phase II double-demotion (### → #### if already ###)
+    if "#### Phase II" in result["markdown"]:
+        result["markdown"] = result["markdown"].replace("#### Phase II", "### Phase II")
+
+    # Add manual heading pages
+    extra_pages = _EDGE_CASE_PAGES.get(source, {})
+    result["heading_pages"].update(extra_pages)
 
 
 def extract_corpus(

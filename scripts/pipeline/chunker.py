@@ -17,7 +17,7 @@ ARTICLE_NUM_RE = re.compile(r"^(\d+(?:\.\d+)*\.?)\s")
 IMAGE_PLACEHOLDER = "<!-- image -->"
 
 MAX_TOKENS = 512
-MERGE_THRESHOLD = 100
+MERGE_THRESHOLD = 250
 SPLIT_TARGET = 450
 SPLIT_OVERLAP = 50
 
@@ -141,18 +141,24 @@ def _is_table_section(body: str) -> bool:
     return pipe_lines > len(lines) * 0.5
 
 
-def chunk_document(markdown: str, source: str) -> dict:
+def chunk_document(
+    markdown: str,
+    source: str,
+    heading_pages: dict[str, int] | None = None,
+) -> dict:
     """Chunk a markdown document into children and parents.
 
     Args:
         markdown: Markdown text with heading levels.
         source: Source PDF filename.
+        heading_pages: Optional mapping heading text → page number.
 
     Returns:
         Dict with "children" and "parents" lists.
     """
     sections = parse_sections(markdown)
     hierarchy = build_hierarchy(sections)
+    _heading_pages = heading_pages or {}
 
     children: list[dict] = []
     parents: list[dict] = []
@@ -187,12 +193,14 @@ def chunk_document(markdown: str, source: str) -> dict:
             parent_text = "\n\n".join(parts)
 
             my_parent_id = _make_parent_id()
+            parent_page = _heading_pages.get(node["heading"])
             parents.append({
                 "id": my_parent_id,
                 "text": parent_text,
                 "source": source,
                 "section": node["heading"],
                 "tokens": count_tokens(parent_text),
+                "page": parent_page,
             })
 
             # If this parent also has its own body text, make it a child
@@ -226,6 +234,9 @@ def chunk_document(markdown: str, source: str) -> dict:
         art_match = ARTICLE_NUM_RE.match(section)
         art_num = art_match.group(1).rstrip(".") if art_match else None
 
+        # Resolve page from heading_pages mapping
+        page = _heading_pages.get(section)
+
         children.append({
             "id": f"{src}-c{child_counter:04d}",
             "text": text,
@@ -234,6 +245,7 @@ def chunk_document(markdown: str, source: str) -> dict:
             "article_num": art_num,
             "section": section,
             "tokens": count_tokens(text),
+            "page": page,
         })
         child_counter += 1
 

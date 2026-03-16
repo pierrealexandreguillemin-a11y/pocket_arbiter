@@ -187,3 +187,22 @@ class TestChunkDocument:
         result = chunk_document(md, source="test.pdf")
         # 3 tiny sections could be merged
         assert len(result["children"]) <= 3
+
+    def test_pages_from_heading_pages(self):
+        """Children should have page numbers from heading_pages mapping."""
+        # Use enough text to avoid merge (>250 tokens each)
+        body1 = "Content one about licensing rules. " * 60
+        body2 = "Content two about forfait rules. " * 60
+        md = f"# Title\n\n## Art 1\n\n{body1}\n\n## Art 2\n\n{body2}\n"
+        heading_pages = {"Art 1": 5, "Art 2": 7}
+        result = chunk_document(md, source="test.pdf", heading_pages=heading_pages)
+        art1 = [c for c in result["children"] if "Art 1" in c["section"]][0]
+        art2 = [c for c in result["children"] if "Art 2" in c["section"]][0]
+        assert art1["page"] == 5
+        assert art2["page"] == 7
+
+    def test_page_none_when_no_mapping(self, sample_markdown_hierarchical):
+        """Page should be None when no heading_pages provided."""
+        result = chunk_document(sample_markdown_hierarchical, source="test.pdf")
+        for child in result["children"]:
+            assert child["page"] is None

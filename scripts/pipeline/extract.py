@@ -60,6 +60,34 @@ def _strip_page_headers(markdown: str) -> str:
     return "\n".join(result)
 
 
+def _extract_heading_pages(doc: object) -> dict[str, int]:
+    """Extract heading text → page number mapping from docling provenance.
+
+    Args:
+        doc: DoclingDocument with texts having prov[].page_no.
+
+    Returns:
+        Dict mapping heading text (stripped) to first page number.
+    """
+    heading_pages: dict[str, int] = {}
+    texts = doc.texts if hasattr(doc, "texts") else []
+    for item in texts:
+        if (
+            hasattr(item, "label")
+            and item.label == "section_header"
+            and hasattr(item, "prov")
+            and item.prov
+        ):
+            text = ""
+            if hasattr(item, "text") and item.text:
+                text = item.text.strip()
+            elif hasattr(item, "orig") and item.orig:
+                text = str(item.orig).strip()
+            if text:
+                heading_pages[text] = item.prov[0].page_no
+    return heading_pages
+
+
 def extract_pdf(pdf_path: Path) -> dict:
     """Extract a single PDF with hierarchical headings.
 
@@ -81,24 +109,32 @@ def extract_pdf(pdf_path: Path) -> dict:
     # Remove repeated page headers that docling picks up as headings
     markdown = _strip_page_headers(markdown)
 
+    # Build heading → page mapping from provenance data
+    heading_pages = _extract_heading_pages(doc)
+
     # Extract tables (pass doc to avoid deprecation warning)
     tables = []
     for table_ix, table in enumerate(doc.tables):
         try:
             table_md = table.export_to_markdown(doc=doc)
         except TypeError:
-            # Fallback for older docling versions
             table_md = table.export_to_markdown()
+        # Get table page from provenance
+        table_page = None
+        if hasattr(table, "prov") and table.prov:
+            table_page = table.prov[0].page_no
         tables.append({
             "id": f"{pdf_path.stem}-table{table_ix}",
             "source": pdf_path.name,
             "text": table_md,
+            "page": table_page,
         })
 
     return {
         "markdown": markdown,
         "tables": tables,
         "source": pdf_path.name,
+        "heading_pages": heading_pages,
     }
 
 

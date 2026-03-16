@@ -22,21 +22,25 @@ except ImportError:
     HAS_HIERARCHICAL = False
     logger.warning("docling-hierarchical-pdf not installed, headings will be flat")
 
+# Directories to exclude from corpus extraction (not RAG content)
+EXCLUDE_DIRS = {"Annales", "annales"}
+
+_HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
+
 
 def _strip_page_headers(markdown: str) -> str:
     """Remove repeated page headers/footers that docling extracts as headings.
 
-    Detects headings that appear 3+ times (page headers repeated on every page)
-    and removes all occurrences except the first.
+    Detects headings whose exact text appears 3+ times (page headers
+    repeated on every page) and removes all occurrences except the first.
     """
-    heading_pattern = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
-    # Count heading occurrences
+    # Count heading text occurrences
     counts: dict[str, int] = {}
-    for match in heading_pattern.finditer(markdown):
+    for match in _HEADING_RE.finditer(markdown):
         text = match.group(2).strip()
         counts[text] = counts.get(text, 0) + 1
 
-    # Remove duplicates (keep first occurrence) for headings appearing 3+ times
+    # Identify repeated headings (3+ = likely page header)
     repeated = {text for text, count in counts.items() if count >= 3}
     if not repeated:
         return markdown
@@ -45,7 +49,7 @@ def _strip_page_headers(markdown: str) -> str:
     lines = markdown.split("\n")
     result = []
     for line in lines:
-        m = heading_pattern.match(line)
+        m = _HEADING_RE.match(line)
         if m and m.group(2).strip() in repeated:
             text = m.group(2).strip()
             if text in seen:
@@ -75,13 +79,16 @@ def extract_pdf(pdf_path: Path) -> dict:
     markdown = doc.export_to_markdown()
 
     # Remove repeated page headers that docling picks up as headings
-    # (e.g. "#### REGLES GENERALES POUR LES COMPETITIONS FEDERALES" mid-doc)
     markdown = _strip_page_headers(markdown)
 
-    # Extract tables
+    # Extract tables (pass doc to avoid deprecation warning)
     tables = []
     for table_ix, table in enumerate(doc.tables):
-        table_md = table.export_to_markdown()
+        try:
+            table_md = table.export_to_markdown(doc=doc)
+        except TypeError:
+            # Fallback for older docling versions
+            table_md = table.export_to_markdown()
         tables.append({
             "id": f"{pdf_path.stem}-table{table_ix}",
             "source": pdf_path.name,
@@ -95,20 +102,34 @@ def extract_pdf(pdf_path: Path) -> dict:
     }
 
 
-def extract_corpus(corpus_dir: Path, output_dir: Path) -> list[dict]:
-    """Extract all PDFs in corpus_dir (recursively).
+def extract_corpus(
+    corpus_dir: Path,
+    output_dir: Path,
+    exclude_dirs: set[str] | None = None,
+) -> list[dict]:
+    """Extract all PDFs in corpus_dir, excluding non-RAG directories.
 
     Args:
         corpus_dir: Root directory containing PDFs.
         output_dir: Where to save JSON extractions.
+        exclude_dirs: Directory names to skip (default: Annales).
 
     Returns:
         List of extraction results.
     """
+    if exclude_dirs is None:
+        exclude_dirs = EXCLUDE_DIRS
+
     output_dir.mkdir(parents=True, exist_ok=True)
     pdfs = sorted(corpus_dir.rglob("*.pdf"))
-    results = []
 
+    # Filter out excluded directories
+    pdfs = [
+        p for p in pdfs
+        if not any(excl in p.parts for excl in exclude_dirs)
+    ]
+
+    results = []
     for pdf_path in pdfs:
         logger.info("Extracting %s", pdf_path.name)
         try:

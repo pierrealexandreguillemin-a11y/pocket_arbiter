@@ -34,6 +34,24 @@ Chronologie factuelle des decisions et errements du projet.
 - Archivage : 168 scripts, 46 docs, 19 artefacts data
 - Cap : fix pipeline → re-mesure recall → decision (fine-tuning ou prompt engineering)
 
+## Gemma model status (mars 2026)
+
+Recherche web effectuee le 16 mars 2026 :
+
+- **Gemma 3n** (juin 2025) : nouveau modele mobile-first, MatFormer architecture
+  - E2B : ~2 GB RAM, effective 2B params — candidat remplacement Gemma 3 270M
+  - E4B : ~3 GB RAM, effective 4B params — plus capable
+  - Multimodal (texte, image, video, audio), 32K context, 140+ langues
+  - ~1.5x plus rapide que Gemma 3 4B avec meilleure qualite
+  - LiteRT checkpoints disponibles sur HuggingFace
+- **AI Edge RAG SDK** : pipeline officiel Google pour RAG on-device Android (chunking, indexing, retrieval, generation)
+- **EmbeddingGemma-300M** : toujours le seul modele d'embeddings on-device Google, pas de successeur
+- **Gemma 3 QAT** : modeles QAT disponibles pour 1B, 4B, 12B, 27B (avril 2025)
+
+**Impact** : Gemma 3n E2B pourrait remplacer Gemma 3 270M pour la generation (meilleure qualite, 2GB RAM). A evaluer dans le chantier 2. EmbeddingGemma-300M reste le choix pour les embeddings.
+
+Sources : deepmind.google, developers.googleblog.com, ai.google.dev, huggingface.co/google
+
 ## Decisions cles
 
 | Date | Decision | Raison |

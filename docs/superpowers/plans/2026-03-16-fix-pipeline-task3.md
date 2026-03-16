@@ -11,35 +11,57 @@ Embedder les 1154 children + 111 table summaries avec EmbeddingGemma-300M (QAT) 
 
 ---
 
-## Configuration modele (depuis archives projet)
+## Configuration modele
 
 | Parametre | Valeur | Source |
 |-----------|--------|--------|
-| Model ID | `google/embeddinggemma-300m-qat-q4_0-unquantized` | embeddings_config.py:21 |
-| Dimensions | 768 | embeddings_config.py:38 |
-| Batch size | 128 | embeddings_config.py:41 |
-| Normalisation | L2 (norme=1) | embeddings.py:137 |
-| Precision | float32 (pas float16) | embeddings_config.py:55 |
-| Prompt query | `"task: search result \| query: "` | embeddings_config.py:53 |
-| Prompt document | `"title: {title} \| text: "` | embeddings_config.py:54 |
-| Fallback | `google/embeddinggemma-300m` | embeddings_config.py:30 |
+| Model ID | `google/embeddinggemma-300m-qat-q4_0-unquantized` | archives projet + decision coherence mobile |
+| Dimensions | 768 | HuggingFace model card |
+| Batch size | 128 | Google recommendation |
+| Normalisation | L2 (norme=1) | HuggingFace model card |
+| Precision | float32 ou bfloat16 (PAS float16) | Google docs, verifie mars 2026 |
+| Max sequence | 2048 tokens | HuggingFace model card |
+| Framework | sentence-transformers >= 5.2.0 | verifie mars 2026, v5.3.0 latest |
 | Temps estime | ~383ms/chunk → ~8 min pour 1265 vecteurs | report precedent |
 
-**CRITIQUE** : utiliser le QAT, pas le full precision. Distribution shift sinon.
+### Choix QAT vs full precision
+
+- `google/embeddinggemma-300m` : full precision, meilleure qualite (~0.5% NDCG de plus)
+- `google/embeddinggemma-300m-qat-q4_0-unquantized` : QAT, concu pour deploiement mobile
+
+**Decision : QAT pour indexation ET inference mobile.** Raison : coherence embeddings.
+Si on indexe avec full et que l'app Android query avec QAT, distribution shift.
+La perte de 0.5% est negligeable vs le risque de mismatch.
+(Decision coherente avec archives projet : embeddings_config.py:25)
 
 ---
 
-## CCH + Prompt Google
+## CCH + Prompts Google
 
-Le Contextual Chunk Header s'integre dans le **prompt document Google** :
+sentence-transformers v5+ a `model.encode_query()` et `model.encode_document()` qui appliquent les prompts automatiquement. Le CCH s'integre via le parametre `title` du prompt document.
 
+### Encoding documents (indexation)
+
+```python
+model = SentenceTransformer("google/embeddinggemma-300m-qat-q4_0-unquantized")
+# CCH = title parameter
+title = f"{source_display_title} | {section}"
+# encode_document applique: "title: {title} | text: {content}"
+emb = model.encode_document([chunk_text], titles=[title])
 ```
-title: Regles generales competitions FFE 2025-26 | 3.2. Forfait isole | text: 3.2.1. Est consideree comme etant forfait ...
+
+### Encoding queries (search)
+
+```python
+# encode_query applique: "task: search result | query: {content}"
+emb = model.encode_query([question])
 ```
 
-Format : `title: {source_title} | {section} | text: {chunk_text}`
+### Fallback (si encode_query/encode_document pas disponible)
 
-Pour les queries : `task: search result | query: {question}`
+Prependre manuellement :
+- Documents : `f"title: {title} | text: {chunk_text}"`
+- Queries : `f"task: search result | query: {question}"`
 
 ---
 
@@ -96,9 +118,9 @@ Tests pour :
 ### Step 2 : Implementer indexer.py
 
 Fonctions :
-- `contextualize_for_embedding(text, source, section, source_titles)` → `"title: {title} | {section} | text: {text}"`
-- `embed_texts(texts, model_id, is_query=False)` → np.ndarray (768,), L2 normalized
-- `embed_query(query, model_id)` → np.ndarray (768,), avec prompt query
+- `make_cch_title(source, section, source_titles)` → `"{display_title} | {section}"` pour le parametre title
+- `embed_documents(texts, titles, model_id)` → np.ndarray (N, 768), L2 normalized, via `model.encode_document()`
+- `embed_queries(queries, model_id)` → np.ndarray (N, 768), via `model.encode_query()`
 - `create_db(path)` → execute schema
 - `insert_children(db, children, embeddings)` → blob storage
 - `insert_parents(db, parents)` → text storage

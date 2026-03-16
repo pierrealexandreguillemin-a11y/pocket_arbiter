@@ -44,13 +44,20 @@ Recherche web effectuee le 16 mars 2026 :
   - Multimodal (texte, image, video, audio), 32K context, 140+ langues
   - ~1.5x plus rapide que Gemma 3 4B avec meilleure qualite
   - LiteRT checkpoints disponibles sur HuggingFace
-- **AI Edge RAG SDK** : pipeline officiel Google pour RAG on-device Android (chunking, indexing, retrieval, generation)
+- **AI Edge RAG SDK** : pipeline officiel Google pour RAG on-device Android — **DEPRECIE**
+  - Pas de pre-build desktop (JNI Android-only), pas de parent-child natif
+  - Pattern `customEmbeddingData` interessant : embed child, return parent — a implementer nous-memes
+  - Google recommande migration vers LiteRT-LM (qui n'a PAS de composants RAG)
+  - Decision : ne pas utiliser le SDK, garder notre pipeline custom (SQLite + embeddings)
 - **EmbeddingGemma-300M** : toujours le seul modele d'embeddings on-device Google, pas de successeur
 - **Gemma 3 QAT** : modeles QAT disponibles pour 1B, 4B, 12B, 27B (avril 2025)
+- **LiteRT-LM** : successeur recommande pour inference LLM on-device, supporte function calling
+- **Brute-force cosine** : 1857 x 768D = sub-10ms, pas besoin d'ANN (HNSW/IVF)
+- **Contraintes Android** : minSdk 26 (Android 8.0), arm64-v8a uniquement
 
-**Impact** : Gemma 3n E2B pourrait remplacer Gemma 3 270M pour la generation (meilleure qualite, 2GB RAM). A evaluer dans le chantier 2. EmbeddingGemma-300M reste le choix pour les embeddings.
+**Impact** : Gemma 3n E2B candidat remplacement Gemma 3 270M pour la generation (meilleure qualite, 2GB RAM). Pipeline = Python desktop (pre-build DB) + Kotlin Android (query + cosine + generation). EmbeddingGemma-300M reste le choix embeddings.
 
-Sources : deepmind.google, developers.googleblog.com, ai.google.dev, huggingface.co/google
+Sources : deepmind.google, developers.googleblog.com, ai.google.dev, huggingface.co/google, github.com/google-ai-edge
 
 ## Decisions cles
 
@@ -61,3 +68,5 @@ Sources : deepmind.google, developers.googleblog.com, ai.google.dev, huggingface
 | 27 fev | gs_scratch abandonne | 71.5% garbage, qualite inacceptable |
 | 27 fev | Annales = GS primaire | 264 vraies questions d'examen FFE, chunk_match verifie |
 | 16 mar | Archivage scripts pipeline | Ont produit l'etat casse, plus simple de reecrire |
+| 16 mar | AI Edge RAG SDK rejete | Deprecie, pas de pre-build desktop, pas de parent-child |
+| 16 mar | Pipeline custom confirme | Python desktop (pre-build DB) + Kotlin Android (query) |

@@ -11,12 +11,13 @@
 - **GS** : 403 questions, chunk text retrouvable dans v2 (297/298 = 99.7%)
 - **Modeles** : EmbeddingGemma-300M (embeddings), Gemma 3n E2B candidat generation
 - **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks
-- **Pipeline tests** : 33 tests extract+chunker PASS, 125 tests ISO PASS
+- **Indexer** : corpus_v2_fr.db (1154 children + 111 table summaries embeddes, 332 parents, 9/9 quality gates)
+- **CCH** : Contextual Chunk Headers appliques au build-time (Google prompts)
+- **Pipeline tests** : 55 tests pipeline PASS, 125 tests ISO PASS (180 total)
 
 ### En cours (chantier 2)
-- **Task 3** : Indexer — CCH (Contextual Chunk Headers) + embed + SQLite DB
 - **Task 4** : Search — cosine brute-force + adaptive k + parent lookup
-- **Task 5** : Integration — build corpus_v2_fr.db
+- **Task 5** : Integration finale + validation end-to-end
 
 ### A faire
 - **Chantier 3** : Re-mesurer recall sur 304 testables propres
@@ -25,7 +26,8 @@
 
 ## Commandes
 
-- `python -m pytest scripts/iso/ scripts/pipeline/tests/ -v` : Tests (ISO + pipeline)
+- `python -m pytest scripts/iso/ scripts/pipeline/tests/ -m "not slow" -v` : Tests (ISO + pipeline, sans extraction PDF)
+- `python -m pytest scripts/iso/ scripts/pipeline/tests/ -v` : Tests complets (inclut extraction PDF ~1h)
 - `python -m pytest scripts/iso/ --cov --cov-config=.coveragerc --cov-fail-under=80` : Tests avec coverage
 - `python -m pre_commit run --all-files` : Quality hooks
 - `python -m ruff check scripts/` : Lint

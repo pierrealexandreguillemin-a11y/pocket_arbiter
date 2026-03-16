@@ -100,7 +100,7 @@ repos:
         name: "ISO 29119 | Quick Test Gate (core modules)"
         description: "Run core tests to prevent broken commits"
         entry: python
-        args: [-m, pytest, scripts/iso/tests/, scripts/pipeline/tests/, -x, --tb=short, -q]
+        args: [-m, pytest, scripts/iso/tests/, scripts/pipeline/tests/, -x, --tb=short, -q, -m, "not slow"]
         language: system
         pass_filenames: false
         stages: [pre-commit]

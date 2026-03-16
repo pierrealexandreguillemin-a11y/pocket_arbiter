@@ -1,15 +1,32 @@
-# Pocket Arbiter - Claude Code Memory
+# Pocket Arbiter — Claude Code Memory
 
-> Application RAG mobile pour arbitres d'echecs
-> Normes: ISO 25010, 42001, 12207, 29119, 27001
+> Application RAG mobile Android pour arbitres d'echecs. Recherche semantique offline sur reglements FFE/FIDE.
 
-## Bash commands
+## Etat du projet (mars 2026)
 
-- `python -m pytest scripts/ -v`: Run all tests
-- `python -m pytest scripts/ --cov=scripts --cov-config=.coveragerc --cov-fail-under=80`: Tests with 80% coverage gate
-- `python -m pre_commit run --all-files`: Run all quality hooks
-- `python -m ruff check scripts/`: Lint Python code
-- `python -m mypy scripts/`: Type check
+### Ce qui fonctionne
+- **Corpus** : 30 PDFs FFE extraits, 1857 chunks children, 1394 parents, 111 table summaries
+- **GS** : 403 questions (264 annales + 40 human + 99 adversarial), chunk mappings verifies corrects
+- **Modeles** : EmbeddingGemma-300M (embeddings), Gemma 3 270M IT (generation, MediaPipe)
+- **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks, 125 tests PASS
+
+### Ce qui est casse
+- **Pipeline retrieval** : parents et table summaries absents de l'index de recherche
+- **Chunks** : trop petits (109 tokens median vs 200-400 standard industrie)
+- **Recall** : 36.6% chunk@5 (mesure sur donnees sales, jamais re-mesure post-cleanup)
+- **Classifications GS** : answer_type 100% faux ("multiple_choice"), reasoning_class ~55% faux
+
+### Cap
+1. **Chantier 2** : Fix pipeline — integrer parents + table summaries, corriger tailles chunks
+2. **Chantier 3** : Re-mesurer recall sur 304 testables propres
+3. Decider : fine-tuning embeddings ou prompt engineering selon resultats
+
+## Commandes
+
+- `python -m pytest scripts/iso/ -v` : Tests ISO (125 tests)
+- `python -m pytest scripts/iso/ --cov=scripts/iso --cov-config=.coveragerc --cov-fail-under=80` : Tests avec coverage
+- `python -m pre_commit run --all-files` : Quality hooks
+- `python -m ruff check scripts/iso/` : Lint
 
 ## Code style
 
@@ -18,50 +35,45 @@
 - Imports: stdlib, third-party, local (separes par ligne vide)
 - Max 88 caracteres par ligne (ruff default)
 
-## Project structure
+## Structure
 
 ```
 scripts/
-  iso/              # Validation ISO (100% coverage)
-  pipeline/         # Extraction PDF, chunking, embeddings (Phase 1A)
-  evaluation/
-    annales/        # GS generation, correction, regression (Phase A)
-    ares/           # ARES evaluation framework
-  training/         # Fine-tuning embeddings (Phase 2)
+  iso/              # Validation ISO (actif, 125 tests)
+  archive/          # Scripts archives (pipeline, evaluation, training)
 corpus/
   fr/               # 29 PDF FFE
   intl/             # 1 PDF FIDE
-tests/data/         # Questions gold standard (gold_standard_annales_fr_v8_adversarial.json, GS v9 interne)
-data/gs_generation/ # Artefacts generation (candidates, replacements, snapshots)
-docs/               # Specs ISO, plans, CVE register
+  processed/        # Chunks, parents, table summaries, DB
+tests/data/         # GS (gold_standard_annales_fr_v8_adversarial.json)
+data/benchmarks/    # Baseline recall, audits
+docs/               # Specs, research, fondations
+  archive/          # Docs perimes
+  superpowers/      # Specs et plans chantiers
+models/             # model_card.json
 ```
 
 ## ISO Compliance (OBLIGATOIRE)
 
-- ISO 27001: Jamais lire .env, secrets/, *.pem, *.key
-- ISO 29119: Coverage >= 80%, tests pour code executable uniquement
-- ISO 25010: Complexite cyclomatique <= B (xenon)
-- ISO 12207: Commits conventionnels (feat/fix/test/docs)
-- ISO 42001: Citations obligatoires, 0% hallucination
+- ISO 27001 : Jamais lire .env, secrets/, *.pem, *.key
+- ISO 29119 : Coverage >= 80% sur code actif
+- ISO 25010 : Complexite cyclomatique <= B (xenon)
+- ISO 12207 : Commits conventionnels (feat/fix/test/docs)
+- ISO 42001 : Citations obligatoires, 0% hallucination
 
 ## Principes de developpement
 
-- **KISS (Keep It Simple, Stupid)**: Solutions simples et directes, eviter over-engineering
-- **Code leverage**: Reutiliser modules existants (ex: token_utils.py) avant de creer du code duplique
-- **DRY (Don't Repeat Yourself)**: Factoriser le code commun dans des modules partages
-
-## Workflow
-
+- **KISS** : Solutions simples et directes, eviter over-engineering
+- **DRY** : Factoriser le code commun
+- **Production saine > existant rotte** : reecrire plutot que debugger du code empile
 - Lire le fichier AVANT de le modifier
 - Executer tests apres chaque modification
-- Ne jamais reduire la couverture de tests
 - Verifier les donnees contre les PDF sources (pas de texte invente)
-- Utiliser les modules partages existants (token_utils, chunk_normalizer, etc.)
 
 ## Environment
 
-- **Virtualenv**: `.venv/` (required for pip-audit and dependency isolation)
-- **Setup**:
+- **Virtualenv** : `.venv/`
+- **Setup** :
   ```bash
   python -m venv .venv
   # Windows: .venv\Scripts\activate
@@ -71,64 +83,16 @@ docs/               # Specs ISO, plans, CVE register
   python -m pre_commit install
   python -m pre_commit install --hook-type commit-msg --hook-type pre-push
   ```
-- **CVE exceptions**: docs/CVE_EXCEPTIONS.md
-
-## Current Work: Triplet Generation (SPEC-TRIP-001)
-
-- **Spec source**: docs/specs/TRIPLET_GENERATION_SPEC.md
-- **GS primaire**: `tests/data/gold_standard_annales_fr_v8_adversarial.json` (403Q = 304 answerable + 99 adversarial)
-- **Prochain jalon**: reclassifier answer_type (~260 MC -> extractive/abstractive) puis generer triplets
-
-### Pivot annales (2026-02-27) - Decision
-
-**gs_scratch abandonne** : audit qualite 71.5% answerable = garbage (templates mecaniques). Scripts supprimes. P3a (95 page-number) annule.
-
-**Annales adopte comme GS primaire (v8, puis v9 apres cleanup)**. Re-evaluation a montre que les 3 objections initiales etaient infondees :
-- "post-hoc matching" → FAUX : 420/420 `manual_by_design`, chunk_match_score=100
-- "237 chunk issues" → RESOLU : cascading fixes (152+101+25+290+238), final = 0 issues
-- "100% MCQ" → REFORMULE : 335/340 reponses reformulees (194 chars moy, pas des lettres)
-
-**Pourquoi annales** : 264 questions d'examen FFE reelles (10 sessions, 4 UV) + 40 human, success_rate 0.05-1.00, 28 docs couverts (vs 17 gs_scratch), 99 adversarial UAEval4RAG inclus. Qualite > quantite pour QLoRA.
-
-### Nettoyage Q/choices mismatch (2026-02-28) - Audit complet
-
-122 questions supprimees au total (Q text d'une UV avec choices d'une autre UV, bug d'extraction docling):
-- **Batch 1**: jun2025 (20) + jun2021 (23) = 43
-- **Batch 2**: dec2019 (6) + dec2021 (8) + dec2022 (1) + dec2023 (13) + dec2024 (3 dups) + jun2022 (13) + jun2023 (25) + jun2024 (8) = 77
-- **Batch 3**: jun2025 (2 residual) = 2
-- **Taux de contamination**: jun2023 83%, dec2019/jun2021/jun2022 ~55%, dec2021 44%, jun2025 34%, dec2023 25%, jun2024/dec2022 17%, dec2024 3% (dups only)
-- Archives: `data/benchmarks/removed_questions_qa_mismatch_2026-02-28.json` (batch 1), `data/benchmarks/removed_questions_qa_mismatch_batch2_2026-02-28.json` (batch 2)
-- Audit: `data/benchmarks/audit_gs_v8_mcq_answers_2026-02-28.json`
-
-### v9 annales — chiffres cles (post-cleanup)
-
-| Dimension | Valeur |
-|-----------|--------|
-| Total | 403 |
-| Answerable | 304 (264 annales + 40 human) |
-| Unanswerable | 99 (25%, 6 categories UAEval4RAG) |
-| Testables (hors requires_context) | 304 |
-| Documents couverts | 28/28 |
-| answer_type: multiple_choice | ~260 (a reclassifier) |
-
-### Travail restant avant triplets
-
-1. **Reclassifier answer_type** : ~260 "multiple_choice" -> extractive/abstractive (reponses deja reformulees, label seul a corriger)
-2. **Charger chunk_text** pour champ `positive` des triplets
-3. **Hard negative mining** : sentence-transformers, margin 0.05 (NV-Retriever, SPEC-TRIP-001 Section 3)
-4. **Split 80/20** : ~243 train GS + ~61 val GS (100% GS, zero synthetique en val)
-
-### gs_scratch — archive
-
-- **Fichier**: `tests/data/gs_scratch_v1_step1.json` (614Q, v1.1+P1+P2+recalib) — ARCHIVE, plus le GS primaire
-- **Reutilisable**: ~113 questions non-garbage potentiellement cherry-pickables en Phase B (coverage supplement)
-- **Scripts Phase A**: recalibrate_full.py, regenerate_targeted.py, verify_regression.py — conserves (reutilisables)
-- **Plan**: docs/plans/GS_CORRECTION_PLAN_V2.md — historique, plus actif
+- **CVE exceptions** : docs/CVE_EXCEPTIONS.md
 
 ## References
 
-- @docs/AI_POLICY.md: Politique anti-hallucination
-- @docs/QUALITY_REQUIREMENTS.md: Exigences qualite
-- @docs/specs/PHASE1A_SPECS.md: Specs Phase 1A actuelle
-- @docs/specs/TRIPLET_GENERATION_SPEC.md: Spec triplets (SPEC-TRIP-001, source de verite)
-- @docs/plans/GS_CORRECTION_PLAN_V2.md: Plan correction GS (PLAN-GS-CORR-002, historique/archive)
+- @docs/PROJECT_HISTORY.md : Historique des errements et decisions
+- @docs/VISION.md : Vision produit et architecture Dual-RAG
+- @docs/ARCHITECTURE.md : Architecture technique (Android Kotlin layer)
+- @docs/AI_POLICY.md : Politique anti-hallucination
+- @docs/QUALITY_REQUIREMENTS.md : Exigences qualite
+- @docs/specs/TRIPLET_GENERATION_SPEC.md : Spec triplets (si fine-tuning decide)
+- @models/model_card.json : Specs modeles (EmbeddingGemma + Gemma 3)
+- @docs/superpowers/specs/2026-03-16-menage-design.md : Spec menage
+- @docs/superpowers/plans/2026-03-16-menage.md : Plan menage

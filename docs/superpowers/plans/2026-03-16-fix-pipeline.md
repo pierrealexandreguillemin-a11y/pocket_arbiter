@@ -2,9 +2,18 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Reconstruire le pipeline retrieval avec vrais heading levels, chunks 400-512 tokens, parents pour contexte LLM, et table summaries dans l'index.
+**Goal:** Reconstruire le pipeline retrieval avec vrais heading levels, chunks 400-512 tokens, Contextual Chunk Headers (CCH), parents pour contexte LLM, et table summaries dans l'index.
 
-**Architecture:** 4 scripts sequentiels : extract (docling + hierarchical post-processor) → chunker (structure-aware) → indexer (EmbeddingGemma-300M → SQLite) → search (cosine brute-force → parents). TDD, un commit par tache.
+**Architecture:** 4 scripts sequentiels : extract (docling + hierarchical post-processor) → chunker (structure-aware) → indexer (EmbeddingGemma-300M + CCH → SQLite) → search (cosine brute-force + adaptive k → parents). TDD, un commit par tache.
+
+**Optimisations integrees (P0):**
+- Contextual Chunk Headers : prepend doc+section avant embedding (+35% recall, Anthropic 2025)
+- Score-based adaptive k : seuil 0.72 + gap 0.10 (-10% hallucination)
+
+**Roadmap post chantier 2 (documentee, pas implementee):**
+- P1 : BM25 hybride (alpha=0.6, +10-15% recall), fine-tuning EmbeddingGemma (+15-20%)
+- P2 : LLM context summaries (+15%), cross-encoder reranker (+20-35%)
+- Skip : HyDE (latence mobile), ColBERT (200x stockage)
 
 **Tech Stack:** Python 3.10+, docling 2.68+, docling-hierarchical-pdf, tiktoken, sentence-transformers, numpy, sqlite3
 

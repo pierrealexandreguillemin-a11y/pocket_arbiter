@@ -10,10 +10,14 @@
 
 Le pipeline actuel produit 1857 chunks de 109 tokens median (sur-chunke pour 390 pages). Les parents (1394) et table summaries (111) existent sur disque mais ne sont pas dans l'index de recherche. Le recall baseline est a 36.6% chunk@5.
 
-Les extractions docling (`corpus/processed/docling_fr/*.json`) sont verifiees fideles aux PDFs source (audit mars 2026 sur R01 et LA-octobre2025).
+Les extractions docling existantes (`corpus/processed/docling_fr/*.json`) sont fideles au texte des PDFs (audit mars 2026) mais ont un defaut : tous les headings sont aplatis en `##` (limitation connue de docling pour les PDFs). La hierarchie reelle (Partie > Chapitre > Section > Article) est perdue.
+
+### Re-extraction avec heading levels
+Le package `docling-hierarchical-pdf` (github.com/krrome/docling-hierarchical-pdf) post-traite les resultats docling pour inferer les niveaux de heading depuis les bookmarks PDF, la numerotation des articles, et la taille de police. Teste sur 60+ PDFs texte.
+
+**Approche** : re-extraire les 29 PDFs avec docling + post-processeur hierarchique. Verifier les heading levels contre les PDFs sources (audit echantillon). Si resultats insatisfaisants, fallback sur les extractions existantes avec deduction de hierarchie par numerotation.
 
 ### Hypotheses documentees
-- Tous les headings docling sont de niveau `##` (1582 headings, zero `#` ou `###`). Si une future extraction produit d'autres niveaux, le chunker devra etre adapte.
 - Les tokens sont comptes avec tiktoken cl100k_base (proxy pour le tokenizer Gemma, ecarts negligeables en francais). Le budget 400-512 est en tokens tiktoken.
 
 ---
@@ -46,11 +50,16 @@ corpus/processed/docling_fr/*.json  (29 fichiers markdown structure)
 ## 1. Chunker (`scripts/pipeline/chunker.py`)
 
 ### Source
-Les 29 fichiers `corpus/processed/docling_fr/*.json`, champ `markdown`.
+Re-extraction des 29 PDFs FR avec docling + `docling-hierarchical-pdf`. Produit du markdown avec vrais niveaux (`#`, `##`, `###`, etc.) correspondant a la hierarchie reelle du document.
+
+Fallback si post-processeur insatisfaisant : extractions existantes (`corpus/processed/docling_fr/*.json`) avec deduction de hierarchie par numerotation.
+
+### Verification obligatoire
+Audit des heading levels extraits contre les PDFs sources sur un echantillon (R01 6 pages, LA echantillon, 2-3 petits PDFs). Les niveaux doivent correspondre a la structure visuelle du PDF.
 
 ### Strategie structure-aware
 
-Les PDFs FFE sont structures en headings markdown (tous `##`). La hierarchie parent-child se deduit de la **numerotation des articles** (ex: `2.` est parent de `2.1`, `2.2`, etc.), pas des niveaux markdown.
+La hierarchie parent-child vient directement des **niveaux de heading** du markdown re-extrait (`#` = niveau 1, `##` = niveau 2, etc.).
 
 Le chunker :
 
@@ -187,14 +196,16 @@ Pas de filtre par competition/document. La hierarchie pyramidale des reglements 
 
 | Fichier | Responsabilite |
 |---------|---------------|
-| `scripts/pipeline/chunker.py` | Markdown → children + parents |
+| `scripts/pipeline/extract.py` | Re-extraction PDFs avec docling + hierarchical post-processor |
+| `scripts/pipeline/chunker.py` | Markdown hierarchique → children + parents |
 | `scripts/pipeline/indexer.py` | Children + summaries → SQLite DB |
 | `scripts/pipeline/search.py` | Query → top-k parents |
+| `scripts/pipeline/tests/test_extract.py` | Tests extraction + verification heading levels |
 | `scripts/pipeline/tests/test_chunker.py` | Tests chunker |
 | `scripts/pipeline/tests/test_indexer.py` | Tests indexer |
 | `scripts/pipeline/tests/test_search.py` | Tests search |
 
-3 scripts, 3 fichiers de tests. Pas plus.
+4 scripts, 4 fichiers de tests.
 
 ---
 
@@ -211,7 +222,7 @@ Pour la mesure recall (chantier 3) :
 
 ## 7. Ce qu'on ne fait PAS
 
-- Re-extraction PDF (docling OK)
+- Re-extraction depuis zero (on reutilise docling avec post-processeur)
 - Re-mapping GS (on mesure d'abord, matching textuel en chantier 3)
 - Reclassification GS (apres mesure)
 - Kotlin / Android (apres)

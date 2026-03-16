@@ -5,28 +5,31 @@
 ## Etat du projet (mars 2026)
 
 ### Ce qui fonctionne
-- **Corpus** : 30 PDFs FFE extraits, 1857 chunks children, 1394 parents, 111 table summaries
-- **GS** : 403 questions (264 annales + 40 human + 99 adversarial), chunk mappings verifies corrects
-- **Modeles** : EmbeddingGemma-300M (embeddings), Gemma 3 270M IT (generation, MediaPipe)
-- **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks, 125 tests PASS
+- **Corpus** : 28 PDFs FFE extraits avec heading levels (docling + docling-hierarchical-pdf)
+- **Chunks v2** : 1154 children (median 311 tok), 304 parents (median 863 tok), 111 table summaries
+- **Pages** : 1154/1154 children ont une page source
+- **GS** : 403 questions, chunk text retrouvable dans v2 (297/298 = 99.7%)
+- **Modeles** : EmbeddingGemma-300M (embeddings), Gemma 3n E2B candidat generation
+- **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks
+- **Pipeline tests** : 33 tests extract+chunker PASS, 125 tests ISO PASS
 
-### Ce qui est casse
-- **Pipeline retrieval** : parents et table summaries absents de l'index de recherche
-- **Chunks** : trop petits (109 tokens median vs 200-400 standard industrie)
-- **Recall** : 36.6% chunk@5 (mesure sur donnees sales, jamais re-mesure post-cleanup)
+### En cours (chantier 2)
+- **Task 3** : Indexer — CCH (Contextual Chunk Headers) + embed + SQLite DB
+- **Task 4** : Search — cosine brute-force + adaptive k + parent lookup
+- **Task 5** : Integration — build corpus_v2_fr.db
+
+### A faire
+- **Chantier 3** : Re-mesurer recall sur 304 testables propres
 - **Classifications GS** : answer_type 100% faux ("multiple_choice"), reasoning_class ~55% faux
-
-### Cap
-1. **Chantier 2** : Fix pipeline — integrer parents + table summaries, corriger tailles chunks
-2. **Chantier 3** : Re-mesurer recall sur 304 testables propres
-3. Decider : fine-tuning embeddings ou prompt engineering selon resultats
+- Decider : fine-tuning embeddings ou prompt engineering selon resultats recall
 
 ## Commandes
 
-- `python -m pytest scripts/iso/ -v` : Tests ISO (125 tests)
-- `python -m pytest scripts/iso/ --cov=scripts/iso --cov-config=.coveragerc --cov-fail-under=80` : Tests avec coverage
+- `python -m pytest scripts/iso/ scripts/pipeline/tests/ -v` : Tests (ISO + pipeline)
+- `python -m pytest scripts/iso/ --cov --cov-config=.coveragerc --cov-fail-under=80` : Tests avec coverage
 - `python -m pre_commit run --all-files` : Quality hooks
-- `python -m ruff check scripts/iso/` : Lint
+- `python -m ruff check scripts/` : Lint
+- `python scripts/pipeline/extract.py` : Re-extraire corpus (~1h, inclut LA 222 pages)
 
 ## Code style
 

@@ -1,5 +1,7 @@
 [run]
-source = scripts/iso/
+source =
+    scripts/iso/
+    scripts/pipeline/
 omit =
     scripts/archive/**
     */conftest.py

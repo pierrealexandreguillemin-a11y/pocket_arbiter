@@ -101,16 +101,20 @@ def reciprocal_rank_fusion(
 def adaptive_k(
     results: list[tuple[str, float]],
     min_score: float = 0.005,
-    max_gap: float = 0.01,
     max_k: int = 10,
+    buffer: int = 0,
 ) -> list[tuple[str, float]]:
-    """Filter results by score threshold and gap detection.
+    """Filter results by score threshold and largest-gap detection.
+
+    Based on EMNLP 2025 "No Tuning, No Iteration, Just Adaptive-k":
+    cut at the largest gap in the score distribution instead of a
+    fixed gap threshold. Adapts to each query's score distribution.
 
     Args:
         results: [(doc_id, score), ...] sorted desc.
         min_score: Minimum score to keep.
-        max_gap: Maximum gap between consecutive scores before cutting.
         max_k: Hard maximum number of results.
+        buffer: Extra results to keep after gap (paper default: 5).
 
     Returns:
         Filtered results.
@@ -124,18 +128,16 @@ def adaptive_k(
     # Apply min_score
     results = [(doc_id, score) for doc_id, score in results if score >= min_score]
 
-    if not results:
-        return []
+    if len(results) <= 1:
+        return results
 
-    # Apply gap detection
-    filtered = [results[0]]
-    for i in range(1, len(results)):
-        gap = results[i - 1][1] - results[i][1]
-        if gap > max_gap:
-            break
-        filtered.append(results[i])
+    # Find largest gap (EMNLP Adaptive-k)
+    gaps = [results[i][1] - results[i + 1][1] for i in range(len(results) - 1)]
+    largest_gap_idx = max(range(len(gaps)), key=lambda i: gaps[i])
 
-    return filtered
+    # Keep everything before the largest gap + buffer
+    cut = min(largest_gap_idx + 1 + buffer, len(results))
+    return results[:cut]
 
 
 # === DB-dependent functions ===
@@ -240,7 +242,6 @@ def search(
     query: str,
     model: SentenceTransformer | None = None,
     min_score: float = 0.005,
-    max_gap: float = 0.01,
     max_k: int = 10,
 ) -> SearchResult:
     """Full hybrid search pipeline.
@@ -250,7 +251,6 @@ def search(
         query: User question in French.
         model: SentenceTransformer model (loaded if None).
         min_score: Adaptive k minimum RRF score.
-        max_gap: Adaptive k maximum gap.
         max_k: Adaptive k maximum results.
 
     Returns:
@@ -277,8 +277,8 @@ def search(
         # 3. RRF fusion
         fused = reciprocal_rank_fusion(cosine_results, bm25_results)
 
-        # 4. Adaptive k
-        filtered = adaptive_k(fused, min_score, max_gap, max_k)
+        # 4. Adaptive k (EMNLP 2025 largest-gap)
+        filtered = adaptive_k(fused, min_score, max_k)
 
         # 5+6. Parent lookup + context assembly
         contexts = build_context(conn, filtered)

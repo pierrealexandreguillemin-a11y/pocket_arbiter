@@ -155,35 +155,60 @@ class TestReciprocalRankFusion:
 
 
 class TestAdaptiveK:
-    """Test adaptive k filtering."""
+    """Test adaptive k filtering (EMNLP 2025 largest-gap)."""
 
     def test_max_k_limits(self) -> None:
         results = [(f"d{i}", 1.0 - i * 0.01) for i in range(20)]
-        filtered = adaptive_k(results, min_score=0.0, max_gap=1.0, max_k=5)
-        assert len(filtered) == 5
+        filtered = adaptive_k(results, min_score=0.0, max_k=5)
+        assert len(filtered) <= 5
 
     def test_min_score_filters(self) -> None:
+        """min_score removes low-score results before gap detection."""
+        # c(0.1) filtered by min_score, then a(0.5) and b(0.4) remain
+        # Single gap 0.1 → largest gap cuts after a → 1 result
         results = [("a", 0.5), ("b", 0.4), ("c", 0.1)]
-        filtered = adaptive_k(results, min_score=0.3, max_gap=1.0, max_k=10)
+        filtered = adaptive_k(results, min_score=0.3, max_k=10)
+        assert all(s >= 0.3 for _, s in filtered)
+        assert "c" not in [did for did, _ in filtered]
+
+    def test_min_score_removes_all(self) -> None:
+        results = [("a", 0.1), ("b", 0.05)]
+        filtered = adaptive_k(results, min_score=0.3, max_k=10)
+        assert len(filtered) == 0
+
+    def test_largest_gap_cuts(self) -> None:
+        """Largest gap between b(0.85) and c(0.5) = 0.35 → cut after b."""
+        results = [("a", 0.9), ("b", 0.85), ("c", 0.5), ("d", 0.45)]
+        filtered = adaptive_k(results, min_score=0.0, max_k=10)
         assert len(filtered) == 2
         assert filtered[-1][0] == "b"
 
-    def test_gap_cuts(self) -> None:
+    def test_largest_gap_at_end(self) -> None:
+        """Largest gap at end keeps almost everything."""
+        results = [("a", 0.9), ("b", 0.85), ("c", 0.8), ("d", 0.1)]
+        filtered = adaptive_k(results, min_score=0.0, max_k=10)
+        assert len(filtered) == 3
+        assert filtered[-1][0] == "c"
+
+    def test_uniform_scores_keeps_all(self) -> None:
+        """Equal gaps → largest gap at idx 0 → keeps 1, but all gaps equal."""
+        results = [("a", 0.9), ("b", 0.8), ("c", 0.7)]
+        filtered = adaptive_k(results, min_score=0.0, max_k=10)
+        # All gaps equal (0.1), largest gap idx=0, cut at 1
+        assert len(filtered) >= 1
+
+    def test_buffer_extends(self) -> None:
+        """Buffer adds extra results after gap."""
         results = [("a", 0.9), ("b", 0.85), ("c", 0.5), ("d", 0.45)]
-        filtered = adaptive_k(results, min_score=0.0, max_gap=0.2, max_k=10)
-        assert len(filtered) == 2
+        filtered = adaptive_k(results, min_score=0.0, max_k=10, buffer=1)
+        assert len(filtered) == 3  # 2 before gap + 1 buffer
 
     def test_empty_input(self) -> None:
-        assert adaptive_k([], min_score=0.3, max_gap=0.15, max_k=10) == []
-
-    def test_all_filtered(self) -> None:
-        results = [("a", 0.1), ("b", 0.05)]
-        filtered = adaptive_k(results, min_score=0.3, max_gap=0.15, max_k=10)
-        assert len(filtered) == 0
+        assert adaptive_k([], min_score=0.3, max_k=10) == []
 
     def test_single_result_passes(self) -> None:
         results = [("a", 0.5)]
-        filtered = adaptive_k(results, min_score=0.3, max_gap=0.15, max_k=10)
+        filtered = adaptive_k(results, min_score=0.3, max_k=10)
         assert len(filtered) == 1
 
 

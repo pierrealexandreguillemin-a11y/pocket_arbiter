@@ -14,6 +14,7 @@
 | CVE-2026-25990 | pillow | 11.3.0 | 12.1.1 | docling pins `pillow<12.0.0`. Cannot upgrade without breaking docling. | **Medium** - monitor for docling release with relaxed pin |
 | CVE-2026-27448 | pyopenssl | 24.2.1 | 26.0.0 | Transitive dependency (via urllib3/requests). Local dev tooling only. | **Low** - no server-side TLS usage |
 | CVE-2026-27459 | pyopenssl | 24.2.1 | 26.0.0 | Same as above. | **Low** - no server-side TLS usage |
+| CVE-2026-30922 | pyasn1 | 0.6.2 | 0.6.3 | Transitive dependency. Local dev tooling only. | **Low** - no ASN.1 parsing of untrusted input |
 
 ## Review Process
 

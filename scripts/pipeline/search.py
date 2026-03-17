@@ -210,54 +210,26 @@ def bm25_search(
     return results[:max_k]
 
 
-def build_context(
+def _build_parent_contexts(
     conn: sqlite3.Connection,
-    result_ids: list[tuple[str, float]],
+    child_ids: list[tuple[str, float]],
 ) -> list[Context]:
-    """Lookup parents, dedup, assemble context.
-
-    Args:
-        conn: SQLite connection.
-        result_ids: [(id, score), ...] from adaptive_k output.
-
-    Returns:
-        List of Context objects, parents deduplicated, ordered by score.
-    """
-    # Separate children from table summaries
-    child_ids: list[tuple[str, float]] = []
-    table_ids: list[tuple[str, float]] = []
-
-    child_id_set = {
-        row[0] for row in conn.execute("SELECT id FROM children").fetchall()
-    }
-
-    for doc_id, score in result_ids:
-        if doc_id in child_id_set:
-            child_ids.append((doc_id, score))
-        else:
-            table_ids.append((doc_id, score))
-
-    contexts: list[Context] = []
-
-    # Parent dedup: group children by parent_id
+    """Group children by parent, dedup, build parent contexts."""
     parent_groups: dict[str, list[tuple[str, float]]] = {}
     for child_id, score in child_ids:
         row = conn.execute(
-            "SELECT parent_id, source, page, section FROM children WHERE id = ?",
-            (child_id,),
+            "SELECT parent_id FROM children WHERE id = ?", (child_id,)
         ).fetchone()
         if row:
-            pid = row[0]
-            parent_groups.setdefault(pid, []).append((child_id, score))
+            parent_groups.setdefault(row[0], []).append((child_id, score))
 
-    # Build parent contexts (skip empty root parents)
+    contexts: list[Context] = []
     for pid, children in parent_groups.items():
         parent_row = conn.execute(
             "SELECT text, source, section, page FROM parents WHERE id = ?",
             (pid,),
         ).fetchone()
         if parent_row and parent_row[0].strip():
-            best_score = max(s for _, s in children)
             contexts.append(
                 Context(
                     text=parent_row[0],
@@ -265,15 +237,22 @@ def build_context(
                     page=parent_row[3],
                     section=parent_row[2] or "",
                     context_type="parent",
-                    score=best_score,
+                    score=max(s for _, s in children),
                     children_matched=[cid for cid, _ in children],
                 )
             )
+    return contexts
 
-    # Build table contexts (raw_table_text, not summary)
+
+def _build_table_contexts(
+    conn: sqlite3.Connection,
+    table_ids: list[tuple[str, float]],
+) -> list[Context]:
+    """Build table contexts from matched summaries."""
+    contexts: list[Context] = []
     for table_id, score in table_ids:
         row = conn.execute(
-            "SELECT raw_table_text, source, page FROM table_summaries " "WHERE id = ?",
+            "SELECT raw_table_text, source, page FROM table_summaries WHERE id = ?",
             (table_id,),
         ).fetchone()
         if row:
@@ -288,8 +267,31 @@ def build_context(
                     children_matched=[table_id],
                 )
             )
+    return contexts
 
-    # Sort by score desc
+
+def build_context(
+    conn: sqlite3.Connection,
+    result_ids: list[tuple[str, float]],
+) -> list[Context]:
+    """Lookup parents, dedup, assemble context.
+
+    Args:
+        conn: SQLite connection.
+        result_ids: [(id, score), ...] from adaptive_k output.
+
+    Returns:
+        List of Context objects, parents deduplicated, ordered by score.
+    """
+    child_id_set = {
+        row[0] for row in conn.execute("SELECT id FROM children").fetchall()
+    }
+
+    child_ids = [(did, s) for did, s in result_ids if did in child_id_set]
+    table_ids = [(did, s) for did, s in result_ids if did not in child_id_set]
+
+    contexts = _build_parent_contexts(conn, child_ids)
+    contexts.extend(_build_table_contexts(conn, table_ids))
     contexts.sort(key=lambda c: -c.score)
     return contexts
 

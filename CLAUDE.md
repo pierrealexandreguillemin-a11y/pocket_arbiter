@@ -6,14 +6,14 @@
 
 ### Ce qui fonctionne
 - **Corpus** : 28 PDFs FFE extraits avec heading levels (docling + docling-hierarchical-pdf)
-- **Chunks v2** : 1154 children (median 311 tok), 304 parents (median 863 tok), 111 table summaries
-- **Pages** : 1154/1154 children ont une page source
-- **GS** : 403 questions, chunk text retrouvable dans v2 (297/298 = 99.7%)
-- **Modeles** : EmbeddingGemma-300M (embeddings), Gemma 3n E2B candidat generation
+- **Chunks v2** : 1253 children (0 > 2048 tok), 332 parents, 111 table summaries
+- **Pages** : 298/298 GS pages couvertes (interpolation page spans)
+- **GS** : 403 questions, chunk text retrouvable dans v2 (298/298 = 100%)
+- **Modeles** : EmbeddingGemma-300M QAT (embeddings), Gemma 3n E2B candidat generation
 - **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks
-- **Indexer** : corpus_v2_fr.db (1154 children + 111 table summaries embeddes, 332 parents, 9/9 quality gates)
-- **CCH** : Contextual Chunk Headers appliques au build-time (Google prompts)
-- **Pipeline tests** : 55 tests pipeline PASS, 125 tests ISO PASS (180 total)
+- **Indexer** : corpus_v2_fr.db (1253 children + 111 table summaries embeddes, 332 parents, 11/11 quality gates)
+- **CCH** : Contextual Chunk Headers descriptifs au build-time (Google prompts)
+- **Pipeline tests** : 64 tests pipeline PASS, 125 tests ISO PASS (189 total)
 
 ### En cours (chantier 2)
 - **Task 4** : Search — cosine brute-force + adaptive k + parent lookup

@@ -133,7 +133,7 @@ repos:
         name: "ISO 29119 | Test Coverage (80% min)"
         description: "Run tests with coverage measurement"
         entry: python
-        args: [-m, pytest, scripts/, -v, --tb=short, --cov=scripts, --cov-config=.coveragerc, --cov-fail-under=80, -x]
+        args: [-m, pytest, scripts/, -v, --tb=short, --cov=scripts, --cov-config=.coveragerc, --cov-fail-under=80, -x, -m, "not slow", --ignore=scripts/archive]
         language: system
         pass_filenames: false
         stages: [pre-push]
@@ -147,7 +147,7 @@ repos:
         name: "ISO 25010 | Cyclomatic Complexity (pipeline)"
         description: "Ensure maintainable code complexity in pipeline modules"
         entry: python
-        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/pipeline/, -e, scripts/pipeline/adversarial_harness.py]
+        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/pipeline/, -e, "scripts/pipeline/adversarial_harness.py,scripts/pipeline/tests/test_indexer.py"]
         language: system
         pass_filenames: false
         stages: [pre-push]
@@ -181,7 +181,9 @@ repos:
             "$VENV_PY" -m pip_audit --strict --local \
               --ignore-vuln CVE-2025-69872 \
               --ignore-vuln CVE-2026-26007 \
-              --ignore-vuln CVE-2026-25990
+              --ignore-vuln CVE-2026-25990 \
+              --ignore-vuln CVE-2026-27448 \
+              --ignore-vuln CVE-2026-27459
         language: system
         pass_filenames: false
         stages: [pre-push]

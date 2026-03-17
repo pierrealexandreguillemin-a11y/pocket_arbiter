@@ -72,21 +72,17 @@ def _extract_heading_pages(doc: object) -> dict[str, int]:
         Dict mapping heading text (stripped) to first page number.
     """
     heading_pages: dict[str, int] = {}
-    texts = doc.texts if hasattr(doc, "texts") else []
-    for item in texts:
-        if (
-            hasattr(item, "label")
-            and item.label == "section_header"
-            and hasattr(item, "prov")
-            and item.prov
-        ):
-            text = ""
-            if hasattr(item, "text") and item.text:
-                text = item.text.strip()
-            elif hasattr(item, "orig") and item.orig:
-                text = str(item.orig).strip()
-            if text:
-                heading_pages[text] = item.prov[0].page_no
+    for item in getattr(doc, "texts", []):
+        if getattr(item, "label", None) != "section_header":
+            continue
+        prov = getattr(item, "prov", None)
+        if not prov:
+            continue
+        text = (getattr(item, "text", "") or "").strip()
+        if not text:
+            text = str(getattr(item, "orig", "") or "").strip()
+        if text:
+            heading_pages[text] = prov[0].page_no
     return heading_pages
 
 

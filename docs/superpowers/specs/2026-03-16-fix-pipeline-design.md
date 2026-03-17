@@ -307,3 +307,38 @@ Une SQLite DB (`corpus/processed/corpus_v2_fr.db`) contenant :
 Prete pour mesurer le recall (chantier 3).
 
 Techniques P1/P2 documentees pour implementation post re-mesure.
+
+---
+
+## 9. Mise a jour annuelle du corpus
+
+Les reglements FFE sont mis a jour chaque saison (septembre). Process de rebuild :
+
+1. **Remplacer les PDFs** dans `corpus/fr/` (nouveaux reglements saison N+1)
+2. **Re-extraire** : `python scripts/pipeline/extract.py` (~1h avec LA 222 pages)
+3. **Verifier** : audit heading levels sur echantillon, edge cases H01/H02/R02
+4. **Re-chunker** : automatique via `build_index()` (chunker integre)
+5. **Re-embedder** : automatique via `build_index()` (~18 min CPU, ou GPU si dispo)
+6. **Quality gates** : les 11 gates existantes + G8c pages GS (si GS mis a jour)
+7. **Livrer** : remplacer `corpus_v2_fr.db` dans les assets Android
+
+Pas de delta update — full rebuild. Le corpus est petit (<500 pages), le cout est acceptable (~20 min).
+
+Si le GS est mis a jour (nouvelles questions annales), re-verifier G8 (text match).
+
+---
+
+## 10. Decisions architecture Android (recherche web mars 2026)
+
+### Vector search : Pure Kotlin brute-force
+
+| Option | Latence 1364 vecteurs | Dependance | Decision |
+|--------|----------------------|------------|----------|
+| **Pure Kotlin dot product** | ~5ms (extrapole de 500ms/100K) | Aucune | **RETENU** |
+| sqlite-vec extension | ~2ms (SIMD natif) | JNI C library | Overkill |
+| ObjectBox vector DB | Non benchmarke | ~3MB + JNI | Overkill, pas evalue |
+
+Justification : 1364 vecteurs x 768D x float32 = ~4MB en memoire. Brute-force dot product
+sur ARM64 NEON est sub-10ms. Pas besoin d'index ANN (HNSW/IVF) sous 10K vecteurs.
+
+Source : [On-Device RAG (Denisov 2026)](https://medium.com/google-developer-experts/on-device-rag-for-app-developers-embeddings-vector-search-and-beyond-47127e954c24), benchmarks ente.io SQLite vs ObjectBox vs Isar.

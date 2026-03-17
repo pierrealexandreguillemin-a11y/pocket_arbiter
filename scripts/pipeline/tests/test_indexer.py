@@ -21,7 +21,9 @@ from scripts.pipeline.indexer import (
     insert_table_summaries,
     load_table_summaries,
     make_cch_title,
+    populate_fts,
 )
+from scripts.pipeline.synonyms import stem_text
 
 
 class TestMakeCchTitle:
@@ -550,3 +552,146 @@ class TestG8GsTextRetrouvable:
             f"First 5 misses: {not_found[:5]}"
         )
         assert checked >= 250, f"Too few questions checked: {checked} (expected >= 250)"
+
+
+class TestFts5Schema:
+    """Test FTS5 virtual tables creation."""
+
+    def test_creates_fts5_tables(self, tmp_path: Path) -> None:
+        db_path = tmp_path / "test.db"
+        conn = create_db(db_path)
+        # Check FTS5 tables exist
+        tables = [
+            row[0]
+            for row in conn.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()
+        ]
+        assert "children_fts" in tables
+        assert "table_summaries_fts" in tables
+        conn.close()
+
+    def test_fts5_search_works(self, tmp_path: Path) -> None:
+        db_path = tmp_path / "test.db"
+        conn = create_db(db_path)
+        conn.execute(
+            "INSERT INTO children_fts (id, text_stemmed) VALUES (?, ?)",
+            ("child-1", stem_text("arbitrage des competitions")),
+        )
+        conn.commit()
+        rows = conn.execute(
+            "SELECT id, bm25(children_fts) FROM children_fts "
+            "WHERE children_fts MATCH ?",
+            (stem_text("arbitrage"),),
+        ).fetchall()
+        assert len(rows) == 1
+        assert rows[0][0] == "child-1"
+        conn.close()
+
+
+class TestPopulateFts:
+    """Test FTS5 population from children/summaries."""
+
+    def test_populate_children_fts(self, tmp_path: Path) -> None:
+        db_path = tmp_path / "test.db"
+        conn = create_db(db_path)
+        # Insert a parent + child first
+        conn.execute(
+            "INSERT INTO parents (id, text, source, section, tokens, page) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("p1", "Parent", "test.pdf", "S1", 10, 1),
+        )
+        children = [
+            {
+                "id": "c1",
+                "text": "Les joueurs doivent etre licencies",
+                "parent_id": "p1",
+                "source": "test.pdf",
+                "page": 1,
+                "article_num": None,
+                "section": "S1",
+                "tokens": 10,
+            },
+        ]
+        emb = np.random.randn(1, 768).astype(np.float32)
+        insert_children(conn, children, emb)
+        populate_fts(conn)
+        # Verify FTS5 has the stemmed text
+        count = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
+        assert count == 1
+        # Verify search works
+        rows = conn.execute(
+            "SELECT id FROM children_fts WHERE children_fts MATCH ?",
+            (stem_text("licencies"),),
+        ).fetchall()
+        assert len(rows) == 1
+        conn.close()
+
+    def test_populate_table_summaries_fts(self, tmp_path: Path) -> None:
+        db_path = tmp_path / "test.db"
+        conn = create_db(db_path)
+        # Insert a table summary
+        summaries = [
+            {
+                "id": "doc-table0",
+                "summary_text": "Bareme frais deplacement federation",
+                "raw_table_text": "| col1 | col2 |",
+                "source": "doc.pdf",
+                "page": 3,
+                "tokens": 25,
+            }
+        ]
+        emb = np.random.randn(1, 768).astype(np.float32)
+        insert_table_summaries(conn, summaries, emb)
+        populate_fts(conn)
+        # Verify FTS5 has the stemmed text
+        count = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[0]
+        assert count == 1
+        # Verify search works
+        rows = conn.execute(
+            "SELECT id FROM table_summaries_fts WHERE table_summaries_fts MATCH ?",
+            (stem_text("deplacement"),),
+        ).fetchall()
+        assert len(rows) == 1
+        assert rows[0][0] == "doc-table0"
+        conn.close()
+
+    def test_populate_idempotent(self, tmp_path: Path) -> None:
+        """Calling populate_fts twice should not duplicate rows."""
+        db_path = tmp_path / "test.db"
+        conn = create_db(db_path)
+        conn.execute(
+            "INSERT INTO parents (id, text, source, section, tokens, page) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("p1", "Parent", "test.pdf", "S1", 10, 1),
+        )
+        children = [
+            {
+                "id": "c1",
+                "text": "Texte de test",
+                "parent_id": "p1",
+                "source": "test.pdf",
+                "page": 1,
+                "article_num": None,
+                "section": "S1",
+                "tokens": 5,
+            },
+        ]
+        emb = np.random.randn(1, 768).astype(np.float32)
+        insert_children(conn, children, emb)
+        populate_fts(conn)
+        populate_fts(conn)  # Second call should clear and rebuild
+        count = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
+        assert count == 1
+        conn.close()
+
+    def test_populate_empty_tables(self, tmp_path: Path) -> None:
+        """populate_fts on empty tables should not error."""
+        db_path = tmp_path / "test.db"
+        conn = create_db(db_path)
+        populate_fts(conn)
+        count_c = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
+        count_t = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[0]
+        assert count_c == 0
+        assert count_t == 0
+        conn.close()

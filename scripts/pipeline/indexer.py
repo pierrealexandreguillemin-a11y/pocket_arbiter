@@ -97,6 +97,18 @@ CREATE TABLE IF NOT EXISTS table_summaries (
     page INTEGER,
     tokens INTEGER
 );
+
+CREATE VIRTUAL TABLE IF NOT EXISTS children_fts USING fts5(
+    id UNINDEXED,
+    text_stemmed,
+    tokenize='unicode61 remove_diacritics 2'
+);
+
+CREATE VIRTUAL TABLE IF NOT EXISTS table_summaries_fts USING fts5(
+    id UNINDEXED,
+    text_stemmed,
+    tokenize='unicode61 remove_diacritics 2'
+);
 """
 
 
@@ -363,6 +375,40 @@ def insert_table_summaries(
     conn.commit()
 
 
+# === FTS5 population ===
+
+
+def populate_fts(conn: sqlite3.Connection) -> None:
+    """Populate FTS5 tables with stemmed text from children and table_summaries.
+
+    Must be called after insert_children and insert_table_summaries.
+
+    Args:
+        conn: SQLite connection with children and table_summaries populated.
+    """
+    from scripts.pipeline.synonyms import stem_text
+
+    # Clear existing FTS data (idempotent rebuild)
+    conn.execute("DELETE FROM children_fts")
+    conn.execute("DELETE FROM table_summaries_fts")
+
+    # Populate children_fts
+    rows = conn.execute("SELECT id, text FROM children").fetchall()
+    conn.executemany(
+        "INSERT INTO children_fts (id, text_stemmed) VALUES (?, ?)",
+        [(row[0], stem_text(row[1])) for row in rows],
+    )
+
+    # Populate table_summaries_fts
+    rows = conn.execute("SELECT id, summary_text FROM table_summaries").fetchall()
+    conn.executemany(
+        "INSERT INTO table_summaries_fts (id, text_stemmed) VALUES (?, ?)",
+        [(row[0], stem_text(row[1])) for row in rows],
+    )
+
+    conn.commit()
+
+
 # === Table summaries loading ===
 
 
@@ -524,6 +570,15 @@ def build_index(
     if table_sums:
         insert_table_summaries(conn, table_sums, ts_embeddings)
         logger.info("Inserted %d table summaries", len(table_sums))
+
+    # 7. Build FTS5 index for BM25
+    logger.info("=== Step 7: Populating FTS5 index ===")
+    populate_fts(conn)
+    fts_children = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
+    fts_summaries = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[
+        0
+    ]
+    logger.info("FTS5: %d children + %d summaries indexed", fts_children, fts_summaries)
 
     conn.close()
 

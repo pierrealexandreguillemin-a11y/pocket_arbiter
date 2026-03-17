@@ -1,21 +1,10 @@
 # scripts/pipeline/search.py
-"""Hybrid search: cosine + BM25 FTS5 with RRF fusion.
-
-Query flow:
-1. Stem + synonym expand (for BM25)
-2. Embed query (for cosine)
-3. Dual retrieval: cosine brute-force + FTS5 BM25
-4. RRF fusion
-5. Adaptive k filtering
-6. Parent lookup + dedup
-7. Context assembly
-"""
+"""Hybrid search: cosine + BM25 FTS5 with RRF fusion, adaptive k filtering."""
 
 from __future__ import annotations
 
 import logging
 import sqlite3
-from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -24,6 +13,7 @@ import numpy as np
 if TYPE_CHECKING:
     from sentence_transformers import SentenceTransformer
 
+from scripts.pipeline.context import SearchResult, build_context
 from scripts.pipeline.indexer import (
     blob_to_embedding,
     format_query,
@@ -33,27 +23,53 @@ from scripts.pipeline.synonyms import expand_query
 
 logger = logging.getLogger(__name__)
 
+# === Embedding cache ===
 
-@dataclass
-class Context:
-    """A single context block for the LLM."""
-
-    text: str
-    source: str
-    page: int | None
-    section: str
-    context_type: str  # "parent" or "table"
-    score: float
-    children_matched: list[str] = field(default_factory=list)
+_embedding_cache: dict[str, tuple[list[str], np.ndarray]] = {}
 
 
-@dataclass
-class SearchResult:
-    """Complete search result."""
+_EMBEDDING_SQL = {
+    "children": "SELECT id, embedding FROM children",
+    "table_summaries": "SELECT id, embedding FROM table_summaries",
+}
 
-    contexts: list[Context]
-    total_children_matched: int
-    scores: dict[str, float]
+
+def _load_embeddings(
+    conn: sqlite3.Connection,
+    table: str,
+    cache_key: str,
+) -> tuple[list[str], np.ndarray]:
+    """Load and cache all embeddings from a table.
+
+    Args:
+        conn: SQLite connection.
+        table: "children" or "table_summaries" (whitelist enforced).
+        cache_key: Cache key (db_path + table).
+
+    Returns:
+        (ids, embeddings_matrix) where matrix is (N, 768) float32.
+    """
+    if table not in _EMBEDDING_SQL:
+        msg = f"Invalid table: {table}. Must be one of {set(_EMBEDDING_SQL)}"
+        raise ValueError(msg)
+
+    if cache_key in _embedding_cache:
+        return _embedding_cache[cache_key]
+
+    rows = conn.execute(_EMBEDDING_SQL[table]).fetchall()
+    if not rows:
+        _embedding_cache[cache_key] = ([], np.empty((0, 768), dtype=np.float32))
+        return _embedding_cache[cache_key]
+
+    ids = [row[0] for row in rows]
+    matrix = np.stack([blob_to_embedding(row[1]) for row in rows])
+    _embedding_cache[cache_key] = (ids, matrix)
+    return ids, matrix
+
+
+def clear_embedding_cache() -> None:
+    """Clear the embedding cache. Call when switching DBs."""
+    _embedding_cache.clear()
 
 
 # === Pure functions ===
@@ -129,30 +145,36 @@ def cosine_search(
     conn: sqlite3.Connection,
     query_embedding: np.ndarray,
     max_k: int = 20,
+    db_path: str = "",
 ) -> list[tuple[str, float]]:
     """Brute-force cosine search on children + table_summaries.
+
+    Embeddings are loaded once and cached in memory. Subsequent calls
+    with the same db_path skip all BLOB deserialization.
 
     Args:
         conn: SQLite connection to corpus DB.
         query_embedding: Query vector (768D, L2 normalized).
         max_k: Maximum results to return.
+        db_path: DB path for cache key (empty string = no cache reuse).
 
     Returns:
         [(id, cosine_score), ...] sorted desc.
     """
+    child_ids, child_matrix = _load_embeddings(conn, "children", f"{db_path}:children")
+    table_ids, table_matrix = _load_embeddings(
+        conn, "table_summaries", f"{db_path}:table_summaries"
+    )
+
     results: list[tuple[str, float]] = []
 
-    # Search children
-    for row in conn.execute("SELECT id, embedding FROM children"):
-        emb = blob_to_embedding(row[1])
-        score = float(np.dot(query_embedding, emb))
-        results.append((row[0], score))
+    if child_ids:
+        scores = child_matrix @ query_embedding
+        results.extend(zip(child_ids, scores.tolist(), strict=True))
 
-    # Search table summaries
-    for row in conn.execute("SELECT id, embedding FROM table_summaries"):
-        emb = blob_to_embedding(row[1])
-        score = float(np.dot(query_embedding, emb))
-        results.append((row[0], score))
+    if table_ids:
+        scores = table_matrix @ query_embedding
+        results.extend(zip(table_ids, scores.tolist(), strict=True))
 
     results.sort(key=lambda x: -x[1])
     return results[:max_k]
@@ -210,92 +232,6 @@ def bm25_search(
     return results[:max_k]
 
 
-def _build_parent_contexts(
-    conn: sqlite3.Connection,
-    child_ids: list[tuple[str, float]],
-) -> list[Context]:
-    """Group children by parent, dedup, build parent contexts."""
-    parent_groups: dict[str, list[tuple[str, float]]] = {}
-    for child_id, score in child_ids:
-        row = conn.execute(
-            "SELECT parent_id FROM children WHERE id = ?", (child_id,)
-        ).fetchone()
-        if row:
-            parent_groups.setdefault(row[0], []).append((child_id, score))
-
-    contexts: list[Context] = []
-    for pid, children in parent_groups.items():
-        parent_row = conn.execute(
-            "SELECT text, source, section, page FROM parents WHERE id = ?",
-            (pid,),
-        ).fetchone()
-        if parent_row and parent_row[0].strip():
-            contexts.append(
-                Context(
-                    text=parent_row[0],
-                    source=parent_row[1],
-                    page=parent_row[3],
-                    section=parent_row[2] or "",
-                    context_type="parent",
-                    score=max(s for _, s in children),
-                    children_matched=[cid for cid, _ in children],
-                )
-            )
-    return contexts
-
-
-def _build_table_contexts(
-    conn: sqlite3.Connection,
-    table_ids: list[tuple[str, float]],
-) -> list[Context]:
-    """Build table contexts from matched summaries."""
-    contexts: list[Context] = []
-    for table_id, score in table_ids:
-        row = conn.execute(
-            "SELECT raw_table_text, source, page FROM table_summaries WHERE id = ?",
-            (table_id,),
-        ).fetchone()
-        if row:
-            contexts.append(
-                Context(
-                    text=row[0],
-                    source=row[1],
-                    page=row[2],
-                    section="",
-                    context_type="table",
-                    score=score,
-                    children_matched=[table_id],
-                )
-            )
-    return contexts
-
-
-def build_context(
-    conn: sqlite3.Connection,
-    result_ids: list[tuple[str, float]],
-) -> list[Context]:
-    """Lookup parents, dedup, assemble context.
-
-    Args:
-        conn: SQLite connection.
-        result_ids: [(id, score), ...] from adaptive_k output.
-
-    Returns:
-        List of Context objects, parents deduplicated, ordered by score.
-    """
-    child_id_set = {
-        row[0] for row in conn.execute("SELECT id FROM children").fetchall()
-    }
-
-    child_ids = [(did, s) for did, s in result_ids if did in child_id_set]
-    table_ids = [(did, s) for did, s in result_ids if did not in child_id_set]
-
-    contexts = _build_parent_contexts(conn, child_ids)
-    contexts.extend(_build_table_contexts(conn, table_ids))
-    contexts.sort(key=lambda c: -c.score)
-    return contexts
-
-
 # === Main entry point ===
 
 
@@ -324,28 +260,30 @@ def search(
         model = load_model()
 
     conn = sqlite3.connect(str(db_path))
+    try:
+        # 1. Query processing
+        stemmed_expanded = expand_query(query)
+        q_emb = model.encode(
+            [format_query(query)],
+            normalize_embeddings=True,
+        )[0].astype(np.float32)
 
-    # 1. Query processing
-    stemmed_expanded = expand_query(query)
-    q_emb = model.encode(
-        [format_query(query)],
-        normalize_embeddings=True,
-    )[0].astype(np.float32)
+        # 2. Dual retrieval
+        cosine_results = cosine_search(
+            conn, q_emb, max_k=max_k * 2, db_path=str(db_path)
+        )
+        bm25_results = bm25_search(conn, stemmed_expanded, max_k=max_k * 2)
 
-    # 2. Dual retrieval
-    cosine_results = cosine_search(conn, q_emb, max_k=max_k * 2)
-    bm25_results = bm25_search(conn, stemmed_expanded, max_k=max_k * 2)
+        # 3. RRF fusion
+        fused = reciprocal_rank_fusion(cosine_results, bm25_results)
 
-    # 3. RRF fusion
-    fused = reciprocal_rank_fusion(cosine_results, bm25_results)
+        # 4. Adaptive k
+        filtered = adaptive_k(fused, min_score, max_gap, max_k)
 
-    # 4. Adaptive k
-    filtered = adaptive_k(fused, min_score, max_gap, max_k)
-
-    # 5+6. Parent lookup + context assembly
-    contexts = build_context(conn, filtered)
-
-    conn.close()
+        # 5+6. Parent lookup + context assembly
+        contexts = build_context(conn, filtered)
+    finally:
+        conn.close()
 
     return SearchResult(
         contexts=contexts,

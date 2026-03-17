@@ -76,7 +76,7 @@ class TestChessSynonyms:
     """Test CHESS_SYNONYMS dict completeness."""
 
     def test_minimum_entries(self) -> None:
-        assert len(CHESS_SYNONYMS) >= 15
+        assert len(CHESS_SYNONYMS) >= 50
 
     def test_key_terms_present(self) -> None:
         for term in ["cadence", "elo", "forfait", "mat", "appariement"]:

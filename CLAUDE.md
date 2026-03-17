@@ -14,8 +14,8 @@
 - **Indexer** : corpus_v2_fr.db (1253 children + 111 table summaries embeddes, 332 parents, 11/11 quality gates)
 - **CCH** : Contextual Chunk Headers descriptifs au build-time (Google prompts)
 - **Search** : hybrid cosine + BM25 FTS5, RRF fusion, adaptive k, parent dedup, 8/8 quality gates
-- **Synonymes** : Snowball FR stemmer + 25 synonymes chess bidirectionnels
-- **Pipeline tests** : 100 tests pipeline PASS, 125 tests ISO PASS (225 total)
+- **Synonymes** : Snowball FR stemmer + 70 synonymes chess (intra-corpus + langage courant→corpus)
+- **Pipeline tests** : 107 tests pipeline PASS, 125 tests ISO PASS (232 total)
 
 ### En cours (chantier 2)
 - **Task 5** : Integration finale + validation end-to-end

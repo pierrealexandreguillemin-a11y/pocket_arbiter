@@ -167,9 +167,97 @@ Fonctions :
 
 ## DoD (Definition of Done)
 
-- [ ] `scripts/pipeline/indexer.py` ecrit et teste
-- [ ] `corpus/processed/corpus_v2_fr.db` genere
-- [ ] 9 quality gates PASS
-- [ ] Tests unitaires PASS
-- [ ] Commit conventionnel
-- [ ] CLAUDE.md et memoire a jour
+- [x] `scripts/pipeline/indexer.py` ecrit et teste
+- [x] `corpus/processed/corpus_v2_fr.db` genere (1253 children, 332 parents, 111 summaries)
+- [x] 11 quality gates PASS (G1-G9 + G8b prose<2048 + G8c pages 298/298)
+- [x] 189 tests PASS (64 pipeline + 125 ISO)
+- [x] Commits conventionnels + push
+- [x] CLAUDE.md et memoire a jour
+
+### Corrections post-review (mars 2026)
+
+| Fix | Description |
+|-----|-------------|
+| HARD_MAX_TOKENS=2048 | Chunker split toutes sections > 2048 tokens (EmbeddingGemma limit) |
+| Page interpolation | `_build_page_spans()` distribue pages aux split children (298/298 GS) |
+| CCH descriptif tables | `_table_section_from_summary()` au lieu de "Table" generique |
+| G8 vrai test | Test slow verifie 298/298 GS answer match dans corpus |
+| make_cch_title strict | `source_titles` param obligatoire (pas de global cache) |
+| Pre-commit slow | Quick gate et coverage excluent tests slow (extraction PDF ~1h) |
+| norecursedirs | pytest ignore scripts/archive/ |
+
+---
+
+## Deficit identifie : Table Structured Lookup (recherche web mars 2026)
+
+### Constat
+
+111 tables dans le corpus. 26/298 questions GS (8.7%) dependent de tables.
+L'approche actuelle (summary embedding + raw markdown au LLM) est insuffisante
+pour les queries precises (lookup exact d'une valeur dans une ligne/colonne).
+
+### Standards industrie (sources ci-dessous)
+
+3 niveaux complementaires pour tables dans RAG :
+
+| Niveau | Quoi | Query type | Mobile |
+|--------|------|-----------|--------|
+| **1. Summary embedding** | Resume textuel embedde | Vue d'ensemble ("quelles categories d'age?") | Oui |
+| **2. Row-as-chunk** | Chaque ligne embeddee avec headers | Query precise ("age pour U12?") | Oui |
+| **3. SQLite structure** | Tables relationnelles parsees | Lookup deterministe sans LLM | Oui (natif Android) |
+
+### Architecture hybrid recommandee
+
+```
+Query utilisateur
+    |
+    v
+[Intent detector] -- "query structured?" --+
+    |                                        |
+    | non (prose)                             | oui (table lookup)
+    v                                        v
+[Cosine search]                    [SQLite deterministic lookup]
+children + row-chunks + summaries   SELECT ... FROM structured_tables
+    |                                        |
+    v                                        v
+[Parent lookup]                    [Inject fact into prompt]
+    |                                        |
+    +----------------+-----------------------+
+                     |
+                     v
+              [LLM generation]
+```
+
+Les 3 niveaux coexistent dans la meme SQLite DB :
+- `table_summaries` : deja fait (111 summaries embeddees)
+- `table_rows` : a ajouter (row-as-chunk avec headers, embeddees)
+- `structured_*` : a ajouter (tables relationnelles parsees du markdown)
+
+### Tables prioritaires pour structured lookup
+
+| Table | Rows | Impact GS |
+|-------|------|-----------|
+| Categories d'age (R01) | 10 | Eleve — questions age/categorie |
+| Cadences equivalentes (R01) | 4 | Eleve — questions cadence Fischer |
+| Glossaire termes (LA) | 100+ | Eleve — definitions termes |
+| Grilles appariements (LA) | 50+ | Moyen — pairing specifiques |
+| Bareme frais (Financier) | 8 | Faible |
+| Schemas Scheveningen (C03/C04) | 20+ | Faible |
+
+### Implementation
+
+A faire dans Task 5 (integration) ou comme sous-tache dediee :
+1. Parser les 111 raw_table_text markdown → lignes structurees
+2. Creer row-as-chunk embeddings (headers + row → embed)
+3. Creer tables SQLite structurees pour les 6 tables prioritaires
+4. Ajouter intent detection dans search.py (Task 4)
+
+### Sources
+
+- [Ragie: Our Approach to Table Chunking](https://www.ragie.ai/blog/our-approach-to-table-chunking)
+- [Smart Hybrid Search for Tables (Maksimov)](https://medium.com/@maksimov.dmitry.m/how-to-build-a-better-rag-system-smart-hybrid-search-for-tables-7bbea69a31f2)
+- [Smile: Retrieval for Structured Data](https://smile.eu/en/publications-and-events/retrieval-structured-data-precision-first-alternative-vector-only-rag-excel)
+- [TableRAG (EMNLP 2025)](https://arxiv.org/abs/2506.10380)
+- [SQLite-RAG Hybrid Search](https://github.com/sqliteai/sqlite-rag)
+- [On-Device RAG for App Developers (Denisov 2026)](https://medium.com/google-developer-experts/on-device-rag-for-app-developers-embeddings-vector-search-and-beyond-47127e954c24)
+- [AI21: RAG for Structured Data](https://www.ai21.com/knowledge/rag-for-structured-data/)

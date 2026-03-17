@@ -1,13 +1,11 @@
 """Tests for structure-aware chunker."""
+
 from __future__ import annotations
 
-import pytest
-
 from scripts.pipeline.chunker import (
-    parse_sections,
     build_hierarchy,
     chunk_document,
-    count_tokens,
+    parse_sections,
 )
 
 
@@ -55,6 +53,7 @@ class TestBuildHierarchy:
     def test_parent_grouping(self, sample_markdown_hierarchical):
         sections = parse_sections(sample_markdown_hierarchical)
         hierarchy = build_hierarchy(sections)
+
         # "1. Licences" is under "REGLES GENERALES" (h1)
         # Find it recursively
         def find_node(nodes, text):
@@ -65,6 +64,7 @@ class TestBuildHierarchy:
                 if found:
                     return found
             return None
+
         licences = find_node(hierarchy, "1. Licences")
         assert licences is not None
         child_headings = [c["heading"] for c in licences["children"]]
@@ -74,6 +74,7 @@ class TestBuildHierarchy:
     def test_empty_heading_is_parent(self, sample_markdown_hierarchical):
         sections = parse_sections(sample_markdown_hierarchical)
         hierarchy = build_hierarchy(sections)
+
         # "3. Forfaits" has no body, should still exist as a node
         def find_node(nodes, text):
             for n in nodes:
@@ -83,6 +84,7 @@ class TestBuildHierarchy:
                 if found:
                     return found
             return None
+
         forfaits = find_node(hierarchy, "3. Forfaits")
         assert forfaits is not None
 
@@ -126,20 +128,23 @@ class TestChunkDocument:
         result = chunk_document(sample_markdown_hierarchical, source="test.pdf")
         parent_ids = {p["id"] for p in result["parents"]}
         for child in result["children"]:
-            assert child["parent_id"] in parent_ids, \
-                f"Child {child['id']} references unknown parent {child['parent_id']}"
+            assert (
+                child["parent_id"] in parent_ids
+            ), f"Child {child['id']} references unknown parent {child['parent_id']}"
 
     def test_no_empty_children(self, sample_markdown_hierarchical):
         result = chunk_document(sample_markdown_hierarchical, source="test.pdf")
         for child in result["children"]:
-            assert len(child["text"].strip()) > 5, \
-                f"Child {child['id']} has near-empty text: {child['text'][:50]}"
+            assert (
+                len(child["text"].strip()) > 5
+            ), f"Child {child['id']} has near-empty text: {child['text'][:50]}"
 
     def test_children_under_max_tokens(self, sample_markdown_hierarchical):
         result = chunk_document(sample_markdown_hierarchical, source="test.pdf")
         for child in result["children"]:
-            assert child["tokens"] <= 560, \
-                f"Child {child['id']} has {child['tokens']} tokens"
+            assert (
+                child["tokens"] <= 560
+            ), f"Child {child['id']} has {child['tokens']} tokens"
 
     def test_flat_markdown_works(self, sample_markdown_flat):
         result = chunk_document(sample_markdown_flat, source="test.pdf")
@@ -155,26 +160,40 @@ class TestChunkDocument:
 
     def test_long_section_gets_split(self):
         """A section > 512 tokens should be split."""
-        long_body = "mot " * 300  # ~300 tokens
-        md = f"# Title\n\n## Long Section\n\n{long_body}\n\n## Short\n\nBrief.\n"
-        result = chunk_document(md, source="test.pdf")
-        long_children = [c for c in result["children"] if "Long Section" in c["section"]]
-        # 300 tokens < 512, should NOT split. Let's make it bigger:
+        # 300 tokens < 512, should NOT split. Make it bigger:
         long_body2 = "mot " * 600  # ~600 tokens
         md2 = f"# Title\n\n## Long Section\n\n{long_body2}\n\n## Short\n\nBrief.\n"
         result2 = chunk_document(md2, source="test.pdf")
-        long_children2 = [c for c in result2["children"] if "Long Section" in c["section"]]
-        assert len(long_children2) >= 2, \
-            f"Expected split, got {len(long_children2)} children"
+        long_children2 = [
+            c for c in result2["children"] if "Long Section" in c["section"]
+        ]
+        assert (
+            len(long_children2) >= 2
+        ), f"Expected split, got {len(long_children2)} children"
 
-    def test_table_section_not_split(self):
-        """A section with mostly table content should not be split even if > 512 tokens."""
-        table_rows = "\n".join(f"| col1_{i} | col2_{i} | col3_{i} |" for i in range(200))
+    def test_table_section_not_split_under_hard_max(self):
+        """A table section between 512-2048 tokens should not be split."""
+        table_rows = "\n".join(f"| col1_{i} | col2_{i} | col3_{i} |" for i in range(80))
         md = f"# Title\n\n## Table Section\n\n| H1 | H2 | H3 |\n|---|---|---|\n{table_rows}\n\n## Next\n\nText.\n"
         result = chunk_document(md, source="test.pdf")
         table_children = [c for c in result["children"] if "Table" in c["section"]]
-        assert len(table_children) == 1, \
-            f"Table section should not be split, got {len(table_children)} children"
+        assert (
+            len(table_children) == 1
+        ), f"Table section under 2048 tokens should not be split, got {len(table_children)} children"
+        # Verify it's actually > 512 tokens (tests the table exemption)
+        assert table_children[0]["tokens"] > 512
+
+    def test_table_section_split_over_hard_max(self):
+        """A table section exceeding 2048 tokens must be split (EmbeddingGemma limit)."""
+        table_rows = "\n".join(
+            f"| col1_{i} | col2_{i} | col3_{i} |" for i in range(200)
+        )
+        md = f"# Title\n\n## Big Table\n\n| H1 | H2 | H3 |\n|---|---|---|\n{table_rows}\n\n## Next\n\nText.\n"
+        result = chunk_document(md, source="test.pdf")
+        table_children = [c for c in result["children"] if "Big Table" in c["section"]]
+        assert (
+            len(table_children) >= 2
+        ), f"Table section over 2048 tokens should be split, got {len(table_children)} children"
 
     def test_small_sections_merged(self):
         """Consecutive small sections under same parent should merge."""

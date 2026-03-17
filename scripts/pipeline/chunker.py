@@ -3,6 +3,7 @@
 Parses markdown with heading levels, builds parent-child hierarchy,
 and produces chunks of 400-512 tokens respecting article boundaries.
 """
+
 from __future__ import annotations
 
 import re
@@ -12,11 +13,12 @@ import tiktoken
 _enc = tiktoken.get_encoding("cl100k_base")
 
 PAGE_MARKER_RE = re.compile(r"\n\s*[A-Z][A-Z0-9]{1,3}-\d+/\d+\s*\n")
-HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
+HEADING_RE = re.compile(r"^(#{1,})\s+(.+)$", re.MULTILINE)
 ARTICLE_NUM_RE = re.compile(r"^(\d+(?:\.\d+)*\.?)\s")
 IMAGE_PLACEHOLDER = "<!-- image -->"
 
 MAX_TOKENS = 512
+HARD_MAX_TOKENS = 2048  # EmbeddingGemma max sequence length — never exceed
 MERGE_THRESHOLD = 250
 SPLIT_TARGET = 450
 SPLIT_OVERLAP = 50
@@ -42,16 +44,18 @@ def parse_sections(markdown: str) -> list[dict]:
     for i, match in enumerate(matches):
         hashes = match.group(1)
         heading = match.group(2).strip()
-        level = len(hashes)
+        level = min(len(hashes), 6)  # cap at h6; docling can produce h7+
         body_start = match.end()
         body_end = matches[i + 1].start() if i + 1 < len(matches) else len(markdown)
         body = markdown[body_start:body_end].strip()
 
-        sections.append({
-            "heading": heading,
-            "level": level,
-            "body": body,
-        })
+        sections.append(
+            {
+                "heading": heading,
+                "level": level,
+                "body": body,
+            }
+        )
 
     return sections
 
@@ -141,7 +145,30 @@ def _is_table_section(body: str) -> bool:
     return pipe_lines > len(lines) * 0.5
 
 
-def chunk_document(
+def _build_page_spans(
+    heading_pages: dict[str, int],
+) -> dict[str, tuple[int, int]]:
+    """Compute page spans for each heading.
+
+    For each heading, the span is (start_page, end_page) where end_page
+    is the page before the next heading starts. Used to interpolate pages
+    across split children.
+
+    Args:
+        heading_pages: Mapping heading text → page number.
+
+    Returns:
+        Dict mapping heading text → (start_page, end_page).
+    """
+    spans: dict[str, tuple[int, int]] = {}
+    sorted_headings = sorted(heading_pages.items(), key=lambda x: x[1])
+    for i, (heading_text, page) in enumerate(sorted_headings):
+        next_page = sorted_headings[i + 1][1] if i + 1 < len(sorted_headings) else page
+        spans[heading_text] = (page, max(page, next_page - 1))
+    return spans
+
+
+def chunk_document(  # noqa: C901
     markdown: str,
     source: str,
     heading_pages: dict[str, int] | None = None,
@@ -164,6 +191,8 @@ def chunk_document(
     parents: list[dict] = []
     child_counter = 0
     parent_counter = 0
+
+    _page_spans = _build_page_spans(_heading_pages) if _heading_pages else {}
 
     def _make_parent_id() -> str:
         nonlocal parent_counter
@@ -194,14 +223,16 @@ def chunk_document(
 
             my_parent_id = _make_parent_id()
             parent_page = _heading_pages.get(node["heading"])
-            parents.append({
-                "id": my_parent_id,
-                "text": parent_text,
-                "source": source,
-                "section": node["heading"],
-                "tokens": count_tokens(parent_text),
-                "page": parent_page,
-            })
+            parents.append(
+                {
+                    "id": my_parent_id,
+                    "text": parent_text,
+                    "source": source,
+                    "section": node["heading"],
+                    "tokens": count_tokens(parent_text),
+                    "page": parent_page,
+                }
+            )
 
             # If this parent also has its own body text, make it a child
             if has_body:
@@ -221,43 +252,70 @@ def chunk_document(
         full_text = f"{heading}\n\n{body}".strip()
         tokens = count_tokens(full_text)
 
-        if tokens > MAX_TOKENS and not _is_table_section(body):
-            # Split long prose
-            for chunk_text in _split_long_text(full_text, heading):
-                _emit_child(chunk_text, src, pid, heading)
+        is_table = _is_table_section(body)
+        must_split = (
+            (tokens > MAX_TOKENS and not is_table)
+            or tokens > HARD_MAX_TOKENS  # enforce EmbeddingGemma limit
+        )
+
+        if must_split:
+            chunks = _split_long_text(full_text, heading)
+            # Interpolate pages across split children using page spans
+            start_page, end_page = _page_spans.get(heading, (None, None))
+            for i, chunk_text in enumerate(chunks):
+                page_override = None
+                if start_page is not None and end_page is not None:
+                    span = end_page - start_page + 1
+                    page_override = start_page + min(
+                        int(i * span / len(chunks)),
+                        end_page - start_page,
+                    )
+                _emit_child(chunk_text, src, pid, heading, page_override)
         else:
             # Single child (even if > 512 for tables — covered by summary)
             _emit_child(full_text, src, pid, heading)
 
-    def _emit_child(text: str, src: str, pid: str, section: str) -> None:
+    def _emit_child(
+        text: str,
+        src: str,
+        pid: str,
+        section: str,
+        page_override: int | None = None,
+    ) -> None:
         nonlocal child_counter
         art_match = ARTICLE_NUM_RE.match(section)
         art_num = art_match.group(1).rstrip(".") if art_match else None
 
-        # Resolve page from heading_pages mapping
-        page = _heading_pages.get(section)
+        # Use override (from split interpolation) or heading_pages
+        page = (
+            page_override if page_override is not None else _heading_pages.get(section)
+        )
 
-        children.append({
-            "id": f"{src}-c{child_counter:04d}",
-            "text": text,
-            "parent_id": pid,
-            "source": src,
-            "article_num": art_num,
-            "section": section,
-            "tokens": count_tokens(text),
-            "page": page,
-        })
+        children.append(
+            {
+                "id": f"{src}-c{child_counter:04d}",
+                "text": text,
+                "parent_id": pid,
+                "source": src,
+                "article_num": art_num,
+                "section": section,
+                "tokens": count_tokens(text),
+                "page": page,
+            }
+        )
         child_counter += 1
 
     # Root parent for orphan nodes
     root_pid = _make_parent_id()
-    parents.append({
-        "id": root_pid,
-        "text": "",
-        "source": source,
-        "section": "root",
-        "tokens": 0,
-    })
+    parents.append(
+        {
+            "id": root_pid,
+            "text": "",
+            "source": source,
+            "section": "root",
+            "tokens": 0,
+        }
+    )
 
     for node in hierarchy:
         _process_node(node, root_pid)

@@ -3,6 +3,7 @@
 Uses docling + docling-hierarchical-pdf to produce markdown
 with real heading levels (#, ##, ###) from PDF structure.
 """
+
 from __future__ import annotations
 
 import json
@@ -17,6 +18,7 @@ logger = logging.getLogger(__name__)
 # Try hierarchical post-processor, fallback gracefully
 try:
     from hierarchical.postprocessor import ResultPostprocessor
+
     HAS_HIERARCHICAL = True
 except ImportError:
     HAS_HIERARCHICAL = False
@@ -25,7 +27,7 @@ except ImportError:
 # Directories to exclude from corpus extraction (not RAG content)
 EXCLUDE_DIRS = {"Annales", "annales"}
 
-_HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
+_HEADING_RE = re.compile(r"^(#{1,})\s+(.+)$", re.MULTILINE)
 
 
 def _strip_page_headers(markdown: str) -> str:
@@ -123,12 +125,14 @@ def extract_pdf(pdf_path: Path) -> dict:
         table_page = None
         if hasattr(table, "prov") and table.prov:
             table_page = table.prov[0].page_no
-        tables.append({
-            "id": f"{pdf_path.stem}-table{table_ix}",
-            "source": pdf_path.name,
-            "text": table_md,
-            "page": table_page,
-        })
+        tables.append(
+            {
+                "id": f"{pdf_path.stem}-table{table_ix}",
+                "source": pdf_path.name,
+                "text": table_md,
+                "page": table_page,
+            }
+        )
 
     result_dict = {
         "markdown": markdown,
@@ -188,11 +192,7 @@ def _apply_edge_case_fixes(result: dict) -> None:
 
     md = result["markdown"]
     for old, new in fixes:
-        if old == "__PREPEND__":
-            # Prepend
-            md = new + md
-        else:
-            md = md.replace(old, new, 1)
+        md = new + md if old == "__PREPEND__" else md.replace(old, new, 1)
     result["markdown"] = md
 
     # Fix Phase II double-demotion (### → #### if already ###)
@@ -226,10 +226,7 @@ def extract_corpus(
     pdfs = sorted(corpus_dir.rglob("*.pdf"))
 
     # Filter out excluded directories
-    pdfs = [
-        p for p in pdfs
-        if not any(excl in p.parts for excl in exclude_dirs)
-    ]
+    pdfs = [p for p in pdfs if not any(excl in p.parts for excl in exclude_dirs)]
 
     results = []
     for pdf_path in pdfs:
@@ -249,7 +246,12 @@ def extract_corpus(
 
 if __name__ == "__main__":
     import sys
+
     logging.basicConfig(level=logging.INFO)
     corpus_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("corpus/fr")
-    output_dir = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("corpus/processed/docling_v2_fr")
+    output_dir = (
+        Path(sys.argv[2])
+        if len(sys.argv) > 2
+        else Path("corpus/processed/docling_v2_fr")
+    )
     extract_corpus(corpus_dir, output_dir)

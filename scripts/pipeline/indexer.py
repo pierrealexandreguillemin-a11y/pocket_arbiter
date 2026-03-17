@@ -103,20 +103,44 @@ CREATE TABLE IF NOT EXISTS table_summaries (
 # === CCH + prompt formatting ===
 
 
-def make_cch_title(source: str, section: str) -> str:
+def make_cch_title(
+    source: str,
+    section: str,
+    source_titles: dict[str, str],
+) -> str:
     """Build CCH title for embedding context.
 
     Args:
         source: PDF filename (e.g., "R01_2025_26_Regles_generales.pdf").
         section: Section heading from the chunk.
+        source_titles: Mapping of PDF filenames to display titles.
 
     Returns:
         Display title string: "{doc_title} | {section}".
     """
-    display = SOURCE_TITLES.get(source, source.replace(".pdf", "").replace("_", " "))
+    display = source_titles.get(source, source.replace(".pdf", "").replace("_", " "))
     if section:
         return f"{display} | {section}"
     return display
+
+
+def _table_section_from_summary(summary_text: str, max_words: int = 8) -> str:
+    """Extract a short descriptive section from a table summary.
+
+    Takes the first ``max_words`` words of the summary text, truncated at the
+    first colon if one appears within that span.
+
+    Args:
+        summary_text: Full summary text of the table.
+        max_words: Maximum words to include.
+
+    Returns:
+        Short descriptor string, e.g. "Bareme frais deplacement FFE".
+    """
+    # Truncate at first colon if present (summaries use "Title: details" pattern)
+    text = summary_text.split(":")[0] if ":" in summary_text else summary_text
+    words = text.split()[:max_words]
+    return " ".join(words) if words else "Table"
 
 
 def format_document(text: str, cch_title: str) -> str:
@@ -458,16 +482,24 @@ def build_index(
     # 4. Embed children with CCH
     logger.info("=== Step 4: Embedding %d children ===", len(all_children))
     child_titles = [
-        make_cch_title(c["source"], c.get("section", "")) for c in all_children
+        make_cch_title(c["source"], c.get("section", ""), SOURCE_TITLES)
+        for c in all_children
     ]
     child_texts = [c["text"] for c in all_children]
     child_embeddings = embed_documents(child_texts, child_titles, model)
     logger.info("Children embeddings shape: %s", child_embeddings.shape)
 
-    # 5. Embed table summaries with CCH
+    # 5. Embed table summaries with CCH (descriptive section from summary text)
     logger.info("=== Step 5: Embedding %d table summaries ===", len(table_sums))
     if table_sums:
-        ts_titles = [make_cch_title(s["source"], "Table") for s in table_sums]
+        ts_titles = [
+            make_cch_title(
+                s["source"],
+                _table_section_from_summary(s["summary_text"]),
+                SOURCE_TITLES,
+            )
+            for s in table_sums
+        ]
         ts_texts = [s["summary_text"] for s in table_sums]
         ts_embeddings = embed_documents(ts_texts, ts_titles, model)
     else:

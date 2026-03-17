@@ -6,9 +6,11 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from scripts.pipeline.indexer import (
     SOURCE_TITLES,
+    _table_section_from_summary,
     blob_to_embedding,
     create_db,
     embedding_to_blob,
@@ -26,19 +28,71 @@ class TestMakeCchTitle:
     """Test CCH title generation."""
 
     def test_known_source(self) -> None:
-        title = make_cch_title("R01_2025_26_Regles_generales.pdf", "3.2. Forfait isole")
+        title = make_cch_title(
+            "R01_2025_26_Regles_generales.pdf",
+            "3.2. Forfait isole",
+            SOURCE_TITLES,
+        )
         assert "Regles Generales" in title
         assert "3.2. Forfait isole" in title
         assert " | " in title
 
     def test_unknown_source_fallback(self) -> None:
-        title = make_cch_title("unknown_doc.pdf", "Section 1")
+        title = make_cch_title("unknown_doc.pdf", "Section 1", SOURCE_TITLES)
         assert "unknown doc" in title.lower()
         assert "Section 1" in title
 
     def test_empty_section(self) -> None:
-        title = make_cch_title("LA-octobre2025.pdf", "")
+        title = make_cch_title("LA-octobre2025.pdf", "", SOURCE_TITLES)
         assert "Lois des Echecs" in title
+
+    def test_custom_source_titles(self) -> None:
+        custom = {"test.pdf": "Custom Title"}
+        title = make_cch_title("test.pdf", "S1", source_titles=custom)
+        assert title == "Custom Title | S1"
+
+    def test_custom_source_titles_fallback(self) -> None:
+        custom = {"other.pdf": "Other"}
+        title = make_cch_title("unknown.pdf", "S1", source_titles=custom)
+        assert "unknown" in title.lower()
+
+    def test_source_titles_is_required(self) -> None:
+        """source_titles is a required parameter (no implicit global fallback)."""
+        title = make_cch_title(
+            "LA-octobre2025.pdf", "Section", source_titles=SOURCE_TITLES
+        )
+        assert "Lois des Echecs" in title
+
+
+class TestTableSectionFromSummary:
+    """Test _table_section_from_summary helper."""
+
+    def test_colon_truncation(self) -> None:
+        summary = "Bareme frais deplacement FFE: 8 tranches distance avec details"
+        section = _table_section_from_summary(summary)
+        assert section == "Bareme frais deplacement FFE"
+
+    def test_max_words_limit(self) -> None:
+        summary = "one two three four five six seven eight nine ten eleven"
+        section = _table_section_from_summary(summary, max_words=8)
+        assert section == "one two three four five six seven eight"
+
+    def test_short_summary(self) -> None:
+        section = _table_section_from_summary("Table simple")
+        assert section == "Table simple"
+
+    def test_empty_summary(self) -> None:
+        section = _table_section_from_summary("")
+        assert section == "Table"
+
+    def test_real_summary(self) -> None:
+        summary = (
+            "Schema Scheveningen Coupe Loubatiere 2 equipes: "
+            "appariements croises A-B sur 3 echiquiers"
+        )
+        section = _table_section_from_summary(summary)
+        assert "Scheveningen" in section
+        assert "appariements" not in section
 
 
 class TestFormatPrompts:
@@ -366,3 +420,133 @@ class TestSourceTitles:
     def test_known_sources(self) -> None:
         assert "LA-octobre2025.pdf" in SOURCE_TITLES
         assert "R01_2025_26_Regles_generales.pdf" in SOURCE_TITLES
+
+
+# === G8 quality gate: GS text retrouvable in corpus children ===
+
+_GS_PATH = Path("tests/data/gold_standard_annales_fr_v8_adversarial.json")
+_DOCLING_DIR = Path("corpus/processed/docling_v2_fr")
+
+
+def _normalize(text: str) -> str:
+    """Lowercase, strip accents/punctuation, collapse whitespace for fuzzy matching."""
+    import re
+    import unicodedata
+
+    text = unicodedata.normalize("NFD", text)
+    text = "".join(c for c in text if unicodedata.category(c) != "Mn")
+    # Normalize apostrophe variants to straight apostrophe
+    text = text.replace("\u2019", "'").replace("\u2018", "'")
+    # Remove punctuation except apostrophes (keep l'equipe as l'equipe)
+    text = re.sub(r"[^\w\s']", " ", text)
+    return " ".join(text.lower().split())
+
+
+def _extract_distinctive_phrases(text: str, min_words: int = 4) -> list[str]:
+    """Extract multiple distinctive phrases from answer text for fuzzy matching.
+
+    Splits text into sentences, picks the longest ones, and extracts
+    contiguous word spans from different positions.
+
+    Returns:
+        List of phrases suitable for substring search (may be empty).
+    """
+    sentences = [s.strip() for s in text.replace("\n", ". ").split(".") if s.strip()]
+    if not sentences:
+        return []
+    # Sort sentences by length (longest first), take up to 3
+    ranked = sorted(sentences, key=lambda s: len(s.split()), reverse=True)[:3]
+    phrases: list[str] = []
+    for sent in ranked:
+        words = sent.split()
+        if len(words) < min_words:
+            phrases.append(" ".join(words))
+            continue
+        # Take from the middle
+        start = max(0, len(words) // 2 - min_words // 2)
+        phrases.append(" ".join(words[start : start + min_words]))
+        # Also try from the start (after first word to skip boilerplate)
+        if len(words) >= min_words + 1:
+            phrases.append(" ".join(words[1 : 1 + min_words]))
+    return phrases
+
+
+@pytest.mark.slow
+class TestG8GsTextRetrouvable:
+    """G8 quality gate: verify GS answer content exists in v2 corpus children.
+
+    For each answerable GS question, check that a distinctive phrase from
+    the expected answer can be found in at least one child chunk text.
+    """
+
+    @pytest.fixture(scope="class")
+    def corpus_children_text(self) -> str:
+        """Load all v2 children texts into a single normalized string."""
+        from scripts.pipeline.chunker import chunk_document
+
+        all_text_parts: list[str] = []
+        for json_path in sorted(_DOCLING_DIR.glob("*.json")):
+            with open(json_path, encoding="utf-8") as f:
+                data = json.load(f)
+            result = chunk_document(
+                data["markdown"],
+                data["source"],
+                data.get("heading_pages"),
+            )
+            for child in result["children"]:
+                all_text_parts.append(child["text"])
+        return _normalize(" ".join(all_text_parts))
+
+    @pytest.fixture(scope="class")
+    def answerable_questions(self) -> list[dict]:
+        """Load answerable questions from the GS."""
+        with open(_GS_PATH, encoding="utf-8") as f:
+            gs = json.load(f)
+        return [
+            q
+            for q in gs["questions"]
+            if not q.get("content", {}).get("is_impossible", False)
+        ]
+
+    def test_gs_answerable_count(self, answerable_questions: list[dict]) -> None:
+        """Verify we have the expected number of answerable questions."""
+        assert (
+            len(answerable_questions) >= 290
+        ), f"Expected >= 290 answerable questions, got {len(answerable_questions)}"
+
+    def test_gs_text_in_children(
+        self,
+        answerable_questions: list[dict],
+        corpus_children_text: str,
+    ) -> None:
+        """For each answerable Q, a distinctive phrase must appear in children."""
+        not_found: list[str] = []
+        checked = 0
+
+        for q in answerable_questions:
+            # Try expected_answer first, then answer_explanation
+            answer = q.get("content", {}).get("expected_answer", "")
+            if not answer:
+                answer = q.get("provenance", {}).get("answer_explanation", "")
+            if not answer:
+                continue
+
+            phrases = _extract_distinctive_phrases(answer, min_words=4)
+            if not phrases:
+                continue
+
+            checked += 1
+            found = any(
+                _normalize(phrase) in corpus_children_text for phrase in phrases
+            )
+            if not found:
+                not_found.append(f"{q['id']}: phrases={[p[:40] for p in phrases[:2]]}")
+
+        # Allow up to 5 misses (encoding edge cases, unicode normalization)
+        miss_rate = len(not_found) / checked if checked else 0
+        assert miss_rate < 0.02, (
+            f"G8 FAIL: {len(not_found)}/{checked} answers not found "
+            f"in children ({miss_rate:.1%}).\n"
+            f"First 5 misses: {not_found[:5]}"
+        )
+        assert checked >= 250, f"Too few questions checked: {checked} (expected >= 250)"

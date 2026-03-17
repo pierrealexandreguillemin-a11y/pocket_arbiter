@@ -84,8 +84,8 @@ def reciprocal_rank_fusion(
 
 def adaptive_k(
     results: list[tuple[str, float]],
-    min_score: float = 0.3,
-    max_gap: float = 0.15,
+    min_score: float = 0.005,
+    max_gap: float = 0.01,
     max_k: int = 10,
 ) -> list[tuple[str, float]]:
     """Filter results by score threshold and gap detection.
@@ -176,6 +176,10 @@ def bm25_search(
     if not stemmed_query.strip():
         return []
 
+    # FTS5 default is AND between terms. Use OR so synonym expansion
+    # matches documents containing ANY expanded term, not ALL.
+    fts_query = " OR ".join(stemmed_query.split())
+
     results: list[tuple[str, float]] = []
 
     # Search children_fts
@@ -183,7 +187,7 @@ def bm25_search(
         rows = conn.execute(
             "SELECT id, bm25(children_fts) AS score FROM children_fts "
             "WHERE children_fts MATCH ? ORDER BY score LIMIT ?",
-            (stemmed_query, max_k),
+            (fts_query, max_k),
         ).fetchall()
         results.extend((row[0], row[1]) for row in rows)
     except sqlite3.OperationalError:
@@ -195,7 +199,7 @@ def bm25_search(
             "SELECT id, bm25(table_summaries_fts) AS score "
             "FROM table_summaries_fts "
             "WHERE table_summaries_fts MATCH ? ORDER BY score LIMIT ?",
-            (stemmed_query, max_k),
+            (fts_query, max_k),
         ).fetchall()
         results.extend((row[0], row[1]) for row in rows)
     except sqlite3.OperationalError:
@@ -246,13 +250,13 @@ def build_context(
             pid = row[0]
             parent_groups.setdefault(pid, []).append((child_id, score))
 
-    # Build parent contexts
+    # Build parent contexts (skip empty root parents)
     for pid, children in parent_groups.items():
         parent_row = conn.execute(
             "SELECT text, source, section, page FROM parents WHERE id = ?",
             (pid,),
         ).fetchone()
-        if parent_row:
+        if parent_row and parent_row[0].strip():
             best_score = max(s for _, s in children)
             contexts.append(
                 Context(
@@ -297,8 +301,8 @@ def search(
     db_path: Path | str,
     query: str,
     model: SentenceTransformer | None = None,
-    min_score: float = 0.3,
-    max_gap: float = 0.15,
+    min_score: float = 0.005,
+    max_gap: float = 0.01,
     max_k: int = 10,
 ) -> SearchResult:
     """Full hybrid search pipeline.

@@ -155,8 +155,8 @@ Parametres exposes avec valeurs conservatrices par defaut :
 
 | Parametre | Default | Role |
 |-----------|---------|------|
-| `min_score` | 0.3 | Score RRF minimum pour etre inclus |
-| `max_gap` | 0.15 | Ecart max entre resultat N et N+1 (coupe si depasse) |
+| `min_score` | 0.005 | Score RRF minimum pour etre inclus (RRF scores ~0.01-0.03) |
+| `max_gap` | 0.01 | Ecart max entre resultat N et N+1 (coupe si depasse) |
 | `max_k` | 10 | Nombre max de resultats |
 
 **A calibrer au chantier 3** sur la distribution des scores des 298 questions GS.

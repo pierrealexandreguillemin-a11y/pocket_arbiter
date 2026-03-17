@@ -13,10 +13,11 @@
 - **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks
 - **Indexer** : corpus_v2_fr.db (1253 children + 111 table summaries embeddes, 332 parents, 11/11 quality gates)
 - **CCH** : Contextual Chunk Headers descriptifs au build-time (Google prompts)
-- **Pipeline tests** : 64 tests pipeline PASS, 125 tests ISO PASS (189 total)
+- **Search** : hybrid cosine + BM25 FTS5, RRF fusion, adaptive k, parent dedup, 8/8 quality gates
+- **Synonymes** : Snowball FR stemmer + 25 synonymes chess bidirectionnels
+- **Pipeline tests** : 100 tests pipeline PASS, 125 tests ISO PASS (225 total)
 
 ### En cours (chantier 2)
-- **Task 4** : Search — cosine brute-force + adaptive k + parent lookup
 - **Task 5** : Integration finale + validation end-to-end
 
 ### A faire

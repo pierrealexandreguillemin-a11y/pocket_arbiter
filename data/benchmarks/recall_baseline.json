@@ -1,0 +1,3330 @@
+{
+  "metadata": {
+    "generated": "2026-03-18T07:03:20.379166+00:00",
+    "pipeline": "hybrid cosine+BM25 RRF, adaptive-k largest-gap",
+    "model": "google/embeddinggemma-300m-qat-q4_0-unquantized",
+    "db": "corpus_v2_fr.db",
+    "gs_version": "9.0.0",
+    "match_level": "page",
+    "settings": {
+      "min_score": 0.005,
+      "max_k": 10,
+      "rrf_k": 60
+    },
+    "questions_total": 298
+  },
+  "global": {
+    "count": 298,
+    "recall@1": 0.28187919463087246,
+    "recall@3": 0.28187919463087246,
+    "recall@5": 0.28187919463087246,
+    "recall@10": 0.28187919463087246,
+    "mrr": 0.28187919463087246
+  },
+  "segments": {
+    "reasoning_class": {
+      "arithmetic": {
+        "count": 25,
+        "recall@1": 0.36,
+        "recall@3": 0.36,
+        "recall@5": 0.36,
+        "recall@10": 0.36,
+        "mrr": 0.36
+      },
+      "fact_single": {
+        "count": 136,
+        "recall@1": 0.3235294117647059,
+        "recall@3": 0.3235294117647059,
+        "recall@5": 0.3235294117647059,
+        "recall@10": 0.3235294117647059,
+        "mrr": 0.3235294117647059
+      },
+      "reasoning": {
+        "count": 4,
+        "recall@1": 0.25,
+        "recall@3": 0.25,
+        "recall@5": 0.25,
+        "recall@10": 0.25,
+        "mrr": 0.25
+      },
+      "summary": {
+        "count": 133,
+        "recall@1": 0.22556390977443608,
+        "recall@3": 0.22556390977443608,
+        "recall@5": 0.22556390977443608,
+        "recall@10": 0.22556390977443608,
+        "mrr": 0.22556390977443608
+      }
+    },
+    "difficulty": {
+      "easy": {
+        "count": 201,
+        "recall@1": 0.29850746268656714,
+        "recall@3": 0.29850746268656714,
+        "recall@5": 0.29850746268656714,
+        "recall@10": 0.29850746268656714,
+        "mrr": 0.29850746268656714
+      },
+      "hard": {
+        "count": 16,
+        "recall@1": 0.25,
+        "recall@3": 0.25,
+        "recall@5": 0.25,
+        "recall@10": 0.25,
+        "mrr": 0.25
+      },
+      "medium": {
+        "count": 81,
+        "recall@1": 0.24691358024691357,
+        "recall@3": 0.24691358024691357,
+        "recall@5": 0.24691358024691357,
+        "recall@10": 0.24691358024691357,
+        "mrr": 0.24691358024691357
+      }
+    }
+  },
+  "errors": [
+    {
+      "id": "ffe:annales:clubs:001:55d409b5",
+      "question": "Quelle tâche ne fait pas partie des missions de l'arbitre ?",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        10
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.15,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:003:06c34715",
+      "question": "Quelle sanction l'arbitre ne peut-il pas appliquer à un capitaine d'équipe qui n",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        5
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:009:fd51d9be",
+      "question": "Quelle instance fédérale donne son accord pour qualifier ou non un joueur d'un c",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.43,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:011:0ed8268f",
+      "question": "Quelle situation ne constitue pas un forfait selon le reglement ?",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.29,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:012:f348e858",
+      "question": "A partir de quel jour minimum apres une rencontre le resultat est-il homologue ?",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.36,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:013:a7e8c494",
+      "question": "Quel tarif d'inscription s'applique a une personne handicapee s'inscrivant a la ",
+      "expected_docs": [
+        "R03_2025_26_Competitions_homologuees.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.38,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:014:cd3052cc",
+      "question": "Un joueur avec licence B peut-il participer a un tournoi dont la premiere phase ",
+      "expected_docs": [
+        "R03_2025_26_Competitions_homologuees.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.25,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:015:9da1351e",
+      "question": "L'inscription est-elle gratuite pour une championne de France U10 dans un tourno",
+      "expected_docs": [
+        "R03_2025_26_Competitions_homologuees.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.46,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:016:223bd59d",
+      "question": "Quelle situation n'est pas autorisee dans le championnat de France des clubs ?",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.16,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:018:d470292e",
+      "question": "Quel est le niveau d'arbitre minimum requis pour un club en Nationale 4 ?",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        9
+      ],
+      "reasoning_class": "reasoning",
+      "difficulty": 0.37,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:019:4d3a9bf8",
+      "question": "Quelle restriction s'applique a une joueuse ayant joue en N4, N2 et N3 ?",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.34,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:020:c41e0ed8",
+      "question": "A quelle heure un joueur est-il forfait si la ronde prevue a 14h15 a debute a 14",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.85,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:022:24508717",
+      "question": "En Nationale 3, quelle composition d'equipe pour la ronde 4 serait en infraction",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.4,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:023:c8d17a34",
+      "question": "Quel systeme d'appariement utiliser pour 9 equipes en phase 2 de la coupe Loubat",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.16,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:024:1a5a6b69",
+      "question": "En Coupe de France, si l'equipe A a les noirs au 1er echiquier, quelles couleurs",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.38,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:025:32ae9180",
+      "question": "Quelle amende pour forfait au 4e tour si le 1er tour est un 128e de finale ?",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.24,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:026:13307982",
+      "question": "Comment sont departagees deux equipes a egalite en demi-finale de Coupe de Franc",
+      "expected_docs": [
+        "C01_2025_26_Coupe_de_France.pdf"
+      ],
+      "expected_pages": [
+        5
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:028:c3671008",
+      "question": "Quelle proposition sur le systeme de points en Coupe de la parite n'est pas regl",
+      "expected_docs": [
+        "C04_2025_26_Coupe_de_la_parité.pdf"
+      ],
+      "expected_pages": [
+        5
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.27,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:029:f547eb51",
+      "question": "Qui nomme les superviseurs a la DNA ?",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        227
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.01,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:031:1246fc88",
+      "question": "Vous êtes arbitre-adjoint lors de la phase départementale de la Coupe Jean-Claud",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.31,
+      "hit@10": false
+    }
+  ],
+  "per_question": [
+    {
+      "id": "ffe:annales:clubs:001:55d409b5",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.15
+    },
+    {
+      "id": "ffe:annales:clubs:002:79da8e92",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.14
+    },
+    {
+      "id": "ffe:annales:clubs:003:06c34715",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:004:d22e1892",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.17
+    },
+    {
+      "id": "ffe:annales:clubs:005:b740870c",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:annales:clubs:006:1bcec3d3",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:clubs:007:3431b54c",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.41
+    },
+    {
+      "id": "ffe:annales:clubs:008:5e3f7d24",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.42
+    },
+    {
+      "id": "ffe:annales:clubs:009:fd51d9be",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.43
+    },
+    {
+      "id": "ffe:annales:clubs:010:4c1cad22",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:clubs:011:0ed8268f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.29
+    },
+    {
+      "id": "ffe:annales:clubs:012:f348e858",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.36
+    },
+    {
+      "id": "ffe:annales:clubs:013:a7e8c494",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.38
+    },
+    {
+      "id": "ffe:annales:clubs:014:cd3052cc",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:annales:clubs:015:9da1351e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.46
+    },
+    {
+      "id": "ffe:annales:clubs:016:223bd59d",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:clubs:017:5a48507f",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.46
+    },
+    {
+      "id": "ffe:annales:clubs:018:d470292e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "reasoning",
+      "difficulty": 0.37
+    },
+    {
+      "id": "ffe:annales:clubs:019:4d3a9bf8",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.34
+    },
+    {
+      "id": "ffe:annales:clubs:020:c41e0ed8",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.85
+    },
+    {
+      "id": "ffe:annales:clubs:021:820fd267",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:clubs:022:24508717",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:023:c8d17a34",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:clubs:024:1a5a6b69",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.38
+    },
+    {
+      "id": "ffe:annales:clubs:025:32ae9180",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.24
+    },
+    {
+      "id": "ffe:annales:clubs:026:13307982",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:clubs:027:dfac5c0c",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:clubs:028:c3671008",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.27
+    },
+    {
+      "id": "ffe:annales:clubs:029:f547eb51",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.01
+    },
+    {
+      "id": "ffe:annales:clubs:030:fb3301cf",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:clubs:031:1246fc88",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.31
+    },
+    {
+      "id": "ffe:annales:clubs:032:6dce6031",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:033:31688840",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.43
+    },
+    {
+      "id": "ffe:annales:clubs:034:625be40b",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.24
+    },
+    {
+      "id": "ffe:annales:clubs:035:f5891e65",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:036:ec8fdbb4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.36
+    },
+    {
+      "id": "ffe:annales:clubs:037:4cad3047",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:clubs:038:269442e5",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:clubs:039:3f520ce2",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.34
+    },
+    {
+      "id": "ffe:annales:clubs:040:a05251df",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:clubs:042:fb1e75b1",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.42
+    },
+    {
+      "id": "ffe:annales:clubs:043:c37ae53e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.41
+    },
+    {
+      "id": "ffe:annales:clubs:044:606adbcd",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.13
+    },
+    {
+      "id": "ffe:annales:clubs:045:5e077c7c",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.46
+    },
+    {
+      "id": "ffe:annales:clubs:046:15a0bc61",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:clubs:047:5e5fef92",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.08
+    },
+    {
+      "id": "ffe:annales:clubs:048:52bb444c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:clubs:049:0742c6b6",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:clubs:050:df445310",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.18
+    },
+    {
+      "id": "ffe:annales:clubs:052:07434c59",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.18
+    },
+    {
+      "id": "ffe:annales:clubs:054:5a8109b0",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.27
+    },
+    {
+      "id": "ffe:annales:clubs:055:c04a20b4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:clubs:056:576a2a97",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.31
+    },
+    {
+      "id": "ffe:annales:clubs:057:545da9db",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.51
+    },
+    {
+      "id": "ffe:annales:clubs:058:ccd218fa",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:clubs:059:5e0bff0d",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:clubs:060:1a2abf50",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:clubs:061:edd75063",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:clubs:062:234551df",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.12
+    },
+    {
+      "id": "ffe:annales:clubs:063:38534277",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:clubs:064:604e61af",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:clubs:065:ec4682c1",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.56
+    },
+    {
+      "id": "ffe:annales:clubs:069:85fbbf2a",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:clubs:070:d2fec36f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:071:e798252b",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.23
+    },
+    {
+      "id": "ffe:annales:clubs:072:56e31640",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:clubs:073:446fdc89",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.48
+    },
+    {
+      "id": "ffe:annales:clubs:074:f3c3e975",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:075:f1539e46",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.24
+    },
+    {
+      "id": "ffe:annales:clubs:076:fe6e608a",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.12
+    },
+    {
+      "id": "ffe:annales:clubs:077:471269eb",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.24
+    },
+    {
+      "id": "ffe:annales:clubs:082:1ce54a3d",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:clubs:083:6aab20b5",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.74
+    },
+    {
+      "id": "ffe:annales:clubs:084:25d549b3",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.13
+    },
+    {
+      "id": "ffe:annales:clubs:086:bd9a1bc4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:clubs:087:4fb1f6f3",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.27
+    },
+    {
+      "id": "ffe:annales:clubs:088:fd36b954",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.35
+    },
+    {
+      "id": "ffe:annales:clubs:089:ecd85785",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.52
+    },
+    {
+      "id": "ffe:annales:clubs:093:dd779b85",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:clubs:094:d9d7f876",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.81
+    },
+    {
+      "id": "ffe:annales:clubs:096:18da13cb",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.27
+    },
+    {
+      "id": "ffe:annales:clubs:098:52c8b8e4",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.18
+    },
+    {
+      "id": "ffe:annales:clubs:100:303c88ca",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:clubs:101:43d2eafe",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.35
+    },
+    {
+      "id": "ffe:annales:clubs:103:0c4c35b1",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.73
+    },
+    {
+      "id": "ffe:annales:clubs:106:55bf9872",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.43
+    },
+    {
+      "id": "ffe:annales:clubs:109:5bfbcc78",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.73
+    },
+    {
+      "id": "ffe:annales:clubs:110:b34b2213",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.36
+    },
+    {
+      "id": "ffe:annales:clubs:112:9cc28219",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.5
+    },
+    {
+      "id": "ffe:annales:clubs:113:2ae38fca",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.63
+    },
+    {
+      "id": "ffe:annales:clubs:114:7723ff77",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.67
+    },
+    {
+      "id": "ffe:annales:clubs:115:d5304484",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.56
+    },
+    {
+      "id": "ffe:annales:clubs:116:e0e40fa6",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.36
+    },
+    {
+      "id": "ffe:annales:clubs:120:c822d69a",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:121:62ea7644",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:122:cd7f23cd",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:134:0c82f3e7",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:135:861e14f1",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:136:81380805",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:137:9cfd9d8d",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:138:19a243d6",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:clubs:142:2fb8bb68",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.39
+    },
+    {
+      "id": "ffe:annales:clubs:144:7d1e83b2",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.03
+    },
+    {
+      "id": "ffe:annales:clubs:146:eeaa5225",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.08
+    },
+    {
+      "id": "ffe:annales:clubs:153:5c191988",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.08
+    },
+    {
+      "id": "ffe:annales:clubs:164:49af2846",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.07
+    },
+    {
+      "id": "ffe:annales:open:001:1f863771",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.15
+    },
+    {
+      "id": "ffe:annales:open:002:b543a501",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.03
+    },
+    {
+      "id": "ffe:annales:open:003:6fdc49bb",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.07
+    },
+    {
+      "id": "ffe:annales:open:004:8fd9715e",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:open:005:1ca082a8",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.34
+    },
+    {
+      "id": "ffe:annales:open:006:2db69ef2",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.62
+    },
+    {
+      "id": "ffe:annales:open:007:8345a353",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:open:008:cf4de702",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:open:009:4e5b3351",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:open:010:5bc6bc5e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.77
+    },
+    {
+      "id": "ffe:annales:open:011:1d5e9de9",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.36
+    },
+    {
+      "id": "ffe:annales:open:012:1c5af6e1",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.13
+    },
+    {
+      "id": "ffe:annales:open:013:51141e29",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.02
+    },
+    {
+      "id": "ffe:annales:open:014:96d3083c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.31
+    },
+    {
+      "id": "ffe:annales:open:015:95f4d64a",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:open:016:ad8538d6",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:open:017:67c3b0c7",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.26
+    },
+    {
+      "id": "ffe:annales:open:018:b7aaa6c2",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.07
+    },
+    {
+      "id": "ffe:annales:open:019:8188a2db",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.82
+    },
+    {
+      "id": "ffe:annales:open:020:c8d86384",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.84
+    },
+    {
+      "id": "ffe:annales:open:021:73ebcf51",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.44
+    },
+    {
+      "id": "ffe:annales:open:022:ef6ad68d",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:open:023:f52bd8ed",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:open:024:4bb364eb",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.03
+    },
+    {
+      "id": "ffe:annales:open:025:228839b5",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.33
+    },
+    {
+      "id": "ffe:annales:open:026:6db1678f",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.15
+    },
+    {
+      "id": "ffe:annales:open:027:012cae15",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.38
+    },
+    {
+      "id": "ffe:annales:open:028:4cc73f07",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:annales:open:029:bcc5611a",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.03
+    },
+    {
+      "id": "ffe:annales:open:031:daec673d",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.52
+    },
+    {
+      "id": "ffe:annales:open:033:c7af304e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:annales:open:034:a50a1b29",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.1
+    },
+    {
+      "id": "ffe:annales:open:035:cb1bec24",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:open:042:dc055770",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.26
+    },
+    {
+      "id": "ffe:annales:open:043:b77bf58f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.08
+    },
+    {
+      "id": "ffe:annales:open:045:d2ead6d5",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:open:046:cc1e3b13",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:open:047:8191de57",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.14
+    },
+    {
+      "id": "ffe:annales:open:050:eb7be3cd",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:open:051:d9e3bbc6",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.37
+    },
+    {
+      "id": "ffe:annales:open:052:40c01b4b",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.26
+    },
+    {
+      "id": "ffe:annales:open:053:c86e4c21",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.37
+    },
+    {
+      "id": "ffe:annales:open:054:772ce2a9",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.26
+    },
+    {
+      "id": "ffe:annales:open:055:fff0d000",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:open:061:9abe718c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.95
+    },
+    {
+      "id": "ffe:annales:open:062:9c34a5fa",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:open:064:936ece0a",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:rules:001:d56a5ed7",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:rules:002:33e3bee8",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.07
+    },
+    {
+      "id": "ffe:annales:rules:003:182a9b44",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:004:6e4f68c4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.02
+    },
+    {
+      "id": "ffe:annales:rules:005:50bb0658",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.14
+    },
+    {
+      "id": "ffe:annales:rules:006:2ed0beee",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:rules:007:148916ab",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.61
+    },
+    {
+      "id": "ffe:annales:rules:008:49ee41a2",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.38
+    },
+    {
+      "id": "ffe:annales:rules:009:8b61df6a",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.18
+    },
+    {
+      "id": "ffe:annales:rules:010:2bcd0d93",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:rules:011:bbebc0df",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.24
+    },
+    {
+      "id": "ffe:annales:rules:013:4540ccad",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:rules:016:9fabc206",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.09
+    },
+    {
+      "id": "ffe:annales:rules:017:c2e125b4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.24
+    },
+    {
+      "id": "ffe:annales:rules:018:84198fff",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.49
+    },
+    {
+      "id": "ffe:annales:rules:019:a60a32b8",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:rules:020:2abf7d5b",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.15
+    },
+    {
+      "id": "ffe:annales:rules:021:6e7f46b5",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:rules:022:a1699904",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:rules:023:313313c3",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.13
+    },
+    {
+      "id": "ffe:annales:rules:024:639c0418",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.14
+    },
+    {
+      "id": "ffe:annales:rules:029:30d59fea",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:030:fc369c15",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.08
+    },
+    {
+      "id": "ffe:annales:rules:033:660f6206",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.36
+    },
+    {
+      "id": "ffe:annales:rules:040:3c49716f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.46
+    },
+    {
+      "id": "ffe:annales:rules:041:eb8a701b",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.78
+    },
+    {
+      "id": "ffe:annales:rules:044:ab624690",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.18
+    },
+    {
+      "id": "ffe:annales:rules:045:89403c7f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.08
+    },
+    {
+      "id": "ffe:annales:rules:046:350ac66f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.27
+    },
+    {
+      "id": "ffe:annales:rules:047:b2870b62",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:rules:048:e207b726",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.31
+    },
+    {
+      "id": "ffe:annales:rules:049:324c24ff",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.51
+    },
+    {
+      "id": "ffe:annales:rules:050:efbd367a",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:051:8624de9c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:rules:052:ad487e20",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:rules:054:1f2c8ab5",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.12
+    },
+    {
+      "id": "ffe:annales:rules:055:14804bb4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:rules:056:b15cf14c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:rules:057:80e7e9da",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.56
+    },
+    {
+      "id": "ffe:annales:rules:058:236d58e4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.26
+    },
+    {
+      "id": "ffe:annales:rules:059:4643a274",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.14
+    },
+    {
+      "id": "ffe:annales:rules:060:51e22661",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:rules:061:d2032ffa",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.18
+    },
+    {
+      "id": "ffe:annales:rules:062:2b6141ed",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.6
+    },
+    {
+      "id": "ffe:annales:rules:063:df712371",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:rules:065:3f9334c5",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.22
+    },
+    {
+      "id": "ffe:annales:rules:066:d2c9ccb7",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.63
+    },
+    {
+      "id": "ffe:annales:rules:067:2db11c50",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:rules:068:5c64c6f3",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.14
+    },
+    {
+      "id": "ffe:annales:rules:069:b69a968a",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.32
+    },
+    {
+      "id": "ffe:annales:rules:070:10f4c72f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.41
+    },
+    {
+      "id": "ffe:annales:rules:071:21299833",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:072:642aaaba",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:rules:073:67efc7f7",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.23
+    },
+    {
+      "id": "ffe:annales:rules:075:96244d87",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.24
+    },
+    {
+      "id": "ffe:annales:rules:076:61867e75",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.62
+    },
+    {
+      "id": "ffe:annales:rules:079:c3789d46",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.34
+    },
+    {
+      "id": "ffe:annales:rules:080:7d46fef6",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.06
+    },
+    {
+      "id": "ffe:annales:rules:081:b3dfd538",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.34
+    },
+    {
+      "id": "ffe:annales:rules:082:0ffd9851",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:083:958a8418",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.69
+    },
+    {
+      "id": "ffe:annales:rules:084:9b6aba85",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.26
+    },
+    {
+      "id": "ffe:annales:rules:086:bcf958e4",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.23
+    },
+    {
+      "id": "ffe:annales:rules:087:65b43070",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.34
+    },
+    {
+      "id": "ffe:annales:rules:089:9f9846a0",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.63
+    },
+    {
+      "id": "ffe:annales:rules:094:292c2180",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.74
+    },
+    {
+      "id": "ffe:annales:rules:103:f493b422",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:104:0309cc7a",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:105:ca611079",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:rules:106:5a3dd069",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:tournament:001:39ad4152",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.07
+    },
+    {
+      "id": "ffe:annales:tournament:002:5d30fd70",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.32
+    },
+    {
+      "id": "ffe:annales:tournament:003:2b1ab662",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.17
+    },
+    {
+      "id": "ffe:annales:tournament:004:82f7f674",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.17
+    },
+    {
+      "id": "ffe:annales:tournament:005:ed5b90d2",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.37
+    },
+    {
+      "id": "ffe:annales:tournament:006:66593d0c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "reasoning",
+      "difficulty": 0.35
+    },
+    {
+      "id": "ffe:annales:tournament:007:ccccbfee",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.28
+    },
+    {
+      "id": "ffe:annales:tournament:008:4be0fbe1",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.07
+    },
+    {
+      "id": "ffe:annales:tournament:009:36b933ad",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:tournament:010:4b10a24a",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.37
+    },
+    {
+      "id": "ffe:annales:tournament:011:1e2d7ebc",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "reasoning",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:tournament:012:4549ef7e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:annales:tournament:013:a7312ec7",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.39
+    },
+    {
+      "id": "ffe:annales:tournament:014:b1891890",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.23
+    },
+    {
+      "id": "ffe:annales:tournament:015:27a9e155",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:tournament:016:698fd630",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.12
+    },
+    {
+      "id": "ffe:annales:tournament:017:f1e23406",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.53
+    },
+    {
+      "id": "ffe:annales:tournament:018:f5f5dfe0",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.21
+    },
+    {
+      "id": "ffe:annales:tournament:019:b83d312f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:tournament:020:0ee45b0c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.67
+    },
+    {
+      "id": "ffe:annales:tournament:021:420f3fe9",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.19
+    },
+    {
+      "id": "ffe:annales:tournament:022:43041a74",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:tournament:023:6a4bd26e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:024:923da57c",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.0
+    },
+    {
+      "id": "ffe:annales:tournament:025:ed1ca4f9",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.39
+    },
+    {
+      "id": "ffe:annales:tournament:026:fcc80bae",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.39
+    },
+    {
+      "id": "ffe:annales:tournament:027:5cc51fc2",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.09
+    },
+    {
+      "id": "ffe:annales:tournament:028:bb9bc98e",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.23
+    },
+    {
+      "id": "ffe:annales:tournament:029:5d665b67",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.23
+    },
+    {
+      "id": "ffe:annales:tournament:030:7ff46cb9",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.29
+    },
+    {
+      "id": "ffe:annales:tournament:031:bb520f55",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:annales:tournament:032:40c5b1ee",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.27
+    },
+    {
+      "id": "ffe:annales:tournament:033:20fdfa19",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.57
+    },
+    {
+      "id": "ffe:annales:tournament:034:76520ac7",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.09
+    },
+    {
+      "id": "ffe:annales:tournament:035:df3692a1",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.05
+    },
+    {
+      "id": "ffe:annales:tournament:036:bc62e693",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.11
+    },
+    {
+      "id": "ffe:annales:tournament:037:59f9c31d",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.1
+    },
+    {
+      "id": "ffe:annales:tournament:039:a4a07cb1",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.2
+    },
+    {
+      "id": "ffe:annales:tournament:040:0813659b",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.26
+    },
+    {
+      "id": "ffe:annales:tournament:043:d15339ee",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.15
+    },
+    {
+      "id": "ffe:annales:tournament:046:8794b69d",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.68
+    },
+    {
+      "id": "ffe:human:rating:001:406a0bbe",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.55
+    },
+    {
+      "id": "ffe:human:rating:002:710d2088",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.55
+    },
+    {
+      "id": "ffe:human:rating:003:880750a0",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "summary",
+      "difficulty": 0.6
+    },
+    {
+      "id": "ffe:human:rating:004:afe9a2af",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:rating:005:91ec4e85",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:human:rating:006:3f4dfb29",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:rating:007:e6656888",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:rating:008:271c694f",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "reasoning",
+      "difficulty": 0.75
+    },
+    {
+      "id": "ffe:human:youth:001:f306d37c",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:human:youth:002:30725375",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:youth:003:b7774476",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:human:youth:004:eae93f57",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:human:youth:005:8f4bf758",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:human:youth:006:8ee016d4",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:youth:007:a0e7a66d",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.45
+    },
+    {
+      "id": "ffe:human:youth:008:78785108",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:women:001:735e35bb",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:women:002:1667d108",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.6
+    },
+    {
+      "id": "ffe:human:access:001:e775f181",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.4
+    },
+    {
+      "id": "ffe:human:access:002:bfa0f3f8",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.5
+    },
+    {
+      "id": "ffe:human:rating:009:95e74930",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:clubs:001:e20fddaa",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:clubs:002:aa5f1fec",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:admin:001:89810c8e",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:admin:002:4583c135",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:admin:003:3647aee2",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:admin:004:e0771263",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:admin:005:35800014",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:regional:001:6794986f",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:regional:002:94cf56b9",
+      "hit@1": false,
+      "hit@3": false,
+      "hit@5": false,
+      "hit@10": false,
+      "rank": 0,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:regional:003:89e7d630",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:regional:004:a18d472b",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.25
+    },
+    {
+      "id": "ffe:human:clubs:003:3c3a124c",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.45
+    },
+    {
+      "id": "ffe:human:clubs:004:f070542c",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    }
+  ]
+}

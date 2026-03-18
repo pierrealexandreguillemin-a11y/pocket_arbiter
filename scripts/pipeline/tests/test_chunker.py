@@ -7,16 +7,14 @@ from pathlib import Path
 import pytest
 from langchain_core.documents import Document
 
-from scripts.pipeline.chunker import (
+from scripts.pipeline.chunker import chunk_document, header_split, recursive_split
+from scripts.pipeline.chunker_utils import (
     PARENT_MAX_TOKENS,
     build_cch_title,
     build_parents,
-    chunk_document,
     extract_tables,
-    header_split,
     interpolate_pages,
     link_tables,
-    recursive_split,
 )
 
 # === Stage 1: Table extraction ===

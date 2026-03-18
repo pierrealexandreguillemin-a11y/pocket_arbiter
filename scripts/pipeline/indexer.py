@@ -492,6 +492,7 @@ def build_index(
     logger.info("=== Step 1: Chunking documents ===")
     all_children: list[dict] = []
     all_parents: list[dict] = []
+    all_chunker_tables: list[dict] = []
 
     json_files = sorted(docling_dir.glob("*.json"))
     for json_path in json_files:
@@ -504,6 +505,7 @@ def build_index(
         )
         all_children.extend(result["children"])
         all_parents.extend(result["parents"])
+        all_chunker_tables.extend(result.get("tables", []))
         logger.info(
             "  %s: %d children, %d parents",
             data["source"],
@@ -537,17 +539,26 @@ def build_index(
     child_embeddings = embed_documents(child_texts, child_titles, model)
     logger.info("Children embeddings shape: %s", child_embeddings.shape)
 
-    # 5. Embed table summaries with CCH (descriptive section from summary text)
+    # 5. Embed table summaries with CCH from chunker heading hierarchy
+    # (KX 2026 standard: enrich table with section context)
     logger.info("=== Step 5: Embedding %d table summaries ===", len(table_sums))
+
+    # Build section lookup from chunker tables: (source, raw_text[:80]) → section
+    _table_section_lookup: dict[tuple[str, str], str] = {}
+    for ct in all_chunker_tables:
+        key = (ct.get("source", ""), ct.get("raw_text", "")[:80])
+        if ct.get("section"):
+            _table_section_lookup[key] = ct["section"]
+
     if table_sums:
-        ts_titles = [
-            make_cch_title(
-                s["source"],
-                _table_section_from_summary(s["summary_text"]),
-                SOURCE_TITLES,
+        ts_titles = []
+        for s in table_sums:
+            # Try matching with chunker table section (heading hierarchy CCH)
+            key = (s["source"], s.get("raw_table_text", "")[:80])
+            section = _table_section_lookup.get(
+                key, _table_section_from_summary(s["summary_text"])
             )
-            for s in table_sums
-        ]
+            ts_titles.append(make_cch_title(s["source"], section, SOURCE_TITLES))
         ts_texts = [s["summary_text"] for s in table_sums]
         ts_embeddings = embed_documents(ts_texts, ts_titles, model)
     else:

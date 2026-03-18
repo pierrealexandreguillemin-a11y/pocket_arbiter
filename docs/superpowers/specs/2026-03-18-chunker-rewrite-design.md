@@ -26,24 +26,32 @@ Ces bugs sont structurels : le chunker maison ne garantit pas la couverture tota
 
 ## Architecture
 
+**Ordre des stages critique** : les tables doivent etre extraites AVANT le header split,
+sinon MarkdownHeaderTextSplitter fragmente les tableaux en morceaux non-detectables.
+
+Verification empirique : 98 blocs tableaux dans LA-octobre2025, seulement 22 detectes
+apres header split (ratio `|` dilue par le texte environnant).
+
 ```
 chunk_document(markdown, source, heading_pages)
   |
-  +-- Stage 1: MarkdownHeaderTextSplitter
+  +-- Stage 1: Table extraction (AVANT header split)
+  |     Detecter blocs de lignes consecutives avec | -> tables list
+  |     Remplacer chaque table par <!-- TABLE_N --> placeholder
+  |     -> markdown_clean (sans tables) + tables list
+  |
+  +-- Stage 2: MarkdownHeaderTextSplitter
   |     headers_to_split_on = [(#,h1), (##,h2), (###,h3), (####,h4)]
   |     strip_headers = False
   |     -> list[Document] avec metadata {h1, h2, h3, h4}
-  |
-  +-- Stage 2: Table extraction
-  |     Sections with >50% pipe lines -> tables list (not split)
-  |     Remaining sections -> text pipeline
   |
   +-- Stage 3: RecursiveCharacterTextSplitter.from_tiktoken_encoder
   |     encoding_name = "cl100k_base"
   |     chunk_size = 512
   |     chunk_overlap = 100
-  |     separators = ["\n\n", "\n", ". ", " ", ""]
+  |     separators = ["\n\n", "\n", ".\n", " ", ""]
   |     -> list[Document] children, metadata heritees
+  |     Note: ".\n" au lieu de ". " (evite de couper "Art. 3", "L. 131")
   |
   +-- Stage 4: Parent assembly
   |     Grouper children par metadata (h1, h2) -> parent text
@@ -54,6 +62,10 @@ chunk_document(markdown, source, heading_pages)
   |
   +-- Stage 6: CCH title
   |     metadata {h1, h2, h3} -> " > ".join() -> section field
+  |
+  +-- Stage 7: Table linkage
+  |     Pour chaque table extraite, trouver la section englobante
+  |     via position du placeholder -> metadata heading -> parent_id
   |
   +-- return {children, parents, tables}
 ```
@@ -68,7 +80,7 @@ chunk_document(markdown, source, heading_pages)
 | `chunk_overlap` | **100 tokens** (20%) | Microsoft Azure + PremAI 2026 standard |
 | `parent_max_tokens` | **2048** | EmbeddingGemma max seq + budget LLM mobile |
 | `parent_ratio` | ~3-5x child | Industry (LangChain, GraphRAG) |
-| `separators` | `["\n\n", "\n", ". ", " ", ""]` | LangChain default, optimal pour prose FR |
+| `separators` | `["\n\n", "\n", ".\n", " ", ""]` | ".\n" au lieu de ". " (evite "Art. 3", "L. 131") |
 | `encoding` | `cl100k_base` | Tiktoken, proxy Gemma tokenizer |
 | `headers` | h1-h4 | Couverture hierarchie FFE (Partie > Chapitre > Section > Article) |
 
@@ -76,7 +88,40 @@ chunk_document(markdown, source, heading_pages)
 
 ## Stages detail
 
-### Stage 1: MarkdownHeaderTextSplitter
+### Stage 1: Table extraction (AVANT header split)
+
+Detecter et extraire les tables du markdown brut AVANT le header split.
+Sinon MarkdownHeaderTextSplitter fragmente les tableaux (verifie : 98 tables
+dans LA, seulement 22 detectees apres header split).
+
+```python
+TABLE_LINE_RE = re.compile(r"^\s*\|.*\|\s*$")
+
+def extract_tables(markdown: str) -> tuple[str, list[dict]]:
+    """Extract table blocks, replace with placeholders."""
+    lines = markdown.split("\n")
+    tables = []
+    clean_lines = []
+    i = 0
+    while i < len(lines):
+        if TABLE_LINE_RE.match(lines[i]):
+            # Collect consecutive table lines
+            table_lines = []
+            while i < len(lines) and TABLE_LINE_RE.match(lines[i]):
+                table_lines.append(lines[i])
+                i += 1
+            if len(table_lines) >= 3:  # header + separator + data
+                tables.append({"raw_text": "\n".join(table_lines)})
+                clean_lines.append(f"<!-- TABLE_{len(tables) - 1} -->")
+            else:
+                clean_lines.extend(table_lines)  # too short, keep as text
+        else:
+            clean_lines.append(lines[i])
+            i += 1
+    return "\n".join(clean_lines), tables
+```
+
+### Stage 2: MarkdownHeaderTextSplitter
 
 ```python
 from langchain_text_splitters import MarkdownHeaderTextSplitter
@@ -91,25 +136,12 @@ md_splitter = MarkdownHeaderTextSplitter(
     headers_to_split_on=headers_to_split_on,
     strip_headers=False,
 )
-header_splits = md_splitter.split_text(markdown)
+header_splits = md_splitter.split_text(markdown_clean)
 ```
 
 Chaque `Document` a :
-- `page_content` : texte de la section (heading inclus)
+- `page_content` : texte de la section (heading inclus, tables remplacees par placeholders)
 - `metadata` : `{"h1": "Regles generales", "h2": "Forfaits", "h3": "Definitions"}`
-
-### Stage 2: Table extraction
-
-Avant le split par tokens, extraire les sections qui sont des tableaux :
-
-```python
-def _is_table(doc: Document) -> bool:
-    lines = doc.page_content.strip().split("\n")
-    pipe_lines = sum(1 for l in lines if "|" in l)
-    return len(lines) > 2 and pipe_lines > len(lines) * 0.5
-```
-
-Les tables ne passent PAS par le RecursiveCharacterTextSplitter. Elles sont retournees telles quelles dans la liste `tables`, avec leur metadata heading pour le `parent_id`.
 
 ### Stage 3: RecursiveCharacterTextSplitter
 
@@ -120,12 +152,16 @@ text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
     encoding_name="cl100k_base",
     chunk_size=512,
     chunk_overlap=100,
-    separators=["\n\n", "\n", ". ", " ", ""],
+    separators=["\n\n", "\n", ".\n", " ", ""],
 )
-children_docs = text_splitter.split_documents(text_sections)
+children_docs = text_splitter.split_documents(header_splits)
 ```
 
-**Garantie couverture totale** : `split_documents` ne perd aucun texte. Chaque token du source est dans au moins un child.
+**Separateur ".\n"** au lieu de ". " : evite de couper les abreviations francaises
+("Art. 3", "L. 131-8", "M. Dupont"). Verifie empiriquement : 0 sections denses
+sans `\n` dans le corpus (920 sections testees), donc `\n` est toujours disponible.
+
+**Garantie couverture totale** : `split_documents` ne perd aucun texte.
 
 ### Stage 4: Parent assembly
 
@@ -173,13 +209,41 @@ Le `section` field de chaque child = CCH title hierarchique. Utilise par l'index
 
 ---
 
+### Stage 7: Table linkage
+
+Pour chaque table extraite en Stage 1, retrouver sa section englobante :
+- Le placeholder `<!-- TABLE_N -->` se retrouve dans un Document apres Stage 2
+- Ce Document a des metadata {h1, h2, ...} -> la table herite ces metadata
+- Le `parent_id` = le parent de la section ou le placeholder est apparu
+- La page = `heading_pages` du heading le plus proche
+
+```python
+def link_tables(tables, header_splits, parents):
+    for i, table in enumerate(tables):
+        placeholder = f"<!-- TABLE_{i} -->"
+        for doc in header_splits:
+            if placeholder in doc.page_content:
+                table["section"] = build_cch_title(doc.metadata)
+                table["parent_id"] = find_parent_id(doc.metadata, parents)
+                break
+```
+
 ## Tables : integration multi-vector
 
-Les 111 table summaries pre-generees (`table_summaries_claude.json`) restent le mecanisme de retrieval pour les tableaux.
+Les 111 table summaries pre-generees (`table_summaries_claude.json`) restent le mecanisme de retrieval.
 
-Changement : chaque table summary recoit un `parent_id` lie a la section englobante (via metadata heading du stage 2). L'indexer stocke ce lien.
+### Validation croisee tables (nouveau)
 
-Le chunker retourne les sections-tables detectees dans le champ `tables` du format de sortie. L'indexer les matche avec les summaries pre-generees par `(source, page)` ou texte.
+Le chunker detecte les tables dans le markdown (Stage 1). L'indexer doit verifier que
+chaque table detectee a une summary correspondante dans `table_summaries_claude.json`.
+
+| Verification | Source | Action si mismatch |
+|-------------|--------|-------------------|
+| Table detectee sans summary | Chunker vs JSON | WARNING (table non-searchable, raw text seulement) |
+| Summary sans table detectee | JSON vs chunker | WARNING (summary orpheline, peut-etre table trop petite) |
+| Count match | 98 brut vs 111 DB | Tolerer ecart (merges, tables courtes) |
+
+Le matching se fait par `(source, position_dans_document)` ou par recherche du `raw_table_text` dans le markdown source.
 
 ---
 
@@ -234,6 +298,8 @@ Le chunker retourne les sections-tables detectees dans le champ `tables` du form
 | I5 | FTS5 counts = source table counts | FAIL build |
 | I6 | Aucun parent > 2048 tokens | FAIL build |
 | I7 | Couverture totale : sum(child tokens) >= 90% sum(section tokens) | FAIL build |
+| I8 | Aucun child contient un placeholder `<!-- TABLE_N -->` non-resolu | FAIL build |
+| I9 | Chaque table_summary a un source+page valide dans la DB | FAIL build |
 
 Gate I7 est nouveau : il verifie que le chunker n'a pas perdu de contenu. La couverture n'est pas 100% a cause de l'overlap (tokens comptes en double) et des tables extraites, mais doit etre >= 90%.
 

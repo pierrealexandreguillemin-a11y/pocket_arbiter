@@ -245,6 +245,30 @@ chaque table detectee a une summary correspondante dans `table_summaries_claude.
 
 Le matching se fait par `(source, position_dans_document)` ou par recherche du `raw_table_text` dans le markdown source.
 
+### CCH pour table summaries (standard industrie)
+
+Standard (KX 2026, PremAI 2026) : "Enrich each table with context — create table chunk
+= context description + markdown table".
+
+L'indexer doit prefixer chaque `summary_text` avec le heading de section AVANT embedding :
+
+```python
+# Actuel (pas de contexte):
+embed("Table des matieres reglement medical FFE...")
+
+# Standard industrie (avec contexte section):
+cch_title = "Reglement Medical > Commission Medicale"
+embed(format_document(cch_title, summary_text))
+# -> "title: Reglement Medical > Commission Medicale | text: Table des matieres..."
+```
+
+Le CCH title de la table vient du Stage 7 (table linkage) : metadata heading de la
+section englobante. Meme `format_document()` que pour les children.
+
+**Impact** : meilleur recall sur les queries qui mentionnent la section sans le contenu
+exact de la table (ex: "cadences Fischer" retrouve la table des equivalences dans la
+section Cadences, pas via le contenu brut de la table).
+
 ---
 
 ## Format de sortie (inchange + tables)

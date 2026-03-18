@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-03-18T07:03:20.379166+00:00",
+    "generated": "2026-03-18T07:22:10.973414+00:00",
     "pipeline": "hybrid cosine+BM25 RRF, adaptive-k largest-gap",
     "model": "google/embeddinggemma-300m-qat-q4_0-unquantized",
     "db": "corpus_v2_fr.db",
@@ -15,71 +15,71 @@
   },
   "global": {
     "count": 298,
-    "recall@1": 0.28187919463087246,
-    "recall@3": 0.28187919463087246,
-    "recall@5": 0.28187919463087246,
-    "recall@10": 0.28187919463087246,
-    "mrr": 0.28187919463087246
+    "recall@1": 0.35906040268456374,
+    "recall@3": 0.5268456375838926,
+    "recall@5": 0.5604026845637584,
+    "recall@10": 0.5906040268456376,
+    "mrr": 0.4453819111537233
   },
   "segments": {
     "reasoning_class": {
       "arithmetic": {
         "count": 25,
-        "recall@1": 0.36,
-        "recall@3": 0.36,
-        "recall@5": 0.36,
-        "recall@10": 0.36,
-        "mrr": 0.36
+        "recall@1": 0.44,
+        "recall@3": 0.6,
+        "recall@5": 0.64,
+        "recall@10": 0.72,
+        "mrr": 0.527047619047619
       },
       "fact_single": {
         "count": 136,
-        "recall@1": 0.3235294117647059,
-        "recall@3": 0.3235294117647059,
-        "recall@5": 0.3235294117647059,
-        "recall@10": 0.3235294117647059,
-        "mrr": 0.3235294117647059
+        "recall@1": 0.36764705882352944,
+        "recall@3": 0.5808823529411765,
+        "recall@5": 0.625,
+        "recall@10": 0.6397058823529411,
+        "mrr": 0.4715861344537815
       },
       "reasoning": {
         "count": 4,
         "recall@1": 0.25,
-        "recall@3": 0.25,
-        "recall@5": 0.25,
-        "recall@10": 0.25,
-        "mrr": 0.25
+        "recall@3": 0.5,
+        "recall@5": 0.75,
+        "recall@10": 0.75,
+        "mrr": 0.425
       },
       "summary": {
         "count": 133,
-        "recall@1": 0.22556390977443608,
-        "recall@3": 0.22556390977443608,
-        "recall@5": 0.22556390977443608,
-        "recall@10": 0.22556390977443608,
-        "mrr": 0.22556390977443608
+        "recall@1": 0.3383458646616541,
+        "recall@3": 0.45864661654135336,
+        "recall@5": 0.47368421052631576,
+        "recall@10": 0.5112781954887218,
+        "mrr": 0.40384890798424633
       }
     },
     "difficulty": {
       "easy": {
         "count": 201,
-        "recall@1": 0.29850746268656714,
-        "recall@3": 0.29850746268656714,
-        "recall@5": 0.29850746268656714,
-        "recall@10": 0.29850746268656714,
-        "mrr": 0.29850746268656714
+        "recall@1": 0.39303482587064675,
+        "recall@3": 0.5522388059701493,
+        "recall@5": 0.582089552238806,
+        "recall@10": 0.6069651741293532,
+        "mrr": 0.4736555318644871
       },
       "hard": {
         "count": 16,
-        "recall@1": 0.25,
-        "recall@3": 0.25,
-        "recall@5": 0.25,
-        "recall@10": 0.25,
-        "mrr": 0.25
+        "recall@1": 0.375,
+        "recall@3": 0.5625,
+        "recall@5": 0.625,
+        "recall@10": 0.625,
+        "mrr": 0.484375
       },
       "medium": {
         "count": 81,
-        "recall@1": 0.24691358024691357,
-        "recall@3": 0.24691358024691357,
-        "recall@5": 0.24691358024691357,
-        "recall@10": 0.24691358024691357,
-        "mrr": 0.24691358024691357
+        "recall@1": 0.2716049382716049,
+        "recall@3": 0.4567901234567901,
+        "recall@5": 0.49382716049382713,
+        "recall@10": 0.5432098765432098,
+        "mrr": 0.3675191064079953
       }
     }
   },
@@ -108,32 +108,6 @@
       ],
       "reasoning_class": "fact_single",
       "difficulty": 0.2,
-      "hit@10": false
-    },
-    {
-      "id": "ffe:annales:clubs:009:fd51d9be",
-      "question": "Quelle instance fédérale donne son accord pour qualifier ou non un joueur d'un c",
-      "expected_docs": [
-        "R01_2025_26_Regles_generales.pdf"
-      ],
-      "expected_pages": [
-        1
-      ],
-      "reasoning_class": "summary",
-      "difficulty": 0.43,
-      "hit@10": false
-    },
-    {
-      "id": "ffe:annales:clubs:011:0ed8268f",
-      "question": "Quelle situation ne constitue pas un forfait selon le reglement ?",
-      "expected_docs": [
-        "R01_2025_26_Regles_generales.pdf"
-      ],
-      "expected_pages": [
-        3
-      ],
-      "reasoning_class": "arithmetic",
-      "difficulty": 0.29,
       "hit@10": false
     },
     {
@@ -176,32 +150,6 @@
       "hit@10": false
     },
     {
-      "id": "ffe:annales:clubs:015:9da1351e",
-      "question": "L'inscription est-elle gratuite pour une championne de France U10 dans un tourno",
-      "expected_docs": [
-        "R03_2025_26_Competitions_homologuees.pdf"
-      ],
-      "expected_pages": [
-        2
-      ],
-      "reasoning_class": "summary",
-      "difficulty": 0.46,
-      "hit@10": false
-    },
-    {
-      "id": "ffe:annales:clubs:016:223bd59d",
-      "question": "Quelle situation n'est pas autorisee dans le championnat de France des clubs ?",
-      "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
-      ],
-      "expected_pages": [
-        1
-      ],
-      "reasoning_class": "fact_single",
-      "difficulty": 0.16,
-      "hit@10": false
-    },
-    {
       "id": "ffe:annales:clubs:018:d470292e",
       "question": "Quel est le niveau d'arbitre minimum requis pour un club en Nationale 4 ?",
       "expected_docs": [
@@ -212,19 +160,6 @@
       ],
       "reasoning_class": "reasoning",
       "difficulty": 0.37,
-      "hit@10": false
-    },
-    {
-      "id": "ffe:annales:clubs:019:4d3a9bf8",
-      "question": "Quelle restriction s'applique a une joueuse ayant joue en N4, N2 et N3 ?",
-      "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
-      ],
-      "expected_pages": [
-        6
-      ],
-      "reasoning_class": "summary",
-      "difficulty": 0.34,
       "hit@10": false
     },
     {
@@ -241,32 +176,6 @@
       "hit@10": false
     },
     {
-      "id": "ffe:annales:clubs:022:24508717",
-      "question": "En Nationale 3, quelle composition d'equipe pour la ronde 4 serait en infraction",
-      "expected_docs": [
-        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
-      ],
-      "expected_pages": [
-        6
-      ],
-      "reasoning_class": "arithmetic",
-      "difficulty": 0.4,
-      "hit@10": false
-    },
-    {
-      "id": "ffe:annales:clubs:023:c8d17a34",
-      "question": "Quel systeme d'appariement utiliser pour 9 equipes en phase 2 de la coupe Loubat",
-      "expected_docs": [
-        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
-      ],
-      "expected_pages": [
-        6
-      ],
-      "reasoning_class": "summary",
-      "difficulty": 0.16,
-      "hit@10": false
-    },
-    {
       "id": "ffe:annales:clubs:024:1a5a6b69",
       "question": "En Coupe de France, si l'equipe A a les noirs au 1er echiquier, quelles couleurs",
       "expected_docs": [
@@ -277,32 +186,6 @@
       ],
       "reasoning_class": "summary",
       "difficulty": 0.38,
-      "hit@10": false
-    },
-    {
-      "id": "ffe:annales:clubs:025:32ae9180",
-      "question": "Quelle amende pour forfait au 4e tour si le 1er tour est un 128e de finale ?",
-      "expected_docs": [
-        "C01_2025_26_Coupe_de_France.pdf"
-      ],
-      "expected_pages": [
-        4
-      ],
-      "reasoning_class": "arithmetic",
-      "difficulty": 0.24,
-      "hit@10": false
-    },
-    {
-      "id": "ffe:annales:clubs:026:13307982",
-      "question": "Comment sont departagees deux equipes a egalite en demi-finale de Coupe de Franc",
-      "expected_docs": [
-        "C01_2025_26_Coupe_de_France.pdf"
-      ],
-      "expected_pages": [
-        5
-      ],
-      "reasoning_class": "fact_single",
-      "difficulty": 0.3,
       "hit@10": false
     },
     {
@@ -343,6 +226,123 @@
       "reasoning_class": "fact_single",
       "difficulty": 0.31,
       "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:035:f5891e65",
+      "question": "Pour jouer un match par équipe en championnat de France des Clubs, les joueurs e",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.2,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:036:ec8fdbb4",
+      "question": "Lors d'un match de Nationale 2, un capitaine vous donne sa composition d'équipe ",
+      "expected_docs": [
+        "A02_2025_26_Championnat_de_France_des_Clubs.pdf"
+      ],
+      "expected_pages": [
+        4
+      ],
+      "reasoning_class": "arithmetic",
+      "difficulty": 0.36,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:043:c37ae53e",
+      "question": "En cours de partie, face à une décision de l'arbitre en cours de jeu, les joueur",
+      "expected_docs": [
+        "R02_2025_26_Regles_generales_Annexes.pdf"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.41,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:046:15a0bc61",
+      "question": "En coupe « Jean-Claude Loubatière », quelle affirmation suivante est vraie conce",
+      "expected_docs": [
+        "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.19,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:052:07434c59",
+      "question": "Avant le commencement du tournoi, vous avez des obligations administratives. Que",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        17
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.18,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:054:5a8109b0",
+      "question": "Comme tout arbitre consciencieux, vous vérifiez que la liste des joueurs est dan",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        9
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.27,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:055:c04a20b4",
+      "question": "Pendant que vous rentrez les scores et que les joueurs analysent le début de leu",
+      "expected_docs": [
+        "LA-octobre2025.pdf"
+      ],
+      "expected_pages": [
+        165
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.05,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:059:5e0bff0d",
+      "question": "Une fois l'appariement réalisé, Rosana vous indique qu'elle ne comprend pas pour",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "reasoning_class": "fact_single",
+      "difficulty": 0.16,
+      "hit@10": false
+    },
+    {
+      "id": "ffe:annales:clubs:060:1a2abf50",
+      "question": "Au cours de l'appariement de la ronde 3, dans le groupe à 1,5 points , pour quel",
+      "expected_docs": [
+        "R01_2025_26_Regles_generales.pdf"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "reasoning_class": "summary",
+      "difficulty": 0.22,
+      "hit@10": false
     }
   ],
   "per_question": [
@@ -358,11 +358,11 @@
     },
     {
       "id": "ffe:annales:clubs:002:79da8e92",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.14
     },
@@ -418,11 +418,11 @@
     },
     {
       "id": "ffe:annales:clubs:008:5e3f7d24",
-      "hit@1": true,
-      "hit@3": true,
+      "hit@1": false,
+      "hit@3": false,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 5,
       "reasoning_class": "summary",
       "difficulty": 0.42
     },
@@ -431,8 +431,8 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 6,
       "reasoning_class": "summary",
       "difficulty": 0.43
     },
@@ -451,8 +451,8 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 6,
       "reasoning_class": "arithmetic",
       "difficulty": 0.29
     },
@@ -488,31 +488,31 @@
     },
     {
       "id": "ffe:annales:clubs:015:9da1351e",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
-      "reasoning_class": "summary",
-      "difficulty": 0.46
-    },
-    {
-      "id": "ffe:annales:clubs:016:223bd59d",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
-      "reasoning_class": "fact_single",
-      "difficulty": 0.16
-    },
-    {
-      "id": "ffe:annales:clubs:017:5a48507f",
       "hit@1": true,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
       "rank": 1,
+      "reasoning_class": "summary",
+      "difficulty": 0.46
+    },
+    {
+      "id": "ffe:annales:clubs:016:223bd59d",
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.16
+    },
+    {
+      "id": "ffe:annales:clubs:017:5a48507f",
+      "hit@1": false,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.46
     },
@@ -529,10 +529,10 @@
     {
       "id": "ffe:annales:clubs:019:4d3a9bf8",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.34
     },
@@ -558,21 +558,21 @@
     },
     {
       "id": "ffe:annales:clubs:022:24508717",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "arithmetic",
       "difficulty": 0.4
     },
     {
       "id": "ffe:annales:clubs:023:c8d17a34",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "summary",
       "difficulty": 0.16
     },
@@ -589,30 +589,30 @@
     {
       "id": "ffe:annales:clubs:025:32ae9180",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "arithmetic",
       "difficulty": 0.24
     },
     {
       "id": "ffe:annales:clubs:026:13307982",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
-      "reasoning_class": "fact_single",
-      "difficulty": 0.3
-    },
-    {
-      "id": "ffe:annales:clubs:027:dfac5c0c",
       "hit@1": true,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
       "rank": 1,
+      "reasoning_class": "fact_single",
+      "difficulty": 0.3
+    },
+    {
+      "id": "ffe:annales:clubs:027:dfac5c0c",
+      "hit@1": false,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "arithmetic",
       "difficulty": 0.19
     },
@@ -668,21 +668,21 @@
     },
     {
       "id": "ffe:annales:clubs:033:31688840",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.43
     },
     {
       "id": "ffe:annales:clubs:034:625be40b",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.24
     },
@@ -729,10 +729,10 @@
     {
       "id": "ffe:annales:clubs:039:3f520ce2",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "arithmetic",
       "difficulty": 0.34
     },
@@ -768,11 +768,11 @@
     },
     {
       "id": "ffe:annales:clubs:044:606adbcd",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.13
     },
@@ -808,31 +808,31 @@
     },
     {
       "id": "ffe:annales:clubs:048:52bb444c",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.05
     },
     {
       "id": "ffe:annales:clubs:049:0742c6b6",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.22
     },
     {
       "id": "ffe:annales:clubs:050:df445310",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.18
     },
@@ -869,30 +869,30 @@
     {
       "id": "ffe:annales:clubs:056:576a2a97",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.31
     },
     {
       "id": "ffe:annales:clubs:057:545da9db",
-      "hit@1": true,
-      "hit@3": true,
+      "hit@1": false,
+      "hit@3": false,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 4,
       "reasoning_class": "summary",
       "difficulty": 0.51
     },
     {
       "id": "ffe:annales:clubs:058:ccd218fa",
-      "hit@1": true,
-      "hit@3": true,
+      "hit@1": false,
+      "hit@3": false,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 5,
       "reasoning_class": "arithmetic",
       "difficulty": 0.3
     },
@@ -941,8 +941,8 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 7,
       "reasoning_class": "fact_single",
       "difficulty": 0.11
     },
@@ -978,31 +978,31 @@
     },
     {
       "id": "ffe:annales:clubs:070:d2fec36f",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "arithmetic",
       "difficulty": 0.2
     },
     {
       "id": "ffe:annales:clubs:071:e798252b",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.23
     },
     {
       "id": "ffe:annales:clubs:072:56e31640",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.19
     },
@@ -1019,20 +1019,20 @@
     {
       "id": "ffe:annales:clubs:074:f3c3e975",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "arithmetic",
       "difficulty": 0.2
     },
     {
       "id": "ffe:annales:clubs:075:f1539e46",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.24
     },
@@ -1099,10 +1099,10 @@
     {
       "id": "ffe:annales:clubs:087:4fb1f6f3",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.27
     },
@@ -1121,28 +1121,28 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 7,
       "reasoning_class": "arithmetic",
       "difficulty": 0.52
     },
     {
       "id": "ffe:annales:clubs:093:dd779b85",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.2
     },
     {
       "id": "ffe:annales:clubs:094:d9d7f876",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "arithmetic",
       "difficulty": 0.81
     },
@@ -1198,11 +1198,11 @@
     },
     {
       "id": "ffe:annales:clubs:106:55bf9872",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.43
     },
@@ -1221,8 +1221,8 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 6,
       "reasoning_class": "summary",
       "difficulty": 0.36
     },
@@ -1248,11 +1248,11 @@
     },
     {
       "id": "ffe:annales:clubs:114:7723ff77",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.67
     },
@@ -1318,11 +1318,11 @@
     },
     {
       "id": "ffe:annales:clubs:135:861e14f1",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.4
     },
@@ -1349,10 +1349,10 @@
     {
       "id": "ffe:annales:clubs:138:19a243d6",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.4
     },
@@ -1429,10 +1429,10 @@
     {
       "id": "ffe:annales:open:003:6fdc49bb",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.07
     },
@@ -1449,10 +1449,10 @@
     {
       "id": "ffe:annales:open:005:1ca082a8",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.34
     },
@@ -1491,18 +1491,18 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 7,
       "reasoning_class": "summary",
       "difficulty": 0.11
     },
     {
       "id": "ffe:annales:open:010:5bc6bc5e",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.77
     },
@@ -1518,21 +1518,21 @@
     },
     {
       "id": "ffe:annales:open:012:1c5af6e1",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.13
     },
     {
       "id": "ffe:annales:open:013:51141e29",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.02
     },
@@ -1651,8 +1651,8 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 7,
       "reasoning_class": "summary",
       "difficulty": 0.33
     },
@@ -1718,11 +1718,11 @@
     },
     {
       "id": "ffe:annales:open:034:a50a1b29",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.1
     },
@@ -1738,11 +1738,11 @@
     },
     {
       "id": "ffe:annales:open:042:dc055770",
-      "hit@1": true,
-      "hit@3": true,
+      "hit@1": false,
+      "hit@3": false,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 4,
       "reasoning_class": "fact_single",
       "difficulty": 0.26
     },
@@ -1768,11 +1768,11 @@
     },
     {
       "id": "ffe:annales:open:046:cc1e3b13",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.22
     },
@@ -1830,29 +1830,29 @@
       "id": "ffe:annales:open:054:772ce2a9",
       "hit@1": false,
       "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 5,
       "reasoning_class": "fact_single",
       "difficulty": 0.26
     },
     {
       "id": "ffe:annales:open:055:fff0d000",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.05
     },
     {
       "id": "ffe:annales:open:061:9abe718c",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.95
     },
@@ -1879,10 +1879,10 @@
     {
       "id": "ffe:annales:rules:001:d56a5ed7",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "summary",
       "difficulty": 0.16
     },
@@ -1908,21 +1908,21 @@
     },
     {
       "id": "ffe:annales:rules:004:6e4f68c4",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.02
     },
     {
       "id": "ffe:annales:rules:005:50bb0658",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.14
     },
@@ -1940,9 +1940,9 @@
       "id": "ffe:annales:rules:007:148916ab",
       "hit@1": false,
       "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 5,
       "reasoning_class": "fact_single",
       "difficulty": 0.61
     },
@@ -1958,11 +1958,11 @@
     },
     {
       "id": "ffe:annales:rules:009:8b61df6a",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.18
     },
@@ -2008,21 +2008,21 @@
     },
     {
       "id": "ffe:annales:rules:017:c2e125b4",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.24
     },
     {
       "id": "ffe:annales:rules:018:84198fff",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.49
     },
@@ -2048,11 +2048,11 @@
     },
     {
       "id": "ffe:annales:rules:021:6e7f46b5",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.21
     },
@@ -2069,20 +2069,20 @@
     {
       "id": "ffe:annales:rules:023:313313c3",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.13
     },
     {
       "id": "ffe:annales:rules:024:639c0418",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.14
     },
@@ -2098,11 +2098,11 @@
     },
     {
       "id": "ffe:annales:rules:030:fc369c15",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.08
     },
@@ -2119,40 +2119,40 @@
     {
       "id": "ffe:annales:rules:040:3c49716f",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.46
     },
     {
       "id": "ffe:annales:rules:041:eb8a701b",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.78
     },
     {
       "id": "ffe:annales:rules:044:ab624690",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.18
     },
     {
       "id": "ffe:annales:rules:045:89403c7f",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.08
     },
@@ -2189,10 +2189,10 @@
     {
       "id": "ffe:annales:rules:049:324c24ff",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.51
     },
@@ -2208,21 +2208,21 @@
     },
     {
       "id": "ffe:annales:rules:051:8624de9c",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.16
     },
     {
       "id": "ffe:annales:rules:052:ad487e20",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.22
     },
@@ -2238,11 +2238,11 @@
     },
     {
       "id": "ffe:annales:rules:055:14804bb4",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.11
     },
@@ -2258,21 +2258,21 @@
     },
     {
       "id": "ffe:annales:rules:057:80e7e9da",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.56
     },
     {
       "id": "ffe:annales:rules:058:236d58e4",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "arithmetic",
       "difficulty": 0.26
     },
@@ -2308,21 +2308,21 @@
     },
     {
       "id": "ffe:annales:rules:062:2b6141ed",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.6
     },
     {
       "id": "ffe:annales:rules:063:df712371",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.19
     },
@@ -2339,10 +2339,10 @@
     {
       "id": "ffe:annales:rules:066:d2c9ccb7",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.63
     },
@@ -2379,40 +2379,40 @@
     {
       "id": "ffe:annales:rules:070:10f4c72f",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.41
     },
     {
       "id": "ffe:annales:rules:071:21299833",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.3
     },
     {
       "id": "ffe:annales:rules:072:642aaaba",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.19
     },
     {
       "id": "ffe:annales:rules:073:67efc7f7",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.23
     },
@@ -2469,10 +2469,10 @@
     {
       "id": "ffe:annales:rules:082:0ffd9851",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.3
     },
@@ -2558,11 +2558,11 @@
     },
     {
       "id": "ffe:annales:rules:105:ca611079",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.3
     },
@@ -2579,10 +2579,10 @@
     {
       "id": "ffe:annales:tournament:001:39ad4152",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.07
     },
@@ -2629,10 +2629,10 @@
     {
       "id": "ffe:annales:tournament:006:66593d0c",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "reasoning",
       "difficulty": 0.35
     },
@@ -2680,9 +2680,9 @@
       "id": "ffe:annales:tournament:011:1e2d7ebc",
       "hit@1": false,
       "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 5,
       "reasoning_class": "reasoning",
       "difficulty": 0.21
     },
@@ -2739,10 +2739,10 @@
     {
       "id": "ffe:annales:tournament:017:f1e23406",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.53
     },
@@ -2789,10 +2789,10 @@
     {
       "id": "ffe:annales:tournament:022:43041a74",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 3,
       "reasoning_class": "summary",
       "difficulty": 0.05
     },
@@ -2801,8 +2801,8 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 7,
       "reasoning_class": "summary",
       "difficulty": 0.0
     },
@@ -2848,31 +2848,31 @@
     },
     {
       "id": "ffe:annales:tournament:028:bb9bc98e",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.23
     },
     {
       "id": "ffe:annales:tournament:029:5d665b67",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.23
     },
     {
       "id": "ffe:annales:tournament:030:7ff46cb9",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.29
     },
@@ -2908,21 +2908,21 @@
     },
     {
       "id": "ffe:annales:tournament:034:76520ac7",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.09
     },
     {
       "id": "ffe:annales:tournament:035:df3692a1",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.05
     },
@@ -2939,20 +2939,20 @@
     {
       "id": "ffe:annales:tournament:037:59f9c31d",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.1
     },
     {
       "id": "ffe:annales:tournament:039:a4a07cb1",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "summary",
       "difficulty": 0.2
     },
@@ -2980,9 +2980,9 @@
       "id": "ffe:annales:tournament:046:8794b69d",
       "hit@1": false,
       "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 4,
       "reasoning_class": "fact_single",
       "difficulty": 0.68
     },
@@ -2999,10 +2999,10 @@
     {
       "id": "ffe:human:rating:002:710d2088",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "summary",
       "difficulty": 0.55
     },
@@ -3029,10 +3029,10 @@
     {
       "id": "ffe:human:rating:005:91ec4e85",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.4
     },
@@ -3100,9 +3100,9 @@
       "id": "ffe:human:youth:004:eae93f57",
       "hit@1": false,
       "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 4,
       "reasoning_class": "fact_single",
       "difficulty": 0.3
     },
@@ -3118,11 +3118,11 @@
     },
     {
       "id": "ffe:human:youth:006:8ee016d4",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
@@ -3141,8 +3141,8 @@
       "hit@1": false,
       "hit@3": false,
       "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@10": true,
+      "rank": 7,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
@@ -3188,11 +3188,11 @@
     },
     {
       "id": "ffe:human:rating:009:95e74930",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
@@ -3208,11 +3208,11 @@
     },
     {
       "id": "ffe:human:clubs:002:aa5f1fec",
-      "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@1": true,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 1,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
@@ -3248,11 +3248,11 @@
     },
     {
       "id": "ffe:human:admin:004:e0771263",
-      "hit@1": true,
-      "hit@3": true,
+      "hit@1": false,
+      "hit@3": false,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 5,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
@@ -3269,10 +3269,10 @@
     {
       "id": "ffe:human:regional:001:6794986f",
       "hit@1": false,
-      "hit@3": false,
-      "hit@5": false,
-      "hit@10": false,
-      "rank": 0,
+      "hit@3": true,
+      "hit@5": true,
+      "hit@10": true,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
@@ -3288,31 +3288,31 @@
     },
     {
       "id": "ffe:human:regional:003:89e7d630",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
     {
       "id": "ffe:human:regional:004:a18d472b",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 2,
       "reasoning_class": "fact_single",
       "difficulty": 0.25
     },
     {
       "id": "ffe:human:clubs:003:3c3a124c",
-      "hit@1": true,
+      "hit@1": false,
       "hit@3": true,
       "hit@5": true,
       "hit@10": true,
-      "rank": 1,
+      "rank": 3,
       "reasoning_class": "fact_single",
       "difficulty": 0.45
     },

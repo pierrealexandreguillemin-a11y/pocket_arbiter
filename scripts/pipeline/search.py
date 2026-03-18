@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import logging
+import re
 import sqlite3
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -101,23 +102,18 @@ def reciprocal_rank_fusion(
 def adaptive_k(
     results: list[tuple[str, float]],
     min_score: float = 0.005,
+    min_k: int = 3,
     max_k: int = 10,
     buffer: int = 0,
 ) -> list[tuple[str, float]]:
-    """Filter results by score threshold and largest-gap detection.
-
-    Based on EMNLP 2025 "No Tuning, No Iteration, Just Adaptive-k":
-    cut at the largest gap in the score distribution instead of a
-    fixed gap threshold. Adapts to each query's score distribution.
+    """Filter results: min_score threshold, then largest-gap cut (EMNLP 2025).
 
     Args:
         results: [(doc_id, score), ...] sorted desc.
         min_score: Minimum score to keep.
-        max_k: Hard maximum number of results.
-        buffer: Extra results to keep after gap (paper default: 5).
-
-    Returns:
-        Filtered results.
+        min_k: Minimum results (floor for gap detection).
+        max_k: Hard maximum.
+        buffer: Extra results after gap.
     """
     if not results:
         return []
@@ -128,15 +124,16 @@ def adaptive_k(
     # Apply min_score
     results = [(doc_id, score) for doc_id, score in results if score >= min_score]
 
-    if len(results) <= 1:
+    if len(results) <= min_k:
         return results
 
     # Find largest gap (EMNLP Adaptive-k)
     gaps = [results[i][1] - results[i + 1][1] for i in range(len(results) - 1)]
     largest_gap_idx = max(range(len(gaps)), key=lambda i: gaps[i])
 
-    # Keep everything before the largest gap + buffer
-    cut = min(largest_gap_idx + 1 + buffer, len(results))
+    # Keep everything before the largest gap + buffer, but at least min_k
+    cut = max(largest_gap_idx + 1 + buffer, min_k)
+    cut = min(cut, len(results))
     return results[:cut]
 
 
@@ -182,6 +179,13 @@ def cosine_search(
     return results[:max_k]
 
 
+def _sanitize_fts_query(stemmed_query: str) -> str:
+    """Clean stemmed query for FTS5 MATCH: strip punctuation, dedup, OR join."""
+    terms = [re.sub(r"[^\w]", "", t) for t in stemmed_query.split()]
+    unique = list(dict.fromkeys(t for t in terms if t))
+    return " OR ".join(unique) if unique else ""
+
+
 def bm25_search(
     conn: sqlite3.Connection,
     stemmed_query: str,
@@ -200,9 +204,9 @@ def bm25_search(
     if not stemmed_query.strip():
         return []
 
-    # FTS5 default is AND between terms. Use OR so synonym expansion
-    # matches documents containing ANY expanded term, not ALL.
-    fts_query = " OR ".join(stemmed_query.split())
+    fts_query = _sanitize_fts_query(stemmed_query)
+    if not fts_query:
+        return []
 
     results: list[tuple[str, float]] = []
 

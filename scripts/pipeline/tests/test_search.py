@@ -177,9 +177,16 @@ class TestAdaptiveK:
         assert len(filtered) == 0
 
     def test_largest_gap_cuts(self) -> None:
-        """Largest gap between b(0.85) and c(0.5) = 0.35 → cut after b."""
+        """Largest gap between b(0.85) and c(0.5) = 0.35 → cut after b.
+        But min_k=3 keeps at least 3, so c is kept."""
         results = [("a", 0.9), ("b", 0.85), ("c", 0.5), ("d", 0.45)]
         filtered = adaptive_k(results, min_score=0.0, max_k=10)
+        assert len(filtered) == 3  # min_k=3 floor
+
+    def test_largest_gap_cuts_with_min_k_1(self) -> None:
+        """With min_k=1, largest gap cuts after b."""
+        results = [("a", 0.9), ("b", 0.85), ("c", 0.5), ("d", 0.45)]
+        filtered = adaptive_k(results, min_score=0.0, min_k=1, max_k=10)
         assert len(filtered) == 2
         assert filtered[-1][0] == "b"
 

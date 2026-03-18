@@ -96,67 +96,88 @@ def recursive_split(docs: list[Document]) -> list[Document]:
     return _text_splitter.split_documents(docs)
 
 
-def build_parents(children: list[Document], source: str) -> list[dict]:
-    """Group children by (h1, h2), build parent dicts capped at 2048 tok."""
-    groups: dict[tuple[str, str], list[Document]] = defaultdict(list)
-    for child in children:
+def build_parents(
+    children: list[Document],
+    source: str,
+) -> tuple[list[dict], dict[int, str]]:
+    """Group children by (h1, h2), build parent dicts capped at 2048 tok.
+
+    Returns:
+        (parents, child_to_parent) where child_to_parent maps
+        child index (in input list) → parent_id.
+    """
+    groups: dict[tuple[str, str], list[tuple[int, Document]]] = defaultdict(list)
+    for idx, child in enumerate(children):
         key = (child.metadata.get("h1", ""), child.metadata.get("h2", ""))
-        groups[key].append(child)
+        groups[key].append((idx, child))
 
     parents: list[dict] = []
+    child_to_parent: dict[int, str] = {}
     counter = 0
 
     for (h1, h2), group in groups.items():
         section = " > ".join(p for p in (h1, h2) if p) or "root"
-        full_text = "\n\n".join(c.page_content for c in group)
+        full_text = "\n\n".join(c.page_content for _, c in group)
         tokens = count_tokens(full_text)
 
         if tokens <= PARENT_MAX_TOKENS:
+            pid = f"{source}-p{counter:03d}"
             parents.append(
                 {
-                    "id": f"{source}-p{counter:03d}",
+                    "id": pid,
                     "text": full_text,
                     "source": source,
                     "section": section,
                     "tokens": tokens,
                 }
             )
+            for idx, _ in group:
+                child_to_parent[idx] = pid
             counter += 1
         else:
+            batch_indices: list[int] = []
             parts: list[str] = []
             part_tokens = 0
-            for c in group:
+            for idx, c in group:
                 c_tok = count_tokens(c.page_content)
                 if part_tokens + c_tok > PARENT_MAX_TOKENS and parts:
+                    pid = f"{source}-p{counter:03d}"
                     sub = "\n\n".join(parts)
                     parents.append(
                         {
-                            "id": f"{source}-p{counter:03d}",
+                            "id": pid,
                             "text": sub,
                             "source": source,
                             "section": section,
                             "tokens": count_tokens(sub),
                         }
                     )
+                    for bi in batch_indices:
+                        child_to_parent[bi] = pid
                     counter += 1
                     parts = []
+                    batch_indices = []
                     part_tokens = 0
                 parts.append(c.page_content)
+                batch_indices.append(idx)
                 part_tokens += c_tok
             if parts:
+                pid = f"{source}-p{counter:03d}"
                 sub = "\n\n".join(parts)
                 parents.append(
                     {
-                        "id": f"{source}-p{counter:03d}",
+                        "id": pid,
                         "text": sub,
                         "source": source,
                         "section": section,
                         "tokens": count_tokens(sub),
                     }
                 )
+                for bi in batch_indices:
+                    child_to_parent[bi] = pid
                 counter += 1
 
-    return parents
+    return parents, child_to_parent
 
 
 def interpolate_pages(
@@ -237,21 +258,14 @@ def chunk_document(
     # Stage 3: Recursive token split
     children_docs = recursive_split(header_docs)
 
-    # Stage 4: Parent assembly
-    parents = build_parents(children_docs, source)
-    pid_by_section: dict[str, str] = {p["section"]: p["id"] for p in parents}
+    # Stage 4: Parent assembly (returns mapping child_index → parent_id)
+    parents, child_to_parent = build_parents(children_docs, source)
 
     # Build children dicts
     children: list[dict] = []
     for i, doc in enumerate(children_docs):
         cch = build_cch_title(doc.metadata)
-        section_key = (
-            " > ".join(
-                p for p in (doc.metadata.get("h1", ""), doc.metadata.get("h2", "")) if p
-            )
-            or "root"
-        )
-        pid = pid_by_section.get(section_key, "")
+        pid = child_to_parent.get(i, "")
 
         art_match = ARTICLE_NUM_RE.match(doc.page_content)
         art_num = art_match.group(1).rstrip(".") if art_match else None

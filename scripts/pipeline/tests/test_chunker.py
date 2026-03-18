@@ -135,7 +135,7 @@ class TestBuildParents:
             Document(page_content="C2", metadata={"h1": "A", "h2": "B"}),
             Document(page_content="C3", metadata={"h1": "A", "h2": "C"}),
         ]
-        parents = build_parents(children, "test.pdf")
+        parents, _ = build_parents(children, "test.pdf")
         assert len(parents) == 2
 
     def test_parent_capped_at_2048(self) -> None:
@@ -145,19 +145,19 @@ class TestBuildParents:
             Document(page_content=big, metadata={"h1": "A", "h2": "B"}),
             Document(page_content=big, metadata={"h1": "A", "h2": "B"}),
         ]
-        parents = build_parents(children, "test.pdf")
+        parents, _ = build_parents(children, "test.pdf")
         for p in parents:
             assert p["tokens"] <= PARENT_MAX_TOKENS + 50
 
     def test_no_empty_parents(self) -> None:
         children = [Document(page_content="Text", metadata={"h1": "A"})]
-        parents = build_parents(children, "test.pdf")
+        parents, _ = build_parents(children, "test.pdf")
         for p in parents:
             assert p["text"].strip()
 
     def test_has_required_fields(self) -> None:
         children = [Document(page_content="T", metadata={"h1": "X"})]
-        parents = build_parents(children, "src.pdf")
+        parents, _ = build_parents(children, "src.pdf")
         for key in ("id", "text", "source", "section", "tokens"):
             assert key in parents[0]
 

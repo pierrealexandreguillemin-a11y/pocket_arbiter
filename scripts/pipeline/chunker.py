@@ -184,20 +184,24 @@ def interpolate_pages(
     children: list[dict],
     heading_pages: dict[str, int],
 ) -> list[dict]:
-    """Assign page numbers from heading_pages mapping."""
+    """Assign page numbers from heading_pages mapping.
+
+    Matches the MOST SPECIFIC heading (longest match) to avoid
+    broad h1 headings overriding precise h3 page assignments.
+    """
     fallback_page = min(heading_pages.values()) if heading_pages else 1
     for child in children:
         if child.get("page") is not None:
             continue
-        section = child.get("section", "")
-        matched = False
+        # Match against BOTH section (CCH) and text (contains sub-headings)
+        search_text = child.get("section", "") + " " + child.get("text", "")
+        best_match = ""
+        best_page = None
         for heading_text, page in heading_pages.items():
-            if heading_text in section:
-                child["page"] = page
-                matched = True
-                break
-        if not matched:
-            child["page"] = fallback_page
+            if heading_text in search_text and len(heading_text) > len(best_match):
+                best_match = heading_text
+                best_page = page
+        child["page"] = best_page if best_page is not None else fallback_page
     return children
 
 

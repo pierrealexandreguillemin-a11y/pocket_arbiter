@@ -17,13 +17,15 @@
 - **Synonymes** : Snowball FR stemmer + 70 synonymes chess (intra-corpus + langage courant→corpus)
 - **Pipeline tests** : 107 tests pipeline PASS, 125 tests ISO PASS (232 total)
 
-### En cours (chantier 2)
-- **Task 5** : Integration finale + validation end-to-end
+### Recall baseline (chantier 3)
+- **recall@5 = 56.0%** page-level (298 questions, reglages de base)
+- recall@1 = 35.9%, recall@10 = 59.1%, MRR = 0.445
+- Decision : < 60% → optimisations retrieval ou fine-tuning necessaires
 
 ### A faire
-- **Chantier 3** : Re-mesurer recall sur 304 testables propres
+- **Calibration** : optimiser adaptive_k, tester sans min_score, analyser les 20 pires echecs
 - **Classifications GS** : answer_type 100% faux ("multiple_choice"), reasoning_class ~55% faux
-- Decider : fine-tuning embeddings ou prompt engineering selon resultats recall
+- Decider : fine-tuning embeddings ou prompt engineering selon resultats optimisation
 
 ## Commandes
 

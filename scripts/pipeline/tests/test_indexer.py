@@ -37,21 +37,21 @@ class TestMakeCchTitle:
         )
         assert "Regles Generales" in title
         assert "3.2. Forfait isole" in title
-        assert " | " in title
+        assert " > " in title
 
     def test_unknown_source_fallback(self) -> None:
         title = make_cch_title("unknown_doc.pdf", "Section 1", SOURCE_TITLES)
-        assert "unknown doc" in title.lower()
+        assert "unknown_doc" in title
         assert "Section 1" in title
 
     def test_empty_section(self) -> None:
         title = make_cch_title("LA-octobre2025.pdf", "", SOURCE_TITLES)
-        assert "Lois des Echecs" in title
+        assert "Arbitre" in title
 
     def test_custom_source_titles(self) -> None:
         custom = {"test.pdf": "Custom Title"}
         title = make_cch_title("test.pdf", "S1", source_titles=custom)
-        assert title == "Custom Title | S1"
+        assert title == "Custom Title > S1"
 
     def test_custom_source_titles_fallback(self) -> None:
         custom = {"other.pdf": "Other"}
@@ -59,11 +59,10 @@ class TestMakeCchTitle:
         assert "unknown" in title.lower()
 
     def test_source_titles_is_required(self) -> None:
-        """source_titles is a required parameter (no implicit global fallback)."""
         title = make_cch_title(
             "LA-octobre2025.pdf", "Section", source_titles=SOURCE_TITLES
         )
-        assert "Lois des Echecs" in title
+        assert "Arbitre" in title
 
 
 class TestTableSectionFromSummary:

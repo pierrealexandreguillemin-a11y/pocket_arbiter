@@ -34,30 +34,59 @@ Chronologie factuelle des decisions et errements du projet.
 - Archivage : 168 scripts, 46 docs, 19 artefacts data
 - Cap : fix pipeline → re-mesure recall → decision (fine-tuning ou prompt engineering)
 
-## Gemma model status (mars 2026)
+## Ere 5 : Pipeline v2 — chunker custom (mars 2026)
 
-Recherche web effectuee le 16 mars 2026 :
+- Chantier 1 (menage) : DONE
+- Chantier 2 (pipeline v2) : extract, chunker custom, indexer, search hybrid
+  - Chunker custom : 350 lignes, regex maison, 3 bugs integrite decouverts au recall
+  - Bug 1 : 7 parents avec texte mais 0 children (8020 tokens invisibles)
+  - Bug 2 : 28 parents root vides (p000) avec 46 children orphelins
+  - Bug 3 : parents geants (39K tokens, 55 children) — heading mal detecte
+  - Recall baseline custom chunker : 28.2% → 62.1% apres 3 fixes (FTS5, adaptive_k, empty-parent)
+- Search : hybrid cosine+BM25, RRF k=60, adaptive-k largest-gap (EMNLP 2025)
+- Synonymes : 70 entries corpus-verified (A: intra-corpus + B: langage courant→corpus)
+
+## Ere 6 : Pipeline v2 — chunker LangChain (mars 2026)
+
+- Chunker custom remplace par LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter
+- Raison : chunker custom ignorait langchain-text-splitters (installe dans requirements.txt, prevu par ARCHITECTURE.md)
+- Standards appliques : FloTorch 2026 (512 tok), Azure 2026 (20% overlap), NVIDIA (header-first), KX (table CCH)
+- Table extraction AVANT header split (verifie : 98 tables LA, 22 seulement apres header split)
+- 9 integrity gates (I1-I9) dans integrity.py
+- Findings durant le re-chunking :
+  - MarkdownHeaderTextSplitter fragmente les tables → extraction avant split
+  - Page interpolation par CCH echoue (headings h4+ pas dans metadata) → line-level tracking
+  - build_parents dict section ecrase sub-parents → index mapping
+  - Heading-only Documents creent micro-chunks → pre-filter
+  - CCH table summaries : indexer doit utiliser heading du chunker, pas premiers mots summary
+
+## Findings techniques (mars 2026)
+
+### Modele embedding
+- EmbeddingGemma-300M QAT (sentence-transformers) ≠ .tflite (litert-community)
+- Checkpoints differents : QAT entraine avec quantization awareness, .tflite converti depuis base
+- Solution build-time : utiliser meme .tflite via tflite_runtime (pas de wheel Windows/Py3.13)
+- Solution pragmatique : base model pour build, .tflite pour Android (meme source, delta quantization)
+- EmbeddingGemma reste le seul modele on-device <500MB avec .tflite natif
+
+### Modele generation
+- Gemma 3n E2B : 2GB RAM (depasse spec 500MB VISION.md)
+- Gemma 3 270M : 150MB RAM (dans spec) mais qualite inferieure
+- Decision a prendre : relever contrainte RAM ou garder 270M
+
+### Android / LiteRT
+- AI Edge RAG SDK : deprecie, migration LiteRT-LM recommandee
+- LiteRT-LM v0.1.0 : early preview, API peut changer
+- Snowball FR : pas de port Kotlin officiel, utiliser org.tartarus.snowball (Java)
+- FTS5 : disponible Android API 24+ (minSdk 26 = OK)
+
+## Gemma model status (mars 2026)
 
 - **Gemma 3n** (juin 2025) : nouveau modele mobile-first, MatFormer architecture
   - E2B : ~2 GB RAM, effective 2B params — candidat remplacement Gemma 3 270M
   - E4B : ~3 GB RAM, effective 4B params — plus capable
-  - Multimodal (texte, image, video, audio), 32K context, 140+ langues
-  - ~1.5x plus rapide que Gemma 3 4B avec meilleure qualite
-  - LiteRT checkpoints disponibles sur HuggingFace
-- **AI Edge RAG SDK** : pipeline officiel Google pour RAG on-device Android — **DEPRECIE**
-  - Pas de pre-build desktop (JNI Android-only), pas de parent-child natif
-  - Pattern `customEmbeddingData` interessant : embed child, return parent — a implementer nous-memes
-  - Google recommande migration vers LiteRT-LM (qui n'a PAS de composants RAG)
-  - Decision : ne pas utiliser le SDK, garder notre pipeline custom (SQLite + embeddings)
 - **EmbeddingGemma-300M** : toujours le seul modele d'embeddings on-device Google, pas de successeur
-- **Gemma 3 QAT** : modeles QAT disponibles pour 1B, 4B, 12B, 27B (avril 2025)
-- **LiteRT-LM** : successeur recommande pour inference LLM on-device, supporte function calling
-- **Brute-force cosine** : 1857 x 768D = sub-10ms, pas besoin d'ANN (HNSW/IVF)
-- **Contraintes Android** : minSdk 26 (Android 8.0), arm64-v8a uniquement
-
-**Impact** : Gemma 3n E2B candidat remplacement Gemma 3 270M pour la generation (meilleure qualite, 2GB RAM). Pipeline = Python desktop (pre-build DB) + Kotlin Android (query + cosine + generation). EmbeddingGemma-300M reste le choix embeddings.
-
-Sources : deepmind.google, developers.googleblog.com, ai.google.dev, huggingface.co/google, github.com/google-ai-edge
+- **LiteRT-LM** : successeur recommande pour inference LLM on-device
 
 ## Decisions cles
 
@@ -70,3 +99,6 @@ Sources : deepmind.google, developers.googleblog.com, ai.google.dev, huggingface
 | 16 mar | Archivage scripts pipeline | Ont produit l'etat casse, plus simple de reecrire |
 | 16 mar | AI Edge RAG SDK rejete | Deprecie, pas de pre-build desktop, pas de parent-child |
 | 16 mar | Pipeline custom confirme | Python desktop (pre-build DB) + Kotlin Android (query) |
+| 18 mar | Chunker custom → LangChain | Custom avait 3 bugs integrite, LangChain etait deja installe |
+| 18 mar | Table extraction avant header split | Verifie empiriquement : 98 vs 22 tables |
+| 18 mar | Page interpolation line-level | CCH match echouait pour h4+ headings |

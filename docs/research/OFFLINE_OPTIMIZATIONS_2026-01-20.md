@@ -318,37 +318,73 @@ def generate_canonical_questions(chunk_text: str, metadata: dict) -> list[str]:
 
 ---
 
-## Implementation Prioritaire
+## Implementation Prioritaire (mise a jour 2026-03-19)
 
-### Phase 1: Quick Wins (1-2h travail)
+> **Baseline actuel**: recall@5 = 56.7%, recall@10 = 63.1% (LangChain chunker, EmbeddingGemma-300M QAT)
+> **Root cause**: 87% des failures = embedding ne trouve pas le bon chunk (pas un probleme de chunking)
+> **Finding NAACL 2025 (Vectara)**: chunking config a autant d'influence que le modele d'embedding
+> **Finding Firecrawl 2026**: fixed 400 tok + 20% overlap = 82% recall avec text-embedding-3-large
+> **Finding Structure-aware 2026**: 87.7% recall sur SEC filings (financial regulatory)
+> **Target**: 80%+ recall@5 (seuil prompt engineering suffisant)
 
-| Action | Questions | Effort | Source |
-|--------|-----------|--------|--------|
-| Synonymes temporels dans chunks | Q77, Q94 | 30min | Haystack |
-| Abreviations expandues | Q98 | 30min | Haystack |
-| Flag pages intro | Q87, Q95, Q121 | 30min | arXiv FILCO |
+### Classement gain/effort (toutes les optimisations)
 
-**Recall attendu**: 91% -> 95%
+| # | Optimisation | Gain estime | Effort | Rebuild? | Source |
+|---|-------------|-------------|--------|----------|--------|
+| **1** | **Enrichissement abreviations dans texte chunks** | +5-8pp | 30min code | OUI (re-embed) | Haystack, doc existant |
+| **2** | **Enrichissement synonymes temporels dans texte** | +2-3pp | 30min code | OUI | Haystack, doc existant |
+| **3** | **Chapter titles injectes dans texte chunks** (pas juste CCH prefix) | +5-10pp | 1h code | OUI | arXiv 2501.07391, doc existant |
+| **4** | **Exclure pages intro du search** (flag is_intro) | +2-4pp | 30min code | NON (SQL WHERE) | arXiv FILCO, doc existant |
+| **5** | **Chunk size tuning** : tester 400 tok (vs 512 actuel) | +3-5pp | 5min config | OUI | Firecrawl 2026, NAACL 2025 Vectara |
+| **6** | **Overlap tuning** : tester 0 overlap (ancien chunker avait 0) | +0-5pp | 5min config | OUI | Regression analysis session 2026-03-18 |
+| **7** | **Formulations alternatives pre-indexees** (HyDE index-time) | +5-8pp | 2h code | OUI | arXiv, doc existant |
+| **8** | **Multi-vector variants** (informel, question implicite) | +3-5pp | 2h code | OUI | arXiv 2506.00054, doc existant |
+| **9** | **Late chunking par page** (embed page entiere, chunk apres) | +5-10pp | 4h code | OUI | arXiv 2409.04701, doc existant |
+| **10** | **QLoRA fine-tune EmbeddingGemma** sur triplets FFE | +10-20pp | 2 jours | OUI | Unsloth, session 2026-03-18 |
 
-### Phase 2: Moderate (4-6h travail)
+### Strategie d'implementation (par batch, un seul rebuild par batch)
 
-| Action | Questions | Effort | Source |
-|--------|-----------|--------|--------|
-| Chapter titles dans chunks | Q119, Q125, Q132 | 2h | arXiv 2501.07391 |
-| Hard questions cache | Toutes | 2h | - |
-| Re-embedding corpus | - | 2h | - |
+**Batch A — Text enrichment (items 1-3, un seul rebuild)**
+- Enrichir le texte des chunks AVANT embedding (pas juste CCH prefix)
+- Abreviations: CM→CM (Candidat Maitre), DNA→DNA (Direction Nationale Arbitrage), etc.
+- Synonymes temporels: "un an"→"un an (12 mois, une annee)"
+- Chapter titles: injecter "[Chapitre X: Titre]" dans le texte du chunk
+- **Effort total**: 2h code + 12min rebuild
+- **Gain estime**: +10-20pp cumulatif
+- **Recall cible**: 65-75%
 
-**Recall attendu**: 95% -> 98%
+**Batch B — Search tuning (items 4-6, pas de rebuild pour 4, un pour 5-6)**
+- Flag pages intro (SQL WHERE, pas de rebuild)
+- Tester chunk_size=400 et overlap=0 (config change + rebuild)
+- **Effort total**: 1h + 12min rebuild
+- **Gain estime**: +5-10pp
+- **Recall cible**: 70-80%
 
-### Phase 3: Advanced (optionnel)
+**Batch C — Advanced retrieval (items 7-9, un rebuild)**
+- Formulations alternatives (questions canoniques pre-indexees)
+- Multi-vector variants (embeddings multiples par chunk)
+- Late chunking par page (si EmbeddingGemma 2048 tok le permet)
+- **Effort total**: 8h + 12min rebuild
+- **Gain estime**: +5-15pp
+- **Recall cible**: 80-90%
 
-| Action | Questions | Effort | Source |
-|--------|-----------|--------|--------|
-| Late chunking | Global context | 4h | arXiv 2409.04701 |
-| Multi-vector variants | Q95, Q103 | 4h | arXiv 2506.00054 |
-| Canonical questions | Q125, Q127 | 4h | HyDE variant |
+**Batch D — Fine-tuning (item 10, si recall < 80% apres A-C)**
+- QLoRA EmbeddingGemma sur triplets FFE
+- Necessite generation triplets (spec existante: TRIPLET_GENERATION_SPEC.md)
+- **Effort total**: 2 jours
+- **Gain estime**: +10-20pp
+- **Recall cible**: 85-95%
 
-**Recall attendu**: 98% -> 99%+
+### Findings web supplementaires (session 2026-03-18/19)
+
+| Finding | Source | Impact |
+|---------|--------|--------|
+| Chunking config = autant d'influence que modele embedding | NAACL 2025 Vectara (arXiv:2410.13070) | Confirme: optimiser chunking AVANT fine-tune |
+| Fixed 400 tok + 20% overlap = 82% recall | Firecrawl 2026 benchmark | Notre 512 tok peut etre trop gros |
+| Structure-aware = 87.7% recall (SEC filings) | Financial RAG 2026 | Notre LangChain header-split est structure-aware |
+| Anthropic contextual retrieval = -49% failures | Anthropic 2025 | Trop couteux runtime (LLM), mais late chunking = equivalent zero-cost |
+| EmbeddingGemma title field improves retrieval | Model card Google | Deja fait via CCH, mais peut-etre pas assez riche |
+| Overlap +14.5% recall improvement (dense retrievers) | RAG Chunking 2026 benchmark | Contredit notre regression avec overlap — investiguer |
 
 ---
 

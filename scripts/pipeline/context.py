@@ -60,6 +60,26 @@ def _build_parent_contexts(
                     children_matched=[cid for cid, _ in children],
                 )
             )
+        else:
+            # Parent has empty text (root node). Fallback: return each
+            # child as its own context so it's not silently dropped.
+            for cid, score in children:
+                child_row = conn.execute(
+                    "SELECT text, source, section, page FROM children WHERE id = ?",
+                    (cid,),
+                ).fetchone()
+                if child_row:
+                    contexts.append(
+                        Context(
+                            text=child_row[0],
+                            source=child_row[1],
+                            page=child_row[3],
+                            section=child_row[2] or "",
+                            context_type="child",
+                            score=score,
+                            children_matched=[cid],
+                        )
+                    )
     return contexts
 
 

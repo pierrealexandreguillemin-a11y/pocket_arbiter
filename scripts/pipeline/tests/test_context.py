@@ -153,8 +153,8 @@ class TestBuildContext:
         assert contexts[0].text == "High"
         conn.close()
 
-    def test_empty_parent_text_skipped(self, tmp_path: Path) -> None:
-        """Parents with empty text are excluded from context."""
+    def test_empty_parent_falls_back_to_child(self, tmp_path: Path) -> None:
+        """Children with empty-text parents are returned as child contexts."""
         db_path = tmp_path / "empty.db"
         conn = create_db(db_path)
         insert_parents(
@@ -188,7 +188,9 @@ class TestBuildContext:
             emb,
         )
         contexts = build_context(conn, [("c1", 0.9)])
-        assert len(contexts) == 0
+        assert len(contexts) == 1
+        assert contexts[0].context_type == "child"
+        assert contexts[0].text == "C1"
         conn.close()
 
 

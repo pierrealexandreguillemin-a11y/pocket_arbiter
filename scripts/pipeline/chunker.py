@@ -185,14 +185,19 @@ def interpolate_pages(
     heading_pages: dict[str, int],
 ) -> list[dict]:
     """Assign page numbers from heading_pages mapping."""
+    fallback_page = min(heading_pages.values()) if heading_pages else 1
     for child in children:
         if child.get("page") is not None:
             continue
         section = child.get("section", "")
+        matched = False
         for heading_text, page in heading_pages.items():
             if heading_text in section:
                 child["page"] = page
+                matched = True
                 break
+        if not matched:
+            child["page"] = fallback_page
     return children
 
 

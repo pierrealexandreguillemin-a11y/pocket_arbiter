@@ -189,9 +189,10 @@ class TestInterpolatePages:
         result = interpolate_pages(children, {"Forfaits": 5})
         assert result[0]["page"] == 5
 
-    def test_none_when_no_mapping(self) -> None:
+    def test_fallback_page_1_when_no_mapping(self) -> None:
+        """Empty heading_pages → fallback page 1."""
         children = [{"section": "Unknown", "page": None}]
-        assert interpolate_pages(children, {})[0]["page"] is None
+        assert interpolate_pages(children, {})[0]["page"] == 1
 
 
 # === Stage 7: Table linkage ===

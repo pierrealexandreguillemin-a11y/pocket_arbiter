@@ -18,6 +18,8 @@ from typing import TYPE_CHECKING
 import numpy as np
 import tiktoken
 
+from scripts.pipeline.integrity import run_integrity_gates
+
 if TYPE_CHECKING:
     from sentence_transformers import SentenceTransformer
 
@@ -579,6 +581,10 @@ def build_index(
         0
     ]
     logger.info("FTS5: %d children + %d summaries indexed", fts_children, fts_summaries)
+
+    # 8. Relational integrity gates (industry standard: no invisible content)
+    logger.info("=== Step 8: Relational integrity gates ===")
+    run_integrity_gates(conn)
 
     conn.close()
 

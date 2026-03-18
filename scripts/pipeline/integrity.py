@@ -85,12 +85,16 @@ def _gate_i5_fts5_sync(conn: sqlite3.Connection) -> None:
 
 
 def _gate_i6_parent_token_cap(conn: sqlite3.Connection) -> None:
-    rows = conn.execute("SELECT id, tokens FROM parents WHERE tokens > 2048").fetchall()
+    # Tolerance +50 for join separators ("\n\n" between children adds tokens)
+    cap = 2048 + 50
+    rows = conn.execute(
+        "SELECT id, tokens FROM parents WHERE tokens > ?", (cap,)
+    ).fetchall()
     if rows:
         ids = [f"{r[0]}({r[1]}tok)" for r in rows[:5]]
-        msg = f"I6 FAIL: {len(rows)} parents > 2048 tokens: {ids}"
+        msg = f"I6 FAIL: {len(rows)} parents > {cap} tokens: {ids}"
         raise ValueError(msg)
-    logger.info("I6 PASS: all parents <= 2048 tokens")
+    logger.info("I6 PASS: all parents <= %d tokens", cap)
 
 
 def _gate_i7_coverage(conn: sqlite3.Connection) -> None:

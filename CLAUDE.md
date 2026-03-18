@@ -6,24 +6,25 @@
 
 ### Ce qui fonctionne
 - **Corpus** : 28 PDFs FFE extraits avec heading levels (docling + docling-hierarchical-pdf)
-- **Chunks v2** : 1253 children (0 > 2048 tok), 332 parents, 111 table summaries
-- **Pages** : 298/298 GS pages couvertes (interpolation page spans)
-- **GS** : 403 questions, chunk text retrouvable dans v2 (298/298 = 100%)
+- **Chunker** : LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter (512/100 overlap)
+- **Chunks** : 1073 children (median 323 tok), 282 parents (cap 2048), 117 tables detectees, 111 table summaries
+- **Pages** : line-level interpolation, 95% GS pages couvertes (105/111)
+- **GS** : 403 questions (298 testables), page-level matching
 - **Modeles** : EmbeddingGemma-300M QAT (embeddings), Gemma 3n E2B candidat generation
 - **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks
-- **Indexer** : corpus_v2_fr.db (1253 children + 111 table summaries embeddes, 332 parents, 11/11 quality gates)
-- **CCH** : Contextual Chunk Headers descriptifs au build-time (Google prompts)
-- **Search** : hybrid cosine + BM25 FTS5, RRF fusion, adaptive k, parent dedup, 8/8 quality gates
-- **Synonymes** : Snowball FR stemmer + 70 synonymes chess (intra-corpus + langage courant→corpus)
-- **Pipeline tests** : 107 tests pipeline PASS, 125 tests ISO PASS (232 total)
+- **Indexer** : corpus_v2_fr.db, 9/9 integrity gates (I1-I9) PASS
+- **CCH** : heading hierarchy (h1 > h2 > h3) pour children ET table summaries (KX 2026)
+- **Search** : hybrid cosine + BM25 FTS5, RRF k=60, adaptive-k largest-gap (EMNLP 2025), min_k=3
+- **Synonymes** : Snowball FR stemmer + 70 synonymes chess (A: intra-corpus + B: langage courant→corpus)
+- **Pipeline tests** : 146 fast PASS, 125 ISO PASS
 
 ### Recall baseline (chantier 3)
-- **recall@5 = 56.0%** page-level (298 questions, reglages de base)
-- recall@1 = 35.9%, recall@10 = 59.1%, MRR = 0.445
+- **recall@5 = 56.7%** page-level (298 questions, reglages de base)
+- recall@1 = 35.6%, recall@10 = 63.1%, MRR = 0.441
 - Decision : < 60% → optimisations retrieval ou fine-tuning necessaires
 
 ### A faire
-- **Calibration** : optimiser adaptive_k, tester sans min_score, analyser les 20 pires echecs
+- **Recall improvement** : analyser les 20 pires echecs, calibrer adaptive_k
 - **Classifications GS** : answer_type 100% faux ("multiple_choice"), reasoning_class ~55% faux
 - Decider : fine-tuning embeddings ou prompt engineering selon resultats optimisation
 

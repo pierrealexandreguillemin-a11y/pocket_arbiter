@@ -17,6 +17,7 @@ from scripts.pipeline.indexer_db import (  # noqa: F401
     create_db,
     insert_children,
     insert_parents,
+    insert_structured_cells,
     insert_table_rows,
     insert_table_summaries,
     populate_fts,
@@ -290,8 +291,16 @@ def build_index(
         insert_table_rows(conn, table_row_chunks, tr_embeddings)
         logger.info("Inserted %d table rows", len(table_row_chunks))
 
-    # 9. Build FTS5 index
-    logger.info("=== Step 9: Populating FTS5 index ===")
+    # 9. Structured cells (level 3 — deterministic lookup, no embedding)
+    from scripts.pipeline.enrichment import parse_structured_cells
+
+    struct_cells = parse_structured_cells(table_sums) if table_sums else []
+    if struct_cells:
+        insert_structured_cells(conn, struct_cells)
+        logger.info("Inserted %d structured cells", len(struct_cells))
+
+    # 10. Build FTS5 index
+    logger.info("=== Step 10: Populating FTS5 index ===")
     populate_fts(conn)
     fts_c = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
     fts_t = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[0]
@@ -300,8 +309,8 @@ def build_index(
         "FTS5: %d children + %d summaries + %d rows indexed", fts_c, fts_t, fts_r
     )
 
-    # 10. Integrity gates
-    logger.info("=== Step 10: Relational integrity gates ===")
+    # 11. Integrity gates
+    logger.info("=== Step 11: Relational integrity gates ===")
     run_integrity_gates(conn)
 
     conn.close()

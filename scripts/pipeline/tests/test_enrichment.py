@@ -16,6 +16,7 @@ from scripts.pipeline.enrichment import (
     enrich_table_summaries,
     expand_abbreviations,
     load_contexts,
+    parse_structured_cells,
 )
 
 # === OPT-2: Abbreviation expansion ===
@@ -227,3 +228,86 @@ class TestEnrichTableSummaries:
         summaries = [{"summary_text": "DNA organise."}]
         result = enrich_table_summaries(summaries)
         assert result is summaries
+
+
+# === parse_structured_cells (level 3) ===
+
+
+class TestParseStructuredCells:
+    """Tests for structured table parsing (TableRAG NeurIPS 2024 pattern)."""
+
+    _SAMPLE_TABLE = (
+        "| Categorie | Age min | Age max |\n"
+        "|-----------|---------|--------|\n"
+        "| Poussin | 6 | 8 |\n"
+        "| Pupille | 8 | 10 |\n"
+        "| Benjamin | 10 | 12 |"
+    )
+
+    def test_parses_cells(self) -> None:
+        summaries = [
+            {
+                "id": "R01-table0",
+                "raw_table_text": self._SAMPLE_TABLE,
+                "source": "R01.pdf",
+                "page": 5,
+            }
+        ]
+        cells = parse_structured_cells(summaries)
+        assert len(cells) == 9  # 3 rows × 3 cols
+
+    def test_cell_structure(self) -> None:
+        summaries = [
+            {
+                "id": "R01-table0",
+                "raw_table_text": self._SAMPLE_TABLE,
+                "source": "R01.pdf",
+                "page": 5,
+            }
+        ]
+        cells = parse_structured_cells(summaries)
+        first = cells[0]
+        assert first["table_id"] == "R01-table0"
+        assert first["row_idx"] == 0
+        assert first["col_name"] == "Categorie"
+        assert first["cell_value"] == "Poussin"
+        assert first["source"] == "R01.pdf"
+        assert first["page"] == 5
+
+    def test_cleans_dot_padding(self) -> None:
+        raw = (
+            "| Chapitre | Page |\n"
+            "|----------|------|\n"
+            "| Preambule.............. | 2 |"
+        )
+        summaries = [{"id": "t0", "raw_table_text": raw, "source": "s.pdf", "page": 1}]
+        cells = parse_structured_cells(summaries)
+        vals = {c["cell_value"] for c in cells}
+        assert "Preambule" in vals
+        assert all("..." not in c["cell_value"] for c in cells)
+
+    def test_skips_separator_rows(self) -> None:
+        raw = (
+            "| A | B |\n"
+            "|---|---|\n"
+            "| 1 | 2 |\n"
+            "|---|---|\n"  # second separator (merged tables)
+            "| 3 | 4 |"
+        )
+        summaries = [{"id": "t0", "raw_table_text": raw, "source": "s.pdf", "page": 1}]
+        cells = parse_structured_cells(summaries)
+        assert len(cells) == 4  # 2 data rows × 2 cols
+
+    def test_skips_short_tables(self) -> None:
+        raw = "| A | B |\n|---|---|"  # header + separator, no data
+        summaries = [{"id": "t0", "raw_table_text": raw, "source": "s.pdf", "page": 1}]
+        cells = parse_structured_cells(summaries)
+        assert len(cells) == 0
+
+    def test_empty_cells_skipped(self) -> None:
+        raw = "| A | B |\n|---|---|\n| val |  |"
+        summaries = [{"id": "t0", "raw_table_text": raw, "source": "s.pdf", "page": 1}]
+        cells = parse_structured_cells(summaries)
+        # Only non-empty cells
+        assert len(cells) == 1
+        assert cells[0]["cell_value"] == "val"

@@ -79,14 +79,18 @@ def clear_embedding_cache() -> None:
 def reciprocal_rank_fusion(
     cosine_results: list[tuple[str, float]],
     bm25_results: list[tuple[str, float]],
+    structured_results: list[tuple[str, float]] | None = None,
     k: int = 60,
+    structured_weight: float = 1.5,
 ) -> list[tuple[str, float]]:
-    """Fuse two ranked lists using Reciprocal Rank Fusion.
+    """Fuse ranked lists using Reciprocal Rank Fusion.
 
     Args:
         cosine_results: [(doc_id, cosine_score), ...] sorted desc.
         bm25_results: [(doc_id, bm25_score), ...] sorted by relevance.
+        structured_results: Optional structured cell matches (boosted).
         k: RRF constant (default 60, standard value).
+        structured_weight: Boost multiplier for structured matches (default 1.5).
 
     Returns:
         [(doc_id, rrf_score), ...] sorted desc by RRF score.
@@ -96,6 +100,9 @@ def reciprocal_rank_fusion(
         scores[doc_id] = scores.get(doc_id, 0) + 1 / (k + rank + 1)
     for rank, (doc_id, _) in enumerate(bm25_results):
         scores[doc_id] = scores.get(doc_id, 0) + 1 / (k + rank + 1)
+    if structured_results:
+        for rank, (doc_id, _) in enumerate(structured_results):
+            scores[doc_id] = scores.get(doc_id, 0) + structured_weight / (k + rank + 1)
     return sorted(scores.items(), key=lambda x: -x[1])
 
 
@@ -239,6 +246,92 @@ def bm25_search(
     return results[:max_k]
 
 
+# === Structured table lookup (Level 3) ===
+
+_TABLE_TRIGGERS = {
+    "berger",
+    "grille",
+    "appariement",
+    "scheveningen",
+    "echiquier",
+    "elo",
+    "classement",
+    "norme",
+    "titre",
+    "bareme",
+    "frais",
+    "deplacement",
+    "distance",
+    "cadence",
+    "departage",
+    "coefficient",
+    "glossaire",
+    "definition",
+    "categorie",
+    "age",
+    "poussin",
+    "pupille",
+    "benjamin",
+    "minime",
+    "cadet",
+    "junior",
+}
+
+_ELO_RE = re.compile(r"\b\d{3,4}\b")
+
+
+def _has_table_triggers(query: str) -> bool:
+    """Check if query matches table-relevant triggers (2+ keywords or Elo regex)."""
+    q_lower = query.lower()
+    hits = sum(1 for t in _TABLE_TRIGGERS if t in q_lower)
+    if hits >= 2:
+        return True
+    return hits >= 1 and bool(_ELO_RE.search(query))
+
+
+def structured_cell_search(
+    conn: sqlite3.Connection,
+    query: str,
+    max_k: int = 5,
+) -> list[tuple[str, float]]:
+    """Deterministic lookup on structured_cells table.
+
+    Returns table_summary IDs ranked by match quality.
+
+    Args:
+        conn: SQLite connection.
+        query: User query.
+        max_k: Max results.
+
+    Returns:
+        [(table_summary_id, score), ...] sorted desc.
+    """
+    # Check if structured_cells table exists
+    has_table = conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='structured_cells'"
+    ).fetchone()
+    if not has_table:
+        return []
+
+    q_lower = query.lower()
+    terms = [w for w in re.split(r"\W+", q_lower) if len(w) >= 3]
+    if not terms:
+        return []
+
+    # Search cell values matching query terms
+    scores: dict[str, float] = {}
+    for term in terms:
+        rows = conn.execute(
+            "SELECT table_id FROM structured_cells WHERE cell_value LIKE ?",
+            (f"%{term}%",),
+        ).fetchall()
+        for (table_id,) in rows:
+            scores[table_id] = scores.get(table_id, 0) + 1.0
+
+    ranked = sorted(scores.items(), key=lambda x: -x[1])
+    return ranked[:max_k]
+
+
 # === Main entry point ===
 
 
@@ -279,13 +372,20 @@ def search(
         )
         bm25_results = bm25_search(conn, stemmed_expanded, max_k=max_k * 2)
 
-        # 3. RRF fusion
-        fused = reciprocal_rank_fusion(cosine_results, bm25_results)
+        # 3. Structured table lookup (if triggers detected)
+        struct_results = (
+            structured_cell_search(conn, query, max_k=5)
+            if _has_table_triggers(query)
+            else []
+        )
 
-        # 4. Adaptive k (EMNLP 2025 largest-gap)
+        # 4. RRF fusion (two-way or three-way)
+        fused = reciprocal_rank_fusion(cosine_results, bm25_results, struct_results)
+
+        # 5. Adaptive k (EMNLP 2025 largest-gap)
         filtered = adaptive_k(fused, min_score, max_k)
 
-        # 5+6. Parent lookup + context assembly
+        # 6. Parent lookup + context assembly
         contexts = build_context(conn, filtered)
     finally:
         conn.close()

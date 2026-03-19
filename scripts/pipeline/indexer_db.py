@@ -52,6 +52,16 @@ CREATE TABLE IF NOT EXISTS table_rows (
     tokens INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS structured_cells (
+    table_id TEXT NOT NULL REFERENCES table_summaries(id),
+    row_idx INTEGER NOT NULL,
+    col_name TEXT NOT NULL,
+    cell_value TEXT NOT NULL,
+    source TEXT NOT NULL,
+    page INTEGER,
+    PRIMARY KEY (table_id, row_idx, col_name)
+);
+
 CREATE VIRTUAL TABLE IF NOT EXISTS table_rows_fts USING fts5(
     id UNINDEXED,
     text_stemmed,
@@ -168,6 +178,24 @@ def insert_table_rows(
             )
             for i, r in enumerate(rows_data)
         ],
+    )
+    conn.commit()
+
+
+def insert_structured_cells(
+    conn: sqlite3.Connection,
+    cells: list[dict],
+) -> None:
+    """Insert structured cell entries for deterministic table lookup."""
+    conn.executemany(
+        "INSERT OR REPLACE INTO structured_cells "
+        "(table_id, row_idx, col_name, cell_value, source, page) "
+        "VALUES (:table_id, :row_idx, :col_name, :cell_value, :source, :page)",
+        cells,
+    )
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_cells_col_value "
+        "ON structured_cells(col_name, cell_value)"
     )
     conn.commit()
 

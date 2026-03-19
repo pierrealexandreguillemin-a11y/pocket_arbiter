@@ -190,9 +190,7 @@ def parse_table_rows(summaries: list[dict]) -> list[dict]:
             continue
 
         header = _clean_table_line(lines[0])
-        data_lines = [
-            line for line in lines[2:] if not re.match(r"^\|[\s\-:]+\|$", line)
-        ]
+        data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
 
         for i, row_line in enumerate(data_lines):
             clean_row = _clean_table_line(row_line)
@@ -210,3 +208,66 @@ def parse_table_rows(summaries: list[dict]) -> list[dict]:
             )
 
     return row_chunks
+
+
+def parse_structured_cells(summaries: list[dict]) -> list[dict]:
+    """Parse raw table markdown into structured (col_name, cell_value) pairs.
+
+    Standard: TableRAG NeurIPS 2024 cell retrieval pattern.
+    Level 3 structured lookup (deterministic SQL, no embedding).
+
+    Args:
+        summaries: List of table summary dicts with 'raw_table_text' key.
+
+    Returns:
+        List of cell dicts with table_id, row_idx, col_name, cell_value, source, page.
+    """
+    cells: list[dict] = []
+    for summary in summaries:
+        cells.extend(_parse_one_table(summary))
+    return cells
+
+
+def _parse_one_table(summary: dict) -> list[dict]:
+    """Parse a single table into (col_name, cell_value) pairs."""
+    raw = summary.get("raw_table_text", "")
+    lines = [line.strip() for line in raw.split("\n") if line.strip().startswith("|")]
+    if len(lines) < 3:
+        return []
+
+    col_names = _parse_pipe_cells(_clean_table_line(lines[0]))
+    data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
+    table_id = summary["id"]
+    source = summary["source"]
+    page = summary.get("page")
+
+    cells: list[dict] = []
+    for row_idx, row_line in enumerate(data_lines):
+        values = _parse_pipe_cells(_clean_table_line(row_line))
+        for col_idx, value in enumerate(values):
+            if col_idx >= len(col_names) or not value.strip():
+                continue
+            cells.append(
+                {
+                    "table_id": table_id,
+                    "row_idx": row_idx,
+                    "col_name": col_names[col_idx],
+                    "cell_value": value.strip(),
+                    "source": source,
+                    "page": page,
+                }
+            )
+    return cells
+
+
+def _is_separator_line(line: str) -> bool:
+    """Check if a pipe-delimited line is a separator (|---|---|)."""
+    stripped = line.strip()
+    return bool(re.match(r"^\|[\s\-:|]+$", stripped))
+
+
+def _parse_pipe_cells(line: str) -> list[str]:
+    """Split a pipe-delimited table line into cell values."""
+    parts = line.split("|")
+    # Remove first and last empty parts (before first | and after last |)
+    return [p.strip() for p in parts[1:-1]]

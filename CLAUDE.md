@@ -6,8 +6,9 @@
 
 ### Ce qui fonctionne
 - **Corpus** : 28 PDFs FFE extraits avec heading levels (docling + docling-hierarchical-pdf)
-- **Chunker** : LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter (512/100 overlap)
-- **Chunks** : 1073 children (median 323 tok), 282 parents (cap 2048), 117 tables detectees, 111 table summaries
+- **Chunker** : LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter (450/50 overlap)
+- **Chunks** : 1116 children (config 450/50), 282 parents (cap 2048), 117 tables detectees, 111 table summaries
+- **Contextes** : 1116 contextual retrieval entries (Anthropic 2024), generes par LLM, median 54 tokens
 - **Pages** : line-level interpolation, 95% GS pages couvertes (105/111)
 - **GS** : 403 questions (298 testables), page-level matching
 - **Modeles** : EmbeddingGemma-300M QAT (embeddings), Gemma 3n E2B candidat generation
@@ -23,10 +24,13 @@
 - recall@1 = 35.6%, recall@10 = 63.1%, MRR = 0.441
 - Decision : < 60% → optimisations retrieval ou fine-tuning necessaires
 
-### A faire
-- **Recall improvement** : analyser les 20 pires echecs, calibrer adaptive_k
+### Recall optimization (chantier 3 — en cours)
+- **OPT-1 DONE** : contextual retrieval (Anthropic 2024) — 1116 contextes semantiques generes par LLM
+- **OPT-6 DONE** : config tuning 450/50 (teste 9 configs sur 3 docs)
+- **OPT-7 SKIPPED** : score calibration (4 formules testees, toutes degradent R@1)
+- **OPT-8 SKIPPED** : query decomposition (3/110 matches = marginal)
+- **A FAIRE** : enrichment.py (OPT 2-4), wiring indexer, single rebuild, recall gates
 - **Classifications GS** : answer_type 100% faux ("multiple_choice"), reasoning_class ~55% faux
-- Decider : fine-tuning embeddings ou prompt engineering selon resultats optimisation
 
 ## Commandes
 

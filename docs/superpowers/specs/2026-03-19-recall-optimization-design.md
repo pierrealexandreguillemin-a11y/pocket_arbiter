@@ -86,7 +86,7 @@ fichier JSON intermediaire auditable.
 **Regles de generation** :
 - Factuel uniquement (pas de paraphrase, pas d'interpretation)
 - Mentionner : le document source, la section, le sujet traite
-- Max 50 tokens par contexte
+- Max 120 tokens par contexte (median observee : 54 tokens)
 - Langue : francais sans accents (compatible FTS5 stemming)
 
 **Fichier** : `corpus/processed/chunk_contexts.json`
@@ -131,16 +131,37 @@ ABBREVIATIONS = {
 - Ne PAS expander si deja expande ("CM (Candidat" → skip)
 - Verifie : chaque cle du dict existe dans >= 1 chunk du corpus
 
-### OPT-3 : CCH text injection (build-time)
+### OPT-3 : CCH text injection (build-time) — RETIRE
 
-**Standard** : Google EmbeddingGemma model card — title improves retrieval.
+**Statut** : RETIRE apres self-audit (mars 2026)
 
-Injecter la hierarchie heading dans le texte du chunk (en plus du champ `title:` du prompt).
-Le CCH est deja dans `title:`, mais l'injecter aussi dans `text:` renforce le signal.
+**Spec originale** : injecter la hierarchie heading dans `text:` en plus de `title:`.
 
+**Pourquoi retire** : duplication CCH dans les deux canaux = gaspillage de tokens sans
+standard industriel pour le supporter. L'architecture retenue separe les roles :
+
+| Canal | Contenu | Standard |
+|-------|---------|----------|
+| `title:` | Position structurelle — CCH heading hierarchy | Google EmbeddingGemma model card |
+| `text:` | Sens semantique — contexte OPT-1 + contenu chunk | Anthropic Contextual Retrieval 2024 |
+
+Ce design combine le meilleur des deux approches :
+- Google prescrit `title:` pour le metadata structurel (ou, dans quel chapitre)
+- Anthropic prescrit le prepend dans `text:` pour le contexte semantique (quoi, quel sujet)
+- Pas de duplication = budget tokens optimal (EmbeddingGemma seq 256)
+
+**Sources consultees** :
+- Google EmbeddingGemma : format `title: | text:` prescrit, `title:` pour metadata, pas de double-injection
+- Anthropic 2024 : contexte prepende dans le texte (`text_to_embed = f"{context}\n\n{content}"`)
+- LlamaIndex, Haystack, CCH (NirDiamant) : metadata prependee au texte, un seul canal
+- arXiv:2601.11863 (jan 2026) : meta-prefix +22pp recall, mais section titles = "modest drop" vs identifiants globaux
+- arXiv:2404.12283 (avr 2024) : enrichissement texte = resultats mixtes selon le domaine (-3.45pp a +8.21pp)
+
+**Resultat final** : le prompt embedde ressemble a :
 ```
-Avant: "## 3.1. Principes generaux\n\nLe forfait d'un joueur..."
-Apres: "[Regles Generales FFE > Forfaits > Principes generaux]\n\n## 3.1. Principes generaux\n\nLe forfait d'un joueur..."
+title: Lois des Echecs FFE > Forfaits > Principes generaux
+text: Extrait du chapitre Forfaits du Reglement General FFE, section Principes generaux.
+Definit le forfait et ses consequences sur le score. Le forfait d'un joueur...
 ```
 
 ### OPT-4 : Chapter titles hardcodes (build-time)
@@ -232,7 +253,7 @@ Le cosine search garde la query complete (pas de decomposition pour les embeddin
 Les 111 table summaries existantes restent inchangees. Elles beneficient de :
 - OPT-1 : pas de contextual retrieval (summaries deja concises)
 - OPT-2 : abbreviation expansion dans `summary_text` avant embedding
-- OPT-3 : CCH text injection dans `summary_text` avant embedding (heading hierarchy du chunker)
+- ~~OPT-3~~ : RETIRE — CCH reste dans `title:` uniquement (pas de double-injection, voir OPT-3 ci-dessus)
 - Le champ `title:` du prompt utilise deja le CCH du chunker (session precedente)
 
 Le raw_table_text retourne au LLM n'est PAS modifie (Anthropic multi-vector pattern).
@@ -243,7 +264,7 @@ Le raw_table_text retourne au LLM n'est PAS modifie (Anthropic multi-vector patt
 
 | Fichier | Responsabilite | Action | Lignes max |
 |---------|---------------|--------|------------|
-| `scripts/pipeline/enrichment.py` | CREATE — OPT 1-4 (enrich_chunks, abbreviations, CCH inject, chapter overrides) | Nouveau | 150 |
+| `scripts/pipeline/enrichment.py` | CREATE — OPT 1-2-4 (context loader, abbreviations, chapter overrides) | Nouveau | 150 |
 | `scripts/pipeline/search.py` | MODIFY — OPT 7-8 (score_calibration, query_decomposition) | Ajouter | 300 |
 | `scripts/pipeline/indexer.py` | MODIFY — appeler enrich_chunks avant embedding | Modifier | 250 |
 | `scripts/pipeline/chunker.py` | MODIFY — OPT 6 (chunk_size=450, overlap=50) | Config | 140 |
@@ -259,9 +280,9 @@ Le raw_table_text retourne au LLM n'est PAS modifie (Anthropic multi-vector patt
 
 | Gate | Verification |
 |------|-------------|
-| E1 | chunk_contexts.json : 1073 entries, aucune vide, max 50 tokens |
+| E1 | chunk_contexts.json : 1116 entries, aucune vide, max 120 tokens (median 54) |
 | E2 | Abbreviations : chaque cle du dict matche >= 1 chunk (regex `\b`) |
-| E3 | CCH injection : chaque child enrichi commence par `[` |
+| E3 | ~~CCH injection~~ RETIRE (OPT-3 retire, CCH dans `title:` uniquement) |
 | E4 | Chapter overrides : pages specifiees existent dans la DB |
 | E5 | Echantillon 20 chunks enrichis : verification visuelle (pas de hallucination) |
 | E6 | Token distribution post-enrichment : median 350-500, max < 2048 |

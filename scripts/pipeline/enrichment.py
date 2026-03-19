@@ -155,6 +155,15 @@ def enrich_table_summaries(summaries: list[dict]) -> list[dict]:
     return summaries
 
 
+def _clean_table_line(line: str) -> str:
+    """Remove dot-padding and excess whitespace from table cells."""
+    # "| Préambule.........." → "| Préambule"
+    line = re.sub(r"\.{3,}", "", line)
+    # Collapse whitespace within cells
+    line = re.sub(r"\s{2,}", " ", line)
+    return line.strip()
+
+
 def parse_table_rows(summaries: list[dict]) -> list[dict]:
     """Parse raw table markdown into row-as-chunk entries.
 
@@ -180,13 +189,14 @@ def parse_table_rows(summaries: list[dict]) -> list[dict]:
         if len(lines) < 3:  # header + separator + at least 1 row
             continue
 
-        header = lines[0]
+        header = _clean_table_line(lines[0])
         data_lines = [
             line for line in lines[2:] if not re.match(r"^\|[\s\-:]+\|$", line)
         ]
 
         for i, row_line in enumerate(data_lines):
-            text = f"{header}\n{row_line}"
+            clean_row = _clean_table_line(row_line)
+            text = f"{header}\n{clean_row}"
             text = expand_abbreviations(text)
             row_chunks.append(
                 {

@@ -142,8 +142,27 @@ def _embed_table_summaries(
     return embed_documents(ts_texts, ts_titles, model)
 
 
+def _build_table_section_lookup(
+    table_sums: list[dict],
+    chunker_tables: list[dict],
+) -> dict[str, str]:
+    """Map table_summary IDs to their section from chunker heading hierarchy."""
+    lookup: dict[str, str] = {s["id"]: "" for s in table_sums}
+    for ct in chunker_tables:
+        if not ct.get("section"):
+            continue
+        for s in table_sums:
+            if (
+                ct.get("source") == s["source"]
+                and ct.get("raw_text", "")[:80] == s.get("raw_table_text", "")[:80]
+            ):
+                lookup[s["id"]] = ct["section"]
+    return lookup
+
+
 def _embed_table_rows(
     table_sums: list[dict],
+    chunker_tables: list[dict],
     model: object,
 ) -> tuple[list[dict], np.ndarray]:
     """Parse and embed table rows (row-as-chunk, level 2)."""
@@ -153,8 +172,14 @@ def _embed_table_rows(
     if not row_chunks:
         return [], np.empty((0, EMBEDDING_DIM), dtype=np.float32)
 
+    section_lookup = _build_table_section_lookup(table_sums, chunker_tables)
     logger.info("=== Step 7: Embedding %d table rows ===", len(row_chunks))
-    tr_titles = [make_cch_title(r["source"], "", SOURCE_TITLES) for r in row_chunks]
+    tr_titles = [
+        make_cch_title(
+            r["source"], section_lookup.get(r["table_id"], ""), SOURCE_TITLES
+        )
+        for r in row_chunks
+    ]
     tr_texts = [r["text"] for r in row_chunks]
     return row_chunks, embed_documents(tr_texts, tr_titles, model)
 
@@ -247,7 +272,9 @@ def build_index(
     ts_embeddings = _embed_table_summaries(table_sums, all_chunker_tables, model)
 
     # 7. Embed table rows (row-as-chunk, level 2)
-    table_row_chunks, tr_embeddings = _embed_table_rows(table_sums, model)
+    table_row_chunks, tr_embeddings = _embed_table_rows(
+        table_sums, all_chunker_tables, model
+    )
 
     # 8. Build SQLite DB
     logger.info("=== Step 8: Building SQLite DB ===")

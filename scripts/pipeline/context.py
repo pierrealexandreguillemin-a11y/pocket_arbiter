@@ -132,22 +132,15 @@ def build_context(
     Returns:
         List of Context objects, parents deduplicated, ordered by score.
     """
-    # Classify each result as child, table_summary, or table_row
+    # Classify each result as child or table_summary
     child_ids: list[tuple[str, float]] = []
     table_ids: list[tuple[str, float]] = []
     for did, score in result_ids:
         row = conn.execute("SELECT 1 FROM children WHERE id = ?", (did,)).fetchone()
         if row:
             child_ids.append((did, score))
-            continue
-        # table_rows point to their parent table_summary
-        row = conn.execute(
-            "SELECT table_id FROM table_rows WHERE id = ?", (did,)
-        ).fetchone()
-        if row:
-            table_ids.append((row[0], score))  # use parent table_summary id
-            continue
-        table_ids.append((did, score))
+        else:
+            table_ids.append((did, score))
 
     contexts = _build_parent_contexts(conn, child_ids)
     contexts.extend(_build_table_contexts(conn, table_ids))

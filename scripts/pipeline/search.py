@@ -31,7 +31,7 @@ _embedding_cache: dict[str, tuple[list[str], np.ndarray]] = {}
 _EMBEDDING_SQL = {
     "children": "SELECT id, embedding FROM children",
     "table_summaries": "SELECT id, embedding FROM table_summaries",
-    "table_rows": "SELECT id, embedding FROM table_rows",
+    # "table_rows" disabled: -6pp R@5 regression (see row_as_chunk_experiment.md)
 }
 
 
@@ -164,8 +164,6 @@ def cosine_search(
     table_ids, table_matrix = _load_embeddings(
         conn, "table_summaries", f"{db_path}:table_summaries"
     )
-    row_ids, row_matrix = _load_embeddings(conn, "table_rows", f"{db_path}:table_rows")
-
     results: list[tuple[str, float]] = []
 
     if child_ids:
@@ -175,10 +173,6 @@ def cosine_search(
     if table_ids:
         scores = table_matrix @ query_embedding
         results.extend(zip(table_ids, scores.tolist(), strict=True))
-
-    if row_ids:
-        scores = row_matrix @ query_embedding
-        results.extend(zip(row_ids, scores.tolist(), strict=True))
 
     results.sort(key=lambda x: -x[1])
     return results[:max_k]
@@ -238,17 +232,7 @@ def bm25_search(
     except sqlite3.OperationalError:
         logger.warning("FTS5 table MATCH failed for query: %s", stemmed_query[:50])
 
-    # Search table_rows_fts
-    try:
-        rows = conn.execute(
-            "SELECT id, bm25(table_rows_fts) AS score "
-            "FROM table_rows_fts "
-            "WHERE table_rows_fts MATCH ? ORDER BY score LIMIT ?",
-            (fts_query, max_k),
-        ).fetchall()
-        results.extend((row[0], row[1]) for row in rows)
-    except sqlite3.OperationalError:
-        logger.warning("FTS5 table_rows MATCH failed for query: %s", stemmed_query[:50])
+    # table_rows_fts disabled: header repetition degrades BM25 (Ragie warning)
 
     # Sort by BM25 score (lower = more relevant in FTS5)
     results.sort(key=lambda x: x[1])

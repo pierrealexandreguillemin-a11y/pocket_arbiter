@@ -105,3 +105,34 @@ def load_contexts(path: Path) -> dict[str, str]:
     if not contexts:
         raise ValueError(f"chunk_contexts.json is empty: {path}")
     return contexts
+
+
+def enrich_chunks(
+    children: list[dict],
+    contexts: dict[str, str],
+) -> list[dict]:
+    """Apply all enrichments to children chunks (OPT 1-2).
+
+    Mutates children in-place:
+    - OPT-1: Prepend contextual retrieval to text (Anthropic 2024 pattern)
+    - OPT-2: Expand abbreviations in text
+
+    OPT-4 (chapter overrides) is NOT applied here — it modifies the CCH title,
+    which is handled separately in the indexer via apply_chapter_override().
+
+    Args:
+        children: List of chunk dicts with at least 'id' and 'text' keys.
+        contexts: Dict mapping chunk_id -> context string.
+
+    Returns:
+        The same list (mutated), for chaining convenience.
+    """
+    for child in children:
+        chunk_id = child["id"]
+        # OPT-1: prepend context to text
+        ctx = contexts.get(chunk_id, "")
+        if ctx:
+            child["text"] = f"{ctx}\n\n{child['text']}"
+        # OPT-2: expand abbreviations
+        child["text"] = expand_abbreviations(child["text"])
+    return children

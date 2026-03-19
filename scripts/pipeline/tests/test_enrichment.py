@@ -12,6 +12,7 @@ from scripts.pipeline.enrichment import (
     ABBREVIATIONS,
     CHAPTER_OVERRIDES,
     apply_chapter_override,
+    enrich_chunks,
     expand_abbreviations,
     load_contexts,
 )
@@ -151,3 +152,50 @@ class TestLoadContexts:
     def test_load_missing_raises(self, tmp_path: Path) -> None:
         with pytest.raises(FileNotFoundError):
             load_contexts(tmp_path / "missing.json")
+
+
+# === enrich_chunks (orchestration) ===
+
+
+class TestEnrichChunks:
+    """Tests for enrich_chunks orchestration."""
+
+    def test_prepends_context_and_expands(self) -> None:
+        children = [
+            {"id": "c001", "text": "Le DNA organise."},
+            {"id": "c002", "text": "Un simple texte."},
+        ]
+        contexts = {
+            "c001": "Section arbitrage du reglement FFE.",
+            "c002": "Contexte du chunk deux.",
+        }
+        result = enrich_chunks(children, contexts)
+
+        # OPT-1: context prepended
+        assert result[0]["text"].startswith("Section arbitrage")
+        # OPT-2: abbreviation expanded in both context and chunk
+        assert "DNA (Direction Nationale de l'Arbitrage)" in result[0]["text"]
+        assert "FFE (Federation Francaise des Echecs)" in result[0]["text"]
+        # Original text still present after context
+        assert "organise." in result[0]["text"]
+
+    def test_missing_context_no_prepend(self) -> None:
+        children = [{"id": "c999", "text": "Texte original."}]
+        contexts = {"c001": "Autre chunk."}
+        enrich_chunks(children, contexts)
+        # No context prepended, abbreviations still run
+        assert children[0]["text"] == "Texte original."
+
+    def test_mutates_in_place(self) -> None:
+        children = [{"id": "c1", "text": "La FFE decide."}]
+        contexts = {"c1": "Contexte."}
+        result = enrich_chunks(children, contexts)
+        assert result is children  # Same list object
+        assert "Contexte." in children[0]["text"]
+
+    def test_context_separator(self) -> None:
+        """Context and text separated by double newline (Anthropic pattern)."""
+        children = [{"id": "x", "text": "Contenu."}]
+        contexts = {"x": "Mon contexte."}
+        enrich_chunks(children, contexts)
+        assert "Mon contexte.\n\nContenu." in children[0]["text"]

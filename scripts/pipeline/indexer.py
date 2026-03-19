@@ -17,6 +17,7 @@ from scripts.pipeline.indexer_db import (  # noqa: F401
     create_db,
     insert_children,
     insert_parents,
+    insert_table_rows,
     insert_table_summaries,
     populate_fts,
 )
@@ -115,6 +116,49 @@ def load_table_summaries(
     return result
 
 
+def _embed_table_summaries(
+    table_sums: list[dict],
+    chunker_tables: list[dict],
+    model: object,
+) -> np.ndarray:
+    """Embed table summaries with CCH from chunker heading hierarchy."""
+    if not table_sums:
+        return np.empty((0, EMBEDDING_DIM), dtype=np.float32)
+
+    section_lookup: dict[tuple[str, str], str] = {}
+    for ct in chunker_tables:
+        key = (ct.get("source", ""), ct.get("raw_text", "")[:80])
+        if ct.get("section"):
+            section_lookup[key] = ct["section"]
+
+    ts_titles = []
+    for s in table_sums:
+        key = (s["source"], s.get("raw_table_text", "")[:80])
+        section = section_lookup.get(
+            key, _table_section_from_summary(s["summary_text"])
+        )
+        ts_titles.append(make_cch_title(s["source"], section, SOURCE_TITLES))
+    ts_texts = [s["summary_text"] for s in table_sums]
+    return embed_documents(ts_texts, ts_titles, model)
+
+
+def _embed_table_rows(
+    table_sums: list[dict],
+    model: object,
+) -> tuple[list[dict], np.ndarray]:
+    """Parse and embed table rows (row-as-chunk, level 2)."""
+    from scripts.pipeline.enrichment import parse_table_rows
+
+    row_chunks = parse_table_rows(table_sums) if table_sums else []
+    if not row_chunks:
+        return [], np.empty((0, EMBEDDING_DIM), dtype=np.float32)
+
+    logger.info("=== Step 7: Embedding %d table rows ===", len(row_chunks))
+    tr_titles = [make_cch_title(r["source"], "", SOURCE_TITLES) for r in row_chunks]
+    tr_texts = [r["text"] for r in row_chunks]
+    return row_chunks, embed_documents(tr_texts, tr_titles, model)
+
+
 def build_index(
     docling_dir: Path,
     table_summaries_path: Path,
@@ -200,28 +244,13 @@ def build_index(
 
     # 6. Embed table summaries with CCH from chunker heading hierarchy
     logger.info("=== Step 6: Embedding %d table summaries ===", len(table_sums))
-    _ts_section_lookup: dict[tuple[str, str], str] = {}
-    for ct in all_chunker_tables:
-        key = (ct.get("source", ""), ct.get("raw_text", "")[:80])
-        if ct.get("section"):
-            _ts_section_lookup[key] = ct["section"]
+    ts_embeddings = _embed_table_summaries(table_sums, all_chunker_tables, model)
 
-    if table_sums:
-        ts_titles = []
-        for s in table_sums:
-            key = (s["source"], s.get("raw_table_text", "")[:80])
-            section = _ts_section_lookup.get(
-                key,
-                _table_section_from_summary(s["summary_text"]),
-            )
-            ts_titles.append(make_cch_title(s["source"], section, SOURCE_TITLES))
-        ts_texts = [s["summary_text"] for s in table_sums]
-        ts_embeddings = embed_documents(ts_texts, ts_titles, model)
-    else:
-        ts_embeddings = np.empty((0, EMBEDDING_DIM), dtype=np.float32)
+    # 7. Embed table rows (row-as-chunk, level 2)
+    table_row_chunks, tr_embeddings = _embed_table_rows(table_sums, model)
 
-    # 7. Build SQLite DB
-    logger.info("=== Step 7: Building SQLite DB ===")
+    # 8. Build SQLite DB
+    logger.info("=== Step 8: Building SQLite DB ===")
     conn = create_db(output_db)
     insert_parents(conn, all_parents)
     logger.info("Inserted %d parents", len(all_parents))
@@ -230,16 +259,22 @@ def build_index(
     if table_sums:
         insert_table_summaries(conn, table_sums, ts_embeddings)
         logger.info("Inserted %d table summaries", len(table_sums))
+    if table_row_chunks:
+        insert_table_rows(conn, table_row_chunks, tr_embeddings)
+        logger.info("Inserted %d table rows", len(table_row_chunks))
 
-    # 8. Build FTS5 index
-    logger.info("=== Step 8: Populating FTS5 index ===")
+    # 9. Build FTS5 index
+    logger.info("=== Step 9: Populating FTS5 index ===")
     populate_fts(conn)
     fts_c = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
     fts_t = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[0]
-    logger.info("FTS5: %d children + %d summaries indexed", fts_c, fts_t)
+    fts_r = conn.execute("SELECT COUNT(*) FROM table_rows_fts").fetchone()[0]
+    logger.info(
+        "FTS5: %d children + %d summaries + %d rows indexed", fts_c, fts_t, fts_r
+    )
 
-    # 9. Integrity gates
-    logger.info("=== Step 9: Relational integrity gates ===")
+    # 10. Integrity gates
+    logger.info("=== Step 10: Relational integrity gates ===")
     run_integrity_gates(conn)
 
     conn.close()

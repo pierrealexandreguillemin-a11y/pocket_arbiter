@@ -153,3 +153,50 @@ def enrich_table_summaries(summaries: list[dict]) -> list[dict]:
     for summary in summaries:
         summary["summary_text"] = expand_abbreviations(summary["summary_text"])
     return summaries
+
+
+def parse_table_rows(summaries: list[dict]) -> list[dict]:
+    """Parse raw table markdown into row-as-chunk entries.
+
+    Each data row becomes a chunk: column headers + row values.
+    Standard: Ragie table chunking, fix-pipeline-task3 level 2.
+
+    Args:
+        summaries: List of table summary dicts with 'raw_table_text' key.
+
+    Returns:
+        List of row-chunk dicts with id, text, table_id, source, page, tokens.
+    """
+    row_chunks: list[dict] = []
+    for summary in summaries:
+        raw = summary.get("raw_table_text", "")
+        table_id = summary["id"]
+        source = summary["source"]
+        page = summary.get("page")
+
+        lines = [
+            line.strip() for line in raw.split("\n") if line.strip().startswith("|")
+        ]
+        if len(lines) < 3:  # header + separator + at least 1 row
+            continue
+
+        header = lines[0]
+        data_lines = [
+            line for line in lines[2:] if not re.match(r"^\|[\s\-:]+\|$", line)
+        ]
+
+        for i, row_line in enumerate(data_lines):
+            text = f"{header}\n{row_line}"
+            text = expand_abbreviations(text)
+            row_chunks.append(
+                {
+                    "id": f"{table_id}-r{i:03d}",
+                    "text": text,
+                    "table_id": table_id,
+                    "source": source,
+                    "page": page,
+                    "tokens": len(text.split()),  # approximate
+                }
+            )
+
+    return row_chunks

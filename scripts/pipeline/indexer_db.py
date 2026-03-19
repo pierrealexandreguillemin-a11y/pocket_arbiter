@@ -42,6 +42,22 @@ CREATE TABLE IF NOT EXISTS table_summaries (
     tokens INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS table_rows (
+    id TEXT PRIMARY KEY,
+    text TEXT NOT NULL,
+    embedding BLOB NOT NULL,
+    table_id TEXT NOT NULL REFERENCES table_summaries(id),
+    source TEXT NOT NULL,
+    page INTEGER,
+    tokens INTEGER
+);
+
+CREATE VIRTUAL TABLE IF NOT EXISTS table_rows_fts USING fts5(
+    id UNINDEXED,
+    text_stemmed,
+    tokenize='unicode61 remove_diacritics 2'
+);
+
 CREATE VIRTUAL TABLE IF NOT EXISTS children_fts USING fts5(
     id UNINDEXED,
     text_stemmed,
@@ -130,10 +146,37 @@ def insert_table_summaries(
     conn.commit()
 
 
+def insert_table_rows(
+    conn: sqlite3.Connection,
+    rows_data: list[dict],
+    embeddings: np.ndarray,
+) -> None:
+    """Insert table row-as-chunk entries with embeddings."""
+    conn.executemany(
+        "INSERT OR REPLACE INTO table_rows "
+        "(id, text, embedding, table_id, source, page, tokens) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?)",
+        [
+            (
+                r["id"],
+                r["text"],
+                embedding_to_blob(embeddings[i]),
+                r["table_id"],
+                r["source"],
+                r.get("page"),
+                r.get("tokens", 0),
+            )
+            for i, r in enumerate(rows_data)
+        ],
+    )
+    conn.commit()
+
+
 def populate_fts(conn: sqlite3.Connection) -> None:
     """Populate FTS5 tables with stemmed text."""
     conn.execute("DELETE FROM children_fts")
     conn.execute("DELETE FROM table_summaries_fts")
+    conn.execute("DELETE FROM table_rows_fts")
     rows = conn.execute("SELECT id, text FROM children").fetchall()
     conn.executemany(
         "INSERT INTO children_fts (id, text_stemmed) VALUES (?, ?)",
@@ -142,6 +185,11 @@ def populate_fts(conn: sqlite3.Connection) -> None:
     rows = conn.execute("SELECT id, summary_text FROM table_summaries").fetchall()
     conn.executemany(
         "INSERT INTO table_summaries_fts (id, text_stemmed) VALUES (?, ?)",
+        [(r[0], stem_text(r[1])) for r in rows],
+    )
+    rows = conn.execute("SELECT id, text FROM table_rows").fetchall()
+    conn.executemany(
+        "INSERT INTO table_rows_fts (id, text_stemmed) VALUES (?, ?)",
         [(r[0], stem_text(r[1])) for r in rows],
     )
     conn.commit()

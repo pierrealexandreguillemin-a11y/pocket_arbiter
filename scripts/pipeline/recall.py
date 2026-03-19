@@ -191,18 +191,19 @@ def _get_context_pages(
     conn: sqlite3.Connection,
     matched_ids: list[str],
 ) -> list[tuple[str, int | None]]:
-    """Lookup (source, page) for child or table_summary IDs."""
+    """Lookup (source, page) for child, table_summary, or table_row IDs."""
+    _QUERIES = {
+        "children": "SELECT source, page FROM children WHERE id = ?",
+        "table_summaries": "SELECT source, page FROM table_summaries WHERE id = ?",
+        "table_rows": "SELECT source, page FROM table_rows WHERE id = ?",
+    }
     pages = []
     for mid in matched_ids:
-        row = conn.execute(
-            "SELECT source, page FROM children WHERE id = ?", (mid,)
-        ).fetchone()
-        if not row:
-            row = conn.execute(
-                "SELECT source, page FROM table_summaries WHERE id = ?", (mid,)
-            ).fetchone()
-        if row:
-            pages.append((row[0], row[1]))
+        for sql in _QUERIES.values():
+            row = conn.execute(sql, (mid,)).fetchone()
+            if row:
+                pages.append((row[0], row[1]))
+                break
     return pages
 
 

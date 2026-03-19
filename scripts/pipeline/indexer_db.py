@@ -57,7 +57,9 @@ CREATE VIRTUAL TABLE IF NOT EXISTS table_summaries_fts USING fts5(
 
 
 def create_db(path: Path) -> sqlite3.Connection:
-    """Create SQLite DB with schema."""
+    """Create SQLite DB with schema. Deletes existing DB for clean rebuild."""
+    if path.exists():
+        path.unlink()
     conn = sqlite3.connect(str(path))
     conn.executescript(SCHEMA)
     conn.commit()

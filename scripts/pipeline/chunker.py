@@ -22,7 +22,7 @@ from scripts.pipeline.chunker_utils import (
     merge_small_children,
 )
 
-CHUNK_OVERLAP = 100  # 20% overlap, Microsoft Azure 2026 standard
+CHUNK_OVERLAP = 50  # 11% overlap (tested: 0/50/100 on sample, 50 = best compromise)
 
 _HEADERS_TO_SPLIT_ON = [
     ("#", "h1"),

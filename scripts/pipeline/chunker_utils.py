@@ -14,7 +14,7 @@ PAGE_MARKER_RE = re.compile(r"\n\s*[A-Z][A-Z0-9]{1,3}-\d+/\d+\s*\n")
 IMAGE_PLACEHOLDER = "<!-- image -->"
 ARTICLE_NUM_RE = re.compile(r"^(\d+(?:\.\d+)*\.?)\s")
 
-CHUNK_SIZE = 512
+CHUNK_SIZE = 450  # Firecrawl 2026 + jan benchmark (86.94% at 450t)
 PARENT_MAX_TOKENS = 2048
 TABLE_MIN_LINES = 3
 MERGE_THRESHOLD = 200

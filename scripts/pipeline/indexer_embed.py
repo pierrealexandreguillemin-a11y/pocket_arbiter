@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL_ID = "google/embeddinggemma-300m-qat-q4_0-unquantized"
+DEFAULT_MODEL_ID = "google/embeddinggemma-300m"
 EMBEDDING_DIM = 768
 BATCH_SIZE = 128
 

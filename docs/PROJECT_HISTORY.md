@@ -86,6 +86,8 @@ Chronologie factuelle des decisions et errements du projet.
   - E2B : ~2 GB RAM, effective 2B params — candidat remplacement Gemma 3 270M
   - E4B : ~3 GB RAM, effective 4B params — plus capable
 - **EmbeddingGemma-300M** : toujours le seul modele d'embeddings on-device Google, pas de successeur
+  - QAT-q4_0-unquantized abandonne pour build : TFLite = Mixed Precision (pas Q4_0), base aligne mieux
+  - Base MTEB 69.67 vs QAT 69.31, seq_length 2048 (pas 256), LoRA standard si fine-tuning
 - **LiteRT-LM** : successeur recommande pour inference LLM on-device
 
 ## Decisions cles
@@ -102,3 +104,4 @@ Chronologie factuelle des decisions et errements du projet.
 | 18 mar | Chunker custom → LangChain | Custom avait 3 bugs integrite, LangChain etait deja installe |
 | 18 mar | Table extraction avant header split | Verifie empiriquement : 98 vs 22 tables |
 | 18 mar | Page interpolation line-level | CCH match echouait pour h4+ headings |
+| 19 mar | QAT → base pour build embeddings | TFLite Mixed Precision converti depuis base (pas QAT), +0.36 MTEB, elimine mismatch build/runtime, standard LoRA path |

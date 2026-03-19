@@ -9,17 +9,18 @@
 
   "embeddingModel": {
     "name": "EmbeddingGemma-300M",
-    "framework": "LiteRT (TensorFlow Lite)",
-    "source": "litert-community/embeddinggemma-300m",
-    "huggingface_url": "https://huggingface.co/litert-community/embeddinggemma-300m",
+    "framework": "sentence-transformers (build) / LiteRT (Android)",
+    "source_build": "google/embeddinggemma-300m",
+    "source_android": "litert-community/embeddinggemma-300m",
+    "huggingface_url": "https://huggingface.co/google/embeddinggemma-300m",
     "license": "Gemma License (Apache 2.0 derivative)",
     "specs": {
       "dimensions": 768,
       "dimensions_reduced": 256,
       "mrl_supported": true,
-      "sequence_length": 256,
+      "sequence_length": 2048,
       "size_mb": 179,
-      "quantization": "mixed-precision",
+      "quantization_android": "mixed-precision",
       "languages": "100+ including FR, EN"
     },
     "performance": {
@@ -28,11 +29,12 @@
       "device": "mid-range Android"
     },
     "files": {
-      "model": "embeddinggemma-300M_seq256_mixed-precision.tflite",
+      "model_android": "embeddinggemma-300M_seq256_mixed-precision.tflite",
       "tokenizer": "sentencepiece.model"
     },
-    "selectionRationale": "MTEB #1 under 500M params, native multilingue, optimal pour mid-range Android avec seq256",
-    "selected": "2026-01-14"
+    "selectionRationale": "MTEB #1 under 500M params (69.67 EN, 61.15 multilingual). Base model aligned with TFLite (Mixed Precision converted from base, no QAT-MP checkpoint exists). QAT dropped: +0.36 MTEB, eliminates build/runtime mismatch, standard LoRA path if fine-tuning needed.",
+    "selected": "2026-01-14",
+    "updated": "2026-03-19"
   },
 
   "llmModel": {

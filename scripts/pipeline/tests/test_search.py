@@ -10,11 +10,13 @@ import pytest
 
 from scripts.pipeline.indexer import create_db, insert_children, insert_parents
 from scripts.pipeline.search import (
+    _has_table_triggers,
     adaptive_k,
     bm25_search,
     clear_embedding_cache,
     cosine_search,
     reciprocal_rank_fusion,
+    structured_cell_search,
 )
 
 
@@ -330,3 +332,110 @@ class TestBm25FtsOrLogic:
         assert len(results) == 1, "OR logic should match c1 with partial term"
         assert results[0][0] == "c1"
         conn.close()
+
+
+class TestTableTriggers:
+    """Tests for structured table trigger detection."""
+
+    def test_strong_trigger_alone(self) -> None:
+        assert _has_table_triggers("Quelle est la grille d'appariement?")
+
+    def test_single_weak_trigger_no_match(self) -> None:
+        assert not _has_table_triggers("Quelle est la cadence du tournoi?")
+
+    def test_two_weak_triggers_with_elo(self) -> None:
+        assert _has_table_triggers("Quel classement Elo 1500 pour la cadence?")
+
+    def test_two_weak_triggers_without_elo(self) -> None:
+        assert not _has_table_triggers("Quel classement pour la cadence?")
+
+    def test_no_triggers(self) -> None:
+        assert not _has_table_triggers("Comment jouer le roque?")
+
+    def test_specific_category(self) -> None:
+        assert _has_table_triggers("Age minimum pour les poussins?")
+
+
+class TestStructuredCellSearch:
+    """Tests for deterministic cell lookup."""
+
+    def test_returns_empty_without_table(self, tmp_path: Path) -> None:
+        import sqlite3
+
+        db = tmp_path / "no_cells.db"
+        conn = sqlite3.connect(str(db))
+        results = structured_cell_search(conn, "test query")
+        assert results == []
+        conn.close()
+
+    def test_matches_cells(self, tmp_path: Path) -> None:
+        import sqlite3
+
+        db = tmp_path / "cells.db"
+        conn = sqlite3.connect(str(db))
+        conn.execute(
+            "CREATE TABLE structured_cells "
+            "(table_id TEXT, row_idx INT, col_name TEXT, "
+            "cell_value TEXT, source TEXT, page INT)"
+        )
+        conn.executemany(
+            "INSERT INTO structured_cells VALUES (?,?,?,?,?,?)",
+            [
+                ("t1", 0, "Category", "Poussin", "R01.pdf", 5),
+                ("t1", 0, "Age", "6-8 ans", "R01.pdf", 5),
+                ("t1", 1, "Category", "Pupille", "R01.pdf", 5),
+                ("t2", 0, "Name", "Other data", "LA.pdf", 10),
+            ],
+        )
+        conn.commit()
+
+        # Query with terms that match multiple cell values in t1
+        # "poussin" matches "Poussin", "pupille" matches "Pupille"
+        results = structured_cell_search(conn, "Poussin et Pupille categories", max_k=5)
+        assert len(results) >= 1
+        assert results[0][0] == "t1"
+        conn.close()
+
+    def test_requires_two_matches(self, tmp_path: Path) -> None:
+        import sqlite3
+
+        db = tmp_path / "cells2.db"
+        conn = sqlite3.connect(str(db))
+        conn.execute(
+            "CREATE TABLE structured_cells "
+            "(table_id TEXT, row_idx INT, col_name TEXT, "
+            "cell_value TEXT, source TEXT, page INT)"
+        )
+        conn.execute(
+            "INSERT INTO structured_cells VALUES (?,?,?,?,?,?)",
+            ("t1", 0, "Col", "unique_term_only", "s.pdf", 1),
+        )
+        conn.commit()
+
+        results = structured_cell_search(conn, "unique_term_only", max_k=5)
+        assert results == []  # only 1 match, needs 2+
+        conn.close()
+
+
+class TestThreeWayRRF:
+    """Tests for structured results in RRF fusion."""
+
+    def test_structured_boost(self) -> None:
+        cosine = [("d1", 0.9), ("d2", 0.8)]
+        bm25 = [("d2", -1.0), ("d3", -2.0)]
+        struct = [("d3", 2.0)]
+
+        fused = reciprocal_rank_fusion(cosine, bm25, struct)
+        scores = {did: s for did, s in fused}
+
+        # d3 gets structured boost (1.5x)
+        assert scores["d3"] > 1 / (60 + 2)  # more than just bm25 rank 2
+
+    def test_no_structured_results(self) -> None:
+        cosine = [("d1", 0.9)]
+        bm25 = [("d1", -1.0)]
+
+        fused_with = reciprocal_rank_fusion(cosine, bm25, [])
+        fused_without = reciprocal_rank_fusion(cosine, bm25, None)
+
+        assert len(fused_with) == len(fused_without)

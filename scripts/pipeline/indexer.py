@@ -159,22 +159,47 @@ def build_index(
     logger.info("=== Step 2: Loading table summaries ===")
     table_sums = load_table_summaries(table_summaries_path, docling_dir)
 
-    # 3. Load embedding model
-    logger.info("=== Step 3: Loading embedding model ===")
+    # 3. Enrich chunks (OPT 1-2-4)
+    logger.info("=== Step 3: Enriching chunks ===")
+    contexts_path = docling_dir.parent / "chunk_contexts.json"
+    if contexts_path.exists():
+        from scripts.pipeline.enrichment import (
+            apply_chapter_override,
+            enrich_chunks,
+            enrich_table_summaries,
+            load_contexts,
+        )
+
+        contexts = load_contexts(contexts_path)
+        enrich_chunks(all_children, contexts)
+        enrich_table_summaries(table_sums)
+        logger.info(
+            "Enriched %d children (contexts + abbreviations), %d table summaries (abbreviations)",
+            len(all_children),
+            len(table_sums),
+        )
+    else:
+        apply_chapter_override = None  # type: ignore[assignment]
+        logger.warning("No chunk_contexts.json found — skipping enrichment")
+
+    # 4. Load embedding model
+    logger.info("=== Step 4: Loading embedding model ===")
     model = load_model(model_id)
 
-    # 4. Embed children with CCH
-    logger.info("=== Step 4: Embedding %d children ===", len(all_children))
-    child_titles = [
-        make_cch_title(c["source"], c.get("section", ""), SOURCE_TITLES)
-        for c in all_children
-    ]
+    # 5. Embed children with CCH (+ chapter overrides OPT-4)
+    logger.info("=== Step 5: Embedding %d children ===", len(all_children))
+    child_titles = []
+    for c in all_children:
+        title = make_cch_title(c["source"], c.get("section", ""), SOURCE_TITLES)
+        if apply_chapter_override is not None:
+            title = apply_chapter_override(c["source"], c.get("page"), title)
+        child_titles.append(title)
     child_texts = [c["text"] for c in all_children]
     child_embeddings = embed_documents(child_texts, child_titles, model)
     logger.info("Children embeddings shape: %s", child_embeddings.shape)
 
-    # 5. Embed table summaries with CCH from chunker heading hierarchy
-    logger.info("=== Step 5: Embedding %d table summaries ===", len(table_sums))
+    # 6. Embed table summaries with CCH from chunker heading hierarchy
+    logger.info("=== Step 6: Embedding %d table summaries ===", len(table_sums))
     _ts_section_lookup: dict[tuple[str, str], str] = {}
     for ct in all_chunker_tables:
         key = (ct.get("source", ""), ct.get("raw_text", "")[:80])
@@ -195,8 +220,8 @@ def build_index(
     else:
         ts_embeddings = np.empty((0, EMBEDDING_DIM), dtype=np.float32)
 
-    # 6. Build SQLite DB
-    logger.info("=== Step 6: Building SQLite DB ===")
+    # 7. Build SQLite DB
+    logger.info("=== Step 7: Building SQLite DB ===")
     conn = create_db(output_db)
     insert_parents(conn, all_parents)
     logger.info("Inserted %d parents", len(all_parents))
@@ -206,15 +231,15 @@ def build_index(
         insert_table_summaries(conn, table_sums, ts_embeddings)
         logger.info("Inserted %d table summaries", len(table_sums))
 
-    # 7. Build FTS5 index
-    logger.info("=== Step 7: Populating FTS5 index ===")
+    # 8. Build FTS5 index
+    logger.info("=== Step 8: Populating FTS5 index ===")
     populate_fts(conn)
     fts_c = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
     fts_t = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[0]
     logger.info("FTS5: %d children + %d summaries indexed", fts_c, fts_t)
 
-    # 8. Integrity gates
-    logger.info("=== Step 8: Relational integrity gates ===")
+    # 9. Integrity gates
+    logger.info("=== Step 9: Relational integrity gates ===")
     run_integrity_gates(conn)
 
     conn.close()

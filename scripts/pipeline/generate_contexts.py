@@ -35,47 +35,42 @@ def generate_all_contexts(children: list[dict]) -> dict[str, str]:
         doc = _doc_title(source)
 
         # Build context from understanding of the chunk content
-        ctx = _generate_one(doc, source, section, text)
+        ctx = _generate_one(doc, section, text)
         contexts[cid] = ctx
 
     return contexts
 
 
-def _generate_one(doc: str, source: str, section: str, text: str) -> str:
+def _generate_one(doc: str, section: str, text: str) -> str:
     """Generate context for one chunk.
 
     Strategy: use the section hierarchy + first meaningful content
     to produce a factual situating sentence.
     """
-    # Parse section hierarchy
-    parts = [p.strip() for p in section.split(" > ")] if section else []
+    location = _format_location(doc, section)
+    hint = _extract_hint(text)
+    return f"{location} {hint}" if hint else location
 
-    # Identify subject from text content (first non-heading line)
-    subject = ""
+
+def _format_location(doc: str, section: str) -> str:
+    """Build location string from document and section hierarchy."""
+    parts = [p.strip() for p in section.split(" > ")] if section else []
+    if len(parts) >= 2:
+        return f"Extrait de {doc}, {parts[-1]}."
+    if parts:
+        return f"Extrait de {doc}, {parts[0]}."
+    return f"Extrait de {doc}."
+
+
+def _extract_hint(text: str) -> str:
+    """Extract first meaningful content line as a hint."""
     for line in text.split("\n"):
         clean = line.strip().lstrip("#").strip()
         if clean and len(clean) > 20 and not clean.startswith("["):
-            # Summarize: take key terms
-            subject = clean[:100]
-            break
-
-    # Build factual context
-    if parts and len(parts) >= 2:
-        ctx = f"Extrait de {doc}, {parts[-1]}."
-    elif parts:
-        ctx = f"Extrait de {doc}, {parts[0]}."
-    else:
-        ctx = f"Extrait de {doc}."
-
-    if subject:
-        # Add content hint (first meaningful words)
-        words = subject.split()[:12]
-        hint = " ".join(words)
-        if not hint.endswith("."):
-            hint += "..."
-        ctx += f" {hint}"
-
-    return ctx
+            words = clean[:100].split()[:12]
+            hint = " ".join(words)
+            return hint if hint.endswith(".") else f"{hint}..."
+    return ""
 
 
 if __name__ == "__main__":

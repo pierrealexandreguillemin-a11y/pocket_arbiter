@@ -73,60 +73,62 @@ def build_parents(
 
         if tokens <= PARENT_MAX_TOKENS:
             pid = f"{source}-p{counter:03d}"
-            parents.append(
-                {
-                    "id": pid,
-                    "text": full_text,
-                    "source": source,
-                    "section": section,
-                    "tokens": tokens,
-                }
-            )
+            parents.append(_make_parent(pid, full_text, source, section, tokens))
             for idx, _ in group:
                 child_to_parent[idx] = pid
             counter += 1
         else:
-            batch_indices: list[int] = []
-            parts: list[str] = []
-            part_tokens = 0
-            for idx, c in group:
-                c_tok = count_tokens(c.page_content)
-                if part_tokens + c_tok > PARENT_MAX_TOKENS and parts:
-                    pid = f"{source}-p{counter:03d}"
-                    sub = "\n\n".join(parts)
-                    parents.append(
-                        {
-                            "id": pid,
-                            "text": sub,
-                            "source": source,
-                            "section": section,
-                            "tokens": count_tokens(sub),
-                        }
-                    )
-                    for bi in batch_indices:
-                        child_to_parent[bi] = pid
-                    counter += 1
-                    parts, batch_indices, part_tokens = [], [], 0
-                parts.append(c.page_content)
-                batch_indices.append(idx)
-                part_tokens += c_tok
-            if parts:
-                pid = f"{source}-p{counter:03d}"
-                sub = "\n\n".join(parts)
-                parents.append(
-                    {
-                        "id": pid,
-                        "text": sub,
-                        "source": source,
-                        "section": section,
-                        "tokens": count_tokens(sub),
-                    }
-                )
-                for bi in batch_indices:
-                    child_to_parent[bi] = pid
-                counter += 1
+            counter = _split_oversized_group(
+                group, source, section, counter, parents, child_to_parent
+            )
 
     return parents, child_to_parent
+
+
+def _make_parent(pid: str, text: str, source: str, section: str, tokens: int) -> dict:
+    """Create a parent dict."""
+    return {
+        "id": pid,
+        "text": text,
+        "source": source,
+        "section": section,
+        "tokens": tokens,
+    }
+
+
+def _split_oversized_group(
+    group: list[tuple[int, Document]],
+    source: str,
+    section: str,
+    counter: int,
+    parents: list[dict],
+    child_to_parent: dict[int, str],
+) -> int:
+    """Split a group exceeding PARENT_MAX_TOKENS into sub-parents."""
+    batch_indices: list[int] = []
+    parts: list[str] = []
+    part_tokens = 0
+    for idx, c in group:
+        c_tok = count_tokens(c.page_content)
+        if part_tokens + c_tok > PARENT_MAX_TOKENS and parts:
+            pid = f"{source}-p{counter:03d}"
+            sub = "\n\n".join(parts)
+            parents.append(_make_parent(pid, sub, source, section, count_tokens(sub)))
+            for bi in batch_indices:
+                child_to_parent[bi] = pid
+            counter += 1
+            parts, batch_indices, part_tokens = [], [], 0
+        parts.append(c.page_content)
+        batch_indices.append(idx)
+        part_tokens += c_tok
+    if parts:
+        pid = f"{source}-p{counter:03d}"
+        sub = "\n\n".join(parts)
+        parents.append(_make_parent(pid, sub, source, section, count_tokens(sub)))
+        for bi in batch_indices:
+            child_to_parent[bi] = pid
+        counter += 1
+    return counter
 
 
 def _build_text_to_page(
@@ -160,18 +162,18 @@ def interpolate_pages(
     text_page = _build_text_to_page(markdown, heading_pages) if markdown else {}
     fallback = min(heading_pages.values())
     for child in children:
-        if child.get("page") is not None:
-            continue
-        assigned = False
-        for line in child.get("text", "").split("\n"):
-            key = line.strip().lstrip("#").strip()[:80]
-            if key and key in text_page:
-                child["page"] = text_page[key]
-                assigned = True
-                break
-        if not assigned:
-            child["page"] = fallback
+        if child.get("page") is None:
+            child["page"] = _match_page(child, text_page, fallback)
     return children
+
+
+def _match_page(child: dict, text_page: dict[str, int], fallback: int) -> int:
+    """Find page for a child by matching its lines against text_page map."""
+    for line in child.get("text", "").split("\n"):
+        key = line.strip().lstrip("#").strip()[:80]
+        if key and key in text_page:
+            return text_page[key]
+    return fallback
 
 
 def build_cch_title(metadata: dict) -> str:

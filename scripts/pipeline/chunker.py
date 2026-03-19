@@ -96,27 +96,7 @@ def chunk_document(
     parents, child_to_parent = build_parents(children_docs, source)
 
     # Build children dicts
-    children: list[dict] = []
-    for i, doc in enumerate(children_docs):
-        cch = build_cch_title(doc.metadata)
-        pid = child_to_parent.get(i, "")
-        art_match = ARTICLE_NUM_RE.match(doc.page_content)
-        art_num = art_match.group(1).rstrip(".") if art_match else None
-        clean_text = re.sub(r"\s*<!-- TABLE_\d+ -->\s*", "\n", doc.page_content).strip()
-        if not clean_text:
-            continue
-        children.append(
-            {
-                "id": f"{source}-c{i:04d}",
-                "text": clean_text,
-                "parent_id": pid,
-                "source": source,
-                "article_num": art_num,
-                "section": cch,
-                "tokens": count_tokens(clean_text),
-                "page": None,
-            }
-        )
+    children = _build_children_dicts(children_docs, child_to_parent, source)
 
     # Stage 5: Page interpolation + merge
     children = interpolate_pages(children, _heading_pages, markdown)
@@ -126,12 +106,48 @@ def chunk_document(
 
     # Stage 7: Table linkage
     tables = link_tables(tables, header_docs, parents)
+    _assign_table_metadata(tables, source, _heading_pages)
+
+    return {"children": children, "parents": parents, "tables": tables}
+
+
+def _build_children_dicts(
+    docs: list[Document],
+    child_to_parent: dict[int, str],
+    source: str,
+) -> list[dict]:
+    """Convert LangChain Documents to children dicts."""
+    children: list[dict] = []
+    for i, doc in enumerate(docs):
+        clean_text = re.sub(r"\s*<!-- TABLE_\d+ -->\s*", "\n", doc.page_content).strip()
+        if not clean_text:
+            continue
+        art_match = ARTICLE_NUM_RE.match(doc.page_content)
+        children.append(
+            {
+                "id": f"{source}-c{i:04d}",
+                "text": clean_text,
+                "parent_id": child_to_parent.get(i, ""),
+                "source": source,
+                "article_num": art_match.group(1).rstrip(".") if art_match else None,
+                "section": build_cch_title(doc.metadata),
+                "tokens": count_tokens(clean_text),
+                "page": None,
+            }
+        )
+    return children
+
+
+def _assign_table_metadata(
+    tables: list[dict],
+    source: str,
+    heading_pages: dict[str, int],
+) -> None:
+    """Set source and page on tables from heading_pages."""
     for table in tables:
         table["source"] = source
         table.setdefault("page", None)
-        for heading_text, page in _heading_pages.items():
+        for heading_text, page in heading_pages.items():
             if heading_text in table.get("section", ""):
                 table["page"] = page
                 break
-
-    return {"children": children, "parents": parents, "tables": tables}

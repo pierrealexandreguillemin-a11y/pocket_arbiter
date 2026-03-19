@@ -472,6 +472,34 @@ def _extract_distinctive_phrases(text: str, min_words: int = 4) -> list[str]:
     return phrases
 
 
+def _get_answer_text(q: dict) -> str:
+    """Extract answer text from a question dict."""
+    answer = q.get("content", {}).get("expected_answer", "")
+    if not answer:
+        answer = q.get("provenance", {}).get("answer_explanation", "")
+    return answer
+
+
+def _check_answers_in_corpus(
+    questions: list[dict], corpus_text: str
+) -> tuple[list[str], int]:
+    """Check which answers can be found in corpus. Returns (not_found, checked)."""
+    not_found: list[str] = []
+    checked = 0
+    for q in questions:
+        answer = _get_answer_text(q)
+        if not answer:
+            continue
+        phrases = _extract_distinctive_phrases(answer, min_words=4)
+        if not phrases:
+            continue
+        checked += 1
+        found = any(_normalize(phrase) in corpus_text for phrase in phrases)
+        if not found:
+            not_found.append(f"{q['id']}: phrases={[p[:40] for p in phrases[:2]]}")
+    return not_found, checked
+
+
 @pytest.mark.slow
 class TestG8GsTextRetrouvable:
     """G8 quality gate: verify GS answer content exists in v2 corpus children.
@@ -521,29 +549,9 @@ class TestG8GsTextRetrouvable:
         corpus_children_text: str,
     ) -> None:
         """For each answerable Q, a distinctive phrase must appear in children."""
-        not_found: list[str] = []
-        checked = 0
-
-        for q in answerable_questions:
-            # Try expected_answer first, then answer_explanation
-            answer = q.get("content", {}).get("expected_answer", "")
-            if not answer:
-                answer = q.get("provenance", {}).get("answer_explanation", "")
-            if not answer:
-                continue
-
-            phrases = _extract_distinctive_phrases(answer, min_words=4)
-            if not phrases:
-                continue
-
-            checked += 1
-            found = any(
-                _normalize(phrase) in corpus_children_text for phrase in phrases
-            )
-            if not found:
-                not_found.append(f"{q['id']}: phrases={[p[:40] for p in phrases[:2]]}")
-
-        # Allow up to 5 misses (encoding edge cases, unicode normalization)
+        not_found, checked = _check_answers_in_corpus(
+            answerable_questions, corpus_children_text
+        )
         miss_rate = len(not_found) / checked if checked else 0
         assert miss_rate < 0.02, (
             f"G8 FAIL: {len(not_found)}/{checked} answers not found "

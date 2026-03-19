@@ -49,37 +49,47 @@ def _build_parent_contexts(
             (pid,),
         ).fetchone()
         if parent_row and parent_row[0].strip():
+            contexts.append(_parent_context(parent_row, children))
+        else:
+            contexts.extend(_fallback_child_contexts(conn, children))
+    return contexts
+
+
+def _parent_context(parent_row: tuple, children: list[tuple[str, float]]) -> Context:
+    """Build context from a non-empty parent."""
+    return Context(
+        text=parent_row[0],
+        source=parent_row[1],
+        page=parent_row[3],
+        section=parent_row[2] or "",
+        context_type="parent",
+        score=max(s for _, s in children),
+        children_matched=[cid for cid, _ in children],
+    )
+
+
+def _fallback_child_contexts(
+    conn: sqlite3.Connection, children: list[tuple[str, float]]
+) -> list[Context]:
+    """Fallback for empty parents: return each child as its own context."""
+    contexts: list[Context] = []
+    for cid, score in children:
+        child_row = conn.execute(
+            "SELECT text, source, section, page FROM children WHERE id = ?",
+            (cid,),
+        ).fetchone()
+        if child_row:
             contexts.append(
                 Context(
-                    text=parent_row[0],
-                    source=parent_row[1],
-                    page=parent_row[3],
-                    section=parent_row[2] or "",
-                    context_type="parent",
-                    score=max(s for _, s in children),
-                    children_matched=[cid for cid, _ in children],
+                    text=child_row[0],
+                    source=child_row[1],
+                    page=child_row[3],
+                    section=child_row[2] or "",
+                    context_type="child",
+                    score=score,
+                    children_matched=[cid],
                 )
             )
-        else:
-            # Parent has empty text (root node). Fallback: return each
-            # child as its own context so it's not silently dropped.
-            for cid, score in children:
-                child_row = conn.execute(
-                    "SELECT text, source, section, page FROM children WHERE id = ?",
-                    (cid,),
-                ).fetchone()
-                if child_row:
-                    contexts.append(
-                        Context(
-                            text=child_row[0],
-                            source=child_row[1],
-                            page=child_row[3],
-                            section=child_row[2] or "",
-                            context_type="child",
-                            score=score,
-                            children_matched=[cid],
-                        )
-                    )
     return contexts
 
 

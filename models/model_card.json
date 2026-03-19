@@ -4,7 +4,7 @@
     "schemaVersion": "1.1.0",
     "projectName": "Pocket Arbiter",
     "projectDescription": "Application mobile 100% offline d'assistance a l'arbitrage d'echecs - Reglements FFE et FIDE",
-    "lastUpdated": "2026-01-14"
+    "lastUpdated": "2026-03-19"
   },
 
   "embeddingModel": {
@@ -67,52 +67,41 @@
   },
 
   "trainingData": {
-    "sources": [
-      {
-        "name": "Reglement FFE - Lois des Echecs",
-        "file": "LA-octobre2025.pdf",
-        "type": "PDF",
-        "version": "Octobre 2025",
-        "pages": 227,
-        "language": "fr",
-        "corpus": "fr",
-        "status": "A traiter (Phase 1A)"
-      },
-      {
-        "name": "Manuel Arbitre FIDE",
-        "file": "FIDE_Arbiters_Manual_2025.pdf",
-        "type": "PDF",
-        "version": "2025",
-        "pages": 70,
-        "language": "en",
-        "corpus": "intl",
-        "status": "A traiter (Phase 1A)"
-      }
-    ],
+    "sources_fr": {
+      "count": 28,
+      "examples": ["LA-octobre2025.pdf", "R01_2025_26_Regles_generales.pdf", "A01_2025_26_Championnat_de_France.pdf"],
+      "language": "fr",
+      "status": "Extracted (docling + docling-hierarchical-pdf)"
+    },
+    "sources_intl": {
+      "count": 1,
+      "file": "FIDE_Arbiters_Manual_2025.pdf",
+      "language": "en",
+      "status": "A construire (VISION.md Dual-RAG)"
+    },
     "preprocessing": {
-      "chunkSize": 256,
+      "chunkSize": 450,
       "chunkOverlap": 50,
       "tokenizer": "tiktoken (cl100k_base)",
-      "strategy": "semantic with sentence boundary",
-      "schemaDoc": "docs/CHUNK_SCHEMA.md"
+      "strategy": "LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter",
+      "children": 1116,
+      "parents": 282,
+      "table_summaries": 111
     }
   },
 
   "vectorStore": {
     "primary": {
-      "type": "SqliteVectorStore",
-      "framework": "Google AI Edge RAG SDK",
-      "note": "SDK default, evaluation Phase 4A"
+      "type": "SQLite custom (cosine + FTS5 BM25)",
+      "db": "corpus_v2_fr.db",
+      "search": "hybrid RRF k=60, adaptive-k largest-gap (EMNLP 2025)"
     },
-    "alternatives": [
-      {
-        "type": "sqlite-vec",
-        "framework": "Custom",
-        "note": "A evaluer Phase 4A si gain RAM > 50MB"
-      }
-    ],
     "metric": "cosine",
-    "estimatedVectors": "~600 chunks (500 FR + 100 INTL)"
+    "vectors": {
+      "children": 1116,
+      "table_summaries": 111,
+      "parents": "not embedded (context assembly only)"
+    }
   },
 
   "performance": {
@@ -153,36 +142,34 @@
   },
 
   "versioning": {
-    "currentPhase": "Phase 1A - Pipeline de donnees",
-    "modelVersion": "0.2.0",
+    "currentPhase": "Chantier 3 - Recall optimization",
+    "modelVersion": "0.3.0",
     "changelog": [
+      {
+        "version": "0.3.0",
+        "date": "2026-03-19",
+        "changes": [
+          "Pipeline v2: LangChain chunker 450/50, 1116 children, 282 parents",
+          "Hybrid search: cosine + BM25 FTS5, RRF, adaptive-k",
+          "EmbeddingGemma switch QAT -> base (build/runtime alignment)",
+          "Contextual retrieval (Anthropic 2024): 1116 chunk contexts",
+          "Enrichment module: abbreviations, chapter overrides",
+          "Recall baseline: 56.7% page-level (optimization in progress)"
+        ]
+      },
       {
         "version": "0.2.0",
         "date": "2026-01-14",
         "changes": [
           "Stack valide: EmbeddingGemma-300M + Gemma 3 270M",
-          "Specs Phase 1A documentees",
-          "Schema chunks defini",
-          "Roadmap complete creee",
-          "Questions INTL completees (25)"
+          "Specs Phase 1A documentees"
         ]
       },
       {
         "version": "0.1.0",
         "date": "2026-01-11",
         "changes": [
-          "Phase 0 completee: fondations ISO",
-          "Pre-commit hooks ISO-conformes",
-          "Test coverage 99%",
-          "Documentation complete"
-        ]
-      },
-      {
-        "version": "0.0.0",
-        "date": "2026-01-10",
-        "changes": [
-          "Structure projet initiale",
-          "Configuration DVC"
+          "Phase 0 completee: fondations ISO"
         ]
       }
     ]

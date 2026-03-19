@@ -133,7 +133,6 @@ def build_context(
         List of Context objects, parents deduplicated, ordered by score.
     """
     # Classify each result as child or table_summary via targeted lookup
-    # (avoids full table scan of 1253 children IDs on every call)
     child_ids: list[tuple[str, float]] = []
     table_ids: list[tuple[str, float]] = []
     for did, score in result_ids:

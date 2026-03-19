@@ -1,4 +1,4 @@
-"""LangChain-based chunker: 7-stage pipeline. FloTorch 512, Azure 20% overlap."""
+"""LangChain-based chunker: 6-stage pipeline. CHUNK_SIZE=450, 11% overlap."""
 
 from __future__ import annotations
 
@@ -61,14 +61,18 @@ def chunk_document(
 ) -> dict:
     """Chunk a markdown document into children, parents, and tables.
 
-    7-stage pipeline:
+    6-stage pipeline:
     1. Extract tables (before header split)
     2. Split by markdown headers
-    3. Recursive split by tokens (512/100)
+    3. Recursive split by tokens (450/50) + build children dicts with CCH
     4. Assemble parents (capped 2048 tok)
     5. Interpolate pages + merge small children
-    6. Build CCH titles
-    7. Link tables to parent sections
+    6. Link tables to parent sections
+
+    Args:
+        markdown: Full markdown text of a document.
+        source: PDF source filename.
+        heading_pages: Optional heading -> page mapping for page interpolation.
 
     Returns:
         Dict with "children", "parents", "tables" lists.
@@ -81,7 +85,7 @@ def chunk_document(
     # Stage 2: Header split
     header_docs = header_split(clean_md)
 
-    # Stage 3: Recursive token split
+    # Stage 3: Recursive token split + build children dicts with CCH
     children_docs = recursive_split(header_docs)
 
     # Pre-filter: remove heading-only and placeholder-only Documents
@@ -94,8 +98,6 @@ def chunk_document(
 
     # Stage 4: Parent assembly
     parents, child_to_parent = build_parents(children_docs, source)
-
-    # Build children dicts
     children = _build_children_dicts(children_docs, child_to_parent, source)
 
     # Stage 5: Page interpolation + merge
@@ -104,7 +106,7 @@ def chunk_document(
     for idx, child in enumerate(children):
         child["id"] = f"{source}-c{idx:04d}"
 
-    # Stage 7: Table linkage
+    # Stage 6: Table linkage
     tables = link_tables(tables, header_docs, parents)
     _assign_table_metadata(tables, source, _heading_pages)
 

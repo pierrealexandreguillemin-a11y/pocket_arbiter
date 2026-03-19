@@ -189,14 +189,18 @@ def error_analysis(
 
 def _get_context_pages(
     conn: sqlite3.Connection,
-    children_matched: list[str],
+    matched_ids: list[str],
 ) -> list[tuple[str, int | None]]:
-    """Lookup (source, page) for a list of child_ids."""
+    """Lookup (source, page) for child or table_summary IDs."""
     pages = []
-    for cid in children_matched:
+    for mid in matched_ids:
         row = conn.execute(
-            "SELECT source, page FROM children WHERE id = ?", (cid,)
+            "SELECT source, page FROM children WHERE id = ?", (mid,)
         ).fetchone()
+        if not row:
+            row = conn.execute(
+                "SELECT source, page FROM table_summaries WHERE id = ?", (mid,)
+            ).fetchone()
         if row:
             pages.append((row[0], row[1]))
     return pages

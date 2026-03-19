@@ -1,7 +1,7 @@
 ---
 generated: 2026-03-18T21:58:36.470842+00:00
 pipeline: hybrid cosine+BM25 RRF, adaptive-k largest-gap
-model: google/embeddinggemma-300m-qat-q4_0-unquantized
+model: google/embeddinggemma-300m-qat-q4_0-unquantized (HISTORICAL — switched to base 2026-03-19)
 db: corpus_v2_fr.db
 gs_version: 9.0.0
 match_level: page

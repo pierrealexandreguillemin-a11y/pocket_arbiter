@@ -82,7 +82,7 @@ REGULATORY_SEPARATORS = ["\n\n\n", "\n\n", "\n", ". ", ", ", " ", ""]
 
 **Configuration**:
 ```python
-MODEL = "google/embeddinggemma-300m-qat-q4_0-unquantized"
+MODEL = "google/embeddinggemma-300m"  # base (switched from QAT 2026-03-19)
 MAX_TOKENS = 2048  # EmbeddingGemma context window
 EMBEDDING_DIM = 384  # MRL: truncatable to 256, 128
 ```

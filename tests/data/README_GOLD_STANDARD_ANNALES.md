@@ -16,17 +16,19 @@
 ## Cohérence Pipeline Embedding
 
 > **IMPORTANT**: Tout le pipeline utilise le même modèle d'embedding.
+> **UPDATE 2026-03-19**: Switch QAT → base (`google/embeddinggemma-300m`).
+> TFLite Mixed Precision converti depuis base, pas QAT. Rebuild pending.
 
 | Composant | Modèle |
 |-----------|--------|
-| Corpus embeddings | `google/embeddinggemma-300m-qat-q4_0-unquantized` |
-| GS chunk_ids | Revalidés dans espace QAT (v7.4.8) |
-| Hard negatives | Même espace QAT |
-| Fine-tuning cible | QAT → TFLite Android |
+| Corpus embeddings | `google/embeddinggemma-300m` (base, switched from QAT 2026-03-19) |
+| GS chunk_ids | Page-level matching (chunk_ids obsoletes depuis pipeline v2) |
+| Fine-tuning cible | LoRA sur base → TFLite Android |
 
 **Historique migration**:
 - v7.4.7: Validé contre `embeddinggemma-300m` (FULL)
 - v7.4.8: Revalidé contre `embeddinggemma-300m-qat` (290/378 chunks mis à jour)
+- v9.0 (2026-03-19): Switch retour vers base — QAT mismatch avec TFLite Mixed Precision
 
 ## État de la Reformulation
 

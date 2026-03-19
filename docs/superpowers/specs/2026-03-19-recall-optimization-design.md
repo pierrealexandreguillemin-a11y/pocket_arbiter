@@ -2,7 +2,7 @@
 
 > **Date**: 2026-03-19
 > **Statut**: En revue
-> **Baseline**: recall@5 = 56.7%, recall@10 = 63.1% (LangChain chunker, EmbeddingGemma-300M QAT)
+> **Baseline**: recall@5 = 56.7%, recall@10 = 63.1% (LangChain chunker, EmbeddingGemma-300M QAT — baseline pre-switch, rebuild with base pending)
 > **Target**: recall@5 >= 80% (seuil prompt engineering suffisant)
 > **Contrainte**: un seul rebuild (12 min embedding)
 

@@ -126,7 +126,9 @@ PROMPTS = {
 
 ### 3.4 Modeles EmbeddingGemma - Fine-tuning vs Deploiement
 
-> **RECOMMANDATION**: Utiliser **QLoRA** avec le modele QAT pour le fine-tuning Pocket Arbiter.
+> **RECOMMANDATION MISE A JOUR (2026-03-19)**: Utiliser **LoRA** avec le modele **base** (`google/embeddinggemma-300m`).
+> L'ancienne recommandation QLoRA sur QAT est obsolete : le TFLite Mixed Precision est converti
+> depuis le checkpoint base, pas QAT. LoRA sur base = standard, elimine le mismatch build/runtime.
 
 | Usage | Model ID | Source | Taille | Recommandation |
 |-------|----------|--------|--------|----------------|

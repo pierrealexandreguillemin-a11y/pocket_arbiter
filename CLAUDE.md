@@ -11,7 +11,7 @@
 - **Contextes** : 1116 contextual retrieval entries (Anthropic 2024), generes par LLM, median 54 tokens
 - **Pages** : line-level interpolation, 95% GS pages couvertes (105/111)
 - **GS** : 403 questions (298 testables), page-level matching
-- **Modeles** : EmbeddingGemma-300M QAT (embeddings), Gemma 3n E2B candidat generation
+- **Modeles** : EmbeddingGemma-300M base (embeddings, switched from QAT 2026-03-19), Gemma 3n E2B candidat generation
 - **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks
 - **Indexer** : corpus_v2_fr.db, 9/9 integrity gates (I1-I9) PASS
 - **CCH** : heading hierarchy (h1 > h2 > h3) pour children ET table summaries (KX 2026)

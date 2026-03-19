@@ -397,7 +397,7 @@ ALL gates must pass BEFORE the 12-min rebuild.
 |------|----------|--------|
 | R1 recall@5 ≥ 70% | | |
 | R2 recall@10 ≥ 75% | | |
-| R3 no per-question regression | Compare with recall_hits_before.json | |
+| R3 no per-question regression | ⚠️ recall_hits_before.json was QAT — re-measure base-only baseline BEFORE enrichment in Task 5 Step 1 | |
 | R4 MRR ≥ 0.50 | | |
 
 - [ ] **Step 6: If recall < 70%, STOP and investigate. Do NOT commit.**

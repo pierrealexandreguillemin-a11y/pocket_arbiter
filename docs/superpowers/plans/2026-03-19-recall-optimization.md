@@ -364,6 +364,38 @@ git commit -m "feat(pipeline): OPT 2-4 enrichment module (abbreviations, chapter
 - Output: `corpus/processed/corpus_v2_fr.db`
 - Output: `data/benchmarks/recall_baseline.json`
 
+- [ ] **Step 0: Base-only rebuild for R3 baseline (model switch isolation)**
+
+The QAT→base model switch changes the embedding space. To isolate the effect of
+enrichment (OPT 1-2-4) from the model switch, we need a base-only baseline first.
+
+```bash
+# 1. Rebuild DB with base model, NO enrichment (current chunks, current text)
+python -c "
+from scripts.pipeline.indexer import build_index
+build_index()  # Uses DEFAULT_MODEL_ID = google/embeddinggemma-300m (base)
+"
+
+# 2. Measure recall on base-only DB
+python scripts/pipeline/recall.py
+
+# 3. Save per-question hits as new R3 baseline
+python -c "
+import json
+with open('data/benchmarks/recall_baseline.json') as f:
+    d = json.load(f)
+hits = {q['id']: q['rank'] > 0 for q in d['per_question']}
+with open('data/benchmarks/recall_hits_before.json', 'w') as f:
+    json.dump(hits, f)
+print(f'Saved {sum(hits.values())}/{len(hits)} hits')
+"
+```
+
+Record baseline: recall@5 base-only = ___%. This is the new R3 reference.
+Expected: close to QAT baseline (56.7%) ± 2pp due to embedding space difference.
+
+If base recall < 50% (unexpected regression): STOP, investigate before enrichment.
+
 - [ ] **Step 1: Wire enrichment into indexer build_index()**
 
 After chunking (Step 1), before embedding (Step 4):
@@ -397,7 +429,7 @@ ALL gates must pass BEFORE the 12-min rebuild.
 |------|----------|--------|
 | R1 recall@5 ≥ 70% | | |
 | R2 recall@10 ≥ 75% | | |
-| R3 no per-question regression | ⚠️ recall_hits_before.json was QAT — re-measure base-only baseline BEFORE enrichment in Task 5 Step 1 | |
+| R3 no per-question regression | Compare with Step 0 base-only baseline (recall_hits_before.json, re-measured with base model) | |
 | R4 MRR ≥ 0.50 | | |
 
 - [ ] **Step 6: If recall < 70%, STOP and investigate. Do NOT commit.**

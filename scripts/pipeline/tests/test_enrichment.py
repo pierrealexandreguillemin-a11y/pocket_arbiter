@@ -13,6 +13,7 @@ from scripts.pipeline.enrichment import (
     CHAPTER_OVERRIDES,
     apply_chapter_override,
     enrich_chunks,
+    enrich_table_summaries,
     expand_abbreviations,
     load_contexts,
 )
@@ -199,3 +200,30 @@ class TestEnrichChunks:
         contexts = {"x": "Mon contexte."}
         enrich_chunks(children, contexts)
         assert "Mon contexte.\n\nContenu." in children[0]["text"]
+
+
+# === enrich_table_summaries ===
+
+
+class TestEnrichTableSummaries:
+    """Tests for table summary abbreviation expansion (OPT-2 spec line 234)."""
+
+    def test_expands_abbreviations_in_summary(self) -> None:
+        summaries = [{"summary_text": "Tableau FFE des titres FIDE."}]
+        enrich_table_summaries(summaries)
+        assert "FFE (Federation Francaise des Echecs)" in summaries[0]["summary_text"]
+        assert (
+            "FIDE (Federation Internationale des Echecs)"
+            in summaries[0]["summary_text"]
+        )
+
+    def test_no_context_prepend(self) -> None:
+        """Table summaries get OPT-2 only, NOT OPT-1 context."""
+        summaries = [{"summary_text": "Texte original."}]
+        enrich_table_summaries(summaries)
+        assert summaries[0]["summary_text"] == "Texte original."
+
+    def test_mutates_in_place(self) -> None:
+        summaries = [{"summary_text": "DNA organise."}]
+        result = enrich_table_summaries(summaries)
+        assert result is summaries

@@ -136,3 +136,20 @@ def enrich_chunks(
         # OPT-2: expand abbreviations
         child["text"] = expand_abbreviations(child["text"])
     return children
+
+
+def enrich_table_summaries(summaries: list[dict]) -> list[dict]:
+    """Apply abbreviation expansion to table summaries (OPT-2 only).
+
+    Table summaries are already concise — no contextual retrieval (OPT-1).
+    Mutates summaries in-place.
+
+    Args:
+        summaries: List of table summary dicts with 'summary_text' key.
+
+    Returns:
+        The same list (mutated), for chaining convenience.
+    """
+    for summary in summaries:
+        summary["summary_text"] = expand_abbreviations(summary["summary_text"])
+    return summaries

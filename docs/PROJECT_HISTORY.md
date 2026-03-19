@@ -105,3 +105,19 @@ Chronologie factuelle des decisions et errements du projet.
 | 18 mar | Table extraction avant header split | Verifie empiriquement : 98 vs 22 tables |
 | 18 mar | Page interpolation line-level | CCH match echouait pour h4+ headings |
 | 19 mar | QAT → base pour build embeddings | TFLite Mixed Precision converti depuis base (pas QAT), +0.36 MTEB, elimine mismatch build/runtime, standard LoRA path |
+| 19 mar | Row-as-chunk REVERTED | -6pp R@5 regression, Ragie warning confirme (header repetition degrade BM25) |
+| 19 mar | Structured cells (level 3) | 4308 cells, keyword triggers strong/weak, three-way RRF, neutre recall mais fonctionnalite RAG |
+| 19 mar | Recall final 60.1% | Gate R1 (70%) FAIL — LoRA fine-tuning necessaire |
+
+## Ere 7 : Recall optimization — resultats (mars 2026)
+
+- Chantier 3 termine : 8 optimisations testees, 4 appliquees, 2 skippees, 2 revertees
+- Gain total : 56.7% → 60.1% recall@5 (+3.4pp)
+  - Model switch QAT→base : +2.4pp
+  - Enrichment (OPT 1-2-4) : +1.3pp (principalement R@1 : +3.7pp)
+  - Level 3 structured cells : neutre (±0.3pp)
+- Row-as-chunk (level 2) : -6pp regression, reverted
+- Score calibration (OPT-7) : -5pp R@1, skipped
+- Query decomposition (OPT-8) : 3/110 matches, skipped
+- **Question ouverte** : pourquoi les techniques standard industrie (contextual retrieval -35% failures Anthropic, row-as-chunk Ragie) ont un impact marginal ou negatif sur CE corpus/modele ?
+  - Hypotheses a explorer : seq_length 2048 vs modeles cloud 8K+, corpus reglementaire FR vs benchmarks EN, EmbeddingGemma 300M vs Voyage/OpenAI, taille corpus 1116 chunks vs benchmarks 10K+

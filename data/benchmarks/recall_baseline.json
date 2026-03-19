@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated": "2026-03-19T17:16:04.367494+00:00",
+    "generated": "2026-03-19T19:06:03.876675+00:00",
     "pipeline": "hybrid cosine+BM25 RRF, adaptive-k largest-gap",
     "model": "google/embeddinggemma-300m",
     "db": "corpus_v2_fr.db",
@@ -16,10 +16,10 @@
   "global": {
     "count": 298,
     "recall@1": 0.38926174496644295,
-    "recall@3": 0.5570469798657718,
-    "recall@5": 0.6040268456375839,
+    "recall@3": 0.5536912751677853,
+    "recall@5": 0.6006711409395973,
     "recall@10": 0.6375838926174496,
-    "mrr": 0.47931048258229464
+    "mrr": 0.4785035155001598
   },
   "segments": {
     "reasoning_class": {
@@ -34,10 +34,10 @@
       "fact_single": {
         "count": 136,
         "recall@1": 0.45588235294117646,
-        "recall@3": 0.6176470588235294,
-        "recall@5": 0.6764705882352942,
+        "recall@3": 0.6102941176470589,
+        "recall@5": 0.6691176470588235,
         "recall@10": 0.6985294117647058,
-        "mrr": 0.5456495098039216
+        "mrr": 0.5442489495798319
       },
       "reasoning": {
         "count": 4,
@@ -53,17 +53,17 @@
         "recall@3": 0.49624060150375937,
         "recall@5": 0.5263157894736842,
         "recall@10": 0.5714285714285714,
-        "mrr": 0.40890619405656997
+        "mrr": 0.40853025420694594
       }
     },
     "difficulty": {
       "easy": {
         "count": 201,
         "recall@1": 0.39800995024875624,
-        "recall@3": 0.572139303482587,
-        "recall@5": 0.6368159203980099,
+        "recall@3": 0.5671641791044776,
+        "recall@5": 0.6318407960199005,
         "recall@10": 0.6616915422885572,
-        "mrr": 0.4936488193950881
+        "mrr": 0.4924524204374951
       },
       "hard": {
         "count": 16,
@@ -599,10 +599,10 @@
     {
       "id": "ffe:annales:clubs:026:13307982",
       "hit@1": false,
-      "hit@3": true,
-      "hit@5": true,
+      "hit@3": false,
+      "hit@5": false,
       "hit@10": true,
-      "rank": 3,
+      "rank": 7,
       "reasoning_class": "fact_single",
       "difficulty": 0.3
     },
@@ -2582,7 +2582,7 @@
       "hit@3": false,
       "hit@5": true,
       "hit@10": true,
-      "rank": 4,
+      "rank": 5,
       "reasoning_class": "summary",
       "difficulty": 0.07
     },

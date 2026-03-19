@@ -248,45 +248,54 @@ def bm25_search(
 
 # === Structured table lookup (Level 3) ===
 
-_TABLE_TRIGGERS = {
+# Strong triggers: specific to table data, low false-positive rate
+_TABLE_TRIGGERS_STRONG = {
     "berger",
     "grille",
-    "appariement",
     "scheveningen",
-    "echiquier",
-    "elo",
-    "classement",
-    "norme",
-    "titre",
-    "bareme",
-    "frais",
-    "deplacement",
-    "distance",
-    "cadence",
-    "departage",
-    "coefficient",
-    "glossaire",
-    "definition",
-    "categorie",
-    "age",
+    "appariement",
     "poussin",
     "pupille",
     "benjamin",
     "minime",
     "cadet",
     "junior",
+    "bareme",
+    "departage",
+    "coefficient",
+    "glossaire",
+    "definition",
+}
+
+# Weak triggers: too frequent alone, need a strong trigger companion
+_TABLE_TRIGGERS_WEAK = {
+    "cadence",
+    "age",
+    "elo",
+    "classement",
+    "titre",
+    "norme",
+    "echiquier",
+    "frais",
+    "deplacement",
+    "distance",
+    "categorie",
 }
 
 _ELO_RE = re.compile(r"\b\d{3,4}\b")
 
 
 def _has_table_triggers(query: str) -> bool:
-    """Check if query matches table-relevant triggers (2+ keywords or Elo regex)."""
+    """Check if query needs structured table lookup.
+
+    Activates on: 1+ strong trigger, OR 2+ weak triggers + Elo regex.
+    """
     q_lower = query.lower()
-    hits = sum(1 for t in _TABLE_TRIGGERS if t in q_lower)
-    if hits >= 2:
+    strong = sum(1 for t in _TABLE_TRIGGERS_STRONG if t in q_lower)
+    if strong >= 1:
         return True
-    return hits >= 1 and bool(_ELO_RE.search(query))
+    weak = sum(1 for t in _TABLE_TRIGGERS_WEAK if t in q_lower)
+    return weak >= 2 and bool(_ELO_RE.search(query))
 
 
 def structured_cell_search(
@@ -314,13 +323,14 @@ def structured_cell_search(
         return []
 
     q_lower = query.lower()
-    terms = [w for w in re.split(r"\W+", q_lower) if len(w) >= 3]
+    # Use only specific terms (4+ chars to avoid noise like "age", "elo")
+    terms = [w for w in re.split(r"\W+", q_lower) if len(w) >= 4]
     if not terms:
         return []
 
-    # Search cell values matching query terms
+    # Search cell values matching query terms (exact word preferred)
     scores: dict[str, float] = {}
-    for term in terms:
+    for term in terms[:8]:  # cap terms to avoid slow queries
         rows = conn.execute(
             "SELECT table_id FROM structured_cells WHERE cell_value LIKE ?",
             (f"%{term}%",),
@@ -328,7 +338,9 @@ def structured_cell_search(
         for (table_id,) in rows:
             scores[table_id] = scores.get(table_id, 0) + 1.0
 
-    ranked = sorted(scores.items(), key=lambda x: -x[1])
+    # Only return tables with 2+ term matches (reduce false positives)
+    ranked = [(tid, s) for tid, s in scores.items() if s >= 2.0]
+    ranked.sort(key=lambda x: -x[1])
     return ranked[:max_k]
 
 

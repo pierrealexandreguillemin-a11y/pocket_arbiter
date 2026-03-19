@@ -1,5 +1,5 @@
 ---
-generated: 2026-03-19T17:16:04.367494+00:00
+generated: 2026-03-19T19:06:03.876675+00:00
 pipeline: hybrid cosine+BM25 RRF, adaptive-k largest-gap
 model: google/embeddinggemma-300m
 db: corpus_v2_fr.db
@@ -16,8 +16,8 @@ questions_total: 298
 | Metrique | Score |
 |----------|-------|
 | recall@1 | 38.9% |
-| recall@3 | 55.7% |
-| recall@5 | 60.4% |
+| recall@3 | 55.4% |
+| recall@5 | 60.1% |
 | recall@10 | 63.8% |
 | MRR | 0.479 |
 
@@ -26,7 +26,7 @@ questions_total: 298
 | Bucket | Count | R@1 | R@3 | R@5 | R@10 |
 |--------|-------|-----|-----|-----|------|
 | arithmetic | 25 | 40.0% | 56.0% | 64.0% | 68.0% |
-| fact_single | 136 | 45.6% | 61.8% | 67.6% | 69.9% |
+| fact_single | 136 | 45.6% | 61.0% | 66.9% | 69.9% |
 | reasoning | 4 | 50.0% | 50.0% | 50.0% | 50.0% |
 | summary | 133 | 31.6% | 49.6% | 52.6% | 57.1% |
 
@@ -34,7 +34,7 @@ questions_total: 298
 
 | Bucket | Count | R@1 | R@3 | R@5 | R@10 |
 |--------|-------|-----|-----|-----|------|
-| easy | 201 | 39.8% | 57.2% | 63.7% | 66.2% |
+| easy | 201 | 39.8% | 56.7% | 63.2% | 66.2% |
 | hard | 16 | 37.5% | 56.2% | 56.2% | 56.2% |
 | medium | 81 | 37.0% | 51.9% | 53.1% | 59.3% |
 
@@ -65,4 +65,4 @@ questions_total: 298
 
 ## Decision
 
-recall@5 = 60.4% → **Optimisations retrieval necessaires**
+recall@5 = 60.1% → **Optimisations retrieval necessaires**

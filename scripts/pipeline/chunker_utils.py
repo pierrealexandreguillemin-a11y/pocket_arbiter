@@ -93,6 +93,7 @@ def _make_parent(pid: str, text: str, source: str, section: str, tokens: int) ->
         "source": source,
         "section": section,
         "tokens": tokens,
+        "page": None,
     }
 
 

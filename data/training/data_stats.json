@@ -1,0 +1,24 @@
+{
+  "simcse": {
+    "count": 1116,
+    "query_len_min": 138,
+    "query_len_median": 1383,
+    "query_len_max": 2164,
+    "query_len_p95": 1898,
+    "doc_len_min": 138,
+    "doc_len_median": 1383,
+    "doc_len_max": 2164,
+    "doc_len_p95": 1898
+  },
+  "ict": {
+    "count": 1067,
+    "query_len_min": 21,
+    "query_len_median": 164,
+    "query_len_max": 1672,
+    "query_len_p95": 599,
+    "doc_len_min": 25,
+    "doc_len_median": 1191,
+    "doc_len_max": 2164,
+    "doc_len_p95": 1762
+  }
+}

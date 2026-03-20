@@ -31,11 +31,14 @@ from sentence_transformers.losses import CachedMultipleNegativesRankingLoss
 from sentence_transformers.training_args import BatchSamplers
 
 from scripts.training.config import (
+    DOCUMENT_PROMPT,
     ICT_CHECKPOINT,
     ICT_CONFIG,
     ICT_PAIRS_PATH,
     LORA_CONFIG,
+    MAX_SEQ_LENGTH,
     MODEL_ID,
+    QUERY_PROMPT,
     SEED,
     SIMCSE_CHECKPOINT,
     SIMCSE_CONFIG,
@@ -72,6 +75,12 @@ def load_pairs(path: str) -> Dataset:
 def create_model_with_lora(model_id: str) -> SentenceTransformer:
     """Load EmbeddingGemma and attach LoRA adapters."""
     model = SentenceTransformer(model_id)
+    logger.info(
+        "max_seq_length: %d -> %d (aligned with build pipeline)",
+        model.max_seq_length,
+        MAX_SEQ_LENGTH,
+    )
+    model.max_seq_length = MAX_SEQ_LENGTH
     peft_config = LoraConfig(
         task_type=TaskType.FEATURE_EXTRACTION,
         r=LORA_CONFIG["rank"],
@@ -131,6 +140,10 @@ def train_stage(
         logging_nan_inf_filter=True,
         save_strategy="epoch",
         load_best_model_at_end=False,
+        prompts={
+            "anchor": QUERY_PROMPT,
+            "positive": DOCUMENT_PROMPT,
+        },
     )
 
     trainer = SentenceTransformerTrainer(
@@ -159,11 +172,11 @@ def train_stage(
     model.save(output_dir)
     logger.info("Checkpoint saved to %s", output_dir)
 
-    # Validate checkpoint produces valid embeddings
+    # Validate checkpoint produces valid embeddings (with prompt, like inference)
     test_model = SentenceTransformer(output_dir)
-    test_emb = test_model.encode(
-        ["Test embedding validation"], normalize_embeddings=True
-    )
+    test_model.max_seq_length = MAX_SEQ_LENGTH
+    test_query = QUERY_PROMPT + "Test query validation"
+    test_emb = test_model.encode([test_query], normalize_embeddings=True)
     assert test_emb.shape == (1, 768), f"FATAL: Expected (1, 768), got {test_emb.shape}"
     assert not np.any(np.isnan(test_emb)), "FATAL: Checkpoint produces NaN embeddings"
     norm = np.linalg.norm(test_emb[0])

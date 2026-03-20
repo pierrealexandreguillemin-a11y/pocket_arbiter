@@ -93,6 +93,17 @@ ICT_PAIRS_PATH = os.path.join(INPUT_DIR, "ict_pairs.jsonl")
 SIMCSE_CHECKPOINT = os.path.join(OUTPUT_DIR, "embeddinggemma-simcse")
 ICT_CHECKPOINT = os.path.join(OUTPUT_DIR, "embeddinggemma-simcse-ict")
 
+# Prompts must match pipeline inference (indexer_embed.py format_query/format_document)
+# Without these, training learns on raw text but inference prepends prompts → mismatch
+QUERY_PROMPT = "task: search result | query: "
+DOCUMENT_PROMPT = "title: none | text: "
+
+# Pipeline desktop uses seq_length=2048 (EmbeddingGemma default).
+# Chunks median 390 tokens, max 623 — all fit in 2048, NOT in 256.
+# TFLite Android uses 256 but that's a DEPLOYMENT concern (gate T1), not training.
+# Training MUST match the build pipeline (2048) to learn full chunk representations.
+MAX_SEQ_LENGTH = 2048
+
 LORA_CONFIG = {
     "rank": 8,
     "alpha": 8,
@@ -181,6 +192,14 @@ def create_and_validate_model(model_id: str) -> SentenceTransformer:
     """Load model, attach LoRA, validate architecture."""
     logger.info("Loading model: %s", model_id)
     model = SentenceTransformer(model_id)
+
+    # Align seq_length with build pipeline (2048, NOT TFLite 256)
+    logger.info(
+        "max_seq_length: %d -> %d (aligned with build pipeline)",
+        model.max_seq_length,
+        MAX_SEQ_LENGTH,
+    )
+    model.max_seq_length = MAX_SEQ_LENGTH
 
     # Validate pooling (must be mean_tokens for EmbeddingGemma)
     pooling = model[1]
@@ -276,6 +295,12 @@ def train_stage(
         logging_nan_inf_filter=True,
         save_strategy="epoch",
         load_best_model_at_end=False,
+        # Prompts: match pipeline inference (indexer_embed.py format_query/format_document)
+        # anchor column → query prompt, positive column → document prompt
+        prompts={
+            "anchor": QUERY_PROMPT,
+            "positive": DOCUMENT_PROMPT,
+        },
     )
 
     # Train
@@ -340,12 +365,12 @@ def train_stage(
     assert total_files > 0, f"FATAL: No files in checkpoint {output_dir}"
     assert total_size > 1, f"FATAL: Checkpoint suspiciously small ({total_size:.1f} MB)"
 
-    # Validate checkpoint produces valid embeddings
+    # Validate checkpoint produces valid embeddings (with prompt, like inference)
     logger.info("Validating checkpoint embeddings...")
     test_model = SentenceTransformer(output_dir)
-    test_emb = test_model.encode(
-        ["Test embedding validation"], normalize_embeddings=True
-    )
+    test_model.max_seq_length = MAX_SEQ_LENGTH
+    test_query = QUERY_PROMPT + "Test query validation"
+    test_emb = test_model.encode([test_query], normalize_embeddings=True)
     assert test_emb.shape == (1, 768), f"FATAL: Expected (1, 768), got {test_emb.shape}"
     assert not np.any(np.isnan(test_emb)), "FATAL: Checkpoint produces NaN embeddings"
     assert not np.any(np.isinf(test_emb)), "FATAL: Checkpoint produces Inf embeddings"

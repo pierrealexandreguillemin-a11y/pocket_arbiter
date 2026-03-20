@@ -43,6 +43,15 @@ ICT_CONFIG = {
     "warmup_ratio": 0.1,
 }
 
+# Prompts must match pipeline inference (indexer_embed.py format_query/format_document)
+QUERY_PROMPT = "task: search result | query: "
+DOCUMENT_PROMPT = "title: none | text: "
+
+# Pipeline desktop uses seq_length=2048 (EmbeddingGemma default).
+# Chunks median 390 tokens, max 623 — all fit in 2048, NOT in 256.
+# TFLite Android uses 256 — deployment concern (gate T1), not training.
+MAX_SEQ_LENGTH = 2048
+
 SIMCSE_CHECKPOINT = "models/embeddinggemma-simcse"
 ICT_CHECKPOINT = "models/embeddinggemma-simcse-ict"
 SIMCSE_PAIRS_PATH = "data/training/simcse_pairs.jsonl"

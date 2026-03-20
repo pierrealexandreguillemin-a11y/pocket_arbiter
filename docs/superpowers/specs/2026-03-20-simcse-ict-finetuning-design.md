@@ -76,37 +76,57 @@ corpus/processed/docling_v2_fr/*.json (1116 children)
 
 ## Data pipeline
 
+### Format documents (CRITIQUE — alignement training/inference)
+
+Les documents d'entrainement DOIVENT etre pre-formates avec le CCH title
+exactement comme le pipeline d'inference (indexer_embed.format_document) :
+
+```
+"title: {CCH_title} | text: {chunk_text}"
+```
+
+Le CCH title est construit depuis source + section de la DB (make_cch_title).
+Le trainer ajoute le query prompt (`"task: search result | query: "`) via
+`prompts={"anchor": QUERY_PROMPT}` mais PAS de prompt document — le document
+est deja formate dans le JSONL.
+
 ### SimCSE
 
-Chaque chunk text passe en double. Le dropout standard du transformer cree
+Chaque chunk pre-formate passe en double. Le dropout du transformer cree
 deux embeddings differents pour la meme phrase. In-batch negatives = les
 autres phrases du batch.
 
 ```python
-# Format sentence-transformers
-simcse_data = [InputExample(texts=[c["text"], c["text"]]) for c in children]
+cch = make_cch_title(c["source"], c["section"], SOURCE_TITLES)
+formatted = format_document(c["text"], cch)  # "title: CCH | text: chunk"
+simcse_data.append((formatted, formatted))
 # 1116 paires
 ```
 
 ### ICT (Inverse Cloze Task)
 
 Pour chaque chunk, extraire une phrase **aleatoire** non-triviale (>20 chars)
-comme pseudo-query (standard ORQA : "q is a random sentence"). Le chunk
-complet = positive. La phrase est retiree du chunk 90% du temps (§9.2).
+comme pseudo-query (standard ORQA : "q is a random sentence"). Le document =
+chunk pre-formate avec CCH. La phrase est retiree du chunk 90% du temps (§9.2).
 
 ```python
-# Format sentence-transformers — phrase ALEATOIRE (pas premiere), standard ORQA
-ict_data = [InputExample(texts=[random_sentence(c["text"]), c["text"]]) for c in children]
-# 1116 paires, seed=42 pour reproductibilite
+sentence = extract_random_sentence(c["text"])  # query brute
+masked = mask_sentence_from_chunk(c["text"], sentence)  # 90% masking
+cch = make_cch_title(c["source"], c["section"], SOURCE_TITLES)
+formatted_doc = format_document(masked, cch)  # "title: CCH | text: masked_chunk"
+ict_data.append((sentence, formatted_doc))
+# ~1067 paires (chunks sans phrase valide sont skippes, assert <30%)
 ```
 
-Pas de hard negatives explicites — `MultipleNegativesRankingLoss` utilise
-les autres elements du batch comme negatifs (standard SimCSE/ICT).
+Pas de hard negatives explicites — `CachedMultipleNegativesRankingLoss` utilise
+les autres elements du batch comme negatifs. Sampler `NO_DUPLICATES` pour les
+deux stages (evite les self-negatives qui corrompent la loss).
 
 ### Validation donnees
 
-- simcse_pairs : 1116 paires, texte non vide
-- ict_pairs : 1116 paires, pseudo-query >20 chars, pas heading-only
+- simcse_pairs : 1116 paires, documents pre-formates avec CCH
+- ict_pairs : >= 1000 paires, pseudo-query >20 chars, skip rate <30%
+- Stats en chars ET tokens (seq_length decisions)
 - Sample 30 pseudo-queries verifie manuellement
 
 ---
@@ -165,14 +185,22 @@ Le seul signal significatif est recall@5 sur GS apres chaque stage.
 | Seed | 42 | Reproductibilite |
 | Early stopping | patience 3, sur GS recall@5 | Meme signal que stage 1 |
 
-Reprend le checkpoint LoRA de stage 1. LR 1e-5 (< stage 1 2e-5) pour ne pas
+Reprend le checkpoint de stage 1. LR 1e-5 (< stage 1 2e-5) pour ne pas
 detruire les poids appris en SimCSE.
+
+### Post-stage : merge et validation (CRITIQUE)
+
+Apres chaque stage :
+1. `merge_and_unload()` — merge LoRA dans les poids base (standalone checkpoint)
+2. `_hf_peft_config_loaded = False` — reset flag peft (sinon stage 2 a 0 params, issue #3246)
+3. `model.save(output_dir)` — sauvegarde sentence-transformers (modules.json preservé)
+4. Validation embedding : charger checkpoint, encoder test, verifier shape (1,768) + norm ~1.0 + no NaN
 
 ### Evaluation
 
 - **Apres chaque stage** : recall@5 sur GS (298 questions, eval only)
 - **Gate rollback** : recall@5 < 60.1% → rollback au checkpoint precedent
-- **Training loss** : monitore pour detecter divergence/NaN, pas pour early stopping
+- **Training loss** : NaN/Inf assertion, logging_nan_inf_filter=True
 
 ---
 

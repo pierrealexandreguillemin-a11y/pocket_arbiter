@@ -98,12 +98,14 @@ def train_stage(
     """Train one stage (SimCSE or ICT)."""
     logger.info("=== Stage: %s (%d examples) ===", stage_name, len(dataset))
 
+    # scale = 1/temperature. SimCSE paper: temp=0.05 → scale=20.0 (= CachedMNRL default).
+    # ICT has no temperature in config → falls back to 0.05 → same scale.
     temperature = config.get("temperature", 0.05)
     scale = 1.0 / temperature
     loss = CachedMultipleNegativesRankingLoss(
         model,
-        mini_batch_size=config["mini_batch_size"],
-        scale=scale,
+        mini_batch_size=config["mini_batch_size"],  # 16 (default 32, reduced for fp32)
+        scale=scale,  # 20.0 (SimCSE paper temp 0.05)
     )
 
     # SimCSE: BATCH_SAMPLER (NO_DUPLICATES conflicts with identical pairs)
@@ -125,7 +127,7 @@ def train_stage(
         # fp32 default. T4=Turing (compute 7.5), no bf16. Model card forbids fp16.
         seed=SEED,
         batch_sampler=sampler,
-        logging_steps=5,
+        logging_steps=1,
         logging_nan_inf_filter=True,
         save_strategy="epoch",
         load_best_model_at_end=False,
@@ -137,9 +139,38 @@ def train_stage(
         train_dataset=dataset,
         loss=loss,
     )
-    trainer.train()
+    train_result = trainer.train()
+
+    # Validate training completed
+    final_loss = train_result.training_loss
+    logger.info("Final training loss: %.4f", final_loss)
+    assert not np.isnan(final_loss), "FATAL: Training loss is NaN"
+    assert not np.isinf(final_loss), "FATAL: Training loss is Inf"
+
+    # Merge LoRA into base model before saving (CRITICAL for standalone loading)
+    transformer = model[0]
+    if hasattr(transformer, "auto_model") and hasattr(
+        transformer.auto_model, "merge_and_unload"
+    ):
+        logger.info("Merging LoRA adapters into base model...")
+        transformer.auto_model = transformer.auto_model.merge_and_unload()
+        logger.info("LoRA merged successfully")
+
     model.save(output_dir)
     logger.info("Checkpoint saved to %s", output_dir)
+
+    # Validate checkpoint produces valid embeddings
+    test_model = SentenceTransformer(output_dir)
+    test_emb = test_model.encode(
+        ["Test embedding validation"], normalize_embeddings=True
+    )
+    assert test_emb.shape == (1, 768), f"FATAL: Expected (1, 768), got {test_emb.shape}"
+    assert not np.any(np.isnan(test_emb)), "FATAL: Checkpoint produces NaN embeddings"
+    norm = np.linalg.norm(test_emb[0])
+    assert 0.99 < norm < 1.01, f"FATAL: Embedding not normalized (norm={norm:.4f})"
+    logger.info("Embedding validation PASS: shape=%s, norm=%.4f", test_emb.shape, norm)
+    del test_model
+
     return model
 
 

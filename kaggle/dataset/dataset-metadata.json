@@ -1,9 +1,21 @@
 {
   "title": "Pocket Arbiter Training Data",
   "id": "pguillemin/pocket-arbiter-training-data",
+  "subtitle": "SimCSE+ICT pairs for EmbeddingGemma-300M self-supervised fine-tuning",
+  "description": "Training data for Pocket Arbiter chess arbiter RAG app. Contains SimCSE dropout-augmentation pairs (1116) and ICT pseudo-query pairs (1067) extracted from FFE regulation corpus. Used with sentence-transformers LoRA fine-tuning on EmbeddingGemma-300M. Spec: docs/superpowers/specs/2026-03-20-simcse-ict-finetuning-design.md",
   "licenses": [
     {
       "name": "CC0-1.0"
     }
+  ],
+  "keywords": [
+    "pocket-arbiter",
+    "chess",
+    "ffe",
+    "embeddinggemma",
+    "simcse",
+    "ict",
+    "sentence-transformers",
+    "self-supervised"
   ]
 }

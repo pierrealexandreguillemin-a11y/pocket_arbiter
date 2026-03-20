@@ -116,13 +116,8 @@ def train_stage(
         scale=scale,  # 20.0 (SimCSE paper temp 0.05)
     )
 
-    # SimCSE: BATCH_SAMPLER (NO_DUPLICATES conflicts with identical pairs)
-    # ICT: NO_DUPLICATES (standard for contrastive)
-    sampler = (
-        BatchSamplers.BATCH_SAMPLER
-        if stage_name == "SimCSE"
-        else BatchSamplers.NO_DUPLICATES
-    )
+    # NO_DUPLICATES for both stages (sbert.net recommendation for contrastive loss)
+    sampler = BatchSamplers.NO_DUPLICATES
 
     args = SentenceTransformerTrainingArguments(
         output_dir=output_dir,
@@ -167,6 +162,10 @@ def train_stage(
     ):
         logger.info("Merging LoRA adapters into base model...")
         transformer.auto_model = transformer.auto_model.merge_and_unload()
+        # CRITICAL: reset peft flag so saved model loads as plain transformer
+        # Without this, Stage 2 has 0 trainable params (issue #3246)
+        if hasattr(transformer.auto_model, "_hf_peft_config_loaded"):
+            transformer.auto_model._hf_peft_config_loaded = False
         logger.info("LoRA merged successfully")
 
     model.save(output_dir)

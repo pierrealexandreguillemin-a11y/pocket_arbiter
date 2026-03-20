@@ -43,9 +43,10 @@ ICT_CONFIG = {
     "warmup_ratio": 0.1,
 }
 
-# Prompts must match pipeline inference (indexer_embed.py format_query/format_document)
+# Query prompt must match indexer_embed.py format_query
+# NO document prompt: documents are pre-formatted in JSONL with CCH title
+# ("title: {cch} | text: {text}") by ict_data.format_document()
 QUERY_PROMPT = "task: search result | query: "
-DOCUMENT_PROMPT = "title: none | text: "
 
 # Pipeline desktop uses seq_length=2048 (EmbeddingGemma default).
 # Chunks median 390 tokens, max 623 — all fit in 2048, NOT in 256.

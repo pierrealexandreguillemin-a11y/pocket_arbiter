@@ -105,7 +105,7 @@ def test_generate_ict_pairs_reproducible():
     children = [
         {
             "id": f"c{i}",
-            "text": "Phrase un longue. Phrase deux longue.",
+            "text": "Premiere phrase longue du chunk reglementaire. Deuxieme phrase du chunk aussi suffisamment longue.",
             "source": "test.pdf",
             "section": "S",
         }

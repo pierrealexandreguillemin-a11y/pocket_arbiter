@@ -106,23 +106,37 @@ def generate_ict_pairs(
     children: list[dict],
     source_titles: dict[str, str],
     seed: int = 42,
+    max_skip_rate: float = 0.3,
 ) -> list[tuple[str, str]]:
     """ICT pairs: (random_sentence, formatted_chunk) with 90% masking.
 
     Query = raw sentence (trainer adds query prompt "task: search result | query: ").
     Document = pre-formatted with CCH title (trainer must NOT add prompt on this column).
+
+    Args:
+        children: List of dicts with text, source, section.
+        source_titles: Mapping source filename to display title.
+        seed: Random seed for reproducibility.
+        max_skip_rate: Max fraction of chunks that can be skipped (assert).
     """
     pairs = []
+    skipped = 0
     for i, c in enumerate(children):
         sentence = extract_random_sentence(c["text"], seed=seed + i)
         if sentence is None:
+            skipped += 1
             continue
         masked = mask_sentence_from_chunk(c["text"], sentence, seed=seed + i)
         if len(masked.strip()) < _MIN_SENTENCE_LEN:
+            skipped += 1
             continue
         cch = make_cch_title(c["source"], c["section"], source_titles)
         formatted_doc = format_document(masked, cch)
         pairs.append((sentence, formatted_doc))
+    skip_rate = skipped / len(children) if children else 0
+    if skip_rate > max_skip_rate:
+        msg = f"ICT: {skipped}/{len(children)} chunks skipped ({skip_rate:.0%} > {max_skip_rate:.0%})"
+        raise ValueError(msg)
     return pairs
 
 

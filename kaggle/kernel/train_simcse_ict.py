@@ -93,10 +93,10 @@ ICT_PAIRS_PATH = os.path.join(INPUT_DIR, "ict_pairs.jsonl")
 SIMCSE_CHECKPOINT = os.path.join(OUTPUT_DIR, "embeddinggemma-simcse")
 ICT_CHECKPOINT = os.path.join(OUTPUT_DIR, "embeddinggemma-simcse-ict")
 
-# Prompts must match pipeline inference (indexer_embed.py format_query/format_document)
-# Without these, training learns on raw text but inference prepends prompts → mismatch
+# Query prompt must match indexer_embed.py format_query
+# NO document prompt: documents are pre-formatted in JSONL with CCH title
+# ("title: {cch} | text: {text}") by ict_data.format_document()
 QUERY_PROMPT = "task: search result | query: "
-DOCUMENT_PROMPT = "title: none | text: "
 
 # Pipeline desktop uses seq_length=2048 (EmbeddingGemma default).
 # Chunks median 390 tokens, max 623 — all fit in 2048, NOT in 256.
@@ -274,11 +274,11 @@ def train_stage(
         scale=scale,  # 20.0 (SimCSE paper temp 0.05)
     )
 
-    sampler = (
-        BatchSamplers.BATCH_SAMPLER
-        if stage_name == "SimCSE"
-        else BatchSamplers.NO_DUPLICATES
-    )
+    # NO_DUPLICATES for both stages: ensures no in-batch negatives are duplicates
+    # of anchor/positive. For SimCSE (identical pairs), this correctly deduplicates
+    # across the batch while preserving the (anchor_i, positive_i) training pair.
+    # BATCH_SAMPLER would allow self-negatives that corrupt the contrastive loss.
+    sampler = BatchSamplers.NO_DUPLICATES
 
     args = SentenceTransformerTrainingArguments(
         output_dir=output_dir,
@@ -330,6 +330,10 @@ def train_stage(
     ):
         logger.info("Merging LoRA adapters into base model...")
         transformer.auto_model = transformer.auto_model.merge_and_unload()
+        # CRITICAL: reset peft flag so saved model loads as plain transformer
+        # Without this, Stage 2 has 0 trainable params (issue #3246)
+        if hasattr(transformer.auto_model, "_hf_peft_config_loaded"):
+            transformer.auto_model._hf_peft_config_loaded = False
         logger.info("LoRA merged successfully")
     else:
         logger.warning("merge_and_unload not available — saving with adapters")

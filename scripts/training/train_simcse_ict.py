@@ -31,7 +31,6 @@ from sentence_transformers.losses import CachedMultipleNegativesRankingLoss
 from sentence_transformers.training_args import BatchSamplers
 
 from scripts.training.config import (
-    DOCUMENT_PROMPT,
     ICT_CHECKPOINT,
     ICT_CONFIG,
     ICT_PAIRS_PATH,
@@ -140,9 +139,10 @@ def train_stage(
         logging_nan_inf_filter=True,
         save_strategy="epoch",
         load_best_model_at_end=False,
+        # Prompt on anchor (query) ONLY — positive is pre-formatted in JSONL
+        # with CCH title: "title: {cch} | text: {chunk}"
         prompts={
             "anchor": QUERY_PROMPT,
-            "positive": DOCUMENT_PROMPT,
         },
     )
 

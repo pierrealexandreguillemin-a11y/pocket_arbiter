@@ -295,11 +295,11 @@ def train_stage(
         logging_nan_inf_filter=True,
         save_strategy="epoch",
         load_best_model_at_end=False,
-        # Prompts: match pipeline inference (indexer_embed.py format_query/format_document)
-        # anchor column → query prompt, positive column → document prompt
+        # Prompt on anchor (query) ONLY — positive is pre-formatted in JSONL
+        # with CCH title: "title: {cch} | text: {chunk}"
+        # Adding a prompt on positive would double-format it.
         prompts={
             "anchor": QUERY_PROMPT,
-            "positive": DOCUMENT_PROMPT,
         },
     )
 

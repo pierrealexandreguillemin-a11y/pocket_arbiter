@@ -1,15 +1,19 @@
 """Tests for ICT data extraction."""
 
-from scripts.training.config import SEED
+from scripts.training.config import MAX_SEQ_LENGTH, QUERY_PROMPT, SEED
 from scripts.training.ict_data import (
     compute_data_stats,
     extract_random_sentence,
+    format_document,
     generate_ict_pairs,
     generate_simcse_pairs,
+    make_cch_title,
     mask_sentence_from_chunk,
     save_pairs,
     validate_pairs,
 )
+
+SOURCE_TITLES = {"test.pdf": "Test Document"}
 
 
 def test_extract_random_sentence_returns_long():
@@ -51,27 +55,65 @@ def test_mask_sentence_preserves_at_zero():
     assert "Phrase gardee." in result
 
 
-def test_generate_simcse_pairs():
-    texts = ["Chunk texte numero un." for _ in range(10)]
-    pairs = generate_simcse_pairs(texts)
-    assert len(pairs) == 10
-    assert pairs[0][0] == pairs[0][1]
+def test_make_cch_title():
+    assert (
+        make_cch_title("test.pdf", "Section A", SOURCE_TITLES)
+        == "Test Document > Section A"
+    )
+    assert make_cch_title("test.pdf", "", SOURCE_TITLES) == "Test Document"
+    assert make_cch_title("unknown.pdf", "Sec", {}) == "unknown > Sec"
 
 
-def test_generate_ict_pairs_count():
-    texts = [
-        "Premiere phrase longue du chunk reglementaire. Deuxieme phrase du chunk."
-        for _ in range(10)
+def test_format_document():
+    result = format_document("chunk text", "Doc > Section")
+    assert result == "title: Doc > Section | text: chunk text"
+
+
+def test_generate_simcse_pairs_formatted():
+    children = [
+        {
+            "id": "c1",
+            "text": "Chunk texte numero un.",
+            "source": "test.pdf",
+            "section": "Sec A",
+        },
     ]
-    pairs = generate_ict_pairs(texts, seed=SEED)
-    assert 0 < len(pairs) <= 10
-    for query, chunk in pairs:
+    pairs = generate_simcse_pairs(children, SOURCE_TITLES)
+    assert len(pairs) == 1
+    assert pairs[0][0] == pairs[0][1]  # SimCSE: identical
+    assert pairs[0][0].startswith("title: Test Document > Sec A | text: ")
+
+
+def test_generate_ict_pairs_formatted():
+    children = [
+        {
+            "id": "c1",
+            "text": "Premiere phrase longue du chunk reglementaire. Deuxieme phrase du chunk.",
+            "source": "test.pdf",
+            "section": "Section B",
+        }
+        for _ in range(5)
+    ]
+    pairs = generate_ict_pairs(children, SOURCE_TITLES, seed=SEED)
+    assert len(pairs) > 0
+    for query, doc in pairs:
         assert len(query) > 20
+        assert doc.startswith("title: Test Document > Section B | text: ")
 
 
 def test_generate_ict_pairs_reproducible():
-    texts = ["Phrase un longue. Phrase deux longue." for _ in range(10)]
-    assert generate_ict_pairs(texts, seed=42) == generate_ict_pairs(texts, seed=42)
+    children = [
+        {
+            "id": f"c{i}",
+            "text": "Phrase un longue. Phrase deux longue.",
+            "source": "test.pdf",
+            "section": "S",
+        }
+        for i in range(10)
+    ]
+    assert generate_ict_pairs(children, SOURCE_TITLES, seed=42) == generate_ict_pairs(
+        children, SOURCE_TITLES, seed=42
+    )
 
 
 def test_validate_pairs_pass():
@@ -86,13 +128,14 @@ def test_validate_pairs_fail_short():
     assert len(errors) == 1
 
 
-def test_compute_data_stats():
+def test_compute_data_stats_has_tokens():
     pairs = [("Query de test assez longue", "Document plus long que la query")] * 5
     stats = compute_data_stats(pairs)
     assert stats["count"] == 5
-    assert "query_len_median" in stats
-    assert "doc_len_median" in stats
-    assert stats["query_len_min"] > 0
+    assert "query_token_median" in stats
+    assert "doc_token_median" in stats
+    assert "docs_exceed_256_tokens" in stats
+    assert stats["query_token_min"] > 0
 
 
 def test_save_pairs(tmp_path):
@@ -106,3 +149,8 @@ def test_save_pairs(tmp_path):
         row = json.loads(f.readline())
     assert row["query"] == "query"
     assert row["document"] == "doc"
+
+
+def test_config_prompts_and_seq():
+    assert QUERY_PROMPT == "task: search result | query: "
+    assert MAX_SEQ_LENGTH == 2048

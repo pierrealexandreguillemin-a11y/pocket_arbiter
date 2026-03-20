@@ -1,3 +1,10 @@
 # Generated training pairs — reproducible via scripts/training/ict_data.py
 simcse_pairs.jsonl
 ict_pairs.jsonl
+
+# Legacy training artifacts (chantiers precedents)
+*.jsonl
+!data_stats.json
+unified/
+dataset_composition.json
+*.report.json

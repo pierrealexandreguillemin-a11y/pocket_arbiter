@@ -1,0 +1,20 @@
+{
+  "id": "pguillemin/pocket-arbiter-simcse-ict",
+  "title": "Pocket Arbiter SimCSE+ICT Fine-tuning",
+  "code_file": "train_simcse_ict.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "pguillemin/pocket-arbiter-training-data"
+  ],
+  "keywords": [
+    "embeddinggemma",
+    "simcse",
+    "ict",
+    "lora",
+    "sentence-transformers"
+  ]
+}

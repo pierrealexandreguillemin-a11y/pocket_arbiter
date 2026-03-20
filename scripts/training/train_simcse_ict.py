@@ -1,7 +1,10 @@
 """SimCSE + ICT self-supervised fine-tuning for EmbeddingGemma-300M.
 
-Usage (Kaggle T4):  python scripts/training/train_simcse_ict.py
-Usage (local CPU):  python scripts/training/train_simcse_ict.py --dry-run
+This is the LOCAL REFERENCE copy. The actual training script is:
+    kaggle/kernel/train_simcse_ict.py (self-contained, Kaggle paths)
+
+This file imports from scripts.training.config for local testing ONLY.
+Training runs on Kaggle T4, not locally.
 
 Standards:
     SimCSE: Gao et al. EMNLP 2021 (arXiv:2104.08821)
@@ -11,7 +14,6 @@ Standards:
 
 from __future__ import annotations
 
-import argparse
 import json
 import logging
 import random
@@ -92,24 +94,18 @@ def train_stage(
     config: dict,
     output_dir: str,
     stage_name: str,
-    dry_run: bool = False,
 ) -> SentenceTransformer:
     """Train one stage (SimCSE or ICT)."""
     logger.info("=== Stage: %s (%d examples) ===", stage_name, len(dataset))
 
     temperature = config.get("temperature", 0.05)
-    scale = 1.0 / temperature  # CachedMNRL uses scale (=1/temp), not temperature
+    scale = 1.0 / temperature
     loss = CachedMultipleNegativesRankingLoss(
         model,
         mini_batch_size=config["mini_batch_size"],
         scale=scale,
     )
 
-    epochs = 1 if dry_run else config["epochs"]
-    # T4 = Turing (compute 7.5), NO bf16 support. fp16 works per Tom Aarsen HF blog
-    # despite EmbeddingGemma model card warning. fp32 = safe fallback.
-    # Default: no bf16, no fp16 → fp32 (safe). Override via env var if needed.
-    #
     # SimCSE: BATCH_SAMPLER (NO_DUPLICATES conflicts with identical pairs)
     # ICT: NO_DUPLICATES (standard for contrastive)
     sampler = (
@@ -120,13 +116,13 @@ def train_stage(
 
     args = SentenceTransformerTrainingArguments(
         output_dir=output_dir,
-        num_train_epochs=epochs,
+        num_train_epochs=config["epochs"],
         per_device_train_batch_size=config["batch_size"],
         learning_rate=config["lr"],
         warmup_ratio=config["warmup_ratio"],
         weight_decay=config["weight_decay"],
         max_grad_norm=config["max_grad_norm"],
-        # fp32 by default (no bf16/fp16 flags = fp32). T4 safe.
+        # fp32 default. T4=Turing (compute 7.5), no bf16. Model card forbids fp16.
         seed=SEED,
         batch_sampler=sampler,
         logging_steps=5,
@@ -149,12 +145,6 @@ def train_stage(
 
 def main() -> None:
     """Run two-stage self-supervised fine-tuning."""
-    parser = argparse.ArgumentParser(description="SimCSE + ICT fine-tuning")
-    parser.add_argument(
-        "--dry-run", action="store_true", help="CPU, 1 epoch, quick test"
-    )
-    args = parser.parse_args()
-
     set_seed(SEED)
 
     simcse_data = load_pairs(SIMCSE_PAIRS_PATH)
@@ -164,24 +154,10 @@ def main() -> None:
     model = create_model_with_lora(MODEL_ID)
 
     # Stage 1: SimCSE
-    model = train_stage(
-        model,
-        simcse_data,
-        SIMCSE_CONFIG,
-        SIMCSE_CHECKPOINT,
-        "SimCSE",
-        dry_run=args.dry_run,
-    )
+    model = train_stage(model, simcse_data, SIMCSE_CONFIG, SIMCSE_CHECKPOINT, "SimCSE")
 
     # Stage 2: ICT (continues from SimCSE LoRA)
-    model = train_stage(
-        model,
-        ict_data,
-        ICT_CONFIG,
-        ICT_CHECKPOINT,
-        "ICT",
-        dry_run=args.dry_run,
-    )
+    model = train_stage(model, ict_data, ICT_CONFIG, ICT_CHECKPOINT, "ICT")
 
     logger.info("=== Training complete ===")
     logger.info("SimCSE checkpoint: %s", SIMCSE_CHECKPOINT)

@@ -42,14 +42,17 @@ logger.info("=== PHASE 0: Environment setup ===")
 # 0a. GPU validation
 assert (
     torch.cuda.is_available()
-), "FATAL: No GPU detected. This script requires Kaggle T4."
+), "FATAL: No GPU detected. This script requires a Kaggle GPU (T4 or P100)."
 GPU_NAME = torch.cuda.get_device_name(0)
-GPU_VRAM_MB = torch.cuda.get_device_properties(0).total_mem / 1024 / 1024
-logger.info("GPU: %s (%.0f MB VRAM)", GPU_NAME, GPU_VRAM_MB)
+GPU_PROPS = torch.cuda.get_device_properties(0)
+GPU_VRAM_MB = GPU_PROPS.total_memory / 1024 / 1024
+GPU_CAPABILITY = f"{GPU_PROPS.major}.{GPU_PROPS.minor}"
+logger.info("GPU: %s (%.0f MB VRAM, compute %s)", GPU_NAME, GPU_VRAM_MB, GPU_CAPABILITY)
 assert GPU_VRAM_MB >= 14000, f"FATAL: Need >= 14 GB VRAM, got {GPU_VRAM_MB:.0f} MB"
-assert (
-    "bf16" not in GPU_NAME.lower() or "A100" in GPU_NAME
-), "INFO: T4 Turing — fp32 mode (no bf16)"
+# T4 (7.5) or P100 (6.0) — both have 16GB, both work with fp32
+# PyTorch on Kaggle may not support P100 compute 6.0 — if so, re-push with --accelerator NvidiaTeslaT4
+assert GPU_PROPS.major >= 6, f"FATAL: Need compute >= 6.0, got {GPU_CAPABILITY}"
+logger.info("Precision: fp32 (no bf16/fp16 — T4 Turing or P100 Pascal, safe default)")
 
 # 0b. Install pinned deps
 DEPS = ["sentence-transformers==5.2.0", "peft>=0.14"]
@@ -233,7 +236,7 @@ def create_and_validate_model(model_id: str) -> SentenceTransformer:
 
     # Log VRAM after model load
     vram_used = torch.cuda.memory_allocated() / 1024 / 1024
-    vram_total = torch.cuda.get_device_properties(0).total_mem / 1024 / 1024
+    vram_total = torch.cuda.get_device_properties(0).total_memory / 1024 / 1024
     logger.info(
         "VRAM after model load: %.0f / %.0f MB (%.1f%%)",
         vram_used,

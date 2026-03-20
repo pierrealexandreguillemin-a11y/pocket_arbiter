@@ -242,12 +242,17 @@ def train_stage(
     )
     logger.info("=" * 60)
 
+    # scale = 1/temperature. SimCSE paper: temp=0.05 → scale=20.0 (= CachedMNRL default).
+    # ICT has no temperature in config → falls back to 0.05 → same scale.
+    # Explicit pass to document the choice, even though it matches default.
     temperature = config.get("temperature", 0.05)
     scale = 1.0 / temperature
     loss = CachedMultipleNegativesRankingLoss(
         model,
-        mini_batch_size=config["mini_batch_size"],
-        scale=scale,
+        mini_batch_size=config[
+            "mini_batch_size"
+        ],  # 16 (default 32, reduced for fp32 VRAM)
+        scale=scale,  # 20.0 (SimCSE paper temp 0.05)
     )
 
     sampler = (
@@ -292,7 +297,19 @@ def train_stage(
     assert not np.isinf(final_loss), "FATAL: Training loss is Inf"
     assert final_loss < 100, f"FATAL: Training loss suspiciously high: {final_loss}"
 
-    # Save checkpoint
+    # Merge LoRA into base model before saving (CRITICAL for standalone loading)
+    # Without merge, checkpoint contains adapter files only — unusable by load_model()
+    transformer = model[0]
+    if hasattr(transformer, "auto_model") and hasattr(
+        transformer.auto_model, "merge_and_unload"
+    ):
+        logger.info("Merging LoRA adapters into base model...")
+        transformer.auto_model = transformer.auto_model.merge_and_unload()
+        logger.info("LoRA merged successfully")
+    else:
+        logger.warning("merge_and_unload not available — saving with adapters")
+
+    # Save merged checkpoint (standalone, no peft dependency needed to load)
     model.save(output_dir)
     logger.info("Checkpoint saved: %s", output_dir)
 
@@ -322,6 +339,20 @@ def train_stage(
     logger.info("Checkpoint: %d files, %.1f MB total", total_files, total_size)
     assert total_files > 0, f"FATAL: No files in checkpoint {output_dir}"
     assert total_size > 1, f"FATAL: Checkpoint suspiciously small ({total_size:.1f} MB)"
+
+    # Validate checkpoint produces valid embeddings
+    logger.info("Validating checkpoint embeddings...")
+    test_model = SentenceTransformer(output_dir)
+    test_emb = test_model.encode(
+        ["Test embedding validation"], normalize_embeddings=True
+    )
+    assert test_emb.shape == (1, 768), f"FATAL: Expected (1, 768), got {test_emb.shape}"
+    assert not np.any(np.isnan(test_emb)), "FATAL: Checkpoint produces NaN embeddings"
+    assert not np.any(np.isinf(test_emb)), "FATAL: Checkpoint produces Inf embeddings"
+    norm = np.linalg.norm(test_emb[0])
+    assert 0.99 < norm < 1.01, f"FATAL: Embedding not normalized (norm={norm:.4f})"
+    logger.info("Embedding validation PASS: shape=%s, norm=%.4f", test_emb.shape, norm)
+    del test_model  # free VRAM
 
     # VRAM status
     vram_used = torch.cuda.memory_allocated() / 1024 / 1024

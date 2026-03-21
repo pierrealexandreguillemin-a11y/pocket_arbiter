@@ -164,6 +164,9 @@ model_download/
 models/embeddinggemma-*/
 models/*.jsonl
 tmp_kaggle_*/
+# Kaggle dataset-generation: large generated JSONL (uploaded via Kaggle CLI, not git)
+kaggle/dataset-generation/corpus_paragraphs.jsonl
+kaggle/dataset-generation/reading_tasks.jsonl
 nul
 
 # Report JSON (regenerable)

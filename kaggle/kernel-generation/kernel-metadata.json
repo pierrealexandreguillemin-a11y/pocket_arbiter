@@ -1,0 +1,17 @@
+{
+  "id": "pguillemin/pocket-arbiter-cpt-generation",
+  "title": "Pocket Arbiter CPT+SFT Generation",
+  "code_file": "train_generation.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "pguillemin/pocket-arbiter-gen-data"
+  ],
+  "keywords": [
+    "pocket-arbiter", "gemma", "cpt", "tapt", "adaptllm",
+    "sft", "generation", "chess", "full-finetuning"
+  ]
+}

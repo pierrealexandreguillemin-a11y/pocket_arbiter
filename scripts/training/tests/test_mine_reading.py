@@ -4,6 +4,7 @@ from scripts.training.mine_reading_tasks import (
     compute_mining_stats,
     mine_completion,
     mine_connectors,
+    mine_document,
     mine_summarization,
 )
 
@@ -86,8 +87,18 @@ class TestMineCompletion:
 
     def test_has_masked_sentence(self):
         results = mine_completion(FIXTURE_TEXT, FIXTURE_SOURCE)
-        if results:
-            assert "___" in results[0]["messages"][0]["content"]
+        assert len(results) > 0
+        assert "___" in results[0]["messages"][0]["content"]
+
+
+class TestMineDocument:
+    def test_mine_document_all_families(self):
+        results = mine_document(FIXTURE_TEXT, FIXTURE_SOURCE)
+        types = {r["task_type"] for r in results}
+        # Should have connector types + summarization + completion
+        assert "summarization" in types
+        assert len(types) >= 3  # at least 3 different types
+        assert all(r["source"] == FIXTURE_SOURCE for r in results)
 
 
 class TestComputeMiningStats:

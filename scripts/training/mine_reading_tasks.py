@@ -5,10 +5,14 @@ Cheng et al. ICLR 2024 — 6 task types mined from connector patterns.
 
 import argparse
 import json
+import logging
 import re
 import sys
 from pathlib import Path
 from typing import Any
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+logger = logging.getLogger(__name__)
 
 FR_CONNECTORS: dict[str, str] = {
     "nli_consequent": r"(?:Par conséquent|En conséquence|Par consequent|En consequence)",
@@ -73,15 +77,18 @@ def mine_connectors(text: str, source: str) -> list[dict[str, Any]]:
             if matched is None or len(matched) < 10:
                 continue
             tmpl = _PROMPTS[task_type]
-            if task_type in ("nli_consequent", "nli_contrast"):
+            if task_type == "nli_consequent":
                 passage = para.replace(matched, "").strip() or para
                 user = tmpl.format(passage=passage, sentence=matched)
-                answer = "Oui. " + matched
+                answer = "Oui, c'est une consequence. " + matched
+            elif task_type == "nli_contrast":
+                passage = para.replace(matched, "").strip() or para
+                user = tmpl.format(passage=passage, sentence=matched)
+                answer = "Oui, c'est un contraste. " + matched
             else:
                 user = tmpl.format(passage=para)
                 answer = matched
             exercises.append(format_exercise(task_type, user, answer, source))
-            break  # one per paragraph per connector type
     return exercises
 
 
@@ -217,8 +224,10 @@ def main() -> None:
     with open(stats_path, "w", encoding="utf-8") as f:
         json.dump(stats, f, ensure_ascii=False, indent=2)
 
-    assert stats["total"] >= 500, f"Gate G2 FAIL: {stats['total']} < 500"
-    print("Gate G2 PASS: yield >= 500")
+    if stats["total"] < 500:
+        logger.error("Gate G2 FAIL: %d < 500", stats["total"])
+        sys.exit(1)
+    logger.info("Gate G2 PASS: %d exercises", stats["total"])
 
 
 if __name__ == "__main__":

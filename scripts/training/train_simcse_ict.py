@@ -106,7 +106,7 @@ def train_stage(
     """Train one stage (SimCSE or ICT)."""
     logger.info("=== Stage: %s (%d examples) ===", stage_name, len(dataset))
 
-    # scale = 1/temperature. SimCSE paper: temp=0.05 → scale=20.0 (= CachedMNRL default).
+    # scale = 1/temp. SimCSE: temp=0.05, scale=20.0 (CachedMNRL default).
     # ICT has no temperature in config → falls back to 0.05 → same scale.
     temperature = config.get("temperature", 0.05)
     scale = 1.0 / temperature

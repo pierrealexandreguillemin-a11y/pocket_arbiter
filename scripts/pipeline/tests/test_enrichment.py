@@ -1,4 +1,4 @@
-"""Tests for enrichment module (OPT 1-2-4: context, abbreviations, chapter overrides)."""
+"""Tests for enrichment (OPT 1-2-4: context, abbrev, overrides)."""
 
 from __future__ import annotations
 

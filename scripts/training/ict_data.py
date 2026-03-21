@@ -110,8 +110,8 @@ def generate_ict_pairs(
 ) -> list[tuple[str, str]]:
     """ICT pairs: (random_sentence, formatted_chunk) with 90% masking.
 
-    Query = raw sentence (trainer adds query prompt "task: search result | query: ").
-    Document = pre-formatted with CCH title (trainer must NOT add prompt on this column).
+    Query = raw sentence (trainer adds query prompt).
+    Document = pre-formatted with CCH title (no prompt).
 
     Args:
         children: List of dicts with text, source, section.
@@ -135,7 +135,10 @@ def generate_ict_pairs(
         pairs.append((sentence, formatted_doc))
     skip_rate = skipped / len(children) if children else 0
     if skip_rate > max_skip_rate:
-        msg = f"ICT: {skipped}/{len(children)} chunks skipped ({skip_rate:.0%} > {max_skip_rate:.0%})"
+        msg = (
+            f"ICT: {skipped}/{len(children)} skipped"
+            f" ({skip_rate:.0%} > {max_skip_rate:.0%})"
+        )
         raise ValueError(msg)
     return pairs
 

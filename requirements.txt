@@ -4,6 +4,7 @@
 
 # === PDF Extraction (IBM/LF AI) ===
 docling>=2.68.0  # ML-based, tables+sections, MIT license
+docling-hierarchical-pdf>=0.1.5  # Heading hierarchy (h1>h2>h3), required for CCH titles
 
 # === Tokenization ===
 tiktoken>=0.8.0  # OpenAI cl100k_base, fast C impl

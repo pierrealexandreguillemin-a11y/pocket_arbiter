@@ -88,7 +88,7 @@ def test_generate_ict_pairs_formatted():
     children = [
         {
             "id": "c1",
-            "text": "Premiere phrase longue du chunk reglementaire. Deuxieme phrase du chunk.",
+            "text": ("Premiere phrase longue du chunk." " Deuxieme phrase du chunk."),
             "source": "test.pdf",
             "section": "Section B",
         }
@@ -105,7 +105,9 @@ def test_generate_ict_pairs_reproducible():
     children = [
         {
             "id": f"c{i}",
-            "text": "Premiere phrase longue du chunk reglementaire. Deuxieme phrase du chunk aussi suffisamment longue.",
+            "text": (
+                "Premiere phrase longue du chunk." " Deuxieme phrase aussi longue."
+            ),
             "source": "test.pdf",
             "section": "S",
         }

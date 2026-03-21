@@ -1,4 +1,5 @@
 """Tests for PDF extraction with hierarchical headings."""
+
 from __future__ import annotations
 
 import re
@@ -7,7 +8,10 @@ from pathlib import Path
 import pytest
 
 from scripts.pipeline.extract import (
-    extract_pdf, extract_corpus, _strip_page_headers, _apply_edge_case_fixes,
+    _apply_edge_case_fixes,
+    _strip_page_headers,
+    extract_corpus,
+    extract_pdf,
 )
 
 
@@ -166,8 +170,11 @@ class TestExtractPdfR01:
         sub = re.search(r"^(#{1,6}) .*2\.1", md, re.MULTILINE)
         top = re.search(r"^(#{1,6}) .*2\. Statut", md, re.MULTILINE)
         if sub and top:
-            assert len(sub.group(1)) > len(top.group(1)), \
-                f"2.1 (h{len(sub.group(1))}) should be deeper than 2. (h{len(top.group(1))})"
+            sub_depth = len(sub.group(1))
+            top_depth = len(top.group(1))
+            assert sub_depth > top_depth, (
+                f"2.1 (h{sub_depth}) should be deeper" f" than 2. (h{top_depth})"
+            )
 
     @pytest.mark.slow
     def test_page_headers_stripped(self):
@@ -178,9 +185,7 @@ class TestExtractPdfR01:
         result = extract_pdf(pdf_path)
         md = result["markdown"]
         # "REGLES GENERALES" is the page header, should appear once
-        count = len(re.findall(
-            r"^#{1,6} .*R.GLES G.N.RALES", md, re.MULTILINE
-        ))
+        count = len(re.findall(r"^#{1,6} .*R.GLES G.N.RALES", md, re.MULTILINE))
         assert count == 1, f"Page header appears {count} times (expected 1)"
 
 
@@ -217,8 +222,9 @@ class TestExtractPdfLA:
         if not pdf_path.exists():
             pytest.skip("PDF not available")
         result = extract_pdf(pdf_path)
-        assert len(result["tables"]) >= 80, \
-            f"Expected 80+ tables, got {len(result['tables'])}"
+        assert (
+            len(result["tables"]) >= 80
+        ), f"Expected 80+ tables, got {len(result['tables'])}"
 
     @pytest.mark.slow
     def test_article_hierarchy(self):
@@ -231,8 +237,11 @@ class TestExtractPdfLA:
         art7 = re.search(r"^(#{1,6}) .*Article 7\b", md, re.MULTILINE)
         art71 = re.search(r"^(#{1,6}) .*7\.1", md, re.MULTILINE)
         if art7 and art71:
-            assert len(art71.group(1)) >= len(art7.group(1)), \
-                f"7.1 (h{len(art71.group(1))}) should be >= depth of Article 7 (h{len(art7.group(1))})"
+            d71 = len(art71.group(1))
+            d7 = len(art7.group(1))
+            assert d71 >= d7, (
+                f"7.1 (h{d71}) should be >= depth" f" of Article 7 (h{d7})"
+            )
 
 
 class TestExtractPdfSmall:
@@ -240,7 +249,9 @@ class TestExtractPdfSmall:
 
     @pytest.mark.slow
     def test_h02_joueurs_mobilite_reduite(self):
-        pdf_path = Path("corpus/fr/Compétitions/H02_2025_26_Joueurs_a_mobilite_reduite.pdf")
+        pdf_path = Path(
+            "corpus/fr/Compétitions" "/H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+        )
         if not pdf_path.exists():
             pytest.skip("PDF not available")
         result = extract_pdf(pdf_path)

@@ -99,7 +99,7 @@ repos:
       - id: pytest-quick
         name: "ISO 29119 | Quick Test Gate (core modules)"
         description: "Run core tests to prevent broken commits"
-        entry: python
+        entry: C:/Dev/pocket_arbiter/.venv/Scripts/python.exe
         args: [-m, pytest, scripts/iso/tests/, scripts/pipeline/tests/, -x, --tb=short, -q, -m, "not slow"]
         language: system
         pass_filenames: false
@@ -132,7 +132,7 @@ repos:
       - id: pytest-cov
         name: "ISO 29119 | Test Coverage (80% min)"
         description: "Run tests with coverage measurement"
-        entry: python
+        entry: C:/Dev/pocket_arbiter/.venv/Scripts/python.exe
         args: [-m, pytest, scripts/, -v, --tb=short, --cov=scripts, --cov-config=.coveragerc, --cov-fail-under=80, -x, -m, "not slow", --ignore=scripts/archive]
         language: system
         pass_filenames: false
@@ -146,7 +146,7 @@ repos:
       - id: xenon-pipeline
         name: "ISO 25010 | Cyclomatic Complexity (pipeline)"
         description: "Ensure maintainable code complexity in pipeline modules"
-        entry: python
+        entry: C:/Dev/pocket_arbiter/.venv/Scripts/python.exe
         args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/pipeline/, -e, "scripts/pipeline/adversarial_harness.py,scripts/pipeline/tests/test_indexer.py"]
         language: system
         pass_filenames: false
@@ -155,7 +155,7 @@ repos:
       - id: xenon-iso
         name: "ISO 25010 | Cyclomatic Complexity (iso)"
         description: "Ensure maintainable code complexity in ISO modules"
-        entry: python
+        entry: C:/Dev/pocket_arbiter/.venv/Scripts/python.exe
         args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/iso/]
         language: system
         pass_filenames: false

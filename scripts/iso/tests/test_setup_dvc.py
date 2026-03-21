@@ -162,7 +162,8 @@ class TestMainFunction:
                 with patch("sys.argv", ["setup_dvc.py"]):
                     # Need to patch Path to avoid real filesystem
                     with patch.object(setup_module, "Path") as mock_path_cls:
-                        mock_path_cls.return_value.resolve.return_value.parent.parent.parent = tmp_path
+                        mock_root = mock_path_cls.return_value.resolve.return_value
+                        mock_root.parent.parent.parent = tmp_path
                         mock_dvc_dir = MagicMock()
                         mock_dvc_dir.__truediv__ = MagicMock(
                             return_value=MagicMock(exists=MagicMock(return_value=False))

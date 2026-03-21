@@ -49,21 +49,31 @@ SOURCE_TITLES: dict[str, str] = {
     "2024_Statuts20240420.pdf": "Statuts FFE",
     "2025_Reglement_Interieur_20250503.pdf": "Reglement Interieur FFE",
     "A01_2025_26_Championnat_de_France.pdf": "Championnat de France Individuel",
-    "A02_2025_26_Championnat_de_France_des_Clubs.pdf": "Championnat de France des Clubs",
-    "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf": "Championnat de France des Clubs Rapides",
+    "A02_2025_26_Championnat_de_France_des_Clubs.pdf": (
+        "Championnat de France des Clubs"
+    ),
+    "A03_2025_26_Championnat_de_France_des_Clubs_rapides.pdf": (
+        "Championnat de France des Clubs Rapides"
+    ),
     "C01_2025_26_Coupe_de_France.pdf": "Coupe de France",
     "C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf": "Coupe Jean-Claude Loubatiere",
     "C04_2025_26_Coupe_de_la_parité.pdf": "Coupe de la Parite",
     "Contrat_de_delegation_15032022.pdf": "Contrat de Delegation FFE",
     "E02-Le_classement_rapide.pdf": "Classement Rapide",
-    "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf": "Championnat France Clubs Feminin",
-    "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf": "Championnat Individuel Feminin Rapide",
+    "F01_2025_26_Championnat_de_France_des_clubs_Feminin.pdf": (
+        "Championnat France Clubs Feminin"
+    ),
+    "F02_2025_26_Championnat_individuel_Feminin_parties_rapides.pdf": (
+        "Championnat Individuel Feminin Rapide"
+    ),
     "H01_2025_26_Conduite_pour_joueur_handicapes.pdf": "Conduite Joueurs Handicapes",
     "H02_2025_26_Joueurs_a_mobilite_reduite.pdf": "Joueurs Mobilite Reduite",
     "InterclubsJeunes_PACABdr.pdf": "Interclubs Jeunes PACA",
     "Interclubs_DepartementalBdr.pdf": "Interclubs Departemental BdR",
     "J01_2025_26_Championnat_de_France_Jeunes.pdf": "Championnat France Jeunes",
-    "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf": "Championnat France Interclubs Jeunes",
+    "J02_2025_26_Championnat_de_France_Interclubs_Jeunes.pdf": (
+        "Championnat France Interclubs Jeunes"
+    ),
     "J03_2025_26_Championnat_de_France_scolaire.pdf": "Championnat France Scolaire",
     "LA-octobre2025.pdf": "Livre de l'Arbitre FFE",
     "R01_2025_26_Regles_generales.pdf": "Regles Generales FFE",
@@ -244,7 +254,7 @@ def build_index(
         enrich_chunks(all_children, contexts)
         enrich_table_summaries(table_sums)
         logger.info(
-            "Enriched %d children (contexts + abbreviations), %d table summaries (abbreviations)",
+            "Enriched %d children, %d table summaries" " (contexts + abbreviations)",
             len(all_children),
             len(table_sums),
         )

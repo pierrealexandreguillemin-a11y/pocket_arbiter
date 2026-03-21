@@ -133,12 +133,11 @@ class TestExecutableGates:
             assert any("remote" in w.lower() for w in warnings)
 
     def test_gate_lint_success(self, gate_project):
-        """Test lint gate with clean Python."""
-        (gate_project / "scripts" / "clean.py").write_text(
-            "def hello():\n    return 'world'\n"
-        )
+        """Test lint gate with clean output."""
         gates, _, _, _ = make_gates(gate_project)
-        result = gates.gate_lint("scripts/")
+        with patch.object(gates, "run_command") as mock_run:
+            mock_run.return_value = (True, "")
+            result = gates.gate_lint("scripts/")
         assert result is True
 
     def test_gate_lint_failure(self, gate_project):

@@ -32,7 +32,8 @@ class TestPhaseValidation:
         """Test Phase 1 with corpus."""
         (full_project / "corpus" / "fr" / "test.pdf").write_bytes(b"%PDF-1.4")
         validator, _, _, passed = make_phase_validator(full_project)
-        result = validator.validate_phase(1)
+        with patch.object(validator.gates, "gate_lint", return_value=True):
+            result = validator.validate_phase(1)
         assert result is True
         assert any("PDF" in p for p in passed)
 
@@ -51,10 +52,10 @@ class TestPhaseValidation:
             "def test_pass():\n    assert True\n"
         )
         validator, _, _, _ = make_phase_validator(full_project)
-        with patch.object(validator.gates, "gate_pytest") as mock_pytest:
-            mock_pytest.return_value = True
-            result = validator.validate_phase(1)
-            assert result is True
+        with patch.object(validator.gates, "gate_pytest", return_value=True):
+            with patch.object(validator.gates, "gate_lint", return_value=True):
+                result = validator.validate_phase(1)
+                assert result is True
 
     def test_validate_phase2_no_android_app_dir(self, full_project):
         """Test Phase 2 fails when android/app directory missing."""

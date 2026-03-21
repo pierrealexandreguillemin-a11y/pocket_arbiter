@@ -38,8 +38,15 @@
 - **Level 3 DONE** : structured cells (neutre recall, fonctionnalite RAG Android)
 - **Model switch** : QAT → base (+2.4pp, aligne build/runtime)
 
+### Fine-tuning retrieval (chantier 4a — ABANDONNE)
+- SimCSE + ICT LoRA planifie, spec ecrite, kernel code, dataset prepare
+- Audit code review (2026-03-21) : 3 bugs critiques (Stage 2 sans LoRA, prompt asymetrique, pas d'eval)
+- **ABANDONNE** : 0 precedent litterature a 1116 exemples, precedent fine-tune a degrade recall, rendements decroissants
+- EmbeddingGemma-300M base reste en l'etat (pas de fine-tuning)
+
 ### Cap
-- **Decision** : LoRA fine-tuning sur EmbeddingGemma-300M base
+- **Decision** : pivoter vers GRPO fine-tuning du modele de generation (Gemma 3n)
+- Le retrieval a 60.1% R@5 reste tel quel — la generation compensera (citations, aveu d'ignorance)
 - **Question ouverte** : pourquoi les optimisations standard (contextual retrieval, row-as-chunk) ont un impact marginal ou negatif malgre les standards industrie ?
 
 ## Commandes

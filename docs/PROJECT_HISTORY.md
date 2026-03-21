@@ -121,3 +121,30 @@ Chronologie factuelle des decisions et errements du projet.
 - Query decomposition (OPT-8) : 3/110 matches, skipped
 - **Question ouverte** : pourquoi les techniques standard industrie (contextual retrieval -35% failures Anthropic, row-as-chunk Ragie) ont un impact marginal ou negatif sur CE corpus/modele ?
   - Hypotheses a explorer : seq_length 2048 vs modeles cloud 8K+, corpus reglementaire FR vs benchmarks EN, EmbeddingGemma 300M vs Voyage/OpenAI, taille corpus 1116 chunks vs benchmarks 10K+
+
+## Ere 8 : Fine-tuning retrieval — abandonne (mars 2026)
+
+- Chantier 4a planifie : SimCSE + ICT LoRA sur EmbeddingGemma-300M, Kaggle T4
+- Spec ecrite (2026-03-20), kernel code, dataset prepare (1116 SimCSE + 1067 ICT pairs)
+- Audit code review (2026-03-21) : **3 bugs critiques** trouves dans le kernel
+  - Stage 2 sans LoRA re-attache (merge_and_unload detruit les adapters, Stage 2 casse)
+  - SimCSE avec prompt asymetrique (query prompt sur document = pas du SimCSE)
+  - Pas d'evaluation/early stopping malgre la spec qui le demande
+- **Decision : ABANDON chantier 4a** — raisons cumulees :
+  1. Aucune litterature ne valide SimCSE/ICT a l'echelle 1116 exemples (900x-73000x sous papers)
+  2. Precedent fine-tune supervise a DEGRADE recall (82.84% → 65.69%)
+  3. 8 optimisations retrieval testees (chantier 3) : +3.4pp total — rendements decroissants
+  4. EmbeddingGemma = seul modele on-device <500MB, pas d'alternative
+  5. GS = faux-ami (264/298 QCM annales ≠ queries terrain arbitres)
+  6. Le levier generation est inexplore et plus prometteur
+- **Pivot** : chantier 4 = GRPO fine-tuning modele generation (Gemma 3n)
+  - Le retrieval a 60.1% R@5 reste en l'etat (EmbeddingGemma-300M base, non fine-tune)
+  - La generation peut compenser : citations fideles, aveu d'ignorance, reformulation
+  - GRPO = reward rule-based, pas de dependance au GS
+
+## Decisions cles (suite)
+
+| Date | Decision | Raison |
+|------|----------|--------|
+| 21 mar | Chantier 4a (LoRA retrieval) ABANDONNE | 3 bugs critiques, 0 precedent litterature a cette echelle, rendements decroissants, precedent echec |
+| 21 mar | Pivot vers generation (GRPO Gemma 3n) | Levier inexplore, retrieval 60.1% = suffisant si generation compense |

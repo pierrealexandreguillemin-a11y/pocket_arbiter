@@ -108,7 +108,7 @@ TASKS_PATH = os.path.join(INPUT_DIR, "reading_tasks.jsonl")
 
 _D = DRY_RUN
 SFT_CFG = dict(
-    epochs=1 if _D else 1,
+    epochs=1,  # always 1 in v2; dry-run uses smaller batch/seq only
     batch_size=1,
     grad_accum=1 if _D else 16,
     lr=1e-5,

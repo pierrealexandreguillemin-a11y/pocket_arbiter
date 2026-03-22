@@ -172,10 +172,49 @@ Paths resolus Kaggle :
 | Fichier | Action | Description |
 |---------|--------|-------------|
 | `kaggle/kernel-sft/train_sft_v2.py` | CREATE | Script SFT v2 (fork de train_sft.py) |
-| `kaggle/kernel-sft/kernel-metadata.json` | MODIFY | Pointer vers train_sft_v2.py |
+| `kaggle/kernel-sft/kernel-metadata.json` | MODIFY | code_file → train_sft_v2.py (meme slug) |
 | `kaggle/kernel-eval/eval_generation_kaggle.py` | KEEP | Inchange (base depuis Kaggle dataset) |
 | `kaggle/kernel-eval/kernel-metadata.json` | KEEP | Inchange |
 | `kaggle/sft-checkpoint/` | UPDATE | Apres analyse locale, best checkpoint v2 |
+
+### Commandes de deploiement
+
+```bash
+# 1. Verifier que le TAPT dataset v2 est bien processe
+kaggle datasets files pguillemin/gemma-270m-tapt-checkpoint
+# → model.safetensors doit montrer une date post-upload
+
+# 2. Verifier que l'ancien kernel SFT est termine
+kaggle kernels status pguillemin/pocket-arbiter-sft-generation
+
+# 3. Push kernel SFT v2 avec T4 explicite
+kaggle kernels push -p kaggle/kernel-sft --accelerator NvidiaTeslaT4
+
+# 4. Monitorer
+kaggle kernels status pguillemin/pocket-arbiter-sft-generation
+
+# 5. Download outputs
+kaggle kernels output pguillemin/pocket-arbiter-sft-generation -p models/kaggle-sft-v2-output/
+
+# 6. Apres analyse locale : uploader best checkpoint
+kaggle datasets version -p kaggle/sft-checkpoint/ -m "SFT v2 best checkpoint (step N)"
+
+# 7. Push kernel eval avec T4
+kaggle kernels push -p kaggle/kernel-eval --accelerator NvidiaTeslaT4
+```
+
+### Checklist Kaggle pre-push (OBLIGATOIRE)
+
+- [ ] TAPT dataset v2 processe (`kaggle datasets files` montre date recente)
+- [ ] Ancien kernel SFT status = COMPLETE ou ERROR (`kaggle kernels status`)
+- [ ] `kernel-metadata.json` : `code_file` = `train_sft_v2.py`
+- [ ] `kernel-metadata.json` : `enable_internet` = `true` (pip install trl)
+- [ ] `kernel-metadata.json` : `enable_gpu` = `true`
+- [ ] Script : `os.environ["CUDA_VISIBLE_DEVICES"] = "0"` en haut
+- [ ] Script : model charge en `torch.float32` avec `device_map={"": 0}`
+- [ ] Script : `gradient_checkpointing=True` dans SFTConfig
+- [ ] Script : `fp16=True` dans SFTConfig (AMP, PAS fp16 model load)
+- [ ] Push avec `--accelerator NvidiaTeslaT4` (PAS juste enable_gpu)
 
 ---
 

@@ -74,7 +74,16 @@ Kernel Eval (~30 min Kaggle T4):
 
 **Inchanges** : batch_size=1, grad_accum=16, cosine scheduler, warmup 10%,
 NEFTune alpha=5, weight_decay=0.01, max_grad_norm=1.0, seq_length=1024,
-eval_strategy="no" (OOM vocab 262K), seed=42.
+eval_strategy="no" (OOM vocab 262K), seed=42, enable_internet=true (pip install trl).
+
+**Precision** : model charge en fp32 (`torch.float32`), training en fp16 AMP
+(`fp16=True` dans SFTConfig), inference/eval en fp32 (Gemma 3 fp16 inference
+cause NaN — issue #36822, documente dans eval spec).
+
+**Disk** : 6 checkpoints × ~1 GB = ~6-7 GB sur 20 GB output Kaggle. OK.
+
+**Note** : checkpoint-100 et le modele final (step 101) sont quasi-identiques
+(1 step d'ecart). Traites comme un seul candidat lors de la selection.
 
 ### Inputs Kaggle
 
@@ -133,9 +142,10 @@ Paths resolus Kaggle :
 
 | Check | Methode | Decision |
 |-------|---------|----------|
-| Best checkpoint | Max token_accuracy parmi 5 checkpoints | Upload celui-la |
+| Best checkpoint | Min loss parmi 5 checkpoints (trainer_state.json) | Upload celui-la |
+| Token accuracy | Verifier mean_token_accuracy (TRL log par defaut) | Confirme le choix loss |
 | Overfit signal | Loss remonte entre checkpoints consecutifs | Prendre checkpoint avant remontee |
-| Degeneration | 5 test prompts sur best checkpoint | Si boucles → checkpoint precedent |
+| Degeneration | 5-gram repetition % sur 5 test prompts (meme script que analyse v1) | Si > 0% → checkpoint precedent |
 
 ### Kernel Eval
 

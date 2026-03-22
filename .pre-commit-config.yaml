@@ -133,7 +133,7 @@ repos:
         name: "ISO 29119 | Test Coverage (80% min)"
         description: "Run tests with coverage measurement"
         entry: C:/Dev/pocket_arbiter/.venv/Scripts/python.exe
-        args: [-m, pytest, scripts/, -v, --tb=short, --cov=scripts, --cov-config=.coveragerc, --cov-fail-under=80, -x, -m, "not slow", --ignore=scripts/archive]
+        args: [-m, pytest, scripts/, -v, --tb=short, --cov=scripts/iso, --cov=scripts/pipeline, --cov-config=.coveragerc, --cov-fail-under=80, -x, -m, "not slow", --ignore=scripts/archive]
         language: system
         pass_filenames: false
         stages: [pre-push]

@@ -12,6 +12,11 @@ Standards: TAPT (Gururangan ACL 2020), AdaptLLM (Cheng ICLR 2024),
 
 from __future__ import annotations
 
+import os
+
+# Force single GPU — prevent DataParallel on T4x2
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 import json  # noqa: E401
 import logging
 import math
@@ -56,10 +61,23 @@ subprocess.check_call(
 try:
     from kaggle_secrets import UserSecretsClient
 
-    os.environ["HF_TOKEN"] = UserSecretsClient().get_secret("HF_TOKEN")
-    logger.info("HF_TOKEN loaded from Kaggle secrets")
+    _secrets = UserSecretsClient()
+    _token = None
+    for _key in ("HF_TOKEN", "hf kaggle", "HUGGING_FACE_HUB_TOKEN"):
+        try:
+            _token = _secrets.get_secret(_key)
+            if _token:
+                logger.info("HF token loaded from Kaggle secret '%s'", _key)
+                break
+        except Exception:  # noqa: S112
+            continue
+    if _token:
+        os.environ["HF_TOKEN"] = _token
+        os.environ["HUGGING_FACE_HUB_TOKEN"] = _token
+    else:
+        logger.info("No HF token in secrets (OK if model loaded from dataset)")
 except Exception:
-    logger.warning("No Kaggle secrets — using env HF_TOKEN or cached token")
+    logger.info("Kaggle secrets unavailable (OK if model loaded from dataset)")
 
 import tiktoken  # noqa: E402
 from datasets import Dataset  # noqa: E402
@@ -74,7 +92,22 @@ from transformers import (  # noqa: E402
 from trl import SFTConfig, SFTTrainer  # noqa: E402
 
 # === PHASE 1: Config ===
-SEED, MODEL_ID, DRY_RUN = 42, "google/gemma-3-270m-it", "--dry-run" in sys.argv
+SEED = 42
+DRY_RUN = "--dry-run" in sys.argv
+
+# Model: prefer Kaggle dataset mount (no HF auth), fallback to Hub
+_KAGGLE_MODEL_PATHS = [
+    "/kaggle/input/gemma-3-270m-it",
+    "/kaggle/input/datasets/pguillemin/gemma-3-270m-it",
+]
+MODEL_ID = "google/gemma-3-270m-it"  # fallback (needs HF auth)
+for _mp in _KAGGLE_MODEL_PATHS:
+    if os.path.isdir(_mp) and os.path.exists(os.path.join(_mp, "config.json")):
+        MODEL_ID = _mp
+        logger.info("Using Kaggle-mounted model: %s", _mp)
+        break
+else:
+    logger.info("No Kaggle model mount found, using Hub: %s", MODEL_ID)
 
 logger.info("=== /kaggle/input/ contents ===")
 if os.path.isdir("/kaggle/input"):
@@ -110,28 +143,28 @@ EVAL_HOLDOUT = {
 _D = DRY_RUN
 TAPT_CFG = dict(
     epochs=1 if _D else 5,
-    batch_size=1 if _D else 2,
-    grad_accum=1 if _D else 8,
+    batch_size=1,
+    grad_accum=1 if _D else 16,
     lr=5e-6,
-    warmup_ratio=0.1,
+    warmup_pct=0.1,  # converted to warmup_steps before TrainingArguments
     weight_decay=0.01,
     max_grad_norm=1.0,
     neftune_alpha=5,
     dropout=0.1,
-    seq_length=512 if _D else 2048,
+    seq_length=512 if _D else 1024,
     save_total_limit=2,
 )
 SFT_CFG = dict(
     epochs=1 if _D else 3,
-    batch_size=1 if _D else 2,
-    grad_accum=1 if _D else 8,
+    batch_size=1,
+    grad_accum=1 if _D else 16,
     lr=2e-5,
-    warmup_ratio=0.1,
+    warmup_pct=0.1,  # converted to warmup_steps before TrainingArguments
     weight_decay=0.01,
     max_grad_norm=1.0,
     neftune_alpha=5,
     save_total_limit=2,
-    seq_length=512 if _D else 2048,
+    seq_length=512 if _D else 1024,
 )
 
 TEST_PROMPTS = [
@@ -164,13 +197,21 @@ def generate_test(mdl: AutoModelForCausalLM, tok: AutoTokenizer, label: str) -> 
     logger.info("%s generation test:", label)
     mdl.eval()
     for p in TEST_PROMPTS:
-        ids = tok(p, return_tensors="pt").input_ids.to(mdl.device)
+        inputs = tok(p, return_tensors="pt", padding=False)
+        input_ids = inputs["input_ids"].to(mdl.device)
+        attention_mask = inputs["attention_mask"].to(mdl.device)
         with torch.no_grad():
-            out = mdl.generate(ids, max_new_tokens=50, do_sample=False)
+            out = mdl.generate(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                max_new_tokens=50,
+                do_sample=False,
+                pad_token_id=tok.eos_token_id,
+            )
         logger.info(
             "  Q: %s\n  A: %s",
             p,
-            tok.decode(out[0][ids.shape[1] :], skip_special_tokens=True)[:120],
+            tok.decode(out[0][input_ids.shape[1] :], skip_special_tokens=True)[:120],
         )
 
 
@@ -224,7 +265,7 @@ assert (
 # === PHASE 3: Model loading ===
 logger.info("=== PHASE 3: Model loading ===")
 model = AutoModelForCausalLM.from_pretrained(
-    MODEL_ID, torch_dtype=torch.float16, device_map={"": 0}
+    MODEL_ID, dtype=torch.float32, device_map={"": 0}
 )
 cfg = model.config
 logger.info(
@@ -283,12 +324,18 @@ collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 def compute_perplexity(mdl: AutoModelForCausalLM, ds: Dataset) -> float:
     mdl.eval()
     total_loss, total_tok = 0.0, 0
-    for i in range(len(ds)):
-        ids = torch.tensor([ds[i]["input_ids"]], device=mdl.device)
-        out = mdl(input_ids=ids, labels=ids)
-        total_loss += out.loss.item() * ids.shape[1]
-        total_tok += ids.shape[1]
-    return math.exp(total_loss / total_tok)
+    with torch.no_grad(), torch.amp.autocast("cuda", enabled=False):
+        for i in range(len(ds)):
+            ids = torch.tensor([ds[i]["input_ids"]], device=mdl.device)
+            out = mdl(input_ids=ids.long(), labels=ids.long())
+            loss_val = float(out.loss)
+            if not math.isnan(loss_val) and not math.isinf(loss_val):
+                total_loss += loss_val * ids.shape[1]
+                total_tok += ids.shape[1]
+    if total_tok == 0:
+        return float("inf")
+    avg_loss = total_loss / total_tok
+    return math.exp(min(avg_loss, 20.0))  # cap to avoid overflow
 
 
 ppl_before = compute_perplexity(model, eval_ds)
@@ -302,7 +349,7 @@ tapt_args = TrainingArguments(
     per_device_eval_batch_size=C["batch_size"],
     gradient_accumulation_steps=C["grad_accum"],
     learning_rate=C["lr"],
-    warmup_ratio=C["warmup_ratio"],
+    warmup_ratio=C["warmup_pct"],
     weight_decay=C["weight_decay"],
     max_grad_norm=C["max_grad_norm"],
     lr_scheduler_type="cosine",
@@ -358,6 +405,14 @@ logger.info("TAPT checkpoint: %s", TAPT_CKPT)
 generate_test(model, tokenizer, "Post-TAPT")
 log_vram("after TAPT")
 
+# Free TAPT trainer memory before SFT
+del trainer
+import gc  # noqa: E402
+
+gc.collect()
+torch.cuda.empty_cache()
+log_vram("after TAPT cleanup")
+
 # === PHASE 5: SFT training ===
 logger.info("=== PHASE 5: SFT training ===")
 
@@ -379,7 +434,7 @@ sft_config = SFTConfig(
     per_device_train_batch_size=S["batch_size"],
     gradient_accumulation_steps=S["grad_accum"],
     learning_rate=S["lr"],
-    warmup_ratio=S["warmup_ratio"],
+    warmup_ratio=S["warmup_pct"],
     weight_decay=S["weight_decay"],
     max_grad_norm=S["max_grad_norm"],
     lr_scheduler_type="cosine",
@@ -391,8 +446,12 @@ sft_config = SFTConfig(
     logging_steps=1,
     logging_nan_inf_filter=True,
     eval_strategy="epoch",
+    prediction_loss_only=True,  # fix eval OOM: skip logits, compute loss only
     save_strategy="epoch",
-    save_total_limit=S["save_total_limit"],
+    save_total_limit=3,  # keep all 3 epoch checkpoints for sweet spot selection
+    load_best_model_at_end=True,
+    metric_for_best_model="eval_loss",
+    greater_is_better=False,
 )
 
 sft_trainer = SFTTrainer(

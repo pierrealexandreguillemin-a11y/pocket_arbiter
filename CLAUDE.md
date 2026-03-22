@@ -44,10 +44,14 @@
 - **ABANDONNE** : 0 precedent litterature a 1116 exemples, precedent fine-tune a degrade recall, rendements decroissants
 - EmbeddingGemma-300M base reste en l'etat (pas de fine-tuning)
 
-### Cap
-- **Decision** : pivoter vers GRPO fine-tuning du modele de generation (Gemma 3n)
-- Le retrieval a 60.1% R@5 reste tel quel — la generation compensera (citations, aveu d'ignorance)
-- **Question ouverte** : pourquoi les optimisations standard (contextual retrieval, row-as-chunk) ont un impact marginal ou negatif malgre les standards industrie ?
+### Generation fine-tuning (chantier 4 — en cours)
+- **TAPT DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, perplexity 37.74 → 7.98, Gate G1 PASS
+- **SFT en cours** : 1802 exercices AdaptLLM, training OK (loss 3.4→1.1), eval OOM (vocab 262K)
+- Architecture : 2 kernels Kaggle (TAPT seul + SFT-only avec eval_strategy="no")
+- Checkpoint TAPT sauve, a uploader comme dataset pour kernel SFT
+- ADR-001 : Gemma 3 270M IT (Option A)
+- Spec : docs/superpowers/specs/2026-03-21-cpt-adaptllm-generation-design.md
+- **Question ouverte** : pourquoi les optimisations retrieval standard ont un impact marginal ?
 
 ## Commandes
 

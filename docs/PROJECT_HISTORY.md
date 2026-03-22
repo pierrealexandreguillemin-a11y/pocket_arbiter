@@ -147,4 +147,18 @@ Chronologie factuelle des decisions et errements du projet.
 | Date | Decision | Raison |
 |------|----------|--------|
 | 21 mar | Chantier 4a (LoRA retrieval) ABANDONNE | 3 bugs critiques, 0 precedent litterature a cette echelle, rendements decroissants, precedent echec |
-| 21 mar | Pivot vers generation (GRPO Gemma 3n) | Levier inexplore, retrieval 60.1% = suffisant si generation compense |
+| 21 mar | Pivot vers generation (CPT+SFT Gemma 270M) | Levier inexplore, retrieval 60.1% = suffisant si generation compense |
+| 21 mar | ADR-001 : Gemma 3 270M IT (Option A) | Respecte spec RAM 500MB, gate rollback vers 1B si qualite <70% |
+| 22 mar | TAPT DONE : ppl 37.74 → 7.98 | FFT fp32+AMP, 5 epochs, T4, Gate G1 PASS |
+| 22 mar | Architecture 2 kernels Kaggle | SFT eval OOM sur vocab 262K, split TAPT + SFT-only |
+
+## Ere 9 : Generation fine-tuning (mars 2026)
+
+- Chantier 4 : TAPT + AdaptLLM SFT sur Gemma 3 270M IT (ADR-001)
+- AdaptLLM regex mining : 1802 exercices, 6 types, FR connectors
+- TAPT : 5 epochs FFT fp32+AMP, perplexity 37.74 → 7.98, Gate G1 PASS
+- SFT : training OK (loss 3.4→1.1, token accuracy 74%), eval OOM
+- 13 tentatives Kaggle : P100 defaut, OOM×3, 401 auth×2, fp16 error,
+  eval OOM×3. Chaque finding documente dans skill kaggle-deployment.
+- Architecture finale : 2 kernels (TAPT seul + SFT-only)
+- Checkpoint TAPT sauvegarde, SFT a relancer en prochaine session

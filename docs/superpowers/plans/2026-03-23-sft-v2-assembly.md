@@ -65,6 +65,7 @@ SFT_CFG = dict(
     seq_length=512 if _D else 1024,
     eval_split=0.1,
     save_steps=20,                    # NEW
+    save_only_model=True,            # NEW: skip optimizer states (~2 GB/ckpt)
 )
 ```
 
@@ -101,6 +102,9 @@ sft_config = SFTConfig(
     save_strategy="steps",            # was: "epoch"
     save_steps=S["save_steps"],       # NEW: every 20 steps
     save_total_limit=S["save_total_limit"],
+    save_only_model=True,             # NEW: skip optimizer/scheduler states (~2 GB/ckpt)
+                                      # We don't resume training, only select best for inference
+                                      # Disk: 5×1.1 GB + 1.1 GB final = ~6.6 GB (vs 16.6 GB with optimizer)
 )
 ```
 
@@ -122,6 +126,11 @@ python kaggle/kernel-sft/train_sft_v2.py --dry-run 2>&1 | head -30
 Expected: script starts, loads tokenizer, creates dataset, hits GPU assert (no GPU locally) or runs with mock data.
 
 Note: dry-run may fail at GPU assert on local machine — that's expected. We're checking for import errors and syntax errors only.
+
+Known limitation: `generate_test()` in the script uses raw `tok(p)` instead of
+`apply_chat_template()`. This produces degraded diagnostic responses in metrics JSON
+but does NOT affect training or the real eval kernel. Not worth fixing — the eval
+kernel uses `apply_chat_template` correctly.
 
 - [ ] **Step 8: Commit**
 
@@ -323,7 +332,9 @@ TEST_PROMPTS = [
 
 repetitive = 0
 for p in TEST_PROMPTS:
-    inputs = tokenizer(p, return_tensors="pt")
+    messages = [{"role": "user", "content": p}]
+    text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    inputs = tokenizer(text, return_tensors="pt")
     with torch.no_grad():
         out = model.generate(**inputs, max_new_tokens=100, do_sample=False,
                             pad_token_id=tokenizer.eos_token_id)

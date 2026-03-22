@@ -80,7 +80,10 @@ eval_strategy="no" (OOM vocab 262K), seed=42, enable_internet=true (pip install 
 (`fp16=True` dans SFTConfig), inference/eval en fp32 (Gemma 3 fp16 inference
 cause NaN — issue #36822, documente dans eval spec).
 
-**Disk** : 6 checkpoints × ~1 GB = ~6-7 GB sur 20 GB output Kaggle. OK.
+**Disk** : `save_only_model=True` dans SFTConfig — pas d'optimizer states dans les checkpoints
+(pas de reprise training, selection best checkpoint pour inference uniquement).
+6 checkpoints × ~1.1 GB = ~6.6 GB sur 20 GB output Kaggle. OK.
+Sans `save_only_model`: 5 × 3.1 GB + 1.1 GB = 16.6 GB — trop risque.
 
 **Note** : checkpoint-100 et le modele final (step 101) sont quasi-identiques
 (1 step d'ecart). Traites comme un seul candidat lors de la selection.

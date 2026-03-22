@@ -184,7 +184,8 @@ repos:
               --ignore-vuln CVE-2026-25990 \
               --ignore-vuln CVE-2026-27448 \
               --ignore-vuln CVE-2026-27459 \
-              --ignore-vuln CVE-2026-30922
+              --ignore-vuln CVE-2026-30922 \
+              --ignore-vuln CVE-2024-12797
         language: system
         pass_filenames: false
         stages: [pre-push]

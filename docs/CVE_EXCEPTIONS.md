@@ -15,6 +15,7 @@
 | CVE-2026-27448 | pyopenssl | 24.2.1 | 26.0.0 | Transitive dependency (via urllib3/requests). Local dev tooling only. | **Low** - no server-side TLS usage |
 | CVE-2026-27459 | pyopenssl | 24.2.1 | 26.0.0 | Same as above. | **Low** - no server-side TLS usage |
 | CVE-2026-30922 | pyasn1 | 0.6.2 | 0.6.3 | Transitive dependency. Local dev tooling only. | **Low** - no ASN.1 parsing of untrusted input |
+| CVE-2024-12797 | cryptography | 43.0.3 | 44.0.1 | Transitive dependency. Local build tooling only, no TLS server. | **Low** - no server-side TLS |
 
 ## Review Process
 

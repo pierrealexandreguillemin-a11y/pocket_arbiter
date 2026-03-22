@@ -1,0 +1,16 @@
+{
+  "id": "pguillemin/pocket-arbiter-eval-generation-3-models",
+  "title": "Pocket Arbiter Eval Generation (3 models)",
+  "code_file": "eval_generation_kaggle.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "pguillemin/gemma-3-270m-it",
+    "pguillemin/gemma-270m-tapt-checkpoint",
+    "pguillemin/gemma-270m-sft-checkpoint",
+    "pguillemin/pocket-arbiter-eval-data"
+  ]
+}

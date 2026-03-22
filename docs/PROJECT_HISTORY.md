@@ -151,14 +151,47 @@ Chronologie factuelle des decisions et errements du projet.
 | 21 mar | ADR-001 : Gemma 3 270M IT (Option A) | Respecte spec RAM 500MB, gate rollback vers 1B si qualite <70% |
 | 22 mar | TAPT DONE : ppl 37.74 → 7.98 | FFT fp32+AMP, 5 epochs, T4, Gate G1 PASS |
 | 22 mar | Architecture 2 kernels Kaggle | SFT eval OOM sur vocab 262K, split TAPT + SFT-only |
+| 23 mar | SFT DONE : loss 3.64 → 1.29, overfit 1.33 | 3 epochs, 1622 train, overfit ratio sain |
+| 23 mar | Eval 3 modeles DONE | SFT 0 empty (vs 71 base), 33% citations (vs 22%) |
+| 23 mar | DVC tracking modeles | models/kaggle-output + models/kaggle-sft-output |
 
 ## Ere 9 : Generation fine-tuning (mars 2026)
 
 - Chantier 4 : TAPT + AdaptLLM SFT sur Gemma 3 270M IT (ADR-001)
 - AdaptLLM regex mining : 1802 exercices, 6 types, FR connectors
 - TAPT : 5 epochs FFT fp32+AMP, perplexity 37.74 → 7.98, Gate G1 PASS
-- SFT : training OK (loss 3.4→1.1, token accuracy 74%), eval OOM
-- 13 tentatives Kaggle : P100 defaut, OOM×3, 401 auth×2, fp16 error,
+- SFT : 3 epochs FFT fp16+grad_checkpoint, 1622 train / 180 eval
+  - Loss curve : 3.64 → 1.05 (epoch 2) → 1.29 (epoch 3)
+  - Token accuracy : 38.5% → 72.3% (epoch 1) → 67.7% (epoch 3)
+  - Overfit ratio : 1.33 (eval/train CLM), flag = false
+  - Epoch 2 (checkpoint-204) potentiellement meilleur que final (epoch 3)
+- 13+ tentatives Kaggle : P100 defaut, OOM×3, 401 auth×2, fp16 error,
   eval OOM×3. Chaque finding documente dans skill kaggle-deployment.
-- Architecture finale : 2 kernels (TAPT seul + SFT-only)
-- Checkpoint TAPT sauvegarde, SFT a relancer en prochaine session
+- Architecture finale : 3 kernels (TAPT seul + SFT-only + eval 3 modeles)
+- Eval comparative (2026-03-23) : base vs TAPT vs SFT sur 298 questions
+  - Base : 71 empty responses, 21.6% auto-citations
+  - TAPT : 9 empty responses, 34.1% auto-citations
+  - SFT : **0 empty responses**, 33.0% auto-citations
+  - Qualite : les 3 modeles faibles (270M) — hallucinations, repetitions, hors-sujet
+  - Eval humaine PENDING sur 34 questions manuelles
+
+### Artefacts generation (inventaire complet)
+
+| Artefact | Emplacement local | Kaggle dataset |
+|----------|-------------------|----------------|
+| Base model | kaggle/model-gemma-270m/ | pguillemin/gemma-3-270m-it |
+| TAPT checkpoint | models/kaggle-output/gemma-270m-cpt/ | pguillemin/gemma-270m-tapt-checkpoint |
+| SFT checkpoint (final) | models/kaggle-sft-output/gemma-270m-cpt-sft/ | pguillemin/gemma-270m-sft-checkpoint |
+| SFT epoch 1 | models/kaggle-sft-output/.../checkpoint-102/ | — |
+| SFT epoch 2 | models/kaggle-sft-output/.../checkpoint-204/ | — |
+| SFT epoch 3 | models/kaggle-sft-output/.../checkpoint-306/ | — |
+| Training data | kaggle/dataset-generation/ | pguillemin/pocket-arbiter-gen-data |
+| Eval data | kaggle/eval-data/ | pguillemin/pocket-arbiter-eval-data |
+| SFT metrics | models/kaggle-sft-output/sft_metrics.json | — |
+| TAPT metrics | models/kaggle-output/tapt_perplexity.json | — |
+| Eval base | data/benchmarks/generation_eval_base.json | — |
+| Eval TAPT | data/benchmarks/generation_eval_tapt.json | — |
+| Eval SFT | data/benchmarks/generation_eval.json | — |
+| Kernel TAPT+SFT | kaggle/kernel-generation/ | pocket-arbiter-cpt-sft-generation |
+| Kernel SFT-only | kaggle/kernel-sft/ | pocket-arbiter-sft-generation |
+| Kernel eval | kaggle/kernel-eval/ | pocket-arbiter-eval-generation-3-models |

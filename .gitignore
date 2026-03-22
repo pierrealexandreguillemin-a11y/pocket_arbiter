@@ -185,3 +185,12 @@ data/gs_generation/snapshots/
 data/archive/benchmarks_v8/
 kaggle/model-gemma-270m/
 models/kaggle-output/
+models/kaggle-sft-output/
+
+# Kaggle checkpoints (large model weights, uploaded via Kaggle CLI)
+kaggle/tapt-checkpoint/model.safetensors
+kaggle/tapt-checkpoint/tokenizer.json
+kaggle/sft-checkpoint/model.safetensors
+kaggle/sft-checkpoint/tokenizer.json
+kaggle/eval-data/corpus_v2_fr.db
+kaggle/eval-data/gold_standard_annales_fr_v8_adversarial.json

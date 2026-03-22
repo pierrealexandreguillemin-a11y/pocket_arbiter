@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "modelCard": {
-    "schemaVersion": "1.1.0",
+    "schemaVersion": "1.2.0",
     "projectName": "Pocket Arbiter",
     "projectDescription": "Application mobile 100% offline d'assistance a l'arbitrage d'echecs - Reglements FFE et FIDE",
-    "lastUpdated": "2026-03-19"
+    "lastUpdated": "2026-03-23"
   },
 
   "embeddingModel": {
@@ -33,21 +33,24 @@
       "tokenizer": "sentencepiece.model"
     },
     "selectionRationale": "MTEB #1 under 500M params (69.67 EN, 61.15 multilingual). Base model aligned with TFLite (Mixed Precision converted from base, no QAT-MP checkpoint exists). QAT dropped: +0.36 MTEB, eliminates build/runtime mismatch, standard LoRA path if fine-tuning needed.",
+    "finetuning": "NOT fine-tuned (decision 2026-03-21, chantier 4a ABANDONNE)",
     "selected": "2026-01-14",
-    "updated": "2026-03-19"
+    "updated": "2026-03-21"
   },
 
   "llmModel": {
-    "name": "Gemma 3 270M IT",
+    "name": "Gemma 3 270M IT (base)",
     "framework": "MediaPipe LLM Inference API",
     "source": "litert-community/gemma-3-270m-it",
     "huggingface_url": "https://huggingface.co/litert-community/gemma-3-270m-it",
     "license": "Gemma License",
     "specs": {
       "parameters": "270M",
-      "quantization": "int4",
+      "architecture": "Gemma 3 (26 layers, hidden 1536, 4 heads)",
+      "quantization": "int4 (Android), fp32 (training)",
       "size_mb": 200,
-      "context_length": 2048
+      "context_length": 2048,
+      "vocab_size": 262144
     },
     "performance": {
       "latency_s": "2-3",
@@ -55,15 +58,151 @@
       "device": "mid-range Android"
     },
     "files": {
-      "model": "gemma-3-270m-it.task"
+      "model": "gemma-3-270m-it.task",
+      "kaggle_dataset": "pguillemin/gemma-3-270m-it"
     },
-    "selectionRationale": "Plus petit LLM de la famille Gemma 3, compatible RAG SDK via import manuel, optimal pour mid-range",
+    "selectionRationale": "ADR-001: Plus petit LLM Gemma 3, respecte spec RAM 500MB, gate rollback vers 1B si qualite <70%",
     "backup": {
       "name": "Gemma 3 1B",
       "trigger": "Si qualite < 70% sur eval fidelite",
       "size_mb": 657
     },
-    "selected": "2026-01-14"
+    "selected": "2026-01-14",
+    "updated": "2026-03-21"
+  },
+
+  "llmModel_tapt": {
+    "name": "Gemma 3 270M IT — TAPT",
+    "description": "Task-Adaptive Pre-Training (TAPT) on FFE chess regulation corpus",
+    "base_model": "google/gemma-3-270m-it",
+    "method": "Full Fine-Tuning (FFT), fp32 + AMP",
+    "standard": "Domain-Adaptive Pretraining (Gururangan ACL 2020)",
+    "training": {
+      "data": "5529 paragraphs from 28 FFE PDFs (381K tokens)",
+      "epochs": 5,
+      "batch_size": 2,
+      "grad_accum": 4,
+      "lr": 5e-5,
+      "scheduler": "cosine",
+      "gpu": "Tesla T4 (14913 MB VRAM)",
+      "runtime_min": 37
+    },
+    "metrics": {
+      "perplexity_baseline": 37.74,
+      "perplexity_post": 7.98,
+      "perplexity_reduction_pct": 78.9,
+      "gate_G1": "PASS (ppl decreased)"
+    },
+    "files": {
+      "checkpoint_final": "models/kaggle-output/gemma-270m-cpt/",
+      "checkpoint_epoch4": "models/kaggle-output/gemma-270m-cpt/checkpoint-88/",
+      "checkpoint_epoch5": "models/kaggle-output/gemma-270m-cpt/checkpoint-110/",
+      "kaggle_dataset": "pguillemin/gemma-270m-tapt-checkpoint",
+      "metrics": "models/kaggle-output/tapt_perplexity.json",
+      "log": "models/kaggle-output/pocket-arbiter-cpt-sft-generation.log"
+    },
+    "trained": "2026-03-22"
+  },
+
+  "llmModel_sft": {
+    "name": "Gemma 3 270M IT — TAPT + SFT",
+    "description": "Supervised Fine-Tuning (SFT) on reading comprehension tasks, starting from TAPT checkpoint",
+    "base_model": "TAPT checkpoint (gemma-270m-tapt)",
+    "method": "Full Fine-Tuning (FFT), fp16 + gradient checkpointing",
+    "standard": "AdaptLLM (Cheng ICLR 2024), NEFTune (Jain ICLR 2024)",
+    "training": {
+      "data": "1802 reading tasks (AdaptLLM regex mining, 6 types)",
+      "data_split": "1622 train / 180 eval (10% holdout)",
+      "task_distribution": {
+        "summarization": 878,
+        "completion": 426,
+        "conditional": 237,
+        "reference": 84,
+        "nli": 78,
+        "other": 54,
+        "causal": 45
+      },
+      "epochs": 3,
+      "batch_size": 1,
+      "grad_accum": 16,
+      "effective_batch_size": 16,
+      "lr": 2e-5,
+      "warmup_pct": 0.1,
+      "weight_decay": 0.01,
+      "neftune_alpha": 5,
+      "scheduler": "cosine",
+      "max_seq_length": 1024,
+      "total_steps": 306,
+      "gpu": "Tesla T4 (14913 MB VRAM)",
+      "runtime_min": 20.5
+    },
+    "metrics": {
+      "loss_curve": {
+        "step_1": 3.644,
+        "epoch_1_step_102": 1.047,
+        "epoch_2_step_204": 1.245,
+        "epoch_3_step_306": 1.289
+      },
+      "token_accuracy_curve": {
+        "step_1": 0.385,
+        "epoch_1": 0.723,
+        "epoch_2": 0.676,
+        "epoch_3": 0.677
+      },
+      "training_loss_final": 1.689,
+      "eval_loss_clm": 1.484,
+      "train_loss_manual_clm": 1.120,
+      "overfit_ratio": 1.326,
+      "overfit_flag": false,
+      "overfit_note": "Epoch 2 loss (1.05) < epoch 3 (1.29) — checkpoint-204 may be better"
+    },
+    "files": {
+      "checkpoint_final": "models/kaggle-sft-output/gemma-270m-cpt-sft/",
+      "checkpoint_epoch1": "models/kaggle-sft-output/gemma-270m-cpt-sft/checkpoint-102/",
+      "checkpoint_epoch2": "models/kaggle-sft-output/gemma-270m-cpt-sft/checkpoint-204/",
+      "checkpoint_epoch3": "models/kaggle-sft-output/gemma-270m-cpt-sft/checkpoint-306/",
+      "kaggle_dataset": "pguillemin/gemma-270m-sft-checkpoint",
+      "metrics": "models/kaggle-sft-output/sft_metrics.json",
+      "trainer_state": "models/kaggle-sft-output/gemma-270m-cpt-sft/checkpoint-306/trainer_state.json"
+    },
+    "trained": "2026-03-22"
+  },
+
+  "evaluation": {
+    "description": "3-model comparative evaluation on 298 testable GS questions (34 human + 264 annales)",
+    "method": "RAG pipeline: retrieve top-5 chunks, build prompt, generate answer",
+    "gpu": "Tesla T4",
+    "models_compared": ["base (Gemma 3 270M IT)", "TAPT", "SFT (TAPT+SFT)"],
+    "results": {
+      "base": {
+        "empty_responses": 71,
+        "auto_citation_pct": 21.6,
+        "inference_time_min": 9.8
+      },
+      "tapt": {
+        "empty_responses": 9,
+        "auto_citation_pct": 34.1,
+        "inference_time_min": 33.8
+      },
+      "sft": {
+        "empty_responses": 0,
+        "auto_citation_pct": 33.0,
+        "inference_time_min": 7.1
+      }
+    },
+    "gates": {
+      "P1": "PASS — 3 fichiers, 34 questions chacun",
+      "P2": "FAIL — base 8 empty (attendu), TAPT 1, SFT 0",
+      "P3": "PASS — 264 annales dans les 3",
+      "P4": "FAIL — SFT avg 19 tokens (seuil 20, non bloquant)"
+    },
+    "files": {
+      "eval_base": "data/benchmarks/generation_eval_base.json",
+      "eval_tapt": "data/benchmarks/generation_eval_tapt.json",
+      "eval_sft": "data/benchmarks/generation_eval.json"
+    },
+    "human_eval": "PENDING — scorer 34 questions manuelles (useful/faithful/cited)",
+    "evaluated": "2026-03-23"
   },
 
   "trainingData": {
@@ -87,6 +226,12 @@
       "children": 1116,
       "parents": 282,
       "table_summaries": 111
+    },
+    "generation_training": {
+      "tapt_corpus": "5529 paragraphs, 381K tokens (corpus_paragraphs.jsonl)",
+      "sft_tasks": "1802 reading exercises, 6 types (reading_tasks.jsonl)",
+      "sft_method": "AdaptLLM regex mining with FR connectors",
+      "kaggle_dataset": "pguillemin/pocket-arbiter-gen-data"
     }
   },
 
@@ -119,7 +264,8 @@
     "measured": {
       "embeddingLatency": "66ms (benchmark HuggingFace)",
       "llmLatency": "2-3s (estimate)",
-      "note": "A completer apres Phase 2-3"
+      "recallFR": "60.1% recall@5 (FIGE — pas de fine-tuning retrieval)",
+      "note": "Latence LLM a mesurer sur Android avec modele SFT quantifie"
     }
   },
 
@@ -136,15 +282,55 @@
     "antiHallucination": {
       "grounding": "Strict - LLM recoit uniquement context retrieval",
       "citations": "Obligatoires sur chaque reponse",
-      "testSet": "tests/data/adversarial.json (30 questions)",
+      "testSet": "tests/data/gold_standard_annales_fr_v8_adversarial.json (403 questions, 298 testables)",
       "threshold": "0% failure"
     }
   },
 
+  "artifacts": {
+    "description": "Inventaire complet des artefacts generation fine-tuning",
+    "kaggle_datasets": {
+      "pguillemin/gemma-3-270m-it": "Base model Gemma 3 270M IT (512 MB weights)",
+      "pguillemin/gemma-270m-tapt-checkpoint": "TAPT checkpoint (1023 MB weights)",
+      "pguillemin/gemma-270m-sft-checkpoint": "SFT checkpoint (1023 MB weights)",
+      "pguillemin/pocket-arbiter-gen-data": "Training data (corpus + reading tasks)",
+      "pguillemin/pocket-arbiter-eval-data": "Eval data (DB + GS + eval scripts)"
+    },
+    "kaggle_kernels": {
+      "pguillemin/pocket-arbiter-cpt-sft-generation": "TAPT+SFT combined kernel (original)",
+      "pguillemin/pocket-arbiter-sft-generation": "SFT-only kernel (split architecture)",
+      "pguillemin/pocket-arbiter-eval-generation-3-models": "3-model eval kernel"
+    },
+    "local_paths": {
+      "tapt_output": "models/kaggle-output/ (DVC tracked, .gitignore)",
+      "sft_output": "models/kaggle-sft-output/ (DVC tracked, .gitignore)",
+      "base_model": "kaggle/model-gemma-270m/ (.gitignore)",
+      "tapt_dataset": "kaggle/tapt-checkpoint/",
+      "sft_dataset": "kaggle/sft-checkpoint/",
+      "eval_data": "kaggle/eval-data/",
+      "training_data": "kaggle/dataset-generation/",
+      "eval_benchmarks": "data/benchmarks/generation_eval*.json",
+      "kernel_scripts": "kaggle/kernel-*/",
+      "training_logs": "models/kaggle-output/*.log, models/kaggle-sft-output/*.log"
+    }
+  },
+
   "versioning": {
-    "currentPhase": "Chantier 3 - Recall optimization",
-    "modelVersion": "0.3.0",
+    "currentPhase": "Chantier 4 - Generation fine-tuning (eval en cours)",
+    "modelVersion": "0.4.0",
     "changelog": [
+      {
+        "version": "0.4.0",
+        "date": "2026-03-23",
+        "changes": [
+          "TAPT: Gemma 270M, FFT 5 epochs, perplexity 37.74 -> 7.98, Gate G1 PASS",
+          "SFT: 1802 AdaptLLM tasks, 3 epochs, loss 3.64 -> 1.29, overfit ratio 1.33",
+          "Eval: 3-model comparison (base/TAPT/SFT) on 298 questions",
+          "SFT: 0 empty responses (vs 71 base), 33% auto-citations (vs 22% base)",
+          "Epoch 2 checkpoint (loss 1.05) potentially better than final (1.29)",
+          "Human eval PENDING on 34 manual questions"
+        ]
+      },
       {
         "version": "0.3.0",
         "date": "2026-03-19",
@@ -154,7 +340,7 @@
           "EmbeddingGemma switch QAT -> base (build/runtime alignment)",
           "Contextual retrieval (Anthropic 2024): 1116 chunk contexts",
           "Enrichment module: abbreviations, chapter overrides",
-          "Recall baseline: 56.7% page-level (optimization in progress)"
+          "Recall final: 60.1% recall@5, Gate R1 FAIL (70%)"
         ]
       },
       {

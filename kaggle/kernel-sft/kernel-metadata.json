@@ -1,0 +1,18 @@
+{
+  "id": "pguillemin/pocket-arbiter-sft-generation",
+  "title": "Pocket Arbiter SFT Generation",
+  "code_file": "train_sft.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "pguillemin/pocket-arbiter-gen-data",
+    "pguillemin/gemma-270m-tapt-checkpoint"
+  ],
+  "keywords": [
+    "pocket-arbiter", "gemma", "sft", "adaptllm",
+    "generation", "chess", "full-finetuning"
+  ]
+}

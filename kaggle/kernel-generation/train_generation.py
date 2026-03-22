@@ -110,8 +110,8 @@ EVAL_HOLDOUT = {
 _D = DRY_RUN
 TAPT_CFG = dict(
     epochs=1 if _D else 5,
-    batch_size=1 if _D else 4,
-    grad_accum=1 if _D else 4,
+    batch_size=1 if _D else 2,
+    grad_accum=1 if _D else 8,
     lr=5e-6,
     warmup_ratio=0.1,
     weight_decay=0.01,
@@ -123,8 +123,8 @@ TAPT_CFG = dict(
 )
 SFT_CFG = dict(
     epochs=1 if _D else 3,
-    batch_size=1 if _D else 4,
-    grad_accum=1 if _D else 4,
+    batch_size=1 if _D else 2,
+    grad_accum=1 if _D else 8,
     lr=2e-5,
     warmup_ratio=0.1,
     weight_decay=0.01,
@@ -224,7 +224,7 @@ assert (
 # === PHASE 3: Model loading ===
 logger.info("=== PHASE 3: Model loading ===")
 model = AutoModelForCausalLM.from_pretrained(
-    MODEL_ID, torch_dtype=torch.float16, device_map="auto"
+    MODEL_ID, torch_dtype=torch.float16, device_map={"": 0}
 )
 cfg = model.config
 logger.info(
@@ -308,6 +308,7 @@ tapt_args = TrainingArguments(
     lr_scheduler_type="cosine",
     neftune_noise_alpha=C["neftune_alpha"],
     fp16=True,
+    gradient_checkpointing=True,
     seed=SEED,
     logging_steps=1,
     logging_nan_inf_filter=True,
@@ -385,6 +386,7 @@ sft_config = SFTConfig(
     neftune_noise_alpha=S["neftune_alpha"],
     max_length=S["seq_length"],
     fp16=True,
+    gradient_checkpointing=True,
     seed=SEED,
     logging_steps=1,
     logging_nan_inf_filter=True,

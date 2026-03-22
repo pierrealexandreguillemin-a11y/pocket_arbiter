@@ -201,6 +201,8 @@ logger.info(
     tik_tok,
     gemma_tok / tik_tok,
 )
+assert gemma_tok >= 300_000, f"FATAL: Gate G0 FAIL — {gemma_tok} Gemma tokens < 300K"
+logger.info("Gate G0 PASS: %d Gemma tokens >= 300K", gemma_tok)
 
 train_paras = [p for p in paragraphs if p["source"] not in EVAL_HOLDOUT]
 eval_paras = [p for p in paragraphs if p["source"] in EVAL_HOLDOUT]
@@ -303,6 +305,7 @@ tapt_args = TrainingArguments(
     warmup_ratio=C["warmup_ratio"],
     weight_decay=C["weight_decay"],
     max_grad_norm=C["max_grad_norm"],
+    lr_scheduler_type="cosine",
     neftune_noise_alpha=C["neftune_alpha"],
     fp16=True,
     seed=SEED,
@@ -357,16 +360,16 @@ log_vram("after TAPT")
 # === PHASE 5: SFT training ===
 logger.info("=== PHASE 5: SFT training ===")
 
-formatted = [
-    tokenizer.apply_chat_template(
-        t["messages"], tokenize=False, add_generation_prompt=False
-    )
-    for t in reading_tasks
-]
-sft_ds = Dataset.from_dict({"text": formatted})
-logger.info(
-    "SFT dataset: %d examples, sample len: %d chars", len(sft_ds), len(formatted[0])
-)
+# Use messages format — SFTTrainer handles chat template + label masking
+# User tokens get label=-100, only assistant tokens are trained
+sft_messages = [t["messages"] for t in reading_tasks]
+sft_ds = Dataset.from_dict({"messages": sft_messages})
+
+# 10% eval split (spec: stratifie par type, random acceptable)
+sft_split = sft_ds.train_test_split(test_size=0.1, seed=SEED)
+sft_train = sft_split["train"]
+sft_eval = sft_split["test"]
+logger.info("SFT split: %d train, %d eval", len(sft_train), len(sft_eval))
 
 S = SFT_CFG
 sft_config = SFTConfig(
@@ -378,19 +381,24 @@ sft_config = SFTConfig(
     warmup_ratio=S["warmup_ratio"],
     weight_decay=S["weight_decay"],
     max_grad_norm=S["max_grad_norm"],
+    lr_scheduler_type="cosine",
     neftune_noise_alpha=S["neftune_alpha"],
-    max_seq_length=S["seq_length"],
+    max_length=S["seq_length"],
     fp16=True,
     seed=SEED,
     logging_steps=1,
     logging_nan_inf_filter=True,
+    eval_strategy="epoch",
     save_strategy="epoch",
     save_total_limit=S["save_total_limit"],
-    dataset_text_field="text",
 )
 
 sft_trainer = SFTTrainer(
-    model=model, args=sft_config, train_dataset=sft_ds, processing_class=tokenizer
+    model=model,
+    args=sft_config,
+    train_dataset=sft_train,
+    eval_dataset=sft_eval,
+    processing_class=tokenizer,
 )
 sft_result = sft_trainer.train()
 logger.info("SFT final loss: %.4f", sft_result.training_loss)

@@ -51,7 +51,9 @@
 - **SFT v2** : 1 epoch LR 1e-5, TAPT ep4, step 60 → **sous-apprend** (70.6% < 10 mots, median 5w)
   - Erreur d'analyse : loss step-by-step bruitee interpretee comme remontee, moyenne mobile descendait encore
   - TAPT ep4 ≈ ep5 (repetitions 79% vs 77%, quasi-identiques)
-- **SFT v3 PLANIFIE** : 2 epochs LR 5e-6, save_steps=20, 10 checkpoints — a confirmer prochaine session
+- **SFT v3 EN COURS** : 2 epochs LR 1e-5, save_steps=20, 10 checkpoints, base TAPT ep4
+- **Finding** : domain SFT peut nuire RAG faithfulness (17 papers, post-rationalisation)
+- **Benchmark base PLANIFIE** : pipeline RAG avec modele base (sans FFT) pour valider si FFT necessaire
 - **Eval v1** : Base 71 empty 21.6% | TAPT 9 empty 34.1% | SFT v1 0 empty 33.0%
 - **Eval v2** : SFT v2 sous-apprend — 1 empty, 24.6% citations, median 5 mots
 - Architecture : 3 kernels Kaggle (TAPT + SFT-only + eval 3 modeles)
@@ -59,6 +61,7 @@
 - Spec : docs/superpowers/specs/2026-03-21-cpt-adaptllm-generation-design.md
 - Artefacts : voir models/model_card.json (section artifacts)
 - **Question ouverte** : pourquoi les optimisations retrieval standard ont un impact marginal ?
+- **Question ouverte** : le FFT domain est-il necessaire ou le base + prompting suffit-il ? (benchmark base planifie)
 
 ## Commandes
 

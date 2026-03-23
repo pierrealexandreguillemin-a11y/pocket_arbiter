@@ -155,6 +155,9 @@ Chronologie factuelle des decisions et errements du projet.
 | 23 mar | Eval 3 modeles DONE | SFT 0 empty (vs 71 base), 33% citations (vs 22%) |
 | 23 mar | DVC tracking modeles | models/kaggle-output + models/kaggle-sft-output |
 | 23 mar | SFT v2 step 60 selectionne | Loss descend a step 60 (1.97), remonte apres; overfit ratio 1.04 vs 1.33 v1 |
+| 23 mar | Domain SFT peut nuire RAG faithfulness | Revue 17 papers : post-rationalisation, Dunning-Kruger, under-learning potentiellement meilleur |
+| 23 mar | Benchmark base planifie | Pipeline RAG jamais teste avec modele base — erreur de brainstorming |
+| 23 mar | SFT v3 : 2 epochs LR 1e-5 | Budget 0.00202, entre v2 (0.001) et v1 (0.006), 10 checkpoints |
 
 ## Ere 9 : Generation fine-tuning (mars 2026)
 
@@ -193,7 +196,15 @@ Chronologie factuelle des decisions et errements du projet.
   - **Diagnostic** : loss v2 descendait encore (moyenne mobile 2.13→2.08 steps 51-80)
     Mon erreur : j'ai lu la loss step-by-step (bruitee) au lieu de la moyenne mobile.
     Checkpoint-60 selectionne trop tot. 1 epoch LR 1e-5 = budget d'apprentissage insuffisant.
-  - **SFT v3 planifie** : 2 epochs LR 5e-6, save_steps=20 (10 checkpoints), a confirmer session suivante
+  - **SFT v3 planifie** : 2 epochs LR 1e-5, save_steps=20 (10 checkpoints)
+  - **Finding critique (2026-03-23)** : revue litterature 17 papers (2020-2026) —
+    domain SFT peut NUIRE a la faithfulness RAG (post-rationalisation, effet Dunning-Kruger).
+    Under-learning potentiellement meilleur que sweet spot pour RAG grounding.
+    Papers cles : Knowledge Conflicts Survey (EMNLP 2024), Tug-of-War (LREC-COLING 2024),
+    Correctness != Faithfulness (ICTIR 2025), RAFT (Berkeley 2024), FACTS (Google 2025).
+  - **Erreur de brainstorming** : pipeline RAG jamais teste avec modele base (sans FFT).
+    Benchmark base planifie apres v3 pour valider si FFT est necessaire.
+  - **Roadmap revisee** : v3 → benchmark base → comparer faithfulness → decision FFT/RAFT
 
 ### Artefacts generation (inventaire complet)
 

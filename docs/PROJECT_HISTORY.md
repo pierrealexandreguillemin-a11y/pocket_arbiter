@@ -151,9 +151,10 @@ Chronologie factuelle des decisions et errements du projet.
 | 21 mar | ADR-001 : Gemma 3 270M IT (Option A) | Respecte spec RAM 500MB, gate rollback vers 1B si qualite <70% |
 | 22 mar | TAPT DONE : ppl 37.74 → 7.98 | FFT fp32+AMP, 5 epochs, T4, Gate G1 PASS |
 | 22 mar | Architecture 2 kernels Kaggle | SFT eval OOM sur vocab 262K, split TAPT + SFT-only |
-| 23 mar | SFT DONE : loss 3.64 → 1.29, overfit 1.33 | 3 epochs, 1622 train, overfit ratio sain |
+| 23 mar | SFT v1 DONE : loss 3.64 → 1.29, overfit 1.33 | 3 epochs, 1622 train, overfit ratio sain |
 | 23 mar | Eval 3 modeles DONE | SFT 0 empty (vs 71 base), 33% citations (vs 22%) |
 | 23 mar | DVC tracking modeles | models/kaggle-output + models/kaggle-sft-output |
+| 23 mar | SFT v2 step 60 selectionne | Loss descend a step 60 (1.97), remonte apres; overfit ratio 1.04 vs 1.33 v1 |
 
 ## Ere 9 : Generation fine-tuning (mars 2026)
 
@@ -168,12 +169,21 @@ Chronologie factuelle des decisions et errements du projet.
 - 13+ tentatives Kaggle : P100 defaut, OOM×3, 401 auth×2, fp16 error,
   eval OOM×3. Chaque finding documente dans skill kaggle-deployment.
 - Architecture finale : 3 kernels (TAPT seul + SFT-only + eval 3 modeles)
-- Eval comparative (2026-03-23) : base vs TAPT vs SFT sur 298 questions
+- Eval comparative (2026-03-23) : base vs TAPT vs SFT v1 sur 298 questions
   - Base : 71 empty responses, 21.6% auto-citations
   - TAPT : 9 empty responses, 34.1% auto-citations
-  - SFT : **0 empty responses**, 33.0% auto-citations
+  - SFT v1 : **0 empty responses**, 33.0% auto-citations
   - Qualite : les 3 modeles faibles (270M) — hallucinations, repetitions, hors-sujet
   - Eval humaine PENDING sur 34 questions manuelles
+- SFT v2 (2026-03-23) : 1 epoch LR 1e-5, base TAPT epoch 4 (checkpoint-88)
+  - 6 checkpoints : 20, 40, 60, 80, 100, 102
+  - Meilleur checkpoint : step 60 (loss 1.9736, token_accuracy 0.578)
+  - Courbe loss : descend jusqu'a step 60, remonte ensuite (step 80: 2.19, step 100: 2.27)
+  - Overfit ratio 1.04 (vs 1.33 v1) — amelioration significative
+  - Training loss 2.3049, eval loss 1.9863 (vs 1.689 / 1.484 v1)
+  - save_only_model=True : checkpoints 1.1 GB (vs 3.1 GB v1), budget disque OK
+  - Runtime 6.9 min T4 (vs 20.5 min v1)
+  - Eval kernel SFT v2 PENDING (prochaine etape)
 
 ### Artefacts generation (inventaire complet)
 

@@ -168,6 +168,52 @@
     "trained": "2026-03-22"
   },
 
+  "llmModel_sft_v2": {
+    "name": "Gemma 3 270M IT — TAPT + SFT v2",
+    "description": "SFT v2: 1 epoch LR 1e-5, starting from TAPT epoch 4 (checkpoint-88). Best checkpoint at step 60.",
+    "base_model": "TAPT checkpoint epoch 4 (checkpoint-88)",
+    "method": "Full Fine-Tuning (FFT), fp16 + gradient checkpointing",
+    "standard": "AdaptLLM (Cheng ICLR 2024)",
+    "training": {
+      "data": "1802 reading tasks (AdaptLLM regex mining, 6 types)",
+      "data_split": "1622 train / 180 eval (10% holdout)",
+      "epochs": 1,
+      "lr": 1e-5,
+      "save_steps": 20,
+      "save_only_model": true,
+      "gpu": "Tesla T4 (14913 MB VRAM)",
+      "runtime_min": 6.9
+    },
+    "metrics": {
+      "checkpoints": [20, 40, 60, 80, 100, 102],
+      "best_checkpoint": "step-60",
+      "loss_curve": {
+        "step_20": null,
+        "step_60": 1.9736,
+        "step_80": 2.19,
+        "step_100": 2.27,
+        "step_102": null
+      },
+      "token_accuracy_best": 0.578,
+      "training_loss": 2.3049,
+      "eval_loss": 1.9863,
+      "overfit_ratio": 1.04,
+      "overfit_flag": false,
+      "checkpoint_size_gb": 1.1,
+      "vs_v1": {
+        "overfit_ratio": "1.04 vs 1.33 (improved)",
+        "checkpoint_size_gb": "1.1 vs 3.1 (save_only_model fix)",
+        "runtime_min": "6.9 vs 20.5 (1 epoch vs 3)"
+      }
+    },
+    "files": {
+      "checkpoint_best": "kaggle/sft-checkpoint/checkpoint-60/ (to be uploaded)",
+      "kaggle_dataset": "pguillemin/gemma-270m-sft-checkpoint (v2 pending upload)"
+    },
+    "status": "Eval kernel PENDING",
+    "trained": "2026-03-23"
+  },
+
   "evaluation": {
     "description": "3-model comparative evaluation on 298 testable GS questions (34 human + 264 annales)",
     "method": "RAG pipeline: retrieve top-5 chunks, build prompt, generate answer",
@@ -316,18 +362,29 @@
   },
 
   "versioning": {
-    "currentPhase": "Chantier 4 - Generation fine-tuning (eval en cours)",
-    "modelVersion": "0.4.0",
+    "currentPhase": "Chantier 4 - Generation fine-tuning (SFT v2 eval PENDING)",
+    "modelVersion": "0.4.1",
     "changelog": [
+      {
+        "version": "0.4.1",
+        "date": "2026-03-23",
+        "changes": [
+          "SFT v2: 1 epoch LR 1e-5, TAPT epoch 4 base, save_steps=20",
+          "SFT v2: best checkpoint step 60 (loss 1.97, token_accuracy 0.578)",
+          "SFT v2: overfit ratio 1.04 (improved from 1.33 v1)",
+          "SFT v2: save_only_model=True fix — 1.1 GB checkpoints (vs 3.1 GB v1)",
+          "SFT v2: runtime 6.9 min T4 (vs 20.5 min v1)",
+          "Eval kernel SFT v2 PENDING"
+        ]
+      },
       {
         "version": "0.4.0",
         "date": "2026-03-23",
         "changes": [
           "TAPT: Gemma 270M, FFT 5 epochs, perplexity 37.74 -> 7.98, Gate G1 PASS",
-          "SFT: 1802 AdaptLLM tasks, 3 epochs, loss 3.64 -> 1.29, overfit ratio 1.33",
-          "Eval: 3-model comparison (base/TAPT/SFT) on 298 questions",
-          "SFT: 0 empty responses (vs 71 base), 33% auto-citations (vs 22% base)",
-          "Epoch 2 checkpoint (loss 1.05) potentially better than final (1.29)",
+          "SFT v1: 1802 AdaptLLM tasks, 3 epochs, loss 3.64 -> 1.29, overfit ratio 1.33",
+          "Eval: 3-model comparison (base/TAPT/SFT v1) on 298 questions",
+          "SFT v1: 0 empty responses (vs 71 base), 33% auto-citations (vs 22% base)",
           "Human eval PENDING on 34 manual questions"
         ]
       },

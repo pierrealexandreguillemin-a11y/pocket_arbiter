@@ -44,13 +44,16 @@
 - **ABANDONNE** : 0 precedent litterature a 1116 exemples, precedent fine-tune a degrade recall, rendements decroissants
 - EmbeddingGemma-300M base reste en l'etat (pas de fine-tuning)
 
-### Generation fine-tuning (chantier 4 — eval en cours)
+### Generation fine-tuning (chantier 4 — eval humaine PENDING)
 - **TAPT DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, perplexity 37.74 → 7.98, Gate G1 PASS
-- **SFT DONE** : 1802 exercices AdaptLLM, 3 epochs, loss 3.64→1.29, overfit ratio 1.33
-- **Eval DONE** : 3 modeles compares (base/TAPT/SFT) sur 298 questions
+- **SFT v1 DONE** : 1802 exercices AdaptLLM, 3 epochs, loss 3.64→1.29, overfit ratio 1.33
+- **SFT v2 DONE** : 1 epoch LR 1e-5, TAPT epoch 4 (checkpoint-88), best=step 60 (loss 1.97)
+  - Overfit ratio 1.04 (ameliore vs 1.33 v1), save_only_model=True (1.1 GB vs 3.1 GB v1)
+  - Loss descend jusqu'a step 60 puis remonte (step 80: 2.19, step 100: 2.27) → checkpoint-60 selectionne
+- **Eval DONE** : 3 modeles compares (base/TAPT/SFT v1) sur 298 questions
   - Base: 71 empty, 21.6% citations | TAPT: 9 empty, 34.1% | SFT: 0 empty, 33.0%
-  - Epoch 2 (checkpoint-204, loss 1.05) potentiellement meilleur que epoch 3 (1.29)
 - **Eval humaine PENDING** : scorer 34 questions manuelles (useful/faithful/cited)
+- **Eval kernel SFT v2 PENDING** : comparer checkpoint-60 vs SFT v1
 - Architecture : 3 kernels Kaggle (TAPT + SFT-only + eval 3 modeles)
 - ADR-001 : Gemma 3 270M IT (Option A)
 - Spec : docs/superpowers/specs/2026-03-21-cpt-adaptllm-generation-design.md

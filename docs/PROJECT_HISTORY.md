@@ -183,7 +183,17 @@ Chronologie factuelle des decisions et errements du projet.
   - Training loss 2.3049, eval loss 1.9863 (vs 1.689 / 1.484 v1)
   - save_only_model=True : checkpoints 1.1 GB (vs 3.1 GB v1), budget disque OK
   - Runtime 6.9 min T4 (vs 20.5 min v1)
-  - Eval kernel SFT v2 PENDING (prochaine etape)
+  - Eval v2 resultats (2026-03-23) :
+    - Base : inchange (21.6% citations, 71 empty)
+    - TAPT ep4 : quasi-identique ep5 (34.8% citations, 27/34 repetitif vs 26/34)
+    - SFT v2 : **sous-apprend** — 70.6% reponses < 10 mots, median 5 mots (vs 18 v1)
+    - SFT v2 cite des numeros de section (73.5%) mais ne developpe pas la reponse
+    - 4 vraies reponses sur 34 sont factuellement correctes
+    - Auto-citation 24.6% (vs 33.0% v1) — regression
+  - **Diagnostic** : loss v2 descendait encore (moyenne mobile 2.13→2.08 steps 51-80)
+    Mon erreur : j'ai lu la loss step-by-step (bruitee) au lieu de la moyenne mobile.
+    Checkpoint-60 selectionne trop tot. 1 epoch LR 1e-5 = budget d'apprentissage insuffisant.
+  - **SFT v3 planifie** : 2 epochs LR 5e-6, save_steps=20 (10 checkpoints), a confirmer session suivante
 
 ### Artefacts generation (inventaire complet)
 

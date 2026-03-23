@@ -47,13 +47,13 @@
 ### Generation fine-tuning (chantier 4 — eval humaine PENDING)
 - **TAPT DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, perplexity 37.74 → 7.98, Gate G1 PASS
 - **SFT v1 DONE** : 1802 exercices AdaptLLM, 3 epochs, loss 3.64→1.29, overfit ratio 1.33
-- **SFT v2 DONE** : 1 epoch LR 1e-5, TAPT epoch 4 (checkpoint-88), best=step 60 (loss 1.97)
-  - Overfit ratio 1.04 (ameliore vs 1.33 v1), save_only_model=True (1.1 GB vs 3.1 GB v1)
-  - Loss descend jusqu'a step 60 puis remonte (step 80: 2.19, step 100: 2.27) → checkpoint-60 selectionne
-- **Eval DONE** : 3 modeles compares (base/TAPT/SFT v1) sur 298 questions
-  - Base: 71 empty, 21.6% citations | TAPT: 9 empty, 34.1% | SFT: 0 empty, 33.0%
-- **Eval humaine PENDING** : scorer 34 questions manuelles (useful/faithful/cited)
-- **Eval kernel SFT v2 PENDING** : comparer checkpoint-60 vs SFT v1
+- **SFT v1** : 3 epochs LR 2e-5, TAPT ep5 → sur-apprend (echo 17.6%, overfit 1.33, mais 0 empty)
+- **SFT v2** : 1 epoch LR 1e-5, TAPT ep4, step 60 → **sous-apprend** (70.6% < 10 mots, median 5w)
+  - Erreur d'analyse : loss step-by-step bruitee interpretee comme remontee, moyenne mobile descendait encore
+  - TAPT ep4 ≈ ep5 (repetitions 79% vs 77%, quasi-identiques)
+- **SFT v3 PLANIFIE** : 2 epochs LR 5e-6, save_steps=20, 10 checkpoints — a confirmer prochaine session
+- **Eval v1** : Base 71 empty 21.6% | TAPT 9 empty 34.1% | SFT v1 0 empty 33.0%
+- **Eval v2** : SFT v2 sous-apprend — 1 empty, 24.6% citations, median 5 mots
 - Architecture : 3 kernels Kaggle (TAPT + SFT-only + eval 3 modeles)
 - ADR-001 : Gemma 3 270M IT (Option A)
 - Spec : docs/superpowers/specs/2026-03-21-cpt-adaptllm-generation-design.md

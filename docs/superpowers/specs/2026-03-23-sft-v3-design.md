@@ -1,7 +1,7 @@
 # SFT v3 Model Training — Design Spec
 
 > **Date**: 2026-03-23
-> **Statut**: En cours
+> **Statut**: DONE — checkpoint-140 selectionne (MA(10) loss 1.716)
 > **ISO References**: ISO/IEC 42001:2023 (A.6.2.6), ISO/IEC 5338:2023 (6.3.2)
 > **Prerequis**: TAPT checkpoint-88 uploaded (Kaggle dataset updated)
 > **Base**: Adapte de docs/superpowers/specs/2026-03-23-sft-v2-assembly-design.md

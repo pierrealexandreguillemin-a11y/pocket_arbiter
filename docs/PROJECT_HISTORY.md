@@ -157,7 +157,7 @@ Chronologie factuelle des decisions et errements du projet.
 | 23 mar | SFT v2 step 60 selectionne | Loss descend a step 60 (1.97), remonte apres; overfit ratio 1.04 vs 1.33 v1 |
 | 23 mar | Domain SFT peut nuire RAG faithfulness | Revue 17 papers : post-rationalisation, Dunning-Kruger, under-learning potentiellement meilleur |
 | 23 mar | Benchmark base planifie | Pipeline RAG jamais teste avec modele base — erreur de brainstorming |
-| 23 mar | SFT v3 : 2 epochs LR 1e-5 | Budget 0.00202, entre v2 (0.001) et v1 (0.006), 10 checkpoints |
+| 23 mar | SFT v3 DONE : checkpoint-140 | MA(10) loss 1.716, acc 0.620, overfit 1.08. 2 epochs LR 1e-5, 15.7 min T4 |
 
 ## Ere 9 : Generation fine-tuning (mars 2026)
 

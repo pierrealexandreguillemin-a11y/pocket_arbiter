@@ -210,7 +210,67 @@
       "checkpoint_best": "kaggle/sft-checkpoint/checkpoint-60/ (to be uploaded)",
       "kaggle_dataset": "pguillemin/gemma-270m-sft-checkpoint (v2 pending upload)"
     },
-    "status": "Eval kernel PENDING",
+    "status": "SUPERSEDED by SFT v3",
+    "trained": "2026-03-23"
+  },
+
+  "llmModel_sft_v3": {
+    "name": "Gemma 3 270M IT — TAPT + SFT v3",
+    "description": "SFT v3: 2 epochs LR 1e-5, starting from TAPT epoch 4 (checkpoint-88). Best checkpoint at step 140 (MA(10) analysis).",
+    "base_model": "TAPT checkpoint epoch 4 (checkpoint-88)",
+    "method": "Full Fine-Tuning (FFT), fp16 + gradient checkpointing",
+    "standard": "AdaptLLM (Cheng ICLR 2024)",
+    "training": {
+      "data": "1802 reading tasks (AdaptLLM regex mining, 6 types)",
+      "data_split": "1622 train / 180 eval (10% holdout)",
+      "epochs": 2,
+      "lr": 1e-5,
+      "save_steps": 20,
+      "save_only_model": true,
+      "total_steps": 204,
+      "warmup_steps": 20,
+      "gpu": "Tesla T4 (14913 MB VRAM)",
+      "runtime_min": 15.7
+    },
+    "metrics": {
+      "checkpoints": [20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 204],
+      "best_checkpoint": "step-140",
+      "selection_method": "Moving average loss window 10 (MA minimum at step 144, checkpoint-140 nearest)",
+      "ma10_loss_at_checkpoints": {
+        "step_20": 2.746,
+        "step_40": 2.303,
+        "step_60": 2.121,
+        "step_80": 2.030,
+        "step_100": 2.004,
+        "step_120": 1.831,
+        "step_140": 1.772,
+        "step_160": 1.816,
+        "step_180": 1.748,
+        "step_200": 1.800,
+        "step_204": 1.799
+      },
+      "ma10_minimum": {"step": 144, "loss": 1.7156, "accuracy": 0.6197},
+      "training_loss": 2.0588,
+      "eval_loss": 1.7642,
+      "train_loss_manual": 1.6381,
+      "overfit_ratio": 1.08,
+      "overfit_flag": false,
+      "checkpoint_size_gb": 1.1,
+      "vs_previous": {
+        "vs_v1": "overfit 1.08 vs 1.33, MA loss 1.72 vs ~1.29 (v1 over-learns)",
+        "vs_v2": "MA loss 1.72 vs 2.12 (v2 under-learns at step 60)",
+        "budget": "0.00202 vs v1 0.00612 vs v2 0.00102"
+      }
+    },
+    "files": {
+      "checkpoint_best": "models/kaggle-sft-v3-output/gemma-270m-cpt-sft-v3/checkpoint-140/",
+      "checkpoint_final": "models/kaggle-sft-v3-output/gemma-270m-cpt-sft-v3/",
+      "kaggle_dataset": "pguillemin/gemma-270m-sft-checkpoint",
+      "metrics": "models/kaggle-sft-v3-output/sft_v3_metrics.json",
+      "training_log": "models/kaggle-sft-v3-output/sft_v3_training.log"
+    },
+    "literature_finding": "17 papers (2020-2026) show domain SFT can hurt RAG faithfulness via post-rationalization. Under-learning may be better for grounding. Benchmark base planned.",
+    "status": "DONE — eval kernel PENDING",
     "trained": "2026-03-23"
   },
 
@@ -338,7 +398,7 @@
     "kaggle_datasets": {
       "pguillemin/gemma-3-270m-it": "Base model Gemma 3 270M IT (512 MB weights)",
       "pguillemin/gemma-270m-tapt-checkpoint": "TAPT checkpoint (1023 MB weights)",
-      "pguillemin/gemma-270m-sft-checkpoint": "SFT checkpoint (1023 MB weights)",
+      "pguillemin/gemma-270m-sft-checkpoint": "SFT v3 checkpoint-140 (1023 MB weights)",
       "pguillemin/pocket-arbiter-gen-data": "Training data (corpus + reading tasks)",
       "pguillemin/pocket-arbiter-eval-data": "Eval data (DB + GS + eval scripts)"
     },
@@ -357,14 +417,28 @@
       "training_data": "kaggle/dataset-generation/",
       "eval_benchmarks": "data/benchmarks/generation_eval*.json",
       "kernel_scripts": "kaggle/kernel-*/",
-      "training_logs": "models/kaggle-output/*.log, models/kaggle-sft-output/*.log"
+      "sft_v3_output": "models/kaggle-sft-v3-output/ (13 GB, 11 checkpoints)",
+      "training_logs": "models/kaggle-output/*.log, models/kaggle-sft-output/*.log, models/kaggle-sft-v3-output/*.log"
     }
   },
 
   "versioning": {
-    "currentPhase": "Chantier 4 - Generation fine-tuning (SFT v2 eval PENDING)",
-    "modelVersion": "0.4.1",
+    "currentPhase": "Chantier 4 - Generation fine-tuning (SFT v3 DONE, eval PENDING, benchmark base PENDING)",
+    "modelVersion": "0.4.2",
     "changelog": [
+      {
+        "version": "0.4.2",
+        "date": "2026-03-23",
+        "changes": [
+          "SFT v3: 2 epochs LR 1e-5, TAPT epoch 4 base, 204 steps, 15.7 min T4",
+          "SFT v3: best checkpoint-140 by MA(10) analysis (loss 1.716, acc 0.620)",
+          "SFT v3: overfit ratio 1.08 (between v2 1.04 and v1 1.33)",
+          "SFT v3: epoch 2 brings real gain (+0.29 MA loss vs end epoch 1)",
+          "Literature review: 17 papers — domain SFT can hurt RAG faithfulness",
+          "Benchmark base planned: test RAG pipeline with base model (no FFT)",
+          "Eval kernel SFT v3 PENDING"
+        ]
+      },
       {
         "version": "0.4.1",
         "date": "2026-03-23",
@@ -373,8 +447,7 @@
           "SFT v2: best checkpoint step 60 (loss 1.97, token_accuracy 0.578)",
           "SFT v2: overfit ratio 1.04 (improved from 1.33 v1)",
           "SFT v2: save_only_model=True fix — 1.1 GB checkpoints (vs 3.1 GB v1)",
-          "SFT v2: runtime 6.9 min T4 (vs 20.5 min v1)",
-          "Eval kernel SFT v2 PENDING"
+          "SFT v2: UNDER-LEARNS — superseded by v3"
         ]
       },
       {

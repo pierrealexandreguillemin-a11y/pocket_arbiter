@@ -51,7 +51,7 @@
 - **SFT v2** : 1 epoch LR 1e-5, TAPT ep4, step 60 → **sous-apprend** (70.6% < 10 mots, median 5w)
   - Erreur d'analyse : loss step-by-step bruitee interpretee comme remontee, moyenne mobile descendait encore
   - TAPT ep4 ≈ ep5 (repetitions 79% vs 77%, quasi-identiques)
-- **SFT v3 EN COURS** : 2 epochs LR 1e-5, save_steps=20, 10 checkpoints, base TAPT ep4
+- **SFT v3 DONE** : 2 epochs LR 1e-5, best checkpoint-140 (MA loss 1.716, acc 0.620, overfit 1.08)
 - **Finding** : domain SFT peut nuire RAG faithfulness (17 papers, post-rationalisation)
 - **Benchmark base PLANIFIE** : pipeline RAG avec modele base (sans FFT) pour valider si FFT necessaire
 - **Eval v1** : Base 71 empty 21.6% | TAPT 9 empty 34.1% | SFT v1 0 empty 33.0%

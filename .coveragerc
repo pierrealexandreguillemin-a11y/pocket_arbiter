@@ -4,6 +4,7 @@ source =
     scripts/pipeline/
 omit =
     scripts/archive/**
+    scripts/pipeline/reformat_sft_data.py
     */conftest.py
     */tests/*
 

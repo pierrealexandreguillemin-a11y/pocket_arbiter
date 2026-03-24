@@ -21,6 +21,19 @@ Revue exhaustive de la litterature (2024-2026) et du guide officiel Google Gemma
 | lr_scheduler | cosine | **constant** (Google FFT guide) | Cosine decay premature sur ~100-200 steps (WSO arXiv:2603.16127) |
 | Loss masking SFT | Full sequence | **Assistant-only** | Gradient gaspille sur tokens prompt (TRL docs) |
 
+### Eval v4 — Reference (2026-03-24)
+
+Resultats avec prompt v2 + gen params state-of-the-art (TAPT v1 + SFT v3) :
+
+| Modele | Citations | Empty | Median mots | Comportement |
+|--------|-----------|-------|-------------|--------------|
+| **Base** | **43.9%** | 0 | 36 | Lit contexte, cite, utilise "non trouvee" |
+| TAPT v1 | 36.4% | 0 | 17 | Post-rationalise (pretend citer, fabule) |
+| SFT v3 | 28.8% | 0 | 15 | Echo questions (full-seq loss) |
+
+**Paradoxe confirme** : plus de FFT = moins de faithfulness.
+**Objectif TAPT v2 + SFT v4** : depasser base (43.9%) avec les corrections.
+
 ### Pourquoi retrainer depuis TAPT
 
 Un SFT optimal sur un TAPT sous-optimal herite des problemes :

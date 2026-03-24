@@ -44,29 +44,37 @@
 - **ABANDONNE** : 0 precedent litterature a 1116 exemples, precedent fine-tune a degrade recall, rendements decroissants
 - EmbeddingGemma-300M base reste en l'etat (pas de fine-tuning)
 
-### Generation fine-tuning (chantier 4 — eval humaine PENDING)
-- **TAPT DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, perplexity 37.74 → 7.98, Gate G1 PASS
-- **SFT v1 DONE** : 1802 exercices AdaptLLM, 3 epochs, loss 3.64→1.29, overfit ratio 1.33
-- **SFT v1** : 3 epochs LR 2e-5, TAPT ep5 → sur-apprend (echo 17.6%, overfit 1.33, mais 0 empty)
-- **SFT v2** : 1 epoch LR 1e-5, TAPT ep4, step 60 → **sous-apprend** (70.6% < 10 mots, median 5w)
-  - Erreur d'analyse : loss step-by-step bruitee interpretee comme remontee, moyenne mobile descendait encore
-  - TAPT ep4 ≈ ep5 (repetitions 79% vs 77%, quasi-identiques)
-- **SFT v3 DONE** : 2 epochs LR 1e-5, best checkpoint-140 (MA loss 1.716, acc 0.620, overfit 1.08)
-- **Finding** : domain SFT peut nuire RAG faithfulness (17 papers, post-rationalisation)
+### Generation fine-tuning (chantier 4)
+- **TAPT v1 DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, ppl 37.74→7.98 (bugs: dropout 0.1, cosine)
+- **SFT v1** : 3ep LR 2e-5, TAPT ep5 → sur-apprend (echo 17.6%, overfit 1.33)
+- **SFT v2** : 1ep LR 1e-5, TAPT ep4 → sous-apprend (median 5 mots, coupe trop tot)
+- **SFT v3 DONE** : 2ep LR 1e-5, checkpoint-140 (MA loss 1.716, acc 0.620, overfit 1.08)
 - **Prompt v2** : 7 regles numerotees, reformulation, injection defense, contrainte longueur
 - **Gen params** : temp=0.2, repetition_penalty=1.2, no_repeat_ngram_size=4, Google defaults
-- **Benchmark base PLANIFIE** : pipeline RAG avec modele base (sans FFT) pour valider si FFT necessaire
-- **Eval pipeline** : eval v4 (SFT v3 + prompt v2 + gen params) → TAPT v2 → SFT v4 → eval v5
-- **Training params correction** : dropout 0.1→0.0, cosine→constant, full-seq→assistant-only loss
-- **Spec** : docs/superpowers/specs/2026-03-24-training-params-correction-design.md
-- **Eval v1** : Base 71 empty 21.6% | TAPT 9 empty 34.1% | SFT v1 0 empty 33.0%
-- **Eval v2** : SFT v2 sous-apprend — 1 empty, 24.6% citations, median 5 mots
-- Architecture : 3 kernels Kaggle (TAPT + SFT-only + eval 3 modeles)
+
+### Eval v4 — RESULTATS CRITIQUES (2026-03-24)
+- **Base 43.9%** > TAPT 36.4% > SFT v3 28.8% citations — **plus de FFT = moins de faithfulness**
+- 0 empty pour les 3 modeles (min_new_tokens=10 corrige le bug)
+- SFT v3 echo les questions au lieu de repondre (full-seq loss → apprend a predire le prompt)
+- Base = meilleur lecteur fidele avec prompt v2 + gen params state-of-the-art
+- **Paradoxe faithfulness confirme par les donnees** (17 papers + eval v4)
+
+### 3 bugs training identifies (2026-03-24)
+1. **attention_dropout=0.1** injecte → Google livre 0.0 (arXiv:2505.24788)
+2. **cosine scheduler** → Google FFT guide utilise **constant** (WSO arXiv:2603.16127)
+3. **Full-sequence loss** → TRL supporte **assistant-only** (echo = consequence directe)
+
+### Pipeline correction planifie
+- **TAPT v2** : params corriges (dropout=0.0, constant scheduler) → benchmark ppl
+- **SFT v4** : sur TAPT v2 + assistant-only loss + prompt v2 dans training data → benchmark
+- **Eval v5** : comparer avec eval v4 → decision FFT ou base suffit
+- Spec : docs/superpowers/specs/2026-03-24-training-params-correction-design.md
+
+### References
 - ADR-001 : Gemma 3 270M IT (Option A)
-- Spec : docs/superpowers/specs/2026-03-21-cpt-adaptllm-generation-design.md
-- Artefacts : voir models/model_card.json (section artifacts)
+- Specs : 2026-03-21-cpt-adaptllm, 2026-03-23-sft-v3, 2026-03-24-training-params-correction
+- Artefacts : models/model_card.json
 - **Question ouverte** : pourquoi les optimisations retrieval standard ont un impact marginal ?
-- **Question ouverte** : le FFT domain est-il necessaire ou le base + prompting suffit-il ? (benchmark base planifie)
 
 ## Commandes
 

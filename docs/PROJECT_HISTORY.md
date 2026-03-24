@@ -162,6 +162,7 @@ Chronologie factuelle des decisions et errements du projet.
 | 24 mar | Gen params state-of-the-art | temp=0.2, repetition_penalty=1.2, no_repeat_ngram=4, Google defaults |
 | 24 mar | Training params correction spec | 3 bugs: dropout 0.1 (Google=0.0), cosine (Google=constant), full-seq loss (TRL=assistant-only) |
 | 24 mar | Pipeline TAPT v2 → SFT v4 planifie | Retraining complet depuis TAPT avec params corriges, benchmark chaque etape |
+| 24 mar | **Eval v4 : paradoxe faithfulness confirme** | Base 43.9% > TAPT 36.4% > SFT 28.8% citations. 0 empty (min_new_tokens). SFT echo questions |
 
 ## Ere 9 : Generation fine-tuning (mars 2026)
 

@@ -1,0 +1,14 @@
+{
+  "id": "pguillemin/pocket-arbiter-tapt-v2",
+  "title": "Pocket Arbiter TAPT v2",
+  "code_file": "train_tapt_v2.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "pguillemin/pocket-arbiter-gen-data",
+    "pguillemin/gemma-3-270m-it"
+  ]
+}

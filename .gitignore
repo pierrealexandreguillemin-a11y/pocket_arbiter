@@ -186,6 +186,8 @@ data/archive/benchmarks_v8/
 kaggle/model-gemma-270m/
 models/kaggle-output/
 models/kaggle-sft-output/
+models/kaggle-sft-v2-output/
+models/kaggle-sft-v3-output/
 
 # Kaggle checkpoints (large model weights, uploaded via Kaggle CLI)
 kaggle/tapt-checkpoint/model.safetensors

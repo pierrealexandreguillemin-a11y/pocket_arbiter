@@ -141,8 +141,14 @@ def generate_response(model: object, tokenizer: object, messages: list[dict]) ->
     with torch.no_grad():
         output_ids = model.generate(  # type: ignore[attr-defined]
             **inputs,
-            max_new_tokens=256,
-            do_sample=False,
+            max_new_tokens=512,
+            min_new_tokens=10,
+            do_sample=True,
+            temperature=0.2,
+            top_k=64,
+            top_p=0.95,
+            repetition_penalty=1.2,
+            no_repeat_ngram_size=4,
             pad_token_id=tokenizer.eos_token_id,  # type: ignore[attr-defined]
         )
     # Decode only the newly generated tokens

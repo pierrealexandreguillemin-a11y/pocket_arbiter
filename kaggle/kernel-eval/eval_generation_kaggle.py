@@ -168,10 +168,21 @@ def generate_response_gpu(
     inputs = tokenizer(text, return_tensors="pt")
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     with torch.no_grad():
+        # Gen params state-of-the-art for RAG faithfulness (2026-03-24):
+        # - do_sample=True + temp=0.2: Google Gemma 3 default, avoids greedy loops
+        # - repetition_penalty=1.2: critical for 270M (Li et al. 2022)
+        # - no_repeat_ngram_size=4: prevents loops, safe for domain terms
+        # - min_new_tokens=10: prevents empty/1-word responses
         output_ids = model.generate(
             **inputs,
-            max_new_tokens=256,
-            do_sample=False,
+            max_new_tokens=512,
+            min_new_tokens=10,
+            do_sample=True,
+            temperature=0.2,
+            top_k=64,
+            top_p=0.95,
+            repetition_penalty=1.2,
+            no_repeat_ngram_size=4,
             pad_token_id=tokenizer.eos_token_id,
         )
     prompt_len = inputs["input_ids"].shape[1]

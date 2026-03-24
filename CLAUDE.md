@@ -53,7 +53,10 @@
   - TAPT ep4 ≈ ep5 (repetitions 79% vs 77%, quasi-identiques)
 - **SFT v3 DONE** : 2 epochs LR 1e-5, best checkpoint-140 (MA loss 1.716, acc 0.620, overfit 1.08)
 - **Finding** : domain SFT peut nuire RAG faithfulness (17 papers, post-rationalisation)
+- **Prompt v2** : 7 regles numerotees, reformulation, injection defense, contrainte longueur
+- **Gen params** : temp=0.2, repetition_penalty=1.2, no_repeat_ngram_size=4, Google defaults
 - **Benchmark base PLANIFIE** : pipeline RAG avec modele base (sans FFT) pour valider si FFT necessaire
+- **Eval pipeline** : A (prompt v2 + greedy) → B (prompt v2 + gen params) → C (SFT v4 retrained)
 - **Eval v1** : Base 71 empty 21.6% | TAPT 9 empty 34.1% | SFT v1 0 empty 33.0%
 - **Eval v2** : SFT v2 sous-apprend — 1 empty, 24.6% citations, median 5 mots
 - Architecture : 3 kernels Kaggle (TAPT + SFT-only + eval 3 modeles)

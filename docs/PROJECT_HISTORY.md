@@ -158,6 +158,9 @@ Chronologie factuelle des decisions et errements du projet.
 | 23 mar | Domain SFT peut nuire RAG faithfulness | Revue 17 papers : post-rationalisation, Dunning-Kruger, under-learning potentiellement meilleur |
 | 23 mar | Benchmark base planifie | Pipeline RAG jamais teste avec modele base — erreur de brainstorming |
 | 23 mar | SFT v3 DONE : checkpoint-140 | MA(10) loss 1.716, acc 0.620, overfit 1.08. 2 epochs LR 1e-5, 15.7 min T4 |
+| 24 mar | Prompt RAG v2 | 7 regles numerotees, reformulation, injection defense, contrainte longueur |
+| 24 mar | Gen params state-of-the-art | temp=0.2, repetition_penalty=1.2, no_repeat_ngram=4, Google defaults |
+| 24 mar | Eval pipeline A/B/C planifie | A=prompt seul, B=prompt+params, C=SFT v4 retrained. Isoler variables |
 
 ## Ere 9 : Generation fine-tuning (mars 2026)
 

@@ -56,7 +56,9 @@
 - **Prompt v2** : 7 regles numerotees, reformulation, injection defense, contrainte longueur
 - **Gen params** : temp=0.2, repetition_penalty=1.2, no_repeat_ngram_size=4, Google defaults
 - **Benchmark base PLANIFIE** : pipeline RAG avec modele base (sans FFT) pour valider si FFT necessaire
-- **Eval pipeline** : A (prompt v2 + greedy) → B (prompt v2 + gen params) → C (SFT v4 retrained)
+- **Eval pipeline** : eval v4 (SFT v3 + prompt v2 + gen params) → TAPT v2 → SFT v4 → eval v5
+- **Training params correction** : dropout 0.1→0.0, cosine→constant, full-seq→assistant-only loss
+- **Spec** : docs/superpowers/specs/2026-03-24-training-params-correction-design.md
 - **Eval v1** : Base 71 empty 21.6% | TAPT 9 empty 34.1% | SFT v1 0 empty 33.0%
 - **Eval v2** : SFT v2 sous-apprend — 1 empty, 24.6% citations, median 5 mots
 - Architecture : 3 kernels Kaggle (TAPT + SFT-only + eval 3 modeles)

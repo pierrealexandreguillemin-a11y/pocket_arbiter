@@ -45,7 +45,7 @@
 - EmbeddingGemma-300M base reste en l'etat (pas de fine-tuning)
 
 ### Generation fine-tuning (chantier 4)
-- **TAPT v1 DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, ppl 37.74→7.98 (bugs: dropout 0.1, cosine)
+- **TAPT v1 DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, ppl 37.74→7.98 (bugs: dropout 0.1, cosine, LR 5e-6 au lieu de 5e-5)
 - **SFT v1** : 3ep LR 2e-5, TAPT ep5 → sur-apprend (echo 17.6%, overfit 1.33)
 - **SFT v2** : 1ep LR 1e-5, TAPT ep4 → sous-apprend (median 5 mots, coupe trop tot)
 - **SFT v3 DONE** : 2ep LR 1e-5, checkpoint-140 (MA loss 1.716, acc 0.620, overfit 1.08)
@@ -59,10 +59,11 @@
 - Base = meilleur lecteur fidele avec prompt v2 + gen params state-of-the-art
 - **Paradoxe faithfulness confirme par les donnees** (17 papers + eval v4)
 
-### 3 bugs training identifies (2026-03-24)
+### 4 bugs training identifies (2026-03-24)
 1. **attention_dropout=0.1** injecte → Google livre 0.0 (arXiv:2505.24788)
 2. **cosine scheduler** → Google FFT guide utilise **constant** (WSO arXiv:2603.16127)
 3. **Full-sequence loss** → TRL supporte **assistant-only** (echo = consequence directe)
+4. **TAPT LR=5e-6** au lieu de 5e-5 (10x trop bas, erreur doc model_card)
 
 ### Pipeline correction planifie
 - **TAPT v2** : params corriges (dropout=0.0, constant scheduler) → benchmark ppl

@@ -20,6 +20,7 @@ Revue exhaustive de la litterature (2024-2026) et du guide officiel Google Gemma
 | attention_dropout | 0.1 (injecte) | **0.0** (Gemma default) | Reduit capacite, nuit en 1-5 epochs (arXiv:2505.24788) |
 | lr_scheduler | cosine | **constant** (Google FFT guide) | Cosine decay premature sur ~100-200 steps (WSO arXiv:2603.16127) |
 | Loss masking SFT | Full sequence | **Assistant-only** | Gradient gaspille sur tokens prompt (TRL docs) |
+| **LR TAPT** | **5e-6** (script) | **5e-5** (Google FFT guide) | **10x trop bas !** model_card.json documentait 5e-5 par erreur |
 
 ### Eval v4 — Reference (2026-03-24)
 
@@ -87,16 +88,16 @@ Decision: gain justifie-t-il la complexite ?
 
 ### Script: train_tapt_v2.py (fork de kernel TAPT existant)
 
-| Parametre | v1 | v2 | Source |
-|-----------|----|----|--------|
+| Parametre | v1 (reel) | v2 | Source |
+|-----------|-----------|-----|--------|
+| **lr** | **5e-6** (10x trop bas !) | **5e-5** | Google FFT guide. model_card disait 5e-5 par erreur |
 | attention_dropout | 0.1 (injecte) | **0.0** (pas d'injection) | Google Gemma default, arXiv:2505.24788 |
 | lr_scheduler_type | cosine | **constant_with_warmup** | Google FFT guide, WSO arXiv:2603.16127 |
 | warmup_pct | 0.1 | **0.05** | Secret Recipe arXiv:2412.13337 |
 | optim | adamw_torch | **adamw_torch_fused** | Google FFT guide |
 | epochs | 5 | **5** | Inchange |
-| lr | 5e-5 | **5e-5** | Inchange (Google FFT guide) |
-| batch_size | 2 | **2** | Inchange |
-| grad_accum | 4 | **4** | Inchange |
+| batch_size | 1 | **1** | Inchange (script reel, pas 2 comme documente) |
+| grad_accum | 16 | **16** | Inchange |
 | fp32 + AMP | oui | **oui** | Inchange |
 
 ### Benchmark T1 : TAPT v2 vs v1

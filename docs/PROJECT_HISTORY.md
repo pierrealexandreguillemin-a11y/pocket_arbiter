@@ -163,6 +163,7 @@ Chronologie factuelle des decisions et errements du projet.
 | 24 mar | Training params correction spec | 3 bugs: dropout 0.1 (Google=0.0), cosine (Google=constant), full-seq loss (TRL=assistant-only) |
 | 24 mar | Pipeline TAPT v2 → SFT v4 planifie | Retraining complet depuis TAPT avec params corriges, benchmark chaque etape |
 | 24 mar | **Eval v4 : paradoxe faithfulness confirme** | Base 43.9% > TAPT 36.4% > SFT 28.8% citations. 0 empty (min_new_tokens). SFT echo questions |
+| 24 mar | **4eme bug : TAPT LR 10x trop bas** | Script reel = 5e-6, model_card documentait 5e-5. Google FFT = 5e-5. Verifie trainer_state |
 
 ## Ere 9 : Generation fine-tuning (mars 2026)
 

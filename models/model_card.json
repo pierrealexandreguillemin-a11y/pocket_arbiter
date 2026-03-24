@@ -80,9 +80,10 @@
     "training": {
       "data": "5529 paragraphs from 28 FFE PDFs (381K tokens)",
       "epochs": 5,
-      "batch_size": 2,
-      "grad_accum": 4,
-      "lr": 5e-5,
+      "batch_size": 1,
+      "grad_accum": 16,
+      "lr": 5e-6,
+      "lr_note": "ERREUR: model_card documentait 5e-5, script reel = 5e-6 (verifie trainer_state.json). Google recommande 5e-5.",
       "scheduler": "cosine",
       "gpu": "Tesla T4 (14913 MB VRAM)",
       "runtime_min": 37

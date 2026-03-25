@@ -45,31 +45,45 @@
 - EmbeddingGemma-300M base reste en l'etat (pas de fine-tuning)
 
 ### Generation fine-tuning (chantier 4)
-- **TAPT v1 DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, ppl 37.74→7.98 (bugs: dropout 0.1, cosine, LR 5e-6 au lieu de 5e-5)
-- **SFT v1** : 3ep LR 2e-5, TAPT ep5 → sur-apprend (echo 17.6%, overfit 1.33)
-- **SFT v2** : 1ep LR 1e-5, TAPT ep4 → sous-apprend (median 5 mots, coupe trop tot)
-- **SFT v3 DONE** : 2ep LR 1e-5, checkpoint-140 (MA loss 1.716, acc 0.620, overfit 1.08)
+- **TAPT v1 DONE** : Gemma 270M IT, FFT fp32+AMP, 5 epochs, ppl 37.74→7.98 (bugs: dropout 0.1, cosine, LR 5e-6)
+- **TAPT v2 DONE** : params corriges (LR 5e-5, dropout 0.0, constant) → ppl 4.70, mais faithfulness catastrophique (ep1 = 4.2%)
+- **TAPT v3 sweep DONE** : v1 params exacts, 5 epochs evaluated → **ep1 = sweet spot (46.2% citations, +2.3pp vs base)**
+- **SFT v1-v4 INVALIDES** : toutes entrainees sur donnees regex garbage (AdaptLLM pattern matching)
+  - Les 1802 "reading tasks" = connecteurs FR detectes par regex, pas de generation LLM
+  - Reponses = bouts de texte copies (mediane 16 tokens, pas de citations, pas de format)
+  - NEFTune alpha=5 present dans v1-v3 (pas valide sub-1B, mesure chat vibes pas faithfulness)
+  - La litterature (17 papers) disait deja : SFT domain standard NUIT au RAG. Ignore.
+  - **SFT v5** : generer VRAIES reponses avec LLM teacher (RAFT-style) avant tout SFT
 - **Prompt v2** : 7 regles numerotees, reformulation, injection defense, contrainte longueur
 - **Gen params** : temp=0.2, repetition_penalty=1.2, no_repeat_ngram_size=4, Google defaults
 
+### TAPT v3 sweep — FINDING MAJEUR (2026-03-25)
+- **TAPT ep1 46.2%** > base 43.9% > ep3 42.4% > ep2/ep5 40.2% > ep4 36.4%
+- **1 epoch mild TAPT (LR 5e-6) = seul epoch qui bat base** sur faithfulness
+- Apres ep1, degradation monotone : le modele internalise le corpus et ignore le contexte
+- v2 params (LR 5e-5) = overcorrection confirmee (detruit instruction-following en 1 epoch)
+- **SFT v4 doit utiliser TAPT ep1 (checkpoint-22) comme base**
+
 ### Eval v4 — RESULTATS CRITIQUES (2026-03-24)
-- **Base 43.9%** > TAPT 36.4% > SFT v3 28.8% citations — **plus de FFT = moins de faithfulness**
+- **Base 43.9%** > TAPT v1 ep5 36.4% > SFT v3 28.8% citations — **plus de FFT = moins de faithfulness**
 - 0 empty pour les 3 modeles (min_new_tokens=10 corrige le bug)
 - SFT v3 echo les questions au lieu de repondre (full-seq loss → apprend a predire le prompt)
-- Base = meilleur lecteur fidele avec prompt v2 + gen params state-of-the-art
-- **Paradoxe faithfulness confirme par les donnees** (17 papers + eval v4)
+- **Note** : eval v4 ne testait que ep5 (pire epoch). TAPT v3 sweep revele que ep1 bat base.
 
 ### 4 bugs training identifies (2026-03-24)
 1. **attention_dropout=0.1** injecte → Google livre 0.0 (arXiv:2505.24788)
 2. **cosine scheduler** → Google FFT guide utilise **constant** (WSO arXiv:2603.16127)
 3. **Full-sequence loss** → TRL supporte **assistant-only** (echo = consequence directe)
-4. **TAPT LR=5e-6** au lieu de 5e-5 (10x trop bas, erreur doc model_card)
+4. **TAPT LR=5e-6** au lieu de 5e-5 → en fait 5e-6 est MEILLEUR pour faithfulness (v3 sweep confirme)
 
-### Pipeline correction planifie
-- **TAPT v2** : params corriges (dropout=0.0, constant scheduler) → benchmark ppl
-- **SFT v4** : sur TAPT v2 + assistant-only loss + prompt v2 dans training data → benchmark
-- **Eval v5** : comparer avec eval v4 → decision FFT ou base suffit
-- Spec : docs/superpowers/specs/2026-03-24-training-params-correction-design.md
+### Pipeline next steps
+- **Generer donnees SFT v5** : Gemma 270M (base ou TAPT ep1) sur Kaggle T4
+  genere reponses formatees via pipeline RAG reel, puis filtre les bonnes (~44-46% yield)
+- **Filtrer + audit visuel** : garder reponses qui citent, 10+ samples lus par humain
+- **SFT v5** : sur TAPT ep1 (checkpoint-22) + assistant-only loss + donnees reelles
+- **Eval v5** : comparer SFT v5 vs TAPT ep1 (46.2%) vs base (43.9%)
+- Ref : Pleias-RAG (2025) prouve qu'un 350M apprend les citations si donnees de qualite
+- Ref : RAFT (Berkeley 2024) = format cible (oracle + distracteurs + citations verbatim)
 
 ### References
 - ADR-001 : Gemma 3 270M IT (Option A)
@@ -122,6 +136,10 @@ models/             # model_card.json
 
 ## Principes de developpement
 
+- **DONNEES D'ABORD** : auditer le CONTENU des donnees (lire 10 samples) AVANT les hyperparametres
+- **Pas de regex comme donnees SFT** : les reponses d'entrainement doivent etre generees par un modele, pas du pattern matching
+- **Pas de LLM externe pour generer les donnees** : seuls nos modeles (Gemma 270M) generent les donnees d'entrainement (postmortem gs_scratch : LLM externe → 71.5% garbage)
+- **Pas de SFT domain standard pour RAG** : la litterature (17 papers) montre que ca nuit a la faithfulness. Utiliser RAFT-style (citations + distracteurs)
 - **KISS** : Solutions simples et directes, eviter over-engineering
 - **DRY** : Factoriser le code commun
 - **Production saine > existant rotte** : reecrire plutot que debugger du code empile

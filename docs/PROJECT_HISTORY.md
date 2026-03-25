@@ -232,3 +232,36 @@ Chronologie factuelle des decisions et errements du projet.
 | Kernel TAPT+SFT | kaggle/kernel-generation/ | pocket-arbiter-cpt-sft-generation |
 | Kernel SFT-only | kaggle/kernel-sft/ | pocket-arbiter-sft-generation |
 | Kernel eval | kaggle/kernel-eval/ | pocket-arbiter-eval-generation-3-models |
+
+## Ere 10 : Generation fine-tuning — correctif (mars 2026)
+
+### TAPT v2 — OVERCORRECTION (2026-03-25)
+- 4 "bugs" identifies (LR, dropout, scheduler, full-seq loss), 3 corrigees simultanement
+- LR 5e-6 -> 5e-5, dropout 0.1 -> 0.0, cosine -> constant : toutes plus agressives
+- Resultat : faithfulness catastrophique (base 45.1% -> TAPT v2 ep1 4.2%)
+- **Cause** : corrections aveugles du guide Google FFT, sans rapport avec RAG faithfulness
+
+### TAPT v3 sweep — FINDING MAJEUR (2026-03-25)
+- v1 params exacts reproduits (LR 5e-6, dropout 0.1, cosine, 5 epochs)
+- Sweep eval base + 5 epochs sur 298 questions
+- **TAPT ep1 = 46.2% citations** > base 43.9% (+2.3pp) — seul epoch qui bat base
+- Degradation monotone apres ep1 : ep2 40.2%, ep3 42.4%, ep4 36.4%, ep5 40.2%
+- **1 epoch mild TAPT = sweet spot pour RAG faithfulness**
+
+### SFT v1-v4 — DONNEES GARBAGE (2026-03-25, decouverte tardive)
+- **4 versions SFT entrainees sur des donnees regex** (AdaptLLM pattern matching)
+- Les 1802 "reading tasks" = connecteurs FR detectes par regex, pas de generation LLM
+- Reponses = bouts de texte copies du passage (mediane 16 tokens, pas de citations, pas de format)
+- **Aucun audit des donnees d'entrainement** malgre les injonctions repetees
+- Impact : journee complete de compute Kaggle gaspillee (TAPT v2 + v3 + SFT v4)
+- **Root cause** : focus sur les hyperparametres (facile) au lieu des donnees (fondamental)
+
+### Decisions cles (suite)
+
+| Date | Decision | Raison |
+|------|----------|--------|
+| 25 mar | TAPT v2 overcorrection abandonnee | 3 corrections simultanees toutes agressives, detruit faithfulness |
+| 25 mar | TAPT v3 sweep : ep1 = best (46.2%) | v1 params, 1 epoch mild TAPT = sweet spot |
+| 25 mar | SFT donnees regex = INUTILISABLE | 1802 tasks generees par pattern matching, pas de vraies reponses RAG |
+| 25 mar | NEFTune retire | Pas valide sub-1B, mesure chat vibes pas faithfulness |
+| 25 mar | Prochaine etape : generer vraies reponses | Kernel Kaggle : Gemma base genere reponses formatees, puis SFT dessus |

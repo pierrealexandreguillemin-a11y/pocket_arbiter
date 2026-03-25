@@ -1,6 +1,6 @@
 {
-  "id": "pguillemin/pocket-arbiter-sft-v4",
-  "title": "Pocket Arbiter SFT v4",
+  "id": "pguillemin/pocket-arbiter-sft-v4-base",
+  "title": "Pocket Arbiter SFT v4 Base",
   "code_file": "train_sft_v4.py",
   "language": "python",
   "kernel_type": "script",
@@ -9,6 +9,6 @@
   "enable_internet": "true",
   "dataset_sources": [
     "pguillemin/pocket-arbiter-gen-data",
-    "pguillemin/gemma-270m-tapt-checkpoint"
+    "pguillemin/gemma-3-270m-it"
   ]
 }

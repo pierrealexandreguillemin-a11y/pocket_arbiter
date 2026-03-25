@@ -1,33 +1,33 @@
-"""SFT v4 — Supervised Fine-Tuning on TAPT v2, all corrections applied.
+"""SFT v4 -- Supervised Fine-Tuning on BASE model (no TAPT).
 
-Kaggle T4 script — self-contained, production-grade.
+Kaggle T4 script -- self-contained, production-grade.
 
-8 corrections from v3 (verified against Google FFT guide + literature + eval v4):
-  1. Base model: TAPT v2 (corrected LR/dropout/scheduler) instead of v1
-  2. attention_dropout: 0.0 (Gemma default, arXiv:2505.24788)
-  3. lr_scheduler: constant_with_warmup (Google FFT, WSO arXiv:2603.16127)
-  4. Loss masking: assistant-only via DataCollatorForCompletionOnlyLM
-  5. Prompt: RAG v2 in training data (alignment train/inference)
-  6. warmup: 5% (Secret Recipe arXiv:2412.13337)
-  7. optimizer: adamw_torch_fused (Google FFT, ~5% speedup)
-  8. Gen params: state-of-the-art (temp=0.2, rep_penalty=1.2)
+TAPT v1/v2/v3 all degrade faithfulness (45.1% base -> 1-36% TAPT).
+SFT v4 skips TAPT entirely and fine-tunes BASE Gemma 270M IT.
+
+Key fix from v3: assistant-only loss (DataCollatorForCompletionOnlyLM).
+This was the only real bug -- v3 full-sequence loss caused echo behavior.
+Other v3 params (dropout 0.1, cosine scheduler) kept as-is for BASE SFT.
+
+Corrections applied:
+  1. Base model: Gemma 270M IT base (NOT TAPT -- TAPT hurts faithfulness)
+  2. Loss masking: assistant-only via DataCollatorForCompletionOnlyLM
+  3. Prompt: RAG v2 in training data (alignment train/inference)
+  4. Gen params: state-of-the-art (temp=0.2, rep_penalty=1.2)
 
 Input:  /kaggle/input/pocket-arbiter-gen-data/reading_tasks_v2.jsonl
-        /kaggle/input/gemma-270m-tapt-checkpoint/  (TAPT v2 model)
-Output: /kaggle/working/gemma-270m-cpt-sft-v4/
+        /kaggle/input/gemma-3-270m-it/  (base model)
+Output: /kaggle/working/gemma-270m-sft-v4/
         /kaggle/working/sft_v4_metrics.json
 
-Standards: AdaptLLM (Cheng ICLR 2024), NEFTune (Jain ICLR 2024),
-    Google Gemma FFT guide, WSO (arXiv:2603.16127).
-
-Eval v4 reference (target to beat): Base 43.9% citations with 0 empty.
+Eval v4 reference (target to beat): Base 45.1% citations with 0 empty.
 """
 
 from __future__ import annotations
 
 import os
 
-# Force single GPU — prevent DataParallel on T4x2
+# Force single GPU ? prevent DataParallel on T4x2
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import gc  # noqa: E402
@@ -50,7 +50,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 t_start = time.time()
 
-# ── PHASE 0: Environment ────────────────────────────────────────
+# ?? PHASE 0: Environment ????????????????????????????????????????
 logger.info("=== PHASE 0: Environment ===")
 assert torch.cuda.is_available(), "FATAL: No GPU detected"
 GPU_PROPS = torch.cuda.get_device_properties(0)
@@ -76,25 +76,23 @@ from transformers import (  # noqa: E402
 )
 from trl import DataCollatorForCompletionOnlyLM, SFTConfig, SFTTrainer  # noqa: E402
 
-# ── PHASE 1: Config ─────────────────────────────────────────────
+# ?? PHASE 1: Config ?????????????????????????????????????????????
 SEED = 42
 DRY_RUN = "--dry-run" in sys.argv
 
-# TAPT v2 checkpoint
-_TAPT_PATHS = [
-    "/kaggle/input/gemma-270m-tapt-checkpoint",
-    "/kaggle/input/datasets/pguillemin/gemma-270m-tapt-checkpoint",
-    "models/kaggle-output/gemma-270m-cpt",  # local fallback
+# Base model (no TAPT -- TAPT degrades faithfulness)
+_BASE_PATHS = [
+    "/kaggle/input/gemma-3-270m-it",
+    "/kaggle/input/datasets/pguillemin/gemma-3-270m-it",
+    "kaggle/model-gemma-270m",  # local fallback
 ]
-TAPT_MODEL_ID = None
-for _tp in _TAPT_PATHS:
-    if os.path.isdir(_tp) and os.path.exists(os.path.join(_tp, "model.safetensors")):
-        TAPT_MODEL_ID = _tp
-        logger.info("TAPT checkpoint found: %s", _tp)
+BASE_MODEL_ID = None
+for _bp in _BASE_PATHS:
+    if os.path.isdir(_bp) and os.path.exists(os.path.join(_bp, "model.safetensors")):
+        BASE_MODEL_ID = _bp
+        logger.info("Base model found: %s", _bp)
         break
-assert (
-    TAPT_MODEL_ID is not None
-), f"FATAL: TAPT checkpoint not found. Tried: {_TAPT_PATHS}"
+assert BASE_MODEL_ID is not None, f"FATAL: Base model not found. Tried: {_BASE_PATHS}"
 
 # Reading tasks v2 (RAG prompt format)
 INPUT_CANDIDATES = [
@@ -107,7 +105,7 @@ assert INPUT_DIR is not None, f"FATAL: No input dir found. Tried: {INPUT_CANDIDA
 logger.info("INPUT_DIR: %s", INPUT_DIR)
 
 OUTPUT_DIR = "/kaggle/working" if os.path.isdir("/kaggle/working") else "models"
-SFT_CKPT = os.path.join(OUTPUT_DIR, "gemma-270m-cpt-sft-v4")
+SFT_CKPT = os.path.join(OUTPUT_DIR, "gemma-270m-sft-v4")
 METRICS_PATH = os.path.join(OUTPUT_DIR, "sft_v4_metrics.json")
 
 # v4: use reading_tasks_v2.jsonl (RAG prompt format), fallback to v1
@@ -126,10 +124,11 @@ SFT_CFG = dict(
     batch_size=1,
     grad_accum=1 if _D else 16,
     lr=1e-5,  # same as v3
-    warmup_pct=0.05,  # v4 FIX: 10% → 5% (Secret Recipe arXiv:2412.13337)
+    warmup_pct=0.10,  # same as v3
     weight_decay=0.01,
     max_grad_norm=1.0,
-    neftune_alpha=5,
+    # NEFTune REMOVED: only tested on 7B+ (arXiv:2310.05914), measures chat vibes not faithfulness.
+    # Encourages verbosity = hallucination risk on 270M for RAG. No evidence of benefit sub-1B.
     save_total_limit=12,  # 10 ckpts + final + margin
     save_steps=20,
     save_only_model=True,
@@ -236,7 +235,7 @@ def compute_clm_loss(
     return total_loss / count
 
 
-# ── PHASE 2: Diagnostics ────────────────────────────────────────
+# ?? PHASE 2: Diagnostics ????????????????????????????????????????
 logger.info("=== PHASE 2: Diagnostics ===")
 logger.info("=== /kaggle/input/ contents ===")
 if os.path.isdir("/kaggle/input"):
@@ -247,35 +246,35 @@ if os.path.isdir("/kaggle/input"):
 else:
     logger.info("  /kaggle/input does NOT exist (local mode)")
 
-# Verify TAPT checkpoint integrity
-tapt_files = os.listdir(TAPT_MODEL_ID)
-logger.info("TAPT checkpoint files: %s", sorted(tapt_files))
-required_files = {"model.safetensors", "config.json", "tokenizer.json"}
-missing = required_files - set(tapt_files)
-assert not missing, f"FATAL: TAPT checkpoint missing files: {missing}"
+# Verify base model integrity
+base_files = os.listdir(BASE_MODEL_ID)
+logger.info("Base model files: %s", sorted(base_files)[:15])
+required_files = {"model.safetensors", "config.json"}
+missing = required_files - set(base_files)
+assert not missing, f"FATAL: Base model missing files: {missing}"
 
-tapt_size_mb = (
+base_size_mb = (
     sum(
-        os.path.getsize(os.path.join(TAPT_MODEL_ID, f))
-        for f in tapt_files
-        if os.path.isfile(os.path.join(TAPT_MODEL_ID, f))
+        os.path.getsize(os.path.join(BASE_MODEL_ID, f))
+        for f in base_files
+        if os.path.isfile(os.path.join(BASE_MODEL_ID, f))
     )
     / 1024
     / 1024
 )
-logger.info("TAPT checkpoint size: %.1f MB", tapt_size_mb)
-assert tapt_size_mb > 500, f"FATAL: TAPT checkpoint too small ({tapt_size_mb:.1f} MB)"
+logger.info("Base model size: %.1f MB", base_size_mb)
+assert base_size_mb > 400, f"FATAL: Base model too small ({base_size_mb:.1f} MB)"
 
-# ── PHASE 3: Data loading ───────────────────────────────────────
+# ?? PHASE 3: Data loading ???????????????????????????????????????
 logger.info("=== PHASE 3: Data loading ===")
 set_seed(SEED)
 
-tokenizer = AutoTokenizer.from_pretrained(TAPT_MODEL_ID)
+tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_ID)
 EOS = "<eos>"
 assert (
     tokenizer.eos_token == EOS
 ), f"FATAL: eos_token={tokenizer.eos_token!r}, expected {EOS!r}"
-logger.info("Tokenizer: eos='%s' — VERIFIED", tokenizer.eos_token)
+logger.info("Tokenizer: eos='%s' ? VERIFIED", tokenizer.eos_token)
 
 # Verify chat template produces expected response marker
 test_msg = [
@@ -338,10 +337,10 @@ logger.info(
 eval_messages = [t["messages"] for t in eval_tasks]
 train_messages_sample = [t["messages"] for t in train_tasks[:n_eval]]
 
-# ── PHASE 4: Model loading ──────────────────────────────────────
+# ?? PHASE 4: Model loading ??????????????????????????????????????
 logger.info("=== PHASE 4: Model loading ===")
 model = AutoModelForCausalLM.from_pretrained(
-    TAPT_MODEL_ID, dtype=torch.float32, device_map={"": 0}
+    BASE_MODEL_ID, dtype=torch.float32, device_map={"": 0}
 )
 cfg = model.config
 logger.info(
@@ -356,18 +355,15 @@ assert (
     200e6 < total_params < 400e6
 ), f"FATAL Gate GS0: Expected ~270M params, got {total_params / 1e6:.1f}M"
 
-# v4 FIX: NO dropout injection. Gemma ships with attention_dropout=0.0.
+# Dropout: use Gemma default (0.0). NOT injecting 0.1.
 current_dropout = getattr(cfg, "attention_dropout", 0.0)
-logger.info(
-    "attention_dropout=%.2f (Gemma default, NOT injected — v4 fix)",
-    current_dropout,
-)
+logger.info("attention_dropout=%.2f (Gemma default)", current_dropout)
 log_vram("after model load")
 
 # Pre-SFT generation test
-pre_sft_results = generate_test(model, tokenizer, "Pre-SFT (TAPT v2)")
+pre_sft_results = generate_test(model, tokenizer, "Pre-SFT (base)")
 
-# ── PHASE 5: SFT training ───────────────────────────────────────
+# ?? PHASE 5: SFT training ???????????????????????????????????????
 logger.info("=== PHASE 5: SFT training ===")
 
 sft_train_messages = [t["messages"] for t in train_tasks]
@@ -386,11 +382,10 @@ logger.info(
     warmup_steps,
 )
 logger.info(
-    "v4 corrections: scheduler=constant, dropout=0.0, warmup=5%%, "
-    "loss=assistant-only (DataCollatorForCompletionOnlyLM), prompt=RAG v2",
+    "v4: base model (no TAPT), assistant-only loss, RAG prompt v2",
 )
 
-# v4 FIX: DataCollatorForCompletionOnlyLM — masks prompt tokens
+# v4 FIX: DataCollatorForCompletionOnlyLM ? masks prompt tokens
 # Only trains on assistant response (after <start_of_turn>model\n)
 # This fixes the echo behavior from v3 (full-sequence loss)
 collator = DataCollatorForCompletionOnlyLM(
@@ -411,11 +406,9 @@ sft_config = SFTConfig(
     warmup_steps=warmup_steps,
     weight_decay=S["weight_decay"],
     max_grad_norm=S["max_grad_norm"],
-    # v4 FIX: constant_with_warmup (Google FFT, WSO arXiv:2603.16127)
-    lr_scheduler_type="constant_with_warmup",
-    # v4 FIX: adamw_torch_fused (Google FFT, ~5% speedup)
-    optim="adamw_torch_fused",
-    neftune_noise_alpha=S["neftune_alpha"],
+    lr_scheduler_type="cosine",  # same as v3
+    optim="adamw_torch",  # same as v3
+    # NEFTune removed (not validated for sub-1B RAG faithfulness)
     max_seq_length=S["seq_length"],
     fp16=True,
     gradient_checkpointing=True,
@@ -457,7 +450,7 @@ gc.collect()
 torch.cuda.empty_cache()
 log_vram("after trainer cleanup (before manual eval)")
 
-# ── PHASE 6: Post-training eval ─────────────────────────────────
+# ?? PHASE 6: Post-training eval ?????????????????????????????????
 logger.info("=== PHASE 6: Post-training eval ===")
 
 logger.info("Computing eval loss on %d held-out examples...", len(eval_messages))
@@ -491,7 +484,7 @@ else:
 # Post-SFT generation test
 post_sft_results = generate_test(model, tokenizer, "Post-SFT v4")
 
-# ── PHASE 7: Checkpoint validation ──────────────────────────────
+# ?? PHASE 7: Checkpoint validation ??????????????????????????????
 logger.info("=== PHASE 7: Checkpoint validation ===")
 assert os.path.isdir(SFT_CKPT), f"FATAL: SFT checkpoint missing: {SFT_CKPT}"
 ckpt_files = os.listdir(SFT_CKPT)
@@ -512,7 +505,7 @@ logger.info("SFT v4 checkpoint size: %.1f MB", ckpt_size_mb)
 epoch_ckpts = sorted([d for d in ckpt_files if d.startswith("checkpoint-")])
 logger.info("Epoch checkpoints: %s", epoch_ckpts)
 
-# ── PHASE 8: Save metrics ───────────────────────────────────────
+# ?? PHASE 8: Save metrics ???????????????????????????????????????
 logger.info("=== PHASE 8: Save metrics ===")
 metrics = {
     "training_loss": train_loss,
@@ -524,20 +517,17 @@ metrics = {
     "total_train": len(sft_ds),
     "total_eval": len(eval_messages),
     "task_distribution": type_counts,
-    "tapt_checkpoint": TAPT_MODEL_ID,
+    "base_model": BASE_MODEL_ID,
     "tasks_file": TASKS_PATH,
     "config": {k: v for k, v in S.items()},
-    "corrections_v3_to_v4": {
-        "base_model": "TAPT v2 (corrected) instead of v1",
-        "dropout": "0.0 (Gemma default, v3 injected 0.1)",
-        "scheduler": "constant_with_warmup (v3 used cosine)",
-        "loss_masking": "assistant-only via DataCollatorForCompletionOnlyLM (v3 full-seq)",
+    "changes_v3_to_v4": {
+        "base_model": "Gemma 270M IT base (v3 used TAPT v1 -- TAPT degrades faithfulness)",
+        "loss_masking": "assistant-only via DataCollatorForCompletionOnlyLM (v3 full-seq -- caused echo)",
         "prompt": "RAG v2 in training data (v3 used AdaptLLM generic)",
-        "warmup": "5% (v3 used 10%)",
-        "optim": "adamw_torch_fused (v3 used adamw_torch)",
+        "kept_same": "cosine scheduler, adamw_torch, warmup 10%, LR 1e-5, 2 epochs",
     },
     "eval_v4_reference": {
-        "base_citations": "43.9% (target to beat)",
+        "base_citations": "45.1% (target to beat)",
         "tapt_v1_citations": "36.4%",
         "sft_v3_citations": "28.8%",
     },
@@ -554,10 +544,10 @@ with open(METRICS_PATH, "w", encoding="utf-8") as f:
     json.dump(metrics, f, indent=2, ensure_ascii=False)
 logger.info("Metrics saved: %s", METRICS_PATH)
 
-# ── Summary ─────────────────────────────────────────────────────
+# ?? Summary ?????????????????????????????????????????????????????
 elapsed = time.time() - t_start
 logger.info("=" * 60)
-logger.info("SFT v4 TRAINING COMPLETE — %.1f min total", elapsed / 60)
+logger.info("SFT v4 TRAINING COMPLETE ? %.1f min total", elapsed / 60)
 logger.info("Checkpoint: %s (%.1f MB)", SFT_CKPT, ckpt_size_mb)
 logger.info(
     "train_loss=%.4f | eval_loss=%.4f | overfit_ratio=%.2f | flag=%s",
@@ -567,8 +557,8 @@ logger.info(
     overfit_flag,
 )
 logger.info(
-    "v4 fixes: TAPT v2 base, dropout=0.0, constant scheduler, "
-    "assistant-only loss, RAG prompt v2, warmup=5%%, fused optim",
+    "v4: base model (no TAPT), assistant-only loss, RAG prompt v2. "
+    "All other params same as v3 (cosine, adamw, warmup 10%%)",
 )
 logger.info("Epoch checkpoints: %s", epoch_ckpts)
 logger.info("=" * 60)

@@ -1,0 +1,15 @@
+{
+  "id": "pguillemin/pocket-arbiter-tapt-v3-sweep",
+  "title": "Pocket Arbiter TAPT v3 Sweep",
+  "code_file": "tapt_v3_sweep.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "pguillemin/gemma-3-270m-it",
+    "pguillemin/pocket-arbiter-gen-data",
+    "pguillemin/pocket-arbiter-eval-data"
+  ]
+}

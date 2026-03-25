@@ -1,0 +1,17 @@
+{
+  "id": "pguillemin/pocket-arbiter-eval-tapt-sweep",
+  "title": "Pocket Arbiter Eval TAPT Sweep (5 epochs)",
+  "code_file": "eval_tapt_sweep.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "pguillemin/gemma-3-270m-it",
+    "pguillemin/pocket-arbiter-eval-data"
+  ],
+  "kernel_sources": [
+    "pguillemin/pocket-arbiter-tapt-v2"
+  ]
+}

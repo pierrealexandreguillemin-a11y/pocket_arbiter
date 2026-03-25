@@ -62,11 +62,11 @@ Application mobile Android 100% offline pour l'aide aux arbitres d'echecs via RA
 |             v               |   tflite            |               |
 |  +---------------------+    | - llm.tflite        |               |
 |  |   INFERENCE LAYER   |    +---------------------+               |
-|  |   (LiteRT/RAG SDK)  |                                          |
+|  |   (LiteRT-LM)       |                                          |
 |  +---------------------+                                          |
-|  | - EmbeddingEngine   |                                          |
-|  | - SqliteVectorStore |                                          |
-|  | - LLMEngine         |                                          |
+|  | - EmbeddingEngine   |    LiteRT (.tflite)                      |
+|  | - SqliteVectorStore |    FTS5 (API 24+)                        |
+|  | - LLMEngine         |    LiteRT-LM (.litertlm)                 |
 |  +---------------------+                                          |
 |                                                                   |
 +------------------------------------------------------------------+
@@ -313,10 +313,10 @@ android/app/src/main/kotlin/com/arbiter/
 |       +-- Query.kt                 # Modele requete
 |       +-- Response.kt              # Modele reponse
 |
-+-- inference/           # Couche ML (Google AI Edge RAG SDK)
-|   +-- EmbeddingEngine.kt       # EmbeddingGemma via LiteRT
-|   +-- LLMEngine.kt             # Gemma 3 via MediaPipe
-|   +-- RagPipeline.kt           # RetrievalAndInferenceChain
++-- inference/           # Couche ML (LiteRT + LiteRT-LM)
+|   +-- EmbeddingEngine.kt       # EmbeddingGemma via LiteRT (.tflite)
+|   +-- LLMEngine.kt             # Gemma 3 via LiteRT-LM (.litertlm)
+|   +-- RagPipeline.kt           # Retrieval + generation pipeline
 ```
 
 ---
@@ -351,19 +351,19 @@ PDF Reglement (29 docs)
 Question utilisateur
     |
     v
-[EmbeddingEngine] --> Vecteur query 768-dim (EmbeddingGemma TFLite)
+[EmbeddingEngine] --> Vecteur query 768-dim (EmbeddingGemma via LiteRT .tflite)
     |
     v
-[SqliteVectorStore] --> Top-K chunks pertinents (cosine similarity)
+[SqliteVectorStore] --> Top-K chunks pertinents (cosine + BM25 FTS5)
     |
     v
-[PromptBuilder] --> Prompt avec contexte
+[PromptBuilder] --> Prompt RAG v2 (7 regles, contexte, question)
     |
     v
-[LLMEngine] --> Reponse synthetisee (Gemma 3)
+[LLMEngine] --> Reponse synthetisee (Gemma 3 270M via LiteRT-LM .litertlm)
     |
     v
-[CitationExtractor] --> Citations formatees
+[CitationExtractor] --> Citations formatees (source, page, verbatim)
     |
     v
 Affichage ResultFragment
@@ -391,18 +391,25 @@ Affichage ResultFragment
 |------------|---------|-------|
 | Kotlin | 1.9+ | Langage |
 | Jetpack Compose | 1.5+ | UI |
-| LiteRT | 1.4.0+ | Runtime TFLite |
+| LiteRT | 1.4.0+ | Runtime embeddings (.tflite) |
+| LiteRT-LM | 0.9.0+ | Runtime LLM generation (.litertlm) |
 | AI Edge RAG SDK | 0.1.0+ | SqliteVectorStore, Embedder |
-| MediaPipe GenAI | 0.10.22+ | LLM Inference |
+| ~~MediaPipe GenAI~~ | ~~0.10.22+~~ | ~~DEPRECATED — remplace par LiteRT-LM~~ |
 
 ### 7.3 Modeles ML
 
 | Modele | Taille | RAM CPU | Usage |
 |--------|--------|---------|-------|
-| EmbeddingGemma-300m | 179 MB | 110 MB | Embeddings (principal) |
-| Gecko-110m-en | 114 MB | 126 MB | Embeddings (fallback) |
-| Gemma 3 1B | ~600 MB | ~400 MB | LLM synthese |
-| Gemma 3 270M | ~200 MB | ~150 MB | LLM alternative (leger) |
+| EmbeddingGemma-300m | 179 MB | 110 MB | Embeddings (.tflite via LiteRT) |
+| Gemma 3 270M IT | ~200 MB | ~150 MB | LLM generation (.litertlm via LiteRT-LM) |
+| Gemma 3 1B (backup) | ~600 MB | ~400 MB | LLM si 270M qualite < 70% (ADR-001 gate) |
+
+> **Note (2026-03-25)**: MediaPipe LLM Inference est DEPRECATED par Google.
+> Remplace par LiteRT-LM (v0.9.0-alpha, Kotlin API, Coroutines).
+> Format modele : `.litertlm` (remplace `.task`).
+> Pipeline conversion : fine-tune (safetensors) -> litert-torch -> .litertlm
+> GPU acceleration pour 270M : WIP (CPU fonctionne maintenant).
+> Alternative future : Cactus (.cact, SDK Kotlin, INT4) mais pas de conversion custom models.
 
 ---
 
@@ -427,8 +434,8 @@ Affichage ResultFragment
 | Metrique | Cible | Actuel | Mesure |
 |----------|-------|--------|--------|
 | Couverture tests | >= 80% | **87%** | pytest-cov |
-| Recall retrieval FR | >= 90% | **97.06%** | Gold standard v5.7 |
-| Recall retrieval INTL | >= 70% | **80.00%** | Gold standard |
+| Recall retrieval FR | >= 70% | **60.1%** | GS v9 (298 testables) — Gate R1 FAIL |
+| Faithfulness (citations) | >= 50% | **46.2%** | TAPT ep1 (sweep v3, 298 questions) |
 | Hallucination | 0% | TBD | Tests adversaires |
 | Latence | < 5s | TBD | Benchmark device |
 | Crash-free | >= 99% | TBD | Firebase Crashlytics |

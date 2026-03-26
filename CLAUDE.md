@@ -76,12 +76,17 @@
 3. **Full-sequence loss** → TRL supporte **assistant-only** (echo = consequence directe)
 4. **TAPT LR=5e-6** au lieu de 5e-5 → en fait 5e-6 est MEILLEUR pour faithfulness (v3 sweep confirme)
 
-### Pipeline next steps
-- **Generer donnees SFT v5** : Gemma 270M (base ou TAPT ep1) sur Kaggle T4
-  genere reponses formatees via pipeline RAG reel, puis filtre les bonnes (~44-46% yield)
-- **Filtrer + audit visuel** : garder reponses qui citent, 10+ samples lus par humain
-- **SFT v5** : sur TAPT ep1 (checkpoint-22) + assistant-only loss + donnees reelles
+### Pipeline next steps — SFT v5 (split kernel, RAFT-style)
+- **Phase A kernel (gen_questions)** : PUSHED and RUNNING on Kaggle (~4.6h)
+  - Gemma 3 4B IT (NF4) generates 2 questions per chunk, 1116 chunks → questions_v5.jsonl
+- **Phase B kernel (gen_answers_cot)** : TO BE WRITTEN after Phase A completes
+  - Uses questions_v5.jsonl + oracle chunk + distractors from DB
+  - RAFT hybrid: 80% oracle, 15% abstain, 5% memorize
+  - Format: "D'apres [source] (p.XX) : '[quote]'. [Answer]." + ##begin_quote## validation
+- **SFT v5 training** : Unsloth train_on_responses_only() on TAPT ep1 (checkpoint-22), Kaggle T4
 - **Eval v5** : comparer SFT v5 vs TAPT ep1 (46.2%) vs base (43.9%)
+- **Infra** : LiteRT-LM replaces MediaPipe (deprecated) for Android inference
+- **Note** : all SFT v1-v4 hyperparams INVALIDATED (trained on regex garbage data)
 - Ref : Pleias-RAG (2025) prouve qu'un 350M apprend les citations si donnees de qualite
 - Ref : RAFT (Berkeley 2024) = format cible (oracle + distracteurs + citations verbatim)
 

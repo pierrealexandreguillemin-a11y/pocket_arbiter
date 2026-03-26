@@ -1,0 +1,16 @@
+{
+  "id": "pguillemin/pocket-arbiter-gen-questions-v5",
+  "title": "Pocket Arbiter Gen Questions v5",
+  "code_file": "gen_questions.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "pguillemin/pocket-arbiter-eval-data"
+  ],
+  "model_sources": [
+    "google/gemma-3/transformers/gemma-3-4b-it/1"
+  ]
+}

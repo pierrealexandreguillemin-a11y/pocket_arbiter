@@ -104,8 +104,8 @@ _EVAL_PATHS = [
     "/kaggle/input/datasets/pguillemin/pocket-arbiter-eval-data",
 ]
 _Q_PATHS = [
-    "/kaggle/input/pocket-arbiter-gen-questions-v5",
-    "/kaggle/input/datasets/pguillemin/pocket-arbiter-gen-questions-v5",
+    "/kaggle/input/pa-sft-v5-questions",
+    "/kaggle/input/datasets/pguillemin/pa-sft-v5-questions",
 ]
 
 EVAL_DATA_DIR = next((p for p in _EVAL_PATHS if os.path.isdir(p)), None)

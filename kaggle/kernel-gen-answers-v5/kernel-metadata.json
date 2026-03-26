@@ -9,7 +9,7 @@
   "enable_internet": "true",
   "dataset_sources": [
     "pguillemin/pocket-arbiter-eval-data",
-    "pguillemin/pocket-arbiter-gen-questions-v5"
+    "pguillemin/pa-sft-v5-questions"
   ],
   "model_sources": [
     "google/gemma-3/transformers/gemma-3-4b-it/1"

@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pocket-arbiter/schemas/questions_v5.json",
+  "title": "Phase A Question Entry",
+  "description": "One question generated from a corpus chunk by Gemma 3 4B IT teacher (RAFT Phase A)",
+  "type": "object",
+  "required": ["chunk_id", "source", "page", "chunk_text", "question"],
+  "properties": {
+    "chunk_id": {
+      "type": "string",
+      "pattern": "^.+-c\\d{4}$",
+      "description": "Chunk ID matching children.id in corpus_v2_fr.db"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "\\.pdf$",
+      "description": "Source PDF filename"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Page number in source PDF"
+    },
+    "chunk_text": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Full text of the oracle chunk (from DB)"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 15,
+      "pattern": "\\?$",
+      "description": "Generated question in French, ending with ?"
+    }
+  },
+  "additionalProperties": false
+}

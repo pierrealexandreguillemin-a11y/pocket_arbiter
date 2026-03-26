@@ -200,3 +200,11 @@ kaggle/eval-data/gold_standard_annales_fr_v8_adversarial.json
 kaggle/dataset-generation/reading_tasks_v2.jsonl
 models/kaggle-tapt-sweep-output/
 models/kaggle-tapt-v3-sweep-output/
+
+# Phase A/B generation outputs (large JSONL + unsloth cache)
+models/kaggle-gen-questions-output/
+models/kaggle-gen-answers-output-s1/
+models/kaggle-gen-answers-output-s2/
+
+# Dataset JSONL uploads (uploaded via Kaggle CLI, not git)
+kaggle/dataset-gen-questions-v5/questions_v5.jsonl

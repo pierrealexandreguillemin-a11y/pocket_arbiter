@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://pocket-arbiter/schemas/sft_data_v5.json",
+  "title": "Phase B SFT Training Entry",
+  "description": "One RAFT training sample: question + context + cited answer (RAFT Phase B)",
+  "type": "object",
+  "required": ["global_idx", "chunk_id", "question", "oracle_source", "oracle_page", "mode", "context_ids", "oracle_in_context", "answer", "quote", "quote_valid", "quote_method", "generation_time_s"],
+  "properties": {
+    "global_idx": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2231,
+      "description": "Global question index (0-2231), stable across sessions"
+    },
+    "chunk_id": {
+      "type": "string",
+      "pattern": "^.+-c\\d{4}$",
+      "description": "Oracle chunk ID"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 15,
+      "pattern": "\\?$"
+    },
+    "oracle_source": {
+      "type": "string",
+      "pattern": "\\.pdf$"
+    },
+    "oracle_page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["oracle", "abstain", "memorize"],
+      "description": "RAFT mode: oracle (80%), abstain (15%), memorize (5%)"
+    },
+    "context_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "IDs of context passages (oracle + distractors for oracle mode, distractors only for abstain, empty for memorize)"
+    },
+    "oracle_in_context": {
+      "type": "boolean",
+      "description": "true only for oracle mode"
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Generated answer (markers stripped) or abstain template"
+    },
+    "quote": {
+      "type": ["string", "null"],
+      "description": "Extracted verbatim quote from answer, or null"
+    },
+    "quote_valid": {
+      "type": "boolean",
+      "description": "true if quote is substring of oracle chunk text"
+    },
+    "quote_method": {
+      "type": "string",
+      "enum": ["markers", "regex", "none"],
+      "description": "How quote was extracted: RAFT markers, regex fallback, or not found"
+    },
+    "generation_time_s": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Wall time for this entry in seconds"
+    }
+  },
+  "additionalProperties": false
+}

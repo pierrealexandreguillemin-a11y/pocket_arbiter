@@ -1,0 +1,117 @@
+{
+  "$schema": "https://pocket-arbiter/schemas/dataset_composition.json",
+  "generated_at": "2026-03-26T21:00:00Z",
+  "pipeline": "RAFT Phase A+B (arXiv:2403.10131)",
+  "phase_a": {
+    "description": "Question generation from corpus chunks",
+    "kernel": "pguillemin/pocket-arbiter-gen-questions-v5",
+    "teacher_model": "unsloth/gemma-3-4b-it (NF4, 4-bit)",
+    "input": {
+      "corpus_db": "corpus/processed/corpus_v2_fr.db",
+      "corpus_db_dvc": "corpus/processed/corpus_v2_fr.db.dvc",
+      "chunks": 1116,
+      "questions_per_chunk": 2
+    },
+    "output": {
+      "file": "models/kaggle-gen-questions-output/questions_v5.jsonl",
+      "dvc": "models/kaggle-gen-questions-output.dvc",
+      "total_questions": 2232,
+      "skipped": 0,
+      "errors": 0,
+      "unique_questions": 2229,
+      "exact_duplicates": 3,
+      "median_question_words": 12
+    },
+    "config": {
+      "seed": 42,
+      "temperature": 0.5,
+      "max_new_tokens": 200,
+      "min_chunk_words": 20,
+      "gpu": "Tesla T4",
+      "runtime_min": 360.2
+    },
+    "quality_gates": {
+      "all_end_with_question_mark": true,
+      "uniqueness_pct": 99.9,
+      "zero_errors": true,
+      "zero_skipped": true,
+      "visual_audit_10_samples": "PENDING post-Phase B"
+    }
+  },
+  "phase_b": {
+    "description": "RAFT answer generation with oracle + distractors",
+    "kernel": "pguillemin/pocket-arbiter-gen-answers-v5",
+    "teacher_model": "unsloth/gemma-3-4b-it (NF4, 4-bit)",
+    "status": "PENDING (2 sessions planned)",
+    "input": {
+      "questions_file": "models/kaggle-gen-questions-output/questions_v5.jsonl",
+      "corpus_db": "corpus/processed/corpus_v2_fr.db",
+      "total_questions": 2232
+    },
+    "output": {
+      "file_s1": "sft_data_v5_s0_1116.jsonl",
+      "file_s2": "sft_data_v5_s1116_2232.jsonl",
+      "file_merged": "sft_data_v5.jsonl",
+      "dvc": "PENDING after generation"
+    },
+    "raft_distribution": {
+      "oracle_ratio": 0.80,
+      "abstain_ratio": 0.15,
+      "memorize_ratio": 0.05,
+      "expected_oracle": 1819,
+      "expected_abstain": 307,
+      "expected_memorize": 106,
+      "n_distractors": 4,
+      "standard": "RAFT arXiv:2403.10131 Section 4.5 (P=80%)"
+    },
+    "config": {
+      "seed": 42,
+      "temperature": 0.3,
+      "max_new_tokens": 250,
+      "max_words_oracle": 400,
+      "max_words_distractor": 150,
+      "two_sessions": true,
+      "split_at": 1116,
+      "session_1_oracle_calls": 904,
+      "session_2_oracle_calls": 915,
+      "gpu": "Tesla T4",
+      "estimated_runtime_h": 14.7
+    },
+    "quality_gates": {
+      "G1_median_answer_words_gt_20": "PENDING",
+      "G2_quote_validation_rate_gt_30pct": "PENDING",
+      "G3_empty_answers_lt_10": "PENDING",
+      "G4_errors_lt_5": "PENDING",
+      "G5_complete_2232_entries": "PENDING",
+      "visual_audit_10_samples": "MANDATORY before SFT"
+    },
+    "answer_format": {
+      "oracle_mode": "D'apres [source] (p.XX) : \"[citation verbatim]\". [Explication concise].",
+      "abstain_mode": "Information non trouvee dans les extraits fournis.",
+      "memorize_mode": "Information non trouvee dans les extraits fournis.",
+      "markers": "##begin_quote##/##end_quote## for validation, stripped before save"
+    }
+  },
+  "standards": {
+    "RAFT": "arXiv:2403.10131 (Berkeley 2024) — oracle+distractors, P=80%, ##begin_quote##",
+    "DTA": "arXiv:2505.20871 (ACL 2025) — abstain for high-stakes domains",
+    "Pleias-RAG": "arXiv:2504.18225 (2025) — 350M learns citations with quality data",
+    "SQuAD_2.0": "arXiv:1806.03822 — 33% unanswerable benchmark (our 20% conservative)",
+    "Meta_CRAG": "arXiv:2406.04744 — unanswerable = #1 technique <10B"
+  },
+  "lineage": {
+    "step_0": "28 PDFs FFE -> extract (docling) -> corpus_v2_fr.db (1116 children)",
+    "step_1": "corpus_v2_fr.db -> Phase A (Gemma 3 4B IT) -> questions_v5.jsonl (2232 Q)",
+    "step_2": "questions_v5.jsonl + corpus_v2_fr.db -> Phase B (Gemma 3 4B IT) -> sft_data_v5.jsonl",
+    "step_3": "sft_data_v5.jsonl -> SFT v5 (Unsloth, TAPT ep1 base) -> PENDING",
+    "step_4": "SFT v5 checkpoint -> Eval v5 vs TAPT ep1 (46.2%) vs base (43.9%) -> PENDING"
+  },
+  "iso_compliance": {
+    "TV-01_version_control": "DVC tracked (questions_v5 + corpus_v2_fr.db)",
+    "TV-02_reproducibility": "seed=42, per-question RNG for cross-session determinism",
+    "TV-03_lineage": "This file (sft_v5_dataset_composition.json)",
+    "TV-04_schema": "data/training/schemas/questions_v5_schema.json + sft_data_v5_schema.json",
+    "ISO_42001_A.6.2.2": "Provenance documented per phase",
+    "ISO_42001_A.6.2.3": "Lineage chain: PDFs -> DB -> Questions -> Answers -> SFT"
+  }
+}

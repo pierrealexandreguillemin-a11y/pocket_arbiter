@@ -58,11 +58,11 @@ logger.info(
 assert GPU_VRAM_MB >= 14000, f"FATAL: Need >= 14 GB VRAM, got {GPU_VRAM_MB:.0f} MB"
 
 subprocess.check_call(
-    [sys.executable, "-m", "pip", "install", "-q", "bitsandbytes>=0.43.0"]
+    [sys.executable, "-m", "pip", "install", "-q", "unsloth>=2025.3"]
 )
 
 import kagglehub  # noqa: E402
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig  # noqa: E402
+from unsloth import FastModel  # noqa: E402
 
 # -- Config -----------------------------------------------------------------
 SEED = 42
@@ -142,44 +142,13 @@ def parse_questions(raw_text):
 # -- PHASE 1: Load teacher model -------------------------------------------
 logger.info("=== PHASE 1: Load teacher model ===")
 
-# Resolve model path (mounted via model_sources or kagglehub)
-_TEACHER_PATHS = [
-    "/kaggle/input/gemma-3/transformers/gemma-3-4b-it/1",
-    "/kaggle/input/gemma-3/transformers/gemma-3-4b-it",
-    "/kaggle/input/models/google/gemma-3/transformers/gemma-3-4b-it/1",
-]
-TEACHER_PATH = None
-for _tp in _TEACHER_PATHS:
-    if os.path.isdir(_tp) and os.path.exists(os.path.join(_tp, "config.json")):
-        TEACHER_PATH = _tp
-        logger.info("Teacher found at: %s", _tp)
-        break
-
-if TEACHER_PATH is None:
-    logger.info("No mounted path, trying kagglehub...")
-    try:
-        TEACHER_PATH = kagglehub.model_download("google/gemma-3/transformers/gemma-3-4b-it")
-        logger.info("Teacher downloaded: %s", TEACHER_PATH)
-    except Exception as e:
-        raise RuntimeError(f"Cannot load Gemma 3 4B IT: {e}") from e
-
-logger.info("Teacher path: %s", TEACHER_PATH)
-logger.info("Contents: %s", sorted(os.listdir(TEACHER_PATH))[:10])
-
-bnb_config = BitsAndBytesConfig(
+# Load with Unsloth ? MANDATORY for Gemma 3 on T4 (fp16 CUDA assert with vanilla bitsandbytes)
+# Unsloth handles fp16 precision issues, O(N) memory, and Gemma 3 tokenization fixes.
+# Source: unsloth.ai/blog/gemma3, 25+ Kaggle notebooks confirm T4 compatibility.
+model, tokenizer = FastModel.from_pretrained(
+    "unsloth/gemma-3-4b-it",
+    max_seq_length=2048,
     load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.float16,
-    bnb_4bit_use_double_quant=True,
-)
-
-tokenizer = AutoTokenizer.from_pretrained(TEACHER_PATH)
-model = AutoModelForCausalLM.from_pretrained(
-    TEACHER_PATH,
-    quantization_config=bnb_config,
-    device_map="auto",
-    torch_dtype=torch.float16,
-    attn_implementation="eager",  # SDPA/FlashAttn crash on T4 (compute 7.5)
 )
 model.eval()
 

@@ -374,6 +374,15 @@ for global_idx, q in session_questions:
             processed,
             len(session_questions),
         )
+        # Final checkpoint before exit
+        save_checkpoint(
+            output_path,
+            output_file,
+            stats,
+            global_idx,
+            len(session_questions),
+            "cutoff",
+        )
         break
 
     mode = session_modes[global_idx]
@@ -502,7 +511,17 @@ for global_idx, q in session_questions:
         )
         last_ckpt_time = now
 
+# Final checkpoint (captures everything since last periodic checkpoint)
 output_file.flush()
+if processed > 0:
+    save_checkpoint(
+        output_path,
+        output_file,
+        stats,
+        global_idx,
+        len(session_questions),
+        "final",
+    )
 output_file.close()
 
 # -- PHASE 5: Summary + validation -----------------------------------------

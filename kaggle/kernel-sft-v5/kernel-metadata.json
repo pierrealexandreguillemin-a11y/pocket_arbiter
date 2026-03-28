@@ -6,7 +6,7 @@
   "kernel_type": "script",
   "is_private": "false",
   "enable_gpu": "true",
-  "enable_internet": "false",
+  "enable_internet": "true",
   "dataset_sources": [
     "pguillemin/pa-tapt-ep1-checkpoint",
     "pguillemin/pa-sft-v5-data"

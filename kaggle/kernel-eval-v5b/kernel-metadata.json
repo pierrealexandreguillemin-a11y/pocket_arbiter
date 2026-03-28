@@ -1,0 +1,16 @@
+{
+  "id": "pguillemin/pocket-arbiter-eval-v5b-pipeline-3-models",
+  "title": "Pocket Arbiter Eval v5b Pipeline (3 models)",
+  "code_file": "eval_v5b_pipeline_kaggle.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "pguillemin/gemma-3-270m-it",
+    "pguillemin/pa-tapt-ep1-checkpoint",
+    "pguillemin/pa-sft-v5-checkpoints",
+    "pguillemin/pocket-arbiter-eval-data"
+  ]
+}

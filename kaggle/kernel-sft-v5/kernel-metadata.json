@@ -1,0 +1,14 @@
+{
+  "id": "pguillemin/pocket-arbiter-sft-v5",
+  "title": "Pocket Arbiter SFT v5",
+  "code_file": "sft_v5_train.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "pguillemin/pa-tapt-ep1-checkpoint",
+    "pguillemin/pa-sft-v5-data"
+  ]
+}

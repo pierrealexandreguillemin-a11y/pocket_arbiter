@@ -206,5 +206,11 @@ models/kaggle-gen-questions-output/
 models/kaggle-gen-answers-output-s1/
 models/kaggle-gen-answers-output-s2/
 
-# Dataset JSONL uploads (uploaded via Kaggle CLI, not git)
+# Dataset uploads (uploaded via Kaggle CLI, not git)
 kaggle/dataset-gen-questions-v5/questions_v5.jsonl
+kaggle/dataset-tapt-ep1/model.safetensors
+kaggle/dataset-tapt-ep1/tokenizer.json
+kaggle/dataset-sft-v5/sft_train_v5.jsonl
+
+# SFT v5 output (future, DVC tracked)
+models/kaggle-sft-v5-output/

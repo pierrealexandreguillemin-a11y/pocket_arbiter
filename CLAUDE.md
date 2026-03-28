@@ -90,6 +90,14 @@
 - Ref : Pleias-RAG (2025) prouve qu'un 350M apprend les citations si donnees de qualite
 - Ref : RAFT (Berkeley 2024) = format cible (oracle + distracteurs + citations verbatim)
 
+### Eval methodology (generation)
+- **Metrique primaire** : cited_pct (regex doc/page sur 264 annales) — PROXY, pas faithfulness (ICTIR 2025)
+- **HHEM-2.1-Open** (Vectara) : T5-base hallucination classifier, supporte FR, faisable offline T4 — recommande pour eval v5.1
+- **57% citations post-rationalisees** : Wallat et al. ICTIR 2025 Best Paper HM — cited_pct absolu ≠ faithfulness
+- **FACTS Grounding** (Google 2025) : benchmark industrie = 3 LLM judges — non faisable budget 0EUR
+- **FaithBench** (Vectara, EMNLP 2025) : annotations hallucination span-level, 4 severites
+- **Ref complete** : @docs/GENERATION_EVAL_METHODOLOGY.md
+
 ### References
 - ADR-001 : Gemma 3 270M IT (Option A)
 - Specs : 2026-03-21-cpt-adaptllm, 2026-03-23-sft-v3, 2026-03-24-training-params-correction
@@ -180,3 +188,4 @@ models/             # model_card.json
 - @docs/superpowers/specs/2026-03-19-recall-optimization-design.md : Spec recall optimization
 - @docs/superpowers/specs/2026-03-19-structured-tables-design.md : Spec structured tables (level 3)
 - @data/benchmarks/row_as_chunk_experiment.md : Experiment row-as-chunk (REVERTED)
+- @docs/GENERATION_EVAL_METHODOLOGY.md : Methodologie eval generation (ISO, ICTIR 2025, HHEM, FACTS, FaithBench)

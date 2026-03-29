@@ -98,11 +98,26 @@
 - **FaithBench** (Vectara, EMNLP 2025) : annotations hallucination span-level, 4 severites
 - **Ref complete** : @docs/GENERATION_EVAL_METHODOLOGY.md
 
+### Postmortem 270M + Eval 1B (2026-03-29)
+- **270M = INUTILISABLE** : 34Q humaines, les 3 modeles (base/TAPT/SFT) hallucinent. 0% verbatim. ADR-001 gate declenchee.
+- **1B base** : oracle 43.9% (= 270M base), pipeline 47.0%. MAIS reponses qualitativement MEILLEURES (structures, pertinentes, chiffres parfois corrects)
+- **Post-rationalisation 1B** : MISS cite 60.6% > HIT cite 36.8% (ratio 1.65x). 0.8% abstention MISS.
+- **Gap retrieval tables** : les tableaux (cadences, Elo, categories) existent dans la DB mais le search ne les retrouve que 21/298. La prose pointe le sujet, le tableau est sur une autre page.
+- **Next** : re-activer table_rows dans search pour 1B, ou augmenter poids tables dans RRF
+- **Ref** : @data/benchmarks/retrieval_table_gap_analysis.md
+
+### Candidats generation post-270M
+- **Gemma 3 1B IT** : IFEval 80.2%, ~400 MB, LiteRT natif. En cours d'eval.
+- **Gemma 3n E2B** : 2B eff, ~2 GB RAM, LiteRT .litertlm, mobile-first. Depasse spec 500MB.
+- **Ministral 3B** : Apache 2.0, FR natif, 256K ctx. Pas de LiteRT (LLaMA.cpp).
+- **Qwen3 1.7B** : MMLU 75.7, Apache 2.0. LiteRT non confirme.
+
 ### References
-- ADR-001 : Gemma 3 270M IT (Option A)
+- ADR-001 : Gemma 3 270M IT (Option A) — **GATE DECLENCHEE, 270M ABANDONNE**
 - Specs : 2026-03-21-cpt-adaptllm, 2026-03-23-sft-v3, 2026-03-24-training-params-correction
 - Artefacts : models/model_card.json
 - **Question ouverte** : pourquoi les optimisations retrieval standard ont un impact marginal ?
+- **Question ouverte** : retrieval de tables — pourquoi le search rate les tableaux associes aux questions prose ?
 
 ## Commandes
 
@@ -187,5 +202,6 @@ models/             # model_card.json
 - @models/model_card.json : Specs modeles (EmbeddingGemma + Gemma 3)
 - @docs/superpowers/specs/2026-03-19-recall-optimization-design.md : Spec recall optimization
 - @docs/superpowers/specs/2026-03-19-structured-tables-design.md : Spec structured tables (level 3)
-- @data/benchmarks/row_as_chunk_experiment.md : Experiment row-as-chunk (REVERTED)
+- @data/benchmarks/row_as_chunk_experiment.md : Experiment row-as-chunk (REVERTED sur 270M, a re-tester 1B)
+- @data/benchmarks/retrieval_table_gap_analysis.md : Gap retrieval tables — search rate les tableaux associes
 - @docs/GENERATION_EVAL_METHODOLOGY.md : Methodologie eval generation (ISO, ICTIR 2025, HHEM, FACTS, FaithBench)

@@ -214,3 +214,10 @@ kaggle/dataset-sft-v5/sft_train_v5.jsonl
 
 # SFT v5 output (future, DVC tracked)
 models/kaggle-sft-v5-output/
+
+# SFT v5 checkpoints (uploaded to Kaggle, too large for git)
+kaggle/sft-v5-checkpoints/checkpoint-*/
+
+# Large retrieval precompute files (DVC or Kaggle only)
+data/benchmarks/eval_v5/retrieval_contexts_v5b.jsonl
+kaggle/eval-data/retrieval_contexts_v5b.jsonl

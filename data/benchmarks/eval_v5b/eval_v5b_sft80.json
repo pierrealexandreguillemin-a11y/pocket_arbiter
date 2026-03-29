@@ -1,0 +1,24 @@
+{
+  "model": "sft_v5_ckpt80",
+  "hit": {
+    "count": 171,
+    "cited": 70,
+    "cited_pct": 40.9,
+    "abstained": 7,
+    "abstain_pct": 4.1,
+    "empty": 0,
+    "median_words": 63
+  },
+  "miss": {
+    "count": 127,
+    "cited": 75,
+    "cited_pct": 59.1,
+    "abstained": 0,
+    "abstain_pct": 0.0,
+    "empty": 0,
+    "median_words": 68
+  },
+  "overall_cited_pct": 48.7,
+  "overall_abstain_pct": 2.3,
+  "elapsed_min": 40.0
+}

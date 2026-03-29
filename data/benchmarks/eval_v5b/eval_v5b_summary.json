@@ -1,0 +1,79 @@
+{
+  "results": [
+    {
+      "model": "base",
+      "hit": {
+        "count": 171,
+        "cited": 36,
+        "cited_pct": 21.1,
+        "abstained": 9,
+        "abstain_pct": 5.3,
+        "empty": 0,
+        "median_words": 19
+      },
+      "miss": {
+        "count": 127,
+        "cited": 38,
+        "cited_pct": 29.9,
+        "abstained": 4,
+        "abstain_pct": 3.1,
+        "empty": 0,
+        "median_words": 23
+      },
+      "overall_cited_pct": 24.8,
+      "overall_abstain_pct": 4.4,
+      "elapsed_min": 27.6
+    },
+    {
+      "model": "tapt_ep1",
+      "hit": {
+        "count": 171,
+        "cited": 53,
+        "cited_pct": 31.0,
+        "abstained": 9,
+        "abstain_pct": 5.3,
+        "empty": 0,
+        "median_words": 25
+      },
+      "miss": {
+        "count": 127,
+        "cited": 67,
+        "cited_pct": 52.8,
+        "abstained": 4,
+        "abstain_pct": 3.1,
+        "empty": 0,
+        "median_words": 25
+      },
+      "overall_cited_pct": 40.3,
+      "overall_abstain_pct": 4.4,
+      "elapsed_min": 40.9
+    },
+    {
+      "model": "sft_v5_ckpt80",
+      "hit": {
+        "count": 171,
+        "cited": 70,
+        "cited_pct": 40.9,
+        "abstained": 7,
+        "abstain_pct": 4.1,
+        "empty": 0,
+        "median_words": 63
+      },
+      "miss": {
+        "count": 127,
+        "cited": 75,
+        "cited_pct": 59.1,
+        "abstained": 0,
+        "abstain_pct": 0.0,
+        "empty": 0,
+        "median_words": 68
+      },
+      "overall_cited_pct": 48.7,
+      "overall_abstain_pct": 2.3,
+      "elapsed_min": 40.0
+    }
+  ],
+  "best_hit_cite": "sft_v5_ckpt80",
+  "best_miss_abstain": "base",
+  "retrieval_recall": 57.4
+}

@@ -1,0 +1,52 @@
+{
+  "eval_results": [
+    {
+      "name": "base",
+      "cited_pct": 40.5,
+      "empty": 0,
+      "median_words": 36,
+      "mean_words": 57.6,
+      "time_min": 16.7
+    },
+    {
+      "name": "tapt_ep1",
+      "cited_pct": 46.6,
+      "empty": 0,
+      "median_words": 25,
+      "mean_words": 39.5,
+      "time_min": 14.9
+    },
+    {
+      "name": "sft_v5_ckpt80",
+      "cited_pct": 59.1,
+      "empty": 0,
+      "median_words": 66,
+      "mean_words": 76.8,
+      "time_min": 20.1
+    },
+    {
+      "name": "sft_v5_ckpt120",
+      "cited_pct": 55.3,
+      "empty": 0,
+      "median_words": 57,
+      "mean_words": 66.1,
+      "time_min": 15.7
+    },
+    {
+      "name": "sft_v5_ckpt242",
+      "cited_pct": 44.3,
+      "empty": 0,
+      "median_words": 55,
+      "mean_words": 55.6,
+      "time_min": 14.5
+    }
+  ],
+  "best_model": "sft_v5_ckpt80",
+  "best_citations_pct": 59.1,
+  "total_time_min": 82.0,
+  "baselines": {
+    "base_ref": 43.9,
+    "tapt_ep1_ref": 46.2
+  },
+  "decision": "SFT v5 WINS (sft_v5_ckpt80 59.1% > 46.2%)"
+}

@@ -176,15 +176,19 @@ def _embed_table_rows(
     chunker_tables: list[dict],
     model: object,
 ) -> tuple[list[dict], np.ndarray]:
-    """Parse and embed table rows (row-as-chunk, level 2)."""
-    from scripts.pipeline.enrichment import parse_table_rows
+    """Parse and embed table rows as narrative prose (Phase 2 chantier 5).
 
-    row_chunks = parse_table_rows(table_sums) if table_sums else []
+    Uses narrate_table_rows() instead of parse_table_rows() to produce
+    self-contained sentences that embed with richer semantics.
+    """
+    from scripts.pipeline.enrichment import narrate_table_rows
+
+    row_chunks = narrate_table_rows(table_sums) if table_sums else []
     if not row_chunks:
         return [], np.empty((0, EMBEDDING_DIM), dtype=np.float32)
 
     section_lookup = _build_table_section_lookup(table_sums, chunker_tables)
-    logger.info("=== Step 7: Embedding %d table rows ===", len(row_chunks))
+    logger.info("=== Step 7: Embedding %d narrative table rows ===", len(row_chunks))
     tr_titles = [
         make_cch_title(
             r["source"], section_lookup.get(r["table_id"], ""), SOURCE_TITLES

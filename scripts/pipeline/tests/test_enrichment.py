@@ -11,11 +11,13 @@ import pytest
 from scripts.pipeline.enrichment import (
     ABBREVIATIONS,
     CHAPTER_OVERRIDES,
+    _extract_table_title,
     apply_chapter_override,
     enrich_chunks,
     enrich_table_summaries,
     expand_abbreviations,
     load_contexts,
+    narrate_table_rows,
     parse_structured_cells,
 )
 
@@ -311,3 +313,107 @@ class TestParseStructuredCells:
         # Only non-empty cells
         assert len(cells) == 1
         assert cells[0]["cell_value"] == "val"
+
+
+# === _extract_table_title ===
+
+
+class TestExtractTableTitle:
+    """Tests for table title extraction from summary_text."""
+
+    def test_colon_separator(self) -> None:
+        title = _extract_table_title("Categories age FFE: U8 a S65")
+        assert title == "Categories age FFE"
+
+    def test_long_text_truncates(self) -> None:
+        title = _extract_table_title("A" * 100, max_len=50)
+        assert len(title) <= 50
+
+    def test_empty_summary(self) -> None:
+        assert _extract_table_title("") == "Tableau"
+
+    def test_no_colon_short_text(self) -> None:
+        title = _extract_table_title("Grille appariements 7 equipes")
+        assert title == "Grille appariements 7 equipes"
+
+
+# === narrate_table_rows (Phase 2 chantier 5) ===
+
+
+class TestNarrateTableRows:
+    """Tests for narrative table row generation (Table-to-Text)."""
+
+    _SAMPLE_TABLE = (
+        "| Categorie | Code | Age |\n"
+        "|-----------|------|-----|\n"
+        "| Poussin | U8 | 6-8 ans |\n"
+        "| Pupille | U10 | 8-10 ans |"
+    )
+
+    def _make_summary(self, raw: str, title: str = "Test table") -> list[dict]:
+        return [
+            {
+                "id": "t0",
+                "raw_table_text": raw,
+                "summary_text": f"{title}: details",
+                "source": "R01.pdf",
+                "page": 2,
+            }
+        ]
+
+    def test_produces_narrative_text(self) -> None:
+        rows = narrate_table_rows(self._make_summary(self._SAMPLE_TABLE))
+        assert len(rows) == 2
+        assert "Test table" in rows[0]["text"]
+        assert "Poussin" in rows[0]["text"]
+        assert "U8" in rows[0]["text"]
+
+    def test_narrative_format(self) -> None:
+        rows = narrate_table_rows(self._make_summary(self._SAMPLE_TABLE))
+        text = rows[0]["text"]
+        # Should contain "est" as column-value separator
+        assert " est " in text
+        # Should end with period
+        assert text.endswith(".")
+
+    def test_empty_cells_skipped(self) -> None:
+        raw = "| A | B |\n|---|---|\n| val |  |"
+        rows = narrate_table_rows(self._make_summary(raw))
+        assert len(rows) == 1
+        # Only non-empty cell mentioned
+        assert "val" in rows[0]["text"]
+        assert rows[0]["text"].count(" est ") == 1
+
+    def test_abbreviations_expanded(self) -> None:
+        raw = "| Org | Titre |\n|-----|-------|\n| FFE | CM |"
+        rows = narrate_table_rows(self._make_summary(raw))
+        assert "FFE (Federation Francaise des Echecs)" in rows[0]["text"]
+
+    def test_skips_short_tables(self) -> None:
+        raw = "| A | B |\n|---|---|"  # no data rows
+        rows = narrate_table_rows(self._make_summary(raw))
+        assert len(rows) == 0
+
+    def test_row_ids_sequential(self) -> None:
+        rows = narrate_table_rows(self._make_summary(self._SAMPLE_TABLE))
+        assert rows[0]["id"] == "t0-r000"
+        assert rows[1]["id"] == "t0-r001"
+
+    def test_metadata_preserved(self) -> None:
+        rows = narrate_table_rows(self._make_summary(self._SAMPLE_TABLE))
+        assert rows[0]["source"] == "R01.pdf"
+        assert rows[0]["page"] == 2
+        assert rows[0]["table_id"] == "t0"
+
+    def test_all_empty_row_skipped(self) -> None:
+        raw = "| A | B |\n|---|---|\n|  |  |"
+        rows = narrate_table_rows(self._make_summary(raw))
+        assert len(rows) == 0
+
+    def test_long_header_truncated(self) -> None:
+        """Column names longer than 40 chars are truncated."""
+        raw = "| " + "X" * 50 + " | B |\n|---|---|\n| val1 | val2 |"
+        rows = narrate_table_rows(self._make_summary(raw))
+        # The long column name should be truncated in the narrative
+        text = rows[0]["text"]
+        assert "X" * 41 not in text  # truncated at 40

@@ -210,6 +210,101 @@ def parse_table_rows(summaries: list[dict]) -> list[dict]:
     return row_chunks
 
 
+def _extract_table_title(summary_text: str, max_len: int = 80) -> str:
+    """Extract a concise title from the LLM-generated summary_text.
+
+    Takes text before the first colon (if short enough), otherwise
+    truncates at max_len on a word boundary.
+
+    Args:
+        summary_text: Full summary text from table_summaries.
+        max_len: Maximum title length.
+
+    Returns:
+        Concise table title string.
+    """
+    if not summary_text:
+        return "Tableau"
+    colon_idx = summary_text.find(":")
+    if 0 < colon_idx <= max_len:
+        return summary_text[:colon_idx].strip()
+    # Fallback: truncate at word boundary
+    if len(summary_text) <= max_len:
+        return summary_text.strip()
+    truncated = summary_text[:max_len].rsplit(" ", 1)[0]
+    return truncated.strip()
+
+
+def narrate_table_rows(summaries: list[dict]) -> list[dict]:
+    """Convert table rows into narrative prose for better embedding quality.
+
+    Each data row becomes a self-contained sentence:
+    "[Title] : [col1] est [val1], [col2] est [val2], ..."
+
+    This produces embeddings with richer semantics than raw header+row
+    format (10-20 tokens → 40-60 tokens). The table title anchors each
+    row to its thematic context, preventing cross-table confusion.
+
+    Standard: Table-to-Text generation (template-based, deterministic).
+
+    Args:
+        summaries: List of table summary dicts with 'raw_table_text'
+                   and 'summary_text' keys.
+
+    Returns:
+        List of narrative row dicts with id, text, table_id, source,
+        page, tokens.
+    """
+    row_chunks: list[dict] = []
+    for summary in summaries:
+        raw = summary.get("raw_table_text", "")
+        table_id = summary["id"]
+        source = summary["source"]
+        page = summary.get("page")
+        title = _extract_table_title(summary.get("summary_text", ""))
+
+        lines = [
+            line.strip() for line in raw.split("\n") if line.strip().startswith("|")
+        ]
+        if len(lines) < 3:
+            continue
+
+        col_names = _parse_pipe_cells(_clean_table_line(lines[0]))
+        # Clean column names: truncate overly long headers (>40 chars)
+        col_names = [c[:40].strip() if len(c) > 40 else c for c in col_names]
+        data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
+
+        for i, row_line in enumerate(data_lines):
+            values = _parse_pipe_cells(_clean_table_line(row_line))
+            # Build narrative: skip empty cells
+            pairs = []
+            for j, val in enumerate(values):
+                if j >= len(col_names) or not val.strip():
+                    continue
+                col = col_names[j].strip()
+                if not col:
+                    continue
+                pairs.append(f"{col} est {val.strip()}")
+
+            if not pairs:
+                continue
+
+            narrative = f"{title} : {', '.join(pairs)}."
+            narrative = expand_abbreviations(narrative)
+            row_chunks.append(
+                {
+                    "id": f"{table_id}-r{i:03d}",
+                    "text": narrative,
+                    "table_id": table_id,
+                    "source": source,
+                    "page": page,
+                    "tokens": len(narrative.split()),
+                }
+            )
+
+    return row_chunks
+
+
 def parse_structured_cells(summaries: list[dict]) -> list[dict]:
     """Parse raw table markdown into structured (col_name, cell_value) pairs.
 

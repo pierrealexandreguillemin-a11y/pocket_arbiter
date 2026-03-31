@@ -341,12 +341,14 @@ class TestTableTriggers:
         assert _has_table_triggers("Quelle est la grille d'appariement?")
 
     def test_single_weak_trigger_no_match(self) -> None:
+        # 1 weak trigger alone doesn't activate (needs 2 weak or 1 weak + Elo)
         assert not _has_table_triggers("Quelle est la cadence du tournoi?")
 
     def test_two_weak_triggers_with_elo(self) -> None:
         assert _has_table_triggers("Quel classement Elo 1500 pour la cadence?")
 
     def test_two_weak_triggers_without_elo(self) -> None:
+        # 2 weak triggers WITHOUT Elo regex does not activate
         assert not _has_table_triggers("Quel classement pour la cadence?")
 
     def test_no_triggers(self) -> None:
@@ -354,6 +356,16 @@ class TestTableTriggers:
 
     def test_specific_category(self) -> None:
         assert _has_table_triggers("Age minimum pour les poussins?")
+
+    def test_one_weak_plus_elo_no_trigger(self) -> None:
+        # 1 weak + Elo is NOT enough (needs 2 weak + Elo)
+        assert not _has_table_triggers("Quel classement pour un joueur à 1500?")
+
+    def test_elo_regex_alone_no_trigger(self) -> None:
+        assert not _has_table_triggers("Un joueur à 1500 peut-il participer?")
+
+    def test_no_number_no_keyword(self) -> None:
+        assert not _has_table_triggers("Peut-on proposer nulle après le premier coup?")
 
 
 class TestStructuredCellSearch:
@@ -396,7 +408,8 @@ class TestStructuredCellSearch:
         assert results[0][0] == "t1"
         conn.close()
 
-    def test_requires_two_matches(self, tmp_path: Path) -> None:
+    def test_single_cell_match_below_threshold(self, tmp_path: Path) -> None:
+        """Single cell match (1.0) is below threshold 2.0."""
         import sqlite3
 
         db = tmp_path / "cells2.db"
@@ -413,7 +426,118 @@ class TestStructuredCellSearch:
         conn.commit()
 
         results = structured_cell_search(conn, "unique_term_only", max_k=5)
-        assert results == []  # only 1 match, needs 2+
+        assert results == []  # 1.0 < threshold 1.5
+        conn.close()
+
+    def test_cell_plus_col_match_below_threshold(self, tmp_path: Path) -> None:
+        """Cell match (1.0) + col_name match (0.5) = 1.5 < threshold 2.0."""
+        import sqlite3
+
+        db = tmp_path / "cells2b.db"
+        conn = sqlite3.connect(str(db))
+        conn.execute(
+            "CREATE TABLE structured_cells "
+            "(table_id TEXT, row_idx INT, col_name TEXT, "
+            "cell_value TEXT, source TEXT, page INT)"
+        )
+        conn.execute(
+            "INSERT INTO structured_cells VALUES (?,?,?,?,?,?)",
+            ("t1", 0, "Categorie", "Pupille", "R01.pdf", 2),
+        )
+        conn.commit()
+
+        # "categorie" matches col_name (0.5) + "pupille" matches cell (1.0) = 1.5
+        results = structured_cell_search(conn, "Categorie pupille", max_k=5)
+        assert results == []  # 1.5 < threshold 2.0
+        conn.close()
+
+    def test_two_cell_matches_passes(self, tmp_path: Path) -> None:
+        """Two cell matches (1.0 + 1.0) = 2.0 passes threshold."""
+        import sqlite3
+
+        db = tmp_path / "cells2c.db"
+        conn = sqlite3.connect(str(db))
+        conn.execute(
+            "CREATE TABLE structured_cells "
+            "(table_id TEXT, row_idx INT, col_name TEXT, "
+            "cell_value TEXT, source TEXT, page INT)"
+        )
+        conn.executemany(
+            "INSERT INTO structured_cells VALUES (?,?,?,?,?,?)",
+            [
+                ("t1", 0, "Cat", "Pupille", "R01.pdf", 2),
+                ("t1", 1, "Cat", "Poussin", "R01.pdf", 2),
+            ],
+        )
+        conn.commit()
+
+        results = structured_cell_search(conn, "Pupille et Poussin", max_k=5)
+        assert len(results) == 1
+        assert results[0][0] == "t1"
+        conn.close()
+
+    def test_short_chess_terms_match(self, tmp_path: Path) -> None:
+        """Allow-list lets short domain terms bypass 4-char filter."""
+        import sqlite3
+
+        db = tmp_path / "cells3.db"
+        conn = sqlite3.connect(str(db))
+        conn.execute(
+            "CREATE TABLE structured_cells "
+            "(table_id TEXT, row_idx INT, col_name TEXT, "
+            "cell_value TEXT, source TEXT, page INT)"
+        )
+        conn.executemany(
+            "INSERT INTO structured_cells VALUES (?,?,?,?,?,?)",
+            [
+                ("t1", 0, "Code", "U10", "R01.pdf", 2),
+                ("t1", 1, "Code", "U12", "R01.pdf", 2),
+                ("t2", 0, "Niveau", "Elo 1500", "LA.pdf", 150),
+            ],
+        )
+        conn.commit()
+
+        # "u10" in CHESS_SHORT_TERMS + "categorie" (4+ chars) → both match t1
+        # cell "U10" → 1.0, col "Code" doesn't match, but "categorie"
+        # doesn't match any cell_value. Need 2 term matches for threshold.
+        # Add a second matching cell to test allow-list works:
+        conn.execute(
+            "INSERT INTO structured_cells VALUES (?,?,?,?,?,?)",
+            ("t1", 0, "Categorie", "U10 enfants", "R01.pdf", 2),
+        )
+        conn.commit()
+
+        # "u10" matches cell (1.0) + "categorie" matches col_name (0.5) = 1.5
+        results = structured_cell_search(conn, "categorie U10", max_k=5)
+        assert len(results) >= 1
+        assert results[0][0] == "t1"
+
+        # "elo" in CHESS_SHORT_TERMS + "1500" (4 chars) matches cell_value
+        results2 = structured_cell_search(conn, "elo 1500", max_k=5)
+        assert len(results2) >= 1
+        assert results2[0][0] == "t2"
+        conn.close()
+
+    def test_elo_regex_alone_triggers_no_match(self, tmp_path: Path) -> None:
+        """Elo regex triggers search, but no matching cells → empty."""
+        import sqlite3
+
+        db = tmp_path / "cells5.db"
+        conn = sqlite3.connect(str(db))
+        conn.execute(
+            "CREATE TABLE structured_cells "
+            "(table_id TEXT, row_idx INT, col_name TEXT, "
+            "cell_value TEXT, source TEXT, page INT)"
+        )
+        conn.execute(
+            "INSERT INTO structured_cells VALUES (?,?,?,?,?,?)",
+            ("t1", 0, "Niveau", "Expert", "LA.pdf", 150),
+        )
+        conn.commit()
+
+        # "1500" is in the query but not in cells → no result
+        results = structured_cell_search(conn, "joueur 1500 Elo", max_k=5)
+        assert results == []
         conn.close()
 
 

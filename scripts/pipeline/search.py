@@ -31,8 +31,10 @@ _embedding_cache: dict[str, tuple[list[str], np.ndarray]] = {}
 _EMBEDDING_SQL = {
     "children": "SELECT id, embedding FROM children",
     "table_summaries": "SELECT id, embedding FROM table_summaries",
-    # "table_rows" disabled: -6pp R@5 regression (see row_as_chunk_experiment.md)
+    # table_rows kept in a SEPARATE channel (not mixed in general cosine/BM25).
+    # Mixed: +12.3pp tab, -7.3pp prose. Separate channel avoids prose pollution.
 }
+_TABLE_ROW_SQL = "SELECT id, embedding FROM table_rows"
 
 
 def _load_embeddings(
@@ -50,14 +52,15 @@ def _load_embeddings(
     Returns:
         (ids, embeddings_matrix) where matrix is (N, 768) float32.
     """
-    if table not in _EMBEDDING_SQL:
-        msg = f"Invalid table: {table}. Must be one of {set(_EMBEDDING_SQL)}"
+    _VALID_TABLES = {**_EMBEDDING_SQL, "table_rows": _TABLE_ROW_SQL}
+    if table not in _VALID_TABLES:
+        msg = f"Invalid table: {table}. Must be one of {set(_VALID_TABLES)}"
         raise ValueError(msg)
 
     if cache_key in _embedding_cache:
         return _embedding_cache[cache_key]
 
-    rows = conn.execute(_EMBEDDING_SQL[table]).fetchall()
+    rows = conn.execute(_VALID_TABLES[table]).fetchall()
     if not rows:
         _embedding_cache[cache_key] = ([], np.empty((0, 768), dtype=np.float32))
         return _embedding_cache[cache_key]
@@ -80,8 +83,10 @@ def reciprocal_rank_fusion(
     cosine_results: list[tuple[str, float]],
     bm25_results: list[tuple[str, float]],
     structured_results: list[tuple[str, float]] | None = None,
+    table_row_results: list[tuple[str, float]] | None = None,
     k: int = 60,
     structured_weight: float = 1.5,
+    table_row_weight: float = 0.5,
 ) -> list[tuple[str, float]]:
     """Fuse ranked lists using Reciprocal Rank Fusion.
 
@@ -89,8 +94,11 @@ def reciprocal_rank_fusion(
         cosine_results: [(doc_id, cosine_score), ...] sorted desc.
         bm25_results: [(doc_id, bm25_score), ...] sorted by relevance.
         structured_results: Optional structured cell matches (boosted).
+        table_row_results: Optional narrative table row cosine matches.
         k: RRF constant (default 60, standard value).
-        structured_weight: Boost multiplier for structured matches (default 1.5).
+        structured_weight: Boost for structured matches (default 1.5).
+        table_row_weight: Weight for table row channel (default 0.5,
+            lower than 1.0 to avoid prose pollution).
 
     Returns:
         [(doc_id, rrf_score), ...] sorted desc by RRF score.
@@ -103,6 +111,9 @@ def reciprocal_rank_fusion(
     if structured_results:
         for rank, (doc_id, _) in enumerate(structured_results):
             scores[doc_id] = scores.get(doc_id, 0) + structured_weight / (k + rank + 1)
+    if table_row_results:
+        for rank, (doc_id, _) in enumerate(table_row_results):
+            scores[doc_id] = scores.get(doc_id, 0) + table_row_weight / (k + rank + 1)
     return sorted(scores.items(), key=lambda x: -x[1])
 
 
@@ -167,21 +178,36 @@ def cosine_search(
     Returns:
         [(id, cosine_score), ...] sorted desc.
     """
-    child_ids, child_matrix = _load_embeddings(conn, "children", f"{db_path}:children")
-    table_ids, table_matrix = _load_embeddings(
-        conn, "table_summaries", f"{db_path}:table_summaries"
-    )
     results: list[tuple[str, float]] = []
 
-    if child_ids:
-        scores = child_matrix @ query_embedding
-        results.extend(zip(child_ids, scores.tolist(), strict=True))
-
-    if table_ids:
-        scores = table_matrix @ query_embedding
-        results.extend(zip(table_ids, scores.tolist(), strict=True))
+    for table_name in _EMBEDDING_SQL:
+        cache_key = f"{db_path}:{table_name}"
+        ids, matrix = _load_embeddings(conn, table_name, cache_key)
+        if ids:
+            scores = matrix @ query_embedding
+            results.extend(zip(ids, scores.tolist(), strict=True))
 
     results.sort(key=lambda x: -x[1])
+    return results[:max_k]
+
+
+def table_row_cosine_search(
+    conn: sqlite3.Connection,
+    query_embedding: np.ndarray,
+    max_k: int = 10,
+    db_path: str = "",
+) -> list[tuple[str, float]]:
+    """Cosine search on narrative table_rows only (separate channel).
+
+    Kept separate from cosine_search to avoid polluting prose results.
+    Merged via RRF 4th channel with controlled weight.
+    """
+    cache_key = f"{db_path}:table_rows"
+    ids, matrix = _load_embeddings(conn, "table_rows", cache_key)
+    if not ids:
+        return []
+    scores = matrix @ query_embedding
+    results = sorted(zip(ids, scores.tolist(), strict=True), key=lambda x: -x[1])
     return results[:max_k]
 
 
@@ -239,14 +265,49 @@ def bm25_search(
     except sqlite3.OperationalError:
         logger.warning("FTS5 table MATCH failed for query: %s", stemmed_query[:50])
 
-    # table_rows_fts disabled: header repetition degrades BM25 (Ragie warning)
-
+    # table_rows_fts excluded from general BM25 (separate channel in RRF).
     # Sort by BM25 score (lower = more relevant in FTS5)
     results.sort(key=lambda x: x[1])
     return results[:max_k]
 
 
 # === Structured table lookup (Level 3) ===
+
+# Allow-list of short chess terms (<=3 chars) that are domain-specific
+# enough to use in structured cell search without noise.
+# Sources: synonyms.py CHESS_SYNONYMS, enrichment.py ABBREVIATIONS,
+# FFE category codes, FIDE title codes, Elo-related terms.
+CHESS_SHORT_TERMS: set[str] = {
+    # Elo / scoring
+    "elo",
+    "dp",
+    # Age categories (FFE codes)
+    "u8",
+    "u10",
+    "u12",
+    "u14",
+    "u16",
+    "u18",
+    "u20",
+    # FIDE titles
+    "gm",
+    "mi",
+    "fm",
+    "cm",
+    "mf",
+    "wgm",
+    "wmi",
+    "wfm",
+    # Abbreviations
+    "ai",
+    "uv",
+    # Game terms
+    "mat",
+    "nul",
+    "pat",
+    # Cadence letters (FFE)
+    # Not included: single letters "a", "b", "c", "d" are too noisy
+}
 
 # Strong triggers: specific to table data, low false-positive rate
 _TABLE_TRIGGERS_STRONG = {
@@ -267,7 +328,7 @@ _TABLE_TRIGGERS_STRONG = {
     "definition",
 }
 
-# Weak triggers: too frequent alone, need a strong trigger companion
+# Weak triggers: common terms that benefit from structured lookup
 _TABLE_TRIGGERS_WEAK = {
     "cadence",
     "age",
@@ -289,6 +350,7 @@ def _has_table_triggers(query: str) -> bool:
     """Check if query needs structured table lookup.
 
     Activates on: 1+ strong trigger, OR 2+ weak triggers + Elo regex.
+    Conservative to avoid flooding RRF with false-positive tables.
     """
     q_lower = query.lower()
     strong = sum(1 for t in _TABLE_TRIGGERS_STRONG if t in q_lower)
@@ -323,14 +385,17 @@ def structured_cell_search(
         return []
 
     q_lower = query.lower()
-    # Use only specific terms (4+ chars to avoid noise like "age", "elo")
-    terms = [w for w in re.split(r"\W+", q_lower) if len(w) >= 4]
+    # Accept terms with 4+ chars OR short domain terms from allow-list.
+    # Phase 1 chantier 5: allow-list replaces blanket 4-char filter.
+    terms = [
+        w for w in re.split(r"\W+", q_lower) if len(w) >= 4 or w in CHESS_SHORT_TERMS
+    ]
     if not terms:
         return []
 
-    # Search cell values matching query terms (exact word preferred)
+    # Search cell values matching query terms
     scores: dict[str, float] = {}
-    for term in terms[:8]:  # cap terms to avoid slow queries
+    for term in terms[:10]:  # cap terms to avoid slow queries
         rows = conn.execute(
             "SELECT table_id FROM structured_cells WHERE cell_value LIKE ?",
             (f"%{term}%",),
@@ -338,7 +403,16 @@ def structured_cell_search(
         for (table_id,) in rows:
             scores[table_id] = scores.get(table_id, 0) + 1.0
 
-    # Only return tables with 2+ term matches (reduce false positives)
+    # Also search column names (col_name often contains category info)
+    for term in terms[:10]:
+        rows = conn.execute(
+            "SELECT DISTINCT table_id FROM structured_cells " "WHERE col_name LIKE ?",
+            (f"%{term}%",),
+        ).fetchall()
+        for (table_id,) in rows:
+            scores[table_id] = scores.get(table_id, 0) + 0.5
+
+    # Threshold 2.0: requires 2+ cell matches or cell + col_name confirmation.
     ranked = [(tid, s) for tid, s in scores.items() if s >= 2.0]
     ranked.sort(key=lambda x: -x[1])
     return ranked[:max_k]
@@ -391,8 +465,15 @@ def search(
             else []
         )
 
-        # 4. RRF fusion (two-way or three-way)
-        fused = reciprocal_rank_fusion(cosine_results, bm25_results, struct_results)
+        # 3b. Table row cosine (separate 4th channel, weight 0.5)
+        trow_results = table_row_cosine_search(
+            conn, q_emb, max_k=10, db_path=str(db_path)
+        )
+
+        # 4. RRF fusion (4-way: cosine + BM25 + structured + table_rows)
+        fused = reciprocal_rank_fusion(
+            cosine_results, bm25_results, struct_results, trow_results
+        )
 
         # 5. Adaptive k (EMNLP 2025 largest-gap)
         filtered = adaptive_k(fused, min_score, max_k)

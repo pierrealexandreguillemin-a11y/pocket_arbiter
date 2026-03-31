@@ -49,18 +49,39 @@ def _build_parent_contexts(
             (pid,),
         ).fetchone()
         if parent_row and parent_row[0].strip():
-            contexts.append(_parent_context(parent_row, children))
+            contexts.append(_parent_context(conn, parent_row, children))
         else:
             contexts.extend(_fallback_child_contexts(conn, children))
     return contexts
 
 
-def _parent_context(parent_row: tuple, children: list[tuple[str, float]]) -> Context:
+def _resolve_page(
+    conn: sqlite3.Connection,
+    parent_page: int | None,
+    children: list[tuple[str, float]],
+) -> int | None:
+    """Resolve page: use parent page if set, else best-scoring child's page."""
+    if parent_page is not None:
+        return parent_page
+    # Sort by score desc, take first child with a page
+    for cid, _ in sorted(children, key=lambda x: -x[1]):
+        row = conn.execute("SELECT page FROM children WHERE id = ?", (cid,)).fetchone()
+        if row and row[0] is not None:
+            return row[0]
+    return None
+
+
+def _parent_context(
+    conn: sqlite3.Connection,
+    parent_row: tuple,
+    children: list[tuple[str, float]],
+) -> Context:
     """Build context from a non-empty parent."""
+    page = _resolve_page(conn, parent_row[3], children)
     return Context(
         text=parent_row[0],
         source=parent_row[1],
-        page=parent_row[3],
+        page=page,
         section=parent_row[2] or "",
         context_type="parent",
         score=max(s for _, s in children),
@@ -119,6 +140,47 @@ def _build_table_contexts(
     return contexts
 
 
+def _build_table_row_contexts(
+    conn: sqlite3.Connection,
+    row_ids: list[tuple[str, float]],
+) -> list[Context]:
+    """Build contexts from matched table rows (multi-vector pattern).
+
+    The row embedding is used for retrieval, but the full raw_table_text
+    from the parent table_summary is returned as context for the LLM.
+    Deduplicates by parent table_id.
+    """
+    seen_tables: set[str] = set()
+    contexts: list[Context] = []
+    for row_id, score in row_ids:
+        row = conn.execute(
+            "SELECT table_id FROM table_rows WHERE id = ?", (row_id,)
+        ).fetchone()
+        if not row:
+            continue
+        table_id = row[0]
+        if table_id in seen_tables:
+            continue
+        seen_tables.add(table_id)
+        table = conn.execute(
+            "SELECT raw_table_text, source, page FROM table_summaries WHERE id = ?",
+            (table_id,),
+        ).fetchone()
+        if table:
+            contexts.append(
+                Context(
+                    text=table[0],
+                    source=table[1],
+                    page=table[2],
+                    section="",
+                    context_type="table",
+                    score=score,
+                    children_matched=[row_id],
+                )
+            )
+    return contexts
+
+
 def build_context(
     conn: sqlite3.Connection,
     result_ids: list[tuple[str, float]],
@@ -132,17 +194,19 @@ def build_context(
     Returns:
         List of Context objects, parents deduplicated, ordered by score.
     """
-    # Classify each result as child or table_summary
     child_ids: list[tuple[str, float]] = []
     table_ids: list[tuple[str, float]] = []
+    table_row_ids: list[tuple[str, float]] = []
     for did, score in result_ids:
-        row = conn.execute("SELECT 1 FROM children WHERE id = ?", (did,)).fetchone()
-        if row:
+        if conn.execute("SELECT 1 FROM children WHERE id = ?", (did,)).fetchone():
             child_ids.append((did, score))
+        elif conn.execute("SELECT 1 FROM table_rows WHERE id = ?", (did,)).fetchone():
+            table_row_ids.append((did, score))
         else:
             table_ids.append((did, score))
 
     contexts = _build_parent_contexts(conn, child_ids)
     contexts.extend(_build_table_contexts(conn, table_ids))
+    contexts.extend(_build_table_row_contexts(conn, table_row_ids))
     contexts.sort(key=lambda c: -c.score)
     return contexts

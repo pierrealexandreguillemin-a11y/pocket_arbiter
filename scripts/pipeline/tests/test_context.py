@@ -8,7 +8,7 @@ from unittest.mock import MagicMock
 
 import numpy as np
 
-from scripts.pipeline.context import SearchResult, build_context
+from scripts.pipeline.context import SearchResult, _resolve_page, build_context
 from scripts.pipeline.indexer import (
     create_db,
     insert_children,
@@ -191,6 +191,64 @@ class TestBuildContext:
         assert len(contexts) == 1
         assert contexts[0].context_type == "child"
         assert contexts[0].text == "C1"
+        conn.close()
+
+    def test_parent_page_none_resolved_from_child(self, tmp_path: Path) -> None:
+        """When parent.page is None, page is resolved from best child."""
+        db_path = tmp_path / "page_fix.db"
+        conn = create_db(db_path)
+        insert_parents(
+            conn,
+            [
+                {
+                    "id": "p1",
+                    "text": "Parent text",
+                    "source": "d.pdf",
+                    "section": "S",
+                    "tokens": 10,
+                    "page": None,  # No page on parent
+                },
+            ],
+        )
+        emb = np.random.randn(2, 768).astype(np.float32)
+        insert_children(
+            conn,
+            [
+                {
+                    "id": "c1",
+                    "text": "C1",
+                    "parent_id": "p1",
+                    "source": "d.pdf",
+                    "page": 42,
+                    "article_num": None,
+                    "section": "S",
+                    "tokens": 5,
+                },
+                {
+                    "id": "c2",
+                    "text": "C2",
+                    "parent_id": "p1",
+                    "source": "d.pdf",
+                    "page": 43,
+                    "article_num": None,
+                    "section": "S",
+                    "tokens": 5,
+                },
+            ],
+            emb,
+        )
+        # c2 has higher score -> page should be 43
+        contexts = build_context(conn, [("c2", 0.9), ("c1", 0.5)])
+        assert len(contexts) == 1
+        assert contexts[0].page == 43  # resolved from best child
+        conn.close()
+
+    def test_resolve_page_prefers_parent(self, tmp_path: Path) -> None:
+        """_resolve_page uses parent page when available."""
+        db_path = tmp_path / "resolve.db"
+        conn = create_db(db_path)
+        # No children needed for this unit test
+        assert _resolve_page(conn, 10, [("c1", 0.9)]) == 10
         conn.close()
 
 

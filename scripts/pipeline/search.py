@@ -35,6 +35,7 @@ _EMBEDDING_SQL = {
     # Mixed: +12.3pp tab, -7.3pp prose. Separate channel avoids prose pollution.
 }
 _TABLE_ROW_SQL = "SELECT id, embedding FROM table_rows"
+_SYNTHETIC_QUERY_SQL = "SELECT id, embedding FROM synthetic_queries"
 
 
 def _load_embeddings(
@@ -52,7 +53,11 @@ def _load_embeddings(
     Returns:
         (ids, embeddings_matrix) where matrix is (N, 768) float32.
     """
-    _VALID_TABLES = {**_EMBEDDING_SQL, "table_rows": _TABLE_ROW_SQL}
+    _VALID_TABLES = {
+        **_EMBEDDING_SQL,
+        "table_rows": _TABLE_ROW_SQL,
+        "synthetic_queries": _SYNTHETIC_QUERY_SQL,
+    }
     if table not in _VALID_TABLES:
         msg = f"Invalid table: {table}. Must be one of {set(_VALID_TABLES)}"
         raise ValueError(msg)
@@ -84,21 +89,24 @@ def reciprocal_rank_fusion(
     bm25_results: list[tuple[str, float]],
     structured_results: list[tuple[str, float]] | None = None,
     table_row_results: list[tuple[str, float]] | None = None,
+    synthetic_results: list[tuple[str, float]] | None = None,
     k: int = 60,
     structured_weight: float = 1.5,
     table_row_weight: float = 0.5,
+    synthetic_weight: float = 0.5,
 ) -> list[tuple[str, float]]:
-    """Fuse ranked lists using Reciprocal Rank Fusion.
+    """Fuse ranked lists using Reciprocal Rank Fusion (5-way).
 
     Args:
         cosine_results: [(doc_id, cosine_score), ...] sorted desc.
         bm25_results: [(doc_id, bm25_score), ...] sorted by relevance.
         structured_results: Optional structured cell matches (boosted).
         table_row_results: Optional narrative table row cosine matches.
+        synthetic_results: Optional Doc2Query synthetic query matches.
         k: RRF constant (default 60, standard value).
         structured_weight: Boost for structured matches (default 1.5).
-        table_row_weight: Weight for table row channel (default 0.5,
-            lower than 1.0 to avoid prose pollution).
+        table_row_weight: Weight for table row channel (default 0.5).
+        synthetic_weight: Weight for synthetic query channel (default 0.5).
 
     Returns:
         [(doc_id, rrf_score), ...] sorted desc by RRF score.
@@ -114,6 +122,9 @@ def reciprocal_rank_fusion(
     if table_row_results:
         for rank, (doc_id, _) in enumerate(table_row_results):
             scores[doc_id] = scores.get(doc_id, 0) + table_row_weight / (k + rank + 1)
+    if synthetic_results:
+        for rank, (doc_id, _) in enumerate(synthetic_results):
+            scores[doc_id] = scores.get(doc_id, 0) + synthetic_weight / (k + rank + 1)
     return sorted(scores.items(), key=lambda x: -x[1])
 
 
@@ -208,6 +219,37 @@ def table_row_cosine_search(
         return []
     scores = matrix @ query_embedding
     results = sorted(zip(ids, scores.tolist(), strict=True), key=lambda x: -x[1])
+    return results[:max_k]
+
+
+def synthetic_query_cosine_search(
+    conn: sqlite3.Connection,
+    query_embedding: np.ndarray,
+    max_k: int = 10,
+    db_path: str = "",
+) -> list[tuple[str, float]]:
+    """Cosine search on synthetic queries (Doc2Query, 5th channel).
+
+    Returns child_ids (not query ids) — the goal is to find the chunk
+    that the synthetic question was generated from. When multiple queries
+    match the same child, the best score is kept.
+    """
+    cache_key = f"{db_path}:synthetic_queries"
+    ids, matrix = _load_embeddings(conn, "synthetic_queries", cache_key)
+    if not ids:
+        return []
+    scores = matrix @ query_embedding
+    # Map query_id -> child_id, keep best score per child
+    child_scores: dict[str, float] = {}
+    for qid, score in zip(ids, scores.tolist(), strict=True):
+        row = conn.execute(
+            "SELECT child_id FROM synthetic_queries WHERE id = ?", (qid,)
+        ).fetchone()
+        if row:
+            cid = row[0]
+            if cid not in child_scores or score > child_scores[cid]:
+                child_scores[cid] = score
+    results = sorted(child_scores.items(), key=lambda x: -x[1])
     return results[:max_k]
 
 
@@ -469,6 +511,11 @@ def search(
         trow_results = table_row_cosine_search(
             conn, q_emb, max_k=10, db_path=str(db_path)
         )
+
+        # 3c. Synthetic query cosine (Doc2Query, 5th channel) — DISABLED
+        # Sweep result: w=0.0 best (59.4%), all w>0 degrade recall.
+        # 70% unique discoveries but wrong pages — canal pollutes RRF.
+        # Data stays in DB for future experiments.
 
         # 4. RRF fusion (4-way: cosine + BM25 + structured + table_rows)
         fused = reciprocal_rank_fusion(

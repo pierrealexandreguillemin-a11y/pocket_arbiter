@@ -52,6 +52,15 @@ CREATE TABLE IF NOT EXISTS table_rows (
     tokens INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS synthetic_queries (
+    id TEXT PRIMARY KEY,
+    question TEXT NOT NULL,
+    embedding BLOB NOT NULL,
+    child_id TEXT NOT NULL REFERENCES children(id),
+    source TEXT NOT NULL,
+    page INTEGER
+);
+
 CREATE TABLE IF NOT EXISTS structured_cells (
     table_id TEXT NOT NULL REFERENCES table_summaries(id),
     row_idx INTEGER NOT NULL,
@@ -177,6 +186,31 @@ def insert_table_rows(
                 r.get("tokens", 0),
             )
             for i, r in enumerate(rows_data)
+        ],
+    )
+    conn.commit()
+
+
+def insert_synthetic_queries(
+    conn: sqlite3.Connection,
+    queries: list[dict],
+    embeddings: np.ndarray,
+) -> None:
+    """Insert synthetic queries (Doc2Query) with embeddings."""
+    conn.executemany(
+        "INSERT OR REPLACE INTO synthetic_queries "
+        "(id, question, embedding, child_id, source, page) "
+        "VALUES (?, ?, ?, ?, ?, ?)",
+        [
+            (
+                q["id"],
+                q["question"],
+                embedding_to_blob(embeddings[i]),
+                q["child_id"],
+                q["source"],
+                q.get("page"),
+            )
+            for i, q in enumerate(queries)
         ],
     )
     conn.commit()

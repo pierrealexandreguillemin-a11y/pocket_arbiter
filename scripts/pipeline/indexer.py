@@ -8,9 +8,13 @@ from __future__ import annotations
 import json
 import logging
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import numpy as np
 import tiktoken
+
+if TYPE_CHECKING:
+    from sentence_transformers import SentenceTransformer
 
 # Re-exports for backward compatibility (search.py, tests, recall.py import from here)
 from scripts.pipeline.indexer_db import (  # noqa: F401
@@ -18,6 +22,7 @@ from scripts.pipeline.indexer_db import (  # noqa: F401
     insert_children,
     insert_parents,
     insert_structured_cells,
+    insert_synthetic_queries,
     insert_table_rows,
     insert_table_summaries,
     populate_fts,
@@ -199,6 +204,42 @@ def _embed_table_rows(
     return row_chunks, embed_documents(tr_texts, tr_titles, model)
 
 
+SYNTHETIC_QUERIES_PATH = Path("models/kaggle-gen-questions-output/questions_v5.jsonl")
+
+
+def _load_synthetic_queries(
+    model: SentenceTransformer,
+) -> tuple[list[dict], np.ndarray]:
+    """Load questions_v5.jsonl, embed as queries (Doc2Query, 5th channel).
+
+    Each question is embedded with format_query (query prompt, not document
+    prompt) because at search time we compare query↔query, not query↔doc.
+    """
+    if not SYNTHETIC_QUERIES_PATH.exists():
+        logger.warning("No synthetic queries at %s — skipping", SYNTHETIC_QUERIES_PATH)
+        return [], np.empty((0, EMBEDDING_DIM), dtype=np.float32)
+
+    with open(SYNTHETIC_QUERIES_PATH, encoding="utf-8") as f:
+        raw = [json.loads(line) for line in f if line.strip()]
+
+    queries = [
+        {
+            "id": f"{r['chunk_id']}-sq{i % 2}",
+            "question": r["question"],
+            "child_id": r["chunk_id"],
+            "source": r["source"],
+            "page": r.get("page"),
+        }
+        for i, r in enumerate(raw)
+    ]
+    logger.info("=== Step 7b: Embedding %d synthetic queries ===", len(queries))
+
+    # Embed as QUERIES (not documents) — format_query adds the query prompt
+    texts = [format_query(q["question"]) for q in queries]
+    embeddings = model.encode(texts, normalize_embeddings=True, batch_size=BATCH_SIZE)
+    return queries, embeddings.astype(np.float32)
+
+
 def build_index(
     docling_dir: Path,
     table_summaries_path: Path,
@@ -291,6 +332,9 @@ def build_index(
         table_sums, all_chunker_tables, model
     )
 
+    # 7b. Load and embed synthetic queries (Doc2Query, 5th channel)
+    syn_queries, syn_embeddings = _load_synthetic_queries(model)
+
     # 8. Build SQLite DB
     logger.info("=== Step 8: Building SQLite DB ===")
     conn = create_db(output_db)
@@ -304,6 +348,9 @@ def build_index(
     if table_row_chunks:
         insert_table_rows(conn, table_row_chunks, tr_embeddings)
         logger.info("Inserted %d table rows", len(table_row_chunks))
+    if syn_queries:
+        insert_synthetic_queries(conn, syn_queries, syn_embeddings)
+        logger.info("Inserted %d synthetic queries", len(syn_queries))
 
     # 9. Structured cells (level 3 — deterministic lookup, no embedding)
     from scripts.pipeline.enrichment import parse_structured_cells

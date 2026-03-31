@@ -10,22 +10,26 @@
 - **Chunks** : 1116 children (config 450/50), 282 parents (cap 2048), 117 tables detectees, 111 table summaries
 - **Contextes** : 1116 contextual retrieval entries (Anthropic 2024), generes par LLM, median 54 tokens
 - **Enrichment** : abbreviation expansion (12 termes), chapter overrides (5 ranges LA), context prepend
-- **Structured cells** : 4308 cells (level 3 TableRAG), keyword triggers strong/weak, three-way RRF
+- **Structured cells** : 4308 cells (level 3 TableRAG), keyword triggers strong/weak
+- **Narrative rows** : 1355 rows (Table-to-Text), 4th RRF channel (w=0.5), +12.3pp tab recall
+- **Synthetic queries** : 2232 Doc2Query (Gemma 4B), DISABLED (degrades recall, data in DB)
 - **Pages** : line-level interpolation, 95% GS pages couvertes (105/111)
 - **GS** : 403 questions (298 testables), page-level matching
 - **Modeles** : EmbeddingGemma-300M base (embeddings), Gemma 3n E2B candidat generation
-- **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks, 312 tests, 80% coverage
+- **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks, 334 tests, 68% coverage
 - **Indexer** : corpus_v2_fr.db (DVC tracked), 9/9 integrity gates (I1-I9) PASS
 - **CCH** : heading hierarchy (h1 > h2 > h3) pour children ET table summaries (KX 2026)
-- **Search** : hybrid cosine + BM25 FTS5 + structured cells, RRF k=60, adaptive-k largest-gap (EMNLP 2025)
+- **Search** : hybrid cosine + BM25 FTS5 + structured cells + narrative rows, 4-way RRF k=60, adaptive-k largest-gap (EMNLP 2025)
 - **Synonymes** : Snowball FR stemmer + 70 synonymes chess
 
-### Recall (chantier 3 — termine)
+### Recall (chantier 3 — termine, chantier 5 — en cours)
 - **QAT baseline** : recall@5 = 56.7% (ancien modele)
 - **Base-only** : recall@5 = 59.1% (+2.4pp model switch)
-- **Enrichi final** : recall@5 = 60.1%, recall@1 = 38.9%, recall@10 = 63.8%, MRR = 0.479
-- **Gate R1 (70%) : FAIL** → LoRA fine-tuning necessaire
-- Row-as-chunk (level 2) : REVERTED (-6pp, documente data/benchmarks/row_as_chunk_experiment.md)
+- **Enrichi (chantier 3)** : recall@5 = 60.1%, recall@1 = 38.9%, recall@10 = 63.8%, MRR = 0.479
+- **Chantier 5 Phase 2** : recall@5 = **64.8%**, tab = **76.0%**, prose = **62.5%** (+7.4pp global)
+- **Gate R1 (70%) : FAIL** — mais tranche haute industrie (55-65% corpus reglementaire offline)
+- Row-as-chunk (level 2) : REVERTED, remplace par narrative rows (level 2b, +12.3pp tab)
+- Doc2Query (canal 5) : DISABLED (degrades recall, data/benchmarks/doc2query_experiment.md)
 
 ### Optimisations appliquees
 - **OPT-1 DONE** : contextual retrieval (Anthropic 2024) — +3.7pp R@1 (principal gain)
@@ -37,6 +41,19 @@
 - **Level 2 REVERTED** : row-as-chunk (-6pp, Ragie warning confirme)
 - **Level 3 DONE** : structured cells (neutre recall, fonctionnalite RAG Android)
 - **Model switch** : QAT → base (+2.4pp, aligne build/runtime)
+
+### Retrieval table improvement (chantier 5 — en cours)
+- **Phase 1 DONE** : trigger tuning — recall-neutre, allow-list + col_name search
+- **Phase 2 DONE** : narrative rows + 4-way RRF + page fix = **+7.4pp global** (57.4% → 64.8%)
+  - narrate_table_rows() : Table-to-Text, +12.3pp tab recall
+  - 4-way RRF canal separe (w=0.5) : elimine pollution prose (-7.3pp → -0.8pp)
+  - fix page=None : _resolve_page() depuis best-scoring child, +5.4pp global
+- **Doc2Query DISABLED** : 2232 synthetic queries, 70% complementaire, MAIS degrades recall
+  - Root cause : questions generees pour SFT (thematique), pas retrieval (discriminative)
+- **Phase 3 NEXT** : injection contextuelle tables page±1 dans build_context()
+  - get_neighbors(source, page, radius=1) → injecter table_summaries adjacentes
+  - Tables only (pas prose — le cosine la trouve deja)
+  - Token budget cap 2048 tokens Gemma
 
 ### Fine-tuning retrieval (chantier 4a — ABANDONNE)
 - SimCSE + ICT LoRA planifie, spec ecrite, kernel code, dataset prepare
@@ -157,7 +174,7 @@ models/             # model_card.json
 ## ISO Compliance (OBLIGATOIRE)
 
 - ISO 27001 : Jamais lire .env, secrets/, *.pem, *.key
-- ISO 29119 : Coverage >= 80% sur code actif (312 tests, 80.06%)
+- ISO 29119 : Coverage >= 80% sur code actif (334 tests, 68.07% — recall.py/recall_report.py tirent la moyenne)
 - ISO 25010 : Complexite cyclomatique <= B (xenon)
 - ISO 12207 : Commits conventionnels (feat/fix/test/docs)
 - ISO 42001 : Citations obligatoires, 0% hallucination
@@ -202,6 +219,7 @@ models/             # model_card.json
 - @models/model_card.json : Specs modeles (EmbeddingGemma + Gemma 3)
 - @docs/superpowers/specs/2026-03-19-recall-optimization-design.md : Spec recall optimization
 - @docs/superpowers/specs/2026-03-19-structured-tables-design.md : Spec structured tables (level 3)
-- @data/benchmarks/row_as_chunk_experiment.md : Experiment row-as-chunk (REVERTED sur 270M, a re-tester 1B)
+- @data/benchmarks/row_as_chunk_experiment.md : Experiment row-as-chunk (REVERTED, remplace par narrative rows)
+- @data/benchmarks/doc2query_experiment.md : Doc2Query experiment (DISABLED, degrades recall)
 - @data/benchmarks/retrieval_table_gap_analysis.md : Gap retrieval tables — search rate les tableaux associes
 - @docs/GENERATION_EVAL_METHODOLOGY.md : Methodologie eval generation (ISO, ICTIR 2025, HHEM, FACTS, FaithBench)

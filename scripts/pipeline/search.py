@@ -402,14 +402,27 @@ def _has_table_triggers(query: str) -> bool:
     return weak >= 2 and bool(_ELO_RE.search(query))
 
 
+# Priority tables: high-value tables that deserve a score boost.
+# These are the most-consulted tables in the FFE/FIDE corpus.
+_PRIORITY_TABLES: set[str] = {
+    "R01_2025_26_Regles_generales-table0",  # Categories d'age
+    "R01_2025_26_Regles_generales-table1",  # Equivalence cadences
+    "LA-octobre2025-table69",  # Bareme frais deplacement
+    "LA-octobre2025-table82",  # Conditions normes titres FIDE
+    "LA-octobre2025-table83",  # Exigences normes titres FIDE
+}
+_PRIORITY_BOOST = 1.5  # Additive bonus for priority tables
+
+
 def structured_cell_search(
     conn: sqlite3.Connection,
     query: str,
     max_k: int = 5,
 ) -> list[tuple[str, float]]:
-    """Deterministic lookup on structured_cells table.
+    """Lookup on structured_cells via FTS5 + LIKE fallback.
 
     Returns table_summary IDs ranked by match quality.
+    Uses FTS5 for fuzzy matching, falls back to LIKE if FTS unavailable.
 
     Args:
         conn: SQLite connection.
@@ -419,7 +432,6 @@ def structured_cell_search(
     Returns:
         [(table_summary_id, score), ...] sorted desc.
     """
-    # Check if structured_cells table exists
     has_table = conn.execute(
         "SELECT 1 FROM sqlite_master WHERE type='table' AND name='structured_cells'"
     ).fetchone()
@@ -427,37 +439,116 @@ def structured_cell_search(
         return []
 
     q_lower = query.lower()
-    # Accept terms with 4+ chars OR short domain terms from allow-list.
-    # Phase 1 chantier 5: allow-list replaces blanket 4-char filter.
     terms = [
         w for w in re.split(r"\W+", q_lower) if len(w) >= 4 or w in CHESS_SHORT_TERMS
     ]
     if not terms:
         return []
 
-    # Search cell values matching query terms
     scores: dict[str, float] = {}
-    for term in terms[:10]:  # cap terms to avoid slow queries
+    has_fts = conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE name='structured_cells_fts'"
+    ).fetchone()
+
+    if has_fts:
+        _search_cells_fts(conn, terms, scores)
+    else:
+        _search_cells_like(conn, terms, scores)
+
+    # Priority boost for high-value tables
+    for tid in _PRIORITY_TABLES:
+        if tid in scores:
+            scores[tid] += _PRIORITY_BOOST
+
+    ranked = [(tid, s) for tid, s in scores.items() if s >= 2.0]
+    ranked.sort(key=lambda x: -x[1])
+    return ranked[:max_k]
+
+
+def _search_cells_fts(
+    conn: sqlite3.Connection,
+    terms: list[str],
+    scores: dict[str, float],
+) -> None:
+    """FTS5 search on structured_cells_fts (col_name + cell_value)."""
+    fts_query = " OR ".join(t for t in terms[:10] if t)
+    if not fts_query:
+        return
+    try:
+        rows = conn.execute(
+            "SELECT table_id FROM structured_cells_fts " "WHERE cell_value MATCH ?",
+            (fts_query,),
+        ).fetchall()
+        for (table_id,) in rows:
+            scores[table_id] = scores.get(table_id, 0) + 1.0
+        rows = conn.execute(
+            "SELECT table_id FROM structured_cells_fts " "WHERE col_name MATCH ?",
+            (fts_query,),
+        ).fetchall()
+        for (table_id,) in rows:
+            scores[table_id] = scores.get(table_id, 0) + 0.5
+    except sqlite3.OperationalError:
+        _search_cells_like(conn, terms, scores)
+
+
+def _search_cells_like(
+    conn: sqlite3.Connection,
+    terms: list[str],
+    scores: dict[str, float],
+) -> None:
+    """LIKE fallback for structured_cells search."""
+    for term in terms[:10]:
         rows = conn.execute(
             "SELECT table_id FROM structured_cells WHERE cell_value LIKE ?",
             (f"%{term}%",),
         ).fetchall()
         for (table_id,) in rows:
             scores[table_id] = scores.get(table_id, 0) + 1.0
-
-    # Also search column names (col_name often contains category info)
     for term in terms[:10]:
         rows = conn.execute(
-            "SELECT DISTINCT table_id FROM structured_cells " "WHERE col_name LIKE ?",
+            "SELECT DISTINCT table_id FROM structured_cells WHERE col_name LIKE ?",
             (f"%{term}%",),
         ).fetchall()
         for (table_id,) in rows:
             scores[table_id] = scores.get(table_id, 0) + 0.5
 
-    # Threshold 2.0: requires 2+ cell matches or cell + col_name confirmation.
-    ranked = [(tid, s) for tid, s in scores.items() if s >= 2.0]
-    ranked.sort(key=lambda x: -x[1])
-    return ranked[:max_k]
+
+# === Intro page filter (OPT-5) ===
+
+# Pages with structural content only (TOC, cover, section titles).
+# These pollute top-k without providing useful RAG context.
+# Verified against PDF source — no substantive content on these pages.
+_INTRO_PAGES: set[tuple[str, int]] = {
+    ("LA-octobre2025.pdf", 1),  # Cover page (158 chars, title only)
+    ("LA-octobre2025.pdf", 100),  # Section title "Systemes d'appariements" (434 chars)
+}
+
+
+_INTRO_LOOKUP_SQL = {
+    "children": "SELECT source, page FROM children WHERE id = ?",
+    "table_summaries": "SELECT source, page FROM table_summaries WHERE id = ?",
+    "table_rows": "SELECT source, page FROM table_rows WHERE id = ?",
+}
+
+
+def _filter_intro_pages(
+    conn: sqlite3.Connection,
+    results: list[tuple[str, float]],
+) -> list[tuple[str, float]]:
+    """Remove results from intro/structural pages (OPT-5)."""
+    if not _INTRO_PAGES:
+        return results
+    filtered: list[tuple[str, float]] = []
+    for doc_id, score in results:
+        for sql in _INTRO_LOOKUP_SQL.values():
+            row = conn.execute(sql, (doc_id,)).fetchone()
+            if row:
+                if (row[0], row[1]) not in _INTRO_PAGES:
+                    filtered.append((doc_id, score))
+                break
+        else:
+            filtered.append((doc_id, score))
+    return filtered
 
 
 # === Main entry point ===
@@ -469,6 +560,7 @@ def search(
     model: SentenceTransformer | None = None,
     min_score: float = 0.005,
     max_k: int = 10,
+    table_row_weight: float = 0.5,
 ) -> SearchResult:
     """Full hybrid search pipeline.
 
@@ -478,6 +570,7 @@ def search(
         model: SentenceTransformer model (loaded if None).
         min_score: Adaptive k minimum RRF score.
         max_k: Adaptive k maximum results.
+        table_row_weight: Weight for Canal 4 (narrative rows) in RRF.
 
     Returns:
         SearchResult with contexts, scores, and metadata.
@@ -507,20 +600,26 @@ def search(
             else []
         )
 
-        # 3b. Table row cosine (separate 4th channel, weight 0.5)
+        # 3b. Table row cosine (separate 4th channel)
         trow_results = table_row_cosine_search(
             conn, q_emb, max_k=10, db_path=str(db_path)
         )
 
         # 3c. Synthetic query cosine (Doc2Query, 5th channel) — DISABLED
         # Sweep result: w=0.0 best (59.4%), all w>0 degrade recall.
-        # 70% unique discoveries but wrong pages — canal pollutes RRF.
         # Data stays in DB for future experiments.
 
         # 4. RRF fusion (4-way: cosine + BM25 + structured + table_rows)
         fused = reciprocal_rank_fusion(
-            cosine_results, bm25_results, struct_results, trow_results
+            cosine_results,
+            bm25_results,
+            struct_results,
+            trow_results,
+            table_row_weight=table_row_weight,
         )
+
+        # 4b. Filter intro pages (OPT-5)
+        fused = _filter_intro_pages(conn, fused)
 
         # 5. Adaptive k (EMNLP 2025 largest-gap)
         filtered = adaptive_k(fused, min_score, max_k)

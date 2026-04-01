@@ -88,6 +88,13 @@ CREATE VIRTUAL TABLE IF NOT EXISTS table_summaries_fts USING fts5(
     text_stemmed,
     tokenize='unicode61 remove_diacritics 2'
 );
+
+CREATE VIRTUAL TABLE IF NOT EXISTS structured_cells_fts USING fts5(
+    table_id UNINDEXED,
+    col_name,
+    cell_value,
+    tokenize='unicode61 remove_diacritics 2'
+);
 """
 
 
@@ -254,4 +261,31 @@ def populate_fts(conn: sqlite3.Connection) -> None:
         "INSERT INTO table_rows_fts (id, text_stemmed) VALUES (?, ?)",
         [(r[0], stem_text(r[1])) for r in rows],
     )
+    # Structured cells FTS (col_name + cell_value, no stemming — exact terms)
+    _populate_structured_cells_fts(conn)
     conn.commit()
+
+
+def _populate_structured_cells_fts(conn: sqlite3.Connection) -> None:
+    """Populate FTS5 for structured_cells (col_name + cell_value)."""
+    has_fts = conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE name='structured_cells_fts'"
+    ).fetchone()
+    if not has_fts:
+        conn.executescript(
+            "CREATE VIRTUAL TABLE IF NOT EXISTS structured_cells_fts USING fts5("
+            "    table_id UNINDEXED,"
+            "    col_name,"
+            "    cell_value,"
+            "    tokenize='unicode61 remove_diacritics 2'"
+            ");"
+        )
+    conn.execute("DELETE FROM structured_cells_fts")
+    rows = conn.execute(
+        "SELECT table_id, col_name, cell_value FROM structured_cells"
+    ).fetchall()
+    conn.executemany(
+        "INSERT INTO structured_cells_fts (table_id, col_name, cell_value) "
+        "VALUES (?, ?, ?)",
+        rows,
+    )

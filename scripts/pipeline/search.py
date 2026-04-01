@@ -404,10 +404,16 @@ def _has_table_triggers(query: str) -> bool:
 
 # Priority tables: high-value tables that deserve a score boost.
 # These are the most-consulted tables in the FFE/FIDE corpus.
+# Data-driven: top tables by GS question frequency (audit 2026-04-01).
 _PRIORITY_TABLES: set[str] = {
-    "R01_2025_26_Regles_generales-table0",  # Categories d'age
-    "R01_2025_26_Regles_generales-table1",  # Equivalence cadences
-    "LA-octobre2025-table69",  # Bareme frais deplacement
+    "LA-octobre2025-table2",  # Resultats fin de partie (21 Q)
+    "R01_2025_26_Regles_generales-table0",  # Categories d'age (15 Q)
+    "R01_2025_26_Regles_generales-table1",  # Equivalence cadences (12 Q)
+    "LA-octobre2025-table75",  # Bareme titres FIDE (8 Q)
+    "LA-octobre2025-table73",  # Conversion Elo variante (7 Q)
+    "LA-octobre2025-table74",  # Conversion Elo etendue (7 Q)
+    "LA-octobre2025-table70",  # Qualification arbitres (5 Q)
+    "LA-octobre2025-table69",  # Bareme frais deplacement (5 Q)
     "LA-octobre2025-table82",  # Conditions normes titres FIDE
     "LA-octobre2025-table83",  # Exigences normes titres FIDE
 }
@@ -470,8 +476,11 @@ def _search_cells_fts(
     terms: list[str],
     scores: dict[str, float],
 ) -> None:
-    """FTS5 search on structured_cells_fts (col_name + cell_value)."""
-    fts_query = " OR ".join(t for t in terms[:10] if t)
+    """FTS5 search on structured_cells_fts (col_name + cell_value).
+
+    Uses prefix queries (term*) to handle plural/conjugation without stemming.
+    """
+    fts_query = " OR ".join(f"{t}*" for t in terms[:10] if t)
     if not fts_query:
         return
     try:

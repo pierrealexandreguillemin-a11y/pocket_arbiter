@@ -1,5 +1,5 @@
 ---
-generated: 2026-03-19T19:06:03.876675+00:00
+generated: 2026-03-31T21:48:26.642225+00:00
 pipeline: hybrid cosine+BM25 RRF, adaptive-k largest-gap
 model: google/embeddinggemma-300m
 db: corpus_v2_fr.db
@@ -15,28 +15,28 @@ questions_total: 298
 
 | Metrique | Score |
 |----------|-------|
-| recall@1 | 38.9% |
-| recall@3 | 55.4% |
-| recall@5 | 60.1% |
-| recall@10 | 63.8% |
-| MRR | 0.479 |
+| recall@1 | 41.9% |
+| recall@3 | 58.1% |
+| recall@5 | 63.4% |
+| recall@10 | 67.4% |
+| MRR | 0.511 |
 
 ## Par reasoning_class
 
 | Bucket | Count | R@1 | R@3 | R@5 | R@10 |
 |--------|-------|-----|-----|-----|------|
-| arithmetic | 25 | 40.0% | 56.0% | 64.0% | 68.0% |
-| fact_single | 136 | 45.6% | 61.0% | 66.9% | 69.9% |
+| arithmetic | 25 | 48.0% | 68.0% | 76.0% | 80.0% |
+| fact_single | 136 | 47.8% | 63.2% | 69.9% | 73.5% |
 | reasoning | 4 | 50.0% | 50.0% | 50.0% | 50.0% |
-| summary | 133 | 31.6% | 49.6% | 52.6% | 57.1% |
+| summary | 133 | 34.6% | 51.1% | 54.9% | 59.4% |
 
 ## Par difficulty
 
 | Bucket | Count | R@1 | R@3 | R@5 | R@10 |
 |--------|-------|-----|-----|-----|------|
-| easy | 201 | 39.8% | 56.7% | 63.2% | 66.2% |
-| hard | 16 | 37.5% | 56.2% | 56.2% | 56.2% |
-| medium | 81 | 37.0% | 51.9% | 53.1% | 59.3% |
+| easy | 201 | 42.3% | 57.7% | 64.7% | 68.2% |
+| hard | 16 | 50.0% | 68.8% | 68.8% | 68.8% |
+| medium | 81 | 39.5% | 56.8% | 59.3% | 65.4% |
 
 ## Top echecs (recall@10 = 0)
 
@@ -45,24 +45,24 @@ questions_total: 298
 | 1 | Quelle tâche ne fait pas partie des missions de l' | LA-octobre2025.pdf p[10] | summary |
 | 2 | Un joueur avec licence B peut-il participer a un t | R03_2025_26_Competitions_homologuees.pdf p[2] | summary |
 | 3 | Quel est le niveau d'arbitre minimum requis pour u | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[9] | reasoning |
-| 4 | Quelle restriction s'applique a une joueuse ayant  | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[6] | summary |
-| 5 | A quelle heure un joueur est-il forfait si la rond | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[4] | arithmetic |
-| 6 | En Nationale 3, quelle composition d'equipe pour l | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[6] | arithmetic |
-| 7 | Quelle proposition sur le systeme de points en Cou | C04_2025_26_Coupe_de_la_parité.pdf p[5] | fact_single |
-| 8 | Qui nomme les superviseurs a la DNA ? | LA-octobre2025.pdf p[227] | summary |
-| 9 | Vous êtes arbitre-adjoint lors de la phase départe | R01_2025_26_Regles_generales.pdf p[2] | fact_single |
-| 10 | Lors d'un match de Nationale 2, un capitaine vous  | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[4] | arithmetic |
-| 11 | Lors d'une rencontre de N2, le procès-verbal de la | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[6] | arithmetic |
-| 12 | En coupe « Jean-Claude Loubatière », quelle affirm | C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf p[2] | summary |
-| 13 | Avant le commencement du tournoi, vous avez des ob | LA-octobre2025.pdf p[17] | fact_single |
-| 14 | Comme tout arbitre consciencieux, vous vérifiez qu | LA-octobre2025.pdf p[9] | fact_single |
-| 15 | Pendant que vous rentrez les scores et que les jou | LA-octobre2025.pdf p[165] | fact_single |
-| 16 | Dans le cadre de la gestion d'un match du champion | LA-octobre2025.pdf p[165] | fact_single |
-| 17 | Une fois l'appariement réalisé, Rosana vous indiqu | R01_2025_26_Regles_generales.pdf p[3] | fact_single |
-| 18 | Au cours de l'appariement de la ronde 3, dans le g | R01_2025_26_Regles_generales.pdf p[2] | summary |
-| 19 | Pour un tournoi, le montant de l'inscription est f | R03_2025_26_Competitions_homologuees.pdf p[2] | fact_single |
-| 20 | Avant même que vous ayez publié les résultats de l | R03_2025_26_Competitions_homologuees.pdf p[2] | fact_single |
+| 4 | A quelle heure un joueur est-il forfait si la rond | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[4] | arithmetic |
+| 5 | Qui nomme les superviseurs a la DNA ? | LA-octobre2025.pdf p[227] | summary |
+| 6 | Vous êtes arbitre-adjoint lors de la phase départe | R01_2025_26_Regles_generales.pdf p[2] | fact_single |
+| 7 | Lors d'un match de Nationale 2, un capitaine vous  | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[4] | arithmetic |
+| 8 | En coupe « Jean-Claude Loubatière », quelle affirm | C03_2025_26_Coupe_Jean_Claude_Loubatiere.pdf p[2] | summary |
+| 9 | Avant le commencement du tournoi, vous avez des ob | LA-octobre2025.pdf p[17] | fact_single |
+| 10 | Comme tout arbitre consciencieux, vous vérifiez qu | LA-octobre2025.pdf p[9] | fact_single |
+| 11 | Pendant que vous rentrez les scores et que les jou | LA-octobre2025.pdf p[165] | fact_single |
+| 12 | Dans le cadre de la gestion d'un match du champion | LA-octobre2025.pdf p[165] | fact_single |
+| 13 | Une fois l'appariement réalisé, Rosana vous indiqu | R01_2025_26_Regles_generales.pdf p[3] | fact_single |
+| 14 | Au cours de l'appariement de la ronde 3, dans le g | R01_2025_26_Regles_generales.pdf p[2] | summary |
+| 15 | Pour un tournoi, le montant de l'inscription est f | R03_2025_26_Competitions_homologuees.pdf p[2] | fact_single |
+| 16 | Avant même que vous ayez publié les résultats de l | R03_2025_26_Competitions_homologuees.pdf p[2] | fact_single |
+| 17 | Votre club organise un tournoi en cadence rapide.  | R03_2025_26_Competitions_homologuees.pdf p[2] | fact_single |
+| 18 | Avant l'appariement de la ronde 4, Isabelle a eu c | A02_2025_26_Championnat_de_France_des_Clubs.pdf p[1] | arithmetic |
+| 19 | Lors d'un match par équipe, le capitaine de l'équi | R01_2025_26_Regles_generales.pdf p[2] | fact_single |
+| 20 | Dans le cadre d'un tournoi, un enfant malvoyant ut | R03_2025_26_Competitions_homologuees.pdf p[2] | fact_single |
 
 ## Decision
 
-recall@5 = 60.1% → **Optimisations retrieval necessaires**
+recall@5 = 63.4% → **Optimisations retrieval necessaires**

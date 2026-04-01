@@ -7,14 +7,14 @@
 ### Ce qui fonctionne
 - **Corpus** : 28 PDFs FFE extraits avec heading levels (docling + docling-hierarchical-pdf)
 - **Chunker** : LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter (450/50 overlap)
-- **Chunks** : 1116 children (config 450/50), 282 parents (cap 2048), 117 tables detectees, 111 table summaries
+- **Chunks** : 1117 children (config 450/50 + 1 injected), 273 parents (cap 2048), 117 tables detectees, 117 table summaries
 - **Contextes** : 1116 contextual retrieval entries (Anthropic 2024), generes par LLM, median 54 tokens
 - **Enrichment** : abbreviation expansion (12 termes), chapter overrides (5 ranges LA), context prepend
-- **Structured cells** : 4308 cells (level 3 TableRAG), keyword triggers strong/weak
-- **Narrative rows** : 1355 rows (Table-to-Text), 4th RRF channel (w=0.5), +12.3pp tab recall
+- **Structured cells** : 4436 cells (level 3 TableRAG), keyword triggers strong/weak
+- **Narrative rows** : 1420 rows (Table-to-Text), 4th RRF channel (w=0.5), +12.3pp tab recall
 - **Synthetic queries** : 2232 Doc2Query (Gemma 4B), DISABLED (degrades recall, data in DB)
-- **Pages** : line-level interpolation, 95% GS pages couvertes (105/111)
-- **GS** : 403 questions (298 testables), page-level matching
+- **Pages** : line-level interpolation + pdfplumber page fix (120 children corrected), 99.3% GS pages couvertes (296/298)
+- **GS** : 403 questions (298 testables), page-level matching, 297/298 chunk_ids v2-aligned
 - **Modeles** : EmbeddingGemma-300M base (embeddings), Gemma 3n E2B candidat generation
 - **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks, 334 tests, 68% coverage
 - **Indexer** : corpus_v2_fr.db (DVC tracked), 9/9 integrity gates (I1-I9) PASS
@@ -26,10 +26,16 @@
 - **QAT baseline** : recall@5 = 56.7% (ancien modele)
 - **Base-only** : recall@5 = 59.1% (+2.4pp model switch)
 - **Enrichi (chantier 3)** : recall@5 = 60.1%, recall@1 = 38.9%, recall@10 = 63.8%, MRR = 0.479
-- **Chantier 5 Phase 2** : recall@5 = **64.8%**, tab = **76.0%**, prose = **62.5%** (+7.4pp global)
+- **Chantier 5 Phase 2** : recall@5 = **63.4%** (189/298), LLM recall@5 = **84.0%** (200 Q Gemma 4B)
 - **Gate R1 (70%) : FAIL** — mais tranche haute industrie (55-65% corpus reglementaire offline)
 - Row-as-chunk (level 2) : REVERTED, remplace par narrative rows (level 2b, +12.3pp tab)
 - Doc2Query (canal 5) : DISABLED (degrades recall, data/benchmarks/doc2query_experiment.md)
+- **Page interpolation fix** : 120 children page corrected via pdfplumber, recall ceiling 95%→100%
+- **GS chunk_id realignment** : 298/298 chunk_ids updated v1→v2 format (297 children + 1 table_summary)
+- **6 missing table_summaries** : summaries generees, embeddings, narrative rows (65), structured cells (154) injectes
+- **1 child injected** : Interclubs p.7 (extraction gap docling, child + embedding + FTS)
+- Root cause fix : `_build_text_to_page()` + `_extract_text_pages()` pour dense page tracking (text_pages)
+- Ref : @data/benchmarks/page_interpolation_fix.md
 
 ### Optimisations appliquees
 - **OPT-1 DONE** : contextual retrieval (Anthropic 2024) — +3.7pp R@1 (principal gain)

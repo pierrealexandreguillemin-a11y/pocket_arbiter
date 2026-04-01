@@ -26,7 +26,7 @@
 - **QAT baseline** : recall@5 = 56.7% (ancien modele)
 - **Base-only** : recall@5 = 59.1% (+2.4pp model switch)
 - **Enrichi (chantier 3)** : recall@5 = 60.1%, recall@1 = 38.9%, recall@10 = 63.8%, MRR = 0.479
-- **Chantier 5 Phase 2** : recall@5 = **63.4%** (189/298), LLM recall@5 = **84.0%** (200 Q Gemma 4B)
+- **Chantier 5 Phase 3** : recall@5 = **67.4%** (201/298), LLM recall@5 = **84.0%** (200 Q Gemma 4B)
 - **Gate R1 (70%) : FAIL** — mais tranche haute industrie (55-65% corpus reglementaire offline)
 - Row-as-chunk (level 2) : REVERTED, remplace par narrative rows (level 2b, +12.3pp tab)
 - Doc2Query (canal 5) : DISABLED (degrades recall, data/benchmarks/doc2query_experiment.md)

@@ -135,15 +135,48 @@ def _split_oversized_group(
 def _build_text_to_page(
     markdown: str,
     heading_pages: dict[str, int],
+    text_pages: list[tuple[str, int]] | None = None,
 ) -> dict[str, int]:
-    """Build line-text → page mapping by walking markdown with heading tracking."""
+    """Build line-text → page mapping by walking markdown with heading tracking.
+
+    Uses two sources for page tracking:
+    1. heading_pages (sparse): heading text → page from docling section_headers.
+    2. text_pages (dense): ordered (text[:80], page_no) from ALL docling text
+       items, enabling page boundary detection between headings.
+
+    Without text_pages, pages between two headings inherit the previous heading's
+    page (off-by-1 bug). With text_pages, each line's page is resolved from the
+    nearest matching docling item.
+    """
     fallback = min(heading_pages.values()) if heading_pages else 1
     current_page = fallback
     text_page: dict[str, int] = {}
+
+    # Build dense lookup from text_pages: text[:80] → page.
+    # For repeated text (page headers), build an ordered list of pages so we
+    # can consume them sequentially as we walk the markdown.
+    tp_index: dict[str, list[int]] = {}
+    if text_pages:
+        for text_snippet, page_no in text_pages:
+            key = text_snippet.strip().lstrip("#").strip()[:80]
+            if key:
+                tp_index.setdefault(key, []).append(page_no)
+    # Track consumption position for repeated keys
+    tp_consumed: dict[str, int] = {}
+
     for line in markdown.split("\n"):
         stripped = line.strip().lstrip("#").strip()
+        # Priority 1: heading_pages (most reliable, from docling provenance)
         if stripped in heading_pages:
             current_page = heading_pages[stripped]
+        # Priority 2: text_pages dense tracking (fixes off-by-1 between headings)
+        elif stripped[:80] in tp_index:
+            key = stripped[:80]
+            idx = tp_consumed.get(key, 0)
+            pages_list = tp_index[key]
+            if idx < len(pages_list):
+                current_page = pages_list[idx]
+                tp_consumed[key] = idx + 1
         if stripped:
             text_page[stripped[:80]] = current_page
     return text_page
@@ -153,14 +186,25 @@ def interpolate_pages(
     children: list[dict],
     heading_pages: dict[str, int],
     markdown: str = "",
+    text_pages: list[tuple[str, int]] | None = None,
 ) -> list[dict]:
-    """Assign pages via line-level tracking from markdown source."""
+    """Assign pages via line-level tracking from markdown source.
+
+    Args:
+        children: Children dicts with page=None to fill.
+        heading_pages: Heading text → page (sparse, from docling headers).
+        markdown: Full markdown text for line-level tracking.
+        text_pages: Ordered (text[:80], page_no) from ALL docling text items
+            for dense page tracking. Fixes off-by-1 gaps between headings.
+    """
     if not heading_pages:
         for child in children:
             if child.get("page") is None:
                 child["page"] = 1
         return children
-    text_page = _build_text_to_page(markdown, heading_pages) if markdown else {}
+    text_page = (
+        _build_text_to_page(markdown, heading_pages, text_pages) if markdown else {}
+    )
     fallback = min(heading_pages.values())
     for child in children:
         if child.get("page") is None:

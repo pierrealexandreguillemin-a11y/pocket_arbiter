@@ -58,6 +58,7 @@ def chunk_document(
     markdown: str,
     source: str,
     heading_pages: dict[str, int] | None = None,
+    text_pages: list[tuple[str, int]] | None = None,
 ) -> dict:
     """Chunk a markdown document into children, parents, and tables.
 
@@ -73,6 +74,8 @@ def chunk_document(
         markdown: Full markdown text of a document.
         source: PDF source filename.
         heading_pages: Optional heading -> page mapping for page interpolation.
+        text_pages: Optional ordered (text[:80], page_no) from docling for
+            dense page tracking (fixes off-by-1 gaps between headings).
 
     Returns:
         Dict with "children", "parents", "tables" lists.
@@ -101,7 +104,7 @@ def chunk_document(
     children = _build_children_dicts(children_docs, child_to_parent, source)
 
     # Stage 5: Page interpolation + merge
-    children = interpolate_pages(children, _heading_pages, markdown)
+    children = interpolate_pages(children, _heading_pages, markdown, text_pages)
     children = merge_small_children(children)
     for idx, child in enumerate(children):
         child["id"] = f"{source}-c{idx:04d}"

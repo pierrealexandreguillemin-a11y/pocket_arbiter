@@ -86,6 +86,30 @@ def _extract_heading_pages(doc: object) -> dict[str, int]:
     return heading_pages
 
 
+def _extract_text_pages(doc: object) -> list[tuple[str, int]]:
+    """Extract ordered (text_snippet, page_no) for ALL text items.
+
+    Unlike _extract_heading_pages which only returns section_headers
+    (sparse → off-by-1 page gaps), this returns ALL text items in
+    document order, enabling dense page tracking in the chunker.
+
+    Args:
+        doc: DoclingDocument with texts having prov[].page_no.
+
+    Returns:
+        Ordered list of (text[:80], page_no) for every text item.
+    """
+    items: list[tuple[str, int]] = []
+    for item in getattr(doc, "texts", []):
+        prov = getattr(item, "prov", None)
+        if not prov:
+            continue
+        text = (getattr(item, "text", "") or "").strip()
+        if text:
+            items.append((text[:80], prov[0].page_no))
+    return items
+
+
 def extract_pdf(pdf_path: Path) -> dict:
     """Extract a single PDF with hierarchical headings.
 
@@ -130,11 +154,15 @@ def extract_pdf(pdf_path: Path) -> dict:
             }
         )
 
+    # Dense page tracking: ALL text items with page numbers (not just headings)
+    text_pages = _extract_text_pages(doc)
+
     result_dict = {
         "markdown": markdown,
         "tables": tables,
         "source": pdf_path.name,
         "heading_pages": heading_pages,
+        "text_pages": text_pages,
     }
 
     # Apply manual fixes for PDFs where docling produces flat/missing headings

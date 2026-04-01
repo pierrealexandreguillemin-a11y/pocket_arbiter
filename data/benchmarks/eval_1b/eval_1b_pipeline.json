@@ -1,0 +1,24 @@
+{
+  "model": "gemma_3_1b_it",
+  "hit": {
+    "count": 171,
+    "cited": 63,
+    "cited_pct": 36.8,
+    "abstained": 1,
+    "abstain_pct": 0.6,
+    "empty": 0,
+    "median_words": 34
+  },
+  "miss": {
+    "count": 127,
+    "cited": 77,
+    "cited_pct": 60.6,
+    "abstained": 1,
+    "abstain_pct": 0.8,
+    "empty": 0,
+    "median_words": 53
+  },
+  "overall_cited_pct": 47.0,
+  "overall_abstain_pct": 0.7,
+  "elapsed_min": 49.4
+}

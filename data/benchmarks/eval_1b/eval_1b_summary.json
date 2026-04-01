@@ -1,0 +1,50 @@
+{
+  "model": "gemma_3_1b_it",
+  "oracle_cited_pct": 43.9,
+  "oracle_empty": 0,
+  "oracle_median_words": 24,
+  "oracle_time_min": 21.9,
+  "pipeline": {
+    "model": "gemma_3_1b_it",
+    "hit": {
+      "count": 171,
+      "cited": 63,
+      "cited_pct": 36.8,
+      "abstained": 1,
+      "abstain_pct": 0.6,
+      "empty": 0,
+      "median_words": 34
+    },
+    "miss": {
+      "count": 127,
+      "cited": 77,
+      "cited_pct": 60.6,
+      "abstained": 1,
+      "abstain_pct": 0.8,
+      "empty": 0,
+      "median_words": 53
+    },
+    "overall_cited_pct": 47.0,
+    "overall_abstain_pct": 0.7,
+    "elapsed_min": 49.4
+  },
+  "pipeline_time_min": 49.4,
+  "total_time_min": 71.3,
+  "baselines_270m": {
+    "oracle": {
+      "base": 40.5,
+      "tapt_ep1": 46.6,
+      "sft80": 59.1
+    },
+    "pipeline": {
+      "base": 24.8,
+      "tapt_ep1": 40.3,
+      "sft80": 48.7
+    },
+    "miss_abstain": {
+      "base": 3.1,
+      "tapt_ep1": 3.1,
+      "sft80": 0.0
+    }
+  }
+}

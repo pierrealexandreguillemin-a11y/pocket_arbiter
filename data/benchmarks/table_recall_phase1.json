@@ -1,0 +1,28 @@
+{
+  "phase": "Phase 1 — allow-list + triggers",
+  "trigger_rate": {
+    "before": 22,
+    "after": 152
+  },
+  "tabular": {
+    "hits": 62,
+    "total": 122,
+    "recall5": 50.8
+  },
+  "prose": {
+    "hits": 100,
+    "total": 176,
+    "recall5": 56.8
+  },
+  "global": {
+    "hits": 162,
+    "total": 298,
+    "recall5": 54.4
+  },
+  "delta": {
+    "tabular": -4.9,
+    "prose": -1.7,
+    "global": -3.0
+  },
+  "elapsed_s": 49.5
+}

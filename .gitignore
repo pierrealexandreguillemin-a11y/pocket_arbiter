@@ -221,3 +221,5 @@ kaggle/sft-v5-checkpoints/checkpoint-*/
 # Large retrieval precompute files (DVC or Kaggle only)
 data/benchmarks/eval_v5/retrieval_contexts_v5b.jsonl
 kaggle/eval-data/retrieval_contexts_v5b.jsonl
+kaggle/model-gemma-1b/
+tmp_kaggle/

@@ -181,11 +181,95 @@ def _build_table_row_contexts(
     return contexts
 
 
+_MAX_INJECTED_WORDS = 500  # ~650 tokens — cap for neighbor table injection
+
+
+def _collect_neighbor_pages(
+    contexts: list[Context],
+) -> set[tuple[str, int]]:
+    """Collect (source, page) neighborhoods from prose contexts."""
+    pages: set[tuple[str, int]] = set()
+    for ctx in contexts:
+        if ctx.context_type in ("parent", "child") and ctx.page is not None:
+            for offset in (-1, 0, 1):
+                p = ctx.page + offset
+                if p >= 1:
+                    pages.add((ctx.source, p))
+    return pages
+
+
+def _collect_existing_tables(
+    contexts: list[Context],
+) -> tuple[set[str], set[tuple[str, int | None]]]:
+    """Collect already-present table IDs and (source, page) pairs for dedup."""
+    ids: set[str] = set()
+    source_pages: set[tuple[str, int | None]] = set()
+    for ctx in contexts:
+        if ctx.context_type in ("table", "table_injected"):
+            ids.update(ctx.children_matched)
+            source_pages.add((ctx.source, ctx.page))
+    return ids, source_pages
+
+
+def _inject_neighbor_tables(
+    conn: sqlite3.Connection,
+    contexts: list[Context],
+) -> list[Context]:
+    """Inject table_summaries from pages adjacent to prose contexts.
+
+    When a prose child on page X is retrieved, tables on pages X-1, X, X+1
+    from the same source may contain supporting data (cadences, Elo tables,
+    grilles Berger) that the LLM needs for a complete answer.
+
+    Only injects tables not already present. Respects a word budget cap.
+    """
+    neighbor_pages = _collect_neighbor_pages(contexts)
+    if not neighbor_pages:
+        return contexts
+
+    existing_ids, existing_sp = _collect_existing_tables(contexts)
+    min_score = min((c.score for c in contexts), default=0.0) * 0.5
+    injected: list[Context] = []
+    injected_words = 0
+
+    for source, page in sorted(neighbor_pages):
+        if injected_words >= _MAX_INJECTED_WORDS:
+            break
+        rows = conn.execute(
+            "SELECT id, raw_table_text, source, page FROM table_summaries "
+            "WHERE source = ? AND page = ?",
+            (source, page),
+        ).fetchall()
+        for tid, raw_text, src, pg in rows:
+            if tid in existing_ids or (src, pg) in existing_sp:
+                continue
+            words = len(raw_text.split())
+            if injected_words + words > _MAX_INJECTED_WORDS:
+                continue
+            injected.append(
+                Context(
+                    text=raw_text,
+                    source=src,
+                    page=pg,
+                    section="",
+                    context_type="table_injected",
+                    score=min_score,
+                    children_matched=[tid],
+                )
+            )
+            existing_ids.add(tid)
+            existing_sp.add((src, pg))
+            injected_words += words
+
+    contexts.extend(injected)
+    return contexts
+
+
 def build_context(
     conn: sqlite3.Connection,
     result_ids: list[tuple[str, float]],
 ) -> list[Context]:
-    """Lookup parents, dedup, assemble context.
+    """Lookup parents, dedup, assemble context, inject neighbor tables.
 
     Args:
         conn: SQLite connection.
@@ -208,5 +292,6 @@ def build_context(
     contexts = _build_parent_contexts(conn, child_ids)
     contexts.extend(_build_table_contexts(conn, table_ids))
     contexts.extend(_build_table_row_contexts(conn, table_row_ids))
+    contexts = _inject_neighbor_tables(conn, contexts)
     contexts.sort(key=lambda c: -c.score)
     return contexts

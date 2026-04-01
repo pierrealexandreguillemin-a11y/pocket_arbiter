@@ -8,7 +8,11 @@ from unittest.mock import MagicMock
 
 import numpy as np
 
-from scripts.pipeline.context import SearchResult, _resolve_page, build_context
+from scripts.pipeline.context import (
+    SearchResult,
+    _resolve_page,
+    build_context,
+)
 from scripts.pipeline.indexer import (
     create_db,
     insert_children,
@@ -249,6 +253,172 @@ class TestBuildContext:
         conn = create_db(db_path)
         # No children needed for this unit test
         assert _resolve_page(conn, 10, [("c1", 0.9)]) == 10
+        conn.close()
+
+
+class TestInjectNeighborTables:
+    """Test neighbor table injection into context."""
+
+    def _setup_db_with_table(self, tmp_path: Path) -> tuple:
+        """Create DB with a child on p.5 and a table on p.6 (adjacent)."""
+        db_path = tmp_path / "inject.db"
+        conn = create_db(db_path)
+        insert_parents(
+            conn,
+            [
+                {
+                    "id": "p1",
+                    "text": "Parent text about forfaits.",
+                    "source": "doc.pdf",
+                    "section": "S1",
+                    "tokens": 10,
+                    "page": 5,
+                },
+            ],
+        )
+        emb_c = np.random.randn(1, 768).astype(np.float32)
+        insert_children(
+            conn,
+            [
+                {
+                    "id": "c1",
+                    "text": "Child about forfaits.",
+                    "parent_id": "p1",
+                    "source": "doc.pdf",
+                    "page": 5,
+                    "article_num": None,
+                    "section": "S1",
+                    "tokens": 5,
+                },
+            ],
+            emb_c,
+        )
+        emb_t = np.random.randn(1, 768).astype(np.float32)
+        insert_table_summaries(
+            conn,
+            [
+                {
+                    "id": "t1",
+                    "summary_text": "Table of cadences",
+                    "raw_table_text": "| Cadence | Temps |\n|---|---|\n| A | 90+30 |",
+                    "source": "doc.pdf",
+                    "page": 6,
+                    "tokens": 10,
+                },
+            ],
+            emb_t,
+        )
+        return db_path, conn
+
+    def test_injects_adjacent_table(self, tmp_path: Path) -> None:
+        """Table on page+1 is injected when prose child is on page."""
+        _, conn = self._setup_db_with_table(tmp_path)
+        contexts = build_context(conn, [("c1", 0.9)])
+        types = [c.context_type for c in contexts]
+        assert "table_injected" in types
+        injected = [c for c in contexts if c.context_type == "table_injected"]
+        assert len(injected) == 1
+        assert injected[0].page == 6
+        assert "t1" in injected[0].children_matched
+        conn.close()
+
+    def test_dedup_no_double_inject(self, tmp_path: Path) -> None:
+        """Already-retrieved table is NOT injected again."""
+        _, conn = self._setup_db_with_table(tmp_path)
+        # t1 already in results (retrieved directly)
+        contexts = build_context(conn, [("c1", 0.9), ("t1", 0.7)])
+        injected = [c for c in contexts if c.context_type == "table_injected"]
+        assert len(injected) == 0
+        conn.close()
+
+    def test_no_inject_distant_table(self, tmp_path: Path) -> None:
+        """Table on a distant page is NOT injected."""
+        db_path = tmp_path / "distant.db"
+        conn = create_db(db_path)
+        insert_parents(
+            conn,
+            [
+                {
+                    "id": "p1",
+                    "text": "Parent.",
+                    "source": "doc.pdf",
+                    "section": "S",
+                    "tokens": 5,
+                    "page": 5,
+                },
+            ],
+        )
+        emb_c = np.random.randn(1, 768).astype(np.float32)
+        insert_children(
+            conn,
+            [
+                {
+                    "id": "c1",
+                    "text": "Child.",
+                    "parent_id": "p1",
+                    "source": "doc.pdf",
+                    "page": 5,
+                    "article_num": None,
+                    "section": "S",
+                    "tokens": 3,
+                },
+            ],
+            emb_c,
+        )
+        emb_t = np.random.randn(1, 768).astype(np.float32)
+        insert_table_summaries(
+            conn,
+            [
+                {
+                    "id": "t_far",
+                    "summary_text": "Far table",
+                    "raw_table_text": "| X |\n|---|\n| Y |",
+                    "source": "doc.pdf",
+                    "page": 50,
+                    "tokens": 5,
+                },
+            ],
+            emb_t,
+        )
+        contexts = build_context(conn, [("c1", 0.9)])
+        injected = [c for c in contexts if c.context_type == "table_injected"]
+        assert len(injected) == 0
+        conn.close()
+
+    def test_no_inject_without_prose(self, tmp_path: Path) -> None:
+        """No injection when only table contexts (no prose child)."""
+        db_path = tmp_path / "no_prose.db"
+        conn = create_db(db_path)
+        emb_t = np.random.randn(1, 768).astype(np.float32)
+        insert_table_summaries(
+            conn,
+            [
+                {
+                    "id": "t1",
+                    "summary_text": "Summary",
+                    "raw_table_text": "| A |\n|---|\n| B |",
+                    "source": "doc.pdf",
+                    "page": 10,
+                    "tokens": 5,
+                },
+            ],
+            emb_t,
+        )
+        contexts = build_context(conn, [("t1", 0.8)])
+        injected = [c for c in contexts if c.context_type == "table_injected"]
+        assert len(injected) == 0
+        conn.close()
+
+    def test_injected_score_lower_than_retrieved(self, tmp_path: Path) -> None:
+        """Injected tables have lower score than any retrieved context."""
+        _, conn = self._setup_db_with_table(tmp_path)
+        contexts = build_context(conn, [("c1", 0.9)])
+        retrieved = [c for c in contexts if c.context_type != "table_injected"]
+        injected = [c for c in contexts if c.context_type == "table_injected"]
+        if injected and retrieved:
+            min_retrieved = min(c.score for c in retrieved)
+            max_injected = max(c.score for c in injected)
+            assert max_injected < min_retrieved
         conn.close()
 
 

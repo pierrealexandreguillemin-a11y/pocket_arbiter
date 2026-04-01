@@ -32,10 +32,14 @@
 - Doc2Query (canal 5) : DISABLED (degrades recall, data/benchmarks/doc2query_experiment.md)
 - **Page interpolation fix** : 120 children page corrected via pdfplumber, recall ceiling 95%→100%
 - **GS chunk_id realignment** : 298/298 chunk_ids updated v1→v2 format (297 children + 1 table_summary)
-- **6 missing table_summaries** : summaries generees, embeddings, narrative rows (65), structured cells (154) injectes
+- **6 missing table_summaries** : summaries generees, embeddings, narrative rows (66), structured cells (154) injectes
 - **1 child injected** : Interclubs p.7 (extraction gap docling, child + embedding + FTS)
+- **FTS5 structured_cells** : fuzzy matching col_name + cell_value, prefix queries (term*)
+- **Priority boost** : 10 tables data-driven (top GS frequency), +1.5 score additif
+- **Intro filter (OPT-5)** : pages cover/section exclues du RRF
+- **Canal 4 weight sweep** : neutre 0.0-0.7, maintenu w=0.5
 - Root cause fix : `_build_text_to_page()` + `_extract_text_pages()` pour dense page tracking (text_pages)
-- Ref : @data/benchmarks/page_interpolation_fix.md
+- Ref : @data/benchmarks/page_interpolation_fix.md, @data/benchmarks/canal4_vs_phase3_audit.md
 
 ### Optimisations appliquees
 - **OPT-1 DONE** : contextual retrieval (Anthropic 2024) — +3.7pp R@1 (principal gain)
@@ -56,10 +60,13 @@
   - fix page=None : _resolve_page() depuis best-scoring child, +5.4pp global
 - **Doc2Query DISABLED** : 2232 synthetic queries, 70% complementaire, MAIS degrades recall
   - Root cause : questions generees pour SFT (thematique), pas retrieval (discriminative)
-- **Phase 3 NEXT** : injection contextuelle tables page±1 dans build_context()
-  - get_neighbors(source, page, radius=1) → injecter table_summaries adjacentes
-  - Tables only (pas prose — le cosine la trouve deja)
-  - Token budget cap 2048 tokens Gemma
+- **Phase 3 DONE** : injection contextuelle tables page±1 dans build_context()
+  - _inject_neighbor_tables() : tables page X-1/X/X+1 injectees dans contexte LLM
+  - Dedup, budget 500 mots, score inferieur aux resultats retrieves
+  - 5 tests unitaires, recall-neutre (+0.3pp), gain qualitatif pour generation
+- **Items 1-4 DONE** : FTS5 cells, priority boost (10 tables), intro filter, weight sweep
+  - Recall@5 : 67.4% (201/298) — +4.0pp vs pre-session
+  - Canal 4 vs Phase 3 audit : 82% overlap, Canal 4 maintenu (21 tables isolees)
 
 ### Fine-tuning retrieval (chantier 4a — ABANDONNE)
 - SimCSE + ICT LoRA planifie, spec ecrite, kernel code, dataset prepare

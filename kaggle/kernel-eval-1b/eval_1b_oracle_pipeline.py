@@ -123,19 +123,37 @@ logger.info("DB opened")
 
 logger.info("=== PHASE 2: Load model ===")
 
-from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa: E402
+from transformers import (  # noqa: E402
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    GenerationConfig,
+)
 
 torch.manual_seed(SEED)
 torch.cuda.manual_seed_all(SEED)
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
-# Gemma 3 fp16=NaN on T4. 1B fp32 = ~4 GB VRAM.
+# Gemma 3 fp16=NaN on T4 (HF #36822). bf16 unsupported on T4 (sm_75 < sm_80).
+# 1B fp32 = ~4 GB VRAM on T4 15 GB = safe.
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_DIR, torch_dtype=torch.float32, device_map={"": 0}
 )
 model.eval()
 vram = torch.cuda.memory_allocated() / 1024 / 1024
 logger.info("Model loaded: %.0f MB VRAM (fp32)", vram)
+
+# GenerationConfig avoids transformers 5.0 "flags not valid" warning
+# (top_p/top_k rejected when passed as kwargs, must use GenerationConfig).
+RAG_GEN_CONFIG = GenerationConfig(
+    max_new_tokens=512,
+    min_new_tokens=10,
+    do_sample=True,
+    temperature=0.2,
+    top_k=64,
+    top_p=0.95,
+    repetition_penalty=1.2,
+    no_repeat_ngram_size=4,
+)
 
 # Smoke test
 test_msgs = build_rag_prompt("Test question?", "Test context.")
@@ -163,21 +181,14 @@ def generate_gpu(
     tok: AutoTokenizer,
     messages: list[dict],
 ) -> str:
-    """Generate with standard RAG params."""
+    """Generate with standard RAG params via GenerationConfig."""
     text = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    inputs = tok(text, return_tensors="pt")
+    inputs = tok(text, return_tensors="pt", truncation=True, max_length=2048)
     inputs = {k: v.to(mdl.device) for k, v in inputs.items()}
     with torch.no_grad():
         out = mdl.generate(
             **inputs,
-            max_new_tokens=512,
-            min_new_tokens=10,
-            do_sample=True,
-            temperature=0.2,
-            top_k=64,
-            top_p=0.95,
-            repetition_penalty=1.2,
-            no_repeat_ngram_size=4,
+            generation_config=RAG_GEN_CONFIG,
             pad_token_id=tok.eos_token_id,
         )
     return tok.decode(out[0][inputs["input_ids"].shape[1] :], skip_special_tokens=True)

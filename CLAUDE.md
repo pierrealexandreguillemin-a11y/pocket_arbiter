@@ -112,10 +112,17 @@
   - Format: "D'apres [source] (p.XX) : '[quote]'. [Answer]." + ##begin_quote## validation
   - 95.1% citations valides (quote_valid=true)
 - **SFT v5 on 270M** : DONE mais 270M MORT (overfit 1.01, assistant-only loss). Jamais eval.
-- **SFT v5 on 1B** : A FAIRE — Unsloth LoRA NF4, train_on_responses_only(), Kaggle T4
-  - Base: Gemma 3 1B IT (pas de TAPT — 1B base deja a 56.7%, ajouter TAPT si regression)
-  - LoRA R=16, target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]
-  - Hyperparams: 2 epochs, LR 1e-5, cosine, save_steps=20
+- **SFT v5 on 1B TRAINING** : DONE (2026-04-02) — Unsloth LoRA NF4, train_on_responses_only(), Kaggle T4
+  - Base: Gemma 3 1B IT, LoRA R=16 alpha=32, 13.0M/664.1M trainable (2.0%)
+  - train_loss=0.9091, eval_loss=3.3174, overfit=1.012, 55.1 min
+  - 6 checkpoints (20,40,60,80,100,114), merged model 16bit sauve
+  - OOM Phase 6 (compute_clm_loss apres merge) — metrics JSON perdu, modele OK
+  - Kaggle install: --no-deps unsloth + trl==0.24.0 pinne (Kaggle a trl 1.0.0, transformers 5.0.0)
+- **SFT v5 on 1B EVAL** : PARTIEL — base OK (56.4%), SFT v5 HANG apres smoke test
+  - Kernel freeze ~3.5h apres smoke test SFT v5 — cause inconnue (boucle generation?)
+  - Base output recupere: 56.4% pipeline (coherent avec v4 56.7%)
+  - SFT v5 output perdu — a relancer avec diagnostic du hang
+  - Ref: data/benchmarks/eval_1b_sft/eval_1b_base_pipeline.json
 - **Eval 1B SFT** : comparer 1B base (56.7%) vs 1B SFT v5 checkpoints
 - **Gate** : si SFT v5 > 56.7% pipeline → succes. Sinon → 1B base + prompting = modele final.
 - **Infra** : LiteRT-LM replaces MediaPipe (deprecated) for Android inference
@@ -151,12 +158,28 @@
 - **Ministral 3B** : Apache 2.0, FR natif, 256K ctx. Pas de LiteRT (LLaMA.cpp).
 - **Qwen3 1.7B** : MMLU 75.7, Apache 2.0. LiteRT non confirme.
 
+### Embedding pipeline — question ouverte Keras vs sentence-transformers
+- Le chemin officiel Google pour EmbeddingGemma est **Keras** (notebook Nilay Chauhan, Google)
+- Le projet utilise **sentence-transformers** (PyTorch) depuis janvier 2026
+- Les poids du modele sont identiques — le delta vient du backend (PyTorch vs TensorFlow)
+- Le chemin Keras → TFLite est natif (conversion directe). sentence-transformers → TFLite passe par une conversion intermediaire
+- **Delta non mesure** : impact reel inconnu. A quantifier (100 queries, cosine distance) avant toute decision
+- Refs: kaggle.com/code/nilaychauhan/rag-with-embeddinggemma, docs/ISO_VECTOR_SOLUTIONS.md
+
+### Kaggle deployment findings (session 2026-04-02)
+- **Kaggle image v168** : Python 3.12, torch 2.10.0, transformers 5.0.0, trl 1.0.0, CUDA 12.8
+- **Unsloth + Kaggle** : --no-deps OBLIGATOIRE (transformers 5.0.0 exclue par Unsloth pyproject.toml)
+- **trl 1.0.0** : incompatible Unsloth (veut <=0.24.0). Pin trl==0.24.0 explicitement
+- **bitsandbytes** : absent de l'image Kaggle. Hard dep d'Unsloth (crash sans). Installer explicitement
+- **SFT v5 1B eval hang** : modele merged freeze apres smoke test. Cause a diagnostiquer (boucle generation? EOS token? tokenizer mismatch?)
+
 ### References
 - ADR-001 : Gemma 3 270M IT (Option A) — **GATE DECLENCHEE, 270M ABANDONNE**
 - Specs : 2026-03-21-cpt-adaptllm, 2026-03-23-sft-v3, 2026-03-24-training-params-correction
 - Artefacts : models/model_card.json
 - **Question ouverte** : pourquoi les optimisations retrieval standard ont un impact marginal ?
 - **Question ouverte** : retrieval de tables — pourquoi le search rate les tableaux associes aux questions prose ?
+- **Question ouverte** : Keras vs sentence-transformers — delta a mesurer avant decision
 
 ## Commandes
 

@@ -1,0 +1,92 @@
+{
+  "model": "gemma-3-1b-it-sft-v5-lora",
+  "base": "Gemma 3 1B IT (no TAPT)",
+  "method": "Unsloth LoRA NF4 + train_on_responses_only",
+  "data": "1928 train + 214 eval (from 2142 RAFT)",
+  "training_loss": 0.9091116788617352,
+  "eval_loss": 3.317429186027741,
+  "train_loss_manual": 3.279477150640755,
+  "overfit_ratio": 1.0116,
+  "overfit_flag": false,
+  "lora_config": {
+    "r": 16,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "lora_alpha": 32,
+    "lora_dropout": 0,
+    "use_gradient_checkpointing": "unsloth",
+    "random_state": 42
+  },
+  "training_config": {
+    "epochs": 2,
+    "batch_size": 2,
+    "grad_accum": 8,
+    "lr": 2e-05,
+    "warmup_pct": 0.1,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "save_steps": 20,
+    "save_only_model": true,
+    "save_total_limit": 12,
+    "seq_length": 1024
+  },
+  "trainable_params_M": 13.0,
+  "total_params_M": 664.1,
+  "trainable_pct": 1.96,
+  "checkpoints": [
+    "checkpoint-100",
+    "checkpoint-114",
+    "checkpoint-20",
+    "checkpoint-40",
+    "checkpoint-60",
+    "checkpoint-80"
+  ],
+  "pre_sft_responses": [
+    {
+      "question": "Qu'est-ce qu'un forfait en competition FFE ?",
+      "answer": "Un \"forfait en concurrence\" (ou \"compétition de force\") est un type spécifique d’évaluation utilisé dans les concours, notamment ceux qui impliquent des compétences ou des services. Il s'agit d'une méthode pour déterminer la valeur d'une prestation, souvent une expertise ou une compétence particulière, en se basant sur le temps que l'on a consacré à une tâche spécifique et la complexité de cette tâche.\n\nVoici une explication détaillée :\n\n**1. L'idée fondamentale:**\n\n* **Le \"Forfait\":**  L'idée c"
+    },
+    {
+      "question": "Quelles sont les cadences pour le championnat de France ?",
+      "answer": "Les cadences pour la Coupe du Monde Féminine de Football (FMF) en France varient considérablement selon l'étape du tournoi. Voici un aperçu des cadences générales et spécifiques :\n\n**1. Cadence générale (Tournoi)**\n\n* **Phase 1: Tournoi (Premières 8 semaines):**\n    * **Cadence:**  Environ 25-30 jours par jour, avec des pauses régulières.\n    * *Régularité:* Les journées se déroulent généralement à des heures précises, souvent entre 16h00 et 19h00 françaises. Il est important d’observer attentiv"
+    },
+    {
+      "question": "Comment fonctionne le departage Buchholz ?",
+      "answer": "Le \"départementnement Buchholz\" (en anglais, *Buchschenau Department*) est un concept mathématique puissant et complexe qui permet de classer les systèmes complexes en fonction de leur capacité à être \"découverts\" ou \"défendus\" par des fonctions.  Il s'agit d'une approche développée par l’économiste allemand Gerhard Buchschlag dans les années 1970 pour résoudre des problèmes de théorie des jeux et de logique du calcul.\n\nVoici une explication détaillée de son fonctionnement :\n\n**L'idée fondamenta"
+    }
+  ],
+  "post_sft_responses": [
+    {
+      "question": "Qu'est-ce qu'un forfait en competition FFE ?",
+      "answer": "Un \"Forfait en Compétition FFE\" (ou \"Fécondité de la Performance en Compétitions de Forces Électriques) est un concept spécifique utilisé dans le domaine des énergies renouvelables, notamment pour évaluer l’efficacité d’une installation solaire photovoltaique. Il s'agit d'une mesure qui permet de déterminer si une installation solaire a généré suffisamment d'électricité pour couvrir les coûts de son propre fonctionnement et peut être utilisée comme base pour calculer sa rentabilité à long terme."
+    },
+    {
+      "question": "Quelles sont les cadences pour le championnat de France ?",
+      "answer": "Les cadences pour la Coupe du Monde Féminine de Football (FMF) en France, comme pour les autres tournois, sont très complexes et varient selon plusieurs facteurs. Voici un résumé des cadences générales :\n\n**1. Cadence générale (pour la FMF):**\n\n* **Pré-Tournée:** 20 semaines avant le début du Tournoi (environ 74 jours avant). C'est une période d'entraînement intense avec des séances quotidiennes intensives, des exercices physiques spécifiques, des simulations tactiques et des séances de jeu cont"
+    },
+    {
+      "question": "Comment fonctionne le departage Buchholz ?",
+      "answer": "Le \"départementnement Buchholz\" (en anglais, *Buchschenau-Lindenmann*), également connu sous le nom de *BCH*, est un algorithme puissant et complexe pour la classe des espaces de fonctions non dénombrables. Il a été développé par l'économiste allemand Gerhard Buchschlag en 1970.  Il permet d’étudier les systèmes complexes où une fonction peut être \"découpeer\" ou \"dépassée\" à différents moments dans le temps. C'est une application importante de la théorie des jeux et de la logique du calcul.\n\nVoi"
+    }
+  ],
+  "elapsed_min": 55.1,
+  "gpu": "Tesla T4",
+  "seed": 42,
+  "standards": [
+    "RAFT arXiv:2403.10131 (training data: oracle + distractors)",
+    "Unsloth mandatory for Gemma 3 on T4 (memory: feedback_unsloth_mandatory)",
+    "1 change at a time (memory: feedback_tapt_v2_overcorrection)"
+  ],
+  "baselines": {
+    "1b_base_pipeline": 56.7,
+    "1b_base_oracle": 46.2,
+    "270m_sft80_pipeline": 48.7
+  }
+}

@@ -73,17 +73,14 @@ assert (
     GPU_PROPS.major >= 7
 ), f"FATAL: Need compute >= 7.0 (T4), got {GPU_PROPS.major}.{GPU_PROPS.minor}"
 
-# Version logging BEFORE install (feedback_kernel_iso_tracking)
-import transformers  # noqa: E402
-
 logger.info("torch=%s, cuda=%s", torch.__version__, torch.version.cuda)
-logger.info("transformers=%s", transformers.__version__)
 
 # Install Unsloth — MANDATORY for Gemma 3 on T4 (feedback_unsloth_mandatory)
-# CRITICAL: Kaggle image has transformers==5.0.0 but Unsloth pyproject.toml
-# excludes !=5.0.0 (github.com/unslothai/unsloth/issues/4022).
-# --no-deps avoids downgrading transformers. trl/peft installed separately.
-logger.info("Installing Unsloth (--no-deps) + trl + peft...")
+# CRITICAL: Kaggle image has transformers==5.0.0, trl==1.0.0, datasets==4.8.3
+# Unsloth pyproject.toml excludes !=5.0.0 and requires trl<=0.24.0.
+# --no-deps avoids downgrading transformers. Hard deps installed explicitly.
+# v1 CRASH: bitsandbytes missing → ModuleNotFoundError at unsloth import.
+logger.info("Installing Unsloth (--no-deps) + pinned hard deps...")
 subprocess.check_call(
     [
         sys.executable,
@@ -99,23 +96,43 @@ subprocess.check_call(
     ],
     timeout=600,
 )
+# Hard deps: bitsandbytes (NF4 quant), trl==0.24.0 (SFTTrainer compat),
+# peft (LoRA), cut_cross_entropy/msgspec/tyro/hf_transfer (unsloth_zoo reqs)
 subprocess.check_call(
-    [sys.executable, "-m", "pip", "install", "-q", "trl", "peft"],
+    [
+        sys.executable,
+        "-m",
+        "pip",
+        "install",
+        "-q",
+        "trl==0.24.0",
+        "peft",
+        "bitsandbytes",
+        "cut_cross_entropy",
+        "msgspec",
+        "tyro",
+        "hf_transfer",
+    ],
     timeout=300,
 )
 
-import unsloth  # noqa: E402
+# Unsloth MUST be imported BEFORE transformers (warning from v1 log line 25)
+import unsloth  # noqa: E402, I001
+from unsloth import FastModel  # noqa: E402
+from unsloth.chat_templates import train_on_responses_only  # noqa: E402
 
-logger.info("unsloth=%s", getattr(unsloth, "__version__", "unknown"))
-
+import transformers  # noqa: E402
 import trl  # noqa: E402
 from datasets import Dataset  # noqa: E402
 from transformers import GenerationConfig  # noqa: E402
 from trl import SFTConfig, SFTTrainer  # noqa: E402
-from unsloth import FastModel  # noqa: E402
-from unsloth.chat_templates import train_on_responses_only  # noqa: E402
 
-logger.info("trl=%s", trl.__version__)
+logger.info(
+    "unsloth=%s, transformers=%s, trl=%s",
+    getattr(unsloth, "__version__", "?"),
+    transformers.__version__,
+    trl.__version__,
+)
 
 # ============================================================
 # Config

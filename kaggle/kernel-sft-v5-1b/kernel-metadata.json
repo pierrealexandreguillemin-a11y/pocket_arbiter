@@ -1,0 +1,14 @@
+{
+  "id": "pguillemin/pocket-arbiter-sft-v5-1b",
+  "title": "Pocket Arbiter SFT v5 1B (LoRA + Unsloth)",
+  "code_file": "sft_v5_1b_train.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "pguillemin/gemma-3-1b-it",
+    "pguillemin/pa-sft-v5-data"
+  ]
+}

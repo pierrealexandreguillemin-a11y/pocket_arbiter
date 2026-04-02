@@ -1,0 +1,15 @@
+{
+  "id": "pguillemin/pocket-arbiter-eval-1b-base-vs-sft-v5",
+  "title": "Pocket Arbiter Eval 1B Base vs SFT v5",
+  "code_file": "eval_1b_base_vs_sft.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "pguillemin/gemma-3-1b-it",
+    "pguillemin/gemma-1b-sft-v5-merged",
+    "pguillemin/pocket-arbiter-eval-data"
+  ]
+}

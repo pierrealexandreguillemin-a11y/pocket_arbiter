@@ -106,17 +106,19 @@
 3. **Full-sequence loss** → TRL supporte **assistant-only** (echo = consequence directe)
 4. **TAPT LR=5e-6** au lieu de 5e-5 → en fait 5e-6 est MEILLEUR pour faithfulness (v3 sweep confirme)
 
-### Pipeline next steps — SFT v5 (split kernel, RAFT-style)
-- **Phase A kernel (gen_questions)** : PUSHED and RUNNING on Kaggle (~4.6h)
-  - Gemma 3 4B IT (NF4) generates 2 questions per chunk, 1116 chunks → questions_v5.jsonl
-- **Phase B kernel (gen_answers_cot)** : TO BE WRITTEN after Phase A completes
-  - Uses questions_v5.jsonl + oracle chunk + distractors from DB
-  - RAFT hybrid: 80% oracle, 15% abstain, 5% memorize
+### Pipeline next steps — SFT v5 on 1B (LoRA + Unsloth, RAFT data)
+- **RAFT data DONE** : Phase A (2232 questions) + Phase B (2142 answers filtrées) = sft_train_v5.jsonl
+  - Teacher: Gemma 3 4B IT (NF4), RAFT hybrid 80% oracle / 15% abstain / 5% memorize
   - Format: "D'apres [source] (p.XX) : '[quote]'. [Answer]." + ##begin_quote## validation
-- **SFT v5 training** : Unsloth train_on_responses_only() on TAPT ep1 (checkpoint-22), Kaggle T4
-- **Eval v5** : comparer SFT v5 vs TAPT ep1 (46.2%) vs base (43.9%)
+  - 95.1% citations valides (quote_valid=true)
+- **SFT v5 on 270M** : DONE mais 270M MORT (overfit 1.01, assistant-only loss). Jamais eval.
+- **SFT v5 on 1B** : A FAIRE — Unsloth LoRA NF4, train_on_responses_only(), Kaggle T4
+  - Base: Gemma 3 1B IT (pas de TAPT — 1B base deja a 56.7%, ajouter TAPT si regression)
+  - LoRA R=16, target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]
+  - Hyperparams: 2 epochs, LR 1e-5, cosine, save_steps=20
+- **Eval 1B SFT** : comparer 1B base (56.7%) vs 1B SFT v5 checkpoints
+- **Gate** : si SFT v5 > 56.7% pipeline → succes. Sinon → 1B base + prompting = modele final.
 - **Infra** : LiteRT-LM replaces MediaPipe (deprecated) for Android inference
-- **Note** : all SFT v1-v4 hyperparams INVALIDATED (trained on regex garbage data)
 - Ref : Pleias-RAG (2025) prouve qu'un 350M apprend les citations si donnees de qualite
 - Ref : RAFT (Berkeley 2024) = format cible (oracle + distracteurs + citations verbatim)
 
@@ -128,16 +130,23 @@
 - **FaithBench** (Vectara, EMNLP 2025) : annotations hallucination span-level, 4 severites
 - **Ref complete** : @docs/GENERATION_EVAL_METHODOLOGY.md
 
-### Postmortem 270M + Eval 1B (2026-03-29)
+### Postmortem 270M + Eval 1B ancien (2026-03-29)
 - **270M = INUTILISABLE** : 34Q humaines, les 3 modeles (base/TAPT/SFT) hallucinent. 0% verbatim. ADR-001 gate declenchee.
-- **1B base** : oracle 43.9% (= 270M base), pipeline 47.0%. MAIS reponses qualitativement MEILLEURES (structures, pertinentes, chiffres parfois corrects)
+- **1B base (ancien retrieval 63.1%)** : oracle 43.9%, pipeline 47.0%. Reponses qualitativement meilleures que 270M.
 - **Post-rationalisation 1B** : MISS cite 60.6% > HIT cite 36.8% (ratio 1.65x). 0.8% abstention MISS.
-- **Gap retrieval tables** : les tableaux (cadences, Elo, categories) existent dans la DB mais le search ne les retrouve que 21/298. La prose pointe le sujet, le tableau est sur une autre page.
-- **Next** : re-activer table_rows dans search pour 1B, ou augmenter poids tables dans RRF
 - **Ref** : @data/benchmarks/retrieval_table_gap_analysis.md
 
+### Eval 1B v4 — RESULTATS (2026-04-02, retrieval 67.4%)
+- **Pipeline cited: 56.7%** (+9.7pp vs ancien run 47.0%) — gain direct du retrieval ameliore + Phase 3 injection
+- **Oracle cited: 46.2%** (identique au 270M TAPT ep1 — plafond du prompt v2)
+- **0 empty**, median 192-214 mots, 11.4% abstention
+- **Post-rationalisation confirmee** : MISS cite 68.4% > HIT cite 49.2% (ratio 1.39x)
+- **Abstention inversee** : HIT abstain 13.8% > MISS abstain 7.7% (le modele ne sait pas quand il ne sait pas)
+- **1B base > tous les 270M** : pipeline 56.7% vs 270M sft80 48.7% vs 270M tapt_ep1 40.3% vs 270M base 24.8%
+- **Ref** : @data/benchmarks/eval_1b_v2/
+
 ### Candidats generation post-270M
-- **Gemma 3 1B IT** : IFEval 80.2%, ~400 MB, LiteRT natif. En cours d'eval.
+- **Gemma 3 1B IT** : IFEval 80.2%, ~400 MB, LiteRT natif. **CANDIDAT PRINCIPAL** (56.7% pipeline).
 - **Gemma 3n E2B** : 2B eff, ~2 GB RAM, LiteRT .litertlm, mobile-first. Depasse spec 500MB.
 - **Ministral 3B** : Apache 2.0, FR natif, 256K ctx. Pas de LiteRT (LLaMA.cpp).
 - **Qwen3 1.7B** : MMLU 75.7, Apache 2.0. LiteRT non confirme.

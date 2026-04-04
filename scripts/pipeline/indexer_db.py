@@ -71,6 +71,16 @@ CREATE TABLE IF NOT EXISTS structured_cells (
     PRIMARY KEY (table_id, row_idx, col_name)
 );
 
+CREATE TABLE IF NOT EXISTS targeted_rows (
+    id TEXT PRIMARY KEY,
+    text TEXT NOT NULL,
+    embedding BLOB NOT NULL,
+    table_id TEXT NOT NULL REFERENCES table_summaries(id),
+    source TEXT NOT NULL,
+    page INTEGER,
+    tokens INTEGER
+);
+
 CREATE VIRTUAL TABLE IF NOT EXISTS table_rows_fts USING fts5(
     id UNINDEXED,
     text_stemmed,
@@ -237,6 +247,32 @@ def insert_structured_cells(
     conn.execute(
         "CREATE INDEX IF NOT EXISTS idx_cells_col_value "
         "ON structured_cells(col_name, cell_value)"
+    )
+    conn.commit()
+
+
+def insert_targeted_rows(
+    conn: sqlite3.Connection,
+    rows_data: list[dict],
+    embeddings: np.ndarray,
+) -> None:
+    """Insert targeted row-as-chunk entries (C.10) with embeddings."""
+    conn.executemany(
+        "INSERT OR REPLACE INTO targeted_rows "
+        "(id, text, embedding, table_id, source, page, tokens) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?)",
+        [
+            (
+                r["id"],
+                r["text"],
+                embedding_to_blob(embeddings[i]),
+                r["table_id"],
+                r["source"],
+                r.get("page"),
+                r.get("tokens", 0),
+            )
+            for i, r in enumerate(rows_data)
+        ],
     )
     conn.commit()
 

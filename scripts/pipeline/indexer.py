@@ -25,6 +25,7 @@ from scripts.pipeline.indexer_db import (  # noqa: F401
     insert_synthetic_queries,
     insert_table_rows,
     insert_table_summaries,
+    insert_targeted_rows,
     populate_fts,
 )
 from scripts.pipeline.indexer_embed import (  # noqa: F401
@@ -359,6 +360,19 @@ def build_index(
     if struct_cells:
         insert_structured_cells(conn, struct_cells)
         logger.info("Inserted %d structured cells", len(struct_cells))
+
+    # 9b. Targeted row-chunks (C.10 — 6 priority tables, ~45 rows)
+    from scripts.pipeline.enrichment import format_targeted_rows
+
+    targeted_rows = format_targeted_rows(table_sums) if table_sums else []
+    if targeted_rows:
+        targeted_titles = [
+            make_cch_title(r["source"], "", SOURCE_TITLES) for r in targeted_rows
+        ]
+        targeted_texts = [r["text"] for r in targeted_rows]
+        targeted_embs = embed_documents(targeted_texts, targeted_titles, model)
+        insert_targeted_rows(conn, targeted_rows, targeted_embs)
+        logger.info("Inserted %d targeted rows (C.10)", len(targeted_rows))
 
     # 10. Build FTS5 index
     logger.info("=== Step 10: Populating FTS5 index ===")

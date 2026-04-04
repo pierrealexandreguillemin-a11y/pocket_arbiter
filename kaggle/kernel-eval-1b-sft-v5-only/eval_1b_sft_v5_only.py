@@ -289,6 +289,8 @@ logger.info("Smoke test PASS (%.1fs < 30s threshold)", smoke_secs)
 logger.info("=== PHASE 4: Pipeline eval (298Q) ===")
 
 pipeline_results: dict[str, dict] = {}
+per_question_results: list[dict] = []
+
 for label, subset in [("hit", hit_entries), ("miss", miss_entries)]:
     cited = 0
     abstained = 0
@@ -299,13 +301,33 @@ for label, subset in [("hit", hit_entries), ("miss", miss_entries)]:
         messages = build_rag_prompt(entry["question"], entry["retrieval_context"])
         response = generate_gpu(model, tokenizer, messages)
 
-        if check_citation(response, entry["expected_docs"], entry["expected_pages"]):
+        is_cited = check_citation(
+            response, entry["expected_docs"], entry["expected_pages"]
+        )
+        is_abstain = check_abstain(response)
+        is_empty = not response.strip()
+
+        if is_cited:
             cited += 1
-        if check_abstain(response):
+        if is_abstain:
             abstained += 1
-        if not response.strip():
+        if is_empty:
             empty += 1
         plengths.append(len(response.split()))
+
+        per_question_results.append(
+            {
+                "id": entry["id"],
+                "question": entry["question"],
+                "response": response,
+                "retrieval_context": entry["retrieval_context"],
+                "retrieval_hit": entry["retrieval_hit"],
+                "cited": is_cited,
+                "abstained": is_abstain,
+                "empty": is_empty,
+                "words": len(response.split()),
+            }
+        )
 
         if (i + 1) % 50 == 0:
             elapsed_so_far = (time.time() - t0) / 60
@@ -335,6 +357,13 @@ for label, subset in [("hit", hit_entries), ("miss", miss_entries)]:
         empty,
         pipeline_results[label]["median_words"],
     )
+
+# Save per-question responses (for HHEM faithfulness eval)
+responses_path = os.path.join(OUTPUT_DIR, "eval_1b_sft_v5_responses.jsonl")
+with open(responses_path, "w", encoding="utf-8") as f:
+    for r in per_question_results:
+        f.write(json.dumps(r, ensure_ascii=False) + "\n")
+logger.info("Saved %d responses: %s", len(per_question_results), responses_path)
 
 total_n = len(retrieval_entries)
 all_cited = pipeline_results["hit"]["cited"] + pipeline_results["miss"]["cited"]

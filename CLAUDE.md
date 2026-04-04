@@ -26,18 +26,20 @@
 - **Synonymes** : Snowball FR stemmer + 70 synonymes chess
 
 ### Recall (chantier 3 — termine, chantier 5 — termine)
-- **QAT baseline** : recall@5 = 56.7% (ancien modele)
-- **Base-only** : recall@5 = 59.1% (+2.4pp model switch)
-- **Enrichi (chantier 3)** : recall@5 = 60.1%, recall@1 = 38.9%, recall@10 = 63.8%, MRR = 0.479
-- **Chantier 5 items 1-4** : recall@5 = **63.4%** (189/298), recall@10 = **67.4%** (201/298)
-  - CORRECTION : 67.4% etait recall@**10**, PAS recall@5 (mislabel sessions precedentes)
-  - LLM recall@5 = **79.3%** (2232 Q Gemma 4B), LLM recall@10 = 84.4%
-- **Chantier 5 Phase 4 (targeted rows)** : recall@5 = **63.4%** (inchange — page-level prose matching)
+- **PIVOT max_k=5 (2026-04-04)** : recall.py aligne sur max_k=5 (production Android)
+  - Ancien max_k=10 gonflait recall@5 de **8pp** via tables injectees Phase 3 + children regroupes hors budget
+  - Mecanisme : `_inject_neighbor_tables()` page±1 sur 10 contextes = plus de pages couvertes que les 5 que le LLM verra
+  - **Nouveau baseline (max_k=5)** : recall@1 = 36.9%, recall@3 = 53.4%, recall@5 = **55.4%**, MRR = 0.449
+  - **Ancien (max_k=10, OBSOLETE)** : recall@5 = 63.4% — NE PLUS UTILISER comme reference
+  - Ref : memory/feedback_recall_metric_desalignment.md
+- **QAT baseline** : recall@5 = 56.7% (ancien modele, max_k=10 — non comparable)
+- **LLM recall@5** = **79.3%** (2232 Q Gemma 4B) — mesure la trouvabilite du contenu (max_k=10)
+- **Chantier 5 Phase 4 (targeted rows)** : recall@5 = **55.4%** (max_k=5, production-ready)
   - Tables remontent dans le RRF (LA-table73 rank >10 → rank 6), gain **generation** pas recall
   - Human recall : 32/34 (94.1%) → 30/34 (88.2%) — 2 regressions (1 shadowing clipped, 1 trigger equipe)
   - Finding : GS mesure la page PROSE, pas la page TABLE. Targeted rows ameliorent le contexte LLM, pas le recall metric
   - Gradient intent clipped max 1.5/1.0 (anti-shadowing, isolation test documente)
-- **Gate R1 (70%) : FAIL** — mais tranche haute industrie (55-65% corpus reglementaire offline)
+- **Gate R1 (70%) : FAIL** — attendu (tranche haute industrie 55-65% corpus reglementaire offline)
 - Row-as-chunk (level 2) : REVERTED, remplace par narrative rows (level 2b, +12.3pp tab)
 - Doc2Query (canal 5) : DISABLED (degrades recall, data/benchmarks/doc2query_experiment.md)
 - **Page interpolation fix** : 120 children page corrected via pdfplumber, recall ceiling 95%→100%
@@ -75,13 +77,13 @@
   - Dedup, budget 500 mots, score inferieur aux resultats retrieves
   - 5 tests unitaires, recall-neutre (+0.3pp), gain qualitatif pour generation
 - **Items 1-4 DONE** : FTS5 cells, priority boost (10 tables), intro filter, weight sweep
-  - Recall@5 : 63.4% (189/298), recall@10 : 67.4% (201/298) — CORRECTION mislabel
+  - Recall@5 (max_k=10, OBSOLETE) : 63.4% (189/298) — gonflé par enrichissement hors-budget
   - Canal 4 vs Phase 3 audit : 82% overlap, Canal 4 maintenu (21 tables isolees)
 - **Phase 4 DONE (2026-04-04)** : targeted row-chunks + gradient intent + col normalization
   - C.10 : 45 row-chunks (6 tables greedy set cover), forward fill, [col: val], unit suffixes
   - B.4 : gradient_intent_score() 0-3.0, clipped max 1.5/1.0 (anti-shadowing verifie)
   - B.5 : normalize_column_name() 17 mappings (cat.→Categorie, tps→Temps)
-  - Recall@5 : 63.4% (inchange — finding : GS mesure page PROSE, pas page TABLE)
+  - Recall@5 (max_k=5) : **55.4%** — baseline production-ready
   - Tables remontent dans le RRF (gain contexte LLM, pas recall metric)
   - Human recall : 32/34 → 30/34 (2 regressions : 1 trigger equipe shadowing, 1 rebuild)
   - Shadowing isole : uncapped 76.5%, clipped 88.2%, channels OFF 91.2%
@@ -139,6 +141,7 @@
   - OOM Phase 6 (compute_clm_loss apres merge) — metrics JSON perdu, modele OK
   - Kaggle install: --no-deps unsloth + trl==0.24.0 pinne (Kaggle a trl 1.0.0, transformers 5.0.0)
 - **SFT v5 on 1B EVAL** : DONE (2026-04-03) — **GATE PASS : 60.1% > 56.7%**
+  - Evalue sur retrieval contexts max_k=5 (budget production Android) — cohérent avec recall@5 = 55.4%
   - Hang diagnostique : Unsloth save_pretrained_merged drop generation_config.json + use_cache=false
   - Token 106 (end_of_turn) manquait de la liste EOS → generation infinie → Tamil garbage → 128s/Q
   - Fix : eos_token_id=[1,106] + use_cache=True + smoke test timing guard (<30s)
@@ -165,7 +168,7 @@
 - **Post-rationalisation 1B** : MISS cite 60.6% > HIT cite 36.8% (ratio 1.65x). 0.8% abstention MISS.
 - **Ref** : @data/benchmarks/retrieval_table_gap_analysis.md
 
-### Eval 1B v4 — RESULTATS (2026-04-02, retrieval 67.4%)
+### Eval 1B v4 — RESULTATS (2026-04-02, retrieval max_k=5 contexts)
 - **Pipeline cited: 56.7%** (+9.7pp vs ancien run 47.0%) — gain direct du retrieval ameliore + Phase 3 injection
 - **Oracle cited: 46.2%** (identique au 270M TAPT ep1 — plafond du prompt v2)
 - **0 empty**, median 192-214 mots, 11.4% abstention

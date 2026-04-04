@@ -237,7 +237,7 @@ def run_recall(
 
     try:
         for i, q in enumerate(questions):
-            sr = search(db_path, q["question"], model=model)
+            sr = search(db_path, q["question"], model=model, max_k=5)
 
             retrieved_pages = []
             for ctx in sr.contexts:
@@ -265,7 +265,7 @@ def run_recall(
             "db": str(Path(db_path).name),
             "gs_version": "9.0.0",
             "match_level": "page",
-            "settings": {"min_score": 0.005, "max_k": 10, "rrf_k": 60},
+            "settings": {"min_score": 0.005, "max_k": 5, "rrf_k": 60},
             "questions_total": len(questions),
         },
         **metrics,

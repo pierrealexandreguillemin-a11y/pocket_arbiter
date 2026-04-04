@@ -558,3 +558,35 @@ class TestFormatTargetedRows:
         ]
         rows = format_targeted_rows(summaries)
         assert "DNA (Direction Nationale de l'Arbitrage)" in rows[0]["text"]
+
+
+# === B.5: Column name normalization ===
+
+
+class TestNormalizeColumnName:
+    """Tests for column name normalization (B.5 canonical mapping for FTS5)."""
+
+    def test_known_abbreviations(self) -> None:
+        from scripts.pipeline.enrichment import normalize_column_name
+
+        assert normalize_column_name("cat.") == "Catégorie"
+        assert normalize_column_name("Cat.") == "Catégorie"
+        assert normalize_column_name("NB") == "Nombre"
+        assert normalize_column_name("tps") == "Temps"
+        assert normalize_column_name("Dept") == "Département"
+
+    def test_unknown_passthrough(self) -> None:
+        from scripts.pipeline.enrichment import normalize_column_name
+
+        assert normalize_column_name("Situation") == "Situation"
+        assert normalize_column_name("Résultat") == "Résultat"
+
+    def test_strips_whitespace(self) -> None:
+        from scripts.pipeline.enrichment import normalize_column_name
+
+        assert normalize_column_name("  cat.  ") == "Catégorie"
+
+    def test_empty_string(self) -> None:
+        from scripts.pipeline.enrichment import normalize_column_name
+
+        assert normalize_column_name("") == ""

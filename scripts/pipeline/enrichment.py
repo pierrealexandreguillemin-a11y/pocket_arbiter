@@ -74,6 +74,52 @@ UNIT_SUFFIXES: dict[str, str] = {
 
 _IDEM_VARIANTS: set[str] = {"", "id.", "id", "idem"}
 
+# === B.5: Column name normalization ===
+# Maps abbreviated or non-canonical column headers to their canonical form.
+# Lookup is case-insensitive (keys stored lowercase). Canonical values use
+# proper French accented spelling so FTS5 and structured cell queries are
+# consistent across tables.
+
+COLUMN_NORMALIZATION: dict[str, str] = {
+    "cat.": "Catégorie",
+    "cat": "Catégorie",
+    "categ.": "Catégorie",
+    "niv.": "Niveau",
+    "niv": "Niveau",
+    "nb": "Nombre",
+    "nb.": "Nombre",
+    "tps": "Temps",
+    "tps/ronde": "Temps par ronde",
+    "dur.": "Durée",
+    "age": "Âge",
+    "min": "Minimum",
+    "max": "Maximum",
+    "dept": "Département",
+    "dep": "Département",
+    "pts": "Points",
+    "class.": "Classement",
+    "rk": "Rang",
+}
+
+
+def normalize_column_name(col_name: str) -> str:
+    """Normalize column name abbreviations to canonical form (B.5).
+
+    Looks up the stripped, lowercased column name in COLUMN_NORMALIZATION.
+    Returns the canonical spelling if found, otherwise returns the original
+    stripped value unchanged.
+
+    Args:
+        col_name: Raw column header string from a markdown table.
+
+    Returns:
+        Canonical column name, or the original if no mapping exists.
+    """
+    stripped = col_name.strip()
+    if not stripped:
+        return ""
+    return COLUMN_NORMALIZATION.get(stripped.lower(), stripped)
+
 
 def expand_abbreviations(text: str) -> str:
     """Expand abbreviations in chunk text (word boundary, skip if already expanded).
@@ -503,7 +549,9 @@ def _parse_one_table(summary: dict) -> list[dict]:
     if len(lines) < 3:
         return []
 
-    col_names = _parse_pipe_cells(_clean_table_line(lines[0]))
+    col_names = [
+        normalize_column_name(c) for c in _parse_pipe_cells(_clean_table_line(lines[0]))
+    ]
     data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
     table_id = summary["id"]
     source = summary["source"]

@@ -478,6 +478,11 @@ INTENT_WEIGHTS: dict[str, float] = {
     "junior": 0.5,
     "glossaire": 0.3,
     "definition": 0.3,
+    # Team-related (from old _TABLE_TRIGGERS_WEAK + checkpoint 5b gap)
+    "equipe": 0.6,
+    "echiquier": 0.5,
+    "joueur": 0.3,
+    "nationale": 0.4,
 }
 
 _INTENT_STEMS: dict[str, float] = {}

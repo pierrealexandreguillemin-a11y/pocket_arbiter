@@ -65,7 +65,11 @@ subprocess.check_call(
 )
 
 import kagglehub  # noqa: E402
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig  # noqa: E402
+from transformers import (  # noqa: E402
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+)
 
 # -- Config -----------------------------------------------------------------
 SEED = 42
@@ -89,7 +93,9 @@ for _tp in _TEACHER_PATHS:
 if TEACHER_MODEL_ID is None:
     logger.info("No mounted path found, trying kagglehub download...")
     try:
-        TEACHER_MODEL_ID = kagglehub.model_download("google/gemma-3/transformers/gemma-3-4b-it")
+        TEACHER_MODEL_ID = kagglehub.model_download(
+            "google/gemma-3/transformers/gemma-3-4b-it"
+        )
         logger.info("Teacher downloaded via kagglehub: %s", TEACHER_MODEL_ID)
     except Exception as e:
         logger.error("kagglehub download failed: %s", e)
@@ -114,16 +120,18 @@ DB_PATH = os.path.join(EVAL_DATA_DIR, "corpus_v2_fr.db")
 assert os.path.exists(DB_PATH), f"FATAL: DB not found: {DB_PATH}"
 
 # RAFT config (arXiv:2403.10131, Table 2)
-NUM_DISTRACTORS = 4        # 4 distractors + 1 oracle = 5 docs (matches inference top-5)
-ORACLE_PCT = 0.80          # 80% include oracle (RAFT paper recommendation)
-ABSTAIN_PCT = 0.15         # 15% distractors-only -> refusal (Honest AI, Meta CRAG)
+NUM_DISTRACTORS = 4  # 4 distractors + 1 oracle = 5 docs (matches inference top-5)
+ORACLE_PCT = 0.80  # 80% include oracle (RAFT paper recommendation)
+ABSTAIN_PCT = 0.15  # 15% distractors-only -> refusal (Honest AI, Meta CRAG)
 # Remaining 5%: distractors-only -> memorized answer (pure RAFT)
-QUESTIONS_PER_CHUNK = 1    # 1 Q&A per chunk = ~1116 raw, ~700 after filter. Fits 12h Kaggle session.
+QUESTIONS_PER_CHUNK = (
+    1  # 1 Q&A per chunk = ~1116 raw, ~700 after filter. Fits 12h Kaggle session.
+)
 # Note: RAFT paper used 5/chunk but with GPT-4 (fast API). With 4B on T4 (~20s/call),
 # 1116 chunks x 2 calls (Q + A) = ~12h. 3/chunk = 37h = impossible in one session.
-MAX_NEW_TOKENS_Q = 150     # Question generation
-MAX_NEW_TOKENS_A = 400     # CoT answer generation (longer for reasoning + quotes)
-MIN_QUOTE_LEN = 15         # Minimum chars for a valid verbatim quote
+MAX_NEW_TOKENS_Q = 150  # Question generation
+MAX_NEW_TOKENS_A = 400  # CoT answer generation (longer for reasoning + quotes)
+MIN_QUOTE_LEN = 15  # Minimum chars for a valid verbatim quote
 
 # RAG prompt v2 -- SAME as inference (train/inference alignment)
 SYSTEM_PROMPT = (
@@ -178,15 +186,23 @@ REGLES:
 6. La reponse finale doit inclure une citation verbatim entre guillemets.
 7. Tu DOIS commencer ta reponse finale par "<ANSWER>:"."""
 
-logger.info("Config: %d distractors, P=%.2f, %d Q/chunk", NUM_DISTRACTORS, ORACLE_PCT, QUESTIONS_PER_CHUNK)
+logger.info(
+    "Config: %d distractors, P=%.2f, %d Q/chunk",
+    NUM_DISTRACTORS,
+    ORACLE_PCT,
+    QUESTIONS_PER_CHUNK,
+)
 
 
 # -- Helpers ----------------------------------------------------------------
 
+
 def generate(model, tokenizer, prompt, max_tokens, temperature=0.4):
     """Generate text from a prompt using the teacher model."""
     msgs = [{"role": "user", "content": prompt}]
-    text = tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+    text = tokenizer.apply_chat_template(
+        msgs, tokenize=False, add_generation_prompt=True
+    )
     inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=3072)
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     with torch.no_grad():
@@ -200,7 +216,9 @@ def generate(model, tokenizer, prompt, max_tokens, temperature=0.4):
             repetition_penalty=1.1,
             pad_token_id=tokenizer.eos_token_id,
         )
-    return tokenizer.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+    return tokenizer.decode(
+        out[0][inputs["input_ids"].shape[1] :], skip_special_tokens=True
+    )
 
 
 def parse_questions(raw_text):
@@ -289,7 +307,7 @@ bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_quant_type="nf4",
     bnb_4bit_compute_dtype=torch.float16,  # T4: no bf16 (compute 7.5)
-    bnb_4bit_use_double_quant=True,        # saves ~0.4 GB
+    bnb_4bit_use_double_quant=True,  # saves ~0.4 GB
 )
 
 logger.info("Loading %s with 4-bit NF4...", TEACHER_MODEL_ID)
@@ -298,17 +316,21 @@ model = AutoModelForCausalLM.from_pretrained(
     TEACHER_MODEL_ID,
     quantization_config=bnb_config,
     device_map="auto",
-    torch_dtype=torch.float16,           # T4 only has fp16 tensor cores
-    attn_implementation="eager",          # SDPA/FlashAttn crash on T4 (compute 7.5)
+    torch_dtype=torch.float16,  # T4 only has fp16 tensor cores
+    attn_implementation="eager",  # SDPA/FlashAttn crash on T4 (compute 7.5)
 )
 model.eval()
 
 vram_used = torch.cuda.memory_allocated() / 1024 / 1024
-logger.info("Teacher loaded: %.0f MB VRAM (%.0f MB free)", vram_used, GPU_VRAM_MB - vram_used)
+logger.info(
+    "Teacher loaded: %.0f MB VRAM (%.0f MB free)", vram_used, GPU_VRAM_MB - vram_used
+)
 assert vram_used < 10000, f"FATAL: Teacher uses {vram_used:.0f} MB, expected < 10 GB"
 
 # Smoke test
-test_resp = generate(model, tokenizer, "Qu'est-ce qu'un forfait aux echecs ? Reponds en 1 phrase.", 50)
+test_resp = generate(
+    model, tokenizer, "Qu'est-ce qu'un forfait aux echecs ? Reponds en 1 phrase.", 50
+)
 logger.info("Smoke test: %s", test_resp[:100])
 assert len(test_resp.strip()) > 0, "FATAL: Teacher produces empty output"
 
@@ -321,7 +343,9 @@ chunks_raw = conn.execute(
 ).fetchall()
 conn.close()
 
-chunk_list = [{"id": c[0], "source": c[1], "page": c[2], "text": c[3]} for c in chunks_raw]
+chunk_list = [
+    {"id": c[0], "source": c[1], "page": c[2], "text": c[3]} for c in chunks_raw
+]
 logger.info("Loaded %d chunks", len(chunk_list))
 assert len(chunk_list) >= 1000, f"FATAL: Expected >= 1000 chunks, got {len(chunk_list)}"
 
@@ -358,12 +382,19 @@ for i, chunk in enumerate(chunk_list):
         elapsed = (time.time() - t_start) / 60
         logger.info(
             "  [%d/%d chunks] questions=%d, skipped=%d, %.1f min",
-            i + 1, len(chunk_list), len(all_qa_raw), skipped_chunks, elapsed,
+            i + 1,
+            len(chunk_list),
+            len(all_qa_raw),
+            skipped_chunks,
+            elapsed,
         )
 
 logger.info(
     "Phase A done: %d questions from %d chunks (skipped %d short chunks), %.1f min",
-    len(all_qa_raw), len(chunk_list), skipped_chunks, (time.time() - t_start) / 60,
+    len(all_qa_raw),
+    len(chunk_list),
+    skipped_chunks,
+    (time.time() - t_start) / 60,
 )
 
 # Clear VRAM between phases
@@ -376,7 +407,16 @@ logger.info("=== PHASE 4: Generate CoT answers + validate ===")
 
 sft_examples = []
 raw_examples = []  # For audit
-stats = {"total": 0, "valid": 0, "no_quotes": 0, "bad_quotes": 0, "no_answer_tag": 0, "oracle": 0, "abstain": 0, "memorize": 0}
+stats = {
+    "total": 0,
+    "valid": 0,
+    "no_quotes": 0,
+    "bad_quotes": 0,
+    "no_answer_tag": 0,
+    "oracle": 0,
+    "abstain": 0,
+    "memorize": 0,
+}
 
 for j, qa in enumerate(all_qa_raw):
     chunk = qa["chunk"]
@@ -384,7 +424,7 @@ for j, qa in enumerate(all_qa_raw):
     stats["total"] += 1
 
     # Decide example type (RAFT hybrid)
-    roll = random.random()
+    roll = random.random()  # noqa: S311 — not crypto, just RAFT example type selection
     if roll < ORACLE_PCT:
         # 80%: oracle + distractors -> grounded answer
         example_type = "oracle"
@@ -408,7 +448,9 @@ for j, qa in enumerate(all_qa_raw):
 
         # Generate CoT answer
         cot_prompt = COT_ANSWER_PROMPT.format(question=question, context=gen_context)
-        cot_raw = generate(model, tokenizer, cot_prompt, MAX_NEW_TOKENS_A, temperature=0.3)
+        cot_raw = generate(
+            model, tokenizer, cot_prompt, MAX_NEW_TOKENS_A, temperature=0.3
+        )
 
         # Validate
         is_valid, quotes, final_answer = validate_cot_answer(cot_raw, chunk["text"])
@@ -417,15 +459,17 @@ for j, qa in enumerate(all_qa_raw):
         continue
 
     # Save raw for audit
-    raw_examples.append({
-        "chunk_id": chunk["id"],
-        "question": question,
-        "cot_raw": cot_raw,
-        "is_valid": is_valid,
-        "quotes": quotes,
-        "final_answer": final_answer,
-        "example_type": example_type,
-    })
+    raw_examples.append(
+        {
+            "chunk_id": chunk["id"],
+            "question": question,
+            "cot_raw": cot_raw,
+            "is_valid": is_valid,
+            "quotes": quotes,
+            "final_answer": final_answer,
+            "example_type": example_type,
+        }
+    )
 
     if not quotes:
         stats["no_quotes"] += 1
@@ -456,7 +500,9 @@ for j, qa in enumerate(all_qa_raw):
         include_oracle=include_oracle,
     )
     # Remove <DOCUMENT> tags for 270M training (it won't see them at inference)
-    train_context = train_context.replace("<DOCUMENT>\n", "").replace("\n</DOCUMENT>", "")
+    train_context = train_context.replace("<DOCUMENT>\n", "").replace(
+        "\n</DOCUMENT>", ""
+    )
 
     sft_example = {
         "messages": [
@@ -481,18 +527,31 @@ for j, qa in enumerate(all_qa_raw):
         with open(ckpt_path, "w", encoding="utf-8") as f:
             for ex in sft_examples:
                 f.write(json.dumps(ex, ensure_ascii=False) + "\n")
-        logger.info("  Checkpoint saved: %d examples -> %s", len(sft_examples), ckpt_path)
+        logger.info(
+            "  Checkpoint saved: %d examples -> %s", len(sft_examples), ckpt_path
+        )
 
     if (j + 1) % 100 == 0:
         elapsed = (time.time() - t_start) / 60
         rate = stats["valid"] / max(stats["total"], 1)
         logger.info(
             "  [%d/%d] valid=%d (%.0f%%), oracle=%d, abstain=%d, memorize=%d, %.1f min",
-            j + 1, len(all_qa_raw), stats["valid"], 100 * rate,
-            stats["oracle"], stats["abstain"], stats["memorize"], elapsed,
+            j + 1,
+            len(all_qa_raw),
+            stats["valid"],
+            100 * rate,
+            stats["oracle"],
+            stats["abstain"],
+            stats["memorize"],
+            elapsed,
         )
 
-logger.info("Phase B done: %d valid / %d total (%.1f%% acceptance)", stats["valid"], stats["total"], 100 * stats["valid"] / max(stats["total"], 1))
+logger.info(
+    "Phase B done: %d valid / %d total (%.1f%% acceptance)",
+    stats["valid"],
+    stats["total"],
+    100 * stats["valid"] / max(stats["total"], 1),
+)
 logger.info("Stats: %s", json.dumps(stats, indent=2))
 
 # -- PHASE 5: Save outputs -------------------------------------------------
@@ -555,5 +614,10 @@ with open(metrics_path, "w", encoding="utf-8") as f:
 logger.info("=" * 60)
 logger.info("SFT DATA GENERATION COMPLETE -- %.1f min", elapsed)
 logger.info("Output: %s (%d examples)", sft_path, len(sft_examples))
-logger.info("Acceptance: %d/%d (%.1f%%)", stats["valid"], stats["total"], 100 * stats["valid"] / max(stats["total"], 1))
+logger.info(
+    "Acceptance: %d/%d (%.1f%%)",
+    stats["valid"],
+    stats["total"],
+    100 * stats["valid"] / max(stats["total"], 1),
+)
 logger.info("=" * 60)

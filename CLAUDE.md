@@ -2,7 +2,7 @@
 
 > Application RAG mobile Android pour arbitres d'echecs. Recherche semantique offline sur reglements FFE/FIDE.
 
-## Etat du projet (mars 2026)
+## Etat du projet (avril 2026)
 
 ### Ce qui fonctionne
 - **Corpus** : 28 PDFs FFE extraits avec heading levels (docling + docling-hierarchical-pdf)
@@ -19,14 +19,24 @@
 - **ISO** : validation qualite (`scripts/iso/`), pre-commit hooks, 334 tests, 68% coverage
 - **Indexer** : corpus_v2_fr.db (DVC tracked), 9/9 integrity gates (I1-I9) PASS
 - **CCH** : heading hierarchy (h1 > h2 > h3) pour children ET table summaries (KX 2026)
-- **Search** : hybrid cosine + BM25 FTS5 + structured cells + narrative rows, 4-way RRF k=60, adaptive-k largest-gap (EMNLP 2025)
+- **Search** : hybrid cosine + BM25 FTS5 + structured cells + narrative rows + targeted rows, 5-way RRF k=60, gradient intent B.4, adaptive-k largest-gap (EMNLP 2025)
+- **Targeted rows** : 45 row-chunks (6 tables prioritaires), forward fill, [col: val] format, unit suffixes, cosine-only canal 5
+- **Gradient intent** : scoring continu 0-3.0 remplace trigger binaire, clipping max 1.5/1.0 (anti-shadowing)
+- **Col normalization** : B.5, mapping abbreviations colonnes (cat.→Categorie, tps→Temps)
 - **Synonymes** : Snowball FR stemmer + 70 synonymes chess
 
-### Recall (chantier 3 — termine, chantier 5 — en cours)
+### Recall (chantier 3 — termine, chantier 5 — termine)
 - **QAT baseline** : recall@5 = 56.7% (ancien modele)
 - **Base-only** : recall@5 = 59.1% (+2.4pp model switch)
 - **Enrichi (chantier 3)** : recall@5 = 60.1%, recall@1 = 38.9%, recall@10 = 63.8%, MRR = 0.479
-- **Chantier 5 Phase 3** : recall@5 = **67.4%** (201/298), LLM recall@5 = **84.0%** (200 Q Gemma 4B)
+- **Chantier 5 items 1-4** : recall@5 = **63.4%** (189/298), recall@10 = **67.4%** (201/298)
+  - CORRECTION : 67.4% etait recall@**10**, PAS recall@5 (mislabel sessions precedentes)
+  - LLM recall@5 = **79.3%** (2232 Q Gemma 4B), LLM recall@10 = 84.4%
+- **Chantier 5 Phase 4 (targeted rows)** : recall@5 = **63.4%** (inchange — page-level prose matching)
+  - Tables remontent dans le RRF (LA-table73 rank >10 → rank 6), gain **generation** pas recall
+  - Human recall : 32/34 (94.1%) → 30/34 (88.2%) — 2 regressions (1 shadowing clipped, 1 trigger equipe)
+  - Finding : GS mesure la page PROSE, pas la page TABLE. Targeted rows ameliorent le contexte LLM, pas le recall metric
+  - Gradient intent clipped max 1.5/1.0 (anti-shadowing, isolation test documente)
 - **Gate R1 (70%) : FAIL** — mais tranche haute industrie (55-65% corpus reglementaire offline)
 - Row-as-chunk (level 2) : REVERTED, remplace par narrative rows (level 2b, +12.3pp tab)
 - Doc2Query (canal 5) : DISABLED (degrades recall, data/benchmarks/doc2query_experiment.md)
@@ -52,7 +62,7 @@
 - **Level 3 DONE** : structured cells (neutre recall, fonctionnalite RAG Android)
 - **Model switch** : QAT → base (+2.4pp, aligne build/runtime)
 
-### Retrieval table improvement (chantier 5 — en cours)
+### Retrieval table improvement (chantier 5 — termine)
 - **Phase 1 DONE** : trigger tuning — recall-neutre, allow-list + col_name search
 - **Phase 2 DONE** : narrative rows + 4-way RRF + page fix = **+7.4pp global** (57.4% → 64.8%)
   - narrate_table_rows() : Table-to-Text, +12.3pp tab recall
@@ -65,8 +75,18 @@
   - Dedup, budget 500 mots, score inferieur aux resultats retrieves
   - 5 tests unitaires, recall-neutre (+0.3pp), gain qualitatif pour generation
 - **Items 1-4 DONE** : FTS5 cells, priority boost (10 tables), intro filter, weight sweep
-  - Recall@5 : 67.4% (201/298) — +4.0pp vs pre-session
+  - Recall@5 : 63.4% (189/298), recall@10 : 67.4% (201/298) — CORRECTION mislabel
   - Canal 4 vs Phase 3 audit : 82% overlap, Canal 4 maintenu (21 tables isolees)
+- **Phase 4 DONE (2026-04-04)** : targeted row-chunks + gradient intent + col normalization
+  - C.10 : 45 row-chunks (6 tables greedy set cover), forward fill, [col: val], unit suffixes
+  - B.4 : gradient_intent_score() 0-3.0, clipped max 1.5/1.0 (anti-shadowing verifie)
+  - B.5 : normalize_column_name() 17 mappings (cat.→Categorie, tps→Temps)
+  - Recall@5 : 63.4% (inchange — finding : GS mesure page PROSE, pas page TABLE)
+  - Tables remontent dans le RRF (gain contexte LLM, pas recall metric)
+  - Human recall : 32/34 → 30/34 (2 regressions : 1 trigger equipe shadowing, 1 rebuild)
+  - Shadowing isole : uncapped 76.5%, clipped 88.2%, channels OFF 91.2%
+  - INTENT_WEIGHTS sanctuarises, ne plus toucher
+  - Ref : @docs/superpowers/specs/2026-04-04-targeted-table-retrieval-design.md
 
 ### Fine-tuning retrieval (chantier 4a — ABANDONNE)
 - SimCSE + ICT LoRA planifie, spec ecrite, kernel code, dataset prepare
@@ -118,13 +138,15 @@
   - 6 checkpoints (20,40,60,80,100,114), merged model 16bit sauve
   - OOM Phase 6 (compute_clm_loss apres merge) — metrics JSON perdu, modele OK
   - Kaggle install: --no-deps unsloth + trl==0.24.0 pinne (Kaggle a trl 1.0.0, transformers 5.0.0)
-- **SFT v5 on 1B EVAL** : PARTIEL — base OK (56.4%), SFT v5 HANG apres smoke test
-  - Kernel freeze ~3.5h apres smoke test SFT v5 — cause inconnue (boucle generation?)
-  - Base output recupere: 56.4% pipeline (coherent avec v4 56.7%)
-  - SFT v5 output perdu — a relancer avec diagnostic du hang
-  - Ref: data/benchmarks/eval_1b_sft/eval_1b_base_pipeline.json
-- **Eval 1B SFT** : comparer 1B base (56.7%) vs 1B SFT v5 checkpoints
-- **Gate** : si SFT v5 > 56.7% pipeline → succes. Sinon → 1B base + prompting = modele final.
+- **SFT v5 on 1B EVAL** : DONE (2026-04-03) — **GATE PASS : 60.1% > 56.7%**
+  - Hang diagnostique : Unsloth save_pretrained_merged drop generation_config.json + use_cache=false
+  - Token 106 (end_of_turn) manquait de la liste EOS → generation infinie → Tamil garbage → 128s/Q
+  - Fix : eos_token_id=[1,106] + use_cache=True + smoke test timing guard (<30s)
+  - SFT v5 : **60.1%** pipeline citations (hit=51.9%, miss=72.6%, abstain=18.5%, 0 empty, median 291 mots)
+  - Base : 56.4% (hit=48.1%, miss=69.2%)
+  - Delta : **+3.7pp** homogene hits+misses, 103 min runtime
+  - Ref : data/benchmarks/eval_1b_sft_v5/
+- **SFT v5 1B = MODELE GENERATION FINAL** (gate PASS, meilleur modele du projet)
 - **Infra** : LiteRT-LM replaces MediaPipe (deprecated) for Android inference
 - Ref : Pleias-RAG (2025) prouve qu'un 350M apprend les citations si donnees de qualite
 - Ref : RAFT (Berkeley 2024) = format cible (oracle + distracteurs + citations verbatim)
@@ -171,7 +193,10 @@
 - **Unsloth + Kaggle** : --no-deps OBLIGATOIRE (transformers 5.0.0 exclue par Unsloth pyproject.toml)
 - **trl 1.0.0** : incompatible Unsloth (veut <=0.24.0). Pin trl==0.24.0 explicitement
 - **bitsandbytes** : absent de l'image Kaggle. Hard dep d'Unsloth (crash sans). Installer explicitement
-- **SFT v5 1B eval hang** : modele merged freeze apres smoke test. Cause a diagnostiquer (boucle generation? EOS token? tokenizer mismatch?)
+- **SFT v5 1B eval hang RESOLU** : Unsloth save_pretrained_merged drop generation_config.json + use_cache=false
+  - Token 106 (end_of_turn) absent EOS list → generation infinie (128s vs 1.8s base)
+  - Fix : generation_config.json + config.json fixes + eos_token_id=[1,106] dans kernel + smoke test guard
+  - Ref : memory/feedback_unsloth_merge_eos.md
 
 ### References
 - ADR-001 : Gemma 3 270M IT (Option A) — **GATE DECLENCHEE, 270M ABANDONNE**

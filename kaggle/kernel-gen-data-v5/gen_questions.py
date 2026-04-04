@@ -22,7 +22,6 @@ import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
-import gc  # noqa: E402
 import json  # noqa: E402
 import logging  # noqa: E402
 import random  # noqa: E402
@@ -57,11 +56,8 @@ logger.info(
 )
 assert GPU_VRAM_MB >= 14000, f"FATAL: Need >= 14 GB VRAM, got {GPU_VRAM_MB:.0f} MB"
 
-subprocess.check_call(
-    [sys.executable, "-m", "pip", "install", "-q", "unsloth>=2025.3"]
-)
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "unsloth>=2025.3"])
 
-import kagglehub  # noqa: E402
 from unsloth import FastModel  # noqa: E402
 
 # -- Config -----------------------------------------------------------------
@@ -71,8 +67,8 @@ torch.manual_seed(SEED)
 
 OUTPUT_DIR = "/kaggle/working" if os.path.isdir("/kaggle/working") else "."
 QUESTIONS_PER_CHUNK = 2  # Generate 2 questions per chunk
-MAX_NEW_TOKENS_Q = 200   # Question generation output
-MIN_CHUNK_WORDS = 20     # Skip chunks shorter than this
+MAX_NEW_TOKENS_Q = 200  # Question generation output
+MIN_CHUNK_WORDS = 20  # Skip chunks shorter than this
 
 # Eval data paths
 _EVAL_PATHS = [
@@ -102,14 +98,19 @@ REGLES:
 Extrait du reglement ({source}, p.{page}):
 {text}"""
 
-logger.info("Config: %d Q/chunk, min %d words/chunk", QUESTIONS_PER_CHUNK, MIN_CHUNK_WORDS)
+logger.info(
+    "Config: %d Q/chunk, min %d words/chunk", QUESTIONS_PER_CHUNK, MIN_CHUNK_WORDS
+)
 
 # -- Helpers ----------------------------------------------------------------
+
 
 def generate(model, tokenizer, prompt, max_tokens, temperature=0.5):
     """Generate text from the teacher model."""
     msgs = [{"role": "user", "content": prompt}]
-    text = tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+    text = tokenizer.apply_chat_template(
+        msgs, tokenize=False, add_generation_prompt=True
+    )
     inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=2048)
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     with torch.no_grad():
@@ -123,7 +124,9 @@ def generate(model, tokenizer, prompt, max_tokens, temperature=0.5):
             repetition_penalty=1.1,
             pad_token_id=tokenizer.eos_token_id,
         )
-    return tokenizer.decode(out[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+    return tokenizer.decode(
+        out[0][inputs["input_ids"].shape[1] :], skip_special_tokens=True
+    )
 
 
 def parse_questions(raw_text):
@@ -156,7 +159,9 @@ vram = torch.cuda.memory_allocated() / 1024 / 1024
 logger.info("Teacher loaded: %.0f MB VRAM", vram)
 
 # Smoke test
-test_resp = generate(model, tokenizer, "Qu'est-ce qu'un forfait aux echecs ?", 50, temperature=0.3)
+test_resp = generate(
+    model, tokenizer, "Qu'est-ce qu'un forfait aux echecs ?", 50, temperature=0.3
+)
 logger.info("Smoke test: %s", test_resp[:100])
 assert len(test_resp.strip()) > 0, "FATAL: Empty smoke test"
 
@@ -168,69 +173,77 @@ chunks_raw = conn.execute(
 ).fetchall()
 conn.close()
 
-chunk_list = [{"id": c[0], "source": c[1], "page": c[2], "text": c[3]} for c in chunks_raw]
+chunk_list = [
+    {"id": c[0], "source": c[1], "page": c[2], "text": c[3]} for c in chunks_raw
+]
 logger.info("Loaded %d chunks", len(chunk_list))
 
 # -- PHASE 3: Generate questions -------------------------------------------
 logger.info("=== PHASE 3: Generate questions ===")
 
 output_path = os.path.join(OUTPUT_DIR, "questions_v5.jsonl")
-output_file = open(output_path, "w", encoding="utf-8")
 
 total_questions = 0
 skipped = 0
 errors = 0
 
-for i, chunk in enumerate(chunk_list):
-    if len(chunk["text"].split()) < MIN_CHUNK_WORDS:
-        skipped += 1
-        continue
+with open(output_path, "w", encoding="utf-8") as output_file:
+    for i, chunk in enumerate(chunk_list):
+        if len(chunk["text"].split()) < MIN_CHUNK_WORDS:
+            skipped += 1
+            continue
 
-    try:
-        prompt = QUESTION_GEN_PROMPT.format(
-            n=QUESTIONS_PER_CHUNK,
-            source=chunk["source"].replace(".pdf", ""),
-            page=chunk["page"],
-            text=chunk["text"][:1200],
-        )
-        raw = generate(model, tokenizer, prompt, MAX_NEW_TOKENS_Q)
-        questions = parse_questions(raw)
+        try:
+            prompt = QUESTION_GEN_PROMPT.format(
+                n=QUESTIONS_PER_CHUNK,
+                source=chunk["source"].replace(".pdf", ""),
+                page=chunk["page"],
+                text=chunk["text"][:1200],
+            )
+            raw = generate(model, tokenizer, prompt, MAX_NEW_TOKENS_Q)
+            questions = parse_questions(raw)
 
-        for q in questions[:QUESTIONS_PER_CHUNK]:
-            entry = {
-                "chunk_id": chunk["id"],
-                "source": chunk["source"],
-                "page": chunk["page"],
-                "chunk_text": chunk["text"],
-                "question": q,
-            }
-            output_file.write(json.dumps(entry, ensure_ascii=False) + "\n")
-            total_questions += 1
+            for q in questions[:QUESTIONS_PER_CHUNK]:
+                entry = {
+                    "chunk_id": chunk["id"],
+                    "source": chunk["source"],
+                    "page": chunk["page"],
+                    "chunk_text": chunk["text"],
+                    "question": q,
+                }
+                output_file.write(json.dumps(entry, ensure_ascii=False) + "\n")
+                total_questions += 1
 
-    except Exception as e:
-        logger.warning("  SKIP chunk %s: %s", chunk["id"], str(e)[:80])
-        errors += 1
+        except Exception as e:
+            logger.warning("  SKIP chunk %s: %s", chunk["id"], str(e)[:80])
+            errors += 1
 
-    # Progress + streaming save + checkpoint
-    if (i + 1) % 50 == 0:
-        output_file.flush()
-        elapsed = (time.time() - t_start) / 60
-        rate = (i + 1) / elapsed if elapsed > 0 else 0
-        eta = (len(chunk_list) - i - 1) / rate if rate > 0 else 0
-        logger.info(
-            "  [%d/%d] questions=%d, skipped=%d, errors=%d, %.1f min (ETA %.1f min)",
-            i + 1, len(chunk_list), total_questions, skipped, errors, elapsed, eta,
-        )
+        # Progress + streaming save + checkpoint
+        if (i + 1) % 50 == 0:
+            output_file.flush()
+            elapsed = (time.time() - t_start) / 60
+            rate = (i + 1) / elapsed if elapsed > 0 else 0
+            eta = (len(chunk_list) - i - 1) / rate if rate > 0 else 0
+            logger.info(
+                "  [%d/%d] questions=%d, skipped=%d, errors=%d, %.1f min (ETA %.1f min)",
+                i + 1,
+                len(chunk_list),
+                total_questions,
+                skipped,
+                errors,
+                elapsed,
+                eta,
+            )
 
-    # Checkpoint every 200 chunks (survives 9h timeout or crash)
-    if (i + 1) % 200 == 0:
-        ckpt_path = os.path.join(OUTPUT_DIR, f"questions_v5_ckpt_{i+1}.jsonl")
-        output_file.flush()
-        # Copy current output as checkpoint
-        shutil.copy2(output_path, ckpt_path)
-        logger.info("  CHECKPOINT: %s (%d questions so far)", ckpt_path, total_questions)
-
-output_file.close()
+        # Checkpoint every 200 chunks (survives 9h timeout or crash)
+        if (i + 1) % 200 == 0:
+            ckpt_path = os.path.join(OUTPUT_DIR, f"questions_v5_ckpt_{i+1}.jsonl")
+            output_file.flush()
+            # Copy current output as checkpoint
+            shutil.copy2(output_path, ckpt_path)
+            logger.info(
+                "  CHECKPOINT: %s (%d questions so far)", ckpt_path, total_questions
+            )
 
 # -- PHASE 4: Summary -----------------------------------------------------
 elapsed = (time.time() - t_start) / 60
@@ -254,7 +267,9 @@ metrics = {
     "errors": errors,
     "total_questions": total_questions,
     "questions_per_chunk_config": QUESTIONS_PER_CHUNK,
-    "questions_per_chunk_actual": round(total_questions / max(len(chunk_list) - skipped, 1), 2),
+    "questions_per_chunk_actual": round(
+        total_questions / max(len(chunk_list) - skipped, 1), 2
+    ),
     "elapsed_min": round(elapsed, 1),
     "gpu": torch.cuda.get_device_name(0),
 }

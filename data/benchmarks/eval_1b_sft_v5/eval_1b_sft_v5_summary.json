@@ -1,0 +1,48 @@
+{
+  "sft_v5": {
+    "model": "sft_v5",
+    "hit": {
+      "count": 181,
+      "cited": 94,
+      "cited_pct": 51.9,
+      "abstained": 36,
+      "abstain_pct": 19.9,
+      "empty": 0,
+      "median_words": 291
+    },
+    "miss": {
+      "count": 117,
+      "cited": 85,
+      "cited_pct": 72.6,
+      "abstained": 19,
+      "abstain_pct": 16.2,
+      "empty": 0,
+      "median_words": 284
+    },
+    "overall_cited_pct": 60.1,
+    "overall_abstain_pct": 18.5,
+    "elapsed_min": 103.0,
+    "smoke_test_secs": 1.6,
+    "fixes_applied": [
+      "eos_token_id=[1,106] in GenerationConfig",
+      "use_cache=True override",
+      "generation_config.json added to merged model"
+    ]
+  },
+  "base_cached": {
+    "overall_cited_pct": 56.4,
+    "hit_cited_pct": 48.1,
+    "miss_cited_pct": 69.2,
+    "elapsed_min": 89.0,
+    "source": "eval_1b_base_pipeline.json (2026-04-02)"
+  },
+  "gate_sft_v5_gt_56_7": true,
+  "delta_vs_base": 3.7,
+  "baselines": {
+    "270m_base": 24.8,
+    "270m_tapt_ep1": 40.3,
+    "270m_sft80": 48.7,
+    "1b_base_v4": 56.7,
+    "1b_base_v5_rerun": 56.4
+  }
+}

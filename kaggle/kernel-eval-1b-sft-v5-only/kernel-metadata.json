@@ -1,0 +1,17 @@
+{
+  "id": "pguillemin/pocket-arbiter-eval-1b-sft-v5-only",
+  "title": "Pocket Arbiter Eval 1B SFT v5 Only",
+  "code_file": "eval_1b_sft_v5_only.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [
+    "pguillemin/pocket-arbiter-eval-data",
+    "pguillemin/gemma-1b-sft-v5-merged"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

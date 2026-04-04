@@ -121,6 +121,13 @@ logger.info(
 )
 
 # GenerationConfig avoids transformers 5.0 "flags not valid" warning
+# Gemma 3 EOS: token 1 (<eos>) + token 106 (<end_of_turn>)
+# CRITICAL: Unsloth save_pretrained_merged drops generation_config.json,
+# so merged models only have eos_token_id=1 from config.json.
+# Without token 106, model generates past <end_of_turn> → garbage + hang.
+# Also set use_cache=True explicitly (Unsloth saves use_cache=false from training).
+GEMMA3_EOS_TOKEN_IDS = [1, 106]
+
 RAG_GEN_CONFIG = GenerationConfig(
     max_new_tokens=512,
     min_new_tokens=10,
@@ -130,6 +137,7 @@ RAG_GEN_CONFIG = GenerationConfig(
     top_p=0.95,
     repetition_penalty=1.2,
     no_repeat_ngram_size=4,
+    eos_token_id=GEMMA3_EOS_TOKEN_IDS,
 )
 
 ABSTAIN_PATTERNS = [
@@ -182,14 +190,33 @@ def eval_pipeline(
         model_dir, torch_dtype=torch.float32, device_map={"": 0}
     )
     model.eval()
+    # Force use_cache=True for inference (Unsloth merged models save use_cache=False)
+    if hasattr(model.config, "use_cache") and not model.config.use_cache:
+        logger.info("WARN: use_cache was False (training artifact), forcing True")
+        model.config.use_cache = True
     vram = torch.cuda.memory_allocated() / 1024 / 1024
     logger.info("Model loaded: %.0f MB VRAM (fp32)", vram)
 
-    # Smoke test
+    # Smoke test with timing guard
+    t_smoke = time.time()
     test_msgs = build_rag_prompt("Test question?", "Test context.")
     test_resp = generate_gpu(model, tokenizer, test_msgs)
+    smoke_secs = time.time() - t_smoke
     assert len(test_resp.strip()) > 0, f"FATAL: empty smoke test for {model_name}"
-    logger.info("Smoke test OK: '%s'", test_resp[:80])
+    logger.info("Smoke test OK (%.1fs): '%s'", smoke_secs, test_resp[:80])
+    # Guard: if smoke test takes >30s, model is broken (EOS issue, use_cache=False, etc.)
+    # Base model: ~2s. Broken merged: ~128s.
+    if smoke_secs > 30:
+        logger.error(
+            "FATAL: Smoke test took %.1fs (>30s threshold). Model likely broken "
+            "(missing EOS token 106 or use_cache=False). Skipping %s.",
+            smoke_secs,
+            model_name,
+        )
+        del model, tokenizer
+        gc.collect()
+        torch.cuda.empty_cache()
+        return {"model": model_name, "error": f"smoke_test_too_slow_{smoke_secs:.0f}s"}
 
     # Pipeline eval (hit + miss)
     pipeline_results: dict[str, dict] = {}

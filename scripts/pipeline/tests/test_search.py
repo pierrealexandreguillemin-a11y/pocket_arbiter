@@ -619,3 +619,142 @@ class TestGradientIntentScore:
         from scripts.pipeline.search import gradient_intent_score
 
         assert gradient_intent_score("") == 0.0
+
+
+class TestTargetedRowCosineSearch:
+    """Tests for targeted_row_cosine_search (canal 5)."""
+
+    def test_returns_table_ids(self, tmp_path: Path) -> None:
+        import sqlite3
+
+        db_path = tmp_path / "test.db"
+        conn = sqlite3.connect(str(db_path))
+        conn.execute(
+            "CREATE TABLE targeted_rows ("
+            "id TEXT PRIMARY KEY, table_id TEXT, text TEXT, "
+            "source TEXT, page INTEGER, embedding BLOB)"
+        )
+        dim = 768
+        emb1 = np.random.randn(dim).astype(np.float32)
+        emb1 /= np.linalg.norm(emb1)
+        emb2 = np.random.randn(dim).astype(np.float32)
+        emb2 /= np.linalg.norm(emb2)
+        conn.execute(
+            "INSERT INTO targeted_rows VALUES (?,?,?,?,?,?)",
+            ("t1-tr000", "t1", "row 0", "src.pdf", 1, emb1.tobytes()),
+        )
+        conn.execute(
+            "INSERT INTO targeted_rows VALUES (?,?,?,?,?,?)",
+            ("t1-tr001", "t1", "row 1", "src.pdf", 1, emb2.tobytes()),
+        )
+        conn.commit()
+
+        query_emb = np.random.randn(dim).astype(np.float32)
+        query_emb /= np.linalg.norm(query_emb)
+
+        from scripts.pipeline.search import targeted_row_cosine_search
+
+        results = targeted_row_cosine_search(
+            conn, query_emb, max_k=5, db_path=str(db_path)
+        )
+        conn.close()
+
+        assert len(results) == 1  # deduped to 1 table
+        assert results[0][0] == "t1"
+        assert isinstance(results[0][1], float)
+
+    def test_empty_table(self, tmp_path: Path) -> None:
+        import sqlite3
+
+        db_path = tmp_path / "test_empty.db"
+        conn = sqlite3.connect(str(db_path))
+        conn.execute("CREATE TABLE dummy (id TEXT)")
+        conn.commit()
+
+        from scripts.pipeline.search import targeted_row_cosine_search
+
+        results = targeted_row_cosine_search(
+            conn, np.zeros(768, dtype=np.float32), max_k=5, db_path=str(db_path)
+        )
+        conn.close()
+        assert results == []
+
+    def test_deduplication_keeps_max_score(self, tmp_path: Path) -> None:
+        """Multiple rows from same table → only max score kept."""
+        import sqlite3
+
+        db_path = tmp_path / "test_dedup.db"
+        conn = sqlite3.connect(str(db_path))
+        conn.execute(
+            "CREATE TABLE targeted_rows ("
+            "id TEXT PRIMARY KEY, table_id TEXT, text TEXT, "
+            "source TEXT, page INTEGER, embedding BLOB)"
+        )
+        dim = 768
+        # Make row0 very similar to query, row1 orthogonal
+        query_emb = np.zeros(dim, dtype=np.float32)
+        query_emb[0] = 1.0
+
+        emb_similar = np.zeros(dim, dtype=np.float32)
+        emb_similar[0] = 1.0  # cosine=1.0 with query
+
+        emb_ortho = np.zeros(dim, dtype=np.float32)
+        emb_ortho[1] = 1.0  # cosine=0.0 with query
+
+        conn.execute(
+            "INSERT INTO targeted_rows VALUES (?,?,?,?,?,?)",
+            ("t1-tr000", "t1", "row 0", "src.pdf", 1, emb_similar.tobytes()),
+        )
+        conn.execute(
+            "INSERT INTO targeted_rows VALUES (?,?,?,?,?,?)",
+            ("t1-tr001", "t1", "row 1", "src.pdf", 1, emb_ortho.tobytes()),
+        )
+        conn.execute(
+            "INSERT INTO targeted_rows VALUES (?,?,?,?,?,?)",
+            ("t2-tr000", "t2", "row 0", "src.pdf", 2, emb_ortho.tobytes()),
+        )
+        conn.commit()
+
+        from scripts.pipeline.search import targeted_row_cosine_search
+
+        results = targeted_row_cosine_search(
+            conn, query_emb, max_k=10, db_path=str(db_path)
+        )
+        conn.close()
+
+        result_map = dict(results)
+        assert len(results) == 2  # t1 and t2
+        assert result_map["t1"] == pytest.approx(1.0, abs=1e-5)
+        assert result_map["t2"] == pytest.approx(0.0, abs=1e-5)
+
+    def test_max_k_limits_output(self, tmp_path: Path) -> None:
+        """max_k limits the number of distinct table results."""
+        import sqlite3
+
+        db_path = tmp_path / "test_maxk.db"
+        conn = sqlite3.connect(str(db_path))
+        conn.execute(
+            "CREATE TABLE targeted_rows ("
+            "id TEXT PRIMARY KEY, table_id TEXT, text TEXT, "
+            "source TEXT, page INTEGER, embedding BLOB)"
+        )
+        dim = 768
+        for i in range(5):
+            emb = np.random.randn(dim).astype(np.float32)
+            emb /= np.linalg.norm(emb)
+            conn.execute(
+                "INSERT INTO targeted_rows VALUES (?,?,?,?,?,?)",
+                (f"t{i}-tr000", f"t{i}", f"row {i}", "src.pdf", i, emb.tobytes()),
+            )
+        conn.commit()
+
+        query_emb = np.random.randn(dim).astype(np.float32)
+        query_emb /= np.linalg.norm(query_emb)
+
+        from scripts.pipeline.search import targeted_row_cosine_search
+
+        results = targeted_row_cosine_search(
+            conn, query_emb, max_k=2, db_path=str(db_path)
+        )
+        conn.close()
+        assert len(results) <= 2

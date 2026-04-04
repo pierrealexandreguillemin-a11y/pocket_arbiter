@@ -36,6 +36,7 @@ _EMBEDDING_SQL = {
 }
 _TABLE_ROW_SQL = "SELECT id, embedding FROM table_rows"
 _SYNTHETIC_QUERY_SQL = "SELECT id, embedding FROM synthetic_queries"
+_TARGETED_ROW_SQL = "SELECT id, embedding FROM targeted_rows"
 
 
 def _load_embeddings(
@@ -57,6 +58,7 @@ def _load_embeddings(
         **_EMBEDDING_SQL,
         "table_rows": _TABLE_ROW_SQL,
         "synthetic_queries": _SYNTHETIC_QUERY_SQL,
+        "targeted_rows": _TARGETED_ROW_SQL,
     }
     if table not in _VALID_TABLES:
         msg = f"Invalid table: {table}. Must be one of {set(_VALID_TABLES)}"
@@ -261,6 +263,53 @@ def synthetic_query_cosine_search(
                 child_scores[cid] = score
     results = sorted(child_scores.items(), key=lambda x: -x[1])
     return results[:max_k]
+
+
+def targeted_row_cosine_search(
+    conn: sqlite3.Connection,
+    query_embedding: np.ndarray,
+    max_k: int = 10,
+    db_path: str = "",
+) -> list[tuple[str, float]]:
+    """Cosine search on targeted_rows (canal 5). Returns table_summary_ids.
+
+    Deduplicates by table_id, keeping max score per table.
+
+    Args:
+        conn: SQLite connection to corpus DB.
+        query_embedding: Query vector (768D, L2 normalized).
+        max_k: Maximum distinct table results to return.
+        db_path: DB path for cache key (empty string = no cache reuse).
+
+    Returns:
+        [(table_summary_id, cosine_score), ...] sorted desc, deduped by table.
+    """
+    has_table = conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='targeted_rows'"
+    ).fetchone()
+    if not has_table:
+        return []
+
+    cache_key = f"{db_path}:targeted_rows"
+    ids, matrix = _load_embeddings(conn, "targeted_rows", cache_key)
+    if not ids:
+        return []
+
+    scores_arr = matrix @ query_embedding
+    row_scores = list(zip(ids, scores_arr.tolist(), strict=True))
+
+    # Map row IDs to table_ids, keep max score per table
+    best: dict[str, float] = {}
+    for row_id, score in row_scores:
+        table_id = conn.execute(
+            "SELECT table_id FROM targeted_rows WHERE id = ?", (row_id,)
+        ).fetchone()
+        if table_id:
+            tid = table_id[0]
+            if tid not in best or score > best[tid]:
+                best[tid] = score
+
+    return sorted(best.items(), key=lambda x: -x[1])[:max_k]
 
 
 def _sanitize_fts_query(stemmed_query: str) -> str:
@@ -697,8 +746,12 @@ def search(
             conn, q_emb, max_k=10, db_path=str(db_path)
         )
 
-        # 3c. Targeted row-chunks cosine (canal 5) — placeholder until Task 4
-        targeted_results: list[tuple[str, float]] = []
+        # 3c. Targeted row-chunks cosine (canal 5)
+        targeted_results = (
+            targeted_row_cosine_search(conn, q_emb, max_k=10, db_path=str(db_path))
+            if intent > 0
+            else []
+        )
 
         # 3d. Synthetic query cosine — DISABLED (w=0.0)
         # Sweep result: w=0.0 best (59.4%), all w>0 degrade recall.

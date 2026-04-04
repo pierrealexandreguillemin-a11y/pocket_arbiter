@@ -738,8 +738,18 @@ def search(
 
         # 3. Gradient intent score (B.4)
         intent = gradient_intent_score(query)
-        structured_weight = intent * 1.5
-        targeted_weight = intent * 1.0
+        # Clipping: cap at old-system levels to prevent table shadowing
+        # of prose (Point 4). Isolation test (2026-04-04):
+        #   uncapped intent*1.5 → 26/34 human (-6 regressions)
+        #   capped min(,1.5)   → 30/34 human (-2: 1 shadowing + 1 rebuild jitter)
+        #   all channels OFF   → 31/34 human (-1: rebuild jitter only)
+        # Floor 0.3: below this, intent is too weak to justify table boost.
+        if intent < 0.3:
+            structured_weight = 0.0
+            targeted_weight = 0.0
+        else:
+            structured_weight = min(intent * 1.5, 1.5)
+            targeted_weight = min(intent * 1.0, 1.0)
 
         # 3a. Structured table lookup (scaled by intent)
         struct_results = (

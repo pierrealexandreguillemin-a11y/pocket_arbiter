@@ -24,6 +24,10 @@ from scripts.pipeline.search import (
 def _clear_cache() -> None:
     """Clear embedding cache between every test."""
     clear_embedding_cache()
+    # Also clear intent stem cache to avoid stale state
+    from scripts.pipeline.search import _INTENT_STEMS
+
+    _INTENT_STEMS.clear()
 
 
 class TestCosineSearchCache:
@@ -563,3 +567,55 @@ class TestThreeWayRRF:
         fused_without = reciprocal_rank_fusion(cosine, bm25, None)
 
         assert len(fused_with) == len(fused_without)
+
+
+class TestGradientIntentScore:
+    """Tests for gradient intent detection (B.4)."""
+
+    def test_pure_prose_query(self) -> None:
+        from scripts.pipeline.search import gradient_intent_score
+
+        score = gradient_intent_score(
+            "Quelle est la procedure d'appel en cas de litige ?"
+        )
+        assert score == 0.0
+
+    def test_strong_table_query(self) -> None:
+        from scripts.pipeline.search import gradient_intent_score
+
+        score = gradient_intent_score(
+            "Quel est le classement Elo minimum pour le titre ?"
+        )
+        assert score >= 1.0
+
+    def test_berger_trigger(self) -> None:
+        from scripts.pipeline.search import gradient_intent_score
+
+        score = gradient_intent_score("Quelle est la grille berger pour 6 joueurs ?")
+        assert score >= 1.5
+
+    def test_numeric_boost(self) -> None:
+        from scripts.pipeline.search import gradient_intent_score
+
+        base = gradient_intent_score("Quel est le classement ?")
+        with_num = gradient_intent_score("Quel est le classement 1800 ?")
+        assert with_num >= base + 0.4
+
+    def test_capped_at_3(self) -> None:
+        from scripts.pipeline.search import gradient_intent_score
+
+        score = gradient_intent_score(
+            "berger grille scheveningen bareme cadence elo classement titre norme"
+        )
+        assert score == 3.0
+
+    def test_age_category_query(self) -> None:
+        from scripts.pipeline.search import gradient_intent_score
+
+        score = gradient_intent_score("Quel age pour la categorie pupille ?")
+        assert 0.5 <= score <= 2.0
+
+    def test_empty_query(self) -> None:
+        from scripts.pipeline.search import gradient_intent_score
+
+        assert gradient_intent_score("") == 0.0

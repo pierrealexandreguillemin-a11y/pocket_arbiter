@@ -84,18 +84,33 @@ def clear_embedding_cache() -> None:
 # === Pure functions ===
 
 
+def _accumulate_rrf(
+    scores: dict[str, float],
+    results: list[tuple[str, float]] | None,
+    k: int,
+    weight: float = 1.0,
+) -> None:
+    """Add RRF contributions from one channel into *scores* dict."""
+    if not results:
+        return
+    for rank, (doc_id, _) in enumerate(results):
+        scores[doc_id] = scores.get(doc_id, 0) + weight / (k + rank + 1)
+
+
 def reciprocal_rank_fusion(
     cosine_results: list[tuple[str, float]],
     bm25_results: list[tuple[str, float]],
     structured_results: list[tuple[str, float]] | None = None,
     table_row_results: list[tuple[str, float]] | None = None,
     synthetic_results: list[tuple[str, float]] | None = None,
+    targeted_results: list[tuple[str, float]] | None = None,
     k: int = 60,
     structured_weight: float = 1.5,
     table_row_weight: float = 0.5,
     synthetic_weight: float = 0.5,
+    targeted_weight: float = 1.0,
 ) -> list[tuple[str, float]]:
-    """Fuse ranked lists using Reciprocal Rank Fusion (5-way).
+    """Fuse ranked lists using Reciprocal Rank Fusion (6-way).
 
     Args:
         cosine_results: [(doc_id, cosine_score), ...] sorted desc.
@@ -103,28 +118,23 @@ def reciprocal_rank_fusion(
         structured_results: Optional structured cell matches (boosted).
         table_row_results: Optional narrative table row cosine matches.
         synthetic_results: Optional Doc2Query synthetic query matches.
+        targeted_results: Optional targeted row-chunk cosine matches.
         k: RRF constant (default 60, standard value).
         structured_weight: Boost for structured matches (default 1.5).
         table_row_weight: Weight for table row channel (default 0.5).
         synthetic_weight: Weight for synthetic query channel (default 0.5).
+        targeted_weight: Weight for targeted row channel (default 1.0).
 
     Returns:
         [(doc_id, rrf_score), ...] sorted desc by RRF score.
     """
     scores: dict[str, float] = {}
-    for rank, (doc_id, _) in enumerate(cosine_results):
-        scores[doc_id] = scores.get(doc_id, 0) + 1 / (k + rank + 1)
-    for rank, (doc_id, _) in enumerate(bm25_results):
-        scores[doc_id] = scores.get(doc_id, 0) + 1 / (k + rank + 1)
-    if structured_results:
-        for rank, (doc_id, _) in enumerate(structured_results):
-            scores[doc_id] = scores.get(doc_id, 0) + structured_weight / (k + rank + 1)
-    if table_row_results:
-        for rank, (doc_id, _) in enumerate(table_row_results):
-            scores[doc_id] = scores.get(doc_id, 0) + table_row_weight / (k + rank + 1)
-    if synthetic_results:
-        for rank, (doc_id, _) in enumerate(synthetic_results):
-            scores[doc_id] = scores.get(doc_id, 0) + synthetic_weight / (k + rank + 1)
+    _accumulate_rrf(scores, cosine_results, k)
+    _accumulate_rrf(scores, bm25_results, k)
+    _accumulate_rrf(scores, structured_results, k, structured_weight)
+    _accumulate_rrf(scores, table_row_results, k, table_row_weight)
+    _accumulate_rrf(scores, synthetic_results, k, synthetic_weight)
+    _accumulate_rrf(scores, targeted_results, k, targeted_weight)
     return sorted(scores.items(), key=lambda x: -x[1])
 
 
@@ -387,6 +397,76 @@ _TABLE_TRIGGERS_WEAK = {
 
 _ELO_RE = re.compile(r"\b\d{3,4}\b")
 
+# === Gradient intent detection (B.4) ===
+# Replaces binary _has_table_triggers() with a continuous 0.0-3.0 score.
+# Each trigger term has a weight reflecting table-relevance strength.
+
+INTENT_WEIGHTS: dict[str, float] = {
+    "berger": 1.0,
+    "grille": 0.9,
+    "scheveningen": 1.0,
+    "bareme": 0.8,
+    "barème": 0.8,
+    "categorie": 0.7,
+    "catégorie": 0.7,
+    "cadence": 0.7,
+    "elo": 0.8,
+    "classement": 0.6,
+    "titre": 0.6,
+    "norme": 0.7,
+    "departage": 0.7,
+    "départage": 0.7,
+    "frais": 0.6,
+    "deplacement": 0.5,
+    "coefficient": 0.7,
+    "age": 0.4,
+    "âge": 0.4,
+    "poussin": 0.5,
+    "pupille": 0.5,
+    "benjamin": 0.5,
+    "minime": 0.5,
+    "cadet": 0.5,
+    "junior": 0.5,
+    "glossaire": 0.3,
+    "definition": 0.3,
+}
+
+_INTENT_STEMS: dict[str, float] = {}
+
+
+def _get_intent_stems() -> dict[str, float]:
+    """Build stemmed trigger -> weight map (lazy, cached)."""
+    if not _INTENT_STEMS:
+        from scripts.pipeline.synonyms import _stemmer
+
+        for trigger, weight in INTENT_WEIGHTS.items():
+            stemmed = _stemmer.stemWord(trigger.lower())
+            if stemmed not in _INTENT_STEMS or weight > _INTENT_STEMS[stemmed]:
+                _INTENT_STEMS[stemmed] = weight
+    return _INTENT_STEMS
+
+
+def gradient_intent_score(query: str) -> float:
+    """Compute table intent score from query terms (B.4).
+
+    Sums weights for each matched trigger stem in the query.
+    Adds 0.5 bonus for Elo-like numeric patterns (3-4 digits).
+
+    Args:
+        query: User query in French.
+
+    Returns:
+        Score in [0.0, 3.0]. Higher = stronger table intent.
+    """
+    from scripts.pipeline.synonyms import _stemmer
+
+    stems = _get_intent_stems()
+    query_stems = {_stemmer.stemWord(w) for w in re.split(r"\W+", query.lower()) if w}
+    score = sum(weight for stem, weight in stems.items() if stem in query_stems)
+    if _ELO_RE.search(query):
+        score += 0.5
+    return min(score, 3.0)
+
 
 def _has_table_triggers(query: str) -> bool:
     """Check if query needs structured table lookup.
@@ -602,29 +682,39 @@ def search(
         )
         bm25_results = bm25_search(conn, stemmed_expanded, max_k=max_k * 2)
 
-        # 3. Structured table lookup (if triggers detected)
+        # 3. Gradient intent score (B.4)
+        intent = gradient_intent_score(query)
+        structured_weight = intent * 1.5
+        targeted_weight = intent * 1.0
+
+        # 3a. Structured table lookup (scaled by intent)
         struct_results = (
-            structured_cell_search(conn, query, max_k=5)
-            if _has_table_triggers(query)
-            else []
+            structured_cell_search(conn, query, max_k=5) if intent > 0 else []
         )
 
-        # 3b. Table row cosine (separate 4th channel)
+        # 3b. Table row cosine (separate canal 4, fixed weight)
         trow_results = table_row_cosine_search(
             conn, q_emb, max_k=10, db_path=str(db_path)
         )
 
-        # 3c. Synthetic query cosine (Doc2Query, 5th channel) — DISABLED
+        # 3c. Targeted row-chunks cosine (canal 5) — placeholder until Task 4
+        targeted_results: list[tuple[str, float]] = []
+
+        # 3d. Synthetic query cosine — DISABLED (w=0.0)
         # Sweep result: w=0.0 best (59.4%), all w>0 degrade recall.
         # Data stays in DB for future experiments.
 
-        # 4. RRF fusion (4-way: cosine + BM25 + structured + table_rows)
+        # 4. RRF fusion (6-way: cosine + BM25 + structured + table_rows
+        #    + targeted + synthetic)
         fused = reciprocal_rank_fusion(
             cosine_results,
             bm25_results,
             struct_results,
             trow_results,
+            targeted_results=targeted_results,
+            structured_weight=structured_weight,
             table_row_weight=table_row_weight,
+            targeted_weight=targeted_weight,
         )
 
         # 4b. Filter intro pages (OPT-5)

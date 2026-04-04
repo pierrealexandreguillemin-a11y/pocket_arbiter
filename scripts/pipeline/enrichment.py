@@ -49,6 +49,31 @@ CHAPTER_OVERRIDES: dict[tuple[int, int], str] = {
 
 _OVERRIDE_SOURCE = "LA-octobre2025.pdf"
 
+# === C.10: Targeted row-as-chunk (6 priority tables, ~45 rows) ===
+TARGETED_TABLES: set[str] = {
+    "LA-octobre2025-table2",
+    "R01_2025_26_Regles_generales-table0",
+    "LA-octobre2025-table73",
+    "LA-octobre2025-table68",
+    "R01_2025_26_Regles_generales-table1",
+    "LA-octobre2025-table63",
+}
+
+UNIT_SUFFIXES: dict[str, str] = {
+    "elo": "points",
+    "classement": "points",
+    "k": "coefficient",
+    "cadence": "min",
+    "temps": "min",
+    "durée": "min",
+    "duree": "min",
+    "âge": "ans",
+    "age": "ans",
+    "dp": "points",
+}
+
+_IDEM_VARIANTS: set[str] = {"", "id.", "id", "idem"}
+
 
 def expand_abbreviations(text: str) -> str:
     """Expand abbreviations in chunk text (word boundary, skip if already expanded).
@@ -162,6 +187,154 @@ def _clean_table_line(line: str) -> str:
     # Collapse whitespace within cells
     line = re.sub(r"\s{2,}", " ", line)
     return line.strip()
+
+
+def forward_fill_rows(rows: list[dict]) -> list[dict]:
+    """Fill empty / idem cells with the value from the previous row.
+
+    Idem variants (case-insensitive): "", "id.", "id", "idem".
+
+    Args:
+        rows: List of row dicts (uniform keys). Mutated in-place.
+
+    Returns:
+        The same list, with empty/idem cells replaced.
+    """
+    if not rows:
+        return rows
+    prev: dict[str, str] = {}
+    for row in rows:
+        for key, val in row.items():
+            if val.strip().lower() in _IDEM_VARIANTS and key in prev:
+                row[key] = prev[key]
+            else:
+                prev[key] = val
+    return rows
+
+
+def _apply_unit_suffix(col_name: str, value: str) -> str:
+    """Append a unit suffix to numeric values based on column name.
+
+    Only applies if the value starts with a digit or minus sign.
+    Lookup is case-insensitive on the column name.
+
+    Args:
+        col_name: Column header (e.g. "Elo", "dp").
+        value: Cell value string.
+
+    Returns:
+        Value with unit suffix appended, or unchanged if not numeric.
+    """
+    stripped = value.strip()
+    if not stripped:
+        return value
+    if not (stripped[0].isdigit() or stripped[0] == "-"):
+        return value
+    col_lower = col_name.strip().lower()
+    suffix = UNIT_SUFFIXES.get(col_lower)
+    if suffix and not stripped.endswith(suffix):
+        return f"{stripped} {suffix}"
+    return value
+
+
+def _parse_rows_as_dicts(
+    data_lines: list[str], col_names: list[str]
+) -> list[dict[str, str]]:
+    """Parse pipe-delimited data lines into a list of row dicts.
+
+    Args:
+        data_lines: Cleaned pipe-delimited lines (no header/separator).
+        col_names: Column headers from the table.
+
+    Returns:
+        List of dicts mapping col_name -> cell value.
+    """
+    parsed: list[dict[str, str]] = []
+    for row_line in data_lines:
+        values = _parse_pipe_cells(_clean_table_line(row_line))
+        row_dict: dict[str, str] = {}
+        for j, val in enumerate(values):
+            if j < len(col_names):
+                row_dict[col_names[j]] = val.strip()
+        for col in col_names:
+            row_dict.setdefault(col, "")
+        parsed.append(row_dict)
+    return parsed
+
+
+def _format_row_text(
+    row_dict: dict[str, str], col_names: list[str], title: str
+) -> str | None:
+    """Format a single row dict into "[col: val]" text with title.
+
+    Returns None if no non-empty cells.
+    """
+    pairs = []
+    for col in col_names:
+        val = row_dict.get(col, "").strip()
+        if not val or not col.strip():
+            continue
+        val = _apply_unit_suffix(col, val)
+        pairs.append(f"[{col.strip()}: {val}]")
+    if not pairs:
+        return None
+    text = f"{title} | {' '.join(pairs)}"
+    return expand_abbreviations(text)
+
+
+def format_targeted_rows(summaries: list[dict]) -> list[dict]:
+    """Build row-chunks for TARGETED_TABLES only (C.10).
+
+    Format: "{table_title} | [col1: val1] [col2: val2] ..."
+
+    Applies forward-fill, unit suffixes, and abbreviation expansion.
+
+    Args:
+        summaries: List of table summary dicts with raw_table_text.
+
+    Returns:
+        List of targeted row-chunk dicts with id, text, table_id,
+        source, page, tokens.
+    """
+    row_chunks: list[dict] = []
+    for summary in summaries:
+        table_id = summary["id"]
+        if table_id not in TARGETED_TABLES:
+            continue
+
+        raw = summary.get("raw_table_text", "")
+        source = summary["source"]
+        page = summary.get("page")
+        title = _extract_table_title(summary.get("summary_text", ""))
+
+        lines = [
+            line.strip() for line in raw.split("\n") if line.strip().startswith("|")
+        ]
+        if len(lines) < 3:
+            continue
+
+        col_names = _parse_pipe_cells(_clean_table_line(lines[0]))
+        data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
+
+        parsed_rows = _parse_rows_as_dicts(data_lines, col_names)
+        forward_fill_rows(parsed_rows)
+
+        for i, row_dict in enumerate(parsed_rows):
+            text = _format_row_text(row_dict, col_names, title)
+            if text is None:
+                continue
+            row_chunks.append(
+                {
+                    "id": f"{table_id}-tr{i:03d}",
+                    "text": text,
+                    "table_id": table_id,
+                    "source": source,
+                    "page": page,
+                    "tokens": len(text.split()),
+                }
+            )
+
+    return row_chunks
 
 
 def parse_table_rows(summaries: list[dict]) -> list[dict]:

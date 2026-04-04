@@ -16,6 +16,8 @@ from scripts.pipeline.enrichment import (
     enrich_chunks,
     enrich_table_summaries,
     expand_abbreviations,
+    format_targeted_rows,
+    forward_fill_rows,
     load_contexts,
     narrate_table_rows,
     parse_structured_cells,
@@ -417,3 +419,142 @@ class TestNarrateTableRows:
         # The long column name should be truncated in the narrative
         text = rows[0]["text"]
         assert "X" * 41 not in text  # truncated at 40
+
+
+# === C.10: Targeted row-as-chunk ===
+
+
+class TestForwardFillRows:
+    """Tests for forward-fill of empty/idem cells in parsed rows."""
+
+    def test_fills_empty_cells(self) -> None:
+        rows = [
+            {"cat": "Pupille", "age": "10-11"},
+            {"cat": "", "age": "12-13"},
+            {"cat": "id.", "age": "14-15"},
+        ]
+        filled = forward_fill_rows(rows)
+        assert filled[1]["cat"] == "Pupille"
+        assert filled[2]["cat"] == "Pupille"
+        assert filled[1]["age"] == "12-13"
+
+    def test_preserves_nonempty(self) -> None:
+        rows = [{"a": "x"}, {"a": "y"}]
+        assert forward_fill_rows(rows)[1]["a"] == "y"
+
+    def test_idem_variants(self) -> None:
+        rows = [
+            {"a": "Val"},
+            {"a": "idem"},
+            {"a": "Id."},
+            {"a": "IDEM"},
+        ]
+        assert all(r["a"] == "Val" for r in forward_fill_rows(rows))
+
+    def test_empty_list(self) -> None:
+        assert forward_fill_rows([]) == []
+
+
+class TestFormatTargetedRows:
+    """Tests for targeted row-as-chunk formatting (C.10)."""
+
+    def test_basic_formatting(self) -> None:
+        summaries = [
+            {
+                "id": "R01_2025_26_Regles_generales-table0",
+                "source": "R01_2025_26_Regles_generales.pdf",
+                "page": 2,
+                "summary_text": "Categories d'age FFE : U8 a S65",
+                "raw_table_text": (
+                    "| Cat | Age |\n"
+                    "|-----|-----|\n"
+                    "| Pupille | 10-11 ans |\n"
+                    "| Benjamin | 12-13 ans |\n"
+                ),
+            }
+        ]
+        rows = format_targeted_rows(summaries)
+        assert len(rows) == 2
+        assert rows[0]["table_id"] == "R01_2025_26_Regles_generales-table0"
+        assert "Categories d'age FFE" in rows[0]["text"]
+        assert "[Cat: Pupille]" in rows[0]["text"]
+        assert "[Age: 10-11 ans]" in rows[0]["text"]
+
+    def test_skips_non_targeted(self) -> None:
+        summaries = [
+            {
+                "id": "other-table",
+                "source": "x.pdf",
+                "page": 1,
+                "summary_text": "X",
+                "raw_table_text": "| A |\n|---|\n| x |\n",
+            }
+        ]
+        assert format_targeted_rows(summaries) == []
+
+    def test_forward_fill_applied(self) -> None:
+        summaries = [
+            {
+                "id": "LA-octobre2025-table2",
+                "source": "LA-octobre2025.pdf",
+                "page": 47,
+                "summary_text": "Resultats fin de partie",
+                "raw_table_text": (
+                    "| Situation | Resultat |\n"
+                    "|-----------|----------|\n"
+                    "| Roi + Tour | Gain |\n"
+                    "|  | Nulle |\n"
+                ),
+            }
+        ]
+        rows = format_targeted_rows(summaries)
+        assert len(rows) == 2
+        assert "Roi + Tour" in rows[1]["text"]
+
+    def test_unit_suffixes(self) -> None:
+        summaries = [
+            {
+                "id": "LA-octobre2025-table73",
+                "source": "LA-octobre2025.pdf",
+                "page": 184,
+                "summary_text": "Conversion Elo dp vers probabilite",
+                "raw_table_text": "| dp | P |\n|-----|-----|\n| 92 | 0.63 |\n",
+            }
+        ]
+        rows = format_targeted_rows(summaries)
+        assert "92 points" in rows[0]["text"]
+
+    def test_targeted_tables_constant(self) -> None:
+        from scripts.pipeline.enrichment import TARGETED_TABLES
+
+        assert len(TARGETED_TABLES) == 6
+        assert "LA-octobre2025-table2" in TARGETED_TABLES
+
+    def test_row_id_format(self) -> None:
+        summaries = [
+            {
+                "id": "R01_2025_26_Regles_generales-table0",
+                "source": "R01.pdf",
+                "page": 2,
+                "summary_text": "Test",
+                "raw_table_text": ("| A | B |\n|---|---|\n| x | y |\n| a | b |\n"),
+            }
+        ]
+        rows = format_targeted_rows(summaries)
+        assert rows[0]["id"] == "R01_2025_26_Regles_generales-table0-tr000"
+        assert rows[1]["id"] == "R01_2025_26_Regles_generales-table0-tr001"
+
+    def test_abbreviations_expanded(self) -> None:
+        summaries = [
+            {
+                "id": "LA-octobre2025-table63",
+                "source": "LA-octobre2025.pdf",
+                "page": 100,
+                "summary_text": "Organisations FFE",
+                "raw_table_text": (
+                    "| Org | Role |\n|-----|------|\n| DNA | Arbitrage |\n"
+                ),
+            }
+        ]
+        rows = format_targeted_rows(summaries)
+        assert "DNA (Direction Nationale de l'Arbitrage)" in rows[0]["text"]

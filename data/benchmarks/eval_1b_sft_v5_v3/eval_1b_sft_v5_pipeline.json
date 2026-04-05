@@ -1,0 +1,30 @@
+{
+  "model": "sft_v5",
+  "hit": {
+    "count": 166,
+    "cited": 85,
+    "cited_pct": 51.2,
+    "abstained": 29,
+    "abstain_pct": 17.5,
+    "empty": 0,
+    "median_words": 264
+  },
+  "miss": {
+    "count": 132,
+    "cited": 86,
+    "cited_pct": 65.2,
+    "abstained": 25,
+    "abstain_pct": 18.9,
+    "empty": 0,
+    "median_words": 288
+  },
+  "overall_cited_pct": 57.4,
+  "overall_abstain_pct": 18.1,
+  "elapsed_min": 102.7,
+  "smoke_test_secs": 1.7,
+  "fixes_applied": [
+    "eos_token_id=[1,106] in GenerationConfig",
+    "use_cache=True override",
+    "generation_config.json added to merged model"
+  ]
+}

@@ -156,10 +156,17 @@
 
 ### Eval methodology (generation)
 - **Metrique primaire** : cited_pct (regex doc/page sur 264 annales) — PROXY, pas faithfulness (ICTIR 2025)
-- **HHEM-2.1-Open** (Vectara) : T5-base hallucination classifier, supporte FR, faisable offline T4 — recommande pour eval v5.1
+- **HHEM-2.1-Open REJETE (2026-04-05)** : evalue et rejete pour FR reglementaire
+  - Mean 0.071 sur 298 reponses (99% red, gate TB-04 FAIL)
+  - Sanity check FR PASS (discrimine paires courtes : 0.54 vs 0.03)
+  - Mais hit≈miss (0.069≈0.073) = aucune discrimination sur texte reel long technique
+  - Root cause : entraine sur EN summarization (CNN/DailyMail), pas FR reglementaire
+  - transformers 5.0 incompatible (4 kernel pushes pour contourner)
+  - Ref : data/benchmarks/hhem_v4/hhem_faithfulness.json, memory/feedback_hhem_unusable_fr.md
 - **57% citations post-rationalisees** : Wallat et al. ICTIR 2025 Best Paper HM — cited_pct absolu ≠ faithfulness
 - **FACTS Grounding** (Google 2025) : benchmark industrie = 3 LLM judges — non faisable budget 0EUR
 - **FaithBench** (Vectara, EMNLP 2025) : annotations hallucination span-level, 4 severites
+- **Prochaine etape faithfulness** : eval humaine 34Q (FA-03) ou CamemBERT-NLI ou BERTScore
 - **Ref complete** : @docs/GENERATION_EVAL_METHODOLOGY.md
 
 ### Postmortem 270M + Eval 1B ancien (2026-03-29)

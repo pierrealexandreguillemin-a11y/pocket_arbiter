@@ -1,0 +1,16 @@
+{
+  "id": "pguillemin/pocket-arbiter-hhem-eval",
+  "title": "Pocket Arbiter HHEM Faithfulness Eval",
+  "code_file": "hhem_eval_kaggle.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "pguillemin/pocket-arbiter-eval-data"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

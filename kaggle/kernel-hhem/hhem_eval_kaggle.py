@@ -67,19 +67,22 @@ logger.info("=== PHASE 1: Load HHEM model ===")
 MODEL_ID = "vectara/hallucination_evaluation_model"
 t0 = time.time()
 
+# HHEM-2.1 custom code is INCOMPATIBLE with transformers 5.0.0 (Kaggle v168).
+# all_tied_weights_keys renamed, tied weights broken → model outputs constant 0.502.
+# Fix: downgrade to 4.46.3 (last stable before 5.0). CPU-only kernel, no side effects.
+# Ref: https://github.com/huggingface/transformers/issues/43646
+import subprocess  # noqa: E402
+
+subprocess.check_call(
+    ["pip", "install", "-q", "transformers==4.46.3"],
+    stdout=subprocess.DEVNULL,
+)
+logger.info("transformers downgraded to 4.46.3 for HHEM compatibility")
+
 import transformers  # noqa: E402
 from transformers import AutoModelForSequenceClassification  # noqa: E402
 
 logger.info("transformers=%s", transformers.__version__)
-
-# Fix: HHEM custom code references `all_tied_weights_keys` (removed in transformers 5.0).
-# In 5.0, `mark_tied_weights_as_initialized()` calls `self.all_tied_weights_keys.keys()`.
-# The HHEM model doesn't define this attr, and the class-level `_tied_weights_keys` is None.
-# Fix: set a class-level empty dict so `.keys()` doesn't crash on None.
-# Ref: https://github.com/huggingface/transformers/issues/43646
-if not hasattr(transformers.PreTrainedModel, "all_tied_weights_keys"):
-    logger.info("Patching all_tied_weights_keys for transformers 5.0+ compatibility")
-    transformers.PreTrainedModel.all_tied_weights_keys = {}  # type: ignore[attr-defined]
 
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_ID, trust_remote_code=True

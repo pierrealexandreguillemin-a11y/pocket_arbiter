@@ -67,7 +67,20 @@ logger.info("=== PHASE 1: Load HHEM model ===")
 MODEL_ID = "vectara/hallucination_evaluation_model"
 t0 = time.time()
 
+import transformers  # noqa: E402
 from transformers import AutoModelForSequenceClassification  # noqa: E402
+
+logger.info("transformers=%s", transformers.__version__)
+
+# Fix: HHEM custom code uses `all_tied_weights_keys` (removed in transformers 5.0).
+# Transformers 5.0 renamed it to `_tied_weights_keys`.
+# Monkey-patch to restore backward compatibility for custom models.
+# Ref: https://github.com/huggingface/transformers/issues/43646
+if not hasattr(transformers.PreTrainedModel, "all_tied_weights_keys"):
+    logger.info("Patching all_tied_weights_keys for transformers 5.0+ compatibility")
+    transformers.PreTrainedModel.all_tied_weights_keys = (  # type: ignore[attr-defined]
+        transformers.PreTrainedModel._tied_weights_keys
+    )
 
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_ID, trust_remote_code=True

@@ -72,15 +72,14 @@ from transformers import AutoModelForSequenceClassification  # noqa: E402
 
 logger.info("transformers=%s", transformers.__version__)
 
-# Fix: HHEM custom code uses `all_tied_weights_keys` (removed in transformers 5.0).
-# Transformers 5.0 renamed it to `_tied_weights_keys`.
-# Monkey-patch to restore backward compatibility for custom models.
+# Fix: HHEM custom code references `all_tied_weights_keys` (removed in transformers 5.0).
+# In 5.0, `mark_tied_weights_as_initialized()` calls `self.all_tied_weights_keys.keys()`.
+# The HHEM model doesn't define this attr, and the class-level `_tied_weights_keys` is None.
+# Fix: set a class-level empty dict so `.keys()` doesn't crash on None.
 # Ref: https://github.com/huggingface/transformers/issues/43646
 if not hasattr(transformers.PreTrainedModel, "all_tied_weights_keys"):
     logger.info("Patching all_tied_weights_keys for transformers 5.0+ compatibility")
-    transformers.PreTrainedModel.all_tied_weights_keys = (  # type: ignore[attr-defined]
-        transformers.PreTrainedModel._tied_weights_keys
-    )
+    transformers.PreTrainedModel.all_tied_weights_keys = {}  # type: ignore[attr-defined]
 
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_ID, trust_remote_code=True

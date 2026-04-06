@@ -87,6 +87,10 @@ models/*.bin
 *.sqlite
 *.sqlite3
 
+# Large eval response files (>1MB, kept locally for comparison)
+*_responses.jsonl
+human_eval_34q_full.jsonl
+
 # =============================================================================
 # IDE & EDITORS
 # =============================================================================

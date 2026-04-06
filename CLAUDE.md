@@ -195,15 +195,20 @@
 - **1B base > tous les 270M** : pipeline 56.7% vs 270M sft80 48.7% vs 270M tapt_ep1 40.3% vs 270M base 24.8%
 - **Ref** : @data/benchmarks/eval_1b_v2/
 
-### Candidats generation post-270M — REVISE (2026-04-05)
-- **Gemma 3 1B IT** : cited_pct 57% mais **qualite reelle INSUFFISANTE** (hallucinations massives sur 34Q humaines)
-  - Base et SFT v5 produisent le meme garbage — le SFT n'a pas ameliore le grounding
-  - Le 1B ne sait pas exploiter un contexte FR dense de 2048 tokens
-  - **DISQUALIFIE** pour RAG grounded sur corpus reglementaire FR
-- **Gemma 3n E2B** : 2B eff, ~2 GB RAM, LiteRT .litertlm, mobile-first. Depasse spec 500MB. **CANDIDAT PRIORITAIRE** — besoin de relever contrainte RAM
-- **Ministral 3B** : Apache 2.0, FR natif, 256K ctx. Pas de LiteRT (LLaMA.cpp).
-- **Qwen3 1.7B** : MMLU 75.7, Apache 2.0. LiteRT non confirme.
-- **Option fallback** : pas de generation LLM, afficher les chunks retrieves bruts avec source/page — l'arbitre lit le reglement directement
+### Candidats generation post-270M — REVISE (2026-04-06)
+- **Gemma 3 1B IT** : **DISQUALIFIE** — hallucinations massives sur 34Q humaines malgre contextes corrects
+- **Gemma 3n E2B** : REMPLACE par Gemma 4 E2B (successor, meilleures specs)
+- **Gemma 4 E2B (avril 2026)** : **CANDIDAT PRIORITAIRE**
+  - 2.3B effective params (vs 1B disqualifie), architecture MatFormer + PLE
+  - **< 1.5 GB RAM** on-device (quant 4-bit + PLE) — dans spec revisee
+  - **128K context window** (vs 2048 pour 1B — potentiel game-changer pour le RAG grounding)
+  - LiteRT-LM natif : litert-community/gemma-4-E2B-it-litert-lm
+  - Apache 2.0 (vs Gemma License)
+  - Unsloth compatible (SFT v6 avec RAFT data existantes)
+  - 140+ langues, FR natif, 15-25 tok/s mobile
+  - Ref : https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/
+- **Ministral 3B** : Apache 2.0, FR natif, 256K ctx. Pas de LiteRT (LLaMA.cpp). Backup si Gemma 4 E2B echoue.
+- **Option fallback** : pas de generation LLM, afficher les chunks retrieves bruts avec source/page
 
 ### Embedding pipeline — question ouverte Keras vs sentence-transformers
 - Le chemin officiel Google pour EmbeddingGemma est **Keras** (notebook Nilay Chauhan, Google)

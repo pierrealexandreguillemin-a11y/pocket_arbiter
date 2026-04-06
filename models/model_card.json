@@ -4,7 +4,7 @@
     "schemaVersion": "1.2.0",
     "projectName": "Pocket Arbiter",
     "projectDescription": "Application mobile 100% offline d'assistance a l'arbitrage d'echecs - Reglements FFE et FIDE",
-    "lastUpdated": "2026-03-23"
+    "lastUpdated": "2026-04-06"
   },
 
   "embeddingModel": {
@@ -39,7 +39,8 @@
   },
 
   "llmModel": {
-    "name": "Gemma 3 270M IT (base)",
+    "name": "Gemma 3 270M IT — ABANDONED",
+    "status": "ABANDONED (ADR-001 gate triggered, postmortem 2026-03-29)",
     "framework": "MediaPipe LLM Inference API",
     "source": "litert-community/gemma-3-270m-it",
     "huggingface_url": "https://huggingface.co/litert-community/gemma-3-270m-it",
@@ -330,9 +331,9 @@
       "chunkOverlap": 50,
       "tokenizer": "tiktoken (cl100k_base)",
       "strategy": "LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter",
-      "children": 1116,
-      "parents": 282,
-      "table_summaries": 111
+      "children": 1117,
+      "parents": 273,
+      "table_summaries": 117
     },
     "generation_training": {
       "tapt_corpus": "5529 paragraphs, 381K tokens (corpus_paragraphs.jsonl)",
@@ -350,8 +351,8 @@
     },
     "metric": "cosine",
     "vectors": {
-      "children": 1116,
-      "table_summaries": 111,
+      "children": 1117,
+      "table_summaries": 117,
       "parents": "not embedded (context assembly only)"
     }
   },
@@ -371,7 +372,8 @@
     "measured": {
       "embeddingLatency": "66ms (benchmark HuggingFace)",
       "llmLatency": "2-3s (estimate)",
-      "recallFR": "60.1% recall@5 (FIGE — pas de fine-tuning retrieval)",
+      "recallFR": "55.4% recall@5 (max_k=5, production-aligned, 2026-04-05)",
+      "recallFR_obsolete": "63.4% recall@5 was measured with max_k=10 + adaptive-k (non-production). 60.1% was pre-chantier-5 baseline. Both obsolete.",
       "note": "Latence LLM a mesurer sur Android avec modele SFT quantifie"
     },
     "generationConfig": {
@@ -447,9 +449,23 @@
   },
 
   "versioning": {
-    "currentPhase": "Chantier 4 - Generation fine-tuning (SFT v3 DONE, eval PENDING, benchmark base PENDING)",
-    "modelVersion": "0.4.2",
+    "currentPhase": "Post-chantier 5 — Generation model pivot needed (1B disqualified, evaluating Gemma 3n E2B)",
+    "modelVersion": "0.5.0",
     "changelog": [
+      {
+        "version": "0.5.0",
+        "date": "2026-04-06",
+        "changes": [
+          "SFT v5 1B: Unsloth LoRA NF4 training DONE (train_loss=0.9091, overfit=1.012, R=16 alpha=32)",
+          "SFT v5 1B eval: GATE PASS 60.1% citations (base 56.4%, delta +3.7pp). Hang fix: eos_token_id=[1,106]",
+          "Chantier 5 DONE: targeted rows (45 row-chunks, 6 tables), gradient intent (0-3.0 clipped), col normalization (17 mappings)",
+          "Recall correction: 55.4% recall@5 (max_k=5, production-aligned). Old 63.4% was max_k=10+adaptive-k (non-production, obsolete)",
+          "HHEM-2.1-Open rejected: T5-base classifier unreliable on short FR regulatory text",
+          "cited_pct (regex) confirmed unreliable as faithfulness proxy (ICTIR 2025: 57% post-rationalized)",
+          "1B disqualified: exceeds 500MB RAM spec (VISION.md). Evaluating Gemma 3n E2B as replacement",
+          "270M ABANDONED: ADR-001 gate triggered (postmortem 2026-03-29, 0% verbatim on 34 human Q)"
+        ]
+      },
       {
         "version": "0.4.2",
         "date": "2026-03-23",

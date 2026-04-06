@@ -1,0 +1,30 @@
+{
+  "model": "base",
+  "hit": {
+    "count": 166,
+    "cited": 84,
+    "cited_pct": 50.6,
+    "abstained": 18,
+    "abstain_pct": 10.8,
+    "empty": 0,
+    "median_words": 193
+  },
+  "miss": {
+    "count": 132,
+    "cited": 88,
+    "cited_pct": 66.7,
+    "abstained": 15,
+    "abstain_pct": 11.4,
+    "empty": 0,
+    "median_words": 193
+  },
+  "overall_cited_pct": 57.7,
+  "overall_abstain_pct": 11.1,
+  "elapsed_min": 83.7,
+  "smoke_test_secs": 2.5,
+  "fixes_applied": [
+    "eos_token_id=[1,106] in GenerationConfig",
+    "use_cache=True override",
+    "generation_config.json added to merged model"
+  ]
+}

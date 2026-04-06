@@ -2,8 +2,8 @@
 
 > **Document ID**: DOC-POL-001
 > **ISO Reference**: ISO/IEC 42001:2023 - Systeme de management de l'IA
-> **Version**: 1.0
-> **Date**: 2026-01-11
+> **Version**: 1.1
+> **Date**: 2026-04-05
 > **Statut**: Draft
 > **Classification**: Interne
 > **Auteur**: Equipe projet
@@ -19,7 +19,7 @@ Ce document définit la politique de gouvernance IA pour l'application "Arbitre 
 ### 1.2 Périmètre
 Cette politique s'applique à :
 - Le modèle d'embeddings (EmbeddingGemma ou équivalent)
-- Le modèle de génération (Phi-3.5-mini, Gemma ou équivalent)
+- Le modèle de génération (Gemma 3 1B IT SFT v5 ou successeur)
 - Le pipeline RAG complet
 - Toutes les phases de développement et d'exploitation
 
@@ -73,6 +73,8 @@ Cette politique s'applique à :
 
 **Critère de succès** : 0% de réponses sans source sur le test set
 
+> **ATTENTION** : cited_pct regex detecte des citations dans du texte hallucine (Wallat et al. ICTIR 2025, confirme empiriquement 2026-04-05). Ce critere est necessaire mais INSUFFISANT. Voir docs/GENERATION_EVAL_METHODOLOGY.md pour les gaps documentes.
+
 #### AI-R02 : Mauvaise interprétation
 | Contrôle | Description | Vérification |
 |----------|-------------|--------------|
@@ -87,7 +89,7 @@ Cette politique s'applique à :
 | Score de similarité | Afficher la confiance du retrieval | UI feature |
 | Test set gold standard | 50 questions avec réponses attendues | Tests recall |
 
-**Critère de succès** : Recall > 80% sur test set
+**Critère de succès** : Recall > 80% sur test set (actuel : 63.4% recall@5, gate R1 70% FAIL)
 
 #### AI-R04 : Sur-confiance utilisateur
 | Contrôle | Description | Vérification |
@@ -149,13 +151,15 @@ Cette politique s'applique à :
 
 | Attribut | Valeur |
 |----------|--------|
-| Nom | Phi-3.5-mini (ou Gemma-2B) |
-| Éditeur | Microsoft (ou Google) |
-| Licence | MIT / Apache 2.0 |
-| Taille | ~400-500MB (quantifié q4) |
+| Nom | Gemma 3 1B IT (SFT v5) |
+| Éditeur | Google DeepMind |
+| Licence | Gemma License (Apache 2.0 derivative) |
+| Taille | ~600 MB (quantifié int4) |
 | Langues | Multilingue (FR, EN inclus) |
 | Usage | Synthèse et interprétation |
 | Risque hallucination | Moyen → mitigé par grounding |
+| Fine-tuning | SFT v5 (RAFT-style, LoRA R=16, 60.1% pipeline citations, gate PASS) |
+| Note | Candidat remplacement : Gemma 3n E2B (~2 GB RAM, depasse spec 500 MB) |
 
 ### 5.3 Justification du choix
 - **Open source** : Pas de dépendance propriétaire
@@ -192,7 +196,7 @@ Cette politique s'applique à :
 | Événement | Action | Validation |
 |-----------|--------|------------|
 | Nouveau règlement | Re-indexation corpus | Tests retrieval |
-| Nouveau modèle disponible | Évaluation comparative | Benchmark complet |
+| Nouveau modèle disponible | Évaluation comparative | Benchmark complet (LiteRT-LM, MediaPipe deprecated) |
 | Bug IA signalé | Analyse root cause | Fix + tests |
 
 ---
@@ -213,7 +217,7 @@ aider à trouver des informations dans les règlements officiels.
 • L'arbitre reste seul responsable de ses décisions
 • Aucune donnée n'est collectée ni transmise
 
-Modèles IA : EmbeddingGemma + Phi-3.5-mini
+Modèles IA : EmbeddingGemma-300M + Gemma 3 1B IT (ou successeur)
 Fonctionnement : 100% local sur votre appareil
 ```
 
@@ -230,13 +234,13 @@ Chaque réponse affiche :
 
 ### 8.1 Métriques surveillées
 
-| Métrique | Cible | Fréquence mesure |
-|----------|-------|------------------|
-| Recall retrieval | > 80% | Chaque release |
-| Fidélité réponses | > 85% | Chaque release |
-| Taux hallucination | 0% | Chaque release |
-| Latence réponse | < 5s | Continue |
-| Satisfaction utilisateurs | > 7/10 | Beta + post-launch |
+| Métrique | Cible | Actuel | Fréquence mesure |
+|----------|-------|--------|------------------|
+| Recall retrieval | > 80% | 63.4% recall@5 (gate R1 70% FAIL) | Chaque release |
+| Fidélité réponses | > 85% | 60.1% cited_pct SFT v5 (proxy regex) | Chaque release |
+| Taux hallucination | 0% | Non mesure (HHEM-2.1-Open planifie) | Chaque release |
+| Latence réponse | < 5s | Non mesure (Android pending) | Continue |
+| Satisfaction utilisateurs | > 7/10 | Non mesure (beta pending) | Beta + post-launch |
 
 ### 8.2 Processus de revue
 - **Sprint** : Revue des métriques IA
@@ -249,9 +253,9 @@ Chaque réponse affiche :
 
 ### 9.1 Avant chaque release
 
-- [ ] Tests d'hallucination passent (0 failure)
-- [ ] Tests de recall passent (> 80%)
-- [ ] Évaluation fidélité réalisée (> 85%)
+- [ ] Tests d'hallucination passent (0 failure) (NON ATTEINT — metrique non implementee, HHEM-2.1-Open planifie)
+- [ ] Tests de recall passent (> 80%) (NON ATTEINT — actuel 63.4%, gate R1 70% FAIL)
+- [ ] Évaluation fidélité réalisée (> 85%) (NON ATTEINT — actuel 60.1% cited_pct, proxy regex insuffisant)
 - [ ] Disclaimer IA visible dans l'app
 - [ ] Citations sources fonctionnelles
 - [ ] Documentation modèles à jour
@@ -272,6 +276,7 @@ Chaque réponse affiche :
 | Version | Date | Auteur | Changements |
 |---------|------|--------|-------------|
 | 1.0 | 2026-01-10 | Equipe Pocket Arbiter | Création initiale |
+| 1.1 | 2026-04-05 | Claude Opus 4.6 | Mise a jour modele generation (Phi-3.5-mini -> Gemma 3 1B IT SFT v5), valeurs actuelles metriques, note cited_pct insuffisant (ICTIR 2025), gates NON ATTEINT, MediaPipe -> LiteRT-LM |
 
 ---
 

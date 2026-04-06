@@ -53,13 +53,13 @@ Ce document définit les exigences qualité du projet selon les 9 caractéristiq
 
 #### 2.1.2 Exactitude fonctionnelle
 
-| ID | Exigence | Cible | Méthode vérification |
-|----|----------|-------|---------------------|
-| FA-01 | Recall retrieval sur test set | ≥ 80% (cible 90%) | Tests automatisés + benchmark |
-| FA-02 | Precision retrieval sur test set | ≥ 70% | Tests automatisés |
-| FA-03 | Fidélité réponses (éval humaine) | ≥ 85% | Évaluation manuelle 30 questions |
-| FA-04 | Taux hallucination | 0% | Tests adversaires |
-| FA-05 | Exactitude citations (source + page) | 100% | Tests automatisés |
+| ID | Exigence | Cible | Actuel (2026-04-06) | Méthode vérification |
+|----|----------|-------|---------------------|---------------------|
+| FA-01 | Recall retrieval sur test set | ≥ 80% (cible 90%) | **55.4%** (max_k=5) Gate R1 FAIL | Tests automatisés + benchmark |
+| FA-02 | Precision retrieval sur test set | ≥ 70% | Non mesuré | Tests automatisés |
+| FA-03 | Fidélité réponses (éval humaine) | ≥ 85% | **0/34 utiles** (1B disqualifié) | Évaluation manuelle 34 questions |
+| FA-04 | Taux hallucination | 0% | **100% hallucination** (1B, 34Q humaines) | Tests adversaires + inspection humaine |
+| FA-05 | Exactitude citations (source + page) | 100% | cited_pct 57.4% (**invalide** — regex dans texte halluciné, ICTIR 2025) | Tests automatisés |
 
 #### 2.1.3 Pertinence fonctionnelle
 

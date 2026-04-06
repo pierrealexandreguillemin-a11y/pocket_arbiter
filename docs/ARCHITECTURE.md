@@ -360,7 +360,7 @@ Question utilisateur
 [PromptBuilder] --> Prompt RAG v2 (7 regles, contexte, question)
     |
     v
-[LLMEngine] --> Reponse synthetisee (Gemma 3 270M via LiteRT-LM .litertlm)
+[LLMEngine] --> Reponse synthetisee (Gemma 3 1B IT SFT v5 via LiteRT-LM .litertlm)
     |
     v
 [CitationExtractor] --> Citations formatees (source, page, verbatim)
@@ -401,8 +401,8 @@ Affichage ResultFragment
 | Modele | Taille | RAM CPU | Usage |
 |--------|--------|---------|-------|
 | EmbeddingGemma-300m | 179 MB | 110 MB | Embeddings (.tflite via LiteRT) |
-| Gemma 3 270M IT | ~200 MB | ~150 MB | LLM generation (.litertlm via LiteRT-LM) |
-| Gemma 3 1B (backup) | ~600 MB | ~400 MB | LLM si 270M qualite < 70% (ADR-001 gate) |
+| Gemma 3 1B IT SFT v5 | ~600 MB | ~400 MB | LLM generation (GATE PASS cited_pct but quality insufficient — see postmortem 2026-04-05) |
+| Gemma 3n E2B (backup) | ~2 GB | ~2 GB | CANDIDAT pour remplacer 1B (2B eff, mobile-first, LiteRT .litertlm) |
 
 > **Note (2026-03-25)**: MediaPipe LLM Inference est DEPRECATED par Google.
 > Remplace par LiteRT-LM (v0.9.0-alpha, Kotlin API, Coroutines).
@@ -433,9 +433,9 @@ Affichage ResultFragment
 
 | Metrique | Cible | Actuel | Mesure |
 |----------|-------|--------|--------|
-| Couverture tests | >= 80% | **87%** | pytest-cov |
-| Recall retrieval FR | >= 70% | **60.1%** | GS v9 (298 testables) — Gate R1 FAIL |
-| Faithfulness (citations) | >= 50% | **46.2%** | TAPT ep1 (sweep v3, 298 questions) |
+| Couverture tests | >= 80% | **68%** | pytest-cov (recall.py/recall_report.py tirent la moyenne) |
+| Recall retrieval FR | >= 70% | **55.4%** | recall@5 (max_k=5, 2026-04-05) — Gate R1 FAIL |
+| Faithfulness (citations) | >= 50% | **cited_pct 57.4%** | Proxy metric, unreliable (ICTIR 2025 : 57% post-rationalisees) |
 | Hallucination | 0% | TBD | Tests adversaires |
 | Latence | < 5s | TBD | Benchmark device |
 | Crash-free | >= 99% | TBD | Firebase Crashlytics |

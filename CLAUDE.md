@@ -149,7 +149,18 @@
   - Base : 56.4% (hit=48.1%, miss=69.2%)
   - Delta : **+3.7pp** homogene hits+misses, 103 min runtime
   - Ref : data/benchmarks/eval_1b_sft_v5/
-- **SFT v5 1B = MODELE GENERATION FINAL** (gate PASS, meilleur modele du projet)
+- **SFT v5 1B EVAL v3 (2026-04-05)** : re-eval avec nouveaux contexts (targeted rows DB, max_k=5)
+  - cited_pct = 57.4% (vs 60.1% v2) — GATE PASS (>56.7%) mais baisse de 2.7pp
+  - Base 1B sur memes contextes = 57.7% — SFT n'apporte aucun gain vs base
+  - **FINDING CRITIQUE** : inspection humaine 34Q = **garbage total** (base ET SFT)
+    - Hallucinations massives : football, assemblees generales, URLs inventees
+    - Mais retrieval contexts CORRECTS (bons docs, bonnes pages, contenu pertinent)
+    - cited_pct = mirage : regex detecte patterns doc/page dans texte hallucine (ICTIR 2025 confirme)
+    - **BOTTLENECK = generation 1B**, pas retrieval. Le modele ne sait pas exploiter le contexte FR dense
+  - Ref : data/benchmarks/eval_1b_sft_v5_v3/, data/benchmarks/eval_1b_base_v3/
+- **SFT v5 1B : GATE PASS sur cited_pct mais qualite reelle INSUFFISANTE**
+  - Le modele cite (57%) mais hallucine le contenu — inutilisable tel quel
+  - Options : modele plus gros (Gemma 3n E2B), prompt engineering, ou affichage source brute
 - **Infra** : LiteRT-LM replaces MediaPipe (deprecated) for Android inference
 - Ref : Pleias-RAG (2025) prouve qu'un 350M apprend les citations si donnees de qualite
 - Ref : RAFT (Berkeley 2024) = format cible (oracle + distracteurs + citations verbatim)
@@ -184,11 +195,15 @@
 - **1B base > tous les 270M** : pipeline 56.7% vs 270M sft80 48.7% vs 270M tapt_ep1 40.3% vs 270M base 24.8%
 - **Ref** : @data/benchmarks/eval_1b_v2/
 
-### Candidats generation post-270M
-- **Gemma 3 1B IT** : IFEval 80.2%, ~400 MB, LiteRT natif. **CANDIDAT PRINCIPAL** (56.7% pipeline).
-- **Gemma 3n E2B** : 2B eff, ~2 GB RAM, LiteRT .litertlm, mobile-first. Depasse spec 500MB.
+### Candidats generation post-270M — REVISE (2026-04-05)
+- **Gemma 3 1B IT** : cited_pct 57% mais **qualite reelle INSUFFISANTE** (hallucinations massives sur 34Q humaines)
+  - Base et SFT v5 produisent le meme garbage — le SFT n'a pas ameliore le grounding
+  - Le 1B ne sait pas exploiter un contexte FR dense de 2048 tokens
+  - **DISQUALIFIE** pour RAG grounded sur corpus reglementaire FR
+- **Gemma 3n E2B** : 2B eff, ~2 GB RAM, LiteRT .litertlm, mobile-first. Depasse spec 500MB. **CANDIDAT PRIORITAIRE** — besoin de relever contrainte RAM
 - **Ministral 3B** : Apache 2.0, FR natif, 256K ctx. Pas de LiteRT (LLaMA.cpp).
 - **Qwen3 1.7B** : MMLU 75.7, Apache 2.0. LiteRT non confirme.
+- **Option fallback** : pas de generation LLM, afficher les chunks retrieves bruts avec source/page — l'arbitre lit le reglement directement
 
 ### Embedding pipeline — question ouverte Keras vs sentence-transformers
 - Le chemin officiel Google pour EmbeddingGemma est **Keras** (notebook Nilay Chauhan, Google)

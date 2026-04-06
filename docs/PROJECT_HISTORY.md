@@ -265,3 +265,50 @@ Chronologie factuelle des decisions et errements du projet.
 | 25 mar | SFT donnees regex = INUTILISABLE | 1802 tasks generees par pattern matching, pas de vraies reponses RAG |
 | 25 mar | NEFTune retire | Pas valide sub-1B, mesure chat vibes pas faithfulness |
 | 25 mar | Prochaine etape : generer vraies reponses | Kernel Kaggle : Gemma base genere reponses formatees, puis SFT dessus |
+
+## Ere 11 : Retrieval table improvement — chantier 5 (mars-avril 2026)
+
+- Phase 1: trigger tuning, allow-list + col_name search
+- Phase 2: narrative rows (1420) + 4-way RRF + page fix = +7.4pp global
+- Phase 3: injection contextuelle tables page±1 dans build_context()
+- Phase 4 (2026-04-04): targeted row-chunks (45 rows, 6 tables) + gradient intent scoring + col normalization
+- Doc2Query (2232 synthetic queries): DISABLED (degrades recall)
+- FTS5 structured_cells (4436 cells), priority boost (10 tables), intro filter
+- Recall@5 = 63.4% avec max_k=10 (mesure gonflée, corrigé en ere 13)
+- Human recall: 32/34 → 30/34 (2 regressions acceptées: shadowing clippé)
+
+## Ere 12 : SFT v5 1B — RAFT data + LoRA (avril 2026)
+
+- RAFT data: 2232 questions (Gemma 4B) + 2142 réponses filtrées = sft_train_v5.jsonl
+- Training: Gemma 3 1B IT, Unsloth LoRA NF4 R=16, train_on_responses_only(), Kaggle T4
+- Eval hang résolu: Unsloth save_pretrained_merged drop generation_config.json + use_cache=false
+- Fix: eos_token_id=[1,106] + use_cache=True + smoke test guard <30s
+- SFT v5 pipeline cited: 60.1% (hit=51.9%, miss=72.6%, 0 empty) — GATE PASS > 56.7%
+- Base pipeline cited: 56.4% — SFT v5 = +3.7pp vs base
+- **NOTE**: cited_pct invalidé comme métrique de qualité (voir ère 13)
+
+## Ere 13 : Findings critiques — session 2026-04-05
+
+- **recall@5 corrigé**: 63.4% (max_k=10) était gonflé de 8pp. Vrai recall@5 = **55.4%** (max_k=5, production)
+  - Cause: _inject_neighbor_tables() + regroupement children sur contextes 6-10 hors budget production
+  - recall.py aligné sur max_k=5 (commit 9c17a52)
+- **SFT v5 re-eval**: cited_pct 57.4% sur nouveaux contextes (vs 60.1% anciens). Gate toujours PASS.
+- **HHEM-2.1 REJETÉ**: 4 kernel pushes, transformers 5.0 incompatible. Mean 0.071, 99% red, hit≈miss. Inutilisable FR réglementaire.
+- **FINDING CRITIQUE — 1B DISQUALIFIÉ**: inspection humaine 34Q = garbage total (base ET SFT v5)
+  - Retrieval contexts CORRECTS (bons docs, bonnes pages)
+  - Mais le modèle 1B ne sait pas exploiter le contexte FR dense
+  - cited_pct = mirage: regex dans texte halluciné (ICTIR 2025 confirmé empiriquement)
+  - Base (57.7%) ≈ SFT (57.4%) = le SFT n'a rien amélioré
+- **Bottleneck identifié**: GENERATION (1B trop petit), pas retrieval
+- Options: Gemma 3n E2B (2B eff), Ministral 3B, mode retrieval-only (pas de LLM)
+
+### Decisions cles (suite)
+
+| Date | Decision | Raison |
+|------|----------|--------|
+| 04 avr | Chantier 5 Phase 4 DONE | targeted rows, gradient intent, col normalization |
+| 04 avr | SFT v5 1B GATE PASS 60.1% > 56.7% | Meilleur modele cite, Unsloth LoRA |
+| 05 avr | recall@5 corrigé 63.4% → 55.4% | max_k=10 gonflait de 8pp, aligné sur max_k=5 |
+| 05 avr | HHEM-2.1 REJETÉ | Inutilisable FR réglementaire (0.071 mean, 99% red) |
+| 05 avr | Gemma 3 1B IT DISQUALIFIÉ pour RAG grounding | 0/34 réponses utiles, hallucinations massives malgré contextes corrects |
+| 05 avr | cited_pct INVALIDÉ comme métrique qualité | Regex dans texte halluciné = faux positifs (ICTIR 2025) |

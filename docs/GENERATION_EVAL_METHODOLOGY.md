@@ -131,7 +131,7 @@ Source : [ISO 42001](https://www.iso.org/standard/42001), [ISO 42005](https://ww
 | **ROUGE** | Overlap n-grams entre reponse et reference | **Non** | **OUI** (CPU) | Lin 2004 |
 | **GaRAGe** (2025) | Benchmark avec annotations grounding passage-level | Non (dataset) | N/A | arXiv:2506.07671 |
 
-### 4.2 HHEM-2.1-Open — Alternative offline recommandee
+### 4.2 HHEM-2.1-Open — REJETE (2026-04-05)
 
 HHEM (Hughes Hallucination Evaluation Model) est un classificateur T5-base entraine pour
 detecter les hallucinations dans les textes generes par LLM. Points cles :
@@ -143,8 +143,12 @@ detecter les hallucinations dans les textes generes par LLM. Points cles :
 - **Score 0-1** : probabilite que la reponse soit factuellement coherente avec le contexte
 - **Utilise par RAGAS** comme alternative au LLM judge pour le calcul de faithfulness
 
-**Decision** : non inclus dans eval v5 (risque de complexite sur premier run).
-A evaluer pour eval v5.1 si les resultats regex ne sont pas conclusifs.
+**Decision (2026-04-05)** : REJETE apres evaluation complete (4 kernel pushes).
+- Sanity check FR PASS (discrimine paires courtes : 0.54 vs 0.03)
+- Mais donnees reelles : mean=0.071, 99% red, hit≈miss (0.069≈0.073) = aucune discrimination
+- Root cause : entraine sur EN summarization (CNN/DailyMail), pas FR reglementaire
+- transformers 5.0.0 incompatible (all_tied_weights_keys renomme)
+- Ref : data/benchmarks/hhem_v4/hhem_faithfulness.json, memory/feedback_hhem_unusable_fr.md
 
 Source : [HHEM-2.1-Open](https://www.vectara.com/blog/hhem-2-1-a-better-hallucination-detection-model), [HHEM HuggingFace](https://huggingface.co/vectara/hallucination_evaluation_model)
 
@@ -208,7 +212,7 @@ Source : [FaithBench arXiv:2505.04847](https://arxiv.org/abs/2505.04847)
 | **BERTScore** (reponse vs contexte) | BERT | ~400 MB | +30 lignes | MOYENNE |
 | **ROUGE-L** (reponse vs contexte) | CPU only | 0 MB | +20 lignes | BASSE |
 
-**Recommandation** : HHEM-2.1-Open est le meilleur ratio effort/valeur pour un eval v5.1.
+**Recommandation (OBSOLETE)** : ~~HHEM-2.1-Open~~ REJETE (2026-04-05). Alternatives : eval humaine 34Q, CamemBERT-NLI, BERTScore FR.
 
 ---
 
@@ -236,6 +240,13 @@ Source : [FaithBench arXiv:2505.04847](https://arxiv.org/abs/2505.04847)
 | Tous SFT v5 < 46.2% | SFT inutile, TAPT ep1 + prompting = modele final |
 | Un SFT v5 > 46.2% MAIS empty > 10% | Investiguer — le modele cite mais ne repond pas toujours |
 | Tous modeles < 43.9% (base) | Regression — rollback au base model |
+
+> **INVALIDATION (2026-04-05)** : Ces gates sont basees sur cited_pct, qui mesure
+> la presence de patterns regex (doc/page) dans le texte genere. La session 2026-04-05
+> a demontre que cited_pct = 57.4% coexiste avec 0/34 reponses utiles (hallucinations
+> massives). cited_pct NE MESURE PAS la qualite de la generation. Les gates ci-dessus
+> sont conservees pour reference historique mais ne doivent plus guider les decisions.
+> Utiliser l'eval humaine (useful/faithful/cited) comme gate definitive.
 
 ---
 
@@ -270,7 +281,9 @@ Si FAIL → rollback ADR-001 : Gemma 3 1B IT.
 
 | Priorite | Amelioration | Standard | Effort |
 |----------|-------------|----------|--------|
-| P0 (v5.1) | Ajouter HHEM-2.1-Open comme score faithfulness | Vectara 2024 | +50 lignes |
+| ~~P0 (v5.1)~~ | ~~HHEM-2.1-Open~~ **REJETE** (2026-04-05) — inutilisable FR reglementaire | Vectara 2024 | REJETE |
+| P0 (v5.2) | Eval humaine 34Q (useful/faithful/cited) | ISO 29119 P3-F01 | Manuel |
+| P0 (v5.2) | CamemBERT-NLI ou BERTScore FR pour faithfulness automatique | Alternative FR-native | A evaluer |
 | P1 (v6) | BERTScore reponse vs contexte | ICLR 2020 | +30 lignes |
 | P2 (Android) | LLM-as-judge via API cloud (si budget) | FACTS Grounding 2025 | Nouveau kernel |
 | P3 (Android) | RAGAS complet (faithfulness + relevancy) | RAGAS 2023 | Integration framework |

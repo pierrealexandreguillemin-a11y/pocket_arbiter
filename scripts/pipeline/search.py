@@ -554,6 +554,14 @@ _PRIORITY_TABLES: set[str] = {
 _PRIORITY_BOOST = 1.5  # Additive bonus for priority tables
 
 
+def _extract_search_terms(query: str) -> list[str]:
+    """Extract meaningful terms from query for structured cell lookup."""
+    q_lower = query.lower()
+    return [
+        w for w in re.split(r"\W+", q_lower) if len(w) >= 4 or w in CHESS_SHORT_TERMS
+    ]
+
+
 def structured_cell_search(
     conn: sqlite3.Connection,
     query: str,
@@ -562,7 +570,6 @@ def structured_cell_search(
     """Lookup on structured_cells via FTS5 + LIKE fallback.
 
     Returns table_summary IDs ranked by match quality.
-    Uses FTS5 for fuzzy matching, falls back to LIKE if FTS unavailable.
 
     Args:
         conn: SQLite connection.
@@ -578,10 +585,7 @@ def structured_cell_search(
     if not has_table:
         return []
 
-    q_lower = query.lower()
-    terms = [
-        w for w in re.split(r"\W+", q_lower) if len(w) >= 4 or w in CHESS_SHORT_TERMS
-    ]
+    terms = _extract_search_terms(query)
     if not terms:
         return []
 
@@ -595,7 +599,6 @@ def structured_cell_search(
     else:
         _search_cells_like(conn, terms, scores)
 
-    # Priority boost for high-value tables
     for tid in _PRIORITY_TABLES:
         if tid in scores:
             scores[tid] += _PRIORITY_BOOST

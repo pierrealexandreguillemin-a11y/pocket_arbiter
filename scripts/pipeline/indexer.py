@@ -7,8 +7,9 @@ from __future__ import annotations
 
 import json
 import logging
+import sqlite3
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import numpy as np
 import tiktoken
@@ -241,6 +242,71 @@ def _load_synthetic_queries(
     return queries, embeddings.astype(np.float32)
 
 
+def _populate_db(
+    conn: sqlite3.Connection,
+    model: Any,
+    all_children: list[dict],
+    child_embeddings: np.ndarray,
+    all_parents: list[dict],
+    table_sums: list[dict],
+    ts_embeddings: np.ndarray,
+    table_row_chunks: list[dict],
+    tr_embeddings: np.ndarray,
+    syn_queries: list[dict],
+    syn_embeddings: np.ndarray,
+    all_chunker_tables: list[dict],
+) -> None:
+    """Insert all data into the DB, build FTS5, run integrity gates."""
+    insert_parents(conn, all_parents)
+    logger.info("Inserted %d parents", len(all_parents))
+    insert_children(conn, all_children, child_embeddings)
+    logger.info("Inserted %d children", len(all_children))
+    if table_sums:
+        insert_table_summaries(conn, table_sums, ts_embeddings)
+        logger.info("Inserted %d table summaries", len(table_sums))
+    if table_row_chunks:
+        insert_table_rows(conn, table_row_chunks, tr_embeddings)
+        logger.info("Inserted %d table rows", len(table_row_chunks))
+    if syn_queries:
+        insert_synthetic_queries(conn, syn_queries, syn_embeddings)
+        logger.info("Inserted %d synthetic queries", len(syn_queries))
+
+    # Structured cells (level 3 — deterministic lookup, no embedding)
+    from scripts.pipeline.enrichment import parse_structured_cells
+
+    struct_cells = parse_structured_cells(table_sums) if table_sums else []
+    if struct_cells:
+        insert_structured_cells(conn, struct_cells)
+        logger.info("Inserted %d structured cells", len(struct_cells))
+
+    # Targeted row-chunks (C.10 — 6 priority tables, ~45 rows)
+    from scripts.pipeline.enrichment import format_targeted_rows
+
+    targeted_rows = format_targeted_rows(table_sums) if table_sums else []
+    if targeted_rows:
+        targeted_titles = [
+            make_cch_title(r["source"], "", SOURCE_TITLES) for r in targeted_rows
+        ]
+        targeted_texts = [r["text"] for r in targeted_rows]
+        targeted_embs = embed_documents(targeted_texts, targeted_titles, model)
+        insert_targeted_rows(conn, targeted_rows, targeted_embs)
+        logger.info("Inserted %d targeted rows (C.10)", len(targeted_rows))
+
+    # Build FTS5 index
+    logger.info("Populating FTS5 index")
+    populate_fts(conn)
+    fts_c = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
+    fts_t = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[0]
+    fts_r = conn.execute("SELECT COUNT(*) FROM table_rows_fts").fetchone()[0]
+    logger.info(
+        "FTS5: %d children + %d summaries + %d rows indexed", fts_c, fts_t, fts_r
+    )
+
+    # Integrity gates
+    logger.info("Relational integrity gates")
+    run_integrity_gates(conn)
+
+
 def build_index(
     docling_dir: Path,
     table_summaries_path: Path,
@@ -339,55 +405,20 @@ def build_index(
     # 8. Build SQLite DB
     logger.info("=== Step 8: Building SQLite DB ===")
     conn = create_db(output_db)
-    insert_parents(conn, all_parents)
-    logger.info("Inserted %d parents", len(all_parents))
-    insert_children(conn, all_children, child_embeddings)
-    logger.info("Inserted %d children", len(all_children))
-    if table_sums:
-        insert_table_summaries(conn, table_sums, ts_embeddings)
-        logger.info("Inserted %d table summaries", len(table_sums))
-    if table_row_chunks:
-        insert_table_rows(conn, table_row_chunks, tr_embeddings)
-        logger.info("Inserted %d table rows", len(table_row_chunks))
-    if syn_queries:
-        insert_synthetic_queries(conn, syn_queries, syn_embeddings)
-        logger.info("Inserted %d synthetic queries", len(syn_queries))
-
-    # 9. Structured cells (level 3 — deterministic lookup, no embedding)
-    from scripts.pipeline.enrichment import parse_structured_cells
-
-    struct_cells = parse_structured_cells(table_sums) if table_sums else []
-    if struct_cells:
-        insert_structured_cells(conn, struct_cells)
-        logger.info("Inserted %d structured cells", len(struct_cells))
-
-    # 9b. Targeted row-chunks (C.10 — 6 priority tables, ~45 rows)
-    from scripts.pipeline.enrichment import format_targeted_rows
-
-    targeted_rows = format_targeted_rows(table_sums) if table_sums else []
-    if targeted_rows:
-        targeted_titles = [
-            make_cch_title(r["source"], "", SOURCE_TITLES) for r in targeted_rows
-        ]
-        targeted_texts = [r["text"] for r in targeted_rows]
-        targeted_embs = embed_documents(targeted_texts, targeted_titles, model)
-        insert_targeted_rows(conn, targeted_rows, targeted_embs)
-        logger.info("Inserted %d targeted rows (C.10)", len(targeted_rows))
-
-    # 10. Build FTS5 index
-    logger.info("=== Step 10: Populating FTS5 index ===")
-    populate_fts(conn)
-    fts_c = conn.execute("SELECT COUNT(*) FROM children_fts").fetchone()[0]
-    fts_t = conn.execute("SELECT COUNT(*) FROM table_summaries_fts").fetchone()[0]
-    fts_r = conn.execute("SELECT COUNT(*) FROM table_rows_fts").fetchone()[0]
-    logger.info(
-        "FTS5: %d children + %d summaries + %d rows indexed", fts_c, fts_t, fts_r
+    _populate_db(
+        conn,
+        model,
+        all_children,
+        child_embeddings,
+        all_parents,
+        table_sums,
+        ts_embeddings,
+        table_row_chunks,
+        tr_embeddings,
+        syn_queries,
+        syn_embeddings,
+        all_chunker_tables,
     )
-
-    # 11. Integrity gates
-    logger.info("=== Step 11: Relational integrity gates ===")
-    run_integrity_gates(conn)
-
     conn.close()
 
     stats = {

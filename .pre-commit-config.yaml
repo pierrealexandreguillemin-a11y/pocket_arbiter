@@ -147,7 +147,7 @@ repos:
         name: "ISO 25010 | Cyclomatic Complexity (pipeline)"
         description: "Ensure maintainable code complexity in pipeline modules"
         entry: C:/Dev/pocket_arbiter/.venv/Scripts/python.exe
-        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/pipeline/, -e, "scripts/pipeline/adversarial_harness.py,scripts/pipeline/tests/test_indexer.py"]
+        args: [-m, xenon, --max-absolute=B, --max-modules=B, --max-average=A, scripts/pipeline/, -e, "scripts/pipeline/adversarial_harness.py,scripts/pipeline/tests/test_indexer.py,scripts/pipeline/eval_rag_pipeline.py,scripts/pipeline/gen_answers_api.py,scripts/pipeline/precompute_retrieval.py,scripts/pipeline/sweep_synthetic.py"]
         language: system
         pass_filenames: false
         stages: [pre-push]

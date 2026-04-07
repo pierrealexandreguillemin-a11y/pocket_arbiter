@@ -454,15 +454,60 @@ def _extract_table_title(summary_text: str, max_len: int = 80) -> str:
     return truncated.strip()
 
 
+def _row_to_pairs(values: list[str], col_names: list[str]) -> list[str]:
+    """Build 'col est val' pairs from a single row, skipping empty cells."""
+    pairs = []
+    for j, val in enumerate(values):
+        if j >= len(col_names) or not val.strip():
+            continue
+        col = col_names[j].strip()
+        if col:
+            pairs.append(f"{col} est {val.strip()}")
+    return pairs
+
+
+def _narrate_one_table(summary: dict) -> list[dict]:
+    """Narrate rows for a single table summary."""
+    raw = summary.get("raw_table_text", "")
+    table_id = summary["id"]
+    source = summary["source"]
+    page = summary.get("page")
+    title = _extract_table_title(summary.get("summary_text", ""))
+
+    lines = [line.strip() for line in raw.split("\n") if line.strip().startswith("|")]
+    if len(lines) < 3:
+        return []
+
+    col_names = _parse_pipe_cells(_clean_table_line(lines[0]))
+    col_names = [c[:40].strip() if len(c) > 40 else c for c in col_names]
+    data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
+
+    chunks: list[dict] = []
+    for i, row_line in enumerate(data_lines):
+        values = _parse_pipe_cells(_clean_table_line(row_line))
+        pairs = _row_to_pairs(values, col_names)
+        if not pairs:
+            continue
+        narrative = f"{title} : {', '.join(pairs)}."
+        narrative = expand_abbreviations(narrative)
+        chunks.append(
+            {
+                "id": f"{table_id}-r{i:03d}",
+                "text": narrative,
+                "table_id": table_id,
+                "source": source,
+                "page": page,
+                "tokens": len(narrative.split()),
+            }
+        )
+    return chunks
+
+
 def narrate_table_rows(summaries: list[dict]) -> list[dict]:
     """Convert table rows into narrative prose for better embedding quality.
 
     Each data row becomes a self-contained sentence:
     "[Title] : [col1] est [val1], [col2] est [val2], ..."
-
-    This produces embeddings with richer semantics than raw header+row
-    format (10-20 tokens → 40-60 tokens). The table title anchors each
-    row to its thematic context, preventing cross-table confusion.
 
     Standard: Table-to-Text generation (template-based, deterministic).
 
@@ -476,51 +521,7 @@ def narrate_table_rows(summaries: list[dict]) -> list[dict]:
     """
     row_chunks: list[dict] = []
     for summary in summaries:
-        raw = summary.get("raw_table_text", "")
-        table_id = summary["id"]
-        source = summary["source"]
-        page = summary.get("page")
-        title = _extract_table_title(summary.get("summary_text", ""))
-
-        lines = [
-            line.strip() for line in raw.split("\n") if line.strip().startswith("|")
-        ]
-        if len(lines) < 3:
-            continue
-
-        col_names = _parse_pipe_cells(_clean_table_line(lines[0]))
-        # Clean column names: truncate overly long headers (>40 chars)
-        col_names = [c[:40].strip() if len(c) > 40 else c for c in col_names]
-        data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
-
-        for i, row_line in enumerate(data_lines):
-            values = _parse_pipe_cells(_clean_table_line(row_line))
-            # Build narrative: skip empty cells
-            pairs = []
-            for j, val in enumerate(values):
-                if j >= len(col_names) or not val.strip():
-                    continue
-                col = col_names[j].strip()
-                if not col:
-                    continue
-                pairs.append(f"{col} est {val.strip()}")
-
-            if not pairs:
-                continue
-
-            narrative = f"{title} : {', '.join(pairs)}."
-            narrative = expand_abbreviations(narrative)
-            row_chunks.append(
-                {
-                    "id": f"{table_id}-r{i:03d}",
-                    "text": narrative,
-                    "table_id": table_id,
-                    "source": source,
-                    "page": page,
-                    "tokens": len(narrative.split()),
-                }
-            )
-
+        row_chunks.extend(_narrate_one_table(summary))
     return row_chunks
 
 
@@ -542,6 +543,28 @@ def parse_structured_cells(summaries: list[dict]) -> list[dict]:
     return cells
 
 
+def _parse_row_cells(
+    values: list[str],
+    col_names: list[str],
+    row_idx: int,
+    meta: dict,
+) -> list[dict]:
+    """Extract non-empty cells from a single row."""
+    cells = []
+    for col_idx, value in enumerate(values):
+        if col_idx >= len(col_names) or not value.strip():
+            continue
+        cells.append(
+            {
+                **meta,
+                "row_idx": row_idx,
+                "col_name": col_names[col_idx],
+                "cell_value": value.strip(),
+            }
+        )
+    return cells
+
+
 def _parse_one_table(summary: dict) -> list[dict]:
     """Parse a single table into (col_name, cell_value) pairs."""
     raw = summary.get("raw_table_text", "")
@@ -553,26 +576,16 @@ def _parse_one_table(summary: dict) -> list[dict]:
         normalize_column_name(c) for c in _parse_pipe_cells(_clean_table_line(lines[0]))
     ]
     data_lines = [line for line in lines[2:] if not _is_separator_line(line)]
-    table_id = summary["id"]
-    source = summary["source"]
-    page = summary.get("page")
+    meta = {
+        "table_id": summary["id"],
+        "source": summary["source"],
+        "page": summary.get("page"),
+    }
 
     cells: list[dict] = []
     for row_idx, row_line in enumerate(data_lines):
         values = _parse_pipe_cells(_clean_table_line(row_line))
-        for col_idx, value in enumerate(values):
-            if col_idx >= len(col_names) or not value.strip():
-                continue
-            cells.append(
-                {
-                    "table_id": table_id,
-                    "row_idx": row_idx,
-                    "col_name": col_names[col_idx],
-                    "cell_value": value.strip(),
-                    "source": source,
-                    "page": page,
-                }
-            )
+        cells.extend(_parse_row_cells(values, col_names, row_idx, meta))
     return cells
 
 

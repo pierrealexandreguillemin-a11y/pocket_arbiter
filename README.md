@@ -1,183 +1,171 @@
 # Pocket Arbiter
 
-> Application Android 100% offline pour arbitres d'échecs - Q&A sur les règlements avec IA
+> Application Android 100% offline pour arbitres d'echecs — Q&A sur les reglements avec IA
 
 [![ISO 25010](https://img.shields.io/badge/ISO-25010-blue)](docs/QUALITY_REQUIREMENTS.md)
 [![ISO 42001](https://img.shields.io/badge/ISO-42001-green)](docs/AI_POLICY.md)
 [![Android](https://img.shields.io/badge/Android-10%2B-brightgreen)]()
-[![License](https://img.shields.io/badge/License-MIT-yellow)]()
 
 ---
 
-## 🎯 Objectif
+## Objectif
 
-Permettre aux arbitres d'échecs de trouver rapidement les informations réglementaires en posant des questions en langage naturel. L'application fonctionne **100% hors ligne** et cite toujours ses sources.
+Permettre aux arbitres d'echecs de trouver rapidement les informations reglementaires en posant des questions en langage naturel. L'application fonctionne **100% hors ligne** et cite toujours ses sources.
 
-### Fonctionnalités clés
+### Fonctionnalites cles
 
-- 📚 **2 corpus** : Règlements français (FFE) et internationaux (FIDE)
-- 🔍 **Recherche sémantique** : Comprend le sens, pas juste les mots-clés
-- 🤖 **Synthèse IA** : Explique et interprète les règles
-- 📝 **Citations verbatim** : Texte exact + source + page
-- ✈️ **100% offline** : Aucune connexion requise
-- 🔒 **Vie privée** : Aucune donnée collectée
-
----
-
-## 📋 Documentation projet
-
-| Document | Description | Norme ISO |
-|----------|-------------|-----------|
-| [VISION.md](docs/VISION.md) | Vision et objectifs du projet | ISO 12207 |
-| [AI_POLICY.md](docs/AI_POLICY.md) | Politique IA responsable | ISO 42001 |
-| [QUALITY_REQUIREMENTS.md](docs/QUALITY_REQUIREMENTS.md) | Exigences qualité | ISO 25010 |
-| [TEST_PLAN.md](docs/TEST_PLAN.md) | Plan de tests | ISO 29119 |
-| [CHUNKING_STRATEGY.md](docs/CHUNKING_STRATEGY.md) | Strategie chunking RAG | ISO 25010 |
-| [ISO_MODEL_DEPLOYMENT_ANALYSIS.md](docs/ISO_MODEL_DEPLOYMENT_ANALYSIS.md) | Analyse deploiement modele | ISO 42001 |
-| [CLAUDE_CODE_INSTRUCTIONS.md](CLAUDE_CODE_INSTRUCTIONS.md) | Instructions pour Claude Code | - |
+- **2 corpus** : Reglements francais (FFE, 28 PDFs) et internationaux (FIDE, a construire)
+- **Recherche semantique** : Hybrid cosine + BM25 FTS5, 5-way RRF, adaptive-k
+- **Synthese IA** : Generation avec citations verbatim (source + page)
+- **100% offline** : Aucune connexion requise
+- **Vie privee** : Aucune donnee collectee
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    APPLICATION ANDROID                       │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌─────────┐    ┌─────────────┐    ┌─────────────────────┐ │
-│  │   UI    │───▶│  Embedder   │───▶│  Vector Search      │ │
-│  │ (Query) │    │ (MediaPipe) │    │  (FAISS/sqlite-vec) │ │
-│  └─────────┘    └─────────────┘    └──────────┬──────────┘ │
-│       │                                       │            │
-│       │         ┌─────────────┐               │            │
-│       │         │   LLM       │◀──────────────┘            │
-│       │         │ (Phi-3.5)   │                            │
-│       │         └──────┬──────┘                            │
-│       │                │                                   │
-│       ▼                ▼                                   │
-│  ┌─────────────────────────────────────────────────────┐  │
-│  │                    RÉPONSE                           │  │
-│  │  • Synthèse interprétative                          │  │
-│  │  • Citation verbatim                                │  │
-│  │  • Source (règlement + page)                        │  │
-│  └─────────────────────────────────────────────────────┘  │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+PRE-BUILD (Python, une fois)              RUNTIME (Android, offline)
+
+PDF (28 docs FFE)                         Question utilisateur
+    |                                         |
+    v                                         v
+[docling] -> Extraction                   [EmbeddingGemma-300M] -> Query embedding
+    |                                         |
+    v                                         v
+[LangChain] -> Chunks 450/50              [SQLite] -> Hybrid search
+    |                                     (cosine + BM25 FTS5 + structured cells
+    v                                      + narrative rows + targeted rows)
+[EmbeddingGemma-300M] -> Embeddings           |
+    |                                         v
+    v                                     [5-way RRF k=60] -> adaptive-k
+[SQLite DB] -> corpus_v2_fr.db                |
+  (children, parents, table_summaries,        v
+   structured_cells, targeted_rows,       [LLM] -> Reponse + citations
+   narrative_rows, FTS5 index)
 ```
 
 ---
 
-## Roadmap
+## Etat du projet (avril 2026)
 
-| Phase | Description | Statut |
-|-------|-------------|--------|
-| 0 | Fondations et gouvernance | Termine |
-| 1 | Pipeline de donnees | En cours (chunking v3, **recall 85.29%**) |
-| 2 | Prototype Android - Retrieval | A faire |
-| 3 | Synthese LLM + Interpretation | A faire |
-| 4 | Qualite et optimisation | A faire |
-| 5 | Validation et beta | A faire |
-| 6 | Production | A faire |
-
----
-
-## 🛠️ Stack technique
-
-### Application Android
-- **Langage** : Kotlin
-- **UI** : Jetpack Compose
-- **Embeddings** : MediaPipe Text Embedder (EmbeddingGemma-300M)
-- **LLM** : MediaPipe LLM Inference (Phi-3.5-mini / Gemma)
-- **Vector Search** : FAISS ou sqlite-vec
-- **Min SDK** : Android 10 (API 29)
-
-### Pipeline de données
-- **Langage** : Python 3.10+
-- **Extraction PDF** : PyMuPDF (fitz)
-- **Embeddings** : sentence-transformers
-- **Index** : FAISS
+| Composant | Statut | Detail |
+|-----------|--------|--------|
+| **Corpus extraction** | Done | 28 PDFs FFE, docling + hierarchical-pdf |
+| **Chunking** | Done | 1117 children, 273 parents, 117 table summaries |
+| **Retrieval** | Done | recall@5 = 55.4% (max_k=5, production) |
+| **Enrichment** | Done | Contextual retrieval, abbreviations, targeted rows, gradient intent |
+| **Generation 270M** | Abandonne | ADR-001 gate : 0/34 reponses utiles |
+| **Generation 1B** | Disqualifie | Hallucinations massives malgre contextes corrects |
+| **Generation next** | En evaluation | Candidat : Gemma 4 E2B (2.3B eff, 128K ctx) |
+| **Android** | A faire | LiteRT + LiteRT-LM |
+| **Tests** | 334 tests | 68% coverage |
 
 ---
 
-## 📂 Structure du projet
+## Stack technique
+
+### Pipeline de donnees (Python)
+
+| Couche | Technologie |
+|--------|-------------|
+| Extraction PDF | docling + docling-hierarchical-pdf |
+| Chunking | LangChain MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter |
+| Embeddings | sentence-transformers (EmbeddingGemma-300M, 768-dim) |
+| Index | SQLite custom (cosine + BM25 FTS5 + structured cells) |
+| Enrichment | Contextual retrieval (Anthropic 2024), abbreviations, CCH, chapter overrides |
+| Stemming | Snowball FR + 70 synonymes chess |
+| Qualite | Ruff, MyPy, pytest, pre-commit hooks |
+
+### Application Android (a venir)
+
+| Couche | Technologie |
+|--------|-------------|
+| Langage | Kotlin |
+| UI | Jetpack Compose |
+| Embeddings | LiteRT (.tflite) |
+| LLM | LiteRT-LM (.litertlm) |
+| Min SDK | Android 10 (API 29) |
+
+---
+
+## Structure du projet
 
 ```
 pocket_arbiter/
-├── android/          # Projet Android Studio
-├── scripts/          # Scripts Python preprocessing
-├── corpus/           # PDF sources (FR + INTL)
-├── docs/             # Documentation projet (ISO)
-├── prompts/          # Prompts LLM versionnés
-├── tests/            # Données et rapports de test
-└── README.md
+├── scripts/
+│   ├── pipeline/         # Pipeline actif (chunker, indexer, search, enrichment, recall)
+│   ├── iso/              # Validation ISO (125 tests)
+│   └── archive/          # Scripts archives
+├── corpus/
+│   ├── fr/               # 28 PDF FFE
+│   ├── intl/             # 1 PDF FIDE
+│   └── processed/        # Chunks, parents, DB (DVC tracked)
+├── tests/data/           # Gold Standard (403 Q, 298 testables)
+├── data/benchmarks/      # Recall baselines, experiments
+├── docs/                 # Specs, plans, postmortems, ISO (65+ docs)
+├── models/               # model_card.json
+└── kaggle/               # Kernels training/eval
 ```
 
 ---
 
-## 🏁 Démarrage rapide
-
-### Prérequis
-
-- Android Studio Hedgehog+
-- Python 3.10+
-- Git
-
-### Installation
+## Demarrage rapide
 
 ```bash
-# Cloner le repo
-git clone https://github.com/[user]/pocket_arbiter.git
+git clone https://github.com/pierrealexandreguillemin-a11y/pocket_arbiter.git
 cd pocket_arbiter
-
-# Setup Python (pour le pipeline)
 python -m venv .venv
-source .venv/bin/activate  # ou .venv\Scripts\activate sur Windows
+# Windows: .venv\Scripts\activate
+# Unix: source .venv/bin/activate
 pip install -r requirements.txt
-pip install pre-commit xenon pip-audit  # dev tools
+pip install pre-commit xenon pip-audit
 python -m pre_commit install
 python -m pre_commit install --hook-type commit-msg --hook-type pre-push
-
-# Ouvrir le projet Android
-# → Ouvrir android/ dans Android Studio
 ```
 
-### Ajouter les PDF sources
+### Commandes
 
-1. Copier les PDF FFE dans `corpus/fr/`
-2. Copier les PDF FIDE dans `corpus/intl/`
-3. Mettre à jour `corpus/INVENTORY.md`
+```bash
+# Tests (sans extraction PDF)
+python -m pytest scripts/iso/ scripts/pipeline/tests/ -m "not slow" -v
 
----
+# Tests complets (inclut extraction PDF ~1h)
+python -m pytest scripts/iso/ scripts/pipeline/tests/ -v
 
-## ⚠️ Avertissement IA
+# Quality hooks
+python -m pre_commit run --all-files
 
-Cette application utilise l'intelligence artificielle pour aider à trouver des informations dans les règlements officiels.
+# Lint
+python -m ruff check scripts/
 
-- Les réponses sont des **interprétations indicatives**
-- Référez-vous **toujours** au texte officiel cité
-- L'arbitre reste **seul responsable** de ses décisions
-- **Aucune donnée** n'est collectée ni transmise
+# Re-extraire corpus (~1h)
+python scripts/pipeline/extract.py
 
----
-
-## 📄 Licence
-
-MIT License - Voir [LICENSE](LICENSE)
-
----
-
-## 🤝 Contribution
-
-Ce projet est développé avec l'aide de Claude Code (Anthropic).
-
-Pour contribuer :
-1. Lire [CLAUDE_CODE_INSTRUCTIONS.md](CLAUDE_CODE_INSTRUCTIONS.md)
-2. Respecter les normes ISO documentées
-3. Suivre la Definition of Done
+# Push DB versionnee
+python -m dvc push
+```
 
 ---
 
-## 📞 Contact
+## Avertissement IA
 
-[À compléter]
+Cette application utilise l'intelligence artificielle pour aider a trouver des informations dans les reglements officiels.
+
+- Les reponses sont des **interpretations indicatives**
+- Referez-vous **toujours** au texte officiel cite
+- L'arbitre reste **seul responsable** de ses decisions
+- **Aucune donnee** n'est collectee ni transmise
+
+---
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [VISION.md](docs/VISION.md) | Vision et objectifs (Dual-RAG) |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Architecture technique |
+| [AI_POLICY.md](docs/AI_POLICY.md) | Politique IA responsable (ISO 42001) |
+| [QUALITY_REQUIREMENTS.md](docs/QUALITY_REQUIREMENTS.md) | Exigences qualite (ISO 25010) |
+| [PROJECT_HISTORY.md](docs/PROJECT_HISTORY.md) | Chronologie des decisions |
+| [GENERATION_EVAL_METHODOLOGY.md](docs/GENERATION_EVAL_METHODOLOGY.md) | Methodologie eval generation |

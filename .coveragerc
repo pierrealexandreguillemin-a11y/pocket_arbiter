@@ -5,6 +5,12 @@ source =
 omit =
     scripts/archive/**
     scripts/pipeline/reformat_sft_data.py
+    scripts/pipeline/eval_rag_pipeline.py
+    scripts/pipeline/gen_answers_api.py
+    scripts/pipeline/generate_contexts.py
+    scripts/pipeline/precompute_retrieval.py
+    scripts/pipeline/sweep_synthetic.py
+    scripts/pipeline/extract.py
     */conftest.py
     */tests/*
 

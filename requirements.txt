@@ -3,7 +3,7 @@
 # Updated: 2026-02-11
 
 # === PDF Extraction (IBM/LF AI) ===
-docling>=2.68.0  # ML-based, tables+sections, MIT license
+docling>=2.88.0  # ML-based, tables+sections, MIT license (>=2.88 for pillow 12+, huggingface_hub 1+)
 docling-hierarchical-pdf>=0.1.5  # Heading hierarchy (h1>h2>h3), required for CCH titles
 
 # === Tokenization ===

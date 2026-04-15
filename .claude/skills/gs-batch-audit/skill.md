@@ -1,3 +1,8 @@
+---
+name: gs-batch-audit
+description: Audit et correction du Gold Standard par batches de 10 questions. Triggers on /gs-batch-audit, gold standard, batch audit, quality gates GS.
+---
+
 # Gold Standard Batch Audit Skill
 
 ## Description

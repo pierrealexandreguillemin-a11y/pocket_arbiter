@@ -539,9 +539,9 @@ class TestG8GsTextRetrouvable:
 
     def test_gs_answerable_count(self, answerable_questions: list[dict]) -> None:
         """Verify we have the expected number of answerable questions."""
-        assert (
-            len(answerable_questions) >= 290
-        ), f"Expected >= 290 answerable questions, got {len(answerable_questions)}"
+        assert len(answerable_questions) >= 290, (
+            f"Expected >= 290 answerable questions, got {len(answerable_questions)}"
+        )
 
     def test_gs_text_in_children(
         self,

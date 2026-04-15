@@ -264,9 +264,9 @@ class TestChunkDocument:
         pids_with_kids = {c["parent_id"] for c in result["children"]}
         for parent in result["parents"]:
             if parent["text"].strip():
-                assert (
-                    parent["id"] in pids_with_kids
-                ), f"Invisible parent: {parent['id']}"
+                assert parent["id"] in pids_with_kids, (
+                    f"Invisible parent: {parent['id']}"
+                )
 
     def test_real_corpus_parents_under_2048(self) -> None:
         p = Path("corpus/processed/docling_v2_fr/LA-octobre2025.json")
@@ -278,6 +278,6 @@ class TestChunkDocument:
             doc = json.load(f)
         result = chunk_document(doc["markdown"], "LA.pdf")
         for parent in result["parents"]:
-            assert (
-                parent["tokens"] <= PARENT_MAX_TOKENS + 50
-            ), f"{parent['id']}: {parent['tokens']} tokens"
+            assert parent["tokens"] <= PARENT_MAX_TOKENS + 50, (
+                f"{parent['id']}: {parent['tokens']} tokens"
+            )

@@ -172,9 +172,9 @@ class TestExtractPdfR01:
         if sub and top:
             sub_depth = len(sub.group(1))
             top_depth = len(top.group(1))
-            assert (
-                sub_depth > top_depth
-            ), f"2.1 (h{sub_depth}) should be deeper than 2. (h{top_depth})"
+            assert sub_depth > top_depth, (
+                f"2.1 (h{sub_depth}) should be deeper than 2. (h{top_depth})"
+            )
 
     @pytest.mark.slow
     def test_page_headers_stripped(self):
@@ -222,9 +222,9 @@ class TestExtractPdfLA:
         if not pdf_path.exists():
             pytest.skip("PDF not available")
         result = extract_pdf(pdf_path)
-        assert (
-            len(result["tables"]) >= 80
-        ), f"Expected 80+ tables, got {len(result['tables'])}"
+        assert len(result["tables"]) >= 80, (
+            f"Expected 80+ tables, got {len(result['tables'])}"
+        )
 
     @pytest.mark.slow
     def test_article_hierarchy(self):

@@ -106,9 +106,9 @@ class TestSearchQualityGates:
                     hybrid_match += 1
         finally:
             conn.close()
-        assert (
-            hybrid_match >= 3
-        ), f"Hybrid top-1 in cosine top-3 on only {hybrid_match}/5 queries"
+        assert hybrid_match >= 3, (
+            f"Hybrid top-1 in cosine top-3 on only {hybrid_match}/5 queries"
+        )
 
     def test_s6_adaptive_k_range(self) -> None:
         """S6: adaptive k returns 1 <= n <= max_k."""
@@ -119,9 +119,9 @@ class TestSearchQualityGates:
         """S7: no duplicate parents in context."""
         result = search(self.DB_PATH, "licence joueur mutation")
         parent_texts = [c.text for c in result.contexts if c.context_type == "parent"]
-        assert len(parent_texts) == len(
-            set(parent_texts)
-        ), "Duplicate parent text in context"
+        assert len(parent_texts) == len(set(parent_texts)), (
+            "Duplicate parent text in context"
+        )
 
     def test_s8_fts5_counts(self) -> None:
         """S8: FTS5 tables contain expected row counts."""

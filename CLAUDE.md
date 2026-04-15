@@ -323,3 +323,8 @@ models/             # model_card.json
 - @data/benchmarks/doc2query_experiment.md : Doc2Query experiment (DISABLED, degrades recall)
 - @data/benchmarks/retrieval_table_gap_analysis.md : Gap retrieval tables — search rate les tableaux associes
 - @docs/GENERATION_EVAL_METHODOLOGY.md : Methodologie eval generation (ISO, ICTIR 2025, HHEM, FACTS, FaithBench)
+
+
+## Wiki
+
+Syntheses wiki : `C:\Dev\wiki\topics\ia\` (subdomain rag) et `C:\Dev\wiki\entities\pocket-arbiter.md`

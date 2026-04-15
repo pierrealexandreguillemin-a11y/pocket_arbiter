@@ -100,4 +100,6 @@ if __name__ == "__main__":
 
     enc = tiktoken.get_encoding("cl100k_base")
     toks = [len(enc.encode(v)) for v in contexts.values()]
-    print(f"Token range: {min(toks)}-{max(toks)}, median: {sorted(toks)[len(toks)//2]}")
+    print(
+        f"Token range: {min(toks)}-{max(toks)}, median: {sorted(toks)[len(toks) // 2]}"
+    )

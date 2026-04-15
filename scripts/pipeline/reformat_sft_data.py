@@ -50,7 +50,7 @@ def reformat_task(task: dict) -> dict:
 
     # Build RAG v2 prompt
     new_user_content = (
-        f"{SYSTEM_PROMPT}\n\n" f"CONTEXTE:\n{passage}\n\n" f"QUESTION: {instruction}"
+        f"{SYSTEM_PROMPT}\n\nCONTEXTE:\n{passage}\n\nQUESTION: {instruction}"
     )
 
     return {

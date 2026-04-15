@@ -89,7 +89,7 @@ def measure_redundancy(testable: list[dict], model: SentenceTransformer) -> None
 
     print("=== Inter-Channel Redundancy (cosine vs synthetic, top-10) ===")
     print(
-        f"  Avg overlap:       {avg_overlap:.1f} / 10  ({avg_overlap/10:.0%} redundant)"
+        f"  Avg overlap:       {avg_overlap:.1f} / 10  ({avg_overlap / 10:.0%} redundant)"
     )
     print(f"  Avg unique synth:  {avg_unique_syn:.1f} / 10  (new discoveries)")
     print(f"  Avg unique cosine: {avg_unique_cos:.1f} / 10")
@@ -170,8 +170,8 @@ def sweep_weights(testable: list[dict], model: SentenceTransformer) -> None:
 
         n_all = len(testable)
         print(
-            f"w={w:<5.1f}  {hits_all/n_all*100:>6.1f}%  "
-            f"{hits_tab/n_tab*100:>6.1f}%  {hits_prose/n_prose*100:>6.1f}%  "
+            f"w={w:<5.1f}  {hits_all / n_all * 100:>6.1f}%  "
+            f"{hits_tab / n_tab * 100:>6.1f}%  {hits_prose / n_prose * 100:>6.1f}%  "
             f"{hits_tab:>4}/{n_tab:<4}  {hits_prose:>5}/{n_prose}"
         )
 

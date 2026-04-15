@@ -31,9 +31,7 @@ def build_rag_prompt(question: str, context: str) -> list[dict]:
         {
             "role": "user",
             "content": (
-                f"{SYSTEM_PROMPT}\n\n"
-                f"Contexte:\n{context}\n\n"
-                f"Question: {question}"
+                f"{SYSTEM_PROMPT}\n\nContexte:\n{context}\n\nQuestion: {question}"
             ),
         },
     ]

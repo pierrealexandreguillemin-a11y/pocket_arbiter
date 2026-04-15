@@ -87,9 +87,7 @@ def build_prompt(question: str, context: str) -> list[dict[str, str]]:
         {
             "role": "user",
             "content": (
-                f"{SYSTEM_PROMPT}\n\n"
-                f"CONTEXTE:\n{context}\n\n"
-                f"QUESTION: {question}"
+                f"{SYSTEM_PROMPT}\n\nCONTEXTE:\n{context}\n\nQUESTION: {question}"
             ),
         },
     ]

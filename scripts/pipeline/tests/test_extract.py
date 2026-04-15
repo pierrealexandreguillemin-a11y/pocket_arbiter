@@ -172,9 +172,9 @@ class TestExtractPdfR01:
         if sub and top:
             sub_depth = len(sub.group(1))
             top_depth = len(top.group(1))
-            assert sub_depth > top_depth, (
-                f"2.1 (h{sub_depth}) should be deeper" f" than 2. (h{top_depth})"
-            )
+            assert (
+                sub_depth > top_depth
+            ), f"2.1 (h{sub_depth}) should be deeper than 2. (h{top_depth})"
 
     @pytest.mark.slow
     def test_page_headers_stripped(self):
@@ -239,9 +239,7 @@ class TestExtractPdfLA:
         if art7 and art71:
             d71 = len(art71.group(1))
             d7 = len(art7.group(1))
-            assert d71 >= d7, (
-                f"7.1 (h{d71}) should be >= depth" f" of Article 7 (h{d7})"
-            )
+            assert d71 >= d7, f"7.1 (h{d71}) should be >= depth of Article 7 (h{d7})"
 
 
 class TestExtractPdfSmall:
@@ -250,7 +248,7 @@ class TestExtractPdfSmall:
     @pytest.mark.slow
     def test_h02_joueurs_mobilite_reduite(self):
         pdf_path = Path(
-            "corpus/fr/Compétitions" "/H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
+            "corpus/fr/Compétitions/H02_2025_26_Joueurs_a_mobilite_reduite.pdf"
         )
         if not pdf_path.exists():
             pytest.skip("PDF not available")

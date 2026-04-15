@@ -622,13 +622,13 @@ def _search_cells_fts(
         return
     try:
         rows = conn.execute(
-            "SELECT table_id FROM structured_cells_fts " "WHERE cell_value MATCH ?",
+            "SELECT table_id FROM structured_cells_fts WHERE cell_value MATCH ?",
             (fts_query,),
         ).fetchall()
         for (table_id,) in rows:
             scores[table_id] = scores.get(table_id, 0) + 1.0
         rows = conn.execute(
-            "SELECT table_id FROM structured_cells_fts " "WHERE col_name MATCH ?",
+            "SELECT table_id FROM structured_cells_fts WHERE col_name MATCH ?",
             (fts_query,),
         ).fetchall()
         for (table_id,) in rows:

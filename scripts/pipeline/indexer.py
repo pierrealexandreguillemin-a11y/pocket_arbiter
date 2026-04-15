@@ -366,7 +366,7 @@ def build_index(
         enrich_chunks(all_children, contexts)
         enrich_table_summaries(table_sums)
         logger.info(
-            "Enriched %d children, %d table summaries" " (contexts + abbreviations)",
+            "Enriched %d children, %d table summaries (contexts + abbreviations)",
             len(all_children),
             len(table_sums),
         )

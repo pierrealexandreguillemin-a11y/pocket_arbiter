@@ -202,7 +202,7 @@ def main() -> None:
         page = (prov.get("pages") or [0])[0]
         context = load_chunk_context(args.db, source, page)
         messages = build_rag_prompt(q["content"]["question"], context)
-        print(f"[{i+1}/{len(human_qs)}] {q['id']}")
+        print(f"[{i + 1}/{len(human_qs)}] {q['id']}")
         response = generate_response(model, tokenizer, messages)
         human_results.append(
             {
@@ -222,7 +222,7 @@ def main() -> None:
         page = (prov.get("pages") or [0])[0]
         context = load_chunk_context(args.db, source, page)
         messages = build_rag_prompt(q["content"]["question"], context)
-        print(f"[annales {i+1}/{len(annales_qs)}] {q['id']}")
+        print(f"[annales {i + 1}/{len(annales_qs)}] {q['id']}")
         response = generate_response(model, tokenizer, messages)
         if check_citation(response, prov.get("docs", []), prov.get("pages", [])):
             cited_count += 1

@@ -280,9 +280,7 @@ class TestParseStructuredCells:
 
     def test_cleans_dot_padding(self) -> None:
         raw = (
-            "| Chapitre | Page |\n"
-            "|----------|------|\n"
-            "| Preambule.............. | 2 |"
+            "| Chapitre | Page |\n|----------|------|\n| Preambule.............. | 2 |"
         )
         summaries = [{"id": "t0", "raw_table_text": raw, "source": "s.pdf", "page": 1}]
         cells = parse_structured_cells(summaries)

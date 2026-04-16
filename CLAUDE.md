@@ -328,3 +328,4 @@ models/             # model_card.json
 ## Wiki
 
 Syntheses wiki : `C:\Dev\wiki\topics\ia\` (subdomain rag) et `C:\Dev\wiki\entities\pocket-arbiter.md`
+Guide et outils de recherche : `C:\Dev\wiki\wiki-guide.md`

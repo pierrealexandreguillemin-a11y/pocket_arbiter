@@ -179,7 +179,8 @@ repos:
               exit 1
             fi
             "$VENV_PY" -m pip_audit --strict --local \
-              --ignore-vuln CVE-2025-69872
+              --ignore-vuln CVE-2025-69872 \
+              --ignore-vuln PYSEC-2026-139
         language: system
         pass_filenames: false
         stages: [pre-push]

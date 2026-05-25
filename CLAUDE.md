@@ -2,6 +2,26 @@
 
 > Application RAG mobile Android pour arbitres d'echecs. Recherche semantique offline sur reglements FFE/FIDE.
 
+## Supabase mirror — anti-hibernation (mis a jour 2026-05-25)
+
+**Le projet a un mirror de son corpus dans une DB Supabase distante** :
+- Projet Supabase : `nsvjaebywqdusznthayk` (eu-west-3, free tier, organisation `arlvorpslsgxkejykqvx`)
+- Schema : `pocket_arbiter` — 7 tables, ~9 639 lignes, ~52 MB
+- Contenu : mirror exact du corpus local `corpus_v2_fr.db` (children, parents, structured_cells, synthetic_queries, table_rows, table_summaries, targeted_rows)
+- **Pushe le 16/04/2026** via SQL Editor du dashboard Supabase (aucun script versionne dans le repo)
+
+**Raison d'etre** : purement anti-hibernation. Le free tier Supabase suspend les DB inactives apres ~7j, puis les supprime apres ~3 mois. Le push de donnees genere de l'activite suffisante pour qu'elle ne soit pas suspendue. **L'app Android pocket_arbiter n'utilise PAS Supabase**, elle lit le SQLite local embarque.
+
+**Maintenance** :
+- Ping hebdomadaire via `python scripts/maintenance/ping_supabase.py` (stdlib pure, aucune dep)
+- Credentials dans `.env` local (gitignored) : `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
+- Si la DB hiberne quand meme : le premier hit la reveille (auto-restore Supabase, peut prendre quelques minutes)
+
+**A NE PAS FAIRE** :
+- Ne pas supprimer le schema `pocket_arbiter` de Supabase sans decision explicite (la DB redeviendrait vide et serait supprimee par Supabase a terme).
+- Ne pas y pousser de nouvelles donnees sans en parler — le mirror est volontairement fige.
+- Ne pas confondre avec l'install npm `@supabase/*` orpheline a `C:/Dev/` (resolved 2026-05-25, etait du JS sans rapport avec ce projet Python).
+
 ## Etat du projet (avril 2026)
 
 ### Ce qui fonctionne
